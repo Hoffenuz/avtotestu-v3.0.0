@@ -1,0 +1,73 @@
+{
+  "app": {
+    "title": "Avtomaktab Test",
+    "subtitle": "Yo'l harakati qoidalari"
+  },
+  "nav": {
+    "profile": "Profil",
+    "logout": "Chiqish",
+    "back": "Orqaga"
+  },
+  "test": {
+    "selectVariant": "Variantni tanlang",
+    "selectLanguage": "Tilni tanlang",
+    "selectCategory": "Bo'limni tanlang",
+    "questions": "Savollar",
+    "minutes": "Daqiqa",
+    "passingScore": "O'tish bali",
+    "instructions": "Ko'rsatmalar",
+    "instruction1": "Har bir savolga bitta javob tanlang",
+    "instruction2": "Vaqt tugagandan keyin test avtomatik yakunlanadi",
+    "instruction3": "O'tish uchun kamida 80% to'g'ri javob kerak",
+    "ready": "Testga tayyormisiz?",
+    "readyDescription": "Haydovchilik guvohnomasi olish uchun bilimingizni sinab ko'ring",
+    "hello": "Salom",
+    "selected": "Tanlangan",
+    "variant": "Variant",
+    "startTest": "Testni boshlash",
+    "selectVariantFirst": "Variantni tanlang",
+    "start": "Boshlash",
+    "finish": "Yakunlash",
+    "exit": "Chiqish",
+    "question": "Savol",
+    "previous": "Oldingi",
+    "next": "Keyingi",
+    "loading": "yuklanmoqda...",
+    "noQuestionsFound": "Savol topilmadi",
+    "errorLoadingData": "Ma'lumotlarni yuklashda xatolik",
+    "goBack": "Orqaga qaytish",
+    "finishConfirmTitle": "Testni yakunlashni xohlaysizmi?",
+    "finishConfirmDescription": "Javoblarni o'zgartirib bo'lmaydi",
+    "cancel": "Bekor qilish",
+    "confirm": "Ha, yakunlash"
+  },
+  "categories": {
+    "theory": "Nazariya",
+    "signs": "Belgilar",
+    "driving": "Haydash",
+    "rules": "Qoidalar"
+  },
+  "profile": {
+    "title": "Profil",
+    "fullName": "To'liq ism",
+    "username": "Foydalanuvchi nomi"
+  },
+  "login": {
+    "title": "Kirish",
+    "username": "Foydalanuvchi nomi",
+    "password": "Parol",
+    "submit": "Kirish",
+    "invalidCredentials": "Noto'g'ri foydalanuvchi nomi yoki parol"
+  },
+  "results": {
+    "title": "Test natijalari",
+    "correct": "To'g'ri javoblar",
+    "incorrect": "Noto'g'ri javoblar",
+    "score": "Ball",
+    "passed": "O'tdingiz!",
+    "failed": "O'tmadingiz",
+    "timeTaken": "Sarflangan vaqt",
+    "backToHome": "Bosh sahifaga qaytish",
+    "tryAgain": "Qayta urinish"
+  }
+}
