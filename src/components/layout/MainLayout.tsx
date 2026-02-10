@@ -246,7 +246,7 @@ export function MainLayout({ children }: MainLayoutProps) {
           </div>
 
           <div className="border-t border-primary-foreground/10 mt-8 pt-8 text-center text-primary-foreground/50 text-sm">
-            © 2025 AvtoExclusive. Barcha huquqlar himoyalangan.
+            © 2026 Avtotestu.uz. Barcha huquqlar himoyalangan.
           </div>
         </div>
       </footer>
