@@ -6,27 +6,49 @@ import { useState } from "react";
 import { 
   Play, 
   Car, 
-  BookOpen, 
-  Crown, 
-  ChevronRight, 
-  User, 
-  Settings, 
-  LogOut, 
-  TrendingUp,
-  ShieldCheck,
-  Zap,
-  Award
+  FileText, 
+  ListChecks,
+  ChevronDown,
+  GraduationCap,
+  Shield,
+  Clock,
+  Award,
+  User,
+  BarChart3,
+  BookOpen,
+  Settings,
+  Crown
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { SiteNotificationBanner } from "@/components/SiteNotificationBanner";
 
+const features = [
+  {
+    icon: GraduationCap,
+    title: "Professional Avtomaktab",
+    description: "Tajribali ustozlar rahbarligida sifatli ta'lim oling."
+  },
+  {
+    icon: Shield,
+    title: "Zamonaviy Avto Texnika",
+    description: "Eng so'nggi texnologiyalar bilan jihozlangan avtomobillar."
+  },
+  {
+    icon: Clock,
+    title: "Diqqat!",
+    description: "Sayt test rejimida ishlamoqda. Savol va takliflaringizni telegram orqali yuboring."
+  }
+];
+
 export default function Home() {
+  const [aboutOpen, setAboutOpen] = useState(false);
   const { user, profile } = useAuth();
   const navigate = useNavigate();
 
-  // Ism bosh harflarini olish
   const getInitials = (name: string | null | undefined) => {
-    if (!name) return "UZ";
+    if (!name) return "U";
     return name.split(" ").map(n => n[0]).join("").toUpperCase().slice(0, 2);
   };
 
@@ -34,281 +56,263 @@ export default function Home() {
     <MainLayout>
       <SiteNotificationBanner />
       <SEO 
-        title="Avtotestu.uz - Onlayn Avtomaktab va Imtihonlar"
-        description="2026-yilgi eng yangi savollar asosida haydovchilik guvohnomasi imtihoniga tayyorlaning."
+        title="Avtotestlar 2026 - Avtotestu | Avtomaktab Online Imtihonlar"
+        description="Haydovchilik guvohnomasini olish uchun YHQ testlari, yo'l belgilari va onlayn avtotestlar. 2026 yil yangilangan savollar bilan prava olishga tayyorlaning."
         path="/"
-        keywords="avtotest, prava olish, yo'l harakati qoidalari, onlayn test"
+        keywords="avtotest, avtotestu, avtotest 2026, prava test, prava olish, YHQ testlari, avtomaktab, yo'l belgilari"
       />
-
-      {/* 1. HERO SECTION - Zamonaviy va Keng */}
-      <section className="relative bg-slate-900 overflow-hidden pb-16 pt-8 md:pt-12">
-        {/* Orqa fon bezaklari (Yo'l chiziqlari effekti) */}
-        <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-white to-transparent dashed"></div>
-            <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-white to-transparent dashed"></div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600 rounded-full blur-[120px] opacity-20"></div>
+      <section className="relative min-h-[500px] md:min-h-[600px] flex items-center overflow-hidden">
+        {/* Background with overlay */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1920&q=80')`,
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/85 to-primary/80" />
         </div>
 
-        <div className="container max-w-7xl mx-auto px-4 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            
-            {/* Chap tomon: Matn va Taklif */}
-            <div className="flex-1 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-6">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+        {/* Content */}
+        <div className="relative w-full max-w-7xl mx-auto px-4 py-16">
+          {/* Hero Card */}
+          <div className="max-w-4xl mx-auto bg-primary/80 backdrop-blur-sm rounded-3xl p-8 md:p-12 text-center">
+            <h1 className="text-3xl md:text-5xl font-bold text-primary-foreground mb-4 leading-tight" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+              Avtotestu.uz o'quv markazi!
+            </h1>
+            <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
+              Professional haydovchilik guvohnomasini olish uchun zamonaviy platforma
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="grid grid-cols-2 md:flex md:flex-wrap justify-center gap-4 md:gap-4">
+              <Link to="/test-ishlash" className="w-full md:w-auto">
+                <Button 
+                  size="lg" 
+                  className="w-full md:w-auto min-w-[140px] bg-[hsl(var(--cta-orange))] hover:bg-[hsl(var(--cta-orange-hover))] text-white gap-2 text-base md:text-lg px-4 md:px-8 py-5 md:py-6 rounded-full shadow-xl font-semibold"
+                >
+                  <Play className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
+                  <span className="truncate">Test ishlash</span>
+                </Button>
+              </Link>
+              <Link to="/belgilar" className="w-full md:w-auto">
+                <Button 
+                  size="lg" 
+                  className="w-full md:w-auto min-w-[140px] bg-[hsl(var(--cta-green))] hover:bg-[hsl(var(--cta-green-hover))] text-white gap-2 text-base md:text-lg px-4 md:px-8 py-5 md:py-6 rounded-full shadow-xl font-semibold"
+                >
+                  <Car className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
+                  <span className="truncate">Yo'l belgilari</span>
+                </Button>
+              </Link>
+              <Link to="/variant" className="relative w-full md:w-auto">
+                <span className="absolute -top-2 -right-2 bg-pro text-pro-foreground text-xs font-bold px-2 py-0.5 rounded-full z-10 shadow-md">
+                  PRO
                 </span>
-                2026-yilgi yangi baza
-              </div>
-              
-              <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6">
-                Xavfsiz haydovchi <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
-                  bo'lish vaqti keldi!
+                <Button 
+                  size="lg" 
+                  className="w-full md:w-auto min-w-[140px] bg-[hsl(var(--cta-orange))] hover:bg-[hsl(var(--cta-orange-hover))] text-white gap-2 text-base md:text-lg px-4 md:px-8 py-5 md:py-6 rounded-full shadow-xl font-semibold border-2 border-pro"
+                >
+                  <Play className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
+                  <span className="truncate">Variantlar</span>
+                </Button>
+              </Link>
+              <Link to="/mavzuli" className="relative w-full md:w-auto">
+                <span className="absolute -top-2 -right-2 bg-pro text-pro-foreground text-xs font-bold px-2 py-0.5 rounded-full z-10 shadow-md">
+                  PRO
                 </span>
-              </h1>
-              
-              <p className="text-lg text-slate-300 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                Avtotestu.uz — bu shunchaki test emas. Bu sizning shaxsiy avto-instruktoringiz. 
-                Nazariyani o'rganing, xatolarni tahlil qiling va imtihondan 100% o'ting.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Link to="/test-ishlash" className="w-full sm:w-auto">
-                  <button className="group relative w-full sm:w-auto flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all shadow-lg shadow-blue-600/30 active:scale-95">
-                    <Play className="w-6 h-6 fill-white" />
-                    Testni Boshlash
-                    <div className="absolute right-2 top-2 w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                  </button>
-                </Link>
-                <Link to="/belgilar" className="w-full sm:w-auto">
-                  <button className="w-full sm:w-auto flex items-center justify-center gap-3 bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 px-8 py-4 rounded-2xl font-bold text-lg transition-all active:scale-95">
-                    <Car className="w-6 h-6" />
-                    Yo'l Belgilari
-                  </button>
-                </Link>
-              </div>
-            </div>
-
-            {/* O'ng tomon: PROFIL KARTASI (ID Card Style) */}
-            <div className="flex-1 w-full max-w-md perspective-1000">
-              {user ? (
-                // LOGGED IN: PRAVA KO'RINISHIDAGI PROFIL
-                <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 rounded-3xl p-6 shadow-2xl transform rotate-1 hover:rotate-0 transition-all duration-500 group">
-                  {/* Card Header */}
-                  <div className="flex justify-between items-start mb-6 border-b border-slate-700 pb-4">
-                    <div className="flex items-center gap-2">
-                      <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                        <span className="font-bold text-white text-xs">UZ</span>
-                      </div>
-                      <span className="text-slate-400 text-xs font-mono tracking-widest uppercase">Haydovchilik guvohnomasi</span>
-                    </div>
-                    {profile?.is_pro && (
-                      <div className="px-3 py-1 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-lg text-xs font-bold text-black flex items-center gap-1 shadow-lg shadow-yellow-500/20">
-                        <Crown className="w-3 h-3 fill-black" /> PRO
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Card Body */}
-                  <div className="flex gap-5">
-                    <div className="flex flex-col gap-3">
-                        <div className="w-24 h-28 bg-slate-700 rounded-xl overflow-hidden border-2 border-slate-600 shadow-inner flex items-center justify-center relative">
-                            {/* Avatar Placeholder */}
-                            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-900/50"></div>
-                            <span className="text-2xl font-bold text-slate-500">
-                                {getInitials(profile?.full_name)}
-                            </span>
-                        </div>
-                    </div>
-                    
-                    <div className="flex-1 space-y-3">
-                        <div>
-                            <p className="text-[10px] text-slate-500 uppercase font-bold">Ism Sharif</p>
-                            <h3 className="text-white font-bold text-lg truncate">{profile?.full_name || "Foydalanuvchi"}</h3>
-                        </div>
-                        <div>
-                            <p className="text-[10px] text-slate-500 uppercase font-bold">Username</p>
-                            <p className="text-slate-300 font-mono text-sm">@{profile?.username || "username"}</p>
-                        </div>
-                        <div>
-                            <p className="text-[10px] text-slate-500 uppercase font-bold">Hudud</p>
-                            <p className="text-slate-300 text-sm">O'zbekiston</p>
-                        </div>
-                    </div>
-                  </div>
-
-                  {/* Card Footer / Actions */}
-                  <div className="mt-6 grid grid-cols-2 gap-3">
-                    <button onClick={() => navigate('/profile')} className="bg-slate-700 hover:bg-slate-600 text-white py-2 rounded-xl text-sm font-medium transition-colors flex items-center justify-center gap-2">
-                        <User className="w-4 h-4" /> Kabinet
-                    </button>
-                    <button onClick={() => navigate('/darslik')} className="bg-blue-600/20 hover:bg-blue-600/30 text-blue-400 border border-blue-500/30 py-2 rounded-xl text-sm font-medium transition-colors flex items-center justify-center gap-2">
-                        <TrendingUp className="w-4 h-4" /> Statistika
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                // NOT LOGGED IN: PROMO CARD
-                <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 text-center">
-                   <div className="w-20 h-20 bg-blue-500 rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-lg shadow-blue-500/40 transform rotate-3">
-                      <User className="w-10 h-10 text-white" />
-                   </div>
-                   <h3 className="text-2xl font-bold text-white mb-2">Shaxsiy Kabinet</h3>
-                   <p className="text-slate-400 mb-6">Natijalarni saqlash va xatolarni tahlil qilish uchun tizimga kiring.</p>
-                   <Link to="/auth">
-                     <Button className="w-full bg-white text-slate-900 hover:bg-slate-200 font-bold h-12 rounded-xl text-base">
-                        Kirish / Ro'yxatdan o'tish
-                     </Button>
-                   </Link>
-                </div>
-              )}
+                <Button 
+                  size="lg" 
+                  className="w-full md:w-auto min-w-[140px] bg-[hsl(var(--cta-red))] hover:bg-[hsl(var(--cta-red-hover))] text-white gap-2 text-base md:text-lg px-4 md:px-8 py-5 md:py-6 rounded-full shadow-xl font-semibold border-2 border-pro"
+                >
+                  <Play className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
+                  <span className="truncate">Mavzuli test</span>
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. QUICK ACTIONS (GRID) - Asosiy funksiyalar */}
-      <section className="py-12 bg-slate-50">
-        <div className="container max-w-7xl mx-auto px-4 -mt-20 relative z-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            
-            {/* Action 1: Test */}
-            <Link to="/test-ishlash" className="group">
-              <div className="bg-white h-full p-6 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 hover:border-blue-500 hover:shadow-blue-500/10 transition-all duration-300">
-                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors duration-300">
-                  <Play className="w-6 h-6 text-blue-600 group-hover:text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-2">Test Ishlash</h3>
-                <p className="text-slate-500 text-sm">2026-yilgi baza asosida tasodifiy 20 ta savol.</p>
-              </div>
-            </Link>
+      {/* Features Section */}
+      <section className="py-16 bg-background">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+              Bizning Afzalliklar
+            </h2>
+          </div>
 
-            {/* Action 2: Variantlar */}
-            <Link to="/variant" className="group">
-              <div className="bg-white h-full p-6 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 hover:border-orange-500 hover:shadow-orange-500/10 transition-all duration-300 relative overflow-hidden">
-                <div className="absolute top-0 right-0 bg-orange-500 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg">PRO</div>
-                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-orange-500 transition-colors duration-300">
-                  <Zap className="w-6 h-6 text-orange-600 group-hover:text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-2">Variantlar</h3>
-                <p className="text-slate-500 text-sm">Imtihonga tushish ehtimoli yuqori bo'lgan tayyor variantlar.</p>
-              </div>
-            </Link>
-
-            {/* Action 3: Mavzuli */}
-            <Link to="/mavzuli" className="group">
-              <div className="bg-white h-full p-6 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 hover:border-emerald-500 hover:shadow-emerald-500/10 transition-all duration-300 relative overflow-hidden">
-                <div className="absolute top-0 right-0 bg-emerald-500 text-white text-[10px] font-bold px-2 py-1 rounded-bl-lg">PRO</div>
-                <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-emerald-500 transition-colors duration-300">
-                  <BookOpen className="w-6 h-6 text-emerald-600 group-hover:text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-2">Mavzuli Test</h3>
-                <p className="text-slate-500 text-sm">Mavzular bo'yicha tartiblangan maxsus savollar.</p>
-              </div>
-            </Link>
-
-            {/* Action 4: Belgilar */}
-            <Link to="/belgilar" className="group">
-              <div className="bg-white h-full p-6 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 hover:border-purple-500 hover:shadow-purple-500/10 transition-all duration-300">
-                <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-purple-600 transition-colors duration-300">
-                  <Car className="w-6 h-6 text-purple-600 group-hover:text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-2">Yo'l Belgilari</h3>
-                <p className="text-slate-500 text-sm">Barcha yo'l belgilarining to'liq tavsifi va qoidalari.</p>
-              </div>
-            </Link>
-
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <Card key={index} className="border-none shadow-lg bg-card hover:shadow-xl transition-shadow">
+                  <CardContent className="pt-8 pb-6 text-center">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-2xl flex items-center justify-center">
+                      <Icon className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="font-bold text-xl text-foreground mb-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                      {feature.title}
+                    </h3>
+                    <p className="text-muted-foreground">
+                      {feature.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* 3. PRO BANNER - "VIP" Uslubda */}
-      <section className="py-16 bg-white">
-        <div className="container max-w-6xl mx-auto px-4">
-          <div className="relative overflow-hidden rounded-[2.5rem] bg-slate-900 text-white shadow-2xl">
-            {/* Background Effects */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-500/20 rounded-full blur-[100px] -mr-20 -mt-20"></div>
-            <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-600/20 rounded-full blur-[100px] -ml-20 -mb-20"></div>
-
-            <div className="relative z-10 flex flex-col md:flex-row items-center gap-10 p-8 md:p-12">
-              <div className="flex-1 space-y-6">
-                <div className="inline-flex items-center gap-2 bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 px-4 py-1.5 rounded-full font-bold text-sm">
-                  <Crown className="w-4 h-4 fill-current" /> PREMIUM OBUNA
-                </div>
-                <h2 className="text-3xl md:text-5xl font-extrabold leading-tight">
-                  Imtihondan <span className="text-yellow-400">100% kafolatli</span> o'tishni istaysizmi?
-                </h2>
-                <ul className="space-y-4 text-slate-300">
-                  <li className="flex items-center gap-3">
-                    <div className="bg-green-500/20 p-1 rounded-full"><ShieldCheck className="w-5 h-5 text-green-400" /></div>
-                    <span>Videodarslar orqali qoidalarni oson o'rganish</span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <div className="bg-green-500/20 p-1 rounded-full"><ShieldCheck className="w-5 h-5 text-green-400" /></div>
-                    <span>Admin nazorati va shaxsiy tahlil</span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <div className="bg-green-500/20 p-1 rounded-full"><ShieldCheck className="w-5 h-5 text-green-400" /></div>
-                    <span>Imtihonga tushadigan eng aniq variantlar</span>
-                  </li>
-                </ul>
-                
-                <div className="pt-4">
-                  {user && profile?.is_pro ? (
-                     <button className="bg-slate-800 text-slate-400 cursor-default px-8 py-4 rounded-xl font-bold text-lg flex items-center gap-2">
-                        <ShieldCheck className="w-5 h-5 text-green-500" /> Siz PRO a'zosiz
-                     </button>
-                  ) : (
-                    <Link to="/pro">
-                      <button className="bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 text-slate-900 px-10 py-4 rounded-xl font-extrabold text-lg shadow-lg shadow-orange-500/30 transform hover:-translate-y-1 transition-all">
-                        PRO ga O'tish
-                      </button>
-                    </Link>
+      {/* Profile Section - Only for logged in users */}
+      {user && (
+        <section className="py-16 bg-secondary/30">
+          <div className="max-w-4xl mx-auto px-4">
+            <Card className="border-none shadow-xl overflow-hidden">
+              <CardContent className="p-0">
+                <div className="bg-primary p-6 text-center">
+                  <Avatar className="h-20 w-20 mx-auto mb-4 bg-[hsl(var(--cta-orange))]">
+                    <AvatarFallback className="bg-[hsl(var(--cta-orange))] text-white text-2xl font-bold">
+                      {getInitials(profile?.full_name || profile?.username)}
+                    </AvatarFallback>
+                  </Avatar>
+                  <h3 className="text-2xl font-bold text-primary-foreground" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                    {profile?.full_name || profile?.username || 'Foydalanuvchi'}
+                  </h3>
+                  {profile?.username && profile?.full_name && (
+                    <p className="text-primary-foreground/70">@{profile.username}</p>
                   )}
                 </div>
-              </div>
-
-              {/* Decorative Image/Icon */}
-              <div className="hidden md:flex flex-1 justify-center relative">
-                 <div className="relative w-64 h-64 bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl border border-slate-700 shadow-2xl flex flex-col items-center justify-center transform rotate-6 hover:rotate-0 transition-all duration-500 group">
-                    <Award className="w-24 h-24 text-yellow-400 mb-4 group-hover:scale-110 transition-transform" />
-                    <span className="text-2xl font-bold text-white">PRO</span>
-                    <span className="text-slate-400 text-sm">Avtotestu.uz</span>
-                    {/* Shine effect */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent rounded-3xl pointer-events-none"></div>
-                 </div>
-              </div>
-            </div>
+                <div className="p-6 bg-card">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <Button 
+                      variant="outline" 
+                      className="flex flex-col items-center gap-2 h-auto py-4"
+                      onClick={() => navigate('/profile')}
+                    >
+                      <User className="w-6 h-6 text-primary" />
+                      <span className="text-sm">Profil</span>
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      className="flex flex-col items-center gap-2 h-auto py-4"
+                      onClick={() => navigate('/profile')}
+                    >
+                      <BarChart3 className="w-6 h-6 text-primary" />
+                      <span className="text-sm">Statistika</span>
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      className="flex flex-col items-center gap-2 h-auto py-4"
+                      onClick={() => navigate('/darslik')}
+                    >
+                      <BookOpen className="w-6 h-6 text-primary" />
+                      <span className="text-sm">Darslik</span>
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      className="flex flex-col items-center gap-2 h-auto py-4"
+                      onClick={() => navigate('/profile')}
+                    >
+                      <Settings className="w-6 h-6 text-primary" />
+                      <span className="text-sm">Sozlamalar</span>
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
+        </section>
+      )}
+
+      {/* PRO Section */}
+      <section className="py-12 bg-gradient-to-r from-pro-bg to-pro-bg-end border-y-2 border-pro">
+        <div className="max-w-4xl mx-auto px-4">
+          <Card className="border-2 border-pro shadow-xl bg-card relative overflow-hidden">
+            <span className="absolute top-0 right-0 bg-pro text-pro-foreground text-sm font-bold px-4 py-1 rounded-bl-xl">
+              PRO
+            </span>
+            <CardContent className="p-6 md:p-8">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-pro rounded-full flex items-center justify-center">
+                  <Crown className="w-6 h-6 text-pro-foreground" />
+                </div>
+                <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                  PRO Bo'limi Haqida
+                </h2>
+              </div>
+              <p className="text-foreground leading-relaxed text-base">
+                PRO bo'limi oddiy testdan farq qiladi va savollar to'g'riligi to'g'ridan to'g'ri admin tomonidan tekshiriladi. Imtihonda ushbu testlarning tushish ehtimoli yuqori va bu testni ishlash orqali avtomaktabimizda ancha faol natijalarga erishganmiz. PRO funksiyasi yordamida maxsus videodarslarimiz orqali o'z bilimlaringizni yanada oshirib borishingiz mumkin va siz bilan admin tomonidan shug'ullaniladi.
+              </p>
+              <div className="mt-6">
+                {user && profile?.is_pro ? (
+                  <div className="flex items-center gap-3 bg-pro/10 border border-pro rounded-full px-6 py-3 w-fit">
+                    <Crown className="w-5 h-5 text-pro" />
+                    <span className="font-semibold text-foreground">
+                      {profile.full_name || profile.username || 'PRO Foydalanuvchi'}
+                    </span>
+                    <span className="text-xs bg-pro text-pro-foreground px-2 py-0.5 rounded-full font-bold">
+                      PRO
+                    </span>
+                  </div>
+                ) : (
+                  <Link to="/pro">
+                    <Button className="bg-pro hover:bg-pro-hover text-pro-foreground gap-2 px-6 py-5 rounded-full font-semibold">
+                      <Crown className="w-5 h-5" />
+                      PRO obunaga o'tish
+                    </Button>
+                  </Link>
+                )}
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
-      {/* 4. STATISTIKA - Ishonch uchun */}
-      <section className="py-12 bg-slate-50 border-t border-slate-200">
-        <div className="container max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-extrabold text-blue-600 mb-1">5k+</div>
-              <div className="text-sm text-slate-500 font-medium">Bitiruvchilar</div>
+      {/* About Section */}
+      <section className="py-16 bg-background">
+        <div className="max-w-4xl mx-auto px-4">
+          <Card className="border-none shadow-lg overflow-hidden">
+            <button
+              onClick={() => setAboutOpen(!aboutOpen)}
+              className="w-full p-6 flex items-center justify-between text-left bg-card hover:bg-secondary/50 transition-colors"
+            >
+              <span className="font-bold text-lg text-foreground" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                AvtoTest haqida qisqacha
+              </span>
+              <ChevronDown 
+                className={`w-6 h-6 text-muted-foreground transition-transform duration-300 ${
+                  aboutOpen ? "rotate-180" : ""
+                }`} 
+              />
+            </button>
+            
+            <div 
+              className={`overflow-hidden transition-all duration-500 ${
+                aboutOpen ? "max-h-[2000px]" : "max-h-0"
+              }`}
+            >
+              <div className="p-6 pt-0 space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  AvtoTest — bu haydovchilik guvohnomasi olishni xohlovchilar uchun yaratilgan zamonaviy onlayn platforma bo'lib, foydalanuvchilarga Yo'l harakati qoidalari (YHQ) bo'yicha test savollarini interaktiv tarzda yechish imkonini beradi. Platforma o'quv jarayonini qulay, tushunarli va samarali qilish maqsadida ishlab chiqilgan.
+                </p>
+                <p>
+                  Bugungi kunda ko'plab o'quv markazlari va avtomaktablar YHQ bo'yicha bilimni mustahkamlash uchun elektron test tizimlaridan foydalanadi. AvtoTest loyihasi aynan shu jarayonni yanada soddalashtirish, foydalanuvchilarga istalgan joyda va istalgan vaqtda o'qish imkonini berish uchun yaratilgan.
+                </p>
+                <p>
+                  Platformadagi barcha testlar O'zbekiston Respublikasi Yo'l harakati qoidalariga asoslangan bo'lib, har bir savolga yagona to'g'ri javob keltirilgan. Savollar muntazam yangilanib boriladi va yangi qoidalar qabul qilinishi bilan tizimga avtomatik tarzda qo'shiladi.
+                </p>
+                <p>
+                  AvtoTest nafaqat test topshirish imkonini beradi, balki foydalanuvchilar o'z xatolarini ko'rib chiqib, to'g'ri javobni o'rganishlari mumkin. Har bir test yakunida tizim sizga umumiy natijangizni, to'g'ri va noto'g'ri javoblar sonini ko'rsatadi.
+                </p>
+                <p>
+                  Agar siz ham YHQ imtihoniga tayyorlanayotgan bo'lsangiz yoki o'zingizni sinab ko'rmoqchi bo'lsangiz, AvtoTest siz uchun eng to'g'ri tanlov. Biz bilan birgalikda xavfsiz va ongli haydovchilar avlodini yarating!
+                </p>
+              </div>
             </div>
-            <div>
-              <div className="text-4xl font-extrabold text-blue-600 mb-1">1000+</div>
-              <div className="text-sm text-slate-500 font-medium">Testlar Bazasi</div>
-            </div>
-            <div>
-              <div className="text-4xl font-extrabold text-blue-600 mb-1">24/7</div>
-              <div className="text-sm text-slate-500 font-medium">Platforma Ishlaydi</div>
-            </div>
-            <div>
-              <div className="text-4xl font-extrabold text-blue-600 mb-1">98%</div>
-              <div className="text-sm text-slate-500 font-medium">O'tish Ko'rsatkichi</div>
-            </div>
-          </div>
+          </Card>
         </div>
       </section>
-
     </MainLayout>
   );
 }
