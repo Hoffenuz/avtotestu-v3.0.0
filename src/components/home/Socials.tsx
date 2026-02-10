@@ -26,14 +26,6 @@ const socials = [
     color: "from-green-400 to-green-600",
     description: "O'quv markaz bilan bog'lanish",
   },
-  {
-    icon: Instagram,
-    name: "Instagram",
-    handle: "@avtoexclusive",
-    link: "https://instagram.com/avtoexclusive",
-    color: "from-pink-400 to-purple-600",
-    description: "Foto va videolar",
-  },
 ];
 
 export function Socials() {

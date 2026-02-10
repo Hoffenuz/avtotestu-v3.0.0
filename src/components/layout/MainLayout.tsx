@@ -210,7 +210,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                   alt="AvtoExclusive Logo" 
                   className="w-10 h-10 rounded-xl object-contain"
                 />
-                <span className="font-bold text-xl" style={{ fontFamily: 'Montserrat, sans-serif' }}>AVTOEXCLUSIVE</span>
+                <span className="font-bold text-xl" style={{ fontFamily: 'Montserrat, sans-serif' }}>AVTOTESTU.UZ</span>
               </div>
               <p className="text-primary-foreground/70 text-sm leading-relaxed">
                 Professional haydovchilik guvohnomasini olish uchun zamonaviy onlayn platforma. 
