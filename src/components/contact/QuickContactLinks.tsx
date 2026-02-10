@@ -5,8 +5,8 @@ const contactLinks = [
   {
     icon: MessageCircle,
     label: "Telegram",
-    value: "@avtotestu_ad",
-    href: "https://t.me/avtotestu_ad",
+    value: "@avtotestu_ad2",
+    href: "https://t.me/avtotestu_ad2",
   },
   {
     icon: MessageCircle,
@@ -18,7 +18,7 @@ const contactLinks = [
     icon: MessageCircle,
     label: "Bot",
     value: "@maktabavtobot",
-    href: "https://t.me/maktabavtobot",
+    href: "https://t.me/avtotest5bot",
   },
 ];
 
