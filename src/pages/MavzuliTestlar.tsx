@@ -11,8 +11,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const topics = [
   { id: '31', name: { uz_lat: 'Barcha savollar', uz_cyr: 'Барча саволлар', ru: 'Все вопросы' } },
-  { id: '35a', name: { uz_lat: "Yangi savollar1", uz_cyr: "Янги саволлар1", ru: "Новые вопросы1" } },
-  { id: '35b', name: { uz_lat: "Yangi savollar2", uz_cyr: "Янги саволлар2", ru: "Новые вопросы2" } },
+   { id: '35a', name: { uz_lat: "Yangi savollar1", uz_cyr: "Янги саволлар1", ru: "Новые вопросы1" } },
+    { id: '35b', name: { uz_lat: "Yangi savollar2", uz_cyr: "Янги саволлар2", ru: "Новые вопросы2" } },
   { id: '1', name: { uz_lat: "Umumiy qoidalar", uz_cyr: "Умумий қоидалар", ru: "Общие правила" } },
   { id: '3', name: { uz_lat: "Ogohlantiruvchi belgilar", uz_cyr: "Огоҳлантирувчи белгилар", ru: "Предупреждающие знаки" } },
   { id: '4', name: { uz_lat: "Imtiyoz belgilar", uz_cyr: "Имтиёз белгилар", ru: "Знаки приоритета" } },
@@ -27,24 +27,25 @@ const topics = [
   { id: '11', name: { uz_lat: "Svetafor ishoralari", uz_cyr: "Светафор ишоралари", ru: "Сигналы светофора" } },
   { id: '12', name: { uz_lat: "Tartibga soluvchining ishoralari", uz_cyr: "Тартибга солувчининг ишоралари", ru: "Сигналы регулировщика" } },
   { id: '13', name: { uz_lat: "Ogohlantiruvchi va avariya ishoralari", uz_cyr: "Огоҳлантирувчи ва авария ишоралари", ru: "Предупредительные и аварийные сигналы" } },
-  { id: '14', name: { uz_lat: "Yo'llarda harakatlanish", uz_cyr: "Йўлларда ҳаракатланиш", ru: "Движение по дорогам" } },
-  { id: '15', name: { uz_lat: "Transport vositalarining joylashuvi", uz_cyr: "Транспорт воситаларининг жойлашуви", ru: "Расположение транспортных средств" } },
+  { id: '14', name: { uz_lat: "Yo'llarda harakatlanish", uz_cyr: "", ru: "Начало движения (Маневр)" } },
+  { id: '15', name: { uz_lat: "Transport vositalarining joylashuvi", uz_cyr: "Йўлнинг қатнов қисмида транспорт воситаларининг жойлашуви", ru: "Расположение транспортных средств на проезжей части" } },
   { id: '16', name: { uz_lat: "Harakatlanish tezligi", uz_cyr: "Ҳаракатланиш тезлиги", ru: "Скорость движения" } },
   { id: '17', name: { uz_lat: "Quvib o'tish", uz_cyr: "Қувиб ўтиш", ru: "Обгон" } },
   { id: '18', name: { uz_lat: "To'xtash va to'xtab turish qoidalari 1", uz_cyr: "Тўхташ ва тўхтаб туриш қоидалари 1", ru: "Правила остановки и стоянки 1" } },
   { id: '19', name: { uz_lat: "To'xtash va to'xtab turish qoidalari 2", uz_cyr: "Тўхташ ва тўхтаб туриш қоидалари 2", ru: "Правила остановки и стоянки 2" } },
   { id: '33', name: { uz_lat: "Tartibga solinmagan chorrahada asosiy yo'l", uz_cyr: "Тартибга солинмаган чорраҳада асосий йўл", ru: "Главная дорога на нерегулируемом перекрестке" } },
-  { id: '2', name: { uz_lat: "Haydovchining umumiy vazifalari", uz_cyr: "Ҳайдовчининг умумий вазифалари", ru: "Общие обязанности водителя" } },
-  { id: '21', name: { uz_lat: "Piyodalar o'tish joylari va turar joylar", uz_cyr: "Пиёдалар ўтиш жойлари ва турар жойлар", ru: "Пешеходные переходы и жилые зоны" } },
+  { id: '2', name: { uz_lat: "Haydovchining umumiy vazifalari", uz_cyr: "Ҳайдовчининг умумий вазифалари ва пиёдалар", ru: "Общие обязанности водителя и пешеходы" } },
+  { id: '21', name: { uz_lat: "Piyodalar o'tish joylari va turar joylar", uz_cyr: "Пиёдалар ўтиш жойлари ва турар жой даҳаларида ҳаракатланиш", ru: "Пешеходные переходы и движение в жилых зонах" } },
   { id: '22', name: { uz_lat: "Temir yo'l kesishmalari va Avtomagistrallarda harakat", uz_cyr: "Темир йўл кесишмалари ва Автомагистралларда ҳаракат", ru: "Железнодорожные переезды и движение по автомагистралям" } },
-  { id: '23', name: { uz_lat: "Yo'nalishli transport vositalarining imtiyozlari", uz_cyr: "Йўналишли транспорт воситаларининг имтиёзлари", ru: "Преимущества маршрутных транспортных средств" } },
-  { id: '24', name: { uz_lat: "Shatakka olish", uz_cyr: "Шатакка олиш", ru: "Буксировка" } },
-  { id: '25', name: { uz_lat: "Transport boshqarishni o'rganish va Yo'l harakati xavfsizligini ta'minlash", uz_cyr: "Транспорт бошқаришни ўрганиш ва Йўл ҳаракати хавфсизлигини таъминлаш", ru: "Обучение вождению и обеспечение безопасности" } },
+  { id: '23', name: { uz_lat: "Yo'nalishli transport vositalarining imtiyozlari", uz_cyr: "Йўналишли транспорт воситаларининг имтиёзлари ва ташқи ёритиш", ru: "Преимущества маршрутных транспортных средств и внешнее освещение" } },
+  { id: '24', name: { uz_lat: "Shatakka olish", uz_cyr: "Транспорт воситаларини шатакка олиш", ru: "Буксировка транспортных средств" } },
+  { id: '25', name: { uz_lat: "Transport boshqarishni o'rganish va Yo'l harakati xavfsizligini ta'minlash", uz_cyr: "Транспорт бошқаришни ўрганиш ва Йўл ҳаракати хавфсизлигини таъминлаш", ru: "Обучение вождению и обеспечение безопасности дорожного движения" } },
   { id: '26', name: { uz_lat: "Odam va yuk tashish", uz_cyr: "Одам ва юк ташиш", ru: "Перевозка людей и грузов" } },
-  { id: '27', name: { uz_lat: "Harakatlanish taqiqlanadigan vaziyatlar", uz_cyr: "Ҳаракатланиш тақиқланадиган вазиятлар", ru: "Ситуации запрета движения" } },
+  { id: '27', name: { uz_lat: "Harakatlanish taqiqlanadigan vaziyatlar", uz_cyr: "Транспорт воситаларида ҳаракатланиш тақиқланадиган вазиятлар", ru: "Ситуации, когда запрещено движение транспортных средств" } },
   { id: '28', name: { uz_lat: "Harakat xavfsizligini ta'minlash 1", uz_cyr: "Ҳаракат хавфсизлигини таъминлаш 1", ru: "Обеспечение безопасности движения 1" } },
   { id: '29', name: { uz_lat: "Harakat xavfsizligini ta'minlash 2", uz_cyr: "Ҳаракат хавфсизлигини таъминлаш 2", ru: "Обеспечение безопасности движения 2" } },
   { id: '30', name: { uz_lat: "Birinchi tibbiy yordam", uz_cyr: "Биринчи тиббий ёрдам", ru: "Первая медицинская помощь" } },
+ 
 ];
 
 const languages = [
@@ -132,20 +133,20 @@ export default function MavzuliTestlar() {
           <div className="bg-card border-b border-border p-4 sticky top-0 z-10">
             <div className="flex items-center justify-between mb-3">
               <Link to="/">
-                <Button variant="outline" size="default" className="gap-2 h-10">
+                <Button variant="outline" size="sm" className="gap-2">
                   <Home className="w-4 h-4" />
                   Bosh sahifa
                 </Button>
               </Link>
               {user ? (
-                <Button variant="outline" size="default" onClick={() => navigate('/profile')} className="gap-2 h-10">
+                <Button variant="outline" size="sm" onClick={() => navigate('/profile')} className="gap-2">
                   <User className="w-4 h-4" />
-                  <span className="text-sm">{profile?.full_name || profile?.username || 'Profil'}</span>
+                  <span className="text-xs">{profile?.full_name || profile?.username || 'Profil'}</span>
                 </Button>
               ) : (
-                <Button size="default" onClick={() => navigate('/auth')} className="gap-2 h-10">
+                <Button size="sm" onClick={() => navigate('/auth')} className="gap-2">
                   <LogIn className="w-4 h-4" />
-                  <span className="text-sm">Kirish</span>
+                  <span className="text-xs">Kirish</span>
                 </Button>
               )}
             </div>
@@ -281,7 +282,7 @@ export default function MavzuliTestlar() {
                 <Play className="w-4 h-4" />
                 {selectedTopic ? "Testni boshlash" : "Mavzuni tanlang"}
               </Button>
-              <div className="p-3 bg-gradient-to-br from-muted/50 to-muted/30 rounded-lg border border-border mb-3">
+              <div className="p-3 bg-gradient-to-br from-muted/50 to-muted/30 rounded-lg border border-border">
                 <h3 className="text-[10px] font-semibold text-foreground mb-1.5 flex items-center gap-1.5">
                   <div className="w-1 h-1 rounded-full bg-primary" />
                   Ko'rsatmalar

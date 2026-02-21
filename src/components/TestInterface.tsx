@@ -101,6 +101,8 @@ export const TestInterface = ({ onExit, variant }: TestInterfaceProps) => {
   const autoAdvanceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const storageKey = `testState_variant_${variant}`;
+  const touchStartX = useRef<number>(0);
+  const touchEndX = useRef<number>(0);
 
   // Fullscreen handlers
   const toggleFullscreen = () => {
@@ -339,7 +341,7 @@ export const TestInterface = ({ onExit, variant }: TestInterfaceProps) => {
       }
       autoAdvanceTimeoutRef.current = setTimeout(() => {
         setCurrentQuestion(prev => Math.min(totalQuestions, prev + 1));
-      }, 2500);
+      }, 1100);
     }
   };
 
@@ -377,6 +379,27 @@ export const TestInterface = ({ onExit, variant }: TestInterfaceProps) => {
     });
     
     return { correct, incorrect };
+  };
+
+  const handleSwipe = () => {
+    const swipeThreshold = 50;
+    const diff = touchStartX.current - touchEndX.current;
+    
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0 && currentQuestion < totalQuestions) {
+        // Swipe left - next question
+        if (autoAdvanceTimeoutRef.current) {
+          clearTimeout(autoAdvanceTimeoutRef.current);
+        }
+        setCurrentQuestion(prev => Math.min(totalQuestions, prev + 1));
+      } else if (diff < 0 && currentQuestion > 1) {
+        // Swipe right - previous question
+        if (autoAdvanceTimeoutRef.current) {
+          clearTimeout(autoAdvanceTimeoutRef.current);
+        }
+        setCurrentQuestion(prev => Math.max(1, prev - 1));
+      }
+    }
   };
 
   // Save result when showing results
@@ -506,7 +529,14 @@ export const TestInterface = ({ onExit, variant }: TestInterfaceProps) => {
       />
 
       {/* Main Content - Full width usage */}
-      <main className="flex-1 px-4 py-4 md:px-8 md:py-5 w-full overflow-y-auto">
+      <main 
+        className="flex-1 px-4 py-4 md:px-8 md:py-5 w-full overflow-y-auto"
+        onTouchStart={(e) => touchStartX.current = e.touches[0].clientX}
+        onTouchEnd={(e) => {
+          touchEndX.current = e.changedTouches[0].clientX;
+          handleSwipe();
+        }}
+      >
         <div className="max-w-7xl mx-auto">
           {/* Question Number */}
           <div className="text-sm md:text-base text-muted-foreground mb-3 font-medium">
@@ -526,7 +556,7 @@ export const TestInterface = ({ onExit, variant }: TestInterfaceProps) => {
 
               {/* Mobile Only: Question Image - bosilsa kattalashadi */}
               {question.image && (
-                <Card className="md:hidden p-3 bg-card border-border mb-4 overflow-hidden">
+                <Card key={`mobile-img-${currentQuestion}`} className="md:hidden p-3 bg-card border-border mb-4 overflow-hidden">
                   <button
                     type="button"
                     className="block w-full cursor-zoom-in focus:outline-none focus:ring-0"
@@ -534,12 +564,13 @@ export const TestInterface = ({ onExit, variant }: TestInterfaceProps) => {
                   >
                     {/\.(png|jpe?g|webp)$/i.test(question.image || "") ? (
                       <img
+                        key={question.image}
                         src={question.image}
                         alt="Question illustration"
                         className="w-full max-w-[300px] h-auto mx-auto object-contain rounded"
                       />
                     ) : (
-                      <picture>
+                      <picture key={question.image}>
                         <source srcSet={`${question.image}.png`} type="image/png" />
                         <source srcSet={`${question.image}.jpg`} type="image/jpeg" />
                         <source srcSet={`${question.image}.jpeg`} type="image/jpeg" />
@@ -602,7 +633,7 @@ export const TestInterface = ({ onExit, variant }: TestInterfaceProps) => {
 
             {/* Right Column: Image (Desktop only - 40%) - bosilsa kattalashadi */}
             {question.image && (
-              <div className="hidden md:block md:w-[40%] md:flex-shrink-0">
+              <div key={`desktop-img-${currentQuestion}`} className="hidden md:block md:w-[40%] md:flex-shrink-0">
                 <Card className="p-4 bg-card border-border overflow-hidden sticky top-4">
                   <button
                     type="button"
@@ -611,12 +642,13 @@ export const TestInterface = ({ onExit, variant }: TestInterfaceProps) => {
                   >
                     {/\.(png|jpe?g|webp)$/i.test(question.image || "") ? (
                       <img
+                        key={question.image}
                         src={question.image}
                         alt="Question illustration"
                         className="w-full h-auto object-contain rounded max-h-[60vh]"
                       />
                     ) : (
-                      <picture>
+                      <picture key={question.image}>
                         <source srcSet={`${question.image}.png`} type="image/png" />
                         <source srcSet={`${question.image}.jpg`} type="image/jpeg" />
                         <source srcSet={`${question.image}.jpeg`} type="image/jpeg" />

@@ -100,6 +100,62 @@ export default function Pro() {
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
             
+            {/* MOBILE: Narxlar birinchi (lg:hidden) */}
+            <div className="lg:hidden space-y-4">
+              <div className="bg-card border border-border rounded-2xl p-4 md:p-5 shadow-sm">
+                <h2 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
+                  <Star className="w-5 h-5 text-amber-500" /> {t("pro.plansTitle")}
+                </h2>
+                
+                <div className="space-y-3">
+                  {plans.map((plan, index) => (
+                    <div 
+                      key={index}
+                      className={`relative p-4 rounded-xl border transition-all ${
+                        plan.highlighted 
+                          ? "border-amber-500 bg-amber-500/5 shadow-sm shadow-amber-500/10 border-2" 
+                          : "border-border bg-background hover:border-amber-500/40"
+                      }`}
+                    >
+                      {plan.highlighted && (
+                        <div className="absolute -top-2.5 right-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full shadow-sm">
+                          {t("pro.planPopular")}
+                        </div>
+                      )}
+                      
+                      <div className="flex justify-between items-start mb-2">
+                        <div>
+                          <h3 className="font-bold text-sm">{t(plan.nameKey)}</h3>
+                          <p className="text-[13px] text-muted-foreground mt-0.5">{t(plan.descriptionKey)}</p>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-end gap-1.5 mb-3.5">
+                        <span className="text-xl font-extrabold">{plan.price}</span>
+                        <span className="text-[13px] font-medium text-muted-foreground mb-1">{t(plan.periodKey)}</span>
+                      </div>
+
+                      <Button
+                        className={`w-full h-10 text-sm font-bold rounded-lg ${
+                          plan.highlighted 
+                            ? "bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white border-0 shadow-sm" 
+                            : "bg-muted hover:bg-muted/80"
+                        }`}
+                        variant={plan.buttonVariant}
+                        onClick={handleGetPro}
+                      >
+                        {t(plan.buttonTextKey)}
+                      </Button>
+                    </div>
+                  ))}
+                </div>
+                
+                <p className="text-center text-[11px] text-muted-foreground mt-4 px-2 leading-relaxed">
+                  {t("pro.planContactText")} <button onClick={handleGetPro} className="text-blue-500 hover:underline font-medium">{t("pro.planContactLink")}</button>.
+                </p>
+              </div>
+            </div>
+            
             {/* CHAP TARAF: Ma'lumotlar va Katta Farqlar (8/12) */}
             <div className="lg:col-span-8 space-y-6">
               
@@ -202,8 +258,8 @@ export default function Pro() {
 
             </div>
 
-            {/* O'NG TARAF: Ta'riflar / Narxlar (4/12) */}
-            <div className="lg:col-span-4 lg:sticky lg:top-24 space-y-4">
+            {/* O'NG TARAF: Ta'riflar / Narxlar (4/12) - Desktop only */}
+            <div className="hidden lg:block lg:col-span-4 lg:sticky lg:top-24 space-y-4">
               <div className="bg-card border border-border rounded-2xl p-4 md:p-5 shadow-sm">
                 <h2 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
                   <Star className="w-5 h-5 text-amber-500" /> {t("pro.plansTitle")}

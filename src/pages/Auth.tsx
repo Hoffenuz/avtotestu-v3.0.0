@@ -98,13 +98,13 @@ const Auth = () => {
 
       <Card className="w-full max-w-md p-6 md:p-8 bg-card border-border shadow-xl">
         {/* Logo */}
-        <div className="text-center mb-6">
+        <button onClick={() => navigate('/')} className="text-center mb-6 w-full cursor-pointer">
           <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
             <Car className="w-8 h-8 text-primary" />
           </div>
           <h1 className="text-2xl font-bold text-foreground">Avtotestu.uz</h1>
           <p className="text-sm text-muted-foreground mt-1">Avtomaktab test tizimi</p>
-        </div>
+        </button>
 
         {/* Error Message */}
         {error && (
@@ -173,6 +173,16 @@ const Auth = () => {
             )}
           </Button>
         </form>
+
+        {/* Akkaunt ochish link */}
+        <div className="mt-6 text-center">
+          <button
+            onClick={() => navigate('/pro')}
+            className="text-sm text-primary hover:underline font-medium"
+          >
+            Akkaunt ochish
+          </button>
+        </div>
       </Card>
     </div>
   );

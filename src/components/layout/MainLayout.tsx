@@ -207,7 +207,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="p-1.5 sm:p-2 rounded-lg text-primary-foreground hover:bg-primary-foreground/10 transition-colors ml-0.5"
               >
-                {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
+                {mobileMenuOpen ? <X className="w-7 h-7 sm:w-9 sm:h-9" /> : <Menu className="w-7 h-7 sm:w-9 sm:h-9" />}
               </button>
             </div>
           </div>

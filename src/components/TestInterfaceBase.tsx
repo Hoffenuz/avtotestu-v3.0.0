@@ -309,7 +309,7 @@ export const TestInterfaceBase = ({
       }
       autoAdvanceTimeoutRef.current = setTimeout(() => {
         setCurrentQuestion(prev => Math.min(totalQuestions, prev + 1));
-      }, 2500);
+      }, 1100);
     }
   };
 
