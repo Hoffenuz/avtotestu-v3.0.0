@@ -1,872 +1,1867 @@
-{
-    "lesson": "\u04b2\u0430\u0440\u0430\u043a\u0430\u0442 \u0445\u0430\u0444\u0441\u0438\u0437\u043b\u0438\u0433\u0438 \u0430\u0441\u043e\u0441\u043b\u0430\u0440\u0438",
-    "data": [
-{
-    "id": 789,
-    "bilet_id": 40,
-    "question_id": 2,
-    "name": null,
-    "question": {
-        "oz": "Uzoq davom etadigan keng ravon yo'lda avtomobilni yuqori tezlikda boshqarganda haydovchiga tezlik qanday qabul qilinadi?",
-        "uz": "\u0423\u0437\u043e\u049b \u0434\u0430\u0432\u043e\u043c \u044d\u0442\u0430\u0434\u0438\u0433\u0430\u043d \u043a\u0435\u043d\u0433 \u0440\u0430\u0432\u043e\u043d \u0439\u045e\u043b\u0434\u0430 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438 \u044e\u049b\u043e\u0440\u0438 \u0442\u0435\u0437\u043b\u0438\u043a\u0434\u0430 \u0431\u043e\u0448\u049b\u0430\u0440\u0433\u0430\u043d\u0434\u0430 \u04b3\u0430\u0439\u0434\u043e\u0432\u0447\u0438\u0433\u0430 \u0442\u0435\u0437\u043b\u0438\u043a \u049b\u0430\u043d\u0434\u0430\u0439 \u049b\u0430\u0431\u0443\u043b \u049b\u0438\u043b\u0438\u043d\u0430\u0434\u0438?",
-        "ru": "\u041a\u0430\u043a \u0432\u043e\u0441\u043f\u0440\u0438\u043d\u0438\u043c\u0430\u0435\u0442\u0441\u044f \u0432\u043e\u0434\u0438\u0442\u0435\u043b\u0435\u043c \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u0441\u0432\u043e\u0435\u0433\u043e \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f \u043f\u0440\u0438 \u0434\u043b\u0438\u0442\u0435\u043b\u044c\u043d\u043e\u043c \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u0438 \u043f\u043e \u0440\u043e\u0432\u043d\u043e\u0439-\u0448\u0438\u0440\u043e\u043a\u043e\u0439 \u0434\u043e\u0440\u043e\u0433\u0435 \u043d\u0430 \u0431\u043e\u043b\u044c\u0448\u043e\u0439 \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u0438?"
+[
+    {
+        "task_info": {
+            "global_id": "t_29_q_1",
+            "ticket_num": 29,
+            "order": 1
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "Uzoq davom etadigan keng ravon yo'lda avtomobilni yuqori tezlikda boshqarganda haydovchiga tezlik qanday qabul qilinadi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Aslidagidan sekin harakatlanayotganga uxshaydi",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Aslidagidan tez harakatlanayotganga uxshaydi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Tezlikni qabul qilish o'zgarmaydi",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Узоқ давом этадиган кенг равон йўлда автомобилни юқори тезликда бошқарганда ҳайдовчига тезлик қандай қабул қилинади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Аслидагидан секин ҳаракатланаётганга ухшайди",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Аслидагидан тез ҳаракатланаётганга ухшайди",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Тезликни қабул қилиш ўзгармайди",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Как воспринимается водителем скорость своего автомобиля при длительном движении по ровной-широкой дороге на большой скорости?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Кажется меньше чем в действительности",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Кажется больше, чем в действительности",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Восприятие скорости не меняется",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
     },
-    "photo": null,
-    "answers": {
-        "status": 1,
-        "answer_id": 2,
-        "answer": {
-            "oz": [
-                "Aslidagidan sekin harakatlanayotganga uxshaydi",
-                "Aslidagidan tez harakatlanayotganga uxshaydi",
-                "Tezlikni qabul qilish o'zgarmaydi"
-            ],
-            "uz": [
-                "\u0410\u0441\u043b\u0438\u0434\u0430\u0433\u0438\u0434\u0430\u043d \u0441\u0435\u043a\u0438\u043d \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0430\u0451\u0442\u0433\u0430\u043d\u0433\u0430 \u0443\u0445\u0448\u0430\u0439\u0434\u0438",
-                "\u0410\u0441\u043b\u0438\u0434\u0430\u0433\u0438\u0434\u0430\u043d \u0442\u0435\u0437 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0430\u0451\u0442\u0433\u0430\u043d\u0433\u0430 \u0443\u0445\u0448\u0430\u0439\u0434\u0438",
-                "\u0422\u0435\u0437\u043b\u0438\u043a\u043d\u0438 \u049b\u0430\u0431\u0443\u043b \u049b\u0438\u043b\u0438\u0448 \u045e\u0437\u0433\u0430\u0440\u043c\u0430\u0439\u0434\u0438"
-            ],
-            "ru": [
-                "\u041a\u0430\u0436\u0435\u0442\u0441\u044f \u043c\u0435\u043d\u044c\u0448\u0435 \u0447\u0435\u043c \u0432 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0442\u0435\u043b\u044c\u043d\u043e\u0441\u0442\u0438",
-                "\u041a\u0430\u0436\u0435\u0442\u0441\u044f \u0431\u043e\u043b\u044c\u0448\u0435, \u0447\u0435\u043c \u0432 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0442\u0435\u043b\u044c\u043d\u043e\u0441\u0442\u0438",
-                "\u0412\u043e\u0441\u043f\u0440\u0438\u044f\u0442\u0438\u0435 \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u0438 \u043d\u0435 \u043c\u0435\u043d\u044f\u0435\u0442\u0441\u044f"
-            ]
+    {
+        "task_info": {
+            "global_id": "t_29_q_2",
+            "ticket_num": 29,
+            "order": 2
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "Yo'lning qanday  qismida  harakatlanganda kuchli  yonlama  shamol xavfi  ortadi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ochiq  joyda harakatlanganda",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Yo'lning yopiq qismida harakatlanganda",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Yo'lning yopiq qismidan ochik qismiga chiqishda",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Йўлнинг қандай  қисмида  ҳаракатланганда кучли  ёнлама  шамол хавфи  ортади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Очиқ  жойда ҳаракатланганда",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Йўлнинг ёпиқ қисмида ҳаракатланганда",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Йўлнинг ёпиқ қисмидан очик қисмига чиқишда",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "При движении по какому участку дороги действие сильного бокового ветра наиболее опасно?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "По открытому",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "По закрытому деревьями",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "При выезде с закрытого участка на открытый",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_29_q_3",
+            "ticket_num": 29,
+            "order": 3
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "Yoqilg'i bilan taminlash  tepkisini keskin tezlikni oshirish uchun bosayotganda, avtomabil sirpanishni boshlasa haydovchi qanday harakat qilishi kerak?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Tepkini yanada  kuchliroq  bosish",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Tepkiga tasir etuvchi kuchni o'zgartirmaslik",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Tepkiga tasir etuvchi kuchni   kamaytirish",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ёқилғи билан таъминлаш  тепкисини кескин тезликни ошириш учун босаётганда, автомабил сирпанишни бошласа ҳайдовчи қандай ҳаракат қилиши керак?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Тепкини янада  кучлироқ  босиш",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Тепкига таъсир этувчи кучни ўзгартирмаслик",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Тепкига таъсир этувчи кучни   камайтириш",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Как водитель должен воздействовать на педаль управления подачей топлива при возникновении заноса, вызванного резким ускорением движения?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Усилить нажатие на педаль",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Не менять силу нажатия на педаль",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Уменьшить нажатие на педаль",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_29_q_4",
+            "ticket_num": 29,
+            "order": 4
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "Quruq ob-havo sharoitida asfalt –beton qoplamali yo'lda  harakatlanayotgan haydovchi  yomg'ir tomchilab qolganda nima qilishi kerak?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Tezlikni kamaytirish va ehtiyot bo'lishi kerak",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Tezlikni o'zgartirmasdan  harakatlani davom ettirish",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Yomg'ir tezlashib ketmasdan tezroq harakat  qilishi",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қуруқ об-ҳаво шароитида асфалт –бетон қопламали йўлда  ҳаракатланаётган ҳайдовчи  ёмғир томчилаб қолганда нима қилиши керак?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Тезликни камайтириш ва эҳтиёт бўлиши керак",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Тезликни ўзгартирмасдан  ҳаракатлани давом эттириш",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ёмғир тезлашиб кетмасдан тезроқ ҳаракат  қилиши",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Как следует поступить водителю, если во время движения по сухой дороге с асфальтобетонным покрытием начал капать дождь?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Уменьшить скорость и быть особенно осторожным",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Не изменяя скорости, продолжить движение",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Увеличить скорость и попытаться проехать как можно большее расстояние, пока не начался сильный дождь",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_29_q_5",
+            "ticket_num": 29,
+            "order": 5
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "Avtomobilni qanday boshqarish usuli yonilg'i sarfini tejaydi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Shiddat bilan tezlanish va ohista sekinlashish bilan",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ohista tezlanish va shiddat bilan sekinlashish bilan",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ohista tezlanish va ohista sekinlashish bilan",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Автомобилни қандай бошқариш усули ёнилғи сарфини тежайди?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Шиддат билан тезланиш ва оҳиста секинлашиш билан",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Оҳиста тезланиш ва шиддат билан секинлашиш билан",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Оҳиста тезланиш ва оҳиста секинлашиш билан",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какое управление автомобилем экономит расход топлива?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "При быстром ускорении и мягком (плавном) торможении",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "При плавном ускорении и быстром торможении",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "При плавном ускорении и плавном торможении",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_29_q_6",
+            "ticket_num": 29,
+            "order": 6
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "Yo'lning qiyaliklarida qisqa muddatga to'xtagan mexanik uzatmali avtomobilni joyidan to'satdan harakatlanib ketishini oldini olish uchun:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "To'xtab turish tormozidan foydalanish lozim",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Birinchi uzatmani yoki orqa uzatmani ulash lozim",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Uzatmalar qutisi richagi ni neytral holatga o'tkazish lozim",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Йўлнинг қияликларида қисқа муддатга тўхтаган механик узатмали автомобилни жойидан тўсатдан ҳаракатланиб кетишини олдини олиш учун:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Тўхтаб туриш тормозидан фойдаланиш лозим",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Биринчи узатмани ёки орқа узатмани улаш лозим",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Узатмалар қутиси ричаги ни нейтрал ҳолатга ўтказиш лозим",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Для предупреждения скатывания автомобиля с механической трансмиссией при кратковременной остановке на подъёме следует:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Должен использоваться стояночный тормоз.",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Необходимо подключить первую передачу или заднюю передачу",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Необходимо перевести рычаг коробки передач в нейтральное положение.",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_29_q_7",
+            "ticket_num": 29,
+            "order": 7
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "G'ildiraklarni yo'l bilan ilashishi yo'qolganda (kuchli yomg'ir, sel yoki suv toshgan yo'l qismlari) haydovchi:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Tezlikni oshirish lozim",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Tormoz tepkisini keskin bosish bilan tezlikni kamaytirish lozim",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Dvigatel bilan tormozlash orqali tezlikni kamaytirishi lozim",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ғилдиракларни йўл билан илашиши йўқолганда (кучли ёмғир, сел ёки сув тошган йўл қисмлари) ҳайдовчи:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Тезликни ошириш лозим",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Тормоз тепкисини кескин босиш билан тезликни камайтириш лозим",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Двигател билан тормозлаш орқали тезликни камайтириши лозим",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "При потере сцепления колёс с дорогой (сильный дождь или затопление участка дороги) водитель:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Должен увеличить скорость.",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Он должен снизить скорость, резко нажав на педаль тормоза.",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Необходимо снизить скорость и применить торможение двигателем.",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_29_q_8",
+            "ticket_num": 29,
+            "order": 8
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "Avtomobilni qanday boshqarish usuli yonilg'i sarfini tejaydi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Shiddat bilan tezlanish va ohista sekinlashish bilan",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ohista (ravon) tezlanish va shiddat bilan sekinlashish bilan",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ohista (ravon) tezlanish va ohista sekinlashish bilan",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Автомобилни қандай бошқариш усули ёнилғи сарфини тежайди?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Шиддат билан тезланиш ва оҳиста секинлашиш билан",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Оҳиста (равон) тезланиш ва шиддат билан секинлашиш билан",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Оҳиста (равон) тезланиш ва оҳиста секинлашиш билан",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какой способ управления автомобилем экономит расход топлива?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "С быстрым ускорением и плавным торможением",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "С плавным ускорением и быстрым торможением",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "С плавным ускорением и плавным торможением",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_29_q_9",
+            "ticket_num": 29,
+            "order": 9
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "Engil avtomobil tirkamasi burilishda qanday traektoriya bo'yicha harakatlanadi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Burilish markaziga nisbatan avtomobil traektoriyasidan tashqarida",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Avtomobil burilish traektoriyasi bo'yicha",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Burilish markaziga nisbatan avtomobil traektoriyasidan ichkarida",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Енгил автомобил тиркамаси бурилишда қандай траектория бўйича ҳаракатланади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Бурилиш марказига нисбатан автомобил траекториясидан ташқарида",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Автомобил бурилиш траекторияси бўйича",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Бурилиш марказига нисбатан автомобил траекториясидан ичкарида",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какова траектория движения прицепа при повороте автомобиля к центру поворота?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Смещается в сторону от центра поворота.",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Не смещается",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Смещается к центру поворота",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_29_q_10",
+            "ticket_num": 29,
+            "order": 10
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "G'ildiraklarni yo'l bilan ilashishi yo'qolganda (kuchli yomg'ir, sel yoki suv toshgan yo'l qismlari) haydovchi:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Tezlikni oshirishi lozim",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Tormoz tepkisini keskin bosish bilan tezlikni kamaytirishi lozim",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Dvigatel bilan tormozlash orqali tezlikni kamaytirishi lozim",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ғилдиракларни йўл билан илашиши йўқолганда (кучли ёмғир, сел ёки сув тошган йўл қисмлари) ҳайдовчи:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Тезликни ошириши лозим",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Тормоз тепкисини кескин босиш билан тезликни камайтириши лозим",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Двигател билан тормозлаш орқали тезликни камайтириши лозим",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В случае потери сцепления колёс с дорогой из-за образования «водяного клина» водителю следует:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Увеличить скорость",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Он должен снизить скорость, резко нажав на педаль тормоза",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Он должен снизить скорость, затормозив двигателем",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_29_q_11",
+            "ticket_num": 29,
+            "order": 11
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "Tormoz yo'li deb nimaga aytiladi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Haydovchi biron bir xavfni aniqlab, avtomobilni to'liq to'xtaguncha bosib o'tgan masofasi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Haydovchi tormoz tepkisini bosgandan to avtomobil to'liq to'xtaguncha bosib o'tilgan masofa",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Тормоз йўли деб нимага айтилади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ҳайдовчи бирон бир хавфни аниқлаб, автомобилни тўлиқ тўхтагунча босиб ўтган масофаси",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ҳайдовчи тормоз тепкисини босгандан то автомобил тўлиқ тўхтагунча босиб ўтилган масофа",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Что называют тормозным путем?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Расстояние, пройденное транспортным средством до полной остановки автомобиля после обнаружения опасности.",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Расстояние, пройденное транспортным средством с момента нажатия на педаль тормоза до полной остановки",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_29_q_12",
+            "ticket_num": 29,
+            "order": 12
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "Tezlik ortishi bilan haydovchining ko'rish maydoni qanday o'zgaradi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Kengayadi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "O'zgarmaydi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Torayadi",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Тезлик ортиши билан ҳайдовчининг кўриш майдони қандай ўзгаради?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Кенгаяди",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ўзгармайди",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Тораяди",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Как изменяется поле зрение водителя с увелечением скорости движения?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Расширяется",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Не изменяется",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Сужается",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_29_q_13",
+            "ticket_num": 29,
+            "order": 13
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "Haydovchining o'rtacha reaksiya vaqti deb qabul qilingan",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Tahminan 0,2 soniya",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Tahminan 1 soniya",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Tahminan 5 soniya",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ҳайдовчининг ўртача реаксия вақти деб қабул қилинган",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Таҳминан 0,2 сония",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Таҳминан 1 сония",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Таҳминан 5 сония",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Среднее время реакции водителя составляет:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Около 0,2 секунды.",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Около 1 секунды",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Около 5 секунд",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_29_q_14",
+            "ticket_num": 29,
+            "order": 14
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "Yo'lning xavfli burilishlarida oldingi uzatmali avtomobilning orqa o'qi yon tomonga sirpanganda siz qanday harakat qilasiz?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Gaz berishni kamaytirib rul chambaragi bilan boshqaruvni barqarorlashtirasiz",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Tormozlab turib rul chambaragini sirpangan tomonga burasiz",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Gaz pedalini ohista bosib, avtomobilni rul chambaragini to'g'rilab, avtomobilni sirpanishdan olib chiqib ketasiz",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Gaz pedalini ko'proq bosib rul chambaragini o'zgartirmasdan sirpanishdan olib chiqasiz",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Йўлнинг хавфли бурилишларида олдинги узатмали автомобилнинг орқа ўқи ён томонга сирпанганда сиз қандай ҳаракат қиласиз?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Газ беришни камайтириб рул чамбараги билан бошқарувни барқарорлаштирасиз",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Тормозлаб туриб рул чамбарагини сирпанган томонга бурасиз",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Газ педалини оҳиста босиб, автомобилни рул чамбарагини тўғрилаб, автомобилни сирпанишдан олиб чиқиб кетасиз",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Газ педалини кўпроқ босиб рул чамбарагини ўзгартирмасдан сирпанишдан олиб чиқасиз",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "На повороте возник занос оси переднеприводного автомобиля Ваши действия?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Уменьшаете подачу топлива, рулевым колесом стабилизируете движение.",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Притормаживаете и руль поворачиваете в сторону заноса.",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Слегка увеличиваете подачу топлива, корректируя направление движения рулевым колесом.",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Значительно увеличиваете подачу топлива не меняя положения рулевого колеса",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_29_q_15",
+            "ticket_num": 29,
+            "order": 15
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "Agar avtomobilning o'ng g'ildiraklari nam qoplamali yo'l yoqasiga chiqib qolsa, tavsiya etiladi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Avtomobilni tormozlash va to'liq to'xtatish",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Avtomobilni tormozlab, yo'lning qatnov qismiga ohista ravon burish.",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Avtomobilni tormozlamasdan yo'lning qatnov qismiga ohista ravon burish",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Агар автомобилнинг ўнг ғилдираклари нам қопламали йўл ёқасига чиқиб қолса, тавсия этилади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Автомобилни тормозлаш ва тўлиқ тўхтатиш",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Автомобилни тормозлаб, йўлнинг қатнов қисмига оҳиста равон буриш.",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Автомобилни тормозламасдан йўлнинг қатнов қисмига оҳиста равон буриш",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В случае, когда правые колёса автомобиля наезжают на неукреплённую влажную обочину, рекомендуется?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Торможение и полная остановка транспортного средства",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Затормозить автомобиль и плавно вывернуть на проезжую часть дороги",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Плавно направить автомобиль без торможения на проезжую часть дороги",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_29_q_16",
+            "ticket_num": 29,
+            "order": 16
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "Tik nishabliklarda dvigatel bilan tormozlashda qiyalikka nisbatan qanday uzatma tanlanadi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Nishablik qancha qiyin bo'lsa uzatma pag'onasi shuncha yuqori bo'ladi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Nishablik qancha qiyin bo'lsa uzatma pag'onasi shuncha past tanlanadi",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Pog'onalarni tanlashning nishablikka aloqasi yo'q",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Тик нишабликларда двигател билан тормозлашда қияликка нисбатан қандай узатма танланади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Нишаблик қанча қийин бўлса узатма пағонаси шунча юқори бўлади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Нишаблик қанча қийин бўлса узатма пағонаси шунча паст танланади",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Поғоналарни танлашнинг нишабликка алоқаси йўқ",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "При торможении двигателем иа крутых спусках какая передача выбирается в зависимости от уклона?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Чем круче уклон, тем выше выбирается передача",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Чем круче уклон, тем ниже выбирается передача",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Выбор передачи не зависит от крутизны спуска",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_29_q_17",
+            "ticket_num": 29,
+            "order": 17
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "Agar avtomobilning o'ng g'ildiraklari nam qoplamali yo'l yoqasiga chiqib qolsa, tavsiya etiladi:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Avtomobilni tormozlash va to'liq to'xtatish",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Avtomobilni tormozlab, yo'lning harakat qismiga ohista ravon burilish",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Avtomobilni tormozlamasdan yo'lning harakat qismiga ohista ravon burish",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Агар автомобилнинг ўнг ғилдираклари нам қопламали йўл ёқасига чиқиб қолса, тавсия этилади:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Автомобилни тормозлаш ва тўлиқ тўхтатиш",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Автомобилни тормозлаб, йўлнинг ҳаракат қисмига оҳиста равон бурилиш",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Автомобилни тормозламасдан йўлнинг ҳаракат қисмига оҳиста равон буриш",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В случае, когда правые колёса автомобиля наезжают на мокрую, влажную обочину, рекомендуется:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Торможение и полная остановка транспортного средства",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Торможение автомобиля и плавный поворот на проезжую часть дороги.",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Мягко и плавно поворачивайте автомобиль на проезжую часть дороги без торможения",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_29_q_18",
+            "ticket_num": 29,
+            "order": 18
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "Agar avtomobilning o'ng g'ildiraklari nam qoplamali yo'l yoqasiga chiqib qolsa, tavsiya etiladi:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Avtomobilni tormozlash va to'liq to'xtatish",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Avtomobilni tormozlab, yo'lning harakat qismiga ohista ravon burish",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Avtomobilni tormozlamasdan yo'lning harakat qismiga oxista ravon burish",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Агар автомобилнинг ўнг ғилдираклари нам қопламали йўл ёқасига чиқиб қолса, тавсия этилади:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Автомобилни тормозлаш ва тўлиқ тўхтатиш",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Автомобилни тормозлаб, йўлнинг ҳаракат қисмига оҳиста равон буриш",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Автомобилни тормозламасдан йўлнинг ҳаракат қисмига охиста равон буриш",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В случае, когда правые колёса автомобиля наезжают на неукреплённую влажную обочину, рекомендуется:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Затормозить и полностью остановиться",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Затормозить и плавно направить автомобиль на проезжую часть",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Не прибегая к торможению, плавно направить автомобиль на проезжую часть",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_29_q_19",
+            "ticket_num": 29,
+            "order": 19
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "Yo'lning xavfli burilishlarida oldingi uzatmali avtomobilning orqa o'qi yon tomonga sirpanganda siz qanday harakat qilasiz?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Gaz berishni kamaytirib rul chambaragi bilan boshqaruvni barqarorlashtirasiz",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Tormozlab turib rul chambaragini sirpangan tomonga burasiz",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Gaz pedalini ohista bosib avtomobilni rul chambaragini to'g'rilab avtomobilni sirpanishdan olib chiqib ketasiz",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Gaz pedalini ko'proq bosib rul chambaragini o'zgartirmasdan sirpanishdan olib chiqasiz",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Йўлнинг хавфли бурилишларида олдинги узатмали автомобилнинг орқа ўқи ён томонга сирпанганда сиз қандай ҳаракат қиласиз?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Газ беришни камайтириб рул чамбараги билан бошқарувни барқарорлаштирасиз",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Тормозлаб туриб рул чамбарагини сирпанган томонга бурасиз",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Газ педалини оҳиста босиб автомобилни рул чамбарагини тўғрилаб автомобилни сирпанишдан олиб чиқиб кетасиз",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Газ педалини кўпроқ босиб рул чамбарагини ўзгартирмасдан сирпанишдан олиб чиқасиз",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "На повороте возник занос оси переднеприводного автомобиля Ваши действия?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Уменьшаете подачу топлива, рулевым колесом стабилизируете движение.",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Притормаживаете и руль поворачиваете в сторону заноса",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Слегка увеличиваете подачу топлива, корректируя направление движения рулевым колесом.",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Значительно увеличиваете подачу топлива не меняя положения рулевого колеса",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_29_q_20",
+            "ticket_num": 29,
+            "order": 20
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "Avtomobilning antiblokirovka tizimi (ABS) burilishda sirpanishva yonga siljishni oldini oladimi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Avtomobilni faqat sirpanish ehtimolining oldini oladi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Avtomobilni faqat yonga siljish ehtimolining oldini oladi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Avtomobilning sirpanish va yonga tomonga sirpanishini oldini olmaydi",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Автомобилнинг антиблокировка тизими (АБС) бурилишда сирпанишва ёнга силжишни олдини оладими?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Автомобилни фақат сирпаниш эҳтимолининг олдини олади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Aвтомобилни фақат ёнга силжиш еҳтимолининг олдини олади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Автомобилнинг сирпаниш ва ёнга томонга сирпанишини олдини олмайди",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "АБС автомобиля предотвращает ли его скольжение и боковой занос при повороте ?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только предотвращает занос автомобиля.",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только предотвращает возможность скольжения автомобиля в сторону.",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Не исключает боковое скольжение и скольжение автомобиля в сторону",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_29_q_21",
+            "ticket_num": 29,
+            "order": 21
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "Engil avtomobil burilishda ag'darilib ketishga qarshi turg'unroq:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Yo'lovchisiz va yuksiz",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Yo'lovchisiz, biroq yuqori yukxonasidagi yuki bilan",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Yo'lovchilari bilan yuksiz",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Yo'lovchi va yuki bilan",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Енгил автомобил бурилишда ағдарилиб кетишга қарши турғунроқ:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Йўловчисиз ва юксиз",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Йўловчисиз, бироқ юқори юкхонасидаги юки билан",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Йўловчилари билан юксиз",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Йўловчи ва юки билан",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Более устойчив против опрокидывания на повороте легковой автомобиль:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Без пассажиров и груза",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Без пассажиров, но с грузом на верхнем багажнике",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "С пассажирами, но без груза",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "С пассажирами и грузом",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_29_q_22",
+            "ticket_num": 29,
+            "order": 22
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "108 km/s tezlikda harakatlanayotgan transport vositasi 1 sekundda qancha masofani bosib o'tadi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "15 m",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "25 m",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "30 m",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "108 км/с тезликда ҳаракатланаётган транспорт воситаси 1 секундда қанча масофани босиб ўтади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "15 м",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "25 м",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "30 м",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какой путь проезжает автомобиль, движущийся со скоростью 108 км/ч, за 1 секунду?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "15 м",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "25 м",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "30 м",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_29_q_23",
+            "ticket_num": 29,
+            "order": 23
+        },
+        "media_url": "u263uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Balandlikda yo'l chetida to'siq mavjud bo'lganda to'xtagan avtomobilni joyidan g'ildirab ketishini oldini olish uchun oldingi g'ildiraklarni burib qo'yish usuli qaysi javobda to'g'ri ko'rsatilgan:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "A va D",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "B va C",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "A va C",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "B va D",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Баландликда йўл четида тўсиқ мавжуд бўлганда тўхтаган автомобилни жойидан ғилдираб кетишини олдини олиш учун олдинги ғилдиракларни буриб қўйиш усули қайси жавобда тўғри кўрсатилган:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "А ва D",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "B ва C",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "А ва C",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "B ва D",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В случае остановки на подъеме при наличии тротуара можно предотвратить самопроизвольное скатывание автомобиля, повернув его передние колеса в положение",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "A и D",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "B и C",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "A и C",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "B и D",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_29_q_24",
+            "ticket_num": 29,
+            "order": 24
+        },
+        "media_url": "u534uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "O'ng tomondagi yondosh hududdan foydalanib qayrilib olishning ko'rsatilgan qaysi usuli harakat xavfsizligini taminlaydi",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat chap tomondagi rasmda",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat o'ng tomondagi rasmda",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ikkisida ham",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ўнг томондаги ёндош ҳудуддан фойдаланиб қайрилиб олишнинг кўрсатилган қайси усули ҳаракат хавфсизлигини таъминлайди",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат чап томондаги расмда",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат ўнг томондаги расмда",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Иккисида ҳам",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Способ разворота с использованием прилегающей территории справа, обеспечивающий безопасность движения, показан",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только на левом рисунке",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только на правом рисунке",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "На обоих рисунках",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_29_q_25",
+            "ticket_num": 29,
+            "order": 25
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "Siz to'g'ri yo'lda harakatlanayotib to'satdan yo'lning qisman katta bo'lmagan sirpanchiq qismiga duch keldingiz. Bunda qanday ehtiyot choralarini ko'rasiz?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Avtomobilni ohista to'xtatish",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Rulni  burib sirpanchiqdan chiqib ketish ",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Harakat yo'nalishini va tezlikni o'zgartirmasdan ehtiyotkorlik bilan o'tib ketish  ",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Сиз тўғри йўлда ҳаракатланаётиб тўсатдан йўлнинг қисман катта бўлмаган сирпанчиқ қисмига дуч келдингиз. Бунда қандай эҳтиёт чораларини кўрасиз?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Автомобилни оҳиста тўхтатиш",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Рулни  буриб сирпанчиқдан чиқиб кетиш ",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ҳаракат йўналишини ва тезликни ўзгартирмасдан эҳтиёткорлик билан ўтиб кетиш  ",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Двигаясь в прямом направлении, Вы внезапно попали на небольшой участок скользкой дороги. Что следует предпринять?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Плавно затормозить",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Повернуть руль, чтобы съехать с этого участка дороги",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Проехать не меняя траектории и скорости движения",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_29_q_26",
+            "ticket_num": 29,
+            "order": 26
+        },
+        "media_url": null,
+        "content": {
+            "uz_lat": {
+                "text": "Engil avtomobilning tormoz yo'li tormoz tizimiga ega bo'lmagan tirkama bilan harakatlanayotganda qanday o'zgaradi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Kamayadi, chunki tirkama harakatlanishga qo'shimcha qarshilik ko'rsatadi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "O'zgarmaydi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ortadi",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Енгил автомобилнинг тормоз йўли тормоз тизимига эга бўлмаган тиркама билан ҳаракатланаётганда қандай ўзгаради?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Камаяди, чунки тиркама ҳаракатланишга қўшимча қаршилик кўрсатади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ўзгармайди",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ортади",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Как изменяется длина тормозного пути легкового автомобиля при движении с прицепом, не имеющим тормозной системы?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Уменьшается, так как прицеп оказывает дополнительное сопротивление движению",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Не изменяется",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Увеличивается",
+                        "is_correct": true
+                    }
+                ]
+            }
         }
     }
-},
-{
-    "id": 790,
-    "bilet_id": 40,
-    "question_id": 3,
-    "name": null,
-    "question": {
-        "oz": "Yo'lning qanday  qismida  harakatlanganda kuchli  yonlama  shamol xavfi  ortadi?",
-        "uz": "\u0419\u045e\u043b\u043d\u0438\u043d\u0433 \u049b\u0430\u043d\u0434\u0430\u0439  \u049b\u0438\u0441\u043c\u0438\u0434\u0430  \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0433\u0430\u043d\u0434\u0430 \u043a\u0443\u0447\u043b\u0438  \u0451\u043d\u043b\u0430\u043c\u0430  \u0448\u0430\u043c\u043e\u043b \u0445\u0430\u0432\u0444\u0438  \u043e\u0440\u0442\u0430\u0434\u0438?",
-        "ru": "\u041f\u0440\u0438 \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u0438 \u043f\u043e \u043a\u0430\u043a\u043e\u043c\u0443 \u0443\u0447\u0430\u0441\u0442\u043a\u0443 \u0434\u043e\u0440\u043e\u0433\u0438 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0435 \u0441\u0438\u043b\u044c\u043d\u043e\u0433\u043e \u0431\u043e\u043a\u043e\u0432\u043e\u0433\u043e \u0432\u0435\u0442\u0440\u0430 \u043d\u0430\u0438\u0431\u043e\u043b\u0435\u0435 \u043e\u043f\u0430\u0441\u043d\u043e?"
-    },
-    "photo": null,
-    "answers": {
-        "status": 3,
-        "answer_id": 3,
-        "answer": {
-            "oz": [
-                "Ochiq  joyda harakatlanganda",
-                "Yo'lning yopiq qismida harakatlanganda",
-                "Yo'lning yopiq qismidan ochik qismiga chiqishda"
-            ],
-            "uz": [
-                "\u041e\u0447\u0438\u049b  \u0436\u043e\u0439\u0434\u0430 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0433\u0430\u043d\u0434\u0430",
-                "\u0419\u045e\u043b\u043d\u0438\u043d\u0433 \u0451\u043f\u0438\u049b \u049b\u0438\u0441\u043c\u0438\u0434\u0430 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0433\u0430\u043d\u0434\u0430",
-                "\u0419\u045e\u043b\u043d\u0438\u043d\u0433 \u0451\u043f\u0438\u049b \u049b\u0438\u0441\u043c\u0438\u0434\u0430\u043d \u043e\u0447\u0438\u043a \u049b\u0438\u0441\u043c\u0438\u0433\u0430 \u0447\u0438\u049b\u0438\u0448\u0434\u0430"
-            ],
-            "ru": [
-                "\u041f\u043e \u043e\u0442\u043a\u0440\u044b\u0442\u043e\u043c\u0443",
-                "\u041f\u043e \u0437\u0430\u043a\u0440\u044b\u0442\u043e\u043c\u0443 \u0434\u0435\u0440\u0435\u0432\u044c\u044f\u043c\u0438",
-                "\u041f\u0440\u0438 \u0432\u044b\u0435\u0437\u0434\u0435 \u0441 \u0437\u0430\u043a\u0440\u044b\u0442\u043e\u0433\u043e \u0443\u0447\u0430\u0441\u0442\u043a\u0430 \u043d\u0430 \u043e\u0442\u043a\u0440\u044b\u0442\u044b\u0439"
-            ]
-        }
-    }
-},
-{
-    "id": 800,
-    "bilet_id": 40,
-    "question_id": 13,
-    "name": null,
-    "question": {
-        "oz": "Yoqilg'i bilan taminlash  tepkisini keskin tezlikni oshirish uchun bosayotganda, avtomabil sirpanishni boshlasa haydovchi qanday harakat qilishi kerak?",
-        "uz": "\u0401\u049b\u0438\u043b\u0493\u0438 \u0431\u0438\u043b\u0430\u043d \u0442\u0430\u044a\u043c\u0438\u043d\u043b\u0430\u0448  \u0442\u0435\u043f\u043a\u0438\u0441\u0438\u043d\u0438 \u043a\u0435\u0441\u043a\u0438\u043d \u0442\u0435\u0437\u043b\u0438\u043a\u043d\u0438 \u043e\u0448\u0438\u0440\u0438\u0448 \u0443\u0447\u0443\u043d \u0431\u043e\u0441\u0430\u0451\u0442\u0433\u0430\u043d\u0434\u0430, \u0430\u0432\u0442\u043e\u043c\u0430\u0431\u0438\u043b \u0441\u0438\u0440\u043f\u0430\u043d\u0438\u0448\u043d\u0438 \u0431\u043e\u0448\u043b\u0430\u0441\u0430 \u04b3\u0430\u0439\u0434\u043e\u0432\u0447\u0438 \u049b\u0430\u043d\u0434\u0430\u0439 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442 \u049b\u0438\u043b\u0438\u0448\u0438 \u043a\u0435\u0440\u0430\u043a?",
-        "ru": "\u041a\u0430\u043a \u0432\u043e\u0434\u0438\u0442\u0435\u043b\u044c \u0434\u043e\u043b\u0436\u0435\u043d \u0432\u043e\u0437\u0434\u0435\u0439\u0441\u0442\u0432\u043e\u0432\u0430\u0442\u044c \u043d\u0430 \u043f\u0435\u0434\u0430\u043b\u044c \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f \u043f\u043e\u0434\u0430\u0447\u0435\u0439 \u0442\u043e\u043f\u043b\u0438\u0432\u0430 \u043f\u0440\u0438 \u0432\u043e\u0437\u043d\u0438\u043a\u043d\u043e\u0432\u0435\u043d\u0438\u0438 \u0437\u0430\u043d\u043e\u0441\u0430, \u0432\u044b\u0437\u0432\u0430\u043d\u043d\u043e\u0433\u043e \u0440\u0435\u0437\u043a\u0438\u043c \u0443\u0441\u043a\u043e\u0440\u0435\u043d\u0438\u0435\u043c \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u044f?"
-    },
-    "photo": null,
-    "answers": {
-        "status": 3,
-        "answer_id": 13,
-        "answer": {
-            "oz": [
-                "Tepkini yanada  kuchliroq  bosish",
-                "Tepkiga tasir etuvchi kuchni o'zgartirmaslik",
-                "Tepkiga tasir etuvchi kuchni   kamaytirish"
-            ],
-            "uz": [
-                "\u0422\u0435\u043f\u043a\u0438\u043d\u0438 \u044f\u043d\u0430\u0434\u0430  \u043a\u0443\u0447\u043b\u0438\u0440\u043e\u049b  \u0431\u043e\u0441\u0438\u0448",
-                "\u0422\u0435\u043f\u043a\u0438\u0433\u0430 \u0442\u0430\u044a\u0441\u0438\u0440 \u044d\u0442\u0443\u0432\u0447\u0438 \u043a\u0443\u0447\u043d\u0438 \u045e\u0437\u0433\u0430\u0440\u0442\u0438\u0440\u043c\u0430\u0441\u043b\u0438\u043a",
-                "\u0422\u0435\u043f\u043a\u0438\u0433\u0430 \u0442\u0430\u044a\u0441\u0438\u0440 \u044d\u0442\u0443\u0432\u0447\u0438 \u043a\u0443\u0447\u043d\u0438   \u043a\u0430\u043c\u0430\u0439\u0442\u0438\u0440\u0438\u0448"
-            ],
-            "ru": [
-                "\u0423\u0441\u0438\u043b\u0438\u0442\u044c \u043d\u0430\u0436\u0430\u0442\u0438\u0435 \u043d\u0430 \u043f\u0435\u0434\u0430\u043b\u044c",
-                "\u041d\u0435 \u043c\u0435\u043d\u044f\u0442\u044c \u0441\u0438\u043b\u0443 \u043d\u0430\u0436\u0430\u0442\u0438\u044f \u043d\u0430 \u043f\u0435\u0434\u0430\u043b\u044c",
-                "\u0423\u043c\u0435\u043d\u044c\u0448\u0438\u0442\u044c \u043d\u0430\u0436\u0430\u0442\u0438\u0435 \u043d\u0430 \u043f\u0435\u0434\u0430\u043b\u044c"
-            ]
-        }
-    }
-},
-{
-    "id": 801,
-    "bilet_id": 40,
-    "question_id": 14,
-    "name": null,
-    "question": {
-        "oz": "Quruq ob-havo sharoitida asfalt \u2013beton qoplamali yo'lda  harakatlanayotgan haydovchi  yomg'ir tomchilab qolganda nima qilishi kerak?",
-        "uz": "\u049a\u0443\u0440\u0443\u049b \u043e\u0431-\u04b3\u0430\u0432\u043e \u0448\u0430\u0440\u043e\u0438\u0442\u0438\u0434\u0430 \u0430\u0441\u0444\u0430\u043b\u0442 \u2013\u0431\u0435\u0442\u043e\u043d \u049b\u043e\u043f\u043b\u0430\u043c\u0430\u043b\u0438 \u0439\u045e\u043b\u0434\u0430  \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0430\u0451\u0442\u0433\u0430\u043d \u04b3\u0430\u0439\u0434\u043e\u0432\u0447\u0438  \u0451\u043c\u0493\u0438\u0440 \u0442\u043e\u043c\u0447\u0438\u043b\u0430\u0431 \u049b\u043e\u043b\u0433\u0430\u043d\u0434\u0430 \u043d\u0438\u043c\u0430 \u049b\u0438\u043b\u0438\u0448\u0438 \u043a\u0435\u0440\u0430\u043a?",
-        "ru": "\u041a\u0430\u043a \u0441\u043b\u0435\u0434\u0443\u0435\u0442 \u043f\u043e\u0441\u0442\u0443\u043f\u0438\u0442\u044c \u0432\u043e\u0434\u0438\u0442\u0435\u043b\u044e, \u0435\u0441\u043b\u0438 \u0432\u043e \u0432\u0440\u0435\u043c\u044f \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u044f \u043f\u043e \u0441\u0443\u0445\u043e\u0439 \u0434\u043e\u0440\u043e\u0433\u0435 \u0441 \u0430\u0441\u0444\u0430\u043b\u044c\u0442\u043e\u0431\u0435\u0442\u043e\u043d\u043d\u044b\u043c \u043f\u043e\u043a\u0440\u044b\u0442\u0438\u0435\u043c \u043d\u0430\u0447\u0430\u043b \u043a\u0430\u043f\u0430\u0442\u044c \u0434\u043e\u0436\u0434\u044c?"
-    },
-    "photo": null,
-    "answers": {
-        "status": 1,
-        "answer_id": 14,
-        "answer": {
-            "oz": [
-                "Tezlikni kamaytirish va ehtiyot bo'lishi kerak",
-                "Tezlikni o'zgartirmasdan  harakatlani davom ettirish",
-                "Yomg'ir tezlashib ketmasdan tezroq harakat  qilishi"
-            ],
-            "uz": [
-                "\u0422\u0435\u0437\u043b\u0438\u043a\u043d\u0438 \u043a\u0430\u043c\u0430\u0439\u0442\u0438\u0440\u0438\u0448 \u0432\u0430 \u044d\u04b3\u0442\u0438\u0451\u0442 \u0431\u045e\u043b\u0438\u0448\u0438 \u043a\u0435\u0440\u0430\u043a",
-                "\u0422\u0435\u0437\u043b\u0438\u043a\u043d\u0438 \u045e\u0437\u0433\u0430\u0440\u0442\u0438\u0440\u043c\u0430\u0441\u0434\u0430\u043d  \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0438 \u0434\u0430\u0432\u043e\u043c \u044d\u0442\u0442\u0438\u0440\u0438\u0448",
-                "\u0401\u043c\u0493\u0438\u0440 \u0442\u0435\u0437\u043b\u0430\u0448\u0438\u0431 \u043a\u0435\u0442\u043c\u0430\u0441\u0434\u0430\u043d \u0442\u0435\u0437\u0440\u043e\u049b \u04b3\u0430\u0440\u0430\u043a\u0430\u0442  \u049b\u0438\u043b\u0438\u0448\u0438"
-            ],
-            "ru": [
-                "\u0423\u043c\u0435\u043d\u044c\u0448\u0438\u0442\u044c \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u0438 \u0431\u044b\u0442\u044c \u043e\u0441\u043e\u0431\u0435\u043d\u043d\u043e \u043e\u0441\u0442\u043e\u0440\u043e\u0436\u043d\u044b\u043c",
-                "\u041d\u0435 \u0438\u0437\u043c\u0435\u043d\u044f\u044f \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u0438, \u043f\u0440\u043e\u0434\u043e\u043b\u0436\u0438\u0442\u044c \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u0435",
-                "\u0423\u0432\u0435\u043b\u0438\u0447\u0438\u0442\u044c \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u0438 \u043f\u043e\u043f\u044b\u0442\u0430\u0442\u044c\u0441\u044f \u043f\u0440\u043e\u0435\u0445\u0430\u0442\u044c \u043a\u0430\u043a \u043c\u043e\u0436\u043d\u043e \u0431\u043e\u043b\u044c\u0448\u0435\u0435 \u0440\u0430\u0441\u0441\u0442\u043e\u044f\u043d\u0438\u0435, \u043f\u043e\u043a\u0430 \u043d\u0435 \u043d\u0430\u0447\u0430\u043b\u0441\u044f \u0441\u0438\u043b\u044c\u043d\u044b\u0439 \u0434\u043e\u0436\u0434\u044c"
-            ]
-        }
-    }
-},
-{
-    "id": 811,
-    "bilet_id": 41,
-    "question_id": 4,
-    "name": null,
-    "question": {
-        "oz": "Avtomobilni qanday boshqarish usuli yonilg'i sarfini tejaydi?",
-        "uz": "\u0410\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438 \u049b\u0430\u043d\u0434\u0430\u0439 \u0431\u043e\u0448\u049b\u0430\u0440\u0438\u0448 \u0443\u0441\u0443\u043b\u0438 \u0451\u043d\u0438\u043b\u0493\u0438 \u0441\u0430\u0440\u0444\u0438\u043d\u0438 \u0442\u0435\u0436\u0430\u0439\u0434\u0438?",
-        "ru": "\u041a\u0430\u043a\u043e\u0435 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u0435\u043c \u044d\u043a\u043e\u043d\u043e\u043c\u0438\u0442 \u0440\u0430\u0441\u0445\u043e\u0434 \u0442\u043e\u043f\u043b\u0438\u0432\u0430?"
-    },
-    "photo": null,
-    "answers": {
-        "status": 3,
-        "answer_id": 4,
-        "answer": {
-            "oz": [
-                "Shiddat bilan tezlanish va ohista sekinlashish bilan",
-                "Ohista tezlanish va shiddat bilan sekinlashish bilan",
-                "Ohista tezlanish va ohista sekinlashish bilan"
-            ],
-            "uz": [
-                "\u0428\u0438\u0434\u0434\u0430\u0442 \u0431\u0438\u043b\u0430\u043d \u0442\u0435\u0437\u043b\u0430\u043d\u0438\u0448 \u0432\u0430 \u043e\u04b3\u0438\u0441\u0442\u0430 \u0441\u0435\u043a\u0438\u043d\u043b\u0430\u0448\u0438\u0448 \u0431\u0438\u043b\u0430\u043d",
-                "\u041e\u04b3\u0438\u0441\u0442\u0430 \u0442\u0435\u0437\u043b\u0430\u043d\u0438\u0448 \u0432\u0430 \u0448\u0438\u0434\u0434\u0430\u0442 \u0431\u0438\u043b\u0430\u043d \u0441\u0435\u043a\u0438\u043d\u043b\u0430\u0448\u0438\u0448 \u0431\u0438\u043b\u0430\u043d",
-                "\u041e\u04b3\u0438\u0441\u0442\u0430 \u0442\u0435\u0437\u043b\u0430\u043d\u0438\u0448 \u0432\u0430 \u043e\u04b3\u0438\u0441\u0442\u0430 \u0441\u0435\u043a\u0438\u043d\u043b\u0430\u0448\u0438\u0448 \u0431\u0438\u043b\u0430\u043d"
-            ],
-            "ru": [
-                "\u041f\u0440\u0438 \u0431\u044b\u0441\u0442\u0440\u043e\u043c \u0443\u0441\u043a\u043e\u0440\u0435\u043d\u0438\u0438 \u0438 \u043c\u044f\u0433\u043a\u043e\u043c (\u043f\u043b\u0430\u0432\u043d\u043e\u043c) \u0442\u043e\u0440\u043c\u043e\u0436\u0435\u043d\u0438\u0438",
-                "\u041f\u0440\u0438 \u043f\u043b\u0430\u0432\u043d\u043e\u043c \u0443\u0441\u043a\u043e\u0440\u0435\u043d\u0438\u0438 \u0438 \u0431\u044b\u0441\u0442\u0440\u043e\u043c \u0442\u043e\u0440\u043c\u043e\u0436\u0435\u043d\u0438\u0438",
-                "\u041f\u0440\u0438 \u043f\u043b\u0430\u0432\u043d\u043e\u043c \u0443\u0441\u043a\u043e\u0440\u0435\u043d\u0438\u0438 \u0438 \u043f\u043b\u0430\u0432\u043d\u043e\u043c \u0442\u043e\u0440\u043c\u043e\u0436\u0435\u043d\u0438\u0438"
-            ]
-        }
-    }
-},
-{
-    "id": 822,
-    "bilet_id": 41,
-    "question_id": 15,
-    "name": null,
-    "question": {
-        "oz": "Yo'lning qiyaliklarida qisqa muddatga to'xtagan mexanik uzatmali avtomobilni joyidan to'satdan harakatlanib ketishini oldini olish uchun:",
-        "uz": "\u0419\u045e\u043b\u043d\u0438\u043d\u0433 \u049b\u0438\u044f\u043b\u0438\u043a\u043b\u0430\u0440\u0438\u0434\u0430 \u049b\u0438\u0441\u049b\u0430 \u043c\u0443\u0434\u0434\u0430\u0442\u0433\u0430 \u0442\u045e\u0445\u0442\u0430\u0433\u0430\u043d \u043c\u0435\u0445\u0430\u043d\u0438\u043a \u0443\u0437\u0430\u0442\u043c\u0430\u043b\u0438 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438 \u0436\u043e\u0439\u0438\u0434\u0430\u043d \u0442\u045e\u0441\u0430\u0442\u0434\u0430\u043d \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0438\u0431 \u043a\u0435\u0442\u0438\u0448\u0438\u043d\u0438 \u043e\u043b\u0434\u0438\u043d\u0438 \u043e\u043b\u0438\u0448 \u0443\u0447\u0443\u043d:",
-        "ru": "\u0414\u043b\u044f \u043f\u0440\u0435\u0434\u0443\u043f\u0440\u0435\u0436\u0434\u0435\u043d\u0438\u044f \u0441\u043a\u0430\u0442\u044b\u0432\u0430\u043d\u0438\u044f \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f \u0441 \u043c\u0435\u0445\u0430\u043d\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u0442\u0440\u0430\u043d\u0441\u043c\u0438\u0441\u0441\u0438\u0435\u0439 \u043f\u0440\u0438 \u043a\u0440\u0430\u0442\u043a\u043e\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u043e\u0439 \u043e\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0435 \u043d\u0430 \u043f\u043e\u0434\u044a\u0451\u043c\u0435 \u0441\u043b\u0435\u0434\u0443\u0435\u0442:"
-    },
-    "photo": null,
-    "answers": {
-        "status": 1,
-        "answer_id": 15,
-        "answer": {
-            "oz": [
-                "To'xtab turish tormozidan foydalanish lozim",
-                "Birinchi uzatmani yoki orqa uzatmani ulash lozim",
-                "Uzatmalar qutisi richagi ni neytral holatga o'tkazish lozim"
-            ],
-            "uz": [
-                "\u0422\u045e\u0445\u0442\u0430\u0431 \u0442\u0443\u0440\u0438\u0448 \u0442\u043e\u0440\u043c\u043e\u0437\u0438\u0434\u0430\u043d \u0444\u043e\u0439\u0434\u0430\u043b\u0430\u043d\u0438\u0448 \u043b\u043e\u0437\u0438\u043c",
-                "\u0411\u0438\u0440\u0438\u043d\u0447\u0438 \u0443\u0437\u0430\u0442\u043c\u0430\u043d\u0438 \u0451\u043a\u0438 \u043e\u0440\u049b\u0430 \u0443\u0437\u0430\u0442\u043c\u0430\u043d\u0438 \u0443\u043b\u0430\u0448 \u043b\u043e\u0437\u0438\u043c",
-                "\u0423\u0437\u0430\u0442\u043c\u0430\u043b\u0430\u0440 \u049b\u0443\u0442\u0438\u0441\u0438 \u0440\u0438\u0447\u0430\u0433\u0438 \u043d\u0438 \u043d\u0435\u0439\u0442\u0440\u0430\u043b \u04b3\u043e\u043b\u0430\u0442\u0433\u0430 \u045e\u0442\u043a\u0430\u0437\u0438\u0448 \u043b\u043e\u0437\u0438\u043c"
-            ],
-            "ru": [
-                "\u0414\u043e\u043b\u0436\u0435\u043d \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u044c\u0441\u044f \u0441\u0442\u043e\u044f\u043d\u043e\u0447\u043d\u044b\u0439 \u0442\u043e\u0440\u043c\u043e\u0437.",
-                "\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u043f\u043e\u0434\u043a\u043b\u044e\u0447\u0438\u0442\u044c \u043f\u0435\u0440\u0432\u0443\u044e \u043f\u0435\u0440\u0435\u0434\u0430\u0447\u0443 \u0438\u043b\u0438 \u0437\u0430\u0434\u043d\u044e\u044e \u043f\u0435\u0440\u0435\u0434\u0430\u0447\u0443",
-                "\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u043f\u0435\u0440\u0435\u0432\u0435\u0441\u0442\u0438 \u0440\u044b\u0447\u0430\u0433 \u043a\u043e\u0440\u043e\u0431\u043a\u0438 \u043f\u0435\u0440\u0435\u0434\u0430\u0447 \u0432 \u043d\u0435\u0439\u0442\u0440\u0430\u043b\u044c\u043d\u043e\u0435 \u043f\u043e\u043b\u043e\u0436\u0435\u043d\u0438\u0435."
-            ]
-        }
-    }
-},
-{
-    "id": 825,
-    "bilet_id": 41,
-    "question_id": 18,
-    "name": null,
-    "question": {
-        "oz": "G'ildiraklarni yo'l bilan ilashishi yo'qolganda (kuchli yomg'ir, sel yoki suv toshgan yo'l qismlari) haydovchi:",
-        "uz": "\u0492\u0438\u043b\u0434\u0438\u0440\u0430\u043a\u043b\u0430\u0440\u043d\u0438 \u0439\u045e\u043b \u0431\u0438\u043b\u0430\u043d \u0438\u043b\u0430\u0448\u0438\u0448\u0438 \u0439\u045e\u049b\u043e\u043b\u0433\u0430\u043d\u0434\u0430 (\u043a\u0443\u0447\u043b\u0438 \u0451\u043c\u0493\u0438\u0440, \u0441\u0435\u043b \u0451\u043a\u0438 \u0441\u0443\u0432 \u0442\u043e\u0448\u0433\u0430\u043d \u0439\u045e\u043b \u049b\u0438\u0441\u043c\u043b\u0430\u0440\u0438) \u04b3\u0430\u0439\u0434\u043e\u0432\u0447\u0438:",
-        "ru": "\u041f\u0440\u0438 \u043f\u043e\u0442\u0435\u0440\u0435 \u0441\u0446\u0435\u043f\u043b\u0435\u043d\u0438\u044f \u043a\u043e\u043b\u0451\u0441 \u0441 \u0434\u043e\u0440\u043e\u0433\u043e\u0439 (\u0441\u0438\u043b\u044c\u043d\u044b\u0439 \u0434\u043e\u0436\u0434\u044c \u0438\u043b\u0438 \u0437\u0430\u0442\u043e\u043f\u043b\u0435\u043d\u0438\u0435 \u0443\u0447\u0430\u0441\u0442\u043a\u0430 \u0434\u043e\u0440\u043e\u0433\u0438) \u0432\u043e\u0434\u0438\u0442\u0435\u043b\u044c:"
-    },
-    "photo": null,
-    "answers": {
-        "status": 3,
-        "answer_id": 18,
-        "answer": {
-            "oz": [
-                "Tezlikni oshirish lozim",
-                "Tormoz tepkisini keskin bosish bilan tezlikni kamaytirish lozim",
-                "Dvigatel bilan tormozlash orqali tezlikni kamaytirishi lozim"
-            ],
-            "uz": [
-                "\u0422\u0435\u0437\u043b\u0438\u043a\u043d\u0438 \u043e\u0448\u0438\u0440\u0438\u0448 \u043b\u043e\u0437\u0438\u043c",
-                "\u0422\u043e\u0440\u043c\u043e\u0437 \u0442\u0435\u043f\u043a\u0438\u0441\u0438\u043d\u0438 \u043a\u0435\u0441\u043a\u0438\u043d \u0431\u043e\u0441\u0438\u0448 \u0431\u0438\u043b\u0430\u043d \u0442\u0435\u0437\u043b\u0438\u043a\u043d\u0438 \u043a\u0430\u043c\u0430\u0439\u0442\u0438\u0440\u0438\u0448 \u043b\u043e\u0437\u0438\u043c",
-                "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043b \u0431\u0438\u043b\u0430\u043d \u0442\u043e\u0440\u043c\u043e\u0437\u043b\u0430\u0448 \u043e\u0440\u049b\u0430\u043b\u0438 \u0442\u0435\u0437\u043b\u0438\u043a\u043d\u0438 \u043a\u0430\u043c\u0430\u0439\u0442\u0438\u0440\u0438\u0448\u0438 \u043b\u043e\u0437\u0438\u043c"
-            ],
-            "ru": [
-                "\u0414\u043e\u043b\u0436\u0435\u043d \u0443\u0432\u0435\u043b\u0438\u0447\u0438\u0442\u044c \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c.",
-                "\u041e\u043d \u0434\u043e\u043b\u0436\u0435\u043d \u0441\u043d\u0438\u0437\u0438\u0442\u044c \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c, \u0440\u0435\u0437\u043a\u043e \u043d\u0430\u0436\u0430\u0432 \u043d\u0430 \u043f\u0435\u0434\u0430\u043b\u044c \u0442\u043e\u0440\u043c\u043e\u0437\u0430.",
-                "\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e \u0441\u043d\u0438\u0437\u0438\u0442\u044c \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c \u0438 \u043f\u0440\u0438\u043c\u0435\u043d\u0438\u0442\u044c \u0442\u043e\u0440\u043c\u043e\u0436\u0435\u043d\u0438\u0435 \u0434\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u0435\u043c."
-            ]
-        }
-    }
-},
-{
-    "id": 853,
-    "bilet_id": 43,
-    "question_id": 9,
-    "name": null,
-    "question": {
-        "oz": "Avtomobilni qanday boshqarish usuli yonilg'i sarfini tejaydi?",
-        "uz": "\u0410\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438 \u049b\u0430\u043d\u0434\u0430\u0439 \u0431\u043e\u0448\u049b\u0430\u0440\u0438\u0448 \u0443\u0441\u0443\u043b\u0438 \u0451\u043d\u0438\u043b\u0493\u0438 \u0441\u0430\u0440\u0444\u0438\u043d\u0438 \u0442\u0435\u0436\u0430\u0439\u0434\u0438?",
-        "ru": "\u041a\u0430\u043a\u043e\u0439 \u0441\u043f\u043e\u0441\u043e\u0431 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u0435\u043c \u044d\u043a\u043e\u043d\u043e\u043c\u0438\u0442 \u0440\u0430\u0441\u0445\u043e\u0434 \u0442\u043e\u043f\u043b\u0438\u0432\u0430?"
-    },
-    "photo": null,
-    "answers": {
-        "status": 3,
-        "answer_id": 8,
-        "answer": {
-            "oz": [
-                "Shiddat bilan tezlanish va ohista sekinlashish bilan",
-                "Ohista (ravon) tezlanish va shiddat bilan sekinlashish bilan",
-                "Ohista (ravon) tezlanish va ohista sekinlashish bilan"
-            ],
-            "uz": [
-                "\u0428\u0438\u0434\u0434\u0430\u0442 \u0431\u0438\u043b\u0430\u043d \u0442\u0435\u0437\u043b\u0430\u043d\u0438\u0448 \u0432\u0430 \u043e\u04b3\u0438\u0441\u0442\u0430 \u0441\u0435\u043a\u0438\u043d\u043b\u0430\u0448\u0438\u0448 \u0431\u0438\u043b\u0430\u043d",
-                "\u041e\u04b3\u0438\u0441\u0442\u0430 (\u0440\u0430\u0432\u043e\u043d) \u0442\u0435\u0437\u043b\u0430\u043d\u0438\u0448 \u0432\u0430 \u0448\u0438\u0434\u0434\u0430\u0442 \u0431\u0438\u043b\u0430\u043d \u0441\u0435\u043a\u0438\u043d\u043b\u0430\u0448\u0438\u0448 \u0431\u0438\u043b\u0430\u043d",
-                "\u041e\u04b3\u0438\u0441\u0442\u0430 (\u0440\u0430\u0432\u043e\u043d) \u0442\u0435\u0437\u043b\u0430\u043d\u0438\u0448 \u0432\u0430 \u043e\u04b3\u0438\u0441\u0442\u0430 \u0441\u0435\u043a\u0438\u043d\u043b\u0430\u0448\u0438\u0448 \u0431\u0438\u043b\u0430\u043d"
-            ],
-            "ru": [
-                "\u0421 \u0431\u044b\u0441\u0442\u0440\u044b\u043c \u0443\u0441\u043a\u043e\u0440\u0435\u043d\u0438\u0435\u043c \u0438 \u043f\u043b\u0430\u0432\u043d\u044b\u043c \u0442\u043e\u0440\u043c\u043e\u0436\u0435\u043d\u0438\u0435\u043c",
-                "\u0421 \u043f\u043b\u0430\u0432\u043d\u044b\u043c \u0443\u0441\u043a\u043e\u0440\u0435\u043d\u0438\u0435\u043c \u0438 \u0431\u044b\u0441\u0442\u0440\u044b\u043c \u0442\u043e\u0440\u043c\u043e\u0436\u0435\u043d\u0438\u0435\u043c",
-                "\u0421 \u043f\u043b\u0430\u0432\u043d\u044b\u043c \u0443\u0441\u043a\u043e\u0440\u0435\u043d\u0438\u0435\u043c \u0438 \u043f\u043b\u0430\u0432\u043d\u044b\u043c \u0442\u043e\u0440\u043c\u043e\u0436\u0435\u043d\u0438\u0435\u043c"
-            ]
-        }
-    }
-},
-{
-    "id": 857,
-    "bilet_id": 43,
-    "question_id": 14,
-    "name": null,
-    "question": {
-        "oz": "Engil avtomobil tirkamasi burilishda qanday traektoriya bo'yicha harakatlanadi?",
-        "uz": "\u0415\u043d\u0433\u0438\u043b \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b \u0442\u0438\u0440\u043a\u0430\u043c\u0430\u0441\u0438 \u0431\u0443\u0440\u0438\u043b\u0438\u0448\u0434\u0430 \u049b\u0430\u043d\u0434\u0430\u0439 \u0442\u0440\u0430\u0435\u043a\u0442\u043e\u0440\u0438\u044f \u0431\u045e\u0439\u0438\u0447\u0430 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0430\u0434\u0438?",
-        "ru": "\u041a\u0430\u043a\u043e\u0432\u0430 \u0442\u0440\u0430\u0435\u043a\u0442\u043e\u0440\u0438\u044f \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u044f \u043f\u0440\u0438\u0446\u0435\u043f\u0430 \u043f\u0440\u0438 \u043f\u043e\u0432\u043e\u0440\u043e\u0442\u0435 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f \u043a \u0446\u0435\u043d\u0442\u0440\u0443 \u043f\u043e\u0432\u043e\u0440\u043e\u0442\u0430?"
-    },
-    "photo": null,
-    "answers": {
-        "status": 3,
-        "answer_id": 12,
-        "answer": {
-            "oz": [
-                "Burilish markaziga nisbatan avtomobil traektoriyasidan tashqarida",
-                "Avtomobil burilish traektoriyasi bo'yicha",
-                "Burilish markaziga nisbatan avtomobil traektoriyasidan ichkarida"
-            ],
-            "uz": [
-                "\u0411\u0443\u0440\u0438\u043b\u0438\u0448 \u043c\u0430\u0440\u043a\u0430\u0437\u0438\u0433\u0430 \u043d\u0438\u0441\u0431\u0430\u0442\u0430\u043d \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b \u0442\u0440\u0430\u0435\u043a\u0442\u043e\u0440\u0438\u044f\u0441\u0438\u0434\u0430\u043d \u0442\u0430\u0448\u049b\u0430\u0440\u0438\u0434\u0430",
-                "\u0410\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b \u0431\u0443\u0440\u0438\u043b\u0438\u0448 \u0442\u0440\u0430\u0435\u043a\u0442\u043e\u0440\u0438\u044f\u0441\u0438 \u0431\u045e\u0439\u0438\u0447\u0430",
-                "\u0411\u0443\u0440\u0438\u043b\u0438\u0448 \u043c\u0430\u0440\u043a\u0430\u0437\u0438\u0433\u0430 \u043d\u0438\u0441\u0431\u0430\u0442\u0430\u043d \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b \u0442\u0440\u0430\u0435\u043a\u0442\u043e\u0440\u0438\u044f\u0441\u0438\u0434\u0430\u043d \u0438\u0447\u043a\u0430\u0440\u0438\u0434\u0430"
-            ],
-            "ru": [
-                "\u0421\u043c\u0435\u0449\u0430\u0435\u0442\u0441\u044f \u0432 \u0441\u0442\u043e\u0440\u043e\u043d\u0443 \u043e\u0442 \u0446\u0435\u043d\u0442\u0440\u0430 \u043f\u043e\u0432\u043e\u0440\u043e\u0442\u0430.",
-                "\u041d\u0435 \u0441\u043c\u0435\u0449\u0430\u0435\u0442\u0441\u044f",
-                "\u0421\u043c\u0435\u0449\u0430\u0435\u0442\u0441\u044f \u043a \u0446\u0435\u043d\u0442\u0440\u0443 \u043f\u043e\u0432\u043e\u0440\u043e\u0442\u0430"
-            ]
-        }
-    }
-},
-{
-    "id": 860,
-    "bilet_id": 43,
-    "question_id": 19,
-    "name": null,
-    "question": {
-        "oz": "G'ildiraklarni yo'l bilan ilashishi yo'qolganda (kuchli yomg'ir, sel yoki suv toshgan yo'l qismlari) haydovchi:",
-        "uz": "\u0492\u0438\u043b\u0434\u0438\u0440\u0430\u043a\u043b\u0430\u0440\u043d\u0438 \u0439\u045e\u043b \u0431\u0438\u043b\u0430\u043d \u0438\u043b\u0430\u0448\u0438\u0448\u0438 \u0439\u045e\u049b\u043e\u043b\u0433\u0430\u043d\u0434\u0430 (\u043a\u0443\u0447\u043b\u0438 \u0451\u043c\u0493\u0438\u0440, \u0441\u0435\u043b \u0451\u043a\u0438 \u0441\u0443\u0432 \u0442\u043e\u0448\u0433\u0430\u043d \u0439\u045e\u043b \u049b\u0438\u0441\u043c\u043b\u0430\u0440\u0438) \u04b3\u0430\u0439\u0434\u043e\u0432\u0447\u0438:",
-        "ru": "\u0412 \u0441\u043b\u0443\u0447\u0430\u0435 \u043f\u043e\u0442\u0435\u0440\u0438 \u0441\u0446\u0435\u043f\u043b\u0435\u043d\u0438\u044f \u043a\u043e\u043b\u0451\u0441 \u0441 \u0434\u043e\u0440\u043e\u0433\u043e\u0439 \u0438\u0437-\u0437\u0430 \u043e\u0431\u0440\u0430\u0437\u043e\u0432\u0430\u043d\u0438\u044f \u00ab\u0432\u043e\u0434\u044f\u043d\u043e\u0433\u043e \u043a\u043b\u0438\u043d\u0430\u00bb \u0432\u043e\u0434\u0438\u0442\u0435\u043b\u044e \u0441\u043b\u0435\u0434\u0443\u0435\u0442:"
-    },
-    "photo": null,
-    "answers": {
-        "status": 3,
-        "answer_id": 15,
-        "answer": {
-            "oz": [
-                "Tezlikni oshirishi lozim",
-                "Tormoz tepkisini keskin bosish bilan tezlikni kamaytirishi lozim",
-                "Dvigatel bilan tormozlash orqali tezlikni kamaytirishi lozim"
-            ],
-            "uz": [
-                "\u0422\u0435\u0437\u043b\u0438\u043a\u043d\u0438 \u043e\u0448\u0438\u0440\u0438\u0448\u0438 \u043b\u043e\u0437\u0438\u043c",
-                "\u0422\u043e\u0440\u043c\u043e\u0437 \u0442\u0435\u043f\u043a\u0438\u0441\u0438\u043d\u0438 \u043a\u0435\u0441\u043a\u0438\u043d \u0431\u043e\u0441\u0438\u0448 \u0431\u0438\u043b\u0430\u043d \u0442\u0435\u0437\u043b\u0438\u043a\u043d\u0438 \u043a\u0430\u043c\u0430\u0439\u0442\u0438\u0440\u0438\u0448\u0438 \u043b\u043e\u0437\u0438\u043c",
-                "\u0414\u0432\u0438\u0433\u0430\u0442\u0435\u043b \u0431\u0438\u043b\u0430\u043d \u0442\u043e\u0440\u043c\u043e\u0437\u043b\u0430\u0448 \u043e\u0440\u049b\u0430\u043b\u0438 \u0442\u0435\u0437\u043b\u0438\u043a\u043d\u0438 \u043a\u0430\u043c\u0430\u0439\u0442\u0438\u0440\u0438\u0448\u0438 \u043b\u043e\u0437\u0438\u043c"
-            ],
-            "ru": [
-                "\u0423\u0432\u0435\u043b\u0438\u0447\u0438\u0442\u044c \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c",
-                "\u041e\u043d \u0434\u043e\u043b\u0436\u0435\u043d \u0441\u043d\u0438\u0437\u0438\u0442\u044c \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c, \u0440\u0435\u0437\u043a\u043e \u043d\u0430\u0436\u0430\u0432 \u043d\u0430 \u043f\u0435\u0434\u0430\u043b\u044c \u0442\u043e\u0440\u043c\u043e\u0437\u0430",
-                "\u041e\u043d \u0434\u043e\u043b\u0436\u0435\u043d \u0441\u043d\u0438\u0437\u0438\u0442\u044c \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c, \u0437\u0430\u0442\u043e\u0440\u043c\u043e\u0437\u0438\u0432 \u0434\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u0435\u043c"
-            ]
-        }
-    }
-},
-{
-    "id": 871,
-    "bilet_id": 44,
-    "question_id": 5,
-    "name": null,
-    "question": {
-        "oz": "Tormoz yo'li deb nimaga aytiladi?",
-        "uz": "\u0422\u043e\u0440\u043c\u043e\u0437 \u0439\u045e\u043b\u0438 \u0434\u0435\u0431 \u043d\u0438\u043c\u0430\u0433\u0430 \u0430\u0439\u0442\u0438\u043b\u0430\u0434\u0438?",
-        "ru": "\u0427\u0442\u043e \u043d\u0430\u0437\u044b\u0432\u0430\u044e\u0442 \u0442\u043e\u0440\u043c\u043e\u0437\u043d\u044b\u043c \u043f\u0443\u0442\u0435\u043c?"
-    },
-    "photo": null,
-    "answers": {
-        "status": 2,
-        "answer_id": 5,
-        "answer": {
-            "oz": [
-                "Haydovchi biron bir xavfni aniqlab, avtomobilni to'liq to'xtaguncha bosib o'tgan masofasi",
-                "Haydovchi tormoz tepkisini bosgandan to avtomobil to'liq to'xtaguncha bosib o'tilgan masofa"
-            ],
-            "uz": [
-                "\u04b2\u0430\u0439\u0434\u043e\u0432\u0447\u0438 \u0431\u0438\u0440\u043e\u043d \u0431\u0438\u0440 \u0445\u0430\u0432\u0444\u043d\u0438 \u0430\u043d\u0438\u049b\u043b\u0430\u0431, \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438 \u0442\u045e\u043b\u0438\u049b \u0442\u045e\u0445\u0442\u0430\u0433\u0443\u043d\u0447\u0430 \u0431\u043e\u0441\u0438\u0431 \u045e\u0442\u0433\u0430\u043d \u043c\u0430\u0441\u043e\u0444\u0430\u0441\u0438",
-                "\u04b2\u0430\u0439\u0434\u043e\u0432\u0447\u0438 \u0442\u043e\u0440\u043c\u043e\u0437 \u0442\u0435\u043f\u043a\u0438\u0441\u0438\u043d\u0438 \u0431\u043e\u0441\u0433\u0430\u043d\u0434\u0430\u043d \u0442\u043e \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b \u0442\u045e\u043b\u0438\u049b \u0442\u045e\u0445\u0442\u0430\u0433\u0443\u043d\u0447\u0430 \u0431\u043e\u0441\u0438\u0431 \u045e\u0442\u0438\u043b\u0433\u0430\u043d \u043c\u0430\u0441\u043e\u0444\u0430"
-            ],
-            "ru": [
-                "\u0420\u0430\u0441\u0441\u0442\u043e\u044f\u043d\u0438\u0435, \u043f\u0440\u043e\u0439\u0434\u0435\u043d\u043d\u043e\u0435 \u0442\u0440\u0430\u043d\u0441\u043f\u043e\u0440\u0442\u043d\u044b\u043c \u0441\u0440\u0435\u0434\u0441\u0442\u0432\u043e\u043c \u0434\u043e \u043f\u043e\u043b\u043d\u043e\u0439 \u043e\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0438 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f \u043f\u043e\u0441\u043b\u0435 \u043e\u0431\u043d\u0430\u0440\u0443\u0436\u0435\u043d\u0438\u044f \u043e\u043f\u0430\u0441\u043d\u043e\u0441\u0442\u0438.",
-                "\u0420\u0430\u0441\u0441\u0442\u043e\u044f\u043d\u0438\u0435, \u043f\u0440\u043e\u0439\u0434\u0435\u043d\u043d\u043e\u0435 \u0442\u0440\u0430\u043d\u0441\u043f\u043e\u0440\u0442\u043d\u044b\u043c \u0441\u0440\u0435\u0434\u0441\u0442\u0432\u043e\u043c \u0441 \u043c\u043e\u043c\u0435\u043d\u0442\u0430 \u043d\u0430\u0436\u0430\u0442\u0438\u044f \u043d\u0430 \u043f\u0435\u0434\u0430\u043b\u044c \u0442\u043e\u0440\u043c\u043e\u0437\u0430 \u0434\u043e \u043f\u043e\u043b\u043d\u043e\u0439 \u043e\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0438"
-            ]
-        }
-    }
-},
-{
-    "id": 875,
-    "bilet_id": 44,
-    "question_id": 9,
-    "name": null,
-    "question": {
-        "oz": "Tezlik ortishi bilan haydovchining ko'rish maydoni qanday o'zgaradi?",
-        "uz": "\u0422\u0435\u0437\u043b\u0438\u043a \u043e\u0440\u0442\u0438\u0448\u0438 \u0431\u0438\u043b\u0430\u043d \u04b3\u0430\u0439\u0434\u043e\u0432\u0447\u0438\u043d\u0438\u043d\u0433 \u043a\u045e\u0440\u0438\u0448 \u043c\u0430\u0439\u0434\u043e\u043d\u0438 \u049b\u0430\u043d\u0434\u0430\u0439 \u045e\u0437\u0433\u0430\u0440\u0430\u0434\u0438?",
-        "ru": "\u041a\u0430\u043a \u0438\u0437\u043c\u0435\u043d\u044f\u0435\u0442\u0441\u044f \u043f\u043e\u043b\u0435 \u0437\u0440\u0435\u043d\u0438\u0435 \u0432\u043e\u0434\u0438\u0442\u0435\u043b\u044f \u0441 \u0443\u0432\u0435\u043b\u0435\u0447\u0435\u043d\u0438\u0435\u043c \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u0438 \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u044f?"
-    },
-    "photo": null,
-    "answers": {
-        "status": 3,
-        "answer_id": 9,
-        "answer": {
-            "oz": [
-                "Kengayadi",
-                "O'zgarmaydi",
-                "Torayadi"
-            ],
-            "uz": [
-                "\u041a\u0435\u043d\u0433\u0430\u044f\u0434\u0438",
-                "\u040e\u0437\u0433\u0430\u0440\u043c\u0430\u0439\u0434\u0438",
-                "\u0422\u043e\u0440\u0430\u044f\u0434\u0438"
-            ],
-            "ru": [
-                "\u0420\u0430\u0441\u0448\u0438\u0440\u044f\u0435\u0442\u0441\u044f",
-                "\u041d\u0435 \u0438\u0437\u043c\u0435\u043d\u044f\u0435\u0442\u0441\u044f",
-                "\u0421\u0443\u0436\u0430\u0435\u0442\u0441\u044f"
-            ]
-        }
-    }
-},
-{
-    "id": 882,
-    "bilet_id": 44,
-    "question_id": 16,
-    "name": null,
-    "question": {
-        "oz": "Haydovchining o'rtacha reaksiya vaqti deb qabul qilingan",
-        "uz": "\u04b2\u0430\u0439\u0434\u043e\u0432\u0447\u0438\u043d\u0438\u043d\u0433 \u045e\u0440\u0442\u0430\u0447\u0430 \u0440\u0435\u0430\u043a\u0441\u0438\u044f \u0432\u0430\u049b\u0442\u0438 \u0434\u0435\u0431 \u049b\u0430\u0431\u0443\u043b \u049b\u0438\u043b\u0438\u043d\u0433\u0430\u043d",
-        "ru": "\u0421\u0440\u0435\u0434\u043d\u0435\u0435 \u0432\u0440\u0435\u043c\u044f \u0440\u0435\u0430\u043a\u0446\u0438\u0438 \u0432\u043e\u0434\u0438\u0442\u0435\u043b\u044f \u0441\u043e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442:"
-    },
-    "photo": null,
-    "answers": {
-        "status": 2,
-        "answer_id": 16,
-        "answer": {
-            "oz": [
-                "Tahminan 0,2 soniya",
-                "Tahminan 1 soniya",
-                "Tahminan 5 soniya"
-            ],
-            "uz": [
-                "\u0422\u0430\u04b3\u043c\u0438\u043d\u0430\u043d 0,2 \u0441\u043e\u043d\u0438\u044f",
-                "\u0422\u0430\u04b3\u043c\u0438\u043d\u0430\u043d 1 \u0441\u043e\u043d\u0438\u044f",
-                "\u0422\u0430\u04b3\u043c\u0438\u043d\u0430\u043d 5 \u0441\u043e\u043d\u0438\u044f"
-            ],
-            "ru": [
-                "\u041e\u043a\u043e\u043b\u043e 0,2 \u0441\u0435\u043a\u0443\u043d\u0434\u044b.",
-                "\u041e\u043a\u043e\u043b\u043e 1 \u0441\u0435\u043a\u0443\u043d\u0434\u044b",
-                "\u041e\u043a\u043e\u043b\u043e 5 \u0441\u0435\u043a\u0443\u043d\u0434"
-            ]
-        }
-    }
-},
-{
-    "id": 884,
-    "bilet_id": 44,
-    "question_id": 18,
-    "name": null,
-    "question": {
-        "oz": "Yo'lning xavfli burilishlarida oldingi uzatmali avtomobilning orqa o'qi yon tomonga sirpanganda siz qanday harakat qilasiz?",
-        "uz": "\u0419\u045e\u043b\u043d\u0438\u043d\u0433 \u0445\u0430\u0432\u0444\u043b\u0438 \u0431\u0443\u0440\u0438\u043b\u0438\u0448\u043b\u0430\u0440\u0438\u0434\u0430 \u043e\u043b\u0434\u0438\u043d\u0433\u0438 \u0443\u0437\u0430\u0442\u043c\u0430\u043b\u0438 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438\u043d\u0433 \u043e\u0440\u049b\u0430 \u045e\u049b\u0438 \u0451\u043d \u0442\u043e\u043c\u043e\u043d\u0433\u0430 \u0441\u0438\u0440\u043f\u0430\u043d\u0433\u0430\u043d\u0434\u0430 \u0441\u0438\u0437 \u049b\u0430\u043d\u0434\u0430\u0439 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442 \u049b\u0438\u043b\u0430\u0441\u0438\u0437?",
-        "ru": "\u041d\u0430 \u043f\u043e\u0432\u043e\u0440\u043e\u0442\u0435 \u0432\u043e\u0437\u043d\u0438\u043a \u0437\u0430\u043d\u043e\u0441 \u043e\u0441\u0438 \u043f\u0435\u0440\u0435\u0434\u043d\u0435\u043f\u0440\u0438\u0432\u043e\u0434\u043d\u043e\u0433\u043e \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f \u0412\u0430\u0448\u0438 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f?"
-    },
-    "photo": null,
-    "answers": {
-        "status": 3,
-        "answer_id": 18,
-        "answer": {
-            "oz": [
-                "Gaz berishni kamaytirib rul chambaragi bilan boshqaruvni barqarorlashtirasiz",
-                "Tormozlab turib rul chambaragini sirpangan tomonga burasiz",
-                "Gaz pedalini ohista bosib, avtomobilni rul chambaragini to'g'rilab, avtomobilni sirpanishdan olib chiqib ketasiz",
-                "Gaz pedalini ko'proq bosib rul chambaragini o'zgartirmasdan sirpanishdan olib chiqasiz"
-            ],
-            "uz": [
-                "\u0413\u0430\u0437 \u0431\u0435\u0440\u0438\u0448\u043d\u0438 \u043a\u0430\u043c\u0430\u0439\u0442\u0438\u0440\u0438\u0431 \u0440\u0443\u043b \u0447\u0430\u043c\u0431\u0430\u0440\u0430\u0433\u0438 \u0431\u0438\u043b\u0430\u043d \u0431\u043e\u0448\u049b\u0430\u0440\u0443\u0432\u043d\u0438 \u0431\u0430\u0440\u049b\u0430\u0440\u043e\u0440\u043b\u0430\u0448\u0442\u0438\u0440\u0430\u0441\u0438\u0437",
-                "\u0422\u043e\u0440\u043c\u043e\u0437\u043b\u0430\u0431 \u0442\u0443\u0440\u0438\u0431 \u0440\u0443\u043b \u0447\u0430\u043c\u0431\u0430\u0440\u0430\u0433\u0438\u043d\u0438 \u0441\u0438\u0440\u043f\u0430\u043d\u0433\u0430\u043d \u0442\u043e\u043c\u043e\u043d\u0433\u0430 \u0431\u0443\u0440\u0430\u0441\u0438\u0437",
-                "\u0413\u0430\u0437 \u043f\u0435\u0434\u0430\u043b\u0438\u043d\u0438 \u043e\u04b3\u0438\u0441\u0442\u0430 \u0431\u043e\u0441\u0438\u0431, \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438 \u0440\u0443\u043b \u0447\u0430\u043c\u0431\u0430\u0440\u0430\u0433\u0438\u043d\u0438 \u0442\u045e\u0493\u0440\u0438\u043b\u0430\u0431, \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438 \u0441\u0438\u0440\u043f\u0430\u043d\u0438\u0448\u0434\u0430\u043d \u043e\u043b\u0438\u0431 \u0447\u0438\u049b\u0438\u0431 \u043a\u0435\u0442\u0430\u0441\u0438\u0437",
-                "\u0413\u0430\u0437 \u043f\u0435\u0434\u0430\u043b\u0438\u043d\u0438 \u043a\u045e\u043f\u0440\u043e\u049b \u0431\u043e\u0441\u0438\u0431 \u0440\u0443\u043b \u0447\u0430\u043c\u0431\u0430\u0440\u0430\u0433\u0438\u043d\u0438 \u045e\u0437\u0433\u0430\u0440\u0442\u0438\u0440\u043c\u0430\u0441\u0434\u0430\u043d \u0441\u0438\u0440\u043f\u0430\u043d\u0438\u0448\u0434\u0430\u043d \u043e\u043b\u0438\u0431 \u0447\u0438\u049b\u0430\u0441\u0438\u0437"
-            ],
-            "ru": [
-                "\u0423\u043c\u0435\u043d\u044c\u0448\u0430\u0435\u0442\u0435 \u043f\u043e\u0434\u0430\u0447\u0443 \u0442\u043e\u043f\u043b\u0438\u0432\u0430, \u0440\u0443\u043b\u0435\u0432\u044b\u043c \u043a\u043e\u043b\u0435\u0441\u043e\u043c \u0441\u0442\u0430\u0431\u0438\u043b\u0438\u0437\u0438\u0440\u0443\u0435\u0442\u0435 \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u0435.",
-                "\u041f\u0440\u0438\u0442\u043e\u0440\u043c\u0430\u0436\u0438\u0432\u0430\u0435\u0442\u0435 \u0438 \u0440\u0443\u043b\u044c \u043f\u043e\u0432\u043e\u0440\u0430\u0447\u0438\u0432\u0430\u0435\u0442\u0435 \u0432 \u0441\u0442\u043e\u0440\u043e\u043d\u0443 \u0437\u0430\u043d\u043e\u0441\u0430.",
-                "\u0421\u043b\u0435\u0433\u043a\u0430 \u0443\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0435\u0442\u0435 \u043f\u043e\u0434\u0430\u0447\u0443 \u0442\u043e\u043f\u043b\u0438\u0432\u0430, \u043a\u043e\u0440\u0440\u0435\u043a\u0442\u0438\u0440\u0443\u044f \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u044f \u0440\u0443\u043b\u0435\u0432\u044b\u043c \u043a\u043e\u043b\u0435\u0441\u043e\u043c.",
-                "\u0417\u043d\u0430\u0447\u0438\u0442\u0435\u043b\u044c\u043d\u043e \u0443\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0435\u0442\u0435 \u043f\u043e\u0434\u0430\u0447\u0443 \u0442\u043e\u043f\u043b\u0438\u0432\u0430 \u043d\u0435 \u043c\u0435\u043d\u044f\u044f \u043f\u043e\u043b\u043e\u0436\u0435\u043d\u0438\u044f \u0440\u0443\u043b\u0435\u0432\u043e\u0433\u043e \u043a\u043e\u043b\u0435\u0441\u0430"
-            ]
-        }
-    }
-},
-{
-    "id": 888,
-    "bilet_id": 45,
-    "question_id": 2,
-    "name": null,
-    "question": {
-        "oz": "Agar avtomobilning o'ng g'ildiraklari nam qoplamali yo'l yoqasiga chiqib qolsa, tavsiya etiladi?",
-        "uz": "\u0410\u0433\u0430\u0440 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438\u043d\u0433 \u045e\u043d\u0433 \u0493\u0438\u043b\u0434\u0438\u0440\u0430\u043a\u043b\u0430\u0440\u0438 \u043d\u0430\u043c \u049b\u043e\u043f\u043b\u0430\u043c\u0430\u043b\u0438 \u0439\u045e\u043b \u0451\u049b\u0430\u0441\u0438\u0433\u0430 \u0447\u0438\u049b\u0438\u0431 \u049b\u043e\u043b\u0441\u0430, \u0442\u0430\u0432\u0441\u0438\u044f \u044d\u0442\u0438\u043b\u0430\u0434\u0438?",
-        "ru": "\u0412 \u0441\u043b\u0443\u0447\u0430\u0435, \u043a\u043e\u0433\u0434\u0430 \u043f\u0440\u0430\u0432\u044b\u0435 \u043a\u043e\u043b\u0451\u0441\u0430 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f \u043d\u0430\u0435\u0437\u0436\u0430\u044e\u0442 \u043d\u0430 \u043d\u0435\u0443\u043a\u0440\u0435\u043f\u043b\u0451\u043d\u043d\u0443\u044e \u0432\u043b\u0430\u0436\u043d\u0443\u044e \u043e\u0431\u043e\u0447\u0438\u043d\u0443, \u0440\u0435\u043a\u043e\u043c\u0435\u043d\u0434\u0443\u0435\u0442\u0441\u044f?"
-    },
-    "photo": null,
-    "answers": {
-        "status": 3,
-        "answer_id": 2,
-        "answer": {
-            "oz": [
-                "Avtomobilni tormozlash va to'liq to'xtatish",
-                "Avtomobilni tormozlab, yo'lning qatnov qismiga ohista ravon burish.",
-                "Avtomobilni tormozlamasdan yo'lning qatnov qismiga ohista ravon burish"
-            ],
-            "uz": [
-                "\u0410\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438 \u0442\u043e\u0440\u043c\u043e\u0437\u043b\u0430\u0448 \u0432\u0430 \u0442\u045e\u043b\u0438\u049b \u0442\u045e\u0445\u0442\u0430\u0442\u0438\u0448",
-                "\u0410\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438 \u0442\u043e\u0440\u043c\u043e\u0437\u043b\u0430\u0431, \u0439\u045e\u043b\u043d\u0438\u043d\u0433 \u049b\u0430\u0442\u043d\u043e\u0432 \u049b\u0438\u0441\u043c\u0438\u0433\u0430 \u043e\u04b3\u0438\u0441\u0442\u0430 \u0440\u0430\u0432\u043e\u043d \u0431\u0443\u0440\u0438\u0448.",
-                "\u0410\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438 \u0442\u043e\u0440\u043c\u043e\u0437\u043b\u0430\u043c\u0430\u0441\u0434\u0430\u043d \u0439\u045e\u043b\u043d\u0438\u043d\u0433 \u049b\u0430\u0442\u043d\u043e\u0432 \u049b\u0438\u0441\u043c\u0438\u0433\u0430 \u043e\u04b3\u0438\u0441\u0442\u0430 \u0440\u0430\u0432\u043e\u043d \u0431\u0443\u0440\u0438\u0448"
-            ],
-            "ru": [
-                "\u0422\u043e\u0440\u043c\u043e\u0436\u0435\u043d\u0438\u0435 \u0438 \u043f\u043e\u043b\u043d\u0430\u044f \u043e\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0430 \u0442\u0440\u0430\u043d\u0441\u043f\u043e\u0440\u0442\u043d\u043e\u0433\u043e \u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0430",
-                "\u0417\u0430\u0442\u043e\u0440\u043c\u043e\u0437\u0438\u0442\u044c \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044c \u0438 \u043f\u043b\u0430\u0432\u043d\u043e \u0432\u044b\u0432\u0435\u0440\u043d\u0443\u0442\u044c \u043d\u0430 \u043f\u0440\u043e\u0435\u0437\u0436\u0443\u044e \u0447\u0430\u0441\u0442\u044c \u0434\u043e\u0440\u043e\u0433\u0438",
-                "\u041f\u043b\u0430\u0432\u043d\u043e \u043d\u0430\u043f\u0440\u0430\u0432\u0438\u0442\u044c \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044c \u0431\u0435\u0437 \u0442\u043e\u0440\u043c\u043e\u0436\u0435\u043d\u0438\u044f \u043d\u0430 \u043f\u0440\u043e\u0435\u0437\u0436\u0443\u044e \u0447\u0430\u0441\u0442\u044c \u0434\u043e\u0440\u043e\u0433\u0438"
-            ]
-        }
-    }
-},
-{
-    "id": 898,
-    "bilet_id": 45,
-    "question_id": 12,
-    "name": null,
-    "question": {
-        "oz": "Tik nishabliklarda dvigatel bilan tormozlashda qiyalikka nisbatan qanday uzatma tanlanadi?",
-        "uz": "\u0422\u0438\u043a \u043d\u0438\u0448\u0430\u0431\u043b\u0438\u043a\u043b\u0430\u0440\u0434\u0430 \u0434\u0432\u0438\u0433\u0430\u0442\u0435\u043b \u0431\u0438\u043b\u0430\u043d \u0442\u043e\u0440\u043c\u043e\u0437\u043b\u0430\u0448\u0434\u0430 \u049b\u0438\u044f\u043b\u0438\u043a\u043a\u0430 \u043d\u0438\u0441\u0431\u0430\u0442\u0430\u043d \u049b\u0430\u043d\u0434\u0430\u0439 \u0443\u0437\u0430\u0442\u043c\u0430 \u0442\u0430\u043d\u043b\u0430\u043d\u0430\u0434\u0438?",
-        "ru": "\u041f\u0440\u0438 \u0442\u043e\u0440\u043c\u043e\u0436\u0435\u043d\u0438\u0438 \u0434\u0432\u0438\u0433\u0430\u0442\u0435\u043b\u0435\u043c \u0438\u0430 \u043a\u0440\u0443\u0442\u044b\u0445 \u0441\u043f\u0443\u0441\u043a\u0430\u0445 \u043a\u0430\u043a\u0430\u044f \u043f\u0435\u0440\u0435\u0434\u0430\u0447\u0430 \u0432\u044b\u0431\u0438\u0440\u0430\u0435\u0442\u0441\u044f \u0432 \u0437\u0430\u0432\u0438\u0441\u0438\u043c\u043e\u0441\u0442\u0438 \u043e\u0442 \u0443\u043a\u043b\u043e\u043d\u0430?"
-    },
-    "photo": null,
-    "answers": {
-        "status": 2,
-        "answer_id": 12,
-        "answer": {
-            "oz": [
-                "Nishablik qancha qiyin bo'lsa uzatma pag'onasi shuncha yuqori bo'ladi",
-                "Nishablik qancha qiyin bo'lsa uzatma pag'onasi shuncha past tanlanadi",
-                "Pog'onalarni tanlashning nishablikka aloqasi yo'q"
-            ],
-            "uz": [
-                "\u041d\u0438\u0448\u0430\u0431\u043b\u0438\u043a \u049b\u0430\u043d\u0447\u0430 \u049b\u0438\u0439\u0438\u043d \u0431\u045e\u043b\u0441\u0430 \u0443\u0437\u0430\u0442\u043c\u0430 \u043f\u0430\u0493\u043e\u043d\u0430\u0441\u0438 \u0448\u0443\u043d\u0447\u0430 \u044e\u049b\u043e\u0440\u0438 \u0431\u045e\u043b\u0430\u0434\u0438",
-                "\u041d\u0438\u0448\u0430\u0431\u043b\u0438\u043a \u049b\u0430\u043d\u0447\u0430 \u049b\u0438\u0439\u0438\u043d \u0431\u045e\u043b\u0441\u0430 \u0443\u0437\u0430\u0442\u043c\u0430 \u043f\u0430\u0493\u043e\u043d\u0430\u0441\u0438 \u0448\u0443\u043d\u0447\u0430 \u043f\u0430\u0441\u0442 \u0442\u0430\u043d\u043b\u0430\u043d\u0430\u0434\u0438",
-                "\u041f\u043e\u0493\u043e\u043d\u0430\u043b\u0430\u0440\u043d\u0438 \u0442\u0430\u043d\u043b\u0430\u0448\u043d\u0438\u043d\u0433 \u043d\u0438\u0448\u0430\u0431\u043b\u0438\u043a\u043a\u0430 \u0430\u043b\u043e\u049b\u0430\u0441\u0438 \u0439\u045e\u049b"
-            ],
-            "ru": [
-                "\u0427\u0435\u043c \u043a\u0440\u0443\u0447\u0435 \u0443\u043a\u043b\u043e\u043d, \u0442\u0435\u043c \u0432\u044b\u0448\u0435 \u0432\u044b\u0431\u0438\u0440\u0430\u0435\u0442\u0441\u044f \u043f\u0435\u0440\u0435\u0434\u0430\u0447\u0430",
-                "\u0427\u0435\u043c \u043a\u0440\u0443\u0447\u0435 \u0443\u043a\u043b\u043e\u043d, \u0442\u0435\u043c \u043d\u0438\u0436\u0435 \u0432\u044b\u0431\u0438\u0440\u0430\u0435\u0442\u0441\u044f \u043f\u0435\u0440\u0435\u0434\u0430\u0447\u0430",
-                "\u0412\u044b\u0431\u043e\u0440 \u043f\u0435\u0440\u0435\u0434\u0430\u0447\u0438 \u043d\u0435 \u0437\u0430\u0432\u0438\u0441\u0438\u0442 \u043e\u0442 \u043a\u0440\u0443\u0442\u0438\u0437\u043d\u044b \u0441\u043f\u0443\u0441\u043a\u0430"
-            ]
-        }
-    }
-},
-{
-    "id": 901,
-    "bilet_id": 45,
-    "question_id": 15,
-    "name": null,
-    "question": {
-        "oz": "Agar avtomobilning o'ng g'ildiraklari nam qoplamali yo'l yoqasiga chiqib qolsa, tavsiya etiladi:",
-        "uz": "\u0410\u0433\u0430\u0440 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438\u043d\u0433 \u045e\u043d\u0433 \u0493\u0438\u043b\u0434\u0438\u0440\u0430\u043a\u043b\u0430\u0440\u0438 \u043d\u0430\u043c \u049b\u043e\u043f\u043b\u0430\u043c\u0430\u043b\u0438 \u0439\u045e\u043b \u0451\u049b\u0430\u0441\u0438\u0433\u0430 \u0447\u0438\u049b\u0438\u0431 \u049b\u043e\u043b\u0441\u0430, \u0442\u0430\u0432\u0441\u0438\u044f \u044d\u0442\u0438\u043b\u0430\u0434\u0438:",
-        "ru": "\u0412 \u0441\u043b\u0443\u0447\u0430\u0435, \u043a\u043e\u0433\u0434\u0430 \u043f\u0440\u0430\u0432\u044b\u0435 \u043a\u043e\u043b\u0451\u0441\u0430 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f \u043d\u0430\u0435\u0437\u0436\u0430\u044e\u0442 \u043d\u0430 \u043c\u043e\u043a\u0440\u0443\u044e, \u0432\u043b\u0430\u0436\u043d\u0443\u044e \u043e\u0431\u043e\u0447\u0438\u043d\u0443, \u0440\u0435\u043a\u043e\u043c\u0435\u043d\u0434\u0443\u0435\u0442\u0441\u044f:"
-    },
-    "photo": null,
-    "answers": {
-        "status": 3,
-        "answer_id": 15,
-        "answer": {
-            "oz": [
-                "Avtomobilni tormozlash va to'liq to'xtatish",
-                "Avtomobilni tormozlab, yo'lning harakat qismiga ohista ravon burilish",
-                "Avtomobilni tormozlamasdan yo'lning harakat qismiga ohista ravon burish"
-            ],
-            "uz": [
-                "\u0410\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438 \u0442\u043e\u0440\u043c\u043e\u0437\u043b\u0430\u0448 \u0432\u0430 \u0442\u045e\u043b\u0438\u049b \u0442\u045e\u0445\u0442\u0430\u0442\u0438\u0448",
-                "\u0410\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438 \u0442\u043e\u0440\u043c\u043e\u0437\u043b\u0430\u0431, \u0439\u045e\u043b\u043d\u0438\u043d\u0433 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442 \u049b\u0438\u0441\u043c\u0438\u0433\u0430 \u043e\u04b3\u0438\u0441\u0442\u0430 \u0440\u0430\u0432\u043e\u043d \u0431\u0443\u0440\u0438\u043b\u0438\u0448",
-                "\u0410\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438 \u0442\u043e\u0440\u043c\u043e\u0437\u043b\u0430\u043c\u0430\u0441\u0434\u0430\u043d \u0439\u045e\u043b\u043d\u0438\u043d\u0433 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442 \u049b\u0438\u0441\u043c\u0438\u0433\u0430 \u043e\u04b3\u0438\u0441\u0442\u0430 \u0440\u0430\u0432\u043e\u043d \u0431\u0443\u0440\u0438\u0448"
-            ],
-            "ru": [
-                "\u0422\u043e\u0440\u043c\u043e\u0436\u0435\u043d\u0438\u0435 \u0438 \u043f\u043e\u043b\u043d\u0430\u044f \u043e\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0430 \u0442\u0440\u0430\u043d\u0441\u043f\u043e\u0440\u0442\u043d\u043e\u0433\u043e \u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0430",
-                "\u0422\u043e\u0440\u043c\u043e\u0436\u0435\u043d\u0438\u0435 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f \u0438 \u043f\u043b\u0430\u0432\u043d\u044b\u0439 \u043f\u043e\u0432\u043e\u0440\u043e\u0442 \u043d\u0430 \u043f\u0440\u043e\u0435\u0437\u0436\u0443\u044e \u0447\u0430\u0441\u0442\u044c \u0434\u043e\u0440\u043e\u0433\u0438.",
-                "\u041c\u044f\u0433\u043a\u043e \u0438 \u043f\u043b\u0430\u0432\u043d\u043e \u043f\u043e\u0432\u043e\u0440\u0430\u0447\u0438\u0432\u0430\u0439\u0442\u0435 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044c \u043d\u0430 \u043f\u0440\u043e\u0435\u0437\u0436\u0443\u044e \u0447\u0430\u0441\u0442\u044c \u0434\u043e\u0440\u043e\u0433\u0438 \u0431\u0435\u0437 \u0442\u043e\u0440\u043c\u043e\u0436\u0435\u043d\u0438\u044f"
-            ]
-        }
-    }
-},
-{
-    "id": 933,
-    "bilet_id": 47,
-    "question_id": 5,
-    "name": null,
-    "question": {
-        "oz": "Agar avtomobilning o'ng g'ildiraklari nam qoplamali yo'l yoqasiga chiqib qolsa, tavsiya etiladi:",
-        "uz": "\u0410\u0433\u0430\u0440 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438\u043d\u0433 \u045e\u043d\u0433 \u0493\u0438\u043b\u0434\u0438\u0440\u0430\u043a\u043b\u0430\u0440\u0438 \u043d\u0430\u043c \u049b\u043e\u043f\u043b\u0430\u043c\u0430\u043b\u0438 \u0439\u045e\u043b \u0451\u049b\u0430\u0441\u0438\u0433\u0430 \u0447\u0438\u049b\u0438\u0431 \u049b\u043e\u043b\u0441\u0430, \u0442\u0430\u0432\u0441\u0438\u044f \u044d\u0442\u0438\u043b\u0430\u0434\u0438:",
-        "ru": "\u0412 \u0441\u043b\u0443\u0447\u0430\u0435, \u043a\u043e\u0433\u0434\u0430 \u043f\u0440\u0430\u0432\u044b\u0435 \u043a\u043e\u043b\u0451\u0441\u0430 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f \u043d\u0430\u0435\u0437\u0436\u0430\u044e\u0442 \u043d\u0430 \u043d\u0435\u0443\u043a\u0440\u0435\u043f\u043b\u0451\u043d\u043d\u0443\u044e \u0432\u043b\u0430\u0436\u043d\u0443\u044e \u043e\u0431\u043e\u0447\u0438\u043d\u0443, \u0440\u0435\u043a\u043e\u043c\u0435\u043d\u0434\u0443\u0435\u0442\u0441\u044f:"
-    },
-    "photo": null,
-    "answers": {
-        "status": 3,
-        "answer_id": 5,
-        "answer": {
-            "oz": [
-                "Avtomobilni tormozlash va to'liq to'xtatish",
-                "Avtomobilni tormozlab, yo'lning harakat qismiga ohista ravon burish",
-                "Avtomobilni tormozlamasdan yo'lning harakat qismiga oxista ravon burish"
-            ],
-            "uz": [
-                "\u0410\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438 \u0442\u043e\u0440\u043c\u043e\u0437\u043b\u0430\u0448 \u0432\u0430 \u0442\u045e\u043b\u0438\u049b \u0442\u045e\u0445\u0442\u0430\u0442\u0438\u0448",
-                "\u0410\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438 \u0442\u043e\u0440\u043c\u043e\u0437\u043b\u0430\u0431, \u0439\u045e\u043b\u043d\u0438\u043d\u0433 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442 \u049b\u0438\u0441\u043c\u0438\u0433\u0430 \u043e\u04b3\u0438\u0441\u0442\u0430 \u0440\u0430\u0432\u043e\u043d \u0431\u0443\u0440\u0438\u0448",
-                "\u0410\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438 \u0442\u043e\u0440\u043c\u043e\u0437\u043b\u0430\u043c\u0430\u0441\u0434\u0430\u043d \u0439\u045e\u043b\u043d\u0438\u043d\u0433 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442 \u049b\u0438\u0441\u043c\u0438\u0433\u0430 \u043e\u0445\u0438\u0441\u0442\u0430 \u0440\u0430\u0432\u043e\u043d \u0431\u0443\u0440\u0438\u0448"
-            ],
-            "ru": [
-                "\u0417\u0430\u0442\u043e\u0440\u043c\u043e\u0437\u0438\u0442\u044c \u0438 \u043f\u043e\u043b\u043d\u043e\u0441\u0442\u044c\u044e \u043e\u0441\u0442\u0430\u043d\u043e\u0432\u0438\u0442\u044c\u0441\u044f",
-                "\u0417\u0430\u0442\u043e\u0440\u043c\u043e\u0437\u0438\u0442\u044c \u0438 \u043f\u043b\u0430\u0432\u043d\u043e \u043d\u0430\u043f\u0440\u0430\u0432\u0438\u0442\u044c \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044c \u043d\u0430 \u043f\u0440\u043e\u0435\u0437\u0436\u0443\u044e \u0447\u0430\u0441\u0442\u044c",
-                "\u041d\u0435 \u043f\u0440\u0438\u0431\u0435\u0433\u0430\u044f \u043a \u0442\u043e\u0440\u043c\u043e\u0436\u0435\u043d\u0438\u044e, \u043f\u043b\u0430\u0432\u043d\u043e \u043d\u0430\u043f\u0440\u0430\u0432\u0438\u0442\u044c \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044c \u043d\u0430 \u043f\u0440\u043e\u0435\u0437\u0436\u0443\u044e \u0447\u0430\u0441\u0442\u044c"
-            ]
-        }
-    }
-},
-{
-    "id": 943,
-    "bilet_id": 47,
-    "question_id": 17,
-    "name": null,
-    "question": {
-        "oz": "Yo'lning xavfli burilishlarida oldingi uzatmali avtomobilning orqa o'qi yon tomonga sirpanganda siz qanday harakat qilasiz?",
-        "uz": "\u0419\u045e\u043b\u043d\u0438\u043d\u0433 \u0445\u0430\u0432\u0444\u043b\u0438 \u0431\u0443\u0440\u0438\u043b\u0438\u0448\u043b\u0430\u0440\u0438\u0434\u0430 \u043e\u043b\u0434\u0438\u043d\u0433\u0438 \u0443\u0437\u0430\u0442\u043c\u0430\u043b\u0438 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438\u043d\u0433 \u043e\u0440\u049b\u0430 \u045e\u049b\u0438 \u0451\u043d \u0442\u043e\u043c\u043e\u043d\u0433\u0430 \u0441\u0438\u0440\u043f\u0430\u043d\u0433\u0430\u043d\u0434\u0430 \u0441\u0438\u0437 \u049b\u0430\u043d\u0434\u0430\u0439 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442 \u049b\u0438\u043b\u0430\u0441\u0438\u0437?",
-        "ru": "\u041d\u0430 \u043f\u043e\u0432\u043e\u0440\u043e\u0442\u0435 \u0432\u043e\u0437\u043d\u0438\u043a \u0437\u0430\u043d\u043e\u0441 \u043e\u0441\u0438 \u043f\u0435\u0440\u0435\u0434\u043d\u0435\u043f\u0440\u0438\u0432\u043e\u0434\u043d\u043e\u0433\u043e \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f \u0412\u0430\u0448\u0438 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f?"
-    },
-    "photo": null,
-    "answers": {
-        "status": 3,
-        "answer_id": 17,
-        "answer": {
-            "oz": [
-                "Gaz berishni kamaytirib rul chambaragi bilan boshqaruvni barqarorlashtirasiz",
-                "Tormozlab turib rul chambaragini sirpangan tomonga burasiz",
-                "Gaz pedalini ohista bosib avtomobilni rul chambaragini to'g'rilab avtomobilni sirpanishdan olib chiqib ketasiz",
-                "Gaz pedalini ko'proq bosib rul chambaragini o'zgartirmasdan sirpanishdan olib chiqasiz"
-            ],
-            "uz": [
-                "\u0413\u0430\u0437 \u0431\u0435\u0440\u0438\u0448\u043d\u0438 \u043a\u0430\u043c\u0430\u0439\u0442\u0438\u0440\u0438\u0431 \u0440\u0443\u043b \u0447\u0430\u043c\u0431\u0430\u0440\u0430\u0433\u0438 \u0431\u0438\u043b\u0430\u043d \u0431\u043e\u0448\u049b\u0430\u0440\u0443\u0432\u043d\u0438 \u0431\u0430\u0440\u049b\u0430\u0440\u043e\u0440\u043b\u0430\u0448\u0442\u0438\u0440\u0430\u0441\u0438\u0437",
-                "\u0422\u043e\u0440\u043c\u043e\u0437\u043b\u0430\u0431 \u0442\u0443\u0440\u0438\u0431 \u0440\u0443\u043b \u0447\u0430\u043c\u0431\u0430\u0440\u0430\u0433\u0438\u043d\u0438 \u0441\u0438\u0440\u043f\u0430\u043d\u0433\u0430\u043d \u0442\u043e\u043c\u043e\u043d\u0433\u0430 \u0431\u0443\u0440\u0430\u0441\u0438\u0437",
-                "\u0413\u0430\u0437 \u043f\u0435\u0434\u0430\u043b\u0438\u043d\u0438 \u043e\u04b3\u0438\u0441\u0442\u0430 \u0431\u043e\u0441\u0438\u0431 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438 \u0440\u0443\u043b \u0447\u0430\u043c\u0431\u0430\u0440\u0430\u0433\u0438\u043d\u0438 \u0442\u045e\u0493\u0440\u0438\u043b\u0430\u0431 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438 \u0441\u0438\u0440\u043f\u0430\u043d\u0438\u0448\u0434\u0430\u043d \u043e\u043b\u0438\u0431 \u0447\u0438\u049b\u0438\u0431 \u043a\u0435\u0442\u0430\u0441\u0438\u0437",
-                "\u0413\u0430\u0437 \u043f\u0435\u0434\u0430\u043b\u0438\u043d\u0438 \u043a\u045e\u043f\u0440\u043e\u049b \u0431\u043e\u0441\u0438\u0431 \u0440\u0443\u043b \u0447\u0430\u043c\u0431\u0430\u0440\u0430\u0433\u0438\u043d\u0438 \u045e\u0437\u0433\u0430\u0440\u0442\u0438\u0440\u043c\u0430\u0441\u0434\u0430\u043d \u0441\u0438\u0440\u043f\u0430\u043d\u0438\u0448\u0434\u0430\u043d \u043e\u043b\u0438\u0431 \u0447\u0438\u049b\u0430\u0441\u0438\u0437"
-            ],
-            "ru": [
-                "\u0423\u043c\u0435\u043d\u044c\u0448\u0430\u0435\u0442\u0435 \u043f\u043e\u0434\u0430\u0447\u0443 \u0442\u043e\u043f\u043b\u0438\u0432\u0430, \u0440\u0443\u043b\u0435\u0432\u044b\u043c \u043a\u043e\u043b\u0435\u0441\u043e\u043c \u0441\u0442\u0430\u0431\u0438\u043b\u0438\u0437\u0438\u0440\u0443\u0435\u0442\u0435 \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u0435.",
-                "\u041f\u0440\u0438\u0442\u043e\u0440\u043c\u0430\u0436\u0438\u0432\u0430\u0435\u0442\u0435 \u0438 \u0440\u0443\u043b\u044c \u043f\u043e\u0432\u043e\u0440\u0430\u0447\u0438\u0432\u0430\u0435\u0442\u0435 \u0432 \u0441\u0442\u043e\u0440\u043e\u043d\u0443 \u0437\u0430\u043d\u043e\u0441\u0430",
-                "\u0421\u043b\u0435\u0433\u043a\u0430 \u0443\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0435\u0442\u0435 \u043f\u043e\u0434\u0430\u0447\u0443 \u0442\u043e\u043f\u043b\u0438\u0432\u0430, \u043a\u043e\u0440\u0440\u0435\u043a\u0442\u0438\u0440\u0443\u044f \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u044f \u0440\u0443\u043b\u0435\u0432\u044b\u043c \u043a\u043e\u043b\u0435\u0441\u043e\u043c.",
-                "\u0417\u043d\u0430\u0447\u0438\u0442\u0435\u043b\u044c\u043d\u043e \u0443\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0435\u0442\u0435 \u043f\u043e\u0434\u0430\u0447\u0443 \u0442\u043e\u043f\u043b\u0438\u0432\u0430 \u043d\u0435 \u043c\u0435\u043d\u044f\u044f \u043f\u043e\u043b\u043e\u0436\u0435\u043d\u0438\u044f \u0440\u0443\u043b\u0435\u0432\u043e\u0433\u043e \u043a\u043e\u043b\u0435\u0441\u0430"
-            ]
-        }
-    }
-},
-{
-    "id": 944,
-    "bilet_id": 47,
-    "question_id": 18,
-    "name": null,
-    "question": {
-        "oz": "Avtomobilning antiblokirovka tizimi (ABS) burilishda sirpanishva yonga siljishni oldini oladimi?",
-        "uz": "\u0410\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438\u043d\u0433 \u0430\u043d\u0442\u0438\u0431\u043b\u043e\u043a\u0438\u0440\u043e\u0432\u043a\u0430 \u0442\u0438\u0437\u0438\u043c\u0438 (\u0410\u0411\u0421) \u0431\u0443\u0440\u0438\u043b\u0438\u0448\u0434\u0430 \u0441\u0438\u0440\u043f\u0430\u043d\u0438\u0448\u0432\u0430 \u0451\u043d\u0433\u0430 \u0441\u0438\u043b\u0436\u0438\u0448\u043d\u0438 \u043e\u043b\u0434\u0438\u043d\u0438 \u043e\u043b\u0430\u0434\u0438\u043c\u0438?",
-        "ru": "\u0410\u0411\u0421 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f \u043f\u0440\u0435\u0434\u043e\u0442\u0432\u0440\u0430\u0449\u0430\u0435\u0442 \u043b\u0438 \u0435\u0433\u043e \u0441\u043a\u043e\u043b\u044c\u0436\u0435\u043d\u0438\u0435 \u0438 \u0431\u043e\u043a\u043e\u0432\u043e\u0439 \u0437\u0430\u043d\u043e\u0441 \u043f\u0440\u0438 \u043f\u043e\u0432\u043e\u0440\u043e\u0442\u0435 ?"
-    },
-    "photo": null,
-    "answers": {
-        "status": 3,
-        "answer_id": 18,
-        "answer": {
-            "oz": [
-                "Avtomobilni faqat sirpanish ehtimolining oldini oladi",
-                "Avtomobilni faqat yonga siljish ehtimolining oldini oladi",
-                "Avtomobilning sirpanish va yonga tomonga sirpanishini oldini olmaydi"
-            ],
-            "uz": [
-                "\u0410\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438 \u0444\u0430\u049b\u0430\u0442 \u0441\u0438\u0440\u043f\u0430\u043d\u0438\u0448 \u044d\u04b3\u0442\u0438\u043c\u043e\u043b\u0438\u043d\u0438\u043d\u0433 \u043e\u043b\u0434\u0438\u043d\u0438 \u043e\u043b\u0430\u0434\u0438",
-                "A\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438 \u0444\u0430\u049b\u0430\u0442 \u0451\u043d\u0433\u0430 \u0441\u0438\u043b\u0436\u0438\u0448 \u0435\u04b3\u0442\u0438\u043c\u043e\u043b\u0438\u043d\u0438\u043d\u0433 \u043e\u043b\u0434\u0438\u043d\u0438 \u043e\u043b\u0430\u0434\u0438",
-                "\u0410\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438\u043d\u0433 \u0441\u0438\u0440\u043f\u0430\u043d\u0438\u0448 \u0432\u0430 \u0451\u043d\u0433\u0430 \u0442\u043e\u043c\u043e\u043d\u0433\u0430 \u0441\u0438\u0440\u043f\u0430\u043d\u0438\u0448\u0438\u043d\u0438 \u043e\u043b\u0434\u0438\u043d\u0438 \u043e\u043b\u043c\u0430\u0439\u0434\u0438"
-            ],
-            "ru": [
-                "\u0422\u043e\u043b\u044c\u043a\u043e \u043f\u0440\u0435\u0434\u043e\u0442\u0432\u0440\u0430\u0449\u0430\u0435\u0442 \u0437\u0430\u043d\u043e\u0441 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f.",
-                "\u0422\u043e\u043b\u044c\u043a\u043e \u043f\u0440\u0435\u0434\u043e\u0442\u0432\u0440\u0430\u0449\u0430\u0435\u0442 \u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u044c \u0441\u043a\u043e\u043b\u044c\u0436\u0435\u043d\u0438\u044f \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f \u0432 \u0441\u0442\u043e\u0440\u043e\u043d\u0443.",
-                "\u041d\u0435 \u0438\u0441\u043a\u043b\u044e\u0447\u0430\u0435\u0442 \u0431\u043e\u043a\u043e\u0432\u043e\u0435 \u0441\u043a\u043e\u043b\u044c\u0436\u0435\u043d\u0438\u0435 \u0438 \u0441\u043a\u043e\u043b\u044c\u0436\u0435\u043d\u0438\u0435 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f \u0432 \u0441\u0442\u043e\u0440\u043e\u043d\u0443"
-            ]
-        }
-    }
-},
-{
-    "id": 951,
-    "bilet_id": 48,
-    "question_id": 5,
-    "name": null,
-    "question": {
-        "oz": "Engil avtomobil burilishda ag'darilib ketishga qarshi turg'unroq:",
-        "uz": "\u0415\u043d\u0433\u0438\u043b \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b \u0431\u0443\u0440\u0438\u043b\u0438\u0448\u0434\u0430 \u0430\u0493\u0434\u0430\u0440\u0438\u043b\u0438\u0431 \u043a\u0435\u0442\u0438\u0448\u0433\u0430 \u049b\u0430\u0440\u0448\u0438 \u0442\u0443\u0440\u0493\u0443\u043d\u0440\u043e\u049b:",
-        "ru": "\u0411\u043e\u043b\u0435\u0435 \u0443\u0441\u0442\u043e\u0439\u0447\u0438\u0432 \u043f\u0440\u043e\u0442\u0438\u0432 \u043e\u043f\u0440\u043e\u043a\u0438\u0434\u044b\u0432\u0430\u043d\u0438\u044f \u043d\u0430 \u043f\u043e\u0432\u043e\u0440\u043e\u0442\u0435 \u043b\u0435\u0433\u043a\u043e\u0432\u043e\u0439 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044c:"
-    },
-    "photo": null,
-    "answers": {
-        "status": 1,
-        "answer_id": 5,
-        "answer": {
-            "oz": [
-                "Yo'lovchisiz va yuksiz",
-                "Yo'lovchisiz, biroq yuqori yukxonasidagi yuki bilan",
-                "Yo'lovchilari bilan yuksiz",
-                "Yo'lovchi va yuki bilan"
-            ],
-            "uz": [
-                "\u0419\u045e\u043b\u043e\u0432\u0447\u0438\u0441\u0438\u0437 \u0432\u0430 \u044e\u043a\u0441\u0438\u0437",
-                "\u0419\u045e\u043b\u043e\u0432\u0447\u0438\u0441\u0438\u0437, \u0431\u0438\u0440\u043e\u049b \u044e\u049b\u043e\u0440\u0438 \u044e\u043a\u0445\u043e\u043d\u0430\u0441\u0438\u0434\u0430\u0433\u0438 \u044e\u043a\u0438 \u0431\u0438\u043b\u0430\u043d",
-                "\u0419\u045e\u043b\u043e\u0432\u0447\u0438\u043b\u0430\u0440\u0438 \u0431\u0438\u043b\u0430\u043d \u044e\u043a\u0441\u0438\u0437",
-                "\u0419\u045e\u043b\u043e\u0432\u0447\u0438 \u0432\u0430 \u044e\u043a\u0438 \u0431\u0438\u043b\u0430\u043d"
-            ],
-            "ru": [
-                "\u0411\u0435\u0437 \u043f\u0430\u0441\u0441\u0430\u0436\u0438\u0440\u043e\u0432 \u0438 \u0433\u0440\u0443\u0437\u0430",
-                "\u0411\u0435\u0437 \u043f\u0430\u0441\u0441\u0430\u0436\u0438\u0440\u043e\u0432, \u043d\u043e \u0441 \u0433\u0440\u0443\u0437\u043e\u043c \u043d\u0430 \u0432\u0435\u0440\u0445\u043d\u0435\u043c \u0431\u0430\u0433\u0430\u0436\u043d\u0438\u043a\u0435",
-                "\u0421 \u043f\u0430\u0441\u0441\u0430\u0436\u0438\u0440\u0430\u043c\u0438, \u043d\u043e \u0431\u0435\u0437 \u0433\u0440\u0443\u0437\u0430",
-                "\u0421 \u043f\u0430\u0441\u0441\u0430\u0436\u0438\u0440\u0430\u043c\u0438 \u0438 \u0433\u0440\u0443\u0437\u043e\u043c"
-            ]
-        }
-    }
-},
-{
-    "id": 954,
-    "bilet_id": 48,
-    "question_id": 8,
-    "name": null,
-    "question": {
-        "oz": "108 km\/s tezlikda harakatlanayotgan transport vositasi 1 sekundda qancha masofani bosib o'tadi?",
-        "uz": "108 \u043a\u043c\/\u0441 \u0442\u0435\u0437\u043b\u0438\u043a\u0434\u0430 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0430\u0451\u0442\u0433\u0430\u043d \u0442\u0440\u0430\u043d\u0441\u043f\u043e\u0440\u0442 \u0432\u043e\u0441\u0438\u0442\u0430\u0441\u0438 1 \u0441\u0435\u043a\u0443\u043d\u0434\u0434\u0430 \u049b\u0430\u043d\u0447\u0430 \u043c\u0430\u0441\u043e\u0444\u0430\u043d\u0438 \u0431\u043e\u0441\u0438\u0431 \u045e\u0442\u0430\u0434\u0438?",
-        "ru": "\u041a\u0430\u043a\u043e\u0439 \u043f\u0443\u0442\u044c \u043f\u0440\u043e\u0435\u0437\u0436\u0430\u0435\u0442 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044c, \u0434\u0432\u0438\u0436\u0443\u0449\u0438\u0439\u0441\u044f \u0441\u043e \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c\u044e 108 \u043a\u043c\/\u0447, \u0437\u0430 1 \u0441\u0435\u043a\u0443\u043d\u0434\u0443?"
-    },
-    "photo": null,
-    "answers": {
-        "status": 3,
-        "answer_id": 8,
-        "answer": {
-            "oz": [
-                "15 m",
-                "25 m",
-                "30 m"
-            ],
-            "uz": [
-                "15 \u043c",
-                "25 \u043c",
-                "30 \u043c"
-            ],
-            "ru": [
-                "15 \u043c",
-                "25 \u043c",
-                "30 \u043c"
-            ]
-        }
-    }
-},
-{
-    "id": 962,
-    "bilet_id": 48,
-    "question_id": 16,
-    "name": null,
-    "question": {
-        "oz": "Balandlikda yo'l chetida to'siq mavjud bo'lganda to'xtagan avtomobilni joyidan g'ildirab ketishini oldini olish uchun oldingi g'ildiraklarni burib qo'yish usuli qaysi javobda to'g'ri ko'rsatilgan:",
-        "uz": "\u0411\u0430\u043b\u0430\u043d\u0434\u043b\u0438\u043a\u0434\u0430 \u0439\u045e\u043b \u0447\u0435\u0442\u0438\u0434\u0430 \u0442\u045e\u0441\u0438\u049b \u043c\u0430\u0432\u0436\u0443\u0434 \u0431\u045e\u043b\u0433\u0430\u043d\u0434\u0430 \u0442\u045e\u0445\u0442\u0430\u0433\u0430\u043d \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438 \u0436\u043e\u0439\u0438\u0434\u0430\u043d \u0493\u0438\u043b\u0434\u0438\u0440\u0430\u0431 \u043a\u0435\u0442\u0438\u0448\u0438\u043d\u0438 \u043e\u043b\u0434\u0438\u043d\u0438 \u043e\u043b\u0438\u0448 \u0443\u0447\u0443\u043d \u043e\u043b\u0434\u0438\u043d\u0433\u0438 \u0493\u0438\u043b\u0434\u0438\u0440\u0430\u043a\u043b\u0430\u0440\u043d\u0438 \u0431\u0443\u0440\u0438\u0431 \u049b\u045e\u0439\u0438\u0448 \u0443\u0441\u0443\u043b\u0438 \u049b\u0430\u0439\u0441\u0438 \u0436\u0430\u0432\u043e\u0431\u0434\u0430 \u0442\u045e\u0493\u0440\u0438 \u043a\u045e\u0440\u0441\u0430\u0442\u0438\u043b\u0433\u0430\u043d:",
-        "ru": "\u0412 \u0441\u043b\u0443\u0447\u0430\u0435 \u043e\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0438 \u043d\u0430 \u043f\u043e\u0434\u044a\u0435\u043c\u0435 \u043f\u0440\u0438 \u043d\u0430\u043b\u0438\u0447\u0438\u0438 \u0442\u0440\u043e\u0442\u0443\u0430\u0440\u0430 \u043c\u043e\u0436\u043d\u043e \u043f\u0440\u0435\u0434\u043e\u0442\u0432\u0440\u0430\u0442\u0438\u0442\u044c \u0441\u0430\u043c\u043e\u043f\u0440\u043e\u0438\u0437\u0432\u043e\u043b\u044c\u043d\u043e\u0435 \u0441\u043a\u0430\u0442\u044b\u0432\u0430\u043d\u0438\u0435 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f, \u043f\u043e\u0432\u0435\u0440\u043d\u0443\u0432 \u0435\u0433\u043e \u043f\u0435\u0440\u0435\u0434\u043d\u0438\u0435 \u043a\u043e\u043b\u0435\u0441\u0430 \u0432 \u043f\u043e\u043b\u043e\u0436\u0435\u043d\u0438\u0435"
-    },
-    "photo": "48.16.webp",
-    "answers": {
-        "status": 3,
-        "answer_id": 16,
-        "answer": {
-            "oz": [
-                "A va D",
-                "B va C",
-                "A va C",
-                "B va D"
-            ],
-            "uz": [
-                "\u0410 \u0432\u0430 D",
-                "B \u0432\u0430 C",
-                "\u0410 \u0432\u0430 C",
-                "B \u0432\u0430 D"
-            ],
-            "ru": [
-                "A \u0438 D",
-                "B \u0438 C",
-                "A \u0438 C",
-                "B \u0438 D"
-            ]
-        }
-    }
-},
-{
-    "id": 964,
-    "bilet_id": 48,
-    "question_id": 18,
-    "name": null,
-    "question": {
-        "oz": "O'ng tomondagi yondosh hududdan foydalanib qayrilib olishning ko'rsatilgan qaysi usuli harakat xavfsizligini taminlaydi",
-        "uz": "\u040e\u043d\u0433 \u0442\u043e\u043c\u043e\u043d\u0434\u0430\u0433\u0438 \u0451\u043d\u0434\u043e\u0448 \u04b3\u0443\u0434\u0443\u0434\u0434\u0430\u043d \u0444\u043e\u0439\u0434\u0430\u043b\u0430\u043d\u0438\u0431 \u049b\u0430\u0439\u0440\u0438\u043b\u0438\u0431 \u043e\u043b\u0438\u0448\u043d\u0438\u043d\u0433 \u043a\u045e\u0440\u0441\u0430\u0442\u0438\u043b\u0433\u0430\u043d \u049b\u0430\u0439\u0441\u0438 \u0443\u0441\u0443\u043b\u0438 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442 \u0445\u0430\u0432\u0444\u0441\u0438\u0437\u043b\u0438\u0433\u0438\u043d\u0438 \u0442\u0430\u044a\u043c\u0438\u043d\u043b\u0430\u0439\u0434\u0438",
-        "ru": "\u0421\u043f\u043e\u0441\u043e\u0431 \u0440\u0430\u0437\u0432\u043e\u0440\u043e\u0442\u0430 \u0441 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u0435\u043c \u043f\u0440\u0438\u043b\u0435\u0433\u0430\u044e\u0449\u0435\u0439 \u0442\u0435\u0440\u0440\u0438\u0442\u043e\u0440\u0438\u0438 \u0441\u043f\u0440\u0430\u0432\u0430, \u043e\u0431\u0435\u0441\u043f\u0435\u0447\u0438\u0432\u0430\u044e\u0449\u0438\u0439 \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0441\u0442\u044c \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u044f, \u043f\u043e\u043a\u0430\u0437\u0430\u043d"
-    },
-    "photo": "48.18.webp",
-    "answers": {
-        "status": 1,
-        "answer_id": 18,
-        "answer": {
-            "oz": [
-                "Faqat chap tomondagi rasmda",
-                "Faqat o'ng tomondagi rasmda",
-                "Ikkisida ham"
-            ],
-            "uz": [
-                "\u0424\u0430\u049b\u0430\u0442 \u0447\u0430\u043f \u0442\u043e\u043c\u043e\u043d\u0434\u0430\u0433\u0438 \u0440\u0430\u0441\u043c\u0434\u0430",
-                "\u0424\u0430\u049b\u0430\u0442 \u045e\u043d\u0433 \u0442\u043e\u043c\u043e\u043d\u0434\u0430\u0433\u0438 \u0440\u0430\u0441\u043c\u0434\u0430",
-                "\u0418\u043a\u043a\u0438\u0441\u0438\u0434\u0430 \u04b3\u0430\u043c"
-            ],
-            "ru": [
-                "\u0422\u043e\u043b\u044c\u043a\u043e \u043d\u0430 \u043b\u0435\u0432\u043e\u043c \u0440\u0438\u0441\u0443\u043d\u043a\u0435",
-                "\u0422\u043e\u043b\u044c\u043a\u043e \u043d\u0430 \u043f\u0440\u0430\u0432\u043e\u043c \u0440\u0438\u0441\u0443\u043d\u043a\u0435",
-                "\u041d\u0430 \u043e\u0431\u043e\u0438\u0445 \u0440\u0438\u0441\u0443\u043d\u043a\u0430\u0445"
-            ]
-        }
-    }
-},
-{
-    "id": 986,
-    "bilet_id": 49,
-    "question_id": 9,
-    "name": null,
-    "question": {
-        "oz": "Siz to'g'ri yo'lda harakatlanayotib to'satdan yo'lning qisman katta bo'lmagan sirpanchiq qismiga duch keldingiz. Bunda qanday ehtiyot choralarini ko'rasiz?",
-        "uz": "\u0421\u0438\u0437 \u0442\u045e\u0493\u0440\u0438 \u0439\u045e\u043b\u0434\u0430 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0430\u0451\u0442\u0438\u0431 \u0442\u045e\u0441\u0430\u0442\u0434\u0430\u043d \u0439\u045e\u043b\u043d\u0438\u043d\u0433 \u049b\u0438\u0441\u043c\u0430\u043d \u043a\u0430\u0442\u0442\u0430 \u0431\u045e\u043b\u043c\u0430\u0433\u0430\u043d \u0441\u0438\u0440\u043f\u0430\u043d\u0447\u0438\u049b \u049b\u0438\u0441\u043c\u0438\u0433\u0430 \u0434\u0443\u0447 \u043a\u0435\u043b\u0434\u0438\u043d\u0433\u0438\u0437. \u0411\u0443\u043d\u0434\u0430 \u049b\u0430\u043d\u0434\u0430\u0439 \u044d\u04b3\u0442\u0438\u0451\u0442 \u0447\u043e\u0440\u0430\u043b\u0430\u0440\u0438\u043d\u0438 \u043a\u045e\u0440\u0430\u0441\u0438\u0437?",
-        "ru": "\u0414\u0432\u0438\u0433\u0430\u044f\u0441\u044c \u0432 \u043f\u0440\u044f\u043c\u043e\u043c \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0438, \u0412\u044b \u0432\u043d\u0435\u0437\u0430\u043f\u043d\u043e \u043f\u043e\u043f\u0430\u043b\u0438 \u043d\u0430 \u043d\u0435\u0431\u043e\u043b\u044c\u0448\u043e\u0439 \u0443\u0447\u0430\u0441\u0442\u043e\u043a \u0441\u043a\u043e\u043b\u044c\u0437\u043a\u043e\u0439 \u0434\u043e\u0440\u043e\u0433\u0438. \u0427\u0442\u043e \u0441\u043b\u0435\u0434\u0443\u0435\u0442 \u043f\u0440\u0435\u0434\u043f\u0440\u0438\u043d\u044f\u0442\u044c?"
-    },
-    "photo": null,
-    "answers": {
-        "status": 3,
-        "answer_id": 9,
-        "answer": {
-            "oz": [
-                "Avtomobilni ohista to'xtatish",
-                "Rulni  burib sirpanchiqdan chiqib ketish ",
-                "Harakat yo'nalishini va tezlikni o'zgartirmasdan ehtiyotkorlik bilan o'tib ketish  "
-            ],
-            "uz": [
-                "\u0410\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438 \u043e\u04b3\u0438\u0441\u0442\u0430 \u0442\u045e\u0445\u0442\u0430\u0442\u0438\u0448",
-                "\u0420\u0443\u043b\u043d\u0438  \u0431\u0443\u0440\u0438\u0431 \u0441\u0438\u0440\u043f\u0430\u043d\u0447\u0438\u049b\u0434\u0430\u043d \u0447\u0438\u049b\u0438\u0431 \u043a\u0435\u0442\u0438\u0448 ",
-                "\u04b2\u0430\u0440\u0430\u043a\u0430\u0442 \u0439\u045e\u043d\u0430\u043b\u0438\u0448\u0438\u043d\u0438 \u0432\u0430 \u0442\u0435\u0437\u043b\u0438\u043a\u043d\u0438 \u045e\u0437\u0433\u0430\u0440\u0442\u0438\u0440\u043c\u0430\u0441\u0434\u0430\u043d \u044d\u04b3\u0442\u0438\u0451\u0442\u043a\u043e\u0440\u043b\u0438\u043a \u0431\u0438\u043b\u0430\u043d \u045e\u0442\u0438\u0431 \u043a\u0435\u0442\u0438\u0448  "
-            ],
-            "ru": [
-                "\u041f\u043b\u0430\u0432\u043d\u043e \u0437\u0430\u0442\u043e\u0440\u043c\u043e\u0437\u0438\u0442\u044c",
-                "\u041f\u043e\u0432\u0435\u0440\u043d\u0443\u0442\u044c \u0440\u0443\u043b\u044c, \u0447\u0442\u043e\u0431\u044b \u0441\u044a\u0435\u0445\u0430\u0442\u044c \u0441 \u044d\u0442\u043e\u0433\u043e \u0443\u0447\u0430\u0441\u0442\u043a\u0430 \u0434\u043e\u0440\u043e\u0433\u0438",
-                "\u041f\u0440\u043e\u0435\u0445\u0430\u0442\u044c \u043d\u0435 \u043c\u0435\u043d\u044f\u044f \u0442\u0440\u0430\u0435\u043a\u0442\u043e\u0440\u0438\u0438 \u0438 \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u0438 \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u044f"
-            ]
-        }
-    }
-},
-{
-    "id": 1010,
-    "bilet_id": 50,
-    "question_id": 20,
-    "name": null,
-    "question": {
-        "oz": "Engil avtomobilning tormoz yo'li tormoz tizimiga ega bo'lmagan tirkama bilan harakatlanayotganda qanday o'zgaradi?",
-        "uz": "\u0415\u043d\u0433\u0438\u043b \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043d\u0438\u043d\u0433 \u0442\u043e\u0440\u043c\u043e\u0437 \u0439\u045e\u043b\u0438 \u0442\u043e\u0440\u043c\u043e\u0437 \u0442\u0438\u0437\u0438\u043c\u0438\u0433\u0430 \u044d\u0433\u0430 \u0431\u045e\u043b\u043c\u0430\u0433\u0430\u043d \u0442\u0438\u0440\u043a\u0430\u043c\u0430 \u0431\u0438\u043b\u0430\u043d \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0430\u0451\u0442\u0433\u0430\u043d\u0434\u0430 \u049b\u0430\u043d\u0434\u0430\u0439 \u045e\u0437\u0433\u0430\u0440\u0430\u0434\u0438?",
-        "ru": "\u041a\u0430\u043a \u0438\u0437\u043c\u0435\u043d\u044f\u0435\u0442\u0441\u044f \u0434\u043b\u0438\u043d\u0430 \u0442\u043e\u0440\u043c\u043e\u0437\u043d\u043e\u0433\u043e \u043f\u0443\u0442\u0438 \u043b\u0435\u0433\u043a\u043e\u0432\u043e\u0433\u043e \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f \u043f\u0440\u0438 \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u0438 \u0441 \u043f\u0440\u0438\u0446\u0435\u043f\u043e\u043c, \u043d\u0435 \u0438\u043c\u0435\u044e\u0449\u0438\u043c \u0442\u043e\u0440\u043c\u043e\u0437\u043d\u043e\u0439 \u0441\u0438\u0441\u0442\u0435\u043c\u044b?"
-    },
-    "photo": null,
-    "answers": {
-        "status": 3,
-        "answer_id": 20,
-        "answer": {
-            "oz": [
-                "Kamayadi, chunki tirkama harakatlanishga qo'shimcha qarshilik ko'rsatadi",
-                "O'zgarmaydi",
-                "Ortadi"
-            ],
-            "uz": [
-                "\u041a\u0430\u043c\u0430\u044f\u0434\u0438, \u0447\u0443\u043d\u043a\u0438 \u0442\u0438\u0440\u043a\u0430\u043c\u0430 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0438\u0448\u0433\u0430 \u049b\u045e\u0448\u0438\u043c\u0447\u0430 \u049b\u0430\u0440\u0448\u0438\u043b\u0438\u043a \u043a\u045e\u0440\u0441\u0430\u0442\u0430\u0434\u0438",
-                "\u040e\u0437\u0433\u0430\u0440\u043c\u0430\u0439\u0434\u0438",
-                "\u041e\u0440\u0442\u0430\u0434\u0438"
-            ],
-            "ru": [
-                "\u0423\u043c\u0435\u043d\u044c\u0448\u0430\u0435\u0442\u0441\u044f, \u0442\u0430\u043a \u043a\u0430\u043a \u043f\u0440\u0438\u0446\u0435\u043f \u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0435\u0442 \u0434\u043e\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c\u043d\u043e\u0435 \u0441\u043e\u043f\u0440\u043e\u0442\u0438\u0432\u043b\u0435\u043d\u0438\u0435 \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u044e",
-                "\u041d\u0435 \u0438\u0437\u043c\u0435\u043d\u044f\u0435\u0442\u0441\u044f",
-                "\u0423\u0432\u0435\u043b\u0438\u0447\u0438\u0432\u0430\u0435\u0442\u0441\u044f"
-            ]
-        }
-    }
-}
 ]
-}

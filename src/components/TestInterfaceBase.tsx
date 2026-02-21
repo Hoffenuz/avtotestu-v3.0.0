@@ -17,6 +17,7 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { Clock, ChevronLeft, ChevronRight, X, Check } from "lucide-react";
+import { ImageLightbox } from "./ImageLightbox";
 
 // Format 1: Original format with nested question/answers objects
 interface QuestionDataFormat1 {
@@ -51,6 +52,17 @@ interface QuestionDataFormat2 {
     answer: boolean;
   }>;
   image?: string;
+}
+
+// Format 3: New format (barcha.json)
+interface QuestionDataFormat3 {
+  task_info?: { global_id?: string; ticket_num?: number; order?: number };
+  media_url?: string;
+  content: {
+    uz_lat?: { text: string; options: { id: number; text: string; is_correct: boolean }[] };
+    uz_cyr?: { text: string; options: { id: number; text: string; is_correct: boolean }[] };
+    ru?: { text: string; options: { id: number; text: string; is_correct: boolean }[] };
+  };
 }
 
 interface Question {
@@ -104,7 +116,8 @@ export const TestInterfaceBase = ({
   const [showFinishDialog, setShowFinishDialog] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [testStartTime] = useState(Date.now());
-  
+  const [zoomImage, setZoomImage] = useState<string | null>(null);
+
   const autoAdvanceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -143,8 +156,26 @@ export const TestInterfaceBase = ({
           : rawArray.slice(0, questionCount);
 
         // Transform JSON data to our Question format
-        // Detect format based on presence of "choises" field
         const transformedQuestions: Question[] = selectedQuestions.map((q, idx) => {
+          // Format 3: New format (barcha.json) - check for content.uz_lat/uz_cyr/ru
+          if (q.content && (q.content.uz_lat || q.content.uz_cyr || q.content.ru)) {
+            const langKey = questionLang === 'oz' ? 'uz_lat' : questionLang === 'uz' ? 'uz_cyr' : 'ru';
+            const langContent = q.content[langKey] || q.content.uz_lat || q.content.uz_cyr || q.content.ru;
+            const correctOption = langContent.options.find((o: any) => o.is_correct);
+            const correctAnswer = correctOption ? correctOption.id : 1;
+            let imagePath: string | undefined;
+            if (q.media_url?.trim()) {
+              imagePath = q.media_url.startsWith('http') ? q.media_url : `${imagePrefix}${q.media_url}`;
+            }
+            return {
+              id: idx + 1,
+              text: langContent.text,
+              image: imagePath,
+              correctAnswer,
+              answers: langContent.options.map((o: any) => ({ id: o.id, text: o.text })),
+            };
+          }
+          
           // Format 2: Simple format with choises array (700baza.json / 700baza2.json)
           if (q.choises && Array.isArray(q.choises)) {
             const correctIndex = q.choises.findIndex((c: { answer: boolean }) => c.answer === true);
@@ -352,6 +383,25 @@ export const TestInterfaceBase = ({
                 : rawArray.slice(0, questionCount);
 
               const transformedQuestions: Question[] = selectedQuestions.map((q, idx) => {
+                // Format 3: barcha.json
+                if (q.content && (q.content.uz_lat || q.content.uz_cyr || q.content.ru)) {
+                  const langKey = questionLang === 'oz' ? 'uz_lat' : questionLang === 'uz' ? 'uz_cyr' : 'ru';
+                  const langContent = q.content[langKey] || q.content.uz_lat || q.content.uz_cyr || q.content.ru;
+                  const correctOption = langContent.options.find((o: any) => o.is_correct);
+                  const correctAnswer = correctOption ? correctOption.id : 1;
+                  let imagePath: string | undefined;
+                  if (q.media_url?.trim()) {
+                    imagePath = q.media_url.startsWith('http') ? q.media_url : `${imagePrefix}${q.media_url}`;
+                  }
+                  return {
+                    id: idx + 1,
+                    text: langContent.text,
+                    image: imagePath,
+                    correctAnswer,
+                    answers: langContent.options.map((o: any) => ({ id: o.id, text: o.text })),
+                  };
+                }
+                
                 if (q.choises && Array.isArray(q.choises)) {
                   const correctIndex = q.choises.findIndex((c: { answer: boolean }) => c.answer === true);
                   let imagePath: string | undefined;
@@ -498,14 +548,12 @@ export const TestInterfaceBase = ({
                 </p>
               </Card>
 
-              {/* Mobile Only: Question Image */}
+              {/* Mobile Only: Question Image - bosilsa kattalashadi */}
               {question.image && (
                 <Card className="md:hidden p-3 bg-card border-border mb-4 overflow-hidden">
-                  <img
-                    src={question.image}
-                    alt="Question illustration"
-                    className="w-full max-w-[300px] h-auto mx-auto object-contain rounded"
-                  />
+                  <button type="button" className="block w-full cursor-zoom-in focus:outline-none" onClick={() => setZoomImage(question.image!)}>
+                    <img src={question.image} alt="Question illustration" className="w-full max-w-[300px] h-auto mx-auto object-contain rounded" />
+                  </button>
                 </Card>
               )}
 
@@ -555,15 +603,13 @@ export const TestInterfaceBase = ({
               </div>
             </div>
 
-            {/* Right Column: Image (Desktop only - 40%) */}
+            {/* Right Column: Image (Desktop only - 40%) - bosilsa kattalashadi */}
             {question.image && (
               <div className="hidden md:block md:w-[40%] md:flex-shrink-0">
                 <Card className="p-4 bg-card border-border overflow-hidden sticky top-4">
-                  <img
-                    src={question.image}
-                    alt="Question illustration"
-                    className="w-full h-auto object-contain rounded max-h-[60vh]"
-                  />
+                  <button type="button" className="block w-full cursor-zoom-in focus:outline-none" onClick={() => setZoomImage(question.image!)}>
+                    <img src={question.image} alt="Question illustration" className="w-full h-auto object-contain rounded max-h-[60vh]" />
+                  </button>
                 </Card>
               </div>
             )}
@@ -632,6 +678,7 @@ export const TestInterfaceBase = ({
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
+      <ImageLightbox imageUrl={zoomImage} onClose={() => setZoomImage(null)} />
     </div>
   );
 };

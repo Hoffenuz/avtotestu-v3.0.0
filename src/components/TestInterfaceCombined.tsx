@@ -17,6 +17,7 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { Clock, ChevronLeft, ChevronRight, X, Check } from "lucide-react";
+import { ImageLightbox } from "./ImageLightbox";
 
 interface QuestionDataFormat2 {
   id: number;
@@ -79,7 +80,8 @@ export const TestInterfaceCombined = ({
   const [showFinishDialog, setShowFinishDialog] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [testStartTime] = useState(Date.now());
-  
+  const [zoomImage, setZoomImage] = useState<string | null>(null);
+
   const autoAdvanceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -118,6 +120,25 @@ export const TestInterfaceCombined = ({
 
       // Transform to Question format
       const transformedQuestions: Question[] = selectedQuestions.map((q, idx) => {
+        // Format 3: New format (barcha.json)
+        if (q.content && (q.content.uz_lat || q.content.uz_cyr || q.content.ru)) {
+          const langKey = questionLang === 'oz' ? 'uz_lat' : questionLang === 'uz' ? 'uz_cyr' : 'ru';
+          const langContent = q.content[langKey] || q.content.uz_lat || q.content.uz_cyr || q.content.ru;
+          const correctOption = langContent.options.find((o: any) => o.is_correct);
+          const correctAnswer = correctOption ? correctOption.id : 1;
+          let imagePath: string | undefined;
+          if (q.media_url?.trim()) {
+            imagePath = q.media_url.startsWith('http') ? q.media_url : `${imagePrefix}${q.media_url}`;
+          }
+          return {
+            id: idx + 1,
+            text: langContent.text,
+            image: imagePath,
+            correctAnswer,
+            answers: langContent.options.map((o: any) => ({ id: o.id, text: o.text })),
+          };
+        }
+        
         if (q.choises && Array.isArray(q.choises)) {
           const correctIndex = q.choises.findIndex((c: { answer: boolean }) => c.answer === true);
           let imagePath: string | undefined;
@@ -395,11 +416,9 @@ export const TestInterfaceCombined = ({
 
               {question.image && (
                 <Card className="md:hidden p-3 bg-card border-border mb-4 overflow-hidden">
-                  <img
-                    src={question.image}
-                    alt="Question illustration"
-                    className="w-full max-w-[300px] h-auto mx-auto object-contain rounded"
-                  />
+                  <button type="button" className="block w-full cursor-zoom-in focus:outline-none" onClick={() => setZoomImage(question.image!)}>
+                    <img src={question.image} alt="Question illustration" className="w-full max-w-[300px] h-auto mx-auto object-contain rounded" />
+                  </button>
                 </Card>
               )}
 
@@ -448,11 +467,9 @@ export const TestInterfaceCombined = ({
             {question.image && (
               <div className="hidden md:block md:w-[40%]">
                 <Card className="p-4 bg-card border-border overflow-hidden">
-                  <img
-                    src={question.image}
-                    alt="Question illustration"
-                    className="w-full h-auto object-contain rounded"
-                  />
+                  <button type="button" className="block w-full cursor-zoom-in focus:outline-none" onClick={() => setZoomImage(question.image!)}>
+                    <img src={question.image} alt="Question illustration" className="w-full h-auto object-contain rounded" />
+                  </button>
                 </Card>
               </div>
             )}
@@ -509,6 +526,7 @@ export const TestInterfaceCombined = ({
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
+      <ImageLightbox imageUrl={zoomImage} onClose={() => setZoomImage(null)} />
     </div>
   );
 };

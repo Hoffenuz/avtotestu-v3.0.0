@@ -15,24 +15,23 @@ import { TestInterfaceBase } from "@/components/TestInterfaceBase";
 import { TestInterfaceCombined } from "@/components/TestInterfaceCombined";
 
 const languages = [
-  { id: "uz-lat" as const, label: "Lotin", flag: "🇺🇿", file: "700baza2.json" },
-  { id: "uz" as const, label: "Кирилл", flag: "🇺🇿", file: "700baza.json" },
-  { id: "ru" as const, label: "Русский", flag: "🇷🇺", file: "700baza.json" },
+  { id: "uz-lat" as const, label: "Lotin", flag: "🇺🇿", file: "700baza2.json", proFile: "barcha.json" },
+  { id: "uz" as const, label: "Кирилл", flag: "🇺🇿", file: "700baza.json", proFile: "barcha.json" },
+  { id: "ru" as const, label: "Русский", flag: "🇷🇺", file: "700baza.json", proFile: "barcha.json" },
 ];
 
 export default function TestIshlash() {
   const [testStarted, setTestStarted] = useState(false);
-  const [selectedLang, setSelectedLang] = useState<'uz-lat' | 'uz' | 'ru'>('uz-lat'); // Default to Latin
   const [questionCount, setQuestionCount] = useState<20 | 50>(20); // Default to 20 questions
   const { language, setLanguage } = useLanguage();
+  const { user } = useAuth();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Only sync if user has explicitly changed language elsewhere
-    // Keep Latin as default for first-time users
-  }, [language]);
+  // Use language from context (synced with main menu)
+  const selectedLang = language;
 
-  const dataFile = languages.find(l => l.id === selectedLang)?.file || "700baza2.json";
+  const langConfig = languages.find(l => l.id === selectedLang);
+  const dataFile = user ? (langConfig?.proFile || "barcha.json") : (langConfig?.file || "700baza2.json");
 
   if (testStarted) {
     // For 50 questions, use the same file as 20 questions (based on language selection)
@@ -63,7 +62,6 @@ export default function TestIshlash() {
   }
 
   const handleLanguageChange = (langId: 'uz-lat' | 'uz' | 'ru') => {
-    setSelectedLang(langId);
     setLanguage(langId);
   };
 
@@ -73,8 +71,8 @@ export default function TestIshlash() {
   return (
     <>
       <SEO 
-        title="Test ishlash - 700+ savoldan onlayn test"
-        description="700+ savoldan 20 yoki 50 ta tasodifiy savol bilan o'zingizni sinab ko'ring. Haqiqiy imtihon formatida test ishlang. Ro'yxatdan o'tish shart emas."
+        title="Test ishlash - Onlayn test"
+        description="Tasodifiy savollar bilan o'zingizni sinab ko'ring. Haqiqiy imtihon formatida test ishlang. Ro'yxatdan o'tish shart emas."
         path="/test-ishlash"
         keywords="test ishlash, onlayn test, prava test, YHQ savollari, bepul test"
       />
@@ -125,7 +123,7 @@ export default function TestIshlash() {
                 Test ishlash
               </h1>
               <p className="text-muted-foreground mt-1">
-                700+ savoldan {questionCount} ta tasodifiy
+                {questionCount} ta tasodifiy savol
               </p>
             </div>
           </div>
@@ -205,7 +203,11 @@ export default function TestIshlash() {
           {/* Start Button */}
           <Button
             size="lg"
-            className="w-full h-14 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 bg-[hsl(var(--cta-green))] hover:bg-[hsl(var(--cta-green-hover))] rounded-xl"
+            className={`w-full h-14 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl ${
+              user 
+                ? "bg-gradient-to-r from-emerald-400 to-green-500 hover:from-emerald-500 hover:to-green-600 text-white"
+                : "bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white"
+            }`}
             onClick={() => setTestStarted(true)}
           >
             <Play className="w-5 h-5 mr-2" />

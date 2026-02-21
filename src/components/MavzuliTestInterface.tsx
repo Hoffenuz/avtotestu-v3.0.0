@@ -16,7 +16,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { Clock, ChevronLeft, ChevronRight, X, Check } from "lucide-react";
+import { Clock, ChevronLeft, ChevronRight, X, Check, Maximize, Minimize } from "lucide-react";
+import { ImageLightbox } from "./ImageLightbox";
 
 interface QuestionData {
   id?: number;
@@ -70,8 +71,35 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName }: MavzuliTest
   const [showFinishDialog, setShowFinishDialog] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [testStartTime] = useState(Date.now());
-  
+  const [zoomImage, setZoomImage] = useState<string | null>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
   const autoAdvanceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const storageKey = `testState_mavzuli_${topicId}`;
+
+  // Fullscreen handlers
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().then(() => setIsFullscreen(true)).catch(() => {});
+    } else {
+      document.exitFullscreen().then(() => setIsFullscreen(false)).catch(() => {});
+    }
+  };
+
+  const exitFullscreen = () => {
+    if (document.fullscreenElement) {
+      document.exitFullscreen().then(() => setIsFullscreen(false)).catch(() => {});
+    }
+  };
+
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+  }, []);
 
   // Fetch test data from JSON file
   useEffect(() => {
@@ -94,40 +122,87 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName }: MavzuliTest
         
         const jsonData = await response.json();
         
-        // Handle different JSON structures
-        let questionsArray: QuestionData[] = [];
-        if (jsonData.data && Array.isArray(jsonData.data)) {
-          questionsArray = jsonData.data;
-        } else if (Array.isArray(jsonData)) {
-          questionsArray = jsonData;
-        } else if (jsonData.questions && Array.isArray(jsonData.questions)) {
-          questionsArray = jsonData.questions;
-        }
-        
-        if (questionsArray.length === 0) {
-          throw new Error(t("test.noQuestionsFound"));
-        }
-
-        // Transform JSON data to our Question format
-        const transformedQuestions: Question[] = questionsArray.map((q, idx) => {
-          const answerLang = questionLang as 'oz' | 'uz' | 'ru';
-          const answers = q.answers.answer[answerLang] || q.answers.answer.uz || q.answers.answer.oz || [];
-          const questionText = q.question[answerLang] || q.question.uz || q.question.oz || '';
-          const photoField = q.photo || q.image;
+        // New format: array of tasks with content.uz_lat/uz_cyr/ru structure
+        if (Array.isArray(jsonData) && jsonData.length > 0 && jsonData[0].content) {
+          const contentKey = questionLang === 'oz' ? 'uz_lat' : questionLang === 'uz' ? 'uz_cyr' : 'ru';
+          const transformedQuestions: Question[] = jsonData.map((task: any, idx: number) => {
+            const langContent = task.content[contentKey] || task.content.uz_lat || task.content.uz_cyr || task.content.ru;
+            if (!langContent || !langContent.options?.length) {
+              return {
+                id: idx + 1,
+                text: "",
+                answers: [],
+                correctAnswer: 1,
+              };
+            }
+            const correctOption = langContent.options.find((o: any) => o.is_correct);
+            const correctAnswer = correctOption ? correctOption.id : langContent.options[0].id;
+            let image: string | undefined;
+            if (task.media_url?.trim()) {
+              const path = task.media_url.replace(/^\//, "");
+              image = "/images/" + path;
+            }
+            return {
+              id: idx + 1,
+              text: langContent.text || "",
+              image,
+              correctAnswer,
+              answers: langContent.options.map((o: any) => ({ id: o.id, text: o.text })),
+            };
+          });
+          setQuestions(transformedQuestions);
+        } else {
+          // Old format fallback
+          let questionsArray: QuestionData[] = [];
+          if (jsonData.data && Array.isArray(jsonData.data)) {
+            questionsArray = jsonData.data;
+          } else if (Array.isArray(jsonData)) {
+            questionsArray = jsonData;
+          } else if (jsonData.questions && Array.isArray(jsonData.questions)) {
+            questionsArray = jsonData.questions;
+          }
           
-          return {
-            id: idx + 1,
-            text: questionText,
-            image: photoField ? `/images/${photoField}` : undefined,
-            correctAnswer: q.answers.status,
-            answers: answers.map((answerText, ansIdx) => ({
-              id: ansIdx + 1,
-              text: answerText,
-            })),
-          };
-        });
+          if (questionsArray.length === 0) {
+            throw new Error(t("test.noQuestionsFound"));
+          }
 
-        setQuestions(transformedQuestions);
+          const transformedQuestions: Question[] = questionsArray.map((q, idx) => {
+            const answerLang = questionLang as 'oz' | 'uz' | 'ru';
+            const answers = q.answers.answer[answerLang] || q.answers.answer.uz || q.answers.answer.oz || [];
+            const questionText = q.question[answerLang] || q.question.uz || q.question.oz || '';
+            const photoField = q.photo || q.image;
+            
+            return {
+              id: idx + 1,
+              text: questionText,
+              image: photoField ? `/images/${photoField}` : undefined,
+              correctAnswer: q.answers.status,
+              answers: answers.map((answerText, ansIdx) => ({
+                id: ansIdx + 1,
+                text: answerText,
+              })),
+            };
+          });
+          setQuestions(transformedQuestions);
+        }
+
+        // Restore test state from localStorage
+        try {
+          const savedRaw = localStorage.getItem(storageKey);
+          if (savedRaw) {
+            const parsed = JSON.parse(savedRaw);
+            if (parsed && parsed.questions && Array.isArray(parsed.questions) && parsed.questions.length === transformedQuestions.length) {
+              setCurrentQuestion(parsed.currentQuestion || 1);
+              setSelectedAnswers(parsed.selectedAnswers || {});
+              setCorrectAnswers(parsed.correctAnswers || {});
+              setRevealedQuestions(parsed.revealedQuestions || {});
+              setTimeRemaining(parsed.timeRemaining ?? 60 * 60);
+              setShowResults(parsed.showResults || false);
+            }
+          }
+        } catch (e) {
+          console.warn('Error restoring test state:', e);
+        }
       } catch (err: any) {
         console.error('Error fetching test data:', err);
         setError(err.message || t("test.errorLoadingData"));
@@ -141,10 +216,11 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName }: MavzuliTest
 
   // Timer
   useEffect(() => {
-    const timer = setInterval(() => {
+    timerRef.current = setInterval(() => {
       setTimeRemaining(prev => {
         if (prev <= 0) {
-          clearInterval(timer);
+          if (timerRef.current) clearInterval(timerRef.current);
+          exitFullscreen();
           setShowResults(true);
           return 0;
         }
@@ -152,7 +228,9 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName }: MavzuliTest
       });
     }, 1000);
 
-    return () => clearInterval(timer);
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
   }, []);
 
   // Cleanup auto-advance timeout on unmount
@@ -163,6 +241,24 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName }: MavzuliTest
       }
     };
   }, []);
+
+  // Persist test state to localStorage
+  useEffect(() => {
+    try {
+      const payload = {
+        questions,
+        currentQuestion,
+        selectedAnswers,
+        correctAnswers,
+        revealedQuestions,
+        timeRemaining,
+        showResults
+      };
+      localStorage.setItem(storageKey, JSON.stringify(payload));
+    } catch (e) {
+      // ignore quota errors
+    }
+  }, [questions, currentQuestion, selectedAnswers, correctAnswers, revealedQuestions, timeRemaining, showResults, storageKey]);
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60);
@@ -219,7 +315,14 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName }: MavzuliTest
 
   const confirmFinishTest = () => {
     setShowFinishDialog(false);
+    if (timerRef.current) clearInterval(timerRef.current);
+    exitFullscreen();
     setShowResults(true);
+    try {
+      localStorage.removeItem(storageKey);
+    } catch (e) {
+      /* ignore */
+    }
   };
 
   const getTestStats = () => {
@@ -238,6 +341,7 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName }: MavzuliTest
   if (showResults) {
     const stats = getTestStats();
     const timeTaken = Math.floor((Date.now() - testStartTime) / 1000);
+    exitFullscreen();
     
     return (
       <TestResults
@@ -308,6 +412,15 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName }: MavzuliTest
             <Button 
               variant="outline" 
               size="sm" 
+              className="h-7 px-2 md:h-8 md:px-3 text-xs"
+              onClick={toggleFullscreen}
+              title={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
+            >
+              {isFullscreen ? <Minimize className="w-4 h-4" /> : <Maximize className="w-4 h-4" />}
+            </Button>
+            <Button 
+              variant="outline" 
+              size="sm" 
               className="h-7 px-2 md:h-8 md:px-3 text-xs bg-green-500/10 text-green-600 border-green-500/30 hover:bg-green-500/20"
               onClick={handleFinishTest}
             >
@@ -358,14 +471,12 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName }: MavzuliTest
                 </p>
               </Card>
 
-              {/* Mobile Only: Question Image */}
+              {/* Mobile Only: Question Image - bosilsa kattalashadi */}
               {question.image && (
                 <Card className="md:hidden p-3 bg-card border-border mb-4 overflow-hidden">
-                  <img
-                    src={question.image}
-                    alt="Question illustration"
-                    className="w-full max-w-[300px] h-auto mx-auto object-contain rounded"
-                  />
+                  <button type="button" className="block w-full cursor-zoom-in focus:outline-none" onClick={() => setZoomImage(question.image!)}>
+                    <img src={question.image} alt="Question illustration" className="w-full max-w-[300px] h-auto mx-auto object-contain rounded" />
+                  </button>
                 </Card>
               )}
 
@@ -415,15 +526,13 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName }: MavzuliTest
               </div>
             </div>
 
-            {/* Right Column: Image (Desktop only - 40%) */}
+            {/* Right Column: Image (Desktop only - 40%) - bosilsa kattalashadi */}
             {question.image && (
               <div className="hidden md:block md:w-[40%] md:flex-shrink-0">
                 <Card className="p-4 bg-card border-border overflow-hidden sticky top-4">
-                  <img
-                    src={question.image}
-                    alt="Question illustration"
-                    className="w-full h-auto object-contain rounded max-h-[60vh]"
-                  />
+                  <button type="button" className="block w-full cursor-zoom-in focus:outline-none" onClick={() => setZoomImage(question.image!)}>
+                    <img src={question.image} alt="Question illustration" className="w-full h-auto object-contain rounded max-h-[60vh]" />
+                  </button>
                 </Card>
               </div>
             )}
@@ -492,6 +601,7 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName }: MavzuliTest
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
+      <ImageLightbox imageUrl={zoomImage} onClose={() => setZoomImage(null)} />
     </div>
   );
 };

@@ -1,676 +1,1357 @@
-{
-    "lesson": "Умумий қоидалар",
-    "data": [
-        {
-            "id": 933,
-            "bilet_id": 47,
-            "question_id": 5,
-            "name": null,
-            "question": {
-                "oz": "Agar avtomobilning o'ng g'ildiraklari nam qoplamali yo'l yoqasiga chiqib qolsa, tavsiya etiladi:",
-                "uz": "Агар автомобилнинг ўнг ғилдираклари нам қопламали йўл ёқасига чиқиб қолса, тавсия этилади:",
-                "ru": "В случае, когда правые колёса автомобиля наезжают на неукреплённую влажную обочину, рекомендуется:"
-            },
-            "photo": null,
-            "answers": {
-                "status": 3,
-                "answer_id": 5,
-                "answer": {
-                    "oz": [
-                        "Avtomobilni tormozlash va to'liq to'xtatish",
-                        "Avtomobilni tormozlab, yo'lning harakat qismiga ohista ravon burish",
-                        "Avtomobilni tormozlamasdan yo'lning harakat qismiga oxista ravon burish"
-                    ],
-                    "uz": [
-                        "Автомобилни тормозлаш ва тўлиқ тўхтатиш",
-                        "Автомобилни тормозлаб, йўлнинг ҳаракат қисмига оҳиста равон буриш",
-                        "Автомобилни тормозламасдан йўлнинг ҳаракат қисмига охиста равон буриш"
-                    ],
-                    "ru": [
-                        "Затормозить и полностью остановиться",
-                        "Затормозить и плавно направить автомобиль на проезжую часть",
-                        "Не прибегая к торможению, плавно направить автомобиль на проезжую часть"
-                    ]
-                }
-            }
+[
+    {
+        "task_info": {
+            "global_id": "t_42_q_1",
+            "ticket_num": 42,
+            "order": 1
         },
-        {
-            "id": 414,
-            "bilet_id": 21,
-            "question_id": 4,
-            "name": null,
-            "question": {
-                "oz": "Transport vositalari chorrahani quyidagi tartibda kesib o'tadilar:",
-                "uz": "Транспорт воситалари чорраҳани қуйидаги тартибда кесиб ўтадилар:",
-                "ru": "Транспортные средства проедут перекресток в следующем порядке:"
+        "media_url": "u476uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Bu yo'l chizig'i nimani bildiradi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Yo'llar ostin-ustun o'tadigan chorrahalarni",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Harakatlanish tezligi 40 km/s gacha cheklangan qismini",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Yo'l inshootlarining harakatdagi transport vositalariga xavf tug'diradigan tik bo'laklarini",
+                        "is_correct": true
+                    }
+                ]
             },
-            "photo": "21.4.webp",
-            "answers": {
-                "status": 1,
-                "answer_id": 4,
-                "answer": {
-                    "oz": [
-                        "Tramvay, avtomobil va avtobus bir vaqtda",
-                        "Tramvay, avtobus, avtomobil",
-                        "Avtobus, tramvay, avtomobil"
-                    ],
-                    "uz": [
-                        "Трамвай, автомобил ва автобус бир вақтда",
-                        "Трамвай, автобус, автомобил",
-                        "Автобус, трамвай, автомобил"
-                    ],
-                    "ru": [
-                        "Трамвай, автомобиль и автобус одновременно",
-                        "Трамвай, автобус, автомобиль",
-                        "Автобус, трамвай, автомобиль"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 272,
-            "bilet_id": 14,
-            "question_id": 2,
-            "name": null,
-            "question": {
-                "oz": "Agar yo'lda bu belgi o'rnatilgan bo'lsa, avtomobilni shatakka olishga ruxsat etiladimi?",
-                "uz": "Агар йўлда бу белги ўрнатилган бўлса, автомобилни шатакка олишга рухсат этиладими?",
-                "ru": "Разрешается ли буксировка автомобиля; если на дороге установлен этот знак?"
+            "uz_cyr": {
+                "text": "Бу йўл чизиғи нимани билдиради?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Йўллар остин-устун ўтадиган чорраҳаларни",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ҳаракатланиш тезлиги 40 км/с гача чекланган қисмини",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Йўл иншоотларининг ҳаракатдаги транспорт воситаларига хавф туғдирадиган тик бўлакларини",
+                        "is_correct": true
+                    }
+                ]
             },
-            "photo": "14.2.webp",
-            "answers": {
-                "status": 3,
-                "answer_id": 2,
-                "answer": {
-                    "oz": [
-                        "Faqat engil avtomobillarga ruxsat etiladi",
-                        "Qattiq ulagichda ruxsat etiladi\r\n",
-                        "Taqiqlanadi",
-                        "Har qanday ulagichda ruxsat etiladi"
-                    ],
-                    "uz": [
-                        "Фақат енгил автомобилларга рухсат этилади",
-                        "Қаттиқ улагичда рухсат этилади\r\n",
-                        "Тақиқланади",
-                        "Ҳар қандай улагичда рухсат этилади"
-                    ],
-                    "ru": [
-                        "Разрешается только легковым автомобилям\r\n",
-                        "Разрешается на жесткой сцепке",
-                        "Запрещается",
-                        "Разрешается на любой сцепке"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 986,
-            "bilet_id": 49,
-            "question_id": 9,
-            "name": null,
-            "question": {
-                "oz": "Siz to'g'ri yo'lda harakatlanayotib to'satdan yo'lning qisman katta bo'lmagan sirpanchiq qismiga duch keldingiz. Bunda qanday ehtiyot choralarini ko'rasiz?",
-                "uz": "Сиз тўғри йўлда ҳаракатланаётиб тўсатдан йўлнинг қисман катта бўлмаган сирпанчиқ қисмига дуч келдингиз. Бунда қандай эҳтиёт чораларини кўрасиз?",
-                "ru": "Двигаясь в прямом направлении, Вы внезапно попали на небольшой участок скользкой дороги. Что следует предпринять?"
-            },
-            "photo": null,
-            "answers": {
-                "status": 3,
-                "answer_id": 9,
-                "answer": {
-                    "oz": [
-                        "Avtomobilni ohista to'xtatish",
-                        "Rulni  burib sirpanchiqdan chiqib ketish ",
-                        "Harakat yo'nalishini va tezlikni o'zgartirmasdan ehtiyotkorlik bilan o'tib ketish  "
-                    ],
-                    "uz": [
-                        "Автомобилни оҳиста тўхтатиш",
-                        "Рулни  буриб сирпанчиқдан чиқиб кетиш ",
-                        "Ҳаракат йўналишини ва тезликни ўзгартирмасдан эҳтиёткорлик билан ўтиб кетиш  "
-                    ],
-                    "ru": [
-                        "Плавно затормозить",
-                        "Повернуть руль, чтобы съехать с этого участка дороги",
-                        "Проехать не меняя траектории и скорости движения"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 846,
-            "bilet_id": 42,
-            "question_id": 20,
-            "name": null,
-            "question": {
-                "oz": "Harakatlanish qaysi yo'nalishga ruxsat etilgan?",
-                "uz": "Ҳаракатланиш қайси йўналишга рухсат етилган?",
-                "ru": "В каком направлени разрешено движение?"
-            },
-            "photo": "42.20.webp",
-            "answers": {
-                "status": 1,
-                "answer_id": 20,
-                "answer": {
-                    "oz": [
-                        "Harakatlanish taqiqlanadi",
-                        "Faqat to'g'riga",
-                        "Faqat to'g'riga va o'ngga",
-                        "Barcha yo'nalishda ruxsat etiladi"
-                    ],
-                    "uz": [
-                        "Ҳаракатланиш тақиқланади",
-                        "Фақат тўғрига",
-                        "Фақат тўғрига ва ўнгга",
-                        "Барча йўналишда рухсат этилади"
-                    ],
-                    "ru": [
-                        "Движение запрешено",
-                        "Толькo прямо",
-                        "Толькo прямо и направо",
-                        "Разрешено во все направления"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 605,
-            "bilet_id": 30,
-            "question_id": 15,
-            "name": null,
-            "question": {
-                "oz": "Svetoforning qizil va sariq yoritkichlaridagi qora yo'naltirgichlar nima haqida axborot beradi?",
-                "uz": "Светофорнинг қизил ва сариқ ёриткичларидаги қора йўналтиргичлар нима ҳақида ахборот беради?",
-                "ru": "О чем информируют черные стрелки на красном и желтом сигналах светофора?"
-            },
-            "photo": "30.15.webp",
-            "answers": {
-                "status": 1,
-                "answer_id": 15,
-                "answer": {
-                    "oz": [
-                        "Svetoforning yashil yoritkichi yoqilganda harakatlanishning ruxsat etilgan yo'nalishlari haqida",
-                        "Svetoforning qizil va sariq yoritkichlarida harakatlanishning ruxsat etilgan yo'nalishlari haqida"
-                    ],
-                    "uz": [
-                        "Светофорнинг яшил ёриткичи ёқилганда ҳаракатланишнинг рухсат этилган йўналишлари ҳақида",
-                        "Светофорнинг қизил ва сариқ ёриткичларида ҳаракатланишнинг рухсат этилган йўналишлари ҳақида"
-                    ],
-                    "ru": [
-                        "О разрешенных направлениях движения при включении зеленого сигнала светофора",
-                        "О разрешенных направлениях движения при красном и желтом сигналах светофора"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 431,
-            "bilet_id": 22,
-            "question_id": 1,
-            "name": null,
-            "question": {
-                "oz": "Bu joyda quvib o'tishga ruxsat etilganmi?",
-                "uz": "Бу жойда қувиб ўтишга рухсат этилганми?",
-                "ru": "Разрешается ли обгон на этом участке дороги?"
-            },
-            "photo": "22.1.webp",
-            "answers": {
-                "status": 2,
-                "answer_id": 1,
-                "answer": {
-                    "oz": [
-                        "Quvib o'tilayotgan transport vositasi 40 km/s dan kam tezlik bilan harakatlanganda ruxsat etiladi",
-                        "Taqiqlanadi",
-                        "Agar quvib o'tish temir yo'l kesishmasigacha tugasa, ruxsat etiladi"
-                    ],
-                    "uz": [
-                        "Қувиб ўтилаётган транспорт воситаси 40 км/с дан кам тезлик билан ҳаракатланганда рухсат этилади",
-                        "Тақиқланади",
-                        "Агар қувиб ўтиш темир йўл кесишмасигача тугаса, рухсат этилади"
-                    ],
-                    "ru": [
-                        "Разрешается если обгоняемый автомобиль движется со скоростью меньше чем 40 км/ч",
-                        "Запрещается",
-                        "Разрешается, если обгон завершается до железнодорожного переезда"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 1128,
-            "bilet_id": 56,
-            "question_id": 16,
-            "name": null,
-            "question": {
-                "oz": "Ushbu belgi qanday nomlanadi?",
-                "uz": "Ушбу белги қандай номланади?",
-                "ru": "Как называется этот знак?"
-            },
-            "photo": "56.16.webp",
-            "answers": {
-                "status": 2,
-                "answer_id": 16,
-                "answer": {
-                    "oz": [
-                        "Piyodalarning harakati taqiqlanga",
-                        "Individual harakatlanish vositalarini boshqarish taqiqlangan",
-                        "Bolalar uchishi taqiqlangan",
-                        "Ko‘rsatilgan barcha javoblar to‘g‘ri"
-                    ],
-                    "uz": [
-                        "Пиёдаларнинг ҳаракати тақиқланган",
-                        "Индивидуал ҳаракатланиш воситаларини бошқариш тақиқланган",
-                        "Болалар учиши тақиқланган",
-                        "Кўрсатилган барча жавоблар тўғри"
-                    ],
-                    "ru": [
-                        "Движение пешеходов запрещено",
-                        "Движение индивидуальным транспортным средствам запрещено",
-                        "Пребывание детей запрещено"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 903,
-            "bilet_id": 45,
-            "question_id": 17,
-            "name": null,
-            "question": {
-                "oz": "Turar joy dahalarida eng katta tezlikda harakatlanishga ruxsat etiladi:",
-                "uz": "Турар жой даҳаларида энг катта тезликда ҳаракатланишга рухсат этилади:",
-                "ru": "Какая максимальная скорость разрешена в жилых зонах:"
-            },
-            "photo": null,
-            "answers": {
-                "status": 2,
-                "answer_id": 17,
-                "answer": {
-                    "oz": [
-                        "5km/s",
-                        "20 km/s",
-                        "30 km/s",
-                        "40 km/s"
-                    ],
-                    "uz": [
-                        "5км/с",
-                        "20 км/с",
-                        "30 км/с",
-                        "40 км/с"
-                    ],
-                    "ru": [
-                        "5км/ч",
-                        "20 км/ч",
-                        "30 км/ч",
-                        "40 км/ч"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 1093,
-            "bilet_id": 55,
-            "question_id": 1,
-            "name": null,
-            "question": {
-                "oz": "Kaysi transport vositasining xaydovchisi axoli punktlarida tuxtash koidasini buzmokda?",
-                "uz": "Кайси транспорт воситасининг хайдовчиси ахоли пунктларида тухташ коидасини бузмокда?",
-                "ru": "Какие транспортного средства нарушает правило остановки в населённых пунктах?"
-            },
-            "photo": "55.1.webp",
-            "answers": {
-                "status": 3,
-                "answer_id": 1,
-                "answer": {
-                    "oz": [
-                        "Sarik avtomobil xaydovchisi",
-                        "Kuk avtomobil xaydovchisi",
-                        "Xar ikkisi buzmadi",
-                        "Xar ikkisi buzdi"
-                    ],
-                    "uz": [
-                        "Сарик автомобил хайдовчиси",
-                        "Кук автомобил хайдовчиси",
-                        "Хар иккиси бузмади",
-                        "Хар иккиси бузди"
-                    ],
-                    "ru": [
-                        "Водитель жёлтого автомобиля",
-                        "Водитель синего автомобиля",
-                        "Оба не нарушили",
-                        "Оба нарушили"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 706,
-            "bilet_id": 35,
-            "question_id": 16,
-            "name": null,
-            "question": {
-                "oz": "Mazkur tik chiziqlar nimani anglatadi?",
-                "uz": "Мазкур тик чизиқлар нимани англатади?",
-                "ru": "Что обозначает данная вертикальная разметка?"
-            },
-            "photo": "35.16.webp",
-            "answers": {
-                "status": 2,
-                "answer_id": 16,
-                "answer": {
-                    "oz": [
-                        "Yo'lnig kichik radiusli burilishlarini yo'l chetiga o'rnatilgan to'siqlarning yon yuzalarini bildiradi",
-                        "Boshqa joylardagi to'siqlarning yon yuzalarini bildiradi"
-                    ],
-                    "uz": [
-                        "Йўлниг кичик радиусли бурилишларини йўл четига ўрнатилган тўсиқларнинг ён юзаларини билдиради",
-                        "Бошқа жойлардаги тўсиқларнинг ён юзаларини билдиради"
-                    ],
-                    "ru": [
-                        "Боковые поверхности ограждения дорог на закруглениях малого радиуса",
-                        "Обозначает боковые поверхности ограждений дорог на других участках"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 938,
-            "bilet_id": 47,
-            "question_id": 10,
-            "name": null,
-            "question": {
-                "oz": "Ushbu yo'l belgisi qanday maqsadda qo'llaniladi?",
-                "uz": "Ушбу йўл белгиси қандай мақсадда қўлланилади?",
-                "ru": "С какой целью применяется этот дорожный знак?"
-            },
-            "photo": "47.10.webp",
-            "answers": {
-                "status": 1,
-                "answer_id": 10,
-                "answer": {
-                    "oz": [
-                        "Majburiy tarzda tezlikni kamaytirish uchun",
-                        "Keskin tormoz berish uchun",
-                        "Ehtiyot choralarini ko'rish uchun"
-                    ],
-                    "uz": [
-                        "Мажбурий тарзда тезликни камайтириш учун",
-                        "Кескин тормоз бериш учун",
-                        "Эҳтиёт чораларини кўриш учун"
-                    ],
-                    "ru": [
-                        "Для принудительного снижения скорости движения",
-                        "Для резкого торможения",
-                        "Для принятия меры предосторожности"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 8,
-            "bilet_id": 1,
-            "question_id": 8,
-            "name": null,
-            "question": {
-                "oz": "Haydovchi harakatlanishni boshlashidan oldin qanday amallarni bajarishi kerak?",
-                "uz": "Ҳайдовчи ҳаракатланишни бошлашидан олдин қандай амалларни бажариши керак?",
-                "ru": "Что обязан выполнить водитель перед началом движения?"
-            },
-            "photo": null,
-            "answers": {
-                "status": 2,
-                "answer_id": 8,
-                "answer": {
-                    "oz": [
-                        "Transport vositasining sozligini va to'la jixozlanganligini tekshirishi",
-                        "Harakatlanish boshlanishi havfsiz bo'lishiga va harakatning boshqa ishtirokchilariga halaqit bermasligiga ishonch hosil qilishi kerak",
-                        "Tegishli yo'nalishdagi burilishning yorug'lik ko'rsatkichi bilan ishora berishi",
-                        "Sanab o'tilgan hamma harakatlarni bajarishi"
-                    ],
-                    "uz": [
-                        "Транспорт воситасининг созлигини ва тўла жихозланганлигини текшириши",
-                        "Ҳаракатланиш бошланиши ҳавфсиз бўлишига ва ҳаракатнинг бошқа иштирокчиларига ҳалақит бермаслигига ишонч ҳосил қилиши керак",
-                        "Тегишли йўналишдаги бурилишнинг ёруғлик кўрсаткичи билан ишора бериши",
-                        "Санаб ўтилган ҳамма ҳаракатларни бажариши"
-                    ],
-                    "ru": [
-                        "Проверить исправность и комплектность транспортного средства",
-                        "Убедиться, что начало движения будет безопасным и он не создаст помех другим участникам движения",
-                        "Подать сигнал световым указателем поворота соответствующего направления",
-                        "Выполнить все перечисленные действия"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 927,
-            "bilet_id": 46,
-            "question_id": 19,
-            "name": null,
-            "question": {
-                "oz": "Ushbu svetafor qaysi yo'nalishida harakatlanishga ruxsat beradi?",
-                "uz": "Ушбу светафор қайси йўналишида ҳаракатланишга рухсат беради?",
-                "ru": "В каком направлении этот светафор позволяет вам двигаться?"
-            },
-            "photo": "46.19.webp",
-            "answers": {
-                "status": 2,
-                "answer_id": 19,
-                "answer": {
-                    "oz": [
-                        "Faqat Chapga",
-                        "To'g'riga va o'nga",
-                        "Faqat o'ngga",
-                        "To'g'riga va chapga"
-                    ],
-                    "uz": [
-                        "Фақат Чапга",
-                        "Тўғрига ва ўнга",
-                        "Фақат ўнгга",
-                        "Тўғрига ва чапга"
-                    ],
-                    "ru": [
-                        "Только налево",
-                        "Прямо и направо",
-                        "Только направо",
-                        "Прямо и налево"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 339,
-            "bilet_id": 17,
-            "question_id": 9,
-            "name": null,
-            "question": {
-                "oz": "Haydovchi avtopoezdni tormozlashning qaysi qoidalariga rioya qilishi kerak?",
-                "uz": "Ҳайдовчи автопоездни тормозлашнинг қайси қоидаларига риоя қилиши керак?",
-                "ru": "Какие правила торможения автопоезда должен соблюдать водитель?"
-            },
-            "photo": null,
-            "answers": {
-                "status": 2,
-                "answer_id": 9,
-                "answer": {
-                    "oz": [
-                        "Tormoz tepkisini keskin kuchli bosish - ulagichni ajratgan holda",
-                        "Oldindan tezlikni kamaytirish, ulagichni ajratmay, bir tekis tormozlash"
-                    ],
-                    "uz": [
-                        "Тормоз тепкисини кескин кучли босиш - улагични ажратган ҳолда",
-                        "Олдиндан тезликни камайтириш, улагични ажратмай, бир текис тормозлаш"
-                    ],
-                    "ru": [
-                        "Тормозить резким порывистым нажатием на педаль тормоза, выключив при этом сцепление",
-                        "Тормозить плавно, заблаговременно снизить скорость, не выключая сцепление"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 902,
-            "bilet_id": 45,
-            "question_id": 16,
-            "name": null,
-            "question": {
-                "oz": "Shokning belgilari qanday ?",
-                "uz": "Шокнинг белгилари қандай ?",
-                "ru": "Каковы признаки шока?"
-            },
-            "photo": null,
-            "answers": {
-                "status": 5,
-                "answer_id": 16,
-                "answer": {
-                    "oz": [
-                        "Teri va shilliq qavatlarning oqarishi",
-                        "Kuchli ter ajralishi",
-                        "Og'iz qurishi, chanqoqolik, nafas olishning tezlashuvi",
-                        "Es-hushning noaniqligi, behush holat",
-                        "Yuqoridagi barcha holatlar"
-                    ],
-                    "uz": [
-                        "Тери ва шиллиқ қаватларнинг оқариши",
-                        "Кучли тер ажралиши",
-                        "Оғиз қуриши, чанқоқолик, нафас олишнинг тезлашуви",
-                        "Эс-ҳушнинг ноаниқлиги, беҳуш ҳолат",
-                        "Юқоридаги барча ҳолатлар"
-                    ],
-                    "ru": [
-                        "Воспаление кожи и слизистых оболочек",
-                        "Сильное потоотделение",
-                        "Сухость натощак, жажда, учащенное дыхание",
-                        "Потеря памяти, бессознательное состояние",
-                        "Все вышеперечисленное"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 1049,
-            "bilet_id": 52,
-            "question_id": 17,
-            "name": null,
-            "question": {
-                "oz": "Bir vaqtda qayrilishda qaysi transport vositasi yo'l berishi kerak?",
-                "uz": "Бир вақтда қайрилишда қайси транспорт воситаси йўл бериши керак?",
-                "ru": "Кто должен уступить дорогу при одновременном развороте?"
-            },
-            "photo": "52.17.webp",
-            "answers": {
-                "status": 1,
-                "answer_id": 17,
-                "answer": {
-                    "oz": [
-                        "Avtobus haydovchisi",
-                        "Engil avtomobil haydovchisi",
-                        "Bunday vaziyatda haydovchilar o'zaro kelishadilar"
-                    ],
-                    "uz": [
-                        "Автобус ҳайдовчиси",
-                        "Енгил автомобиль ҳайдовчиси",
-                        "Бундай вазиятда ҳайдовчилар ўзаро келишадилар"
-                    ],
-                    "ru": [
-                        "Водитель автобуса",
-                        "Водитель легкового автомобиля",
-                        "В данной ситуации водителям следует действовать по взаимной договоренности"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 211,
-            "bilet_id": 11,
-            "question_id": 1,
-            "name": null,
-            "question": {
-                "oz": "Yaltirovchi ko'k mayoqcha va unga qo'shimcha maxsus tovushli ishorasi yoqilgan transport vositasi sizga yaqinlashib kelmoqda. Siz shunday transport vositasiga qarshi harakatlanayotgan bo'lsangiz; nima qilishingiz lozim?",
-                "uz": "Ялтировчи кўк маёқча ва унга қўшимча махсус товушли ишораси ёқилган транспорт воситаси сизга яқинлашиб келмоқда. Сиз шундай транспорт воситасига қарши ҳаракатланаётган бўлсангиз; нима қилишингиз лозим?",
-                "ru": "К Вам приближается транспортное средство; на котором включен проблесковый маячок синего цвета и специальный звуковой сигнал. Как Вы должны поступить; если движетесь навстречу такому транспортному средству?"
-            },
-            "photo": null,
-            "answers": {
-                "status": 2,
-                "answer_id": 1,
-                "answer": {
-                    "oz": [
-                        "Yo'l yoqasida yoki qatnov qismining chetida to'xtash",
-                        "Mayoqcha ishorasi yoqilgan transport vositasiga xalaqit bermasdan yo'l chetidan harakatlanish"
-                    ],
-                    "uz": [
-                        "Йўл ёқасида ёки қатнов қисмининг четида тўхташ",
-                        "Маёқча ишораси ёқилган транспорт воситасига халақит бермасдан йўл четидан ҳаракатланиш"
-                    ],
-                    "ru": [
-                        "Остановиться на обочине или у тротуара",
-                        "Продолжать движение; не создавая помех транспортному средству с включёнными специальными сигналами"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 329,
-            "bilet_id": 16,
-            "question_id": 19,
-            "name": null,
-            "question": {
-                "oz": "Haydovchi avtopoezd harakatining eng keng bo'lagini aniqlashda nimani hisobga olishi kerak?",
-                "uz": "Ҳайдовчи автопоезд ҳаракатининг энг кенг бўлагини аниқлашда нимани ҳисобга олиши керак?",
-                "ru": "Что должен учитывать водитель при определении наибольшей ширины полосы движения автопоезда?"
-            },
-            "photo": null,
-            "answers": {
-                "status": 2,
-                "answer_id": 19,
-                "answer": {
-                    "oz": [
-                        "Faqat kengligi bo'yicha avtopoezdning o'lchamlarini",
-                        "Kengligi bo'yicha transport vositasining o'lchamlarini, shuningdek tirkamaning chayqalishini hamda uning burilish markaziga siljishini"
-                    ],
-                    "uz": [
-                        "Фақат кенглиги бўйича автопоезднинг ўлчамларини",
-                        "Кенглиги бўйича транспорт воситасининг ўлчамларини, шунингдек тиркаманинг чайқалишини ҳамда унинг бурилиш марказига силжишини"
-                    ],
-                    "ru": [
-                        "Только габариты автопоезда по ширине",
-                        "Габариты транспортного средства по ширине, а также влияние прицепа и смещение его к центру поворота"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 814,
-            "bilet_id": 41,
-            "question_id": 7,
-            "name": null,
-            "question": {
-                "oz": "Harakatlanishga ruxsat berilgan:",
-                "uz": "Ҳаракатланишга рухсат берилган:",
-                "ru": "Разрешается движение:"
-            },
-            "photo": "41.7.webp",
-            "answers": {
-                "status": 2,
-                "answer_id": 7,
-                "answer": {
-                    "oz": [
-                        "Qizil, ko'k, yashil va sariq avtomobilga",
-                        "Qizil va sariq avtomobilga",
-                        "Qizil, sariq va yashil avtomobilga"
-                    ],
-                    "uz": [
-                        "Қизил, кўк, яшил ва сариқ автомобилга",
-                        "Қизил ва сариқ автомобилга",
-                        "Қизил, сариқ ва яшил автомобилга"
-                    ],
-                    "ru": [
-                        "Красному, синему, зеленому и желтому автомобилям",
-                        "Красному и желтому автомобилям",
-                        "Красному, желтому и зеленому автомобилям"
-                    ]
-                }
+            "ru": {
+                "text": "Эта дорожная разметка применяется для обозначения:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Дорожной развязки на разных уровнях",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Участка дороги, на котором скорость движения ограничена до 40 км/ч",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Вертикальных элементов дорожных сооружений, когда они представляют опасность для движущихся транспортных средств",
+                        "is_correct": true
+                    }
+                ]
             }
         }
-    ]
-}
+    },
+    {
+        "task_info": {
+            "global_id": "t_42_q_2",
+            "ticket_num": 42,
+            "order": 2
+        },
+        "media_url": "",
+        "content": {
+            "uz_lat": {
+                "text": "N1 toifadagi avtotransport vositalarining boshqaruv qurilmasidagi qanday eng katta lyuft yig'indisiga yo'l qo'yiladi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "10 gradus",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "30 gradus",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "20 gradus",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "N1 тоифадаги автотранспорт воситаларининг бошқарув қурилмасидаги қандай энг катта люфт йиғиндисига йўл қўйилади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "10 градус",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "30 градус",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "20 градус",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Суммарный люфт в рулевом управлении в регламентированных условях испытаний автотранспортного средства категория N1 не должен превышать следующих значений:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "10 градусов",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "25 градусов",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "20 градусов",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_42_q_3",
+            "ticket_num": 42,
+            "order": 3
+        },
+        "media_url": "",
+        "content": {
+            "uz_lat": {
+                "text": "Haydovchi avtopoezd harakatining eng keng bo'lagini aniqlashda nimani hisobga olishi kerak?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Kengligi bo'yicha transport vositasining o'lchamlarini, shuningdek tirkamaning chayqalishini hamda uning burilish markaziga siljishini",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat kengligi bo'yicha avtopoezdning o'lchamlarini",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ҳайдовчи автопоезд ҳаракатининг энг кенг бўлагини аниқлашда нимани ҳисобга олиши керак?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Кенглиги бўйича транспорт воситасининг ўлчамларини, шунингдек тиркаманинг чайқалишини ҳамда унинг бурилиш марказига силжишини",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат кенглиги бўйича автопоезднинг ўлчамларини",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Что должен учитывать водитель при определении наибольшей ширины полосы движения автопоезда?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Габариты транспортного средства по ширине, а также влияние прицепа и смещение его к центру поворота",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только габариты автопоезда по ширине",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_42_q_4",
+            "ticket_num": 42,
+            "order": 4
+        },
+        "media_url": "",
+        "content": {
+            "uz_lat": {
+                "text": "Shlagbaumni o'zboshimchalik bilan ochish yoki aylanib o'tishga ruxsat beriladimi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ruxsat beriladi, faqat svetofor o'chgan bo'lsa",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Taqiqlanadi",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Шлагбаумни ўзбошимчалик билан очиш ёки айланиб ўтишга рухсат бериладими?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Рухсат берилади, фақат светофор ўчган бўлса",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Тақиқланади",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Разрешается ли открывать шлагбаум или объезжать его?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Разрешается если светофор выключен",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Запрещается",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_42_q_5",
+            "ticket_num": 42,
+            "order": 5
+        },
+        "media_url": "u477uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Bu chorrahada chapga burilishga ruxsat etiladimi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ruxsat etiladi",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Taqiqlanadi",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Бу чорраҳада чапга бурилишга рухсат этиладими?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Рухсат этилади",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Тақиқланади",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Разрешается ли на этом перекрестке повернуть налево?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Разрешается",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Запрещается",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_42_q_6",
+            "ticket_num": 42,
+            "order": 6
+        },
+        "media_url": "u478uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Bu belgilarning qaysi biri «Bir tomonlama harakatlanish yo'liga chiqish» ni bildiradi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Birinchi va beshinchi",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ikkinchi va to'rtinchi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Uchinchi va beshinchi",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Бу белгиларнинг қайси бири «Бир томонлама ҳаракатланиш йўлига чиқиш» ни билдиради?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Биринчи ва бешинчи",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Иккинчи ва тўртинчи",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Учинчи ва бешинчи",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какие из этих знаков называются «Выезд на дорогу с односторонним движением»?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Первый и пятый",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Второй и четвертый",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Третий и пятый",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_42_q_7",
+            "ticket_num": 42,
+            "order": 7
+        },
+        "media_url": "",
+        "content": {
+            "uz_lat": {
+                "text": "Qanday hollarda aholi punktlarida tovush moslamalaridan foydalanishga ruxsat etiladi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Yo'l-transport hodisasining oldini olish uchun",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Quvib o'tishda ogohlantirish uchun",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Har ikkala sanab o'tilgan hollarda",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қандай ҳолларда аҳоли пунктларида товуш мосламаларидан фойдаланишга рухсат этилади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Йўл-транспорт ҳодисасининг олдини олиш учун",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Қувиб ўтишда огоҳлантириш учун",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ҳар иккала санаб ўтилган ҳолларда",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В каких случаях разрешено применять звуковые сигналы в населённых пунктах?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только для предотвращения дорожно-транспортного происшествия",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только для предупреждения о намерение произвести обгон",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "В обоих перечисленных случаях",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_42_q_8",
+            "ticket_num": 42,
+            "order": 8
+        },
+        "media_url": "",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi javobda \"avariya holatini yuzaga keltirish\" atamasi ta’rifi to‘g‘ri ko‘rsatilgan?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Yo‘l harakatining boshqa qatnashchilarini harakat yo‘nalishi yoki tezligini keskin o‘zgartirishga, shuningdek, o‘z xavfsizligini yoxud boshqa fuqarolar xavfsizligini ta’minlash uchun o‘zga choralarni ko‘rishga majbur qilish",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Yo‘l-transport hodisalarining kelib chiqish sabablarining oldini olishga, ularning og‘ir oqibatlarini kamaytirishga qaratilgan faoliyat",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси жавобда \"авария ҳолатини юзага келтириш\" атамаси таърифи тўғри кўрсатилган?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Йўл ҳаракатининг бошқа қатнашчиларини ҳаракат йўналиши ёки тезлигини кескин ўзгартиришга, шунингдек, ўз хавфсизлигини ёхуд бошқа фуқаролар хавфсизлигини таъминлаш учун ўзга чораларни кўришга мажбур қилиш",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Йўл-транспорт ҳодисаларининг келиб чиқиш сабабларининг олдини олишга, уларнинг оғир оқибатларини камайтиришга қаратилган фаолият",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В каком ответе правильно указано определение термина «создание аварийной обстановки»?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Вынуждение других участников дорожного движения резко изменить направление движения или скорость, а также принять иные меры для обеспечения собственной безопасности или безопасности других граждан",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Деятельность, направленная на предотвращение причин дорожно-транспортных происшествий и уменьшение их тяжёлых последствий",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_42_q_9",
+            "ticket_num": 42,
+            "order": 9
+        },
+        "media_url": "",
+        "content": {
+            "uz_lat": {
+                "text": "Hamma bo'laklar band bo'lgan serqatnov harakatlanish vaqtida qayrilib olishga ruxsat beriladimi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Istalgan paytda ruxsat beriladi",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat chorrahalarda ruxsat beriladi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faqat harakatlanish uchun bo'laklari uchtadan kam bo'lmagan yo'llarda ruxsat beriladi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Taqiqlanadi",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ҳамма бўлаклар банд бўлган серқатнов ҳаракатланиш вақтида қайрилиб олишга рухсат бериладими?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Исталган пайтда рухсат берилади",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат чорраҳаларда рухсат берилади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақат ҳаракатланиш учун бўлаклари учтадан кам бўлмаган йўлларда рухсат берилади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Тақиқланади",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "При интенсивном движении; когда все полосы заняты; разрешается ли выполнять разворот?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Разрешается в любом случае",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Разрешается только на перекрестках",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Разрешается только на дорогах; где имеется не менее трех полос для движения",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Запрещается",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_42_q_10",
+            "ticket_num": 42,
+            "order": 10
+        },
+        "media_url": "u479uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ruxsat etilgan harakatlanish yo'nalishini ko'rsating:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "« Б ва « В »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat « Б »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "« А ва « Б »",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Faqat « В »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Faqat « А »",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Рухсат этилган ҳаракатланиш йўналишини кўрсатинг:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "« Б ва « В »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат « Б »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "« А ва « Б »",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Фақат « В »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Фақат « А »",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Укажите разрешенные направления движения:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "« Б и « В »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только « Б »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "« А и « Б »",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Только « В »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Только « А »",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_42_q_11",
+            "ticket_num": 42,
+            "order": 11
+        },
+        "media_url": "u480uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Siz ro'paradan yaqinlashayotgan yuk avtomobiliga yo'l berishingiz kerakmi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ha",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Yo'q",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Сиз рўпарадан яқинлашаётган юк автомобилига йўл беришингиз керакми?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ҳа",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Йўқ",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Должны ли Вы уступить дорогу встречному грузовому автомобилю?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Да",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Нет",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_42_q_12",
+            "ticket_num": 42,
+            "order": 12
+        },
+        "media_url": "u481uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ushbu belgi kanday nomlanadi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Er usti avtomobil kuyish joyi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Tuxtab turish joyi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Er osti avtomobil kuyish joyi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Pullik tuxtab turish joyi",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ушбу белги кандай номланади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ер усти автомобил куйиш жойи",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Тухтаб туриш жойи",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ер ости автомобил куйиш жойи",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Пуллик тухтаб туриш жойи",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Как называется этот знак?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Надземная автомобильная стоянка",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Место стоянки",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Подземная автомобильная стоянка",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Платная стоянка",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_42_q_13",
+            "ticket_num": 42,
+            "order": 13
+        },
+        "media_url": "u482uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Sirpanchiq yo'lda orqa etakchi avtomobil uchun tormozlashning qaysi usuli xavfsiz to'xtashni taminlaydi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ulagichni uzmasdan tormoz tepkisini keskin bosish",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ulagichni uzgan holda tormozlash",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ulagichni uzmasdan tormoz tepkisini ko'plab marta uzuq-uzuq bosish va qo'yib yuborish",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Сирпанчиқ йўлда орқа етакчи автомобил учун тормозлашнинг қайси усули хавфсиз тўхташни таъминлайди?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Улагични узмасдан тормоз тепкисини кескин босиш",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Улагични узган ҳолда тормозлаш",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Улагични узмасдан тормоз тепкисини кўплаб марта узуқ-узуқ босиш ва қўйиб юбориш",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какой прием торможения обеспечивает безопасную остановку заднеприводного автомобиля на скользкой дороге?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Резкое нажатие на педаль тормоза без выключение сцепления",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Tорможение с выключенным сцеплением",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Прерывистое торможение без выключения сцепления",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_42_q_14",
+            "ticket_num": 42,
+            "order": 14
+        },
+        "media_url": "u483uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Bu belgi nimani bildiradi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Haydovchi ro'paradan harakatlanayotgan transport vositasiga yo'l berishi kerak",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Bir tomonlama harakatli yo'l qismining tamom bo'lganini bildiradi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ro'paradan kelayotgan transport vositalariga nisbatan birinchi o'tish xuquqini beradi",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Бу белги нимани билдиради?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ҳайдовчи рўпарадан ҳаракатланаётган транспорт воситасига йўл бериши керак",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Бир томонлама ҳаракатли йўл қисмининг тамом бўлганини билдиради",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Рўпарадан келаётган транспорт воситаларига нисбатан биринчи ўтиш хуқуқини беради",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Что обозначает этот знак?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Обязывает водителя уступить дорогу встречным транспортным средствам",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Обозначает конец участка дороги с односторонним движением",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Предоставляет преимущество перед встречными транспортными средствами",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_42_q_15",
+            "ticket_num": 42,
+            "order": 15
+        },
+        "media_url": "u484uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ko'rsatilgan belgi ostidagi qo'shimcha axborot belgisi qanday maqsadda o'rnatilgan?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "DYHXX tomonidan harakat jarayoni foto va video kuzatuvi olingan yo'l qismini bildiradi",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Belgining amal qilish hududida foto va video moslamalaridan foydalanish taqiqlanadi",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Кўрсатилган белги остидаги қўшимча ахборот белгиси қандай мақсадда ўрнатилган?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "ДЙҲХХ томонидан ҳаракат жараёни фото ва видео кузатуви олинган йўл қисмини билдиради",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Белгининг амал қилиш ҳудудида фото ва видео мосламаларидан фойдаланиш тақиқланади",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Что означает дополнительной информационной знак под нижеуказанном знаком?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Обозначает участок дороги; на котором установили фото и видео наблюдение со стороны ГИБДД",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Обозначает участок дороги; на котором запрещено фото и видео фиксация",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_42_q_16",
+            "ticket_num": 42,
+            "order": 16
+        },
+        "media_url": "u485uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Sizga ruxsat etilgan to'la vazni 3,5 tonnadan ortiq yuk avtomobilida harakatlanish:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat to'g'riga",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "To'g'riga va o'ngga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Barcha yo'nalishlarda",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Сизга рухсат этилган тўла вазни 3,5 тоннадан ортиқ юк автомобилида ҳаракатланиш:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат тўғрига",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Тўғрига ва ўнгга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Барча йўналишларда",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Вам разрешено продолжить движение на грузовом автомобиле с разрешенной максимальной массой  более 3,5 т:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только прямо",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Прямо и направо",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Во всех направлениях",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_42_q_17",
+            "ticket_num": 42,
+            "order": 17
+        },
+        "media_url": "u486uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Bu belgi nimani bildiradi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Tuxtab turish joyiga borishni",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Oldinda tirbandlik xakida borligidan",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Navbat bilan utishni",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Бу белги нимани билдиради?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Тухтаб туриш жойига боришни",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Олдинда тирбандлик хакида борлигидан",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Навбат билан утишни",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Что означает этот знак?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Едем на парковку",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "От наличия пробок впереди",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Садимся в очередь",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_42_q_18",
+            "ticket_num": 42,
+            "order": 18
+        },
+        "media_url": "u487uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ushbu joyda avtomobilni to'xtab turish uchun qo'yishga ruxsat etiladimi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Yo'q",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ha",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ушбу жойда автомобилни тўхтаб туриш учун қўйишга рухсат этиладими?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Йўқ",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ҳа",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Разрешено ли водителю ставить автомобиль на стоянку в указанном месте?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Нет",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Да",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_42_q_19",
+            "ticket_num": 42,
+            "order": 19
+        },
+        "media_url": "u488uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi avtomobil chorrahadan oxirgi bo'lib o'tadi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ko'k avtomobil",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Qizil avtomobil",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Yashil avtomobil",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси автомобиль чорраҳадан охирги бўлиб ўтади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Кўк автомобил",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Қизил автомобил",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Яшил автомобил",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какой автомобиль последним проедет перекресток?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Синий",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Красный",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Зеленый",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_42_q_20",
+            "ticket_num": 42,
+            "order": 20
+        },
+        "media_url": "u489uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Bu yo'l belgisi nimani bildiradi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Shlagbaum bilan jihozlanmagan bir izli temir yo'l kesishmasini",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Shlagbaum bilan jihozlangan bir izli temir yo'l kesishmasini",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Shlagbaum bilan jihozlanmagan ikki va undan ko'p izli temir yo'l kesishmasini",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Бу йўл белгиси нимани билдиради?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Шлагбаум билан жиҳозланмаган бир изли темир йўл кесишмасини",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Шлагбаум билан жиҳозланган бир изли темир йўл кесишмасини",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Шлагбаум билан жиҳозланмаган икки ва ундан кўп изли темир йўл кесишмасини",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Этот дорожный знак обозначает:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Не оборудованный шлагбаумом железнодорожный переезд через железную дорогу с одним путем",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Оборудованный шлагбаумом железнодорожный переезд с одним путем",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Не оборудованный шлагбаумом железнодорожный переезд с двумя и более путями",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    }
+]

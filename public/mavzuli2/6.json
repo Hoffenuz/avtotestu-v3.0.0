@@ -1,965 +1,2237 @@
-{
-    "lesson": "\u0411\u0443\u044e\u0440\u0443\u0432\u0447\u0438 \u0431\u0435\u043b\u0433\u0438\u043b\u0430\u0440",
-    "data": [
-        {
-            "id": 2,
-            "bilet_id": 1,
-            "question_id": 2,
-            "name": null,
-            "question": {
-                "oz": "Yo'naltirgichlarning qaysilari bo'ylab harakatlanishga ruxsat etiladi?",
-                "uz": "\u0419\u045e\u043d\u0430\u043b\u0442\u0438\u0440\u0433\u0438\u0447\u043b\u0430\u0440\u043d\u0438\u043d\u0433 \u049b\u0430\u0439\u0441\u0438\u043b\u0430\u0440\u0438 \u0431\u045e\u0439\u043b\u0430\u0431 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0438\u0448\u0433\u0430 \u0440\u0443\u0445\u0441\u0430\u0442 \u044d\u0442\u0438\u043b\u0430\u0434\u0438?",
-                "ru": "\u041f\u043e \u043a\u0430\u043a\u0438\u043c \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f\u043c \u0438\u0437 \u0447\u0438\u0441\u043b\u0430 \u043e\u0431\u043e\u0437\u043d\u0430\u0447\u0435\u043d\u043d\u044b\u0445 \u0441\u0442\u0440\u0435\u043b\u043a\u0430\u043c\u0438 \u0440\u0430\u0437\u0440\u0435\u0448\u0430\u0435\u0442\u0441\u044f \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u0435?"
-            },
-            "photo": "1.2.webp",
-            "answers": {
-                "status": 4,
-                "answer_id": 2,
-                "answer": {
-                    "oz": [
-                        "Faqat \u00ab \u0410 \u00bb yo'nalish bo'ylab",
-                        "Faqat \u00ab \u0411 \u00bb yo'nalish bo'ylab",
-                        "Faqat \u00ab \u0412 \u00bb yo'nalish bo'ylab",
-                        "Faqat \u00ab \u0410 \u00bb va \u00ab \u0413 \u00bb   yo'nalishlari bo'ylab",
-                        "Faqat \u00ab \u0413 \u00bb yo'nalish bo'ylab"
-                    ],
-                    "uz": [
-                        "\u0424\u0430\u049b\u0430\u0442 \u00ab \u0410 \u00bb \u0439\u045e\u043d\u0430\u043b\u0438\u0448 \u0431\u045e\u0439\u043b\u0430\u0431",
-                        "\u0424\u0430\u049b\u0430\u0442 \u00ab \u0411 \u00bb \u0439\u045e\u043d\u0430\u043b\u0438\u0448 \u0431\u045e\u0439\u043b\u0430\u0431",
-                        "\u0424\u0430\u049b\u0430\u0442 \u00ab \u0412 \u00bb \u0439\u045e\u043d\u0430\u043b\u0438\u0448 \u0431\u045e\u0439\u043b\u0430\u0431",
-                        "\u0424\u0430\u049b\u0430\u0442 \u00ab \u0410 \u00bb \u0432\u0430 \u00ab \u0413 \u00bb \u0439\u045e\u043d\u0430\u043b\u0438\u0448\u043b\u0430\u0440\u0438 \u0431\u045e\u0439\u043b\u0430\u0431",
-                        "\u0424\u0430\u049b\u0430\u0442 \u00ab \u0413 \u00bb \u0439\u045e\u043d\u0430\u043b\u0438\u0448 \u0431\u045e\u0439\u043b\u0430\u0431"
-                    ],
-                    "ru": [
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u043f\u043e \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044e \u00ab \u0410 \u00bb",
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u043f\u043e \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044e \u00ab \u0411 \u00bb",
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u043f\u043e \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044e \u00ab \u0412 \u00bb",
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u043f\u043e \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044e \u00ab \u0410 \u00bb \u0438 \u00ab \u0413 \u00bb",
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u043f\u043e \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044e \u00ab \u0413 \u00bb"
-                    ]
-                }
-            }
+[
+    {
+        "task_info": {
+            "global_id": "t_6_q_1",
+            "ticket_num": 6,
+            "order": 1
         },
-        {
-            "id": 22,
-            "bilet_id": 2,
-            "question_id": 2,
-            "name": null,
-            "question": {
-                "oz": "Qaysi yo'nalishlarda harakatlanishga ruxsat etilgan?",
-                "uz": "\u049a\u0430\u0439\u0441\u0438 \u0439\u045e\u043d\u0430\u043b\u0438\u0448\u043b\u0430\u0440\u0434\u0430 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0438\u0448\u0433\u0430 \u0440\u0443\u0445\u0441\u0430\u0442 \u044d\u0442\u0438\u043b\u0433\u0430\u043d?",
-                "ru": "\u0412 \u043a\u0430\u043a\u0438\u0445 \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f\u0445 \u0440\u0430\u0437\u0440\u0435\u0448\u0435\u043d\u043e \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u0435?"
+        "media_url": "u395uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Yo'naltirgichlarning qaysilari bo'ylab harakatlanishga ruxsat etiladi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat « А » yo'nalish bo'ylab",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat « Б » yo'nalish bo'ylab",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faqat « В » yo'nalish bo'ylab",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Faqat « А » va « Г »   yo'nalishlari bo'ylab",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 5,
+                        "text": "Faqat « Г » yo'nalish bo'ylab",
+                        "is_correct": false
+                    }
+                ]
             },
-            "photo": "2.2.webp",
-            "answers": {
-                "status": 3,
-                "answer_id": 12,
-                "answer": {
-                    "oz": [
-                        "Faqat \u00ab \u0411 \u00bb",
-                        "Faqat \u00ab \u0410 \u00bb",
-                        "\u00ab \u0410 \u00bb va \u00ab \u0411 \u00bb",
-                        "\u00ab \u0410 \u00bb, \u00ab \u0411 \u00bb, \u00ab \u0412 \u00bb va \u00ab \u0413 \u00bb",
-                        "\u00ab \u0410 \u00bb, \u00ab \u0411 \u00bb va \u00ab \u0412 \u00bb"
-                    ],
-                    "uz": [
-                        "\u0424\u0430\u049b\u0430\u0442 \u00ab \u0411 \u00bb",
-                        "\u0424\u0430\u049b\u0430\u0442 \u00ab \u0410 \u00bb",
-                        "\u00ab \u0410 \u00bb \u0432\u0430 \u00ab \u0411 \u00bb",
-                        "\u00ab \u0410 \u00bb, \u00ab \u0411 \u00bb, \u00ab \u0412 \u00bb \u0432\u0430 \u00ab \u0413 \u00bb",
-                        "\u00ab \u0410 \u00bb, \u00ab \u0411 \u00bb \u0432\u0430 \u00ab \u0412 \u00bb"
-                    ],
-                    "ru": [
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u00ab \u0411 \u00bb",
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u00ab \u0410 \u00bb",
-                        "\u00ab \u0410 \u00bb \u0438 \u00ab \u0411 \u00bb",
-                        "\u00ab \u0410 \u00bb, \u00ab \u0411 \u00bb, \u00ab \u0412 \u00bb \u0438 \u00ab \u0413 \u00bb",
-                        "\u00ab \u0410 \u00bb, \u00ab \u0411 \u00bb \u0438 \u00ab \u0412 \u00bb"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 193,
-            "bilet_id": 10,
-            "question_id": 3,
-            "name": null,
-            "question": {
-                "oz": "Qaysi belgi \u00abTo'siqni chapdan aylanib o'tish\u00bb deb ataladi?",
-                "uz": "\u049a\u0430\u0439\u0441\u0438 \u0431\u0435\u043b\u0433\u0438 \u00ab\u0422\u045e\u0441\u0438\u049b\u043d\u0438 \u0447\u0430\u043f\u0434\u0430\u043d \u0430\u0439\u043b\u0430\u043d\u0438\u0431 \u045e\u0442\u0438\u0448\u00bb \u0434\u0435\u0431 \u0430\u0442\u0430\u043b\u0430\u0434\u0438?",
-                "ru": "\u041a\u0430\u043a\u043e\u0439 \u0437\u043d\u0430\u043a \u043d\u0430\u0437\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u00ab \u041e\u0431\u044a\u0435\u0437\u0434 \u043f\u0440\u0435\u043f\u044f\u0442\u0441\u0442\u0432\u0438\u044f \u0441\u043b\u0435\u0432\u0430 \u00bb?"
+            "uz_cyr": {
+                "text": "Йўналтиргичларнинг қайсилари бўйлаб ҳаракатланишга рухсат этилади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат « А » йўналиш бўйлаб",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат « Б » йўналиш бўйлаб",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақат « В » йўналиш бўйлаб",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Фақат « А » ва « Г » йўналишлари бўйлаб",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 5,
+                        "text": "Фақат « Г » йўналиш бўйлаб",
+                        "is_correct": false
+                    }
+                ]
             },
-            "photo": "10.3.webp",
-            "answers": {
-                "status": 3,
-                "answer_id": 3,
-                "answer": {
-                    "oz": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5"
-                    ],
-                    "uz": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5"
-                    ],
-                    "ru": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 222,
-            "bilet_id": 11,
-            "question_id": 12,
-            "name": null,
-            "question": {
-                "oz": "Ruxsat etilgan harakatlanish yo'nalishini ko'rsating:",
-                "uz": "\u0420\u0443\u0445\u0441\u0430\u0442 \u044d\u0442\u0438\u043b\u0433\u0430\u043d \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0438\u0448 \u0439\u045e\u043d\u0430\u043b\u0438\u0448\u0438\u043d\u0438 \u043a\u045e\u0440\u0441\u0430\u0442\u0438\u043d\u0433:",
-                "ru": "\u0423\u043a\u0430\u0436\u0438\u0442\u0435 \u0440\u0430\u0437\u0440\u0435\u0448\u0435\u043d\u043d\u044b\u0435 \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u044f:"
-            },
-            "photo": "11.12.webp",
-            "answers": {
-                "status": 4,
-                "answer_id": 12,
-                "answer": {
-                    "oz": [
-                        "Faqat \u00ab \u0410 \u00bb",
-                        "Faqat \u00ab \u0411 \u00bb",
-                        "Faqat \u00ab \u0412 \u00bb",
-                        "\u00ab \u0410 \u0432\u0430 \u00ab \u0411 \u00bb",
-                        "\u00ab \u0411 \u0432\u0430 \u00ab \u0412 \u00bb"
-                    ],
-                    "uz": [
-                        "\u0424\u0430\u049b\u0430\u0442 \u00ab \u0410 \u00bb",
-                        "\u0424\u0430\u049b\u0430\u0442 \u00ab \u0411 \u00bb",
-                        "\u0424\u0430\u049b\u0430\u0442 \u00ab \u0412 \u00bb",
-                        "\u00ab \u0410 \u0432\u0430 \u00ab \u0411 \u00bb",
-                        "\u00ab \u0411 \u0432\u0430 \u00ab \u0412 \u00bb"
-                    ],
-                    "ru": [
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u00ab \u0410 \u00bb",
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u00ab \u0411 \u00bb",
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u00ab \u0412 \u00bb",
-                        "\u00ab \u0410 \u0438 \u00ab \u0411 \u00bb",
-                        "\u00ab \u0411 \u0438 \u00ab \u0412 \u00bb"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 224,
-            "bilet_id": 11,
-            "question_id": 14,
-            "name": null,
-            "question": {
-                "oz": "Bu yo'l belgisi:",
-                "uz": "\u0411\u0443 \u0439\u045e\u043b \u0431\u0435\u043b\u0433\u0438\u0441\u0438:",
-                "ru": "\u042d\u0442\u043e\u0442 \u0434\u043e\u0440\u043e\u0436\u043d\u044b\u0439 \u0437\u043d\u0430\u043a:"
-            },
-            "photo": "11.14.webp",
-            "answers": {
-                "status": 1,
-                "answer_id": 14,
-                "answer": {
-                    "oz": [
-                        "Faqat belgida ko'rsatilgan yoki yuqori tezlikda harakatlanishga ruxsat beradi",
-                        "Belgida ko'rsatilgandan ortiq tezlikdagi harakatni taqiqlaydi",
-                        "Yo'lning shu qismida tavsiya etilgan harakatlanish tezligini ko'rsatadi"
-                    ],
-                    "uz": [
-                        "\u0424\u0430\u049b\u0430\u0442 \u0431\u0435\u043b\u0433\u0438\u0434\u0430 \u043a\u045e\u0440\u0441\u0430\u0442\u0438\u043b\u0433\u0430\u043d \u0451\u043a\u0438 \u044e\u049b\u043e\u0440\u0438 \u0442\u0435\u0437\u043b\u0438\u043a\u0434\u0430 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0438\u0448\u0433\u0430 \u0440\u0443\u0445\u0441\u0430\u0442 \u0431\u0435\u0440\u0430\u0434\u0438",
-                        "\u0411\u0435\u043b\u0433\u0438\u0434\u0430 \u043a\u045e\u0440\u0441\u0430\u0442\u0438\u043b\u0433\u0430\u043d\u0434\u0430\u043d \u043e\u0440\u0442\u0438\u049b \u0442\u0435\u0437\u043b\u0438\u043a\u0434\u0430\u0433\u0438 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043d\u0438 \u0442\u0430\u049b\u0438\u049b\u043b\u0430\u0439\u0434\u0438",
-                        "\u0419\u045e\u043b\u043d\u0438\u043d\u0433 \u0448\u0443 \u049b\u0438\u0441\u043c\u0438\u0434\u0430 \u0442\u0430\u0432\u0441\u0438\u044f \u044d\u0442\u0438\u043b\u0433\u0430\u043d \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0438\u0448 \u0442\u0435\u0437\u043b\u0438\u0433\u0438\u043d\u0438 \u043a\u045e\u0440\u0441\u0430\u0442\u0430\u0434\u0438"
-                    ],
-                    "ru": [
-                        "\u0420\u0430\u0437\u0440\u0435\u0448\u0430\u0435\u0442 \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u0435 \u0442\u043e\u043b\u044c\u043a\u043e \u0441 \u0443\u043a\u0430\u0437\u0430\u043d\u043d\u043e\u0439 \u0438\u043b\u0438 \u0431\u043e\u043b\u044c\u0448\u0435\u0439 \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c\u044e",
-                        "\u0417\u0430\u043f\u0440\u0435\u0449\u0430\u0435\u0442 \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u0435 \u0441\u043e \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c\u044e; \u043f\u0440\u0435\u0432\u044b\u0448\u0430\u044e\u0449\u0435\u0439 \u0443\u043a\u0430\u0437\u0430\u043d\u043d\u0443\u044e \u043d\u0430 \u0437\u043d\u0430\u043a\u0435",
-                        "\u0423\u043a\u0430\u0437\u044b\u0432\u0430\u0435\u0442 \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c; \u0441 \u043a\u043e\u0442\u043e\u0440\u043e\u0439 \u0440\u0435\u043a\u043e\u043c\u0435\u043d\u0434\u0443\u0435\u0442\u0441\u044f \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u0435 \u043d\u0430 \u0434\u0430\u043d\u043d\u043e\u043c \u0443\u0447\u0430\u0441\u0442\u043a\u0435 \u0434\u043e\u0440\u043e\u0433\u0438"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 292,
-            "bilet_id": 15,
-            "question_id": 2,
-            "name": null,
-            "question": {
-                "oz": "Qaysi belgi 50 km\/soat kam tezlikda harakatlanishni taqiqlaydi?",
-                "uz": "\u049a\u0430\u0439\u0441\u0438 \u0431\u0435\u043b\u0433\u0438 50 \u043a\u043c\/\u0441\u043e\u0430\u0442 \u043a\u0430\u043c \u0442\u0435\u0437\u043b\u0438\u043a\u0434\u0430 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0438\u0448\u043d\u0438 \u0442\u0430\u049b\u0438\u049b\u043b\u0430\u0439\u0434\u0438?",
-                "ru": "\u041a\u0430\u043a\u043e\u0439 \u0437\u043d\u0430\u043a \u0437\u0430\u043f\u0440\u0435\u0449\u0430\u0435\u0442 \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u0435 \u0441\u043e \u0441\u043a\u043e\u0440\u043e\u0441\u0442\u044c\u044e \u043c\u0435\u043d\u0435\u0435 50 \u043a\u043c\/\u0447\u0430\u0441?"
-            },
-            "photo": "15.2.webp",
-            "answers": {
-                "status": 3,
-                "answer_id": 2,
-                "answer": {
-                    "oz": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5"
-                    ],
-                    "uz": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5"
-                    ],
-                    "ru": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 472,
-            "bilet_id": 24,
-            "question_id": 2,
-            "name": null,
-            "question": {
-                "oz": "Chorrahada harakatlanishning majburiy yo'nalishini qaysi belgi ko'rsatadi?",
-                "uz": "\u0427\u043e\u0440\u0440\u0430\u04b3\u0430\u0434\u0430 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0438\u0448\u043d\u0438\u043d\u0433 \u043c\u0430\u0436\u0431\u0443\u0440\u0438\u0439 \u0439\u045e\u043d\u0430\u043b\u0438\u0448\u0438\u043d\u0438 \u049b\u0430\u0439\u0441\u0438 \u0431\u0435\u043b\u0433\u0438 \u043a\u045e\u0440\u0441\u0430\u0442\u0430\u0434\u0438?",
-                "ru": "\u041a\u0430\u043a\u043e\u0439 \u0437\u043d\u0430\u043a \u0443\u043a\u0430\u0437\u044b\u0432\u0430\u0435\u0442 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e\u0435 \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u044f \u043d\u0430 \u043f\u0435\u0440\u0435\u043a\u0440\u0435\u0441\u0442\u043a\u0435?"
-            },
-            "photo": "24.2.webp",
-            "answers": {
-                "status": 4,
-                "answer_id": 2,
-                "answer": {
-                    "oz": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5"
-                    ],
-                    "uz": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5"
-                    ],
-                    "ru": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 532,
-            "bilet_id": 27,
-            "question_id": 2,
-            "name": null,
-            "question": {
-                "oz": "Bu belgida harakatlanish ruxsat etiladi:",
-                "uz": "\u0411\u0443 \u0431\u0435\u043b\u0433\u0438\u0434\u0430 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0438\u0448 \u0440\u0443\u0445\u0441\u0430\u0442 \u044d\u0442\u0438\u043b\u0430\u0434\u0438:",
-                "ru": "\u041f\u0440\u0438 \u044d\u0442\u043e\u043c \u0437\u043d\u0430\u043a\u0435 \u0440\u0430\u0437\u0440\u0435\u0448\u0435\u043d\u043e \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u0435:"
-            },
-            "photo": "27.2.webp",
-            "answers": {
-                "status": 3,
-                "answer_id": 2,
-                "answer": {
-                    "oz": [
-                        "Faqat avtomobil haydovchisiga",
-                        "Faqat avtomobil va motosikl haydovchilariga",
-                        "Barcha transport vositalarining haydovchilariga",
-                        "Faqat avtomobil va avtobus haydovchilariga"
-                    ],
-                    "uz": [
-                        "\u0424\u0430\u049b\u0430\u0442 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b \u04b3\u0430\u0439\u0434\u043e\u0432\u0447\u0438\u0441\u0438\u0433\u0430",
-                        "\u0424\u0430\u049b\u0430\u0442 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b \u0432\u0430 \u043c\u043e\u0442\u043e\u0446\u0438\u043a\u043b \u04b3\u0430\u0439\u0434\u043e\u0432\u0447\u0438\u043b\u0430\u0440\u0438\u0433\u0430",
-                        "\u0411\u0430\u0440\u0447\u0430 \u0442\u0440\u0430\u043d\u0441\u043f\u043e\u0440\u0442 \u0432\u043e\u0441\u0438\u0442\u0430\u043b\u0430\u0440\u0438\u043d\u0438\u043d\u0433 \u04b3\u0430\u0439\u0434\u043e\u0432\u0447\u0438\u043b\u0430\u0440\u0438\u0433\u0430",
-                        "\u0424\u0430\u049b\u0430\u0442 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b \u0432\u0430 \u0430\u0432\u0442\u043e\u0431\u0443\u0441 \u04b3\u0430\u0439\u0434\u043e\u0432\u0447\u0438\u043b\u0430\u0440\u0438\u0433\u0430"
-                    ],
-                    "ru": [
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u0432\u043e\u0434\u0438\u0442\u0435\u043b\u044e \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f",
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u0432\u043e\u0434\u0438\u0442\u0435\u043b\u044f\u043c \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f \u0438 \u043c\u043e\u0442\u043e\u0446\u0438\u043a\u043b\u0430",
-                        "\u0412\u043e\u0434\u0438\u0442\u0435\u043b\u044f\u043c \u0432\u0441\u0435\u0445 \u0442\u0440\u0430\u043d\u0441\u043f\u043e\u0440\u0442\u043d\u044b\u0445 \u0441\u0440\u0435\u0434\u0441\u0442\u0432",
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u0432\u043e\u0434\u0438\u0442\u0435\u043b\u044f\u043c \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f \u0438 \u0430\u0432\u0442\u043e\u0431\u0443\u0441\u0430"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 642,
-            "bilet_id": 32,
-            "question_id": 12,
-            "name": null,
-            "question": {
-                "oz": "Qaysi rasmda harakatlanishning to'g'ri yo'nalishi ko'rsatilgan?",
-                "uz": "\u049a\u0430\u0439\u0441\u0438 \u0440\u0430\u0441\u043c\u0434\u0430 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0438\u0448\u043d\u0438\u043d\u0433 \u0442\u045e\u0493\u0440\u0438 \u0439\u045e\u043d\u0430\u043b\u0438\u0448\u0438 \u043a\u045e\u0440\u0441\u0430\u0442\u0438\u043b\u0433\u0430\u043d?",
-                "ru": "\u041d\u0430 \u043a\u0430\u043a\u043e\u043c \u0440\u0438\u0441\u0443\u043d\u043a\u0435 \u043f\u043e\u043a\u0430\u0437\u0430\u043d\u043e \u043f\u0440\u0430\u0432\u0438\u043b\u044c\u043d\u043e\u0435 \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u044f?"
-            },
-            "photo": "32.12.webp",
-            "answers": {
-                "status": 2,
-                "answer_id": 12,
-                "answer": {
-                    "oz": [
-                        "Birinchida",
-                        "Ikkinchida",
-                        "Ikkalasida"
-                    ],
-                    "uz": [
-                        "\u0411\u0438\u0440\u0438\u043d\u0447\u0438\u0434\u0430",
-                        "\u0418\u043a\u043a\u0438\u043d\u0447\u0438\u0434\u0430",
-                        "\u0418\u043a\u043a\u0430\u043b\u0430\u0441\u0438\u0434\u0430"
-                    ],
-                    "ru": [
-                        "\u041d\u0430 \u043f\u0435\u0440\u0432\u043e\u043c",
-                        "\u041d\u0430 \u0432\u0442\u043e\u0440\u043e\u043c",
-                        "\u041d\u0430 \u043e\u0431\u043e\u0438\u0445"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 655,
-            "bilet_id": 33,
-            "question_id": 5,
-            "name": null,
-            "question": {
-                "oz": "Bu chorrahada chapga burilishga ruxsat etiladimi?",
-                "uz": "\u0411\u0443 \u0447\u043e\u0440\u0440\u0430\u04b3\u0430\u0434\u0430 \u0447\u0430\u043f\u0433\u0430 \u0431\u0443\u0440\u0438\u043b\u0438\u0448\u0433\u0430 \u0440\u0443\u0445\u0441\u0430\u0442 \u044d\u0442\u0438\u043b\u0430\u0434\u0438\u043c\u0438?",
-                "ru": "\u0420\u0430\u0437\u0440\u0435\u0448\u0430\u0435\u0442\u0441\u044f \u043b\u0438 \u043d\u0430 \u044d\u0442\u043e\u043c \u043f\u0435\u0440\u0435\u043a\u0440\u0435\u0441\u0442\u043a\u0435 \u043f\u043e\u0432\u0435\u0440\u043d\u0443\u0442\u044c \u043d\u0430\u043b\u0435\u0432\u043e?"
-            },
-            "photo": "33.5.webp",
-            "answers": {
-                "status": 1,
-                "answer_id": 5,
-                "answer": {
-                    "oz": [
-                        "Ruxsat etiladi",
-                        "Taqiqlanadi"
-                    ],
-                    "uz": [
-                        "\u0420\u0443\u0445\u0441\u0430\u0442 \u044d\u0442\u0438\u043b\u0430\u0434\u0438",
-                        "\u0422\u0430\u049b\u0438\u049b\u043b\u0430\u043d\u0430\u0434\u0438"
-                    ],
-                    "ru": [
-                        "\u0420\u0430\u0437\u0440\u0435\u0448\u0430\u0435\u0442\u0441\u044f",
-                        "\u0417\u0430\u043f\u0440\u0435\u0449\u0430\u0435\u0442\u0441\u044f"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 750,
-            "bilet_id": 37,
-            "question_id": 20,
-            "name": null,
-            "question": {
-                "oz": "Qaysi yo'nalishda harakatlanishni davom ettirishingiz mumkin?",
-                "uz": "\u049a\u0430\u0439\u0441\u0438 \u0439\u045e\u043d\u0430\u043b\u0438\u0448\u0434\u0430 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0438\u0448\u043d\u0438 \u0434\u0430\u0432\u043e\u043c \u044d\u0442\u0442\u0438\u0440\u0438\u0448\u0438\u043d\u0433\u0438\u0437 \u043c\u0443\u043c\u043a\u0438\u043d?",
-                "ru": "\u0412 \u043a\u0430\u043a\u0438\u0445 \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f\u0445 \u0412\u0430\u043c \u043c\u043e\u0436\u043d\u043e \u043f\u0440\u043e\u0434\u043e\u043b\u0436\u0438\u0442\u044c \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u0435?"
-            },
-            "photo": "37.20.webp",
-            "answers": {
-                "status": 3,
-                "answer_id": 20,
-                "answer": {
-                    "oz": [
-                        "Faqat chapga",
-                        "Chapga va orqaga qayrilib olishga",
-                        "O'ngga, chapga va orqaga qayrilib olishga"
-                    ],
-                    "uz": [
-                        "\u0424\u0430\u049b\u0430\u0442 \u0447\u0430\u043f\u0433\u0430",
-                        "\u0427\u0430\u043f\u0433\u0430 \u0432\u0430 \u043e\u0440\u049b\u0430\u0433\u0430 \u049b\u0430\u0439\u0440\u0438\u043b\u0438\u0431 \u043e\u043b\u0438\u0448\u0433\u0430",
-                        "\u040e\u043d\u0433\u0433\u0430, \u0447\u0430\u043f\u0433\u0430 \u0432\u0430 \u043e\u0440\u049b\u0430\u0433\u0430 \u049b\u0430\u0439\u0440\u0438\u043b\u0438\u0431 \u043e\u043b\u0438\u0448\u0433\u0430"
-                    ],
-                    "ru": [
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u043d\u0430\u043f\u0440\u0430\u0432\u043e",
-                        "\u041d\u0430\u043b\u0435\u0432\u043e \u0438 \u0432 \u043e\u0431\u0440\u0430\u0442\u043d\u043e\u043c \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0438",
-                        "\u041d\u0430\u043f\u0440\u0430\u0432\u043e, \u043d\u0430\u043b\u0435\u0432\u043e \u0438 \u0432 \u043e\u0431\u0440\u0430\u0442\u043d\u043e\u043c \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0438"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 761,
-            "bilet_id": 38,
-            "question_id": 10,
-            "name": null,
-            "question": {
-                "oz": "Qaysi transport vositasining haydovchisi qoidani buzib burilmoqda?",
-                "uz": "\u049a\u0430\u0439\u0441\u0438 \u0442\u0440\u0430\u043d\u0441\u043f\u043e\u0440\u0442 \u0432\u043e\u0441\u0438\u0442\u0430\u0441\u0438\u043d\u0438\u043d\u0433 \u04b3\u0430\u0439\u0434\u043e\u0432\u0447\u0438\u0441\u0438 \u049b\u043e\u0438\u0434\u0430\u043d\u0438 \u0431\u0443\u0437\u0438\u0431 \u0431\u0443\u0440\u0438\u043b\u043c\u043e\u049b\u0434\u0430?",
-                "ru": "\u041a\u0442\u043e \u0438\u0437 \u0432\u043e\u0434\u0438\u0442\u0435\u043b\u0435\u0439, \u0441\u043e\u0432\u0435\u0440\u0448\u0430\u044e\u0449\u0438\u0445 \u043f\u043e\u0432\u043e\u0440\u043e\u0442, \u043d\u0430\u0440\u0443\u0448\u0430\u0435\u0442 \u041f\u0440\u0430\u0432\u0438\u043b\u0430?"
-            },
-            "photo": "38.10.webp",
-            "answers": {
-                "status": 3,
-                "answer_id": 10,
-                "answer": {
-                    "oz": [
-                        "Faqat engil avtomobil \u000bhaydovchisi",
-                        "Faqat mototsikl haydovchisi",
-                        "Ikkisi ham buzmoqda"
-                    ],
-                    "uz": [
-                        "\u0424\u0430\u049b\u0430\u0442 \u0435\u043d\u0433\u0438\u043b \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044c \u000b\u04b3\u0430\u0439\u0434\u043e\u0432\u0447\u0438\u0441\u0438",
-                        "\u0424\u0430\u049b\u0430\u0442 \u043c\u043e\u0442\u043e\u0442\u0446\u0438\u043a\u043b \u04b3\u0430\u0439\u0434\u043e\u0432\u0447\u0438\u0441\u0438",
-                        "\u0418\u043a\u043a\u0438\u0441\u0438 \u04b3\u0430\u043c \u0431\u0443\u0437\u043c\u043e\u049b\u0434\u0430"
-                    ],
-                    "ru": [
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u0432\u043e\u0434\u0438\u0442\u0435\u043b\u044c \u043b\u0435\u0433\u043a\u043e\u0432\u043e\u0433\u043e \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f",
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u043c\u043e\u0442\u043e\u0446\u0438\u043a\u043b\u0438\u0441\u0442",
-                        "\u041e\u0431\u0430 \u043d\u0430\u0440\u0443\u0448\u0430\u044e\u0442"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 767,
-            "bilet_id": 38,
-            "question_id": 16,
-            "name": null,
-            "question": {
-                "oz": "Qaysi yo'l  belgisi piyodalar yo'lkasini  bildiradi?",
-                "uz": "\u049a\u0430\u0439\u0441\u0438 \u0439\u045e\u043b  \u0431\u0435\u043b\u0433\u0438\u0441\u0438 \u043f\u0438\u0451\u0434\u0430\u043b\u0430\u0440 \u0439\u045e\u043b\u043a\u0430\u0441\u0438\u043d\u0438  \u0431\u0438\u043b\u0434\u0438\u0440\u0430\u0434\u0438?",
-                "ru": "\u041a\u0430\u043a\u043e\u0439 \u0438\u0437 \u0437\u043d\u0430\u043a\u043e\u0432 \u043e\u0431\u043e\u0437\u043d\u0430\u0447\u0430\u0435\u0442 \u043f\u0435\u0448\u0435\u0445\u043e\u0434\u043d\u0443\u044e \u0434\u043e\u0440\u043e\u0436\u043a\u0443?"
-            },
-            "photo": "38.16.webp",
-            "answers": {
-                "status": 1,
-                "answer_id": 16,
-                "answer": {
-                    "oz": [
-                        "Faqat \u00ab\u0411\u00bb",
-                        "Faqat \u00ab\u0411\u00bb va \u00ab\u0412\u00bb",
-                        "Barcha  belgilar"
-                    ],
-                    "uz": [
-                        "\u0424\u0430\u049b\u0430\u0442 \u00ab\u0411\u00bb",
-                        "\u0424\u0430\u049b\u0430\u0442 \u00ab\u0411\u00bb \u0432\u0430 \u00ab\u0412\u00bb",
-                        "\u0411\u0430\u0440\u0447\u0430  \u0431\u0435\u043b\u0433\u0438\u043b\u0430\u0440"
-                    ],
-                    "ru": [
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u00ab\u0411\u00bb",
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u00ab\u0411\u00bb \u0438 \u00ab\u0412\u00bb",
-                        "\u0412\u0441\u0435 \u0437\u043d\u0430\u043a\u0438"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 781,
-            "bilet_id": 39,
-            "question_id": 10,
-            "name": null,
-            "question": {
-                "oz": "Ko'rsatilgan yo'l  belgilaridan qaysi  biri  ruxsat etilgan  to'la vazni 3,5 tonnadan kam  bo'lgan  yuk avtomobiliga   o'ngga  harakatlanishni buyuradi?",
-                "uz": "\u041a\u045e\u0440\u0441\u0430\u0442\u0438\u043b\u0433\u0430\u043d \u0439\u045e\u043b  \u0431\u0435\u043b\u0433\u0438\u043b\u0430\u0440\u0438\u0434\u0430\u043d \u049b\u0430\u0439\u0441\u0438  \u0431\u0438\u0440\u0438  \u0440\u0443\u0445\u0441\u0430\u0442 \u044d\u0442\u0438\u043b\u0433\u0430\u043d  \u0442\u045e\u043b\u0430 \u0432\u0430\u0437\u043d\u0438 3,5 \u0442\u043e\u043d\u043d\u0430\u0434\u0430\u043d \u043a\u0430\u043c  \u0431\u045e\u043b\u0433\u0430\u043d  \u044e\u043a \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u0438\u0433\u0430   \u045e\u043d\u0433\u0433\u0430  \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0438\u0448\u043d\u0438 \u0431\u0443\u044e\u0440\u0430\u0434\u0438?",
-                "ru": "\u041a\u0430\u043a\u0438\u0435 \u0437\u043d\u0430\u043a\u0438 \u043e\u0431\u044f\u0437\u044b\u0432\u0430\u044e\u0442 \u0432\u043e\u0434\u0438\u0442\u0435\u043b\u044f \u0433\u0440\u0443\u0437\u043e\u0432\u043e\u0433\u043e \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f \u0441 \u0440\u0430\u0437\u0440\u0435\u0448\u0435\u043d\u043d\u043e\u0439 \u043c\u0430\u043a\u0441\u0438\u043c\u0430\u043b\u044c\u043d\u043e\u0439 \u043c\u0430\u0441\u0441\u043e\u0439 \u0434\u043e 3,5 \u0442. \u043f\u043e\u0432\u0435\u0440\u043d\u0443\u0442\u044c \u043d\u0430\u043f\u0440\u0430\u0432\u043e?"
-            },
-            "photo": "39.10.webp",
-            "answers": {
-                "status": 2,
-                "answer_id": 10,
-                "answer": {
-                    "oz": [
-                        "Faqat \u00ab\u0410\u00bb",
-                        "Faqat \u00ab\u0411\u00bb",
-                        "\u00ab\u0410\u00bb va \u00ab\u0411\u00bb",
-                        "\u00ab\u0411\u00bb va \u00ab\u0412\u00bb"
-                    ],
-                    "uz": [
-                        "\u0424\u0430\u049b\u0430\u0442 \u00ab\u0410\u00bb",
-                        "\u0424\u0430\u049b\u0430\u0442 \u00ab\u0411\u00bb",
-                        "\u00ab\u0410\u00bb \u0432\u0430 \u00ab\u0411\u00bb",
-                        "\u00ab\u0411\u00bb \u0432\u0430 \u00ab\u0412\u00bb"
-                    ],
-                    "ru": [
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u00ab\u0410\u00bb",
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u00ab\u0411\u00bb",
-                        "\u00ab\u0410\u00bb \u0438 \u00ab\u0411\u00bb",
-                        "\u00ab\u0411\u00bb \u0438 \u00ab\u0412\u00bb"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 833,
-            "bilet_id": 42,
-            "question_id": 6,
-            "name": null,
-            "question": {
-                "oz": "Qaysi belgi velosiped yo'lkasini ko'rsatadi?",
-                "uz": "\u049a\u0430\u0439\u0441\u0438 \u0431\u0435\u043b\u0433\u0438 \u0432\u0435\u043b\u043e\u0441\u0438\u043f\u0435\u0434 \u0439\u045e\u043b\u043a\u0430\u0441\u0438\u043d\u0438 \u043a\u045e\u0440\u0441\u0430\u0442\u0430\u0434\u0438?",
-                "ru": "\u041a\u0430\u043a\u043e\u0439 \u0437\u043d\u0430\u043a \u043e\u0431\u043e\u0437\u043d\u0430\u0447\u0430\u0435\u0442 \u0432\u0435\u043b\u043e\u0441\u0438\u043f\u0435\u0434\u043d\u0443\u044e \u0434\u043e\u0440\u043e\u0436\u043a\u0443?"
-            },
-            "photo": "42.6.webp",
-            "answers": {
-                "status": 3,
-                "answer_id": 6,
-                "answer": {
-                    "oz": [
-                        "A",
-                        "V",
-                        "S"
-                    ],
-                    "uz": [
-                        "\u0410",
-                        "\u0412",
-                        "\u0421"
-                    ],
-                    "ru": [
-                        "\u0410",
-                        "\u0412",
-                        "\u0421"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 910,
-            "bilet_id": 46,
-            "question_id": 2,
-            "name": null,
-            "question": {
-                "oz": "Qaysi belgi to'siqni o'ng yoki chap tomonidan chetlab o'tishga ruxsat etilishini bildiradi?",
-                "uz": "\u049a\u0430\u0439\u0441\u0438 \u0431\u0435\u043b\u0433\u0438 \u0442\u045e\u0441\u0438\u049b\u043d\u0438 \u045e\u043d\u0433 \u0451\u043a\u0438 \u0447\u0430\u043f \u0442\u043e\u043c\u043e\u043d\u0438\u0434\u0430\u043d \u0447\u0435\u0442\u043b\u0430\u0431 \u045e\u0442\u0438\u0448\u0433\u0430 \u0440\u0443\u0445\u0441\u0430\u0442 \u044d\u0442\u0438\u043b\u0438\u0448\u0438\u043d\u0438 \u0431\u0438\u043b\u0434\u0438\u0440\u0430\u0434\u0438?",
-                "ru": "\u041a\u0430\u043a\u043e\u0439 \u0437\u043d\u0430\u043a \u0443\u043a\u0430\u0437\u044b\u0432\u0430\u0435\u0442 \u043d\u0430 \u0442\u043e, \u0447\u0442\u043e \u043e\u0431\u044a\u0435\u0437\u0434 \u043f\u0440\u0435\u043f\u044f\u0442\u0441\u0442\u0432\u0438\u044f \u0440\u0430\u0437\u0440\u0435\u0448\u0435\u043d \u0441 \u043f\u0440\u0430\u0432\u043e\u0439 \u0438\u043b\u0438 \u043b\u0435\u0432\u043e\u0439 \u0441\u0442\u043e\u0440\u043e\u043d\u044b?"
-            },
-            "photo": "45.2.webp",
-            "answers": {
-                "status": 5,
-                "answer_id": 2,
-                "answer": {
-                    "oz": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5"
-                    ],
-                    "uz": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5"
-                    ],
-                    "ru": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 1060,
-            "bilet_id": 53,
-            "question_id": 8,
-            "name": null,
-            "question": {
-                "oz": "Kuyidagi belgilardan qaysi biri engil avtomobillar harakati deb nomlanadi?",
-                "uz": "\u041a\u0443\u0439\u0438\u0434\u0430\u0433\u0438 \u0431\u0435\u043b\u0433\u0438\u043b\u0430\u0440\u0434\u0430\u043d \u049b\u0430\u0439\u0441\u0438 \u0431\u0438\u0440\u0438 \u0435\u043d\u0433\u0438\u043b \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u043b\u0430\u0440 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u0438 \u0434\u0435\u0431 \u043d\u043e\u043c\u043b\u0430\u043d\u0430\u0434\u0438?",
-                "ru": "\u041a\u0430\u043a\u043e\u0439 \u0438\u0437 \u043f\u0435\u0440\u0435\u0447\u0438\u0441\u043b\u0435\u043d\u043d\u044b\u0445 \u0437\u043d\u0430\u043a\u043e\u0432 \u043d\u0430\u0437\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u0435\u043c \u043b\u0435\u0433\u043a\u043e\u0432\u044b\u0445 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u0435\u0439?"
-            },
-            "photo": "53.8.webp",
-            "answers": {
-                "status": 2,
-                "answer_id": 8,
-                "answer": {
-                    "oz": [
-                        "1",
-                        "2",
-                        "3",
-                        "4"
-                    ],
-                    "uz": [
-                        "1",
-                        "2",
-                        "3",
-                        "4"
-                    ],
-                    "ru": [
-                        "1",
-                        "2",
-                        "3",
-                        "4"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 1062,
-            "bilet_id": 53,
-            "question_id": 10,
-            "name": null,
-            "question": {
-                "oz": "Kaysi yonalishda harakatlanish taqiqlanadi?",
-                "uz": "\u041a\u0430\u0439\u0441\u0438 \u0451\u043d\u0430\u043b\u0438\u0448\u0434\u0430 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0438\u0448 \u0442\u0430\u049b\u0438\u049b\u043b\u0430\u043d\u0430\u0434\u0438?",
-                "ru": "\u0412 \u043a\u0430\u043a\u043e\u043c \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0438 \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u0435 \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d\u043e?"
-            },
-            "photo": "53.10.webp",
-            "answers": {
-                "status": 4,
-                "answer_id": 10,
-                "answer": {
-                    "oz": [
-                        "Faqat chapga",
-                        "O'nga, chapga va orkaga qayrilib olishga",
-                        "Chapga va orkaga qayrilib olishga",
-                        "Faqat to'riga"
-                    ],
-                    "uz": [
-                        "\u0424\u0430\u049b\u0430\u0442 \u0447\u0430\u043f\u0433\u0430",
-                        "\u040e\u043d\u0433\u0430, \u0447\u0430\u043f\u0433\u0430 \u0432\u0430 \u043e\u0440\u043a\u0430\u0433\u0430 \u049b\u0430\u0439\u0440\u0438\u043b\u0438\u0431 \u043e\u043b\u0438\u0448\u0433\u0430",
-                        "\u0427\u0430\u043f\u0433\u0430 \u0432\u0430 \u043e\u0440\u043a\u0430\u0433\u0430 \u049b\u0430\u0439\u0440\u0438\u043b\u0438\u0431 \u043e\u043b\u0438\u0448\u0433\u0430",
-                        "\u0424\u0430\u049b\u0430\u0442 \u0442\u045e\u0440\u0438\u0433\u0430"
-                    ],
-                    "ru": [
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u043d\u0430\u043f\u0440\u0430\u0432\u043e",
-                        "\u041d\u0430\u043f\u0440\u0430\u0432\u043e, \u043d\u0430\u043b\u0435\u0432\u043e \u0438 \u0432 \u043e\u0431\u0440\u0430\u0442\u043d\u043e\u043c \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0438",
-                        "\u041d\u0430\u043b\u0435\u0432\u043e \u0438 \u0432 \u043e\u0431\u0440\u0430\u0442\u043d\u043e\u043c \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0438",
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u043f\u0440\u044f\u043c\u043e"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 1084,
-            "bilet_id": 54,
-            "question_id": 12,
-            "name": null,
-            "question": {
-                "oz": "yo'naltirgichlar bilan kursatilgan kaysi yunalishlarda xarakat ruxsat etilgan?",
-                "uz": "\u0439\u045e\u043d\u0430\u043b\u0442\u0438\u0440\u0433\u0438\u0447\u043b\u0430\u0440 \u0431\u0438\u043b\u0430\u043d \u043a\u0443\u0440\u0441\u0430\u0442\u0438\u043b\u0433\u0430\u043d \u043a\u0430\u0439\u0441\u0438 \u0439\u0443\u043d\u0430\u043b\u0438\u0448\u043b\u0430\u0440\u0434\u0430 \u0445\u0430\u0440\u0430\u043a\u0430\u0442 \u0440\u0443\u0445\u0441\u0430\u0442 \u044d\u0442\u0438\u043b\u0433\u0430\u043d?",
-                "ru": "\u0412 \u043a\u0430\u043a\u0438\u0445 \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f\u0445, \u043e\u0431\u043e\u0437\u043d\u0430\u0447\u0435\u043d\u043d\u044b\u0445 \u0441\u0442\u0440\u0435\u043b\u043a\u0430\u043c \u0440\u0430\u0437\u0440\u0435\u0448\u0435\u043d\u043e \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u0435?"
-            },
-            "photo": "54.12.webp",
-            "answers": {
-                "status": 5,
-                "answer_id": 12,
-                "answer": {
-                    "oz": [
-                        "Fakat tugriga",
-                        "Fakat ungga",
-                        "Fakat chapga",
-                        "Fakat tugriga va ungga",
-                        "Barcha iunalishlarga"
-                    ],
-                    "uz": [
-                        "\u0424\u0430\u043a\u0430\u0442 \u0442\u0443\u0433\u0440\u0438\u0433\u0430",
-                        "\u0424\u0430\u043a\u0430\u0442 \u0443\u043d\u0433\u0433\u0430",
-                        "\u0424\u0430\u043a\u0430\u0442 \u0447\u0430\u043f\u0433\u0430",
-                        "\u0424\u0430\u043a\u0430\u0442 \u0442\u0443\u0433\u0440\u0438\u0433\u0430 \u0432\u0430 \u0443\u043d\u0433\u0433\u0430",
-                        "\u0411\u0430\u0440\u0447\u0430 \u0438\u0443\u043d\u0430\u043b\u0438\u0448\u043b\u0430\u0440\u0433\u0430"
-                    ],
-                    "ru": [
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u043f\u0440\u044f\u043c\u043e",
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u043d\u0430\u043f\u0440\u0430\u0432\u043e",
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u043d\u0430\u043b\u0435\u0432\u043e",
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u043f\u0440\u044f\u043c\u043e \u0438 \u043d\u0430\u043f\u0440\u0430\u0432\u043e",
-                        "\u0412\u043e \u0432\u0441\u0435\u0445 \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f\u0445"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 1088,
-            "bilet_id": 54,
-            "question_id": 16,
-            "name": null,
-            "question": {
-                "oz": "Kursatilgan xolatda kayrilib olishga ruxsat etiladimi?",
-                "uz": "\u041a\u0443\u0440\u0441\u0430\u0442\u0438\u043b\u0433\u0430\u043d \u0445\u043e\u043b\u0430\u0442\u0434\u0430 \u043a\u0430\u0439\u0440\u0438\u043b\u0438\u0431 \u043e\u043b\u0438\u0448\u0433\u0430 \u0440\u0443\u0445\u0441\u0430\u0442 \u044d\u0442\u0438\u043b\u0430\u0434\u0438\u043c\u0438?",
-                "ru": "\u0420\u0430\u0437\u0440\u0435\u0448\u0435\u043d \u043b\u0438 \u0440\u0430\u0437\u0432\u043e\u0440\u043e\u0442 \u0432 \u0443\u043a\u0430\u0437\u0430\u043d\u043d\u043e\u0439"
-            },
-            "photo": "54.16.webp",
-            "answers": {
-                "status": 1,
-                "answer_id": 16,
-                "answer": {
-                    "oz": [
-                        "Takiklanadi",
-                        "Ruxsat beriladi"
-                    ],
-                    "uz": [
-                        "\u0422\u0430\u043a\u0438\u043a\u043b\u0430\u043d\u0430\u0434\u0438",
-                        "\u0420\u0443\u0445\u0441\u0430\u0442 \u0431\u0435\u0440\u0438\u043b\u0430\u0434\u0438"
-                    ],
-                    "ru": [
-                        "\u0417\u0430\u043f\u0440\u0435\u0449\u0430\u0435\u0442\u0441\u044f",
-                        "\u0420\u0430\u0437\u0440\u0435\u0448\u0430\u0435\u0442\u0441\u044f"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 1124,
-            "bilet_id": 56,
-            "question_id": 12,
-            "name": null,
-            "question": {
-                "oz": "Ushbu vaziyatda qaysi yo\u2018nalishda harakatlanishingiz mumkin?",
-                "uz": "\u0423\u0448\u0431\u0443 \u0432\u0430\u0437\u0438\u044f\u0442\u0434\u0430 \u049b\u0430\u0439\u0441\u0438 \u0439\u045e\u043d\u0430\u043b\u0438\u0448\u0434\u0430 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0438\u0448\u0438\u043d\u0433\u0438\u0437 \u043c\u0443\u043c\u043a\u0438\u043d?",
-                "ru": "\u0412 \u043a\u0430\u043a\u043e\u043c \u0438\u0437 \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0439 \u0412\u0430\u043c \u0440\u0430\u0437\u0440\u0435\u0448\u0435\u043d\u043e \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u0435 \u0432 \u0438\u0437\u043e\u0431\u0440\u0430\u0436\u0435\u043d\u043d\u043e\u0439 \u0441\u0438\u0442\u0443\u0430\u0446\u0438\u0438?"
-            },
-            "photo": "56.12.webp",
-            "answers": {
-                "status": 4,
-                "answer_id": 12,
-                "answer": {
-                    "oz": [
-                        "1, 3 va 4 yo\u2018nalishlarda",
-                        "1, 2 va 3 yo\u2018nalishlarda",
-                        "1 va 4 yo\u2018nalishlarda",
-                        "Barcha yo\u2018nalishlarda"
-                    ],
-                    "uz": [
-                        "1, 3 \u0432\u0430 4 \u0439\u045e\u043d\u0430\u043b\u0438\u0448\u043b\u0430\u0440\u0434\u0430",
-                        "1, 2 \u0432\u0430 3 \u0439\u045e\u043d\u0430\u043b\u0438\u0448\u043b\u0430\u0440\u0434\u0430",
-                        "1 \u0432\u0430 4 \u0439\u045e\u043d\u0430\u043b\u0438\u0448\u043b\u0430\u0440\u0434\u0430",
-                        "\u0411\u0430\u0440\u0447\u0430 \u0439\u045e\u043d\u0430\u043b\u0438\u0448\u043b\u0430\u0440\u0434\u0430"
-                    ],
-                    "ru": [
-                        "\u0412 \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0438 1, 3 \u0438\u043b\u0438 4",
-                        "\u0412 \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0438 1, 2 \u0438\u043b\u0438 3",
-                        "\u0412 \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0438 1 \u0438\u043b\u0438 4",
-                        "\u0412 \u043b\u044e\u0431\u043e\u043c \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0438"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 1125,
-            "bilet_id": 56,
-            "question_id": 13,
-            "name": null,
-            "question": {
-                "oz": "Ushbu chorrahada chapga burilishga ruxsat etiladimi?",
-                "uz": "\u0423\u0448\u0431\u0443 \u0447\u043e\u0440\u0440\u0430\u04b3\u0430\u0434\u0430 \u0447\u0430\u043f\u0433\u0430 \u0431\u0443\u0440\u0438\u043b\u0438\u0448\u0433\u0430 \u0440\u0443\u0445\u0441\u0430\u0442 \u044d\u0442\u0438\u043b\u0430\u0434\u0438\u043c\u0438?",
-                "ru": "\u0420\u0430\u0437\u0440\u0435\u0448\u0435\u043d \u043b\u0438 \u043f\u043e\u0432\u043e\u0440\u043e\u0442 \u043d\u0430\u043b\u0435\u0432\u043e \u043d\u0430 \u044d\u0442\u043e\u043c \u043f\u0435\u0440\u0435\u043a\u0440\u0435\u0441\u0442\u043a\u0435?"
-            },
-            "photo": "56.13.webp",
-            "answers": {
-                "status": 1,
-                "answer_id": 13,
-                "answer": {
-                    "oz": [
-                        "Ruxsat etiladi",
-                        "Taqiqlanadi"
-                    ],
-                    "uz": [
-                        "\u0420\u0443\u0445\u0441\u0430\u0442 \u044d\u0442\u0438\u043b\u0430\u0434\u0438",
-                        "\u0422\u0430\u049b\u0438\u049b\u043b\u0430\u043d\u0430\u0434\u0438"
-                    ],
-                    "ru": [
-                        "\u0420\u0430\u0437\u0440\u0435\u0448\u0430\u0435\u0442\u0441\u044f",
-                        "\u0417\u0430\u043f\u0440\u0435\u0449\u0430\u0435\u0442\u0441\u044f"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 1129,
-            "bilet_id": 56,
-            "question_id": 17,
-            "name": null,
-            "question": {
-                "oz": "Qaysi avtomobil haydovchisi qoidani buzib hovliga burildi?",
-                "uz": "\u049a\u0430\u0439\u0441\u0438 \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b \u04b3\u0430\u0439\u0434\u043e\u0432\u0447\u0438\u0441\u0438 \u049b\u043e\u0438\u0434\u0430\u043d\u0438 \u0431\u0443\u0437\u0438\u0431 \u04b3\u043e\u0432\u043b\u0438\u0433\u0430 \u0431\u0443\u0440\u0438\u043b\u0434\u0438?",
-                "ru": "\u0412\u043e\u0434\u0438\u0442\u0435\u043b\u044e \u043a\u0430\u043a\u043e\u0433\u043e \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f \u043d\u0430\u0440\u0443\u0448\u0438\u043b \u043f\u0440\u0430\u0432\u0438\u043b\u043e \u043f\u043e\u0432\u0435\u0440\u043d\u0443\u0432 \u0432\u043e \u0434\u0432\u043e\u0440?"
-            },
-            "photo": "56.17.webp",
-            "answers": {
-                "status": 2,
-                "answer_id": 17,
-                "answer": {
-                    "oz": [
-                        "Faqat oq avtomobil haydovchisi",
-                        "Faqat sariq avtomobil haydovchisi",
-                        "Hech qaysi buzmad",
-                        "Ikkisi ham buzdi"
-                    ],
-                    "uz": [
-                        "\u0424\u0430\u049b\u0430\u0442 \u043e\u049b \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b \u04b3\u0430\u0439\u0434\u043e\u0432\u0447\u0438\u0441\u0438",
-                        "\u0424\u0430\u049b\u0430\u0442 \u0441\u0430\u0440\u0438\u049b \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b \u04b3\u0430\u0439\u0434\u043e\u0432\u0447\u0438\u0441\u0438",
-                        "\u04b2\u0435\u0447 \u049b\u0430\u0439\u0441\u0438 \u0431\u0443\u0437\u043c\u0430\u0434\u0438",
-                        "\u0418\u043a\u043a\u0438\u0441\u0438 \u04b3\u0430\u043c \u0431\u0443\u0437\u0434\u0438"
-                    ],
-                    "ru": [
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u0432\u043e\u0434\u0438\u0442\u0435\u043b\u044c \u0431\u0435\u043b\u043e\u0433\u043e \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f",
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u0432\u043e\u0434\u0438\u0442\u0435\u043b\u044c \u0436\u0451\u043b\u0442\u043e\u0433\u043e \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f",
-                        "\u041d\u0438\u043a\u0442\u043e \u043d\u0435 \u043d\u0430\u0440\u0443\u0448\u0438\u043b",
-                        "\u041e\u0431\u0430 \u043d\u0430\u0440\u0443\u0448\u0438\u043b\u0438"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 1130,
-            "bilet_id": 56,
-            "question_id": 18,
-            "name": null,
-            "question": {
-                "oz": "Yo\u2018naltirgichlar bilan ko\u2018rsatilgan qaysi yo\u2018nalishlarda harakat ruxsat etilgan?",
-                "uz": "\u0419\u045e\u043d\u0430\u043b\u0442\u0438\u0440\u0433\u0438\u0447\u043b\u0430\u0440 \u0431\u0438\u043b\u0430\u043d \u043a\u045e\u0440\u0441\u0430\u0442\u0438\u043b\u0433\u0430\u043d \u049b\u0430\u0439\u0441\u0438 \u0439\u045e\u043d\u0430\u043b\u0438\u0448\u043b\u0430\u0440\u0434\u0430 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442 \u0440\u0443\u0445\u0441\u0430\u0442 \u044d\u0442\u0438\u043b\u0433\u0430\u043d?",
-                "ru": "\u0412 \u043a\u0430\u043a\u0438\u0445 \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f\u0445 \u0440\u0430\u0437\u0440\u0435\u0448\u0435\u043d\u043e \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u0435 \u0441\u043e\u0433\u043b\u0430\u0441\u043d\u043e \u0443\u043a\u0430\u0437\u0430\u0442\u0435\u043b\u044f\u043c (\u0437\u043d\u0430\u043a\u0430\u043c)?"
-            },
-            "photo": "56.18.webp",
-            "answers": {
-                "status": 4,
-                "answer_id": 18,
-                "answer": {
-                    "oz": [
-                        "Faqat to\u2018g\u2018riga",
-                        "Faqat o\u2018ngga",
-                        "Faqat chapga",
-                        "Faqat to\u2018g\u2018riga va chapga",
-                        "Barcha yo\u2018nalishlarga"
-                    ],
-                    "uz": [
-                        "\u0424\u0430\u049b\u0430\u0442 \u0442\u045e\u0493\u0440\u0438\u0433\u0430",
-                        "\u0424\u0430\u049b\u0430\u0442 \u045e\u043d\u0433\u0433\u0430",
-                        "\u0424\u0430\u049b\u0430\u0442 \u0447\u0430\u043f\u0433\u0430",
-                        "\u0424\u0430\u049b\u0430\u0442 \u0442\u045e\u0493\u0440\u0438\u0433\u0430 \u0432\u0430 \u0447\u0430\u043f\u0433\u0430",
-                        "\u0411\u0430\u0440\u0447\u0430 \u0439\u045e\u043d\u0430\u043b\u0438\u0448\u043b\u0430\u0440\u0433\u0430"
-                    ],
-                    "ru": [
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u043f\u0440\u044f\u043c\u043e",
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u043d\u0430\u043f\u0440\u0430\u0432\u043e",
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u043d\u0430\u043b\u0435\u0432\u043e",
-                        "\u0422\u043e\u043b\u044c\u043a\u043e \u043f\u0440\u044f\u043c\u043e \u0438 \u043d\u0430\u043b\u0435\u0432\u043e",
-                        "\u0412\u043e \u0432\u0441\u0435\u0445 \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f\u0445"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 1137,
-            "bilet_id": 57,
-            "question_id": 5,
-            "name": null,
-            "question": {
-                "oz": "Avtomobil haydovchisi qaysi yo\u2018nalishlarda harakatlanishga ruxsat beradi?",
-                "uz": "\u0410\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b \u04b3\u0430\u0439\u0434\u043e\u0432\u0447\u0438\u0441\u0438 \u049b\u0430\u0439\u0441\u0438 \u0439\u045e\u043d\u0430\u043b\u0438\u0448\u043b\u0430\u0440\u0434\u0430 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0438\u0448\u0433\u0430 \u0440\u0443\u0445\u0441\u0430\u0442 \u0431\u0435\u0440\u0430\u0434\u0438?",
-                "ru": "\u041f\u043e \u043a\u0430\u043a\u0438\u043c \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f\u043c \u0432\u043e\u0434\u0438\u0442\u0435\u043b\u044e \u0430\u0432\u0442\u043e\u043c\u043e\u0431\u0438\u043b\u044f \u0440\u0430\u0437\u0440\u0435\u0448\u0435\u043d\u043e \u0434\u0432\u0438\u0436\u0435\u043d\u0438\u0435?"
-            },
-            "photo": "57.5.webp",
-            "answers": {
-                "status": 2,
-                "answer_id": 5,
-                "answer": {
-                    "oz": [
-                        "Faqat A va B",
-                        "Faqat B",
-                        "Faqat A",
-                        "Barchasi"
-                    ],
-                    "uz": [
-                        "\u0424\u0430\u049b\u0430\u0442 \u0410 \u0432\u0430 B",
-                        "\u0424\u0430\u049b\u0430\u0442 B",
-                        "\u0422\u043e\u043b\u044c\u043a\u043e A",
-                        "\u0411\u0430\u0440\u0447\u0430\u0441\u0438"
-                    ],
-                    "ru": [
-                        "\u0422\u043e\u043b\u044c\u043a\u043e A \u0438 B",
-                        "\u0422\u043e\u043b\u044c\u043a\u043e B",
-                        "\u0422\u043e\u043b\u044c\u043a\u043e A",
-                        "\u041f\u043e \u0432\u0441\u0435\u043c"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 1142,
-            "bilet_id": 57,
-            "question_id": 10,
-            "name": null,
-            "question": {
-                "oz": "Qaysi yo\u2018nalishda qayrilib olishga ruxsat beradi?",
-                "uz": "\u049a\u0430\u0439\u0441\u0438 \u0439\u045e\u043d\u0430\u043b\u0438\u0448\u0434\u0430 \u049b\u0430\u0439\u0440\u0438\u043b\u0438\u0431 \u043e\u043b\u0438\u0448\u0433\u0430 \u0440\u0443\u0445\u0441\u0430\u0442 \u0431\u0435\u0440\u0430\u0434\u0438?",
-                "ru": "\u0412 \u043a\u0430\u043a\u043e\u043c \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0438 \u0440\u0430\u0437\u0440\u0435\u0448\u0451\u043d \u0440\u0430\u0437\u0432\u043e\u0440\u043e\u0442?"
-            },
-            "photo": "57.10.webp",
-            "answers": {
-                "status": 2,
-                "answer_id": 10,
-                "answer": {
-                    "oz": [
-                        "Faqat A va ",
-                        "Faqat C",
-                        "Faqat B",
-                        "Barchasi"
-                    ],
-                    "uz": [
-                        "\u0424\u0430\u049b\u0430\u0442 \u0410 \u0432\u0430 C",
-                        "\u0424\u0430\u049b\u0430\u0442 C",
-                        "\u0424\u0430\u049b\u0430\u0442 B",
-                        "\u0411\u0430\u0440\u0447\u0430\u0441\u0438"
-                    ],
-                    "ru": [
-                        "\u0422\u043e\u043b\u044c\u043a\u043e A \u0438 C",
-                        "\u0422\u043e\u043b\u044c\u043a\u043e C",
-                        "\u0422\u043e\u043b\u044c\u043a\u043e B",
-                        "\u0412\u0441\u0435 \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f"
-                    ]
-                }
-            }
-        },
-        {
-            "id": 1143,
-            "bilet_id": 57,
-            "question_id": 11,
-            "name": null,
-            "question": {
-                "oz": "Qaysi javobda belgining nomi to'gri ko'rsatilgan ?",
-                "uz": "\u049a\u0430\u0439\u0441\u0438 \u0436\u0430\u0432\u043e\u0431\u0434\u0430 \u0431\u0435\u043b\u0433\u0438\u043d\u0438\u043d\u0433 \u043d\u043e\u043c\u0438 \u0442\u045e\u0493\u0440\u0438 \u043a\u045e\u0440\u0441\u0430\u0442\u0438\u043b\u0433\u0430\u043d ?",
-                "ru": "\u0412 \u043a\u0430\u043a\u043e\u043c \u043e\u0442\u0432\u0435\u0442\u0435 \u043f\u0440\u0430\u0432\u0438\u043b\u044c\u043d\u043e \u0443\u043a\u0430\u0437\u0430\u043d\u043e \u043d\u0430\u0437\u0432\u0430\u043d\u0438\u0435 \u0441\u0438\u043c\u0432\u043e\u043b\u0430?"
-            },
-            "photo": "57.11.webp",
-            "answers": {
-                "status": 2,
-                "answer_id": 11,
-                "answer": {
-                    "oz": [
-                        "Otda harakatlanish",
-                        "Otda yurish yo'li",
-                        "Otda yurish taqiqlanadi"
-                    ],
-                    "uz": [
-                        "\u041e\u0442\u0434\u0430 \u04b3\u0430\u0440\u0430\u043a\u0430\u0442\u043b\u0430\u043d\u0438\u0448",
-                        "\u041e\u0442\u0434\u0430 \u044e\u0440\u0438\u0448 \u0439\u045e\u043b\u0438",
-                        "\u041e\u0442\u0434\u0430 \u044e\u0440\u0438\u0448 \u0442\u0430\u049b\u0438\u049b\u043b\u0430\u043d\u0430\u0434\u0438"
-                    ],
-                    "ru": [
-                        "\u041f\u0435\u0440\u0435\u0434\u0432\u0438\u0436\u0435\u043d\u0438\u0435 \u0432\u0435\u0440\u0445\u043e\u043c",
-                        "\u041a\u043e\u043d\u043d\u0430\u044f \u0442\u0440\u043e\u043f\u0430",
-                        "\u0412\u0435\u0440\u0445\u043e\u0432\u0430\u044f \u0435\u0437\u0434\u0430 \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d\u0430."
-                    ]
-                }
+            "ru": {
+                "text": "По каким направлениям из числа обозначенных стрелками разрешается движение?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только по направлению « А »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только по направлению « Б »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только по направлению « В »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Только по направлению « А » и « Г »",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 5,
+                        "text": "Только по направлению « Г »",
+                        "is_correct": false
+                    }
+                ]
             }
         }
-    ]
-}
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_2",
+            "ticket_num": 6,
+            "order": 2
+        },
+        "media_url": "u447uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi yo'nalishlarda harakatlanishga ruxsat etilgan?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat « Б »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat « А »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "« А » va « Б »",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "« А », « Б », « В » va « Г »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "« А », « Б » va « В »",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси йўналишларда ҳаракатланишга рухсат этилган?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат « Б »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат « А »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "« А » ва « Б »",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "« А », « Б », « В » ва « Г »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "« А », « Б » ва « В »",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В каких направлениях разрешено движение?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только « Б »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только « А »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "« А » и « Б »",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "« А », « Б », « В » и « Г »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "« А », « Б » и « В »",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_3",
+            "ticket_num": 6,
+            "order": 3
+        },
+        "media_url": "u95uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi belgi «To'siqni chapdan aylanib o'tish» deb ataladi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "2",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "3",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "4",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "5",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси белги «Тўсиқни чапдан айланиб ўтиш» деб аталади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "2",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "3",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "4",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "5",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какой знак называется « Объезд препятствия слева »?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "2",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "3",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "4",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "5",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_4",
+            "ticket_num": 6,
+            "order": 4
+        },
+        "media_url": "u479uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ruxsat etilgan harakatlanish yo'nalishini ko'rsating:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat « А »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat « Б »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faqat « В »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "« А ва « Б »",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 5,
+                        "text": "« Б ва « В »",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Рухсат этилган ҳаракатланиш йўналишини кўрсатинг:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат « А »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат « Б »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақат « В »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "« А ва « Б »",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 5,
+                        "text": "« Б ва « В »",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Укажите разрешенные направления движения:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только « А »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только « Б »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только « В »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "« А и « Б »",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 5,
+                        "text": "« Б и « В »",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_5",
+            "ticket_num": 6,
+            "order": 5
+        },
+        "media_url": "u417uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Bu yo'l belgisi:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat belgida ko'rsatilgan yoki yuqori tezlikda harakatlanishga ruxsat beradi",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Belgida ko'rsatilgandan ortiq tezlikdagi harakatni taqiqlaydi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Yo'lning shu qismida tavsiya etilgan harakatlanish tezligini ko'rsatadi",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Бу йўл белгиси:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат белгида кўрсатилган ёки юқори тезликда ҳаракатланишга рухсат беради",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Белгида кўрсатилгандан ортиқ тезликдаги ҳаракатни тақиқлайди",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Йўлнинг шу қисмида тавсия этилган ҳаракатланиш тезлигини кўрсатади",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Этот дорожный знак:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Разрешает движение только с указанной или большей скоростью",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Запрещает движение со скоростью; превышающей указанную на знаке",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Указывает скорость; с которой рекомендуется движение на данном участке дороги",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_6",
+            "ticket_num": 6,
+            "order": 6
+        },
+        "media_url": "u553uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi belgi 50 km/soat kam tezlikda harakatlanishni taqiqlaydi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "2",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "3",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "4",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "5",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси белги 50 км/соат кам тезликда ҳаракатланишни тақиқлайди?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "2",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "3",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "4",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "5",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какой знак запрещает движение со скоростью менее 50 км/час?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "2",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "3",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "4",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "5",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_7",
+            "ticket_num": 6,
+            "order": 7
+        },
+        "media_url": "u561uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Chorrahada harakatlanishning majburiy yo'nalishini qaysi belgi ko'rsatadi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "2",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "3",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "4",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 5,
+                        "text": "5",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Чорраҳада ҳаракатланишнинг мажбурий йўналишини қайси белги кўрсатади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "2",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "3",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "4",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 5,
+                        "text": "5",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какой знак указывает обязательное направление движения на перекрестке?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "2",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "3",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "4",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 5,
+                        "text": "5",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_8",
+            "ticket_num": 6,
+            "order": 8
+        },
+        "media_url": "u677uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Bu belgida harakatlanish ruxsat etiladi:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat avtomobil haydovchisiga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat avtomobil va motosikl haydovchilariga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Barcha transport vositalarining haydovchilariga",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Faqat avtomobil va avtobus haydovchilariga",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Бу белгида ҳаракатланиш рухсат этилади:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат автомобил ҳайдовчисига",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат автомобил ва мотоцикл ҳайдовчиларига",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Барча транспорт воситаларининг ҳайдовчиларига",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Фақат автомобил ва автобус ҳайдовчиларига",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "При этом знаке разрешено движение:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только водителю автомобиля",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только водителям автомобиля и мотоцикла",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Водителям всех транспортных средств",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Только водителям автомобиля и автобуса",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_9",
+            "ticket_num": 6,
+            "order": 9
+        },
+        "media_url": "u464uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi rasmda harakatlanishning to'g'ri yo'nalishi ko'rsatilgan?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Birinchida",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ikkinchida",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ikkalasida",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси расмда ҳаракатланишнинг тўғри йўналиши кўрсатилган?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Биринчида",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Иккинчида",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Иккаласида",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "На каком рисунке показано правильное направление движения?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "На первом",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "На втором",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "На обоих",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_10",
+            "ticket_num": 6,
+            "order": 10
+        },
+        "media_url": "u477uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Bu chorrahada chapga burilishga ruxsat etiladimi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ruxsat etiladi",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Taqiqlanadi",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Бу чорраҳада чапга бурилишга рухсат этиладими?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Рухсат этилади",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Тақиқланади",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Разрешается ли на этом перекрестке повернуть налево?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Разрешается",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Запрещается",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_11",
+            "ticket_num": 6,
+            "order": 11
+        },
+        "media_url": "u297uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi yo'nalishda harakatlanishni davom ettirishingiz mumkin?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat chapga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Chapga va orqaga qayrilib olishga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "O'ngga, chapga va orqaga qayrilib olishga",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси йўналишда ҳаракатланишни давом эттиришингиз мумкин?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат чапга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Чапга ва орқага қайрилиб олишга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ўнгга, чапга ва орқага қайрилиб олишга",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В каких направлениях Вам можно продолжить движение?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только направо",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Налево и в обратном направлении",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Направо, налево и в обратном направлении",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_12",
+            "ticket_num": 6,
+            "order": 12
+        },
+        "media_url": "u64uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi transport vositasining haydovchisi qoidani buzib burilmoqda?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat engil avtomobil \u000bhaydovchisi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat mototsikl haydovchisi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ikkisi ham buzmoqda",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси транспорт воситасининг ҳайдовчиси қоидани бузиб бурилмоқда?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат енгил автомобиль \u000bҳайдовчиси",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат мототцикл ҳайдовчиси",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Иккиси ҳам бузмоқда",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Кто из водителей, совершающих поворот, нарушает Правила?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только водитель легкового автомобиля",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только мотоциклист",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Оба нарушают",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_13",
+            "ticket_num": 6,
+            "order": 13
+        },
+        "media_url": "u551uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi yo'l  belgisi piyodalar yo'lkasini  bildiradi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat «Б»",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat «Б» va «В»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Barcha  belgilar",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси йўл  белгиси пиёдалар йўлкасини  билдиради?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат «Б»",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат «Б» ва «В»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Барча  белгилар",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какой из знаков обозначает пешеходную дорожку?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только «Б»",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только «Б» и «В»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Все знаки",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_14",
+            "ticket_num": 6,
+            "order": 14
+        },
+        "media_url": "u451uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ko'rsatilgan yo'l  belgilaridan qaysi  biri  ruxsat etilgan  to'la vazni 3,5 tonnadan kam  bo'lgan  yuk avtomobiliga   o'ngga  harakatlanishni buyuradi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat «А»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat «Б»",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "«А» va «Б»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "«Б» va «В»",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Кўрсатилган йўл  белгиларидан қайси  бири  рухсат этилган  тўла вазни 3,5 тоннадан кам  бўлган  юк автомобилига   ўнгга  ҳаракатланишни буюради?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат «А»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат «Б»",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "«А» ва «Б»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "«Б» ва «В»",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какие знаки обязывают водителя грузового автомобиля с разрешенной максимальной массой до 3,5 т. повернуть направо?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только «А»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только «Б»",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "«А» и «Б»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "«Б» и «В»",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_15",
+            "ticket_num": 6,
+            "order": 15
+        },
+        "media_url": "u656uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi belgi velosiped yo'lkasini ko'rsatadi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "A",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "V",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "S",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси белги велосипед йўлкасини кўрсатади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "А",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "В",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "С",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какой знак обозначает велосипедную дорожку?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "А",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "В",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "С",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_16",
+            "ticket_num": 6,
+            "order": 16
+        },
+        "media_url": "u319uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi belgi to'siqni o'ng yoki chap tomonidan chetlab o'tishga ruxsat etilishini bildiradi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "2",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "3",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "4",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "5",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси белги тўсиқни ўнг ёки чап томонидан четлаб ўтишга рухсат этилишини билдиради?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "2",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "3",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "4",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "5",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какой знак указывает на то, что объезд препятствия разрешен с правой или левой стороны?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "2",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "3",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "4",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "5",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_17",
+            "ticket_num": 6,
+            "order": 17
+        },
+        "media_url": "u492uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Kuyidagi belgilardan qaysi biri engil avtomobillar harakati deb nomlanadi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "2",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "3",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "4",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Куйидаги белгилардан қайси бири енгил автомобиллар ҳаракати деб номланади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "2",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "3",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "4",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какой из перечисленных знаков называется движением легковых автомобилей?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "2",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "3",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "4",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_18",
+            "ticket_num": 6,
+            "order": 18
+        },
+        "media_url": "u404uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Kaysi yonalishda harakatlanish taqiqlanadi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat chapga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "O'nga, chapga va orkaga qayrilib olishga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Chapga va orkaga qayrilib olishga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Faqat to'riga",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Кайси ёналишда ҳаракатланиш тақиқланади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат чапга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ўнга, чапга ва оркага қайрилиб олишга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Чапга ва оркага қайрилиб олишга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Фақат тўрига",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В каком направлении движение запрещено?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только направо",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Направо, налево и в обратном направлении",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Налево и в обратном направлении",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Только прямо",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_19",
+            "ticket_num": 6,
+            "order": 19
+        },
+        "media_url": "u9uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "yo'naltirgichlar bilan kursatilgan kaysi yunalishlarda xarakat ruxsat etilgan?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Fakat tugriga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Fakat ungga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Fakat chapga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Fakat tugriga va ungga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Barcha iunalishlarga",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "йўналтиргичлар билан курсатилган кайси йуналишларда харакат рухсат этилган?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Факат тугрига",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Факат унгга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Факат чапга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Факат тугрига ва унгга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Барча иуналишларга",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В каких направлениях, обозначенных стрелкам разрешено движение?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только прямо",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только направо",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только налево",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Только прямо и направо",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Во всех направлениях",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_20",
+            "ticket_num": 6,
+            "order": 20
+        },
+        "media_url": "u667uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Kursatilgan xolatda kayrilib olishga ruxsat etiladimi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Takiklanadi",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ruxsat beriladi",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Курсатилган холатда кайрилиб олишга рухсат этиладими?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Такикланади",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Рухсат берилади",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Разрешен ли разворот в указанной",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Запрещается",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Разрешается",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_21",
+            "ticket_num": 6,
+            "order": 21
+        },
+        "media_url": "u316uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ushbu vaziyatda qaysi yo‘nalishda harakatlanishingiz mumkin?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "1, 3 va 4 yo‘nalishlarda",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "1, 2 va 3 yo‘nalishlarda",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "1 va 4 yo‘nalishlarda",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Barcha yo‘nalishlarda",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ушбу вазиятда қайси йўналишда ҳаракатланишингиз мумкин?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "1, 3 ва 4 йўналишларда",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "1, 2 ва 3 йўналишларда",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "1 ва 4 йўналишларда",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Барча йўналишларда",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В каком из направлений Вам разрешено движение в изображенной ситуации?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "В направлении 1, 3 или 4",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "В направлении 1, 2 или 3",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "В направлении 1 или 4",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "В любом направлении",
+                        "is_correct": true
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_22",
+            "ticket_num": 6,
+            "order": 22
+        },
+        "media_url": "u673uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ushbu chorrahada chapga burilishga ruxsat etiladimi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ruxsat etiladi",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Taqiqlanadi",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ушбу чорраҳада чапга бурилишга рухсат этиладими?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Рухсат этилади",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Тақиқланади",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Разрешен ли поворот налево на этом перекрестке?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Разрешается",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Запрещается",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_23",
+            "ticket_num": 6,
+            "order": 23
+        },
+        "media_url": "u265uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi avtomobil haydovchisi qoidani buzib hovliga burildi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat oq avtomobil haydovchisi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat sariq avtomobil haydovchisi",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Hech qaysi buzmad",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Ikkisi ham buzdi",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси автомобил ҳайдовчиси қоидани бузиб ҳовлига бурилди?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат оқ автомобил ҳайдовчиси",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат сариқ автомобил ҳайдовчиси",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ҳеч қайси бузмади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Иккиси ҳам бузди",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Водителю какого автомобиля нарушил правило повернув во двор?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только водитель белого автомобиля",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только водитель жёлтого автомобиля",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Никто не нарушил",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Оба нарушили",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_24",
+            "ticket_num": 6,
+            "order": 24
+        },
+        "media_url": "u344uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Yo‘naltirgichlar bilan ko‘rsatilgan qaysi yo‘nalishlarda harakat ruxsat etilgan?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat to‘g‘riga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat o‘ngga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faqat chapga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Faqat to‘g‘riga va chapga",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 5,
+                        "text": "Barcha yo‘nalishlarga",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Йўналтиргичлар билан кўрсатилган қайси йўналишларда ҳаракат рухсат этилган?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат тўғрига",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат ўнгга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақат чапга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Фақат тўғрига ва чапга",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 5,
+                        "text": "Барча йўналишларга",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В каких направлениях разрешено движение согласно указателям (знакам)?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только прямо",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только направо",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только налево",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Только прямо и налево",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 5,
+                        "text": "Во всех направлениях",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_25",
+            "ticket_num": 6,
+            "order": 25
+        },
+        "media_url": "u383uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Avtomobil haydovchisi qaysi yo‘nalishlarda harakatlanishga ruxsat beradi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat A va B",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat B",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faqat A",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Barchasi",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Автомобил ҳайдовчиси қайси йўналишларда ҳаракатланишга рухсат беради?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат А ва B",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат B",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только A",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Барчаси",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "По каким направлениям водителю автомобиля разрешено движение?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только A и B",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только B",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только A",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "По всем",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_26",
+            "ticket_num": 6,
+            "order": 26
+        },
+        "media_url": "u29uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi yo‘nalishda qayrilib olishga ruxsat beradi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat A va ",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat C",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faqat B",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Barchasi",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси йўналишда қайрилиб олишга рухсат беради?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат А ва C",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат C",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақат B",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Барчаси",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В каком направлении разрешён разворот?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только A и C",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только C",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только B",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Все направления",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_27",
+            "ticket_num": 6,
+            "order": 27
+        },
+        "media_url": "u91uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi javobda belgining nomi to'gri ko'rsatilgan ?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Otda harakatlanish",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Otda yurish yo'li",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Otda yurish taqiqlanadi",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси жавобда белгининг номи тўғри кўрсатилган ?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Отда ҳаракатланиш",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Отда юриш йўли",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Отда юриш тақиқланади",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В каком ответе правильно указано название символа?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Передвижение верхом",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Конная тропа",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Верховая езда запрещена.",
+                        "is_correct": false
+                    }
+                ]
+            }
+        }
+    }
+]

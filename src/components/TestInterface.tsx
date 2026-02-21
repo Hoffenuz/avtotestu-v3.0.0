@@ -16,33 +16,54 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { Clock, ChevronLeft, ChevronRight, X, Check } from "lucide-react";
+import { Clock, ChevronLeft, ChevronRight, X, Check, Maximize, Minimize } from "lucide-react";
+import { ImageLightbox } from "./ImageLightbox";
 
+// Eski format (lesson + data)
 interface QuestionData {
   id: number;
   bilet_id: number;
   question_id: number;
   name: string | null;
-  question: {
-    oz: string;
-    uz: string;
-    ru: string;
-  };
+  question: { oz: string; uz: string; ru: string };
   photo: string | null;
   answers: {
     status: number;
     answer_id: number;
-    answer: {
-      oz: string[];
-      uz: string[];
-      ru: string[];
-    };
+    answer: { oz: string[]; uz: string[]; ru: string[] };
   };
 }
 
 interface VariantData {
   lesson: string;
   data: QuestionData[];
+}
+
+// Yangi format: task_info, media_url, content.uz_lat / uz_cyr / ru
+type ContentLangKey = 'uz_lat' | 'uz_cyr' | 'ru';
+
+interface VariantTaskNew {
+  task_info?: { global_id?: string; ticket_num?: number; order?: number };
+  media_url?: string;
+  content: {
+    uz_lat?: { text: string; options: { id: number; text: string; is_correct: boolean }[] };
+    uz_cyr?: { text: string; options: { id: number; text: string; is_correct: boolean }[] };
+    ru?: { text: string; options: { id: number; text: string; is_correct: boolean }[] };
+  };
+}
+
+function isNewVariantFormat(raw: unknown): raw is VariantTaskNew[] {
+  return Array.isArray(raw) && raw.length > 0 && !!raw[0] && typeof (raw[0] as VariantTaskNew).content === 'object' && (
+    'uz_lat' in (raw[0] as VariantTaskNew).content ||
+    'uz_cyr' in (raw[0] as VariantTaskNew).content ||
+    'ru' in (raw[0] as VariantTaskNew).content
+  );
+}
+
+function getContentKey(questionLang: string): ContentLangKey {
+  if (questionLang === 'oz') return 'uz_lat';
+  if (questionLang === 'uz') return 'uz_cyr';
+  return 'ru';
 }
 
 interface Question {
@@ -74,10 +95,35 @@ export const TestInterface = ({ onExit, variant }: TestInterfaceProps) => {
   const [showResults, setShowResults] = useState(false);
   const [testStartTime] = useState(Date.now());
   const [resultSaved, setResultSaved] = useState(false);
-  
+  const [zoomImage, setZoomImage] = useState<string | null>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
   const autoAdvanceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const storageKey = `testState_variant_${variant}`;
+
+  // Fullscreen handlers
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().then(() => setIsFullscreen(true)).catch(() => {});
+    } else {
+      document.exitFullscreen().then(() => setIsFullscreen(false)).catch(() => {});
+    }
+  };
+
+  const exitFullscreen = () => {
+    if (document.fullscreenElement) {
+      document.exitFullscreen().then(() => setIsFullscreen(false)).catch(() => {});
+    }
+  };
+
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+  }, []);
 
   // Fetch test data from JSON file
   useEffect(() => {
@@ -92,36 +138,76 @@ export const TestInterface = ({ onExit, variant }: TestInterfaceProps) => {
           throw new Error(t("test.errorLoadingData"));
         }
         
-        const variantData: VariantData = await response.json();
-        
-        if (!variantData.data || variantData.data.length === 0) {
-          throw new Error(t("test.noQuestionsFound"));
-        }
+        const raw = await response.json();
+        const contentKey = getContentKey(questionLang);
 
-        // Transform JSON data to our Question format (handle media/photo fields)
-        const resolveImage = (obj: any) => {
-          if (obj?.media && obj.media.exist && obj.media.name) {
-            return `/images/${obj.media.name}.png`;
+        let transformedQuestions: Question[];
+
+        if (isNewVariantFormat(raw)) {
+          // Yangi format: [{ task_info, media_url, content: { uz_lat, uz_cyr, ru } }]
+          const tasks = raw as VariantTaskNew[];
+          if (tasks.length === 0) throw new Error(t("test.noQuestionsFound"));
+          // Rasmlar images papkasida webp formatda
+          const imageBase = "/images/";
+          transformedQuestions = tasks.map((task, idx) => {
+            const langContent = task.content[contentKey] || task.content.uz_lat || task.content.uz_cyr || task.content.ru;
+            if (!langContent || !langContent.options?.length) {
+              return {
+                id: idx + 1,
+                text: "",
+                answers: [],
+                correctAnswer: 1,
+              };
+            }
+            const options = langContent.options;
+            const correctOption = options.find((o) => o.is_correct);
+            const correctAnswer = correctOption ? correctOption.id : options[0].id;
+            let image: string | undefined;
+            if (task.media_url?.trim()) {
+              if (task.media_url.startsWith("http")) {
+                image = task.media_url;
+              } else {
+                const path = task.media_url.replace(/^\//, "");
+                image = imageBase + (path.endsWith(".webp") ? path : path.replace(/\.[^.]+$/, "") + ".webp");
+              }
+            } else {
+              image = undefined;
+            }
+            return {
+              id: idx + 1,
+              text: langContent.text || "",
+              image,
+              correctAnswer,
+              answers: options.map((o) => ({ id: o.id, text: o.text })),
+            };
+          });
+        } else {
+          // Eski format: { lesson, data: QuestionData[] }
+          const variantData = raw as VariantData;
+          if (!variantData.data || variantData.data.length === 0) {
+            throw new Error(t("test.noQuestionsFound"));
           }
-          if (obj?.photo) return `/images/${obj.photo}`;
-          if (obj?.image) return `/images/${obj.image}`;
-          return undefined;
-        };
-
-        const transformedQuestions: Question[] = variantData.data.map((q, idx) => {
-          const answerLang = questionLang as keyof typeof q.answers.answer;
-          const answers = q.answers.answer[answerLang] || q.answers.answer.uz;
-          return {
-            id: idx + 1,
-            text: (q.question as any)[questionLang] || q.question.uz,
-            image: resolveImage(q),
-            correctAnswer: q.answers.status,
-            answers: answers.map((answerText, ansIdx) => ({
-              id: ansIdx + 1,
-              text: answerText,
-            })),
+          const resolveImage = (obj: any) => {
+            if (obj?.media?.exist && obj.media.name) return `/images/${obj.media.name}.png`;
+            if (obj?.photo) return `/images/${obj.photo}`;
+            if (obj?.image) return `/images/${obj.image}`;
+            return undefined;
           };
-        });
+          const answerLang = questionLang as 'oz' | 'uz' | 'ru';
+          transformedQuestions = variantData.data.map((q, idx) => {
+            const answers = q.answers?.answer?.[answerLang] || q.answers?.answer?.uz || [];
+            return {
+              id: idx + 1,
+              text: (q.question as any)?.[questionLang] || q.question?.uz || "",
+              image: resolveImage(q),
+              correctAnswer: q.answers?.status ?? 1,
+              answers: answers.map((answerText: string, ansIdx: number) => ({
+                id: ansIdx + 1,
+                text: answerText,
+              })),
+            };
+          });
+        }
 
         try {
           const savedRaw = localStorage.getItem(storageKey);
@@ -272,6 +358,7 @@ export const TestInterface = ({ onExit, variant }: TestInterfaceProps) => {
     setShowFinishDialog(false);
     // Stop timer before showing results
     if (timerRef.current) clearInterval(timerRef.current);
+    exitFullscreen();
     setShowResults(true);
     try {
       localStorage.removeItem(storageKey);
@@ -306,6 +393,7 @@ export const TestInterface = ({ onExit, variant }: TestInterfaceProps) => {
   if (showResults) {
     const stats = getTestStats();
     const timeTaken = Math.floor((Date.now() - testStartTime) / 1000);
+    exitFullscreen();
     
     return (
       <TestResults
@@ -377,6 +465,15 @@ export const TestInterface = ({ onExit, variant }: TestInterfaceProps) => {
             <Button 
               variant="outline" 
               size="sm" 
+              className="h-7 px-2 md:h-8 md:px-3 text-xs"
+              onClick={toggleFullscreen}
+              title={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
+            >
+              {isFullscreen ? <Minimize className="w-4 h-4" /> : <Maximize className="w-4 h-4" />}
+            </Button>
+            <Button 
+              variant="outline" 
+              size="sm" 
               className="h-7 px-2 md:h-8 md:px-3 text-xs bg-green-500/10 text-green-600 border-green-500/30 hover:bg-green-500/20"
               onClick={handleFinishTest}
             >
@@ -427,27 +524,33 @@ export const TestInterface = ({ onExit, variant }: TestInterfaceProps) => {
                 </p>
               </Card>
 
-              {/* Mobile Only: Question Image */}
+              {/* Mobile Only: Question Image - bosilsa kattalashadi */}
               {question.image && (
                 <Card className="md:hidden p-3 bg-card border-border mb-4 overflow-hidden">
-                  {/\.(png|jpe?g|webp)$/i.test(question.image || "") ? (
-                    <img
-                      src={question.image}
-                      alt="Question illustration"
-                      className="w-full max-w-[300px] h-auto mx-auto object-contain rounded"
-                    />
-                  ) : (
-                    <picture>
-                      <source srcSet={`${question.image}.png`} type="image/png" />
-                      <source srcSet={`${question.image}.jpg`} type="image/jpeg" />
-                      <source srcSet={`${question.image}.jpeg`} type="image/jpeg" />
+                  <button
+                    type="button"
+                    className="block w-full cursor-zoom-in focus:outline-none focus:ring-0"
+                    onClick={() => setZoomImage(question.image!)}
+                  >
+                    {/\.(png|jpe?g|webp)$/i.test(question.image || "") ? (
                       <img
-                        src={`${question.image}.png`}
+                        src={question.image}
                         alt="Question illustration"
                         className="w-full max-w-[300px] h-auto mx-auto object-contain rounded"
                       />
-                    </picture>
-                  )}
+                    ) : (
+                      <picture>
+                        <source srcSet={`${question.image}.png`} type="image/png" />
+                        <source srcSet={`${question.image}.jpg`} type="image/jpeg" />
+                        <source srcSet={`${question.image}.jpeg`} type="image/jpeg" />
+                        <img
+                          src={`${question.image}.png`}
+                          alt="Question illustration"
+                          className="w-full max-w-[300px] h-auto mx-auto object-contain rounded"
+                        />
+                      </picture>
+                    )}
+                  </button>
                 </Card>
               )}
 
@@ -497,28 +600,34 @@ export const TestInterface = ({ onExit, variant }: TestInterfaceProps) => {
               </div>
             </div>
 
-            {/* Right Column: Image (Desktop only - 40%) */}
+            {/* Right Column: Image (Desktop only - 40%) - bosilsa kattalashadi */}
             {question.image && (
               <div className="hidden md:block md:w-[40%] md:flex-shrink-0">
                 <Card className="p-4 bg-card border-border overflow-hidden sticky top-4">
-                  {/\.(png|jpe?g|webp)$/i.test(question.image || "") ? (
-                    <img
-                      src={question.image}
-                      alt="Question illustration"
-                      className="w-full h-auto object-contain rounded max-h-[60vh]"
-                    />
-                  ) : (
-                    <picture>
-                      <source srcSet={`${question.image}.png`} type="image/png" />
-                      <source srcSet={`${question.image}.jpg`} type="image/jpeg" />
-                      <source srcSet={`${question.image}.jpeg`} type="image/jpeg" />
+                  <button
+                    type="button"
+                    className="block w-full cursor-zoom-in focus:outline-none focus:ring-0"
+                    onClick={() => setZoomImage(question.image!)}
+                  >
+                    {/\.(png|jpe?g|webp)$/i.test(question.image || "") ? (
                       <img
-                        src={`${question.image}.png`}
+                        src={question.image}
                         alt="Question illustration"
                         className="w-full h-auto object-contain rounded max-h-[60vh]"
                       />
-                    </picture>
-                  )}
+                    ) : (
+                      <picture>
+                        <source srcSet={`${question.image}.png`} type="image/png" />
+                        <source srcSet={`${question.image}.jpg`} type="image/jpeg" />
+                        <source srcSet={`${question.image}.jpeg`} type="image/jpeg" />
+                        <img
+                          src={`${question.image}.png`}
+                          alt="Question illustration"
+                          className="w-full h-auto object-contain rounded max-h-[60vh]"
+                        />
+                      </picture>
+                    )}
+                  </button>
                 </Card>
               </div>
             )}
@@ -587,6 +696,8 @@ export const TestInterface = ({ onExit, variant }: TestInterfaceProps) => {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
+
+      <ImageLightbox imageUrl={zoomImage} onClose={() => setZoomImage(null)} />
     </div>
   );
 };

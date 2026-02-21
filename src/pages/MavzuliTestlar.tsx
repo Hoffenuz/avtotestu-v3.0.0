@@ -6,69 +6,85 @@ import { MainLayout } from "@/components/layout/MainLayout";
 import { SEO } from "@/components/SEO";
 import { MavzuliTestInterface } from "@/components/MavzuliTestInterface";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { User, LogIn, ChevronDown, ChevronUp, BookOpen, Play, Clock, CheckCircle, HelpCircle, Home } from "lucide-react";
+import { User, LogIn, Home, Play } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const topics = [
-  { id: '31', name: 'Barcha savollar' },
-  { id: '1', name: "Umumiy qoidalar" },
-  { id: '3', name: "Ogohlantiruvchi belgilar" },
-  { id: '4', name: "Imtiyoz belgilar" },
-  { id: '5', name: "Taqiqlovchi belgilar" },
-  { id: '6', name: "Buyuruvchi belgilar" },
-  { id: '7', name: "Axborot ishora belgilari" },
-  { id: '8', name: "Qo'shimcha axborot belgilari" },
-  { id: '20', name: "Chorrahalarda harakatlanish" },
-  { id: '34', name: "Teng ahamiyatli chorrahalar" },
-  { id: '9', name: "Yotiq chiziqlar 1" },
-  { id: '10', name: "Yotiq va tik chiziqlar 2" },
-  { id: '11', name: "Svetafor ishoralari" },
-  { id: '12', name: "Tartibga soluvchining ishoralari" },
-  { id: '13', name: "Ogohlantiruvchi va avariya ishoralari" },
-  { id: '14', name: "Harakatlanishni (Manyovir) boshlash" },
-  { id: '15', name: "Yo'lning qatnov qismida transport vositalarining joylashuvi" },
-  { id: '16', name: "Harakatlanish tezligi" },
-  { id: '17', name: "Quvib o'tish" },
-  { id: '18', name: "To'xtash va to'xtab turish qoidalari 1" },
-  { id: '19', name: "To'xtash va to'xtab turish qoidalari 2" },
-  { id: '33', name: "Tartibga solinmagan chorrahada asosiy yo'l" },
-  { id: '2', name: "Haydovchining umumiy vazifalari va piyodalar" },
-  { id: '21', name: "Piyodalar o'tish joylari va turar joy dahalarida harakatlanish" },
-  { id: '22', name: "Temir yo'l kesishmalari va Avtomagistrallarda harakat" },
-  { id: '23', name: "Yo'nalishli transport vositalarining imtiyozlari va tashqi yoritish" },
-  { id: '24', name: "Transport vositalarini shatakka olish" },
-  { id: '25', name: "Transport boshqarishni o'rganish va Yo'l harakati xavfsizligini ta'minlash" },
-  { id: '26', name: "Odam va yuk tashish" },
-  { id: '27', name: "Transport vositalarida harakatlanish taqiqlanadigan vaziyatlar" },
-  { id: '28', name: "Harakat xavfsizligini ta'minlash 1" },
-  { id: '29', name: "Harakat xavfsizligini ta'minlash 2" },
-  { id: '30', name: "Birinchi tibbiy yordam" },
+  { id: '31', name: { uz_lat: 'Barcha savollar', uz_cyr: 'Барча саволлар', ru: 'Все вопросы' } },
+  { id: '35a', name: { uz_lat: "Yangi savollar1", uz_cyr: "Янги саволлар1", ru: "Новые вопросы1" } },
+  { id: '35b', name: { uz_lat: "Yangi savollar2", uz_cyr: "Янги саволлар2", ru: "Новые вопросы2" } },
+  { id: '1', name: { uz_lat: "Umumiy qoidalar", uz_cyr: "Умумий қоидалар", ru: "Общие правила" } },
+  { id: '3', name: { uz_lat: "Ogohlantiruvchi belgilar", uz_cyr: "Огоҳлантирувчи белгилар", ru: "Предупреждающие знаки" } },
+  { id: '4', name: { uz_lat: "Imtiyoz belgilar", uz_cyr: "Имтиёз белгилар", ru: "Знаки приоритета" } },
+  { id: '5', name: { uz_lat: "Taqiqlovchi belgilar", uz_cyr: "Тақиқловчи белгилар", ru: "Запрещающие знаки" } },
+  { id: '6', name: { uz_lat: "Buyuruvchi belgilar", uz_cyr: "Буюрувчи белгилар", ru: "Предписывающие знаки" } },
+  { id: '7', name: { uz_lat: "Axborot ishora belgilari", uz_cyr: "Ахборот ишора белгилари", ru: "Информационные знаки" } },
+  { id: '8', name: { uz_lat: "Qo'shimcha axborot belgilari", uz_cyr: "Қўшимча ахборот белгилари", ru: "Дополнительные информационные знаки" } },
+  { id: '20', name: { uz_lat: "Chorrahalarda harakatlanish", uz_cyr: "Чорраҳаларда ҳаракатланиш", ru: "Движение на перекрестках" } },
+  { id: '34', name: { uz_lat: "Teng ahamiyatli chorrahalar", uz_cyr: "Тенг аҳамиятли чорраҳалар", ru: "Равнозначные перекрестки" } },
+  { id: '9', name: { uz_lat: "Yotiq chiziqlar 1", uz_cyr: "Ётиқ чизиқлар 1", ru: "Горизонтальная разметка 1" } },
+  { id: '10', name: { uz_lat: "Yotiq va tik chiziqlar 2", uz_cyr: "Ётиқ ва тик чизиқлар 2", ru: "Горизонтальная и вертикальная разметка 2" } },
+  { id: '11', name: { uz_lat: "Svetafor ishoralari", uz_cyr: "Светафор ишоралари", ru: "Сигналы светофора" } },
+  { id: '12', name: { uz_lat: "Tartibga soluvchining ishoralari", uz_cyr: "Тартибга солувчининг ишоралари", ru: "Сигналы регулировщика" } },
+  { id: '13', name: { uz_lat: "Ogohlantiruvchi va avariya ishoralari", uz_cyr: "Огоҳлантирувчи ва авария ишоралари", ru: "Предупредительные и аварийные сигналы" } },
+  { id: '14', name: { uz_lat: "Yo'llarda harakatlanish", uz_cyr: "Йўлларда ҳаракатланиш", ru: "Движение по дорогам" } },
+  { id: '15', name: { uz_lat: "Transport vositalarining joylashuvi", uz_cyr: "Транспорт воситаларининг жойлашуви", ru: "Расположение транспортных средств" } },
+  { id: '16', name: { uz_lat: "Harakatlanish tezligi", uz_cyr: "Ҳаракатланиш тезлиги", ru: "Скорость движения" } },
+  { id: '17', name: { uz_lat: "Quvib o'tish", uz_cyr: "Қувиб ўтиш", ru: "Обгон" } },
+  { id: '18', name: { uz_lat: "To'xtash va to'xtab turish qoidalari 1", uz_cyr: "Тўхташ ва тўхтаб туриш қоидалари 1", ru: "Правила остановки и стоянки 1" } },
+  { id: '19', name: { uz_lat: "To'xtash va to'xtab turish qoidalari 2", uz_cyr: "Тўхташ ва тўхтаб туриш қоидалари 2", ru: "Правила остановки и стоянки 2" } },
+  { id: '33', name: { uz_lat: "Tartibga solinmagan chorrahada asosiy yo'l", uz_cyr: "Тартибга солинмаган чорраҳада асосий йўл", ru: "Главная дорога на нерегулируемом перекрестке" } },
+  { id: '2', name: { uz_lat: "Haydovchining umumiy vazifalari", uz_cyr: "Ҳайдовчининг умумий вазифалари", ru: "Общие обязанности водителя" } },
+  { id: '21', name: { uz_lat: "Piyodalar o'tish joylari va turar joylar", uz_cyr: "Пиёдалар ўтиш жойлари ва турар жойлар", ru: "Пешеходные переходы и жилые зоны" } },
+  { id: '22', name: { uz_lat: "Temir yo'l kesishmalari va Avtomagistrallarda harakat", uz_cyr: "Темир йўл кесишмалари ва Автомагистралларда ҳаракат", ru: "Железнодорожные переезды и движение по автомагистралям" } },
+  { id: '23', name: { uz_lat: "Yo'nalishli transport vositalarining imtiyozlari", uz_cyr: "Йўналишли транспорт воситаларининг имтиёзлари", ru: "Преимущества маршрутных транспортных средств" } },
+  { id: '24', name: { uz_lat: "Shatakka olish", uz_cyr: "Шатакка олиш", ru: "Буксировка" } },
+  { id: '25', name: { uz_lat: "Transport boshqarishni o'rganish va Yo'l harakati xavfsizligini ta'minlash", uz_cyr: "Транспорт бошқаришни ўрганиш ва Йўл ҳаракати хавфсизлигини таъминлаш", ru: "Обучение вождению и обеспечение безопасности" } },
+  { id: '26', name: { uz_lat: "Odam va yuk tashish", uz_cyr: "Одам ва юк ташиш", ru: "Перевозка людей и грузов" } },
+  { id: '27', name: { uz_lat: "Harakatlanish taqiqlanadigan vaziyatlar", uz_cyr: "Ҳаракатланиш тақиқланадиган вазиятлар", ru: "Ситуации запрета движения" } },
+  { id: '28', name: { uz_lat: "Harakat xavfsizligini ta'minlash 1", uz_cyr: "Ҳаракат хавфсизлигини таъминлаш 1", ru: "Обеспечение безопасности движения 1" } },
+  { id: '29', name: { uz_lat: "Harakat xavfsizligini ta'minlash 2", uz_cyr: "Ҳаракат хавфсизлигини таъминлаш 2", ru: "Обеспечение безопасности движения 2" } },
+  { id: '30', name: { uz_lat: "Birinchi tibbiy yordam", uz_cyr: "Биринчи тиббий ёрдам", ru: "Первая медицинская помощь" } },
 ];
 
 const languages = [
-  { id: "uz-lat" as const, label: "Lotin", flag: "🇺🇿" },
-  { id: "uz" as const, label: "Кирилл", flag: "🇺🇿" },
+  { id: "uz-lat" as const, label: "O'zbekcha", flag: "🇺🇿" },
+  { id: "uz" as const, label: "Ўзбекча", flag: "🇺🇿" },
   { id: "ru" as const, label: "Русский", flag: "🇷🇺" },
 ];
 
 export default function MavzuliTestlar() {
   const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
   const [testStarted, setTestStarted] = useState(false);
-  const [showAllTopics, setShowAllTopics] = useState(false);
   const { user, profile, isLoading } = useAuth();
   const { language, setLanguage } = useLanguage();
   const navigate = useNavigate();
 
-  // Validate user exists in database on page load
   useUserValidation('/auth');
 
-  // Redirect to auth if not logged in
   useEffect(() => {
     if (!isLoading && !user) {
       navigate('/auth', { state: { returnTo: '/mavzuli' } });
     }
   }, [user, isLoading, navigate]);
+
+  const getTopicName = (topic: typeof topics[0]) => {
+    const langKey = language === 'uz-lat' ? 'uz_lat' : language === 'uz' ? 'uz_cyr' : 'ru';
+    return topic.name[langKey];
+  };
+
+  const handleStartTest = () => {
+    if (selectedTopic !== null) {
+      setTestStarted(true);
+    }
+  };
+
+  const getTopicButtonClass = (topicId: string) => {
+    const isSelected = selectedTopic === topicId;
+    return isSelected
+      ? 'bg-primary/10 text-primary border-primary'
+      : 'bg-background text-foreground border-border hover:border-primary/50';
+  };
 
   if (isLoading) {
     return (
@@ -86,29 +102,10 @@ export default function MavzuliTestlar() {
     );
   }
 
-  if (!user) {
-    return null;
-  }
-
-  // On mobile, start test immediately when topic is selected
-  const handleTopicSelect = (topicId: string) => {
-    setSelectedTopic(topicId);
-    // Check if mobile (screen width < 1024px)
-    if (window.innerWidth < 1024) {
-      setTestStarted(true);
-    }
-  };
-
-  const handleStartTest = () => {
-    if (selectedTopic !== null) {
-      setTestStarted(true);
-    }
-  };
-
-  const visibleTopics = showAllTopics ? topics : topics.slice(0, 12);
+  if (!user) return null;
 
   if (testStarted && selectedTopic) {
-    const topicName = topics.find(t => t.id === selectedTopic)?.name || '';
+    const topic = topics.find(t => t.id === selectedTopic)!;
     return (
       <MavzuliTestInterface
         onExit={() => {
@@ -116,172 +113,218 @@ export default function MavzuliTestlar() {
           setSelectedTopic(null);
         }}
         topicId={selectedTopic}
-        topicName={topicName}
+        topicName={getTopicName(topic)}
       />
     );
   }
 
   return (
     <MainLayout>
-      <div className="h-[calc(100vh-64px)] bg-gradient-to-br from-background via-background to-primary/5 overflow-hidden">
-        <div className="flex flex-col lg:flex-row h-full">
-          {/* Left Sidebar - Compact */}
-          <aside className="w-full lg:w-80 bg-card border-b lg:border-b-0 lg:border-r border-border p-3 lg:p-4 flex flex-col overflow-hidden">
-            {/* Top Bar: Home + Language */}
+      <SEO 
+        title="Mavzuli testlar - YHQ bo'yicha mavzular"
+        description="Yo'l harakati qoidalari bo'yicha mavzuli testlar. Belgilar, chorrahalar, tezlik va boshqa mavzular bo'yicha bilimlaringizni sinang."
+        path="/mavzuli"
+        keywords="mavzuli test, YHQ mavzulari, yo'l qoidalari, chorrahalar, tezlik qoidalari"
+      />
+      <div className="min-h-screen bg-background">
+        {/* Mobile Layout */}
+        <div className="lg:hidden flex flex-col min-h-screen">
+          <div className="bg-card border-b border-border p-4 sticky top-0 z-10">
             <div className="flex items-center justify-between mb-3">
               <Link to="/">
-                <Button variant="outline" size="sm" className="gap-1.5">
-                  <Home className="w-3.5 h-3.5" />
-                  <span className="text-xs">Bosh sahifa</span>
+                <Button variant="outline" size="default" className="gap-2 h-10">
+                  <Home className="w-4 h-4" />
+                  Bosh sahifa
                 </Button>
               </Link>
-
-              {/* Language Toggle */}
-              <div className="flex items-center gap-0.5 bg-background border border-border rounded-md p-0.5">
-                {languages.map((lang) => (
-                  <Button
-                    key={lang.id}
-                    variant={language === lang.id ? "default" : "ghost"}
-                    size="sm"
-                    className={`px-2 py-1 h-7 text-xs ${
-                      language === lang.id 
-                        ? "bg-primary text-primary-foreground" 
-                        : "hover:bg-primary/10"
-                    }`}
-                    onClick={() => setLanguage(lang.id)}
-                  >
-                    {lang.label}
-                  </Button>
-                ))}
-              </div>
-            </div>
-
-            {/* Profile Section - Compact */}
-            <div className="mb-3 pb-3 border-b border-border">
               {user ? (
-                <Button
-                  variant="default"
-                  size="sm"
-                  onClick={() => navigate('/profile')}
-                  className="w-full flex items-center gap-2 bg-primary hover:bg-primary-hover text-primary-foreground"
-                >
+                <Button variant="outline" size="default" onClick={() => navigate('/profile')} className="gap-2 h-10">
                   <User className="w-4 h-4" />
-                  <span className="font-medium text-sm truncate">{profile?.full_name || profile?.username || 'Profil'}</span>
+                  <span className="text-sm">{profile?.full_name || profile?.username || 'Profil'}</span>
                 </Button>
               ) : (
-                <Button
-                  variant="default"
-                  size="sm"
-                  onClick={() => navigate('/auth')}
-                  className="w-full flex items-center gap-2 bg-primary hover:bg-primary-hover text-primary-foreground"
-                >
+                <Button size="default" onClick={() => navigate('/auth')} className="gap-2 h-10">
                   <LogIn className="w-4 h-4" />
-                  <span className="font-medium text-sm">Kirish</span>
+                  <span className="text-sm">Kirish</span>
                 </Button>
               )}
             </div>
+            <div className="flex gap-2">
+              {languages.map((lang) => (
+                <Button
+                  key={lang.id}
+                  variant="outline"
+                  size="sm"
+                  className={`flex-1 text-xs ${language === lang.id ? "bg-primary text-primary-foreground border-primary" : ""}`}
+                  onClick={() => setLanguage(lang.id)}
+                >
+                  {lang.flag} {lang.label}
+                </Button>
+              ))}
+            </div>
+          </div>
+          <div className="bg-card border-b border-border p-4">
+            {selectedTopic ? (
+              <div className="mb-3 p-4 bg-primary/5 rounded-lg border border-primary/20 text-center">
+                <div className="text-sm font-semibold text-primary">
+                  {getTopicName(topics.find(t => t.id === selectedTopic)!)}
+                </div>
+              </div>
+            ) : (
+              <div className="mb-3 p-4 bg-muted/30 rounded-lg border border-border text-center">
+                <div className="text-sm text-muted-foreground">
+                  {language === 'ru' ? 'Выберите тему ниже' : language === 'uz' ? 'Қуйидан мавзу танланг' : 'Quyidan mavzu tanlang'}
+                </div>
+              </div>
+            )}
+            <Button size="lg" className="w-full gap-2" onClick={handleStartTest} disabled={selectedTopic === null}>
+              <Play className="w-5 h-5" />
+              {selectedTopic ? "Testni boshlash" : "Mavzuni tanlang"}
+            </Button>
+          </div>
+          <div className="flex-1 p-4 overflow-y-auto">
+            <h2 className="text-lg font-bold text-foreground mb-3">{language === 'ru' ? 'Темы' : language === 'uz' ? 'Мавзулар' : 'Mavzular'}</h2>
+            <div className="space-y-2">
+              {topics.map((topic) => (
+                <Button
+                  key={topic.id}
+                  variant="outline"
+                  className={`w-full justify-start text-left h-auto py-3 px-4 ${getTopicButtonClass(topic.id)}`}
+                  onClick={() => setSelectedTopic(topic.id)}
+                >
+                  <span className="text-sm font-medium">{getTopicName(topic)}</span>
+                </Button>
+              ))}
+            </div>
+          </div>
+        </div>
 
-            {/* Topic Selection - Scrollable */}
-            <div className="flex-1 overflow-y-auto min-h-0">
-              <h2 className="text-xs font-medium text-muted-foreground mb-2 flex items-center gap-1.5 sticky top-0 bg-card py-1">
-                <BookOpen className="w-3.5 h-3.5" />
-                Mavzuni tanlang
-              </h2>
-              <div className="space-y-1">
-                {visibleTopics.map((topic) => (
+        {/* Desktop Layout */}
+        <div className="hidden lg:flex h-screen overflow-hidden">
+          <div className="w-[30%] bg-card border-r border-border p-6 flex flex-col">
+            <div className="flex-1 flex flex-col">
+              <div className="mb-4">
+                <Link to="/">
+                  <Button variant="outline" size="sm" className="gap-2">
+                    <Home className="w-4 h-4" />
+                    Bosh sahifa
+                  </Button>
+                </Link>
+              </div>
+              <div className="mb-4">
+                {user ? (
+                  <Button variant="outline" onClick={() => navigate('/profile')} className="w-full flex items-center gap-2 h-auto py-2.5 px-3 justify-start">
+                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <User className="w-4 h-4 text-primary" />
+                    </div>
+                    <div className="flex-1 text-left min-w-0">
+                      <div className="font-semibold text-xs truncate">{profile?.full_name || profile?.username || 'Profil'}</div>
+                      {profile?.username && profile?.full_name && (
+                        <div className="text-[10px] text-muted-foreground truncate">@{profile.username}</div>
+                      )}
+                    </div>
+                  </Button>
+                ) : (
+                  <Button onClick={() => navigate('/auth')} className="w-full gap-2" size="sm">
+                    <LogIn className="w-4 h-4" />
+                    Kirish
+                  </Button>
+                )}
+              </div>
+              <div className="mb-4">
+                <h3 className="text-[10px] font-medium text-muted-foreground mb-1.5">Til tanlash</h3>
+                <div className="flex gap-1.5">
+                  {languages.map((lang) => (
+                    <Button
+                      key={lang.id}
+                      variant="outline"
+                      size="sm"
+                      className={`flex-1 text-[11px] h-8 ${language === lang.id ? "bg-primary text-primary-foreground border-primary" : ""}`}
+                      onClick={() => setLanguage(lang.id)}
+                    >
+                      {lang.label}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+              {selectedTopic ? (
+                <div className="mb-4 p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border-2 border-primary/20 shadow-sm">
+                  <div className="text-center">
+                    <div className="text-sm font-bold text-primary leading-tight">
+                      {getTopicName(topics.find(t => t.id === selectedTopic)!)}
+                    </div>
+                    <div className="text-[10px] text-muted-foreground mt-1">{language === 'ru' ? 'Выбранная тема' : language === 'uz' ? 'Танланган мавзу' : 'Tanlangan mavzu'}</div>
+                  </div>
+                </div>
+              ) : (
+                <div className="mb-4 p-4 bg-muted/20 rounded-xl border-2 border-dashed border-border">
+                  <div className="text-center text-muted-foreground text-xs">
+                    {language === 'ru' ? 'Выберите тему справа' : language === 'uz' ? 'Ўнг томондан мавзу танланг' : 'O\'ng tomondan mavzu tanlang'}
+                  </div>
+                </div>
+              )}
+              <div className="grid grid-cols-3 gap-2 mb-4">
+                <div className="text-center p-2.5 bg-gradient-to-br from-blue-50 to-blue-100/50 dark:from-blue-950 dark:to-blue-900/50 rounded-lg border border-blue-200 dark:border-blue-800">
+                  <div className="text-xl font-bold text-blue-600 dark:text-blue-400">∞</div>
+                  <div className="text-[9px] text-blue-600/70 dark:text-blue-400/70 mt-0.5">Savollar</div>
+                </div>
+                <div className="text-center p-2.5 bg-gradient-to-br from-purple-50 to-purple-100/50 dark:from-purple-950 dark:to-purple-900/50 rounded-lg border border-purple-200 dark:border-purple-800">
+                  <div className="text-xl font-bold text-purple-600 dark:text-purple-400">60</div>
+                  <div className="text-[9px] text-purple-600/70 dark:text-purple-400/70 mt-0.5">daqiqa</div>
+                </div>
+                <div className="text-center p-2.5 bg-gradient-to-br from-green-50 to-green-100/50 dark:from-green-950 dark:to-green-900/50 rounded-lg border border-green-200 dark:border-green-800">
+                  <div className="text-xl font-bold text-green-600 dark:text-green-400">80%</div>
+                  <div className="text-[9px] text-green-600/70 dark:text-green-400/70 mt-0.5">O'tish balli</div>
+                </div>
+              </div>
+              <Button size="lg" className="w-full mb-3 gap-2 h-12 text-sm font-semibold shadow-lg hover:shadow-xl transition-all" onClick={handleStartTest} disabled={selectedTopic === null}>
+                <Play className="w-4 h-4" />
+                {selectedTopic ? "Testni boshlash" : "Mavzuni tanlang"}
+              </Button>
+              <div className="p-3 bg-gradient-to-br from-muted/50 to-muted/30 rounded-lg border border-border mb-3">
+                <h3 className="text-[10px] font-semibold text-foreground mb-1.5 flex items-center gap-1.5">
+                  <div className="w-1 h-1 rounded-full bg-primary" />
+                  Ko'rsatmalar
+                </h3>
+                <div className="text-[10px] text-muted-foreground space-y-1">
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-primary mt-0.5">•</span>
+                    <span>Mavzu bo'yicha barcha savollar beriladi</span>
+                  </div>
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-primary mt-0.5">•</span>
+                    <span>Har bir savol uchun javob tanlang</span>
+                  </div>
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-primary mt-0.5">•</span>
+                    <span>Test tugagach natijani ko'ring</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="w-[70%] bg-background p-8 overflow-y-auto">
+            <div className="max-w-5xl">
+              <div className="mb-6">
+                <h1 className="text-2xl font-bold text-foreground mb-1">{language === 'ru' ? 'Тематические тесты' : language === 'uz' ? 'Мавзули тестлар' : 'Mavzuli testlar'}</h1>
+                <p className="text-sm text-muted-foreground">
+                  {language === 'ru' ? 'Проверьте свои знания по темам' : language === 'uz' ? 'Мавзу бўйича билимингизни синанг' : 'Mavzu bo\'yicha bilimingizni sinang'}
+                </p>
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                {topics.map((topic) => (
                   <Button
                     key={topic.id}
-                    variant={selectedTopic === topic.id ? "default" : "outline"}
-                    className={`w-full justify-start text-left h-auto py-2 px-3 ${
-                      selectedTopic === topic.id 
-                        ? "bg-primary text-primary-foreground" 
-                        : "hover:bg-primary/10 hover:border-primary"
-                    }`}
-                    onClick={() => handleTopicSelect(topic.id)}
+                    variant="outline"
+                    className={`h-auto py-4 px-4 text-left justify-start transition-all ${getTopicButtonClass(topic.id)}`}
+                    onClick={() => setSelectedTopic(topic.id)}
                   >
-                    <span className="text-xs font-medium line-clamp-1">{topic.name}</span>
+                    <span className="text-sm font-medium leading-snug">{getTopicName(topic)}</span>
                   </Button>
                 ))}
               </div>
-              {topics.length > 12 && (
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="w-full mt-2 text-xs text-muted-foreground"
-                  onClick={() => setShowAllTopics(!showAllTopics)}
-                >
-                  {showAllTopics ? (
-                    <>
-                      <ChevronUp className="w-3 h-3 mr-1" />
-                      Yashirish
-                    </>
-                  ) : (
-                    <>
-                      <ChevronDown className="w-3 h-3 mr-1" />
-                      Barchasini ko'rsatish ({topics.length})
-                    </>
-                  )}
-                </Button>
-              )}
             </div>
-          </aside>
-
-          {/* Main Content - Compact */}
-          <main className="flex-1 flex flex-col items-center justify-center p-4 lg:p-6 bg-gradient-to-br from-background to-primary/5 overflow-hidden">
-            <div className="w-full max-w-xl text-center">
-              {/* Header - Compact */}
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <BookOpen className="w-6 h-6 text-primary" />
-                </div>
-                <div className="text-left">
-                  <h2 className="text-xl lg:text-2xl font-bold text-foreground" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                    Mavzuli Testlar
-                  </h2>
-                  <p className="text-sm text-muted-foreground">
-                    Mavzu bo'yicha bilimingizni sinang
-                  </p>
-                </div>
-              </div>
-
-              {/* Stats - Compact */}
-              <div className="grid grid-cols-3 gap-3 mb-4">
-                <Card className="p-3 bg-card border-border text-center">
-                  <HelpCircle className="w-5 h-5 text-primary mx-auto mb-1" />
-                  <div className="text-xl font-bold text-foreground">{topics.length}</div>
-                  <div className="text-xs text-muted-foreground">Mavzular</div>
-                </Card>
-                <Card className="p-3 bg-card border-border text-center">
-                  <Clock className="w-5 h-5 text-primary mx-auto mb-1" />
-                  <div className="text-xl font-bold text-foreground">60</div>
-                  <div className="text-xs text-muted-foreground">daqiqa</div>
-                </Card>
-                <Card className="p-3 bg-card border-border text-center">
-                  <CheckCircle className="w-5 h-5 text-primary mx-auto mb-1" />
-                  <div className="text-xl font-bold text-foreground">80%</div>
-                  <div className="text-xs text-muted-foreground">O'tish balli</div>
-                </Card>
-              </div>
-
-              {selectedTopic && (
-                <div className="mb-3 p-3 bg-primary/10 rounded-lg">
-                  <span className="text-sm font-semibold text-primary">
-                    Tanlangan: {topics.find(t => t.id === selectedTopic)?.name}
-                  </span>
-                </div>
-              )}
-
-              <Button
-                size="lg"
-                className="w-full h-12 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 bg-[hsl(var(--cta-green))] hover:bg-[hsl(var(--cta-green-hover))]"
-                onClick={handleStartTest}
-                disabled={selectedTopic === null}
-              >
-                <Play className="w-5 h-5 mr-2" />
-                {selectedTopic ? "Testni boshlash" : "Mavzuni tanlang"}
-              </Button>
-            </div>
-          </main>
+          </div>
         </div>
       </div>
     </MainLayout>

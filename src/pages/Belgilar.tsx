@@ -101,12 +101,12 @@ export default function Belgilar() {
         keywords="yo'l belgilari, ogohlantiruvchi belgilar, taqiqlovchi belgilar, buyuruvchi belgilar, YHQ belgilari"
       />
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary via-primary-hover to-primary py-16 md:py-24">
+      <section className="bg-gradient-to-br from-primary to-primary-hover py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-3">
             Yo'l belgilari
           </h1>
-          <p className="text-lg text-primary-foreground/90 mb-8 inline-block bg-primary-foreground/10 px-6 py-3 rounded-full backdrop-blur-sm">
+          <p className="text-base text-primary-foreground/90 mb-6">
             Yangi yo'l belgilari 2025 — {totalSigns} ta belgi
           </p>
 
@@ -118,7 +118,7 @@ export default function Belgilar() {
               placeholder="Belgilarni qidirish..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-12 py-6 text-lg rounded-xl bg-primary-foreground border-none shadow-lg"
+              className="pl-12 py-5 text-base rounded-xl bg-primary-foreground border-none shadow-lg"
             />
           </div>
         </div>
@@ -144,15 +144,15 @@ export default function Belgilar() {
                     </span>
                   </div>
 
-                  <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2 md:gap-4">
+                  <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-2 md:gap-3">
                     {group.items.map((item, i) => (
                       <Card
                         key={i}
-                        className="cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group"
+                        className="cursor-pointer hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 overflow-hidden"
                         onClick={() => setModal({ open: true, src: item.src, title: item.title })}
                       >
                         <CardContent className="p-0">
-                          <div className="aspect-square bg-secondary/50 flex items-center justify-center p-4 group-hover:bg-primary/5 transition-colors">
+                          <div className="aspect-square bg-secondary/30 flex items-center justify-center p-3">
                             <img
                               src={item.src}
                               alt={item.title}
@@ -160,8 +160,8 @@ export default function Belgilar() {
                               loading="lazy"
                             />
                           </div>
-                          <div className="p-3 text-center">
-                            <p className="text-xs md:text-sm text-foreground line-clamp-2 font-medium">
+                          <div className="p-2 text-center">
+                            <p className="text-[10px] md:text-xs text-foreground line-clamp-2">
                               {item.title}
                             </p>
                           </div>

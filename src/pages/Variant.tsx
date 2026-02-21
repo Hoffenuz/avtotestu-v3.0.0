@@ -27,8 +27,8 @@ export default function Variant() {
     return (
       <MainLayout>
         <SEO 
-          title="Test variantlari - 55+ variant"
-          description="Haydovchilik guvohnomasi uchun 55+ test varianti. Haqiqiy imtihon formatida test ishlang va o'z bilimlaringizni sinab ko'ring."
+          title="Test variantlari - 61 variant"
+          description="Haydovchilik guvohnomasi uchun 61 test varianti. Haqiqiy imtihon formatida test ishlang va o'z bilimlaringizni sinab ko'ring."
           path="/variant"
           keywords="test varianti, prava test, imtihon savollari, YHQ test"
         />
