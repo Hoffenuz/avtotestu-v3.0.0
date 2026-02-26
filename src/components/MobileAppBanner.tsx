@@ -6,7 +6,7 @@ export function MobileAppBanner() {
       href="https://play.google.com/store/apps/details?id=com.hoffenuz.Avtotestu&pcampaignid=web_share"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Open Avtotestu on Google Play"
+      aria-label="Open Avtodars on Google Play"
       className="md:hidden block w-full"
     >
       <div className="w-full bg-emerald-600 text-white rounded-none px-2 py-2 flex items-center justify-between gap-3">
@@ -15,7 +15,7 @@ export function MobileAppBanner() {
         </svg>
 
         <div className="flex-1 min-w-0 px-2">
-          <div className="font-semibold text-sm leading-tight">Avtotestu — Mobil ilova</div>
+          <div className="font-semibold text-sm leading-tight">Avtodars — Mobil ilova</div>
           <div className="text-[13px] leading-tight opacity-95">Sinovlarni mobilda ishlang</div>
         </div>
 
