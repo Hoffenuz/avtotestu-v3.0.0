@@ -204,9 +204,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signInWithGoogle = async (): Promise<{ error: Error | null }> => {
     try {
-      const redirectUrl = window.location.hostname === 'localhost' 
-        ? 'http://avtotestu.uz'
-        : window.location.origin;
+      const redirectUrl = window.location.origin;
 
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',

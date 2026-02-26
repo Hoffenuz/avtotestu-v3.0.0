@@ -65,11 +65,7 @@ export default function Pro() {
     },
   ];
 
-  useEffect(() => {
-    if (!isLoading && user) {
-      navigate('/');
-    }
-  }, [user, isLoading, navigate]);
+  // Allow both guests and logged-in users to view the Pro page.
 
   const handleGetPro = () => {
     window.open('https://t.me/avtotestu_ad', '_blank');
@@ -79,7 +75,7 @@ export default function Pro() {
     navigate('/auth?trial=true');
   };
 
-  if (isLoading || user) {
+  if (isLoading) {
     return (
       <MainLayout>
         <div className="min-h-[60vh] flex items-center justify-center">

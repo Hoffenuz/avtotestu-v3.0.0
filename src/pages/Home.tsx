@@ -21,6 +21,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { SiteNotificationBanner } from "@/components/SiteNotificationBanner";
+import MobileAppBanner from "@/components/MobileAppBanner";
 
 export default function Home() {
   const [aboutOpen, setAboutOpen] = useState(false);
@@ -42,6 +43,7 @@ export default function Home() {
   return (
     <MainLayout>
       <SiteNotificationBanner />
+      <MobileAppBanner />
       <SEO 
         title={t("home.seoTitle")}
         description={t("home.seoDescription")}
