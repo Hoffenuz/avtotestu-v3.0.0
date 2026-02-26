@@ -3,11 +3,13 @@ import { MainLayout } from "@/components/layout/MainLayout";
 import { SEO } from "@/components/SEO";
 import { BookOpen, Video } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+import { useProAccess } from "@/hooks/useProAccess";
 import { getOrderedChapters } from "@/data/videoDarslar";
 import { ChapterAccordion } from "@/components/darslik/ChapterAccordion";
 
 export default function Darslik() {
   const { user, profile, isLoading } = useAuth();
+  const { hasAccess, loading: accessLoading } = useProAccess();
   const chapters = getOrderedChapters();
 
   // Redirect guests to /auth
@@ -15,8 +17,13 @@ export default function Darslik() {
     return <Navigate to="/auth" replace />;
   }
 
+  // Redirect if no access
+  if (!isLoading && !accessLoading && !hasAccess) {
+    return <Navigate to="/pro" replace />;
+  }
+
   // Loading state
-  if (isLoading) {
+  if (isLoading || accessLoading) {
     return (
       <MainLayout>
         <div className="min-h-[60vh] flex items-center justify-center">

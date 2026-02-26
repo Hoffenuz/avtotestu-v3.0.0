@@ -9,7 +9,11 @@ interface Profile {
   username: string | null;
   full_name: string | null;
   avatar_url: string | null;
-  is_pro?: boolean;
+  tariff_days: number;
+  tariff_start_date: string | null;
+  is_trial_used: boolean;
+  created_at: string;
+  is_pro: boolean;
 }
 
 interface AuthContextType {
@@ -19,6 +23,7 @@ interface AuthContextType {
   isLoading: boolean;
   signUp: (email: string, password: string, username?: string, fullName?: string) => Promise<{ error: Error | null }>;
   signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
+  signInWithGoogle: () => Promise<{ error: Error | null }>;
   signOut: () => Promise<void>;
   refreshProfile: () => Promise<void>;
 }
@@ -35,36 +40,41 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     try {
       const { data, error } = await supabase
         .from('profiles')
-        .select('id, username, full_name, avatar_url')
+        .select('*')
         .eq('id', userId)
         .maybeSingle();
 
       if (error) {
-        console.error('Error fetching profile:', error);
+        console.error('Auth Error - Profile fetch:', error);
         return null;
       }
       
       if (!data) return null;
+      
+      const tariffDays = (data as any).tariff_days ?? 0;
       
       return {
         id: data.id,
         username: data.username,
         full_name: data.full_name,
         avatar_url: data.avatar_url,
-        is_pro: false, // Default to false, can be fetched separately if column exists
+        tariff_days: tariffDays,
+        tariff_start_date: (data as any).tariff_start_date ?? null,
+        is_trial_used: (data as any).is_trial_used ?? false,
+        created_at: data.created_at,
+        is_pro: tariffDays > 0,
       };
     } catch (err) {
-      console.error('Profile fetch error:', err);
+      console.error('Auth Error - Profile exception:', err);
       return null;
     }
   }, []);
 
   const refreshProfile = useCallback(async () => {
-    if (user) {
-      const profileData = await fetchProfile(user.id);
-      setProfile(profileData);
-    }
-  }, [user, fetchProfile]);
+    if (!user?.id) return;
+    const profileData = await fetchProfile(user.id);
+    if (profileData) setProfile(profileData);
+  }, [user?.id, fetchProfile]);
 
   useEffect(() => {
     let isMounted = true;
@@ -91,7 +101,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         
         setIsLoading(false);
       } catch (err) {
-        console.error('Auth initialization error:', err);
+        console.error('Auth Error - Initialization:', err);
         if (isMounted) {
           setIsLoading(false);
         }
@@ -103,40 +113,40 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       async (event, currentSession) => {
         if (!isMounted) return;
         
-        console.log('Auth state change:', event);
-        
-        // Handle sign out event - clear everything immediately
-        if (event === 'SIGNED_OUT') {
-          setSession(null);
-          setUser(null);
-          setProfile(null);
-          clearAllUserData();
-          return;
-        }
-        
-        // Handle token refresh errors (user deleted server-side)
-        if (event === 'TOKEN_REFRESHED' && !currentSession) {
-          console.log('Token refresh failed - user may be deleted');
-          setSession(null);
-          setUser(null);
-          setProfile(null);
-          clearAllUserData();
-          return;
-        }
-        
-        // Update session and user state immediately
-        setSession(currentSession);
-        setUser(currentSession?.user ?? null);
-        
-        if (currentSession?.user) {
-          // Fetch profile in background - don't block UI
-          fetchProfile(currentSession.user.id).then(profileData => {
-            if (isMounted) {
-              setProfile(profileData);
-            }
-          });
-        } else {
-          setProfile(null);
+        try {
+          console.log('Auth state change:', event);
+          
+          if (event === 'SIGNED_OUT') {
+            setSession(null);
+            setUser(null);
+            setProfile(null);
+            clearAllUserData();
+            return;
+          }
+          
+          if (event === 'TOKEN_REFRESHED' && !currentSession) {
+            console.log('Token refresh failed');
+            setSession(null);
+            setUser(null);
+            setProfile(null);
+            clearAllUserData();
+            return;
+          }
+          
+          setSession(currentSession);
+          setUser(currentSession?.user ?? null);
+          
+          if (currentSession?.user) {
+            fetchProfile(currentSession.user.id).then(profileData => {
+              if (isMounted) {
+                setProfile(profileData);
+              }
+            }).catch(err => console.error('Auth Error - Profile load:', err));
+          } else {
+            setProfile(null);
+          }
+        } catch (err) {
+          console.error('Auth Error - State change:', err);
         }
       }
     );
@@ -192,6 +202,26 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
+  const signInWithGoogle = async (): Promise<{ error: Error | null }> => {
+    try {
+      const redirectUrl = window.location.hostname === 'localhost' 
+        ? 'http://localhost:8080'
+        : window.location.origin;
+
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: redirectUrl,
+        },
+      });
+
+      if (error) return { error };
+      return { error: null };
+    } catch (err) {
+      return { error: err as Error };
+    }
+  };
+
   const signOut = async () => {
     try {
       await supabase.auth.signOut();
@@ -211,7 +241,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       profile, 
       isLoading, 
       signUp, 
-      signIn, 
+      signIn,
+      signInWithGoogle,
       signOut,
       refreshProfile,
     }}>

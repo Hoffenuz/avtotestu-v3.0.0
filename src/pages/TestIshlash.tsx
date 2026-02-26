@@ -57,6 +57,7 @@ export default function TestIshlash() {
         questionCount={20}
         timeLimit={25 * 60}
         randomize={true}
+        variant={user ? 56 : 0}
       />
     );
   }

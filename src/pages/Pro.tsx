@@ -75,6 +75,10 @@ export default function Pro() {
     window.open('https://t.me/avtotestu_ad', '_blank');
   };
 
+  const handleTryNow = () => {
+    navigate('/auth?trial=true');
+  };
+
   if (isLoading || user) {
     return (
       <MainLayout>
@@ -153,6 +157,18 @@ export default function Pro() {
                 <p className="text-center text-[11px] text-muted-foreground mt-4 px-2 leading-relaxed">
                   {t("pro.planContactText")} <button onClick={handleGetPro} className="text-blue-500 hover:underline font-medium">{t("pro.planContactLink")}</button>.
                 </p>
+
+                <Button
+                  className="w-full h-12 text-base font-bold rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white border-0 shadow-lg mt-3"
+                  style={{
+                    backgroundSize: '200% 200%',
+                    animation: 'gradient 3s ease-in-out infinite',
+                  }}
+                  onClick={handleTryNow}
+                >
+                  <Clock className="w-5 h-5 mr-2" />
+                  Sinab ko'rish (12 soat)
+                </Button>
               </div>
             </div>
             
@@ -161,16 +177,31 @@ export default function Pro() {
               
               {/* Sarlavha qismi */}
               <div>
-                <div className="inline-flex items-center gap-1.5 bg-amber-500/10 px-3 py-1 rounded-md mb-3 border border-amber-500/20">
-                  <Crown className="w-4 h-4 text-amber-500" />
-                  <span className="text-amber-600 font-bold uppercase text-xs tracking-wider">{t("pro.statusBadge")}</span>
+                <div className="flex items-start justify-between gap-4 mb-3">
+                  <div className="flex-1">
+                    <div className="inline-flex items-center gap-1.5 bg-amber-500/10 px-3 py-1 rounded-md mb-3 border border-amber-500/20">
+                      <Crown className="w-4 h-4 text-amber-500" />
+                      <span className="text-amber-600 font-bold uppercase text-xs tracking-wider">{t("pro.statusBadge")}</span>
+                    </div>
+                    <h1 className="text-xl md:text-2xl font-extrabold text-foreground mb-3" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                      {t("pro.title")} <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-600">{t("pro.titleHighlight")}</span> {t("pro.titleSuffix")}
+                    </h1>
+                    <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-2xl">
+                      {t("pro.subtitle")}
+                    </p>
+                  </div>
+                  <Button
+                    className="hidden lg:flex h-14 px-8 text-base font-bold rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300 gap-2.5 flex-shrink-0 hover:scale-105 animate-[gradient_3s_ease-in-out_infinite]"
+                    style={{
+                      backgroundSize: '200% 200%',
+                      animation: 'gradient 3s ease-in-out infinite',
+                    }}
+                    onClick={handleTryNow}
+                  >
+                    <Clock className="w-5 h-5" />
+                    Sinab ko'rish (12 soat)
+                  </Button>
                 </div>
-                <h1 className="text-2xl md:text-3xl font-extrabold text-foreground mb-3" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-                  {t("pro.title")} <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-600">{t("pro.titleHighlight")}</span> {t("pro.titleSuffix")}
-                </h1>
-                <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-2xl">
-                  {t("pro.subtitle")}
-                </p>
               </div>
 
               {/* Taqqoslash Bloki (Oddiy vs PRO) */}
@@ -246,12 +277,12 @@ export default function Pro() {
               {/* Murojaat tugmasi (Farqlarning tagida) */}
               <div className="flex sm:justify-start">
                 <Button 
-                  variant="secondary" 
-                  size="sm" 
-                  className="gap-2 text-xs md:text-sm font-medium hover:bg-muted/80 shadow-sm"
+                  size="lg"
+                  className="gap-2.5 px-6 h-11 font-semibold rounded-xl border-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                  variant="outline"
                   onClick={handleGetPro}
                 >
-                  <Send className="w-4 h-4 text-blue-500" />
+                  <Send className="w-5 h-5" />
                   {t("pro.contactButton")}
                 </Button>
               </div>
@@ -311,6 +342,7 @@ export default function Pro() {
                 <p className="text-center text-[11px] text-muted-foreground mt-4 px-2 leading-relaxed">
                   {t("pro.planContactText")} <button onClick={handleGetPro} className="text-blue-500 hover:underline font-medium">{t("pro.planContactLink")}</button>.
                 </p>
+
               </div>
             </div>
 
@@ -319,26 +351,45 @@ export default function Pro() {
       </section>
 
       {/* Qo'shimcha Afzalliklar Ro'yxati */}
-      <section className="py-10 bg-primary/5 border-t border-border">
+      <section className="py-16 bg-gradient-to-br from-primary/5 via-amber-500/5 to-primary/5 border-t border-border">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-xl font-bold text-foreground mb-2" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-amber-500/10 px-4 py-2 rounded-full mb-4 border border-amber-500/20">
+              <Star className="w-5 h-5 text-amber-500" />
+              <span className="text-amber-600 font-bold uppercase text-sm tracking-wider">Premium Features</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-foreground mb-4" style={{ fontFamily: 'Montserrat, sans-serif' }}>
               {t("pro.benefitsTitle")}
             </h2>
+            <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
+              PRO obuna bilan barcha imkoniyatlardan to'liq foydalaning va muvaffaqiyatga erishing
+            </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
                 <div 
                   key={index}
-                  className="flex items-center gap-3 bg-card rounded-xl p-3 border border-border shadow-sm hover:border-amber-500/30 transition-colors"
+                  className="group relative bg-card rounded-2xl p-6 border-2 border-border hover:border-amber-500/50 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                 >
-                  <div className="w-8 h-8 rounded-full bg-amber-500/10 flex items-center justify-center shrink-0">
-                    <Icon className="w-4 h-4 text-amber-600" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-amber-500/0 to-amber-500/0 group-hover:from-amber-500/5 group-hover:to-orange-500/5 rounded-2xl transition-all duration-300"></div>
+                  <div className="relative">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500/20 to-orange-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                      <Icon className="w-7 h-7 text-amber-600" />
+                    </div>
+                    <h3 className="text-lg font-bold text-foreground mb-2">{t(feature.textKey)}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {index === 0 && "1200+ ta savollar bazasidan istalgan variantni ishlang"}
+                      {index === 1 && "Barcha mavzular bo'yicha to'liq maxsus testlar"}
+                      {index === 2 && "Imtihon qoidalari va yo'l belgilarini o'rganing"}
+                      {index === 3 && "Admin ko'magi va premium guruh"}
+                      {index === 4 && "Cheksiz vaqt va urinishlar"}
+                      {index === 5 && "Natijalaringizni kuzatib boring"}
+                      {index === 6 && "Yangi funksiyalarga birinchi bo'lib ega bo'ling"}
+                    </p>
                   </div>
-                  <span className="text-[13px] font-medium leading-snug text-foreground">{t(feature.textKey)}</span>
                 </div>
               );
             })}

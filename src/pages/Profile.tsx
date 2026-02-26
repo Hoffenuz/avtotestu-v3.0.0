@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { useUserValidation } from '@/hooks/useUserValidation';
+import { useRegistrationAge } from '@/hooks/useRegistrationAge';
+import { useTrialStatus, formatTimeRemaining } from '@/hooks/useTrialStatus';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -19,10 +21,10 @@ import {
   Save, 
   X, 
   Calendar,
-  FileText // Yangi icon qo'shildi
+  FileText,
+  AlertCircle
 } from 'lucide-react';
 import { toast } from 'sonner';
-import { useRegistrationAge } from '@/hooks/useRegistrationAge';
 
 interface TestResult {
   id: string;
@@ -37,6 +39,7 @@ const Profile = () => {
   const { user, profile, signOut, isLoading, refreshProfile } = useAuth();
   const navigate = useNavigate();
   const registrationDays = useRegistrationAge(user?.id);
+  const trialStatus = useTrialStatus();
   const [results, setResults] = useState<TestResult[]>([]);
   const [loadingResults, setLoadingResults] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
@@ -225,6 +228,45 @@ useEffect(() => {
       </header>
 
       <main className="max-w-4xl mx-auto px-4 py-6 md:py-8 -mt-4">
+        {/* Trial Timer - Large Main Element */}
+        {trialStatus.isTrialActive && !trialStatus.isPro && (
+          <Card className="p-6 mb-6 bg-gradient-to-br from-amber-500/10 to-orange-500/10 border-2 border-amber-500/30">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 rounded-full bg-amber-500/20 flex items-center justify-center">
+                  <Clock className="w-8 h-8 text-amber-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-foreground">Sinov muddati</h3>
+                  <p className="text-sm text-muted-foreground">PRO funksiyalar uchun</p>
+                </div>
+              </div>
+              <div className="text-right">
+                <div className="text-3xl font-bold text-amber-600">
+                  {formatTimeRemaining(trialStatus.timeRemaining)}
+                </div>
+                <p className="text-xs text-muted-foreground mt-1">qoldi</p>
+              </div>
+            </div>
+          </Card>
+        )}
+
+        {/* Trial Expired Warning */}
+        {trialStatus.isTrialUsed && !trialStatus.isTrialActive && !trialStatus.isPro && (
+          <Card className="p-6 mb-6 bg-destructive/10 border-2 border-destructive/30">
+            <div className="flex items-center gap-4">
+              <AlertCircle className="w-12 h-12 text-destructive flex-shrink-0" />
+              <div className="flex-1">
+                <h3 className="text-lg font-bold text-foreground mb-1">Sinov muddati tugadi</h3>
+                <p className="text-sm text-muted-foreground mb-3">PRO funksiyalardan foydalanish uchun obuna sotib oling</p>
+                <Button size="sm" onClick={() => navigate('/pro')} className="bg-amber-500 hover:bg-amber-600">
+                  PRO obuna olish
+                </Button>
+              </div>
+            </div>
+          </Card>
+        )}
+
         {/* Profile Edit Card */}
         <Card className="p-6 mb-6">
           <div className="flex items-center justify-between mb-4">

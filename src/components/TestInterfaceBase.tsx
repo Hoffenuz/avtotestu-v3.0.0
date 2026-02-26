@@ -4,6 +4,7 @@ import { QuestionNavigation } from "./QuestionNavigation";
 import { TestResults } from "./TestResults";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
+import { useTestResults } from "@/hooks/useTestResults";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
@@ -81,6 +82,7 @@ interface TestInterfaceBaseProps {
   timeLimit?: number;
   randomize?: boolean;
   imagePrefix?: string;
+  variant?: number;
 }
 
 // Shuffle array using Fisher-Yates algorithm
@@ -100,10 +102,12 @@ export const TestInterfaceBase = ({
   questionCount = 20,
   timeLimit = 25 * 60,
   randomize = false,
-  imagePrefix = "/images/"
+  imagePrefix = "/images/",
+  variant = 0
 }: TestInterfaceBaseProps) => {
   const { t, questionLang } = useLanguage();
   const { user } = useAuth();
+  const { saveTestResult } = useTestResults();
   const navigate = useNavigate();
   const [questions, setQuestions] = useState<Question[]>([]);
   const [loading, setLoading] = useState(true);
@@ -116,6 +120,7 @@ export const TestInterfaceBase = ({
   const [showFinishDialog, setShowFinishDialog] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [testStartTime] = useState(Date.now());
+  const [resultSaved, setResultSaved] = useState(false);
   const [zoomImage, setZoomImage] = useState<string | null>(null);
 
   const autoAdvanceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -343,6 +348,16 @@ export const TestInterfaceBase = ({
     return { correct, incorrect };
   };
 
+  // Save result when showing results
+  useEffect(() => {
+    if (showResults && user && !resultSaved && variant > 0) {
+      const stats = getTestStats();
+      const timeTaken = Math.floor((Date.now() - testStartTime) / 1000);
+      saveTestResult(variant, stats.correct, totalQuestions, timeTaken);
+      setResultSaved(true);
+    }
+  }, [showResults, user, resultSaved, variant]);
+
   // Show results screen
   if (showResults) {
     const stats = getTestStats();
@@ -354,7 +369,7 @@ export const TestInterfaceBase = ({
         correctAnswers={stats.correct}
         incorrectAnswers={stats.incorrect}
         timeTaken={timeTaken}
-        variant={0}
+        variant={variant}
         onBackToHome={onExit}
         onTryAgain={() => {
           // Reset state and re-fetch to get NEW random questions
@@ -364,6 +379,7 @@ export const TestInterfaceBase = ({
           setCurrentQuestion(1);
           setTimeRemaining(timeLimit);
           setShowResults(false);
+          setResultSaved(false);
           setLoading(true);
           // Trigger re-fetch by calling fetchTestData again
           fetch(dataSource)

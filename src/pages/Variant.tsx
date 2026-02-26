@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
-import { useUserValidation } from "@/hooks/useUserValidation";
+import { useProAccess } from "@/hooks/useProAccess";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEO } from "@/components/SEO";
 import { TestStartPage } from "@/components/TestStartPage";
@@ -11,19 +11,10 @@ export default function Variant() {
   const [testStarted, setTestStarted] = useState(false);
   const [selectedVariant, setSelectedVariant] = useState<number | null>(null);
   const { user, isLoading } = useAuth();
+  const { hasAccess, loading: accessLoading } = useProAccess();
   const navigate = useNavigate();
 
-  // Validate user exists in database on page load
-  useUserValidation('/auth');
-
-  // Redirect to auth if not logged in
-  useEffect(() => {
-    if (!isLoading && !user) {
-      navigate('/auth', { state: { returnTo: '/variant' } });
-    }
-  }, [user, isLoading, navigate]);
-
-  if (isLoading) {
+  if (isLoading || accessLoading) {
     return (
       <MainLayout>
         <SEO 
@@ -39,7 +30,7 @@ export default function Variant() {
     );
   }
 
-  if (!user) {
+  if (!user || !hasAccess) {
     return null;
   }
 

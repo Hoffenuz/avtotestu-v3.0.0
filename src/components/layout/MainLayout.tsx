@@ -5,6 +5,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { TrialTimer } from "@/components/TrialTimer";
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -117,6 +118,7 @@ export function MainLayout({ children }: MainLayoutProps) {
 
             {/* O'NG TARAFI: Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1">
+              <TrialTimer />
               {navLinks.map((item) => {
                 const isActive = location.pathname === item.path;
                 return (
@@ -171,13 +173,14 @@ export function MainLayout({ children }: MainLayoutProps) {
 
             {/* Mobile menu button */}
             <div className="lg:hidden flex items-center gap-1 sm:gap-2">
+              <TrialTimer />
               <Link to="/pro">
                 <Button 
                   size="sm"
-                  className="bg-[hsl(var(--cta-green))] hover:bg-[hsl(var(--cta-green-hover))] text-white font-semibold px-2 sm:px-3 h-8 sm:h-9"
+                  className="bg-[hsl(var(--cta-green))] hover:bg-[hsl(var(--cta-green-hover))] text-white font-semibold px-3 h-8 sm:h-9 flex items-center gap-1.5"
                 >
-                  <Crown className="w-4 h-4 sm:mr-1" />
-                  <span className="hidden sm:inline">{t("common.pro")}</span>
+                  <Crown className="w-4 h-4" />
+                  <span className="text-xs sm:text-sm">PRO</span>
                 </Button>
               </Link>
               
@@ -198,9 +201,10 @@ export function MainLayout({ children }: MainLayoutProps) {
                 <Button
                   size="sm"
                   onClick={() => navigate('/auth')}
-                  className="bg-[hsl(var(--cta-orange))] hover:bg-[hsl(var(--cta-orange-hover))] text-white h-8 w-8 sm:h-9 sm:w-9 p-0 ml-1"
+                  className="bg-[hsl(var(--cta-orange))] hover:bg-[hsl(var(--cta-orange-hover))] text-white font-semibold px-3 h-8 sm:h-9 flex items-center gap-1.5"
                 >
                   <LogIn className="w-4 h-4" />
+                  <span className="text-xs sm:text-sm">{t("nav.login")}</span>
                 </Button>
               )}
               <button
