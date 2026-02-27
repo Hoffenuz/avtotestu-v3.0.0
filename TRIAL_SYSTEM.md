@@ -3,12 +3,12 @@
 ## Features Implemented
 
 ### 1. Trial Button on Pro Page
-- Added "Sinab ko'rish (12 soat)" button below contact text
+- Added "Sinab ko'rish (1 soat)" button below contact text
 - Redirects to `/auth` for Google sign-in
 - Green gradient styling
 
 ### 2. Trial Status Hook (`useTrialStatus.ts`)
-- Calculates trial time remaining based on `created_at` timestamp
+- Calculates trial time remaining based on `created_at` timestamp (1 hour duration)
 - Checks `is_trial_used` and `is_pro` flags
 - Updates every minute automatically
 - Returns: `isTrialActive`, `isTrialUsed`, `timeRemaining`, `isPro`
@@ -45,7 +45,7 @@
 
 **Your existing trigger:**
 - Automatically sets `is_trial_used = true` on Google sign-in
-- 12-hour trial starts from `created_at` timestamp
+- 1-hour trial starts from `created_at` timestamp
 
 ## How It Works
 
@@ -54,10 +54,10 @@
 2. Redirected to Auth page
 3. Signs in with Google
 4. Database trigger sets `is_trial_used = true`
-5. Trial timer starts (12 hours from `created_at`)
+5. Trial timer starts (1 hour from `created_at`)
 6. User gets access to PRO features
 7. Timer displays in profile and navigation
-8. After 12 hours, access blocked automatically
+8. After 1 hour, access blocked automatically
 
 ### Access Logic:
 ```typescript
@@ -76,5 +76,5 @@ hasAccess = (is_pro === true) || (is_trial_used === true && timeRemaining > 0)
 2. Check Profile page for trial timer
 3. Check navigation bar for small red timer
 4. Access PRO features (variants, topics, lessons)
-5. Wait 12 hours or manually update `created_at` in database
+5. Wait 1 hour or manually update `created_at` in database
 6. Verify access is blocked and warning shown

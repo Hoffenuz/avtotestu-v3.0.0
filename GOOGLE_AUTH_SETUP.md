@@ -60,7 +60,7 @@ Authentication → URL Configuration → Redirect URLs
 ## Database Trigger
 Your existing trigger automatically:
 - Creates profile entry for new Google users
-- Assigns 12-hour trial period
+- Assigns 1-hour trial period
 - No additional code needed
 
 ## Testing

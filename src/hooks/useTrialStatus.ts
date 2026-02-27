@@ -53,7 +53,7 @@ export const useTrialStatus = (): TrialStatus => {
         const createdAt = new Date(data.created_at).getTime();
         const now = Date.now();
         const elapsed = (now - createdAt) / 1000; // seconds
-        const trialDuration = 12 * 60 * 60; // 12 hours in seconds
+        const trialDuration = 1 * 60 * 60; // 1 hour in seconds
         const remaining = Math.max(0, trialDuration - elapsed);
 
         setStatus({
