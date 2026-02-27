@@ -30,7 +30,7 @@ export const useTrialStatus = (): TrialStatus => {
       try {
         const { data, error } = await supabase
           .from('profiles')
-          .select('created_at, is_trial_used, tariff_days')
+          .select('created_at, is_trial_used, tariff_days, tariff_start_date')
           .eq('id', user.id)
           .single();
 
@@ -39,7 +39,16 @@ export const useTrialStatus = (): TrialStatus => {
           return;
         }
 
-        const isPro = (data.tariff_days || 0) > 0;
+        const tariffDays = Number(data.tariff_days || 0);
+        const tariffStart = data.tariff_start_date ? new Date(data.tariff_start_date).getTime() : null;
+
+        // Determine PRO active state based on tariff start + tariff days
+        let isProActive = false;
+        if (tariffDays > 0 && tariffStart) {
+          const end = tariffStart + tariffDays * 24 * 60 * 60 * 1000;
+          isProActive = Date.now() < end;
+        }
+
         const isTrialUsed = data.is_trial_used || false;
         const createdAt = new Date(data.created_at).getTime();
         const now = Date.now();
@@ -51,7 +60,7 @@ export const useTrialStatus = (): TrialStatus => {
           isTrialActive: isTrialUsed && remaining > 0,
           isTrialUsed,
           timeRemaining: remaining,
-          isPro,
+          isPro: isProActive,
           loading: false,
         });
       } catch (err) {

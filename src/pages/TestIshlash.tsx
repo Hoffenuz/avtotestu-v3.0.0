@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import { useTrialStatus } from "@/hooks/useTrialStatus";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
@@ -25,13 +26,15 @@ export default function TestIshlash() {
   const [questionCount, setQuestionCount] = useState<20 | 50>(20); // Default to 20 questions
   const { language, setLanguage } = useLanguage();
   const { user } = useAuth();
+  const { isPro, isTrialActive } = useTrialStatus();
   const navigate = useNavigate();
 
   // Use language from context (synced with main menu)
   const selectedLang = language;
 
   const langConfig = languages.find(l => l.id === selectedLang);
-  const dataFile = user ? (langConfig?.proFile || "barcha.json") : (langConfig?.file || "700baza2.json");
+  // Use PRO file only when user has active PRO or active trial
+  const dataFile = (user && (isPro || isTrialActive)) ? (langConfig?.proFile || "barcha.json") : (langConfig?.file || "700baza2.json");
 
   if (testStarted) {
     // For 50 questions, use the same file as 20 questions (based on language selection)
