@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
-import { useUserValidation } from "@/hooks/useUserValidation";
+import { useProAccess } from "@/hooks/useProAccess";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEO } from "@/components/SEO";
 import { MavzuliTestInterface } from "@/components/MavzuliTestInterface";
@@ -61,13 +61,13 @@ export default function MavzuliTestlar() {
   const { language, setLanguage } = useLanguage();
   const navigate = useNavigate();
 
-  useUserValidation('/auth');
+  // Ensure only PRO users (no trial access) can enter mavzuli
+  const { hasAccess, loading: accessLoading } = useProAccess('/pro', false);
 
   useEffect(() => {
-    if (!isLoading && !user) {
-      navigate('/auth', { state: { returnTo: '/mavzuli' } });
-    }
-  }, [user, isLoading, navigate]);
+    if (accessLoading) return;
+    if (!hasAccess) return;
+  }, [accessLoading, hasAccess]);
 
   const getTopicName = (topic: typeof topics[0]) => {
     const langKey = language === 'uz-lat' ? 'uz_lat' : language === 'uz' ? 'uz_cyr' : 'ru';
@@ -87,7 +87,7 @@ export default function MavzuliTestlar() {
       : 'bg-background text-foreground border-border hover:border-primary/50';
   };
 
-  if (isLoading) {
+  if (isLoading || accessLoading) {
     return (
       <MainLayout>
         <SEO 

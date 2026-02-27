@@ -16,7 +16,7 @@ export function MobileAppBanner() {
 
         <div className="flex-1 min-w-0 px-2">
           <div className="font-semibold text-sm leading-tight">Avtodars — Mobil ilova</div>
-          <div className="text-[13px] leading-tight opacity-95">Pro savollarni offline ishlang</div>
+          <div className="text-[13px] leading-tight opacity-95">Yangi savollarni offline ishlang</div>
         </div>
 
         <img

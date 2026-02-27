@@ -208,7 +208,7 @@ export default function TestIshlash() {
           <Button
             size="lg"
             className={`w-full h-14 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl ${
-              user 
+              (user && (isPro || isTrialActive))
                 ? "bg-gradient-to-r from-emerald-400 to-green-500 hover:from-emerald-500 hover:to-green-600 text-white"
                 : "bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white"
             }`}
