@@ -53,15 +53,17 @@ export default function Home() {
       
       {/* Hero Section */}
       <section className="relative min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
-        {/* Background with overlay */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1920&q=80')`,
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/90 to-primary/85" />
-        </div>
+        <img
+          src="/hero-bg.webp"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          fetchPriority="high"
+          decoding="async"
+          aria-hidden="true"
+          width="1920"
+          height="1080"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/90 to-primary/85 backdrop-blur-[2px]" />
 
         {/* Content */}
         <div className="relative w-full max-w-7xl mx-auto px-4 py-16">
@@ -89,7 +91,7 @@ export default function Home() {
                 <Button 
                   size="lg" 
                   className={`w-full md:w-auto md:min-w-[150px] gap-2 text-base md:text-lg px-6 py-5 md:py-6 rounded-2xl font-semibold transition-all hover:scale-[1.02] border-0 ${
-                    user
+                    user && profile?.is_pro
                       ? "bg-gradient-to-r from-emerald-400 to-green-500 hover:from-emerald-500 hover:to-green-600 text-white shadow-md shadow-green-500/20 hover:shadow-lg hover:shadow-green-500/30"
                       : "bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white shadow-md shadow-orange-500/20 hover:shadow-lg hover:shadow-orange-500/30"
                   }`}
@@ -157,7 +159,7 @@ export default function Home() {
               return (
                 <Card key={index} className="border border-muted/60 shadow-sm bg-card hover:shadow-md transition-all hover:-translate-y-1">
                   <CardContent className="pt-8 pb-6 text-center">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-2xl flex items-center justify-center">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-2xl flex items-center justify-center" style={{ aspectRatio: '1' }}>
                       <Icon className="w-8 h-8 text-primary" />
                     </div>
                     <h3 className="font-bold text-xl text-foreground mb-3" style={{ fontFamily: 'Montserrat, sans-serif' }}>
@@ -181,8 +183,7 @@ export default function Home() {
             <Card className="border border-muted shadow-sm overflow-hidden rounded-2xl">
               <CardContent className="p-0">
                 <div className="bg-primary p-6 text-center">
-                  {/* Avatar Background Gradient */}
-                  <Avatar className="h-20 w-20 mx-auto mb-4 bg-gradient-to-br from-amber-500 to-orange-600 border-4 border-white/20 shadow-md">
+                  <Avatar className="h-20 w-20 mx-auto mb-4 bg-gradient-to-br from-amber-500 to-orange-600 border-4 border-white/20 shadow-md" style={{ aspectRatio: '1' }}>
                     <AvatarFallback className="bg-transparent text-white text-2xl font-bold">
                       {getInitials(profile?.full_name || profile?.username)}
                     </AvatarFallback>
@@ -229,7 +230,7 @@ export default function Home() {
             </span>
             <CardContent className="p-6 md:p-8">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-xl flex items-center justify-center shadow-md">
+                <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-amber-600 rounded-xl flex items-center justify-center shadow-md" style={{ aspectRatio: '1' }}>
                   <Crown className="w-6 h-6 text-white" />
                 </div>
                 <h2 className="text-2xl font-bold text-foreground" style={{ fontFamily: 'Montserrat, sans-serif' }}>

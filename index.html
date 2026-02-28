@@ -1,14 +1,28 @@
 <!doctype html>
 <html lang="uz">
   <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MC3L7RRXMF"></script>
+<!-- Google Analytics - Deferred loading -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-MC3L7RRXMF');
+  
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(() => {
+      const script = document.createElement('script');
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-MC3L7RRXMF';
+      script.async = true;
+      document.head.appendChild(script);
+    });
+  } else {
+    setTimeout(() => {
+      const script = document.createElement('script');
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-MC3L7RRXMF';
+      script.async = true;
+      document.head.appendChild(script);
+    }, 2000);
+  }
 </script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -32,8 +46,18 @@
     <!-- Canonical (fallback) -->
     <link rel="canonical" href="https://www.avtotestu.uz/" />
 
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Preload hero image -->
+    <link rel="preload" as="image" href="/hero-bg.webp" fetchpriority="high">
+
     <!-- Favicon -->
-    <link rel="icon" type="image/webp" href="/rasm1.webp" />
+    <link rel="icon" type="image/x-icon" href="/logo.ico" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />

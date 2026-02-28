@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback, useMemo, ReactNode } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { User, Session } from '@supabase/supabase-js';
 import { clearAllUserData } from '@/hooks/useUserValidation';
@@ -233,7 +233,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ 
+    <AuthContext.Provider value={useMemo(() => ({ 
       user, 
       session, 
       profile, 
@@ -243,7 +243,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       signInWithGoogle,
       signOut,
       refreshProfile,
-    }}>
+    }), [user, session, profile, isLoading, signUp, signIn, signInWithGoogle, signOut, refreshProfile])}>
       {children}
     </AuthContext.Provider>
   );

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback, useMemo, ReactNode } from 'react';
 import uzLatTranslations from '@/locales/uz-lat.json';
 import uzTranslations from '@/locales/uz.json';
 import ruTranslations from '@/locales/ru.json';
@@ -27,19 +27,18 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguageState] = useState<Language>(() => {
     const saved = localStorage.getItem('language');
-    return (saved === 'uz-lat' || saved === 'uz' || saved === 'ru') ? saved : 'uz';
+    return (saved === 'uz-lat' || saved === 'uz' || saved === 'ru') ? saved : 'uz-lat';
   });
 
   useEffect(() => {
     localStorage.setItem('language', language);
   }, [language]);
 
-  const setLanguage = (lang: Language) => {
+  const setLanguage = useCallback((lang: Language) => {
     setLanguageState(lang);
-  };
+  }, []);
 
-  // Get translation by dot-notation key (e.g., "test.selectVariant")
-  const t = (key: string): string => {
+  const t = useCallback((key: string): string => {
     const keys = key.split('.');
     let result: any = translations[language];
     
@@ -47,21 +46,25 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
       if (result && typeof result === 'object' && k in result) {
         result = result[k];
       } else {
-        return key; // Return key if translation not found
+        return key;
       }
     }
     
     return typeof result === 'string' ? result : key;
-  };
+  }, [language]);
 
-  // Question language key for JSON data
-  // uz-lat (Uzbek Latin) -> 'oz' in JSON
-  // uz (Uzbek Cyrillic) -> 'uz' in JSON
-  // ru (Russian) -> 'ru' in JSON
-  const questionLang: 'oz' | 'uz' | 'ru' = language === 'uz-lat' ? 'oz' : language;
+  const questionLang: 'oz' | 'uz' | 'ru' = useMemo(
+    () => language === 'uz-lat' ? 'oz' : language,
+    [language]
+  );
+
+  const value = useMemo(
+    () => ({ language, setLanguage, t, questionLang }),
+    [language, setLanguage, t, questionLang]
+  );
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t, questionLang }}>
+    <LanguageContext.Provider value={value}>
       {children}
     </LanguageContext.Provider>
   );
