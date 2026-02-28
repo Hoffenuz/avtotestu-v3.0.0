@@ -7,7 +7,7 @@ export function QuickContactLinks() {
   const { t } = useLanguage();
 
   const contactLinks = [
-    { icon: Send, labelKey: "contact.telegram", value: "@avtotestu_ad2", href: "https://t.me/avtotestu_ad2" },
+    { icon: Send, labelKey: "contact.telegram", value: "@avtotestu_ad2", href: "https://t.me/avtotestu_ad" },
     { icon: Bot, labelKey: "contact.telegramBot", value: "@Avtotestubot", href: "https://t.me/Avtotestubot" },
     { icon: Bot, labelKey: "contact.maktabAvtoBot", value: "@avtotestu_ad", href: "https://t.me/avtotestu_ad" },
   ];
