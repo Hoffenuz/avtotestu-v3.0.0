@@ -82,7 +82,6 @@ export function MainLayout({ children }: MainLayoutProps) {
               <div className="relative flex-shrink-0">
                 <button
                   onClick={() => setLangMenuOpen(!langMenuOpen)}
-                  onMouseLeave={() => setLangMenuOpen(false)}
                   className="flex items-center gap-1 text-primary-foreground/90 hover:text-primary-foreground py-2 text-xs sm:text-sm font-bold transition-colors rounded-md hover:bg-primary-foreground/10 px-1.5 sm:px-2"
                 >
                   <Globe className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -91,7 +90,10 @@ export function MainLayout({ children }: MainLayoutProps) {
                 </button>
                 
                 {langMenuOpen && (
-                  <div className="absolute top-full left-0 mt-1.5 w-36 bg-card rounded-xl shadow-xl border border-border py-1.5 z-50 overflow-hidden">
+                  <div 
+                    className="absolute top-full left-0 mt-1.5 w-36 bg-card rounded-xl shadow-xl border border-border py-1.5 z-50 overflow-hidden"
+                    onMouseLeave={() => setLangMenuOpen(false)}
+                  >
                     {languages.map((l) => (
                       <button
                         key={l.code}
