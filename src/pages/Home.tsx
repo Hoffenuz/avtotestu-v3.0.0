@@ -54,7 +54,9 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
         <img
-          src="/hero-bg.webp"
+          srcSet="/hero-bg-640.webp 640w, /hero-bg-1024.webp 1024w, /hero-bg-1920.webp 1920w"
+          sizes="100vw"
+          src="/hero-bg-1920.webp"
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
           fetchPriority="high"

@@ -284,12 +284,13 @@ useEffect(() => {
                 Tahrirlash
               </Button>
             ) : (
-              <div className="flex gap-2">
+              <div className="flex gap-2 flex-wrap">
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={handleCancelEdit}
                   disabled={isSaving}
+                  className="flex-1 min-w-[100px]"
                 >
                   <X className="w-4 h-4 mr-2" />
                   Bekor qilish
@@ -298,6 +299,7 @@ useEffect(() => {
                   size="sm"
                   onClick={handleSaveProfile}
                   disabled={isSaving}
+                  className="flex-1 min-w-[100px]"
                 >
                   {isSaving ? (
                     <span className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin mr-2" />

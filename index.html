@@ -1,27 +1,35 @@
 <!doctype html>
 <html lang="uz">
   <head>
-<!-- Google Analytics - Deferred loading -->
+<!-- Google Analytics - Delayed loading after user interaction -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-MC3L7RRXMF');
   
+  let gaLoaded = false;
+  function loadGA() {
+    if (gaLoaded) return;
+    gaLoaded = true;
+    const script = document.createElement('script');
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-MC3L7RRXMF';
+    script.async = true;
+    script.onload = function() {
+      gtag('js', new Date());
+      gtag('config', 'G-MC3L7RRXMF');
+    };
+    document.head.appendChild(script);
+  }
+  
+  // Load on first interaction
+  ['click', 'scroll', 'touchstart', 'keydown'].forEach(function(event) {
+    window.addEventListener(event, loadGA, { once: true, passive: true });
+  });
+  
+  // Fallback: load after idle or 3s
   if ('requestIdleCallback' in window) {
-    requestIdleCallback(() => {
-      const script = document.createElement('script');
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-MC3L7RRXMF';
-      script.async = true;
-      document.head.appendChild(script);
-    });
+    requestIdleCallback(loadGA, { timeout: 3000 });
   } else {
-    setTimeout(() => {
-      const script = document.createElement('script');
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-MC3L7RRXMF';
-      script.async = true;
-      document.head.appendChild(script);
-    }, 2000);
+    setTimeout(loadGA, 3000);
   }
 </script>
     <meta charset="UTF-8" />
@@ -46,18 +54,20 @@
     <!-- Canonical (fallback) -->
     <link rel="canonical" href="https://www.avtotestu.uz/" />
 
-    <!-- Preconnect to Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Preload critical fonts -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/inter-400.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/montserrat-700.woff2" crossorigin>
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Preload hero image -->
-    <link rel="preload" as="image" href="/hero-bg.webp" fetchpriority="high">
+    <!-- Preload hero image - responsive -->
+    <link rel="preload" as="image" href="/hero-bg-640.webp" imagesrcset="/hero-bg-640.webp 640w, /hero-bg-1024.webp 1024w, /hero-bg-1920.webp 1920w" imagesizes="100vw" fetchpriority="high">
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/logo.ico" />
+    
+    <!-- Inline critical CSS for spinner -->
+    <style>
+      @keyframes spin{to{transform:rotate(360deg)}}
+    </style>
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
