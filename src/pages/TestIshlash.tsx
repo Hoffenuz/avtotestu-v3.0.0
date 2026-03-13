@@ -17,9 +17,9 @@ import { TestInterfaceBase } from "@/components/TestInterfaceBase";
 import { TestInterfaceCombined } from "@/components/TestInterfaceCombined";
 
 const languages = [
-  { id: "uz-lat" as const, label: "Lotin" },
-  { id: "uz" as const, label: "Кирилл" },
-  { id: "ru" as const, label: "Русский" },
+  { id: "uz-lat" as const, label: "Lotin", file: "700baza2.json", proFile: "barcha.json" },
+  { id: "uz" as const, label: "Кирилл", file: "700baza.json", proFile: "barcha.json" },
+  { id: "ru" as const, label: "Русский", file: "700baza.json", proFile: "barcha.json" },
 ];
 
 export default function TestIshlash() {
@@ -31,8 +31,12 @@ export default function TestIshlash() {
 
   const brandColor = "#1E2350"; 
 
+  const langConfig = languages.find(l => l.id === language);
+  const dataFile = (user && (isPro || isTrialActive))
+    ? (langConfig?.proFile || "barcha.json")
+    : (langConfig?.file || "700baza2.json");
+
   if (testStarted) {
-    const dataFile = "barcha.json";
     if (questionCount === 50) {
       return <TestInterfaceCombined onExit={() => setTestStarted(false)} dataSources={[`/${dataFile}`]} testName="Test (50 ta)" questionCount={50} timeLimit={50 * 60} randomize={true} />;
     }
