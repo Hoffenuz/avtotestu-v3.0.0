@@ -73,6 +73,12 @@ export type Database = {
           id: string
           updated_at: string
           username: string | null
+          tariff_days: number
+          tariff_start_date: string | null
+          tariff_end_date: string | null
+          is_trial_used: boolean
+          trial_start_date: string | null
+          trial_end_date: string | null
         }
         Insert: {
           avatar_url?: string | null
@@ -81,6 +87,12 @@ export type Database = {
           id: string
           updated_at?: string
           username?: string | null
+          tariff_days?: number
+          tariff_start_date?: string | null
+          tariff_end_date?: string | null
+          is_trial_used?: boolean
+          trial_start_date?: string | null
+          trial_end_date?: string | null
         }
         Update: {
           avatar_url?: string | null
@@ -89,6 +101,12 @@ export type Database = {
           id?: string
           updated_at?: string
           username?: string | null
+          tariff_days?: number
+          tariff_start_date?: string | null
+          tariff_end_date?: string | null
+          is_trial_used?: boolean
+          trial_start_date?: string | null
+          trial_end_date?: string | null
         }
         Relationships: []
       }
@@ -157,6 +175,28 @@ export type Database = {
           _user_id: string
         }
         Returns: boolean
+      }
+      get_user_access_state: {
+        Args: Record<string, never>
+        Returns: Json
+      }
+      start_test_session: {
+        Args: {
+          p_variant: number
+          p_question_source: string
+          p_is_premium: boolean
+        }
+        Returns: Json
+      }
+      verify_and_save_test_result: {
+        Args: {
+          p_session_id: string | null
+          p_variant: number
+          p_correct_answers: number
+          p_total_questions: number
+          p_time_taken_seconds: number
+        }
+        Returns: Json
       }
     }
     Enums: {

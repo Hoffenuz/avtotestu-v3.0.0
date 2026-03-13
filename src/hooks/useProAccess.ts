@@ -1,42 +1,55 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useTrialStatus } from './useTrialStatus';
 import { useAuth } from '@/contexts/AuthContext';
+import { useAccessState } from './useAccessState';
 import { toast } from 'sonner';
 
+/**
+ * Route guard backed by get_user_access_state() RPC.
+ *
+ * Redirect rules:
+ * - loading=true  → wait, no redirect
+ * - backendConfirmed=false → backend unavailable; show error, do NOT grant OR deny
+ *   premium access; stay on current page (user sees loading/error)
+ * - state=active_pro / active_trial → allow
+ * - anything else → redirect to /pro
+ */
 export const useProAccess = (redirectPath: string = '/pro', allowTrial: boolean = true) => {
-  const { user, profile, isLoading, profileLoading } = useAuth();
-  const { isTrialActive, isPro, loading: trialLoading } = useTrialStatus();
+  const { user, isLoading: authLoading } = useAuth();
+  const { state, loading: accessLoading, backendConfirmed } = useAccessState();
   const navigate = useNavigate();
 
-  // A user has PRO if either the trial-status hook confirms it, or profile.is_pro is true.
-  const hasProAccess = isPro || (profile?.is_pro ?? false);
+  const loading = authLoading || accessLoading;
 
   useEffect(() => {
-    // Wait for ALL async data — auth, profile, and trial — before making any access decision.
-    // This prevents false redirects right after login when profile hasn't loaded yet.
-    if (isLoading || profileLoading || trialLoading) return;
+    if (loading) return;
 
     if (!user) {
       navigate('/auth', { state: { returnTo: window.location.pathname } });
       return;
     }
 
-    if (allowTrial) {
-      if (!hasProAccess && !isTrialActive) {
-        toast.error('Sinov muddati tugadi. PRO obuna sotib oling.');
-        navigate(redirectPath);
+    // Backend RPC unavailable — fail safely: do not grant AND do not falsely deny
+    // The page will show a "backend unavailable" state via hasAccess=false + loading=false
+    if (!backendConfirmed) return;
+
+    const allowed =
+      state === 'active_pro' ||
+      (allowTrial && state === 'active_trial');
+
+    if (!allowed) {
+      if (state === 'expired_trial' || state === 'expired_pro') {
+        toast.error('Muddati tugagan. PRO obunani yangilang.');
+      } else {
+        toast.error("Bu bo'limga kirish uchun PRO obuna talab qilinadi.");
       }
-    } else {
-      if (!hasProAccess) {
-        toast.error('Bu bo\'limga kirish uchun PRO obuna talab qilinadi.');
-        navigate(redirectPath);
-      }
+      navigate(redirectPath);
     }
-  }, [user, hasProAccess, isTrialActive, isLoading, profileLoading, trialLoading, navigate, redirectPath, allowTrial]);
+  }, [user, state, loading, backendConfirmed, navigate, redirectPath, allowTrial]);
 
   return {
-    hasAccess: user && (hasProAccess || (allowTrial && isTrialActive)),
-    loading: isLoading || profileLoading || trialLoading,
+    hasAccess: !loading && backendConfirmed && !!user &&
+      (state === 'active_pro' || (allowTrial && state === 'active_trial')),
+    loading: loading || (!!user && !backendConfirmed),
   };
 };

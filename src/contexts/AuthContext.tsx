@@ -53,16 +53,16 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       
       if (!data) return null;
       
-      const tariffDays = (data as any).tariff_days ?? 0;
-      
+      const tariffDays = data.tariff_days ?? 0;
+
       return {
         id: data.id,
         username: data.username,
         full_name: data.full_name,
         avatar_url: data.avatar_url,
         tariff_days: tariffDays,
-        tariff_start_date: (data as any).tariff_start_date ?? null,
-        is_trial_used: (data as any).is_trial_used ?? false,
+        tariff_start_date: data.tariff_start_date ?? null,
+        is_trial_used: data.is_trial_used ?? false,
         created_at: data.created_at,
         is_pro: tariffDays > 0,
       };

@@ -2,11 +2,12 @@ import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useProAccess } from "@/hooks/useProAccess";
+import { useTestSession } from "@/hooks/useTestSession";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEO } from "@/components/SEO";
 import { MavzuliTestInterface } from "@/components/MavzuliTestInterface";
 import { Button } from "@/components/ui/button";
-import { User, LogIn, Home, Play } from "lucide-react";
+import { User, LogIn, Home, Play, AlertTriangle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const topics = [
@@ -57,12 +58,15 @@ const languages = [
 export default function MavzuliTestlar() {
   const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
   const [testStarted, setTestStarted] = useState(false);
+  const [sessionId, setSessionId] = useState<string | null>(null);
+  const [startError, setStartError] = useState<string | null>(null);
   const { user, profile, isLoading } = useAuth();
   const { language, setLanguage } = useLanguage();
   const navigate = useNavigate();
 
-  // Ensure only PRO users (no trial access) can enter mavzuli
-  const { hasAccess, loading: accessLoading } = useProAccess('/pro', false);
+  // PRO and active trial users can enter mavzuli; expired trial is blocked via redirect
+  const { hasAccess, loading: accessLoading } = useProAccess('/pro', true);
+  const { starting, startSession } = useTestSession();
 
   useEffect(() => {
     if (accessLoading) return;
@@ -74,16 +78,30 @@ export default function MavzuliTestlar() {
     return topic.name[langKey];
   };
 
-  const handleStartTest = () => {
-    if (selectedTopic !== null) {
-      setTestStarted(true);
+  const handleStartTest = async () => {
+    if (selectedTopic === null) return;
+    setStartError(null);
+    const result = await startSession({
+      variant: parseInt(selectedTopic, 10) || 0,
+      questionSource: `t${selectedTopic}.json`,
+      isPremium: true,
+    });
+    if (!result.ok) {
+      setStartError(
+        result.error === 'no_premium_access'
+          ? 'Bu mavzuni boshlash uchun PRO obuna kerak.'
+          : 'Serverga ulanishda xatolik. Qayta urinib ko\'ring.'
+      );
+      return;
     }
+    setSessionId(result.session?.sessionId ?? null);
+    setTestStarted(true);
   };
 
   // Double-tap to start on mobile: first tap selects topic, second tap starts test
-  const handleMobileTopicTap = (topicId: string) => {
+  const handleMobileTopicTap = async (topicId: string) => {
     if (selectedTopic === topicId) {
-      setTestStarted(true);
+      await handleStartTest();
     } else {
       setSelectedTopic(topicId);
     }
@@ -121,9 +139,13 @@ export default function MavzuliTestlar() {
         onExit={() => {
           setTestStarted(false);
           setSelectedTopic(null);
+          setSessionId(null);
+          setStartError(null);
         }}
         topicId={selectedTopic}
         topicName={getTopicName(topic)}
+        sessionId={sessionId}
+        isPremiumSession={true}
       />
     );
   }
@@ -187,8 +209,14 @@ export default function MavzuliTestlar() {
                 </div>
               </div>
             )}
-            <Button size="lg" className="w-full gap-2" onClick={handleStartTest} disabled={selectedTopic === null}>
-              <Play className="w-5 h-5" />
+            {startError && (
+              <div className="mb-2 flex items-center gap-2 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+                <AlertTriangle className="w-4 h-4 text-red-500 flex-shrink-0" />
+                <p className="text-xs text-red-700">{startError}</p>
+              </div>
+            )}
+            <Button size="lg" className="w-full gap-2" onClick={handleStartTest} disabled={selectedTopic === null || starting}>
+              {starting ? <div className="w-5 h-5 border-2 border-white/40 border-t-white rounded-full animate-spin" /> : <Play className="w-5 h-5" />}
               {selectedTopic ? "Testni boshlash" : "Mavzuni tanlang"}
             </Button>
           </div>
@@ -287,8 +315,14 @@ export default function MavzuliTestlar() {
                   <div className="text-[9px] text-green-600/70 dark:text-green-400/70 mt-0.5">O'tish balli</div>
                 </div>
               </div>
-              <Button size="lg" className="w-full mb-3 gap-2 h-12 text-sm font-semibold shadow-lg hover:shadow-xl transition-all" onClick={handleStartTest} disabled={selectedTopic === null}>
-                <Play className="w-4 h-4" />
+              {startError && (
+                <div className="mb-2 flex items-center gap-2 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+                  <AlertTriangle className="w-4 h-4 text-red-500 flex-shrink-0" />
+                  <p className="text-xs text-red-700">{startError}</p>
+                </div>
+              )}
+              <Button size="lg" className="w-full mb-3 gap-2 h-12 text-sm font-semibold shadow-lg hover:shadow-xl transition-all" onClick={handleStartTest} disabled={selectedTopic === null || starting}>
+                {starting ? <div className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" /> : <Play className="w-4 h-4" />}
                 {selectedTopic ? "Testni boshlash" : "Mavzuni tanlang"}
               </Button>
               <div className="p-3 bg-gradient-to-br from-muted/50 to-muted/30 rounded-lg border border-border">

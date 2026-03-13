@@ -1,85 +1,36 @@
-import { useState, useEffect } from 'react';
-import { useAuth } from '@/contexts/AuthContext';
-import { supabase } from '@/integrations/supabase/client';
+/**
+ * useTrialStatus — thin wrapper around useAccessState for backward compatibility.
+ *
+ * New code should use useAccessState directly.
+ * This shim keeps existing consumers working without changes.
+ */
+import { useAccessState } from './useAccessState';
 
 interface TrialStatus {
   isTrialActive: boolean;
   isTrialUsed: boolean;
-  timeRemaining: number; // in seconds
+  timeRemaining: number;
   isPro: boolean;
   loading: boolean;
 }
 
 export const useTrialStatus = (): TrialStatus => {
-  const { user } = useAuth();
-  const [status, setStatus] = useState<TrialStatus>({
-    isTrialActive: false,
-    isTrialUsed: false,
-    timeRemaining: 0,
-    isPro: false,
-    loading: true,
-  });
+  const { state, expiresAt, loading } = useAccessState();
 
-  useEffect(() => {
-    if (!user) {
-      setStatus({ isTrialActive: false, isTrialUsed: false, timeRemaining: 0, isPro: false, loading: false });
-      return;
-    }
+  const isTrialActive = state === 'active_trial';
+  const isTrialUsed   = state === 'active_trial' || state === 'expired_trial';
+  const isPro         = state === 'active_pro';
 
-    const fetchTrialStatus = async () => {
-      try {
-        const { data, error } = await supabase
-          .from('profiles')
-          .select('created_at, is_trial_used, tariff_days, tariff_start_date')
-          .eq('id', user.id)
-          .single();
+  // Compute remaining seconds from server-provided expiry
+  const timeRemaining = isTrialActive && expiresAt
+    ? Math.max(0, Math.floor((expiresAt.getTime() - Date.now()) / 1000))
+    : 0;
 
-        if (error || !data) {
-          setStatus({ isTrialActive: false, isTrialUsed: false, timeRemaining: 0, isPro: false, loading: false });
-          return;
-        }
-
-        const tariffDays = Number(data.tariff_days || 0);
-        const tariffStart = data.tariff_start_date ? new Date(data.tariff_start_date).getTime() : null;
-
-        // Determine PRO active state based on tariff start + tariff days
-        let isProActive = false;
-        if (tariffDays > 0 && tariffStart) {
-          const end = tariffStart + tariffDays * 24 * 60 * 60 * 1000;
-          isProActive = Date.now() < end;
-        }
-
-        const isTrialUsed = data.is_trial_used || false;
-        const createdAt = new Date(data.created_at).getTime();
-        const now = Date.now();
-        const elapsed = (now - createdAt) / 1000; // seconds
-        const trialDuration = 1 * 60 * 60; // 1 hour in seconds
-        const remaining = Math.max(0, trialDuration - elapsed);
-
-        setStatus({
-          isTrialActive: isTrialUsed && remaining > 0,
-          isTrialUsed,
-          timeRemaining: remaining,
-          isPro: isProActive,
-          loading: false,
-        });
-      } catch (err) {
-        console.error('Error fetching trial status:', err);
-        setStatus({ isTrialActive: false, isTrialUsed: false, timeRemaining: 0, isPro: false, loading: false });
-      }
-    };
-
-    fetchTrialStatus();
-    const interval = setInterval(fetchTrialStatus, 60000); // Update every minute
-
-    return () => clearInterval(interval);
-  }, [user]);
-
-  return status;
+  return { isTrialActive, isTrialUsed, timeRemaining, isPro, loading };
 };
 
 export const formatTimeRemaining = (seconds: number): string => {
-  const hours = Math.floor(seconds / 3600);
+  const hours   = Math.floor(seconds / 3600);
   const minutes = Math.floor((seconds % 3600) / 60);
   return `${hours}:${minutes.toString().padStart(2, '0')}`;
 };

@@ -4,6 +4,7 @@ import { QuestionNavigation } from "./QuestionNavigation";
 import { TestResults } from "./TestResults";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
+import { useTestResults } from "@/hooks/useTestResults";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
@@ -54,11 +55,14 @@ interface MavzuliTestInterfaceProps {
   onExit: () => void;
   topicId: string;
   topicName: string;
+  sessionId?: string | null;
+  isPremiumSession?: boolean;
 }
 
-export const MavzuliTestInterface = ({ onExit, topicId, topicName }: MavzuliTestInterfaceProps) => {
+export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = null, isPremiumSession = false }: MavzuliTestInterfaceProps) => {
   const { t, questionLang } = useLanguage();
   const { user } = useAuth();
+  const { saveTestResult } = useTestResults();
   const navigate = useNavigate();
   const [questions, setQuestions] = useState<Question[]>([]);
   const [loading, setLoading] = useState(true);
@@ -317,6 +321,20 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName }: MavzuliTest
     setShowFinishDialog(false);
     if (timerRef.current) clearInterval(timerRef.current);
     exitFullscreen();
+
+    // Save result before showing results screen
+    let correct = 0;
+    Object.values(correctAnswers).forEach(isCorrect => { if (isCorrect) correct++; });
+    const timeTaken = Math.floor((Date.now() - testStartTime) / 1000);
+    saveTestResult(
+      parseInt(topicId, 10) || 0,
+      correct,
+      questions.length,
+      timeTaken,
+      sessionId,
+      isPremiumSession,
+    );
+
     setShowResults(true);
     try {
       localStorage.removeItem(storageKey);

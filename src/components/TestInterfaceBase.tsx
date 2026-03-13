@@ -83,6 +83,10 @@ interface TestInterfaceBaseProps {
   randomize?: boolean;
   imagePrefix?: string;
   variant?: number;
+  /** Backend session id returned by start_test_session RPC */
+  sessionId?: string | null;
+  /** Whether this is a premium session — controls fail-closed save behaviour */
+  isPremiumSession?: boolean;
 }
 
 // Shuffle array using Fisher-Yates algorithm
@@ -95,15 +99,17 @@ function shuffleArray<T>(array: T[]): T[] {
   return shuffled;
 }
 
-export const TestInterfaceBase = ({ 
-  onExit, 
-  dataSource, 
+export const TestInterfaceBase = ({
+  onExit,
+  dataSource,
   testName,
   questionCount = 20,
   timeLimit = 25 * 60,
   randomize = false,
   imagePrefix = "/images/",
-  variant = 0
+  variant = 0,
+  sessionId = null,
+  isPremiumSession = false,
 }: TestInterfaceBaseProps) => {
   const { t, questionLang } = useLanguage();
   const { user } = useAuth();
@@ -348,12 +354,13 @@ export const TestInterfaceBase = ({
     return { correct, incorrect };
   };
 
-  // Save result when showing results
+  // Save result when showing results — uses backend RPC which re-validates access
   useEffect(() => {
     if (showResults && user && !resultSaved && variant > 0) {
       const stats = getTestStats();
       const timeTaken = Math.floor((Date.now() - testStartTime) / 1000);
-      saveTestResult(variant, stats.correct, totalQuestions, timeTaken);
+      // Pass sessionId + isPremiumSession so backend enforces access at submit time
+      saveTestResult(variant, stats.correct, totalQuestions, timeTaken, sessionId, isPremiumSession);
       setResultSaved(true);
     }
   }, [showResults, user, resultSaved, variant]);

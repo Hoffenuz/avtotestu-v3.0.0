@@ -77,9 +77,11 @@ interface Question {
 interface TestInterfaceProps {
   onExit: () => void;
   variant: number;
+  sessionId?: string | null;
+  isPremiumSession?: boolean;
 }
 
-export const TestInterface = ({ onExit, variant }: TestInterfaceProps) => {
+export const TestInterface = ({ onExit, variant, sessionId = null, isPremiumSession = true }: TestInterfaceProps) => {
   const { t, questionLang } = useLanguage();
   const { user } = useAuth();
   const { saveTestResult } = useTestResults();
@@ -407,7 +409,7 @@ export const TestInterface = ({ onExit, variant }: TestInterfaceProps) => {
     if (showResults && user && !resultSaved) {
       const stats = getTestStats();
       const timeTaken = Math.floor((Date.now() - testStartTime) / 1000);
-      saveTestResult(variant, stats.correct, totalQuestions, timeTaken);
+      saveTestResult(variant, stats.correct, totalQuestions, timeTaken, sessionId, isPremiumSession);
       setResultSaved(true);
     }
   }, [showResults, user, resultSaved]);
