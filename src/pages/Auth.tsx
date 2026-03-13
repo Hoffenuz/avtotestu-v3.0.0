@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Car, LogIn, Eye, EyeOff, AlertCircle, Mail, Lock } from 'lucide-react';
+import { SEO } from '@/components/SEO';
 import { z } from 'zod';
 
 const emailLoginSchema = z.object({
@@ -105,6 +106,13 @@ const Auth = () => {
   }
 
   return (
+    <>
+    <SEO
+      title="Kirish yoki Ro'yxatdan o'tish"
+      description="Avtotestu.uz hisobingizga kiring yoki yangi hisob oching."
+      path="/auth"
+      noIndex={true}
+    />
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5 flex flex-col items-center justify-center p-4">
       {/* Back to Home */}
       <div className="w-full max-w-md mb-4">
@@ -243,6 +251,7 @@ const Auth = () => {
         </div>
       </Card>
     </div>
+    </>
   );
 };
 

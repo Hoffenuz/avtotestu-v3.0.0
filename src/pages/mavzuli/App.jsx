@@ -142,7 +142,7 @@ function App() {
           { id: '22', name: 'Temir yo\'l kesishmalari va Avtomagistrallarda harakat', filename: '22.json' },
           { id: '23', name: 'Yo\'nalishli transport vositalari va tashqi yoritish', filename: '23.json' },
           { id: '24', name: 'Shatakka olish', filename: '24.json' },
-          { id: '25', name: 'Transport boshqarishni o\'rganish va Yo\'l harakati xavfsizligini taminlash', filename: '25.json' },
+          { id: '25', name: 'Yo\'l harakati xavfsizligini taminlash', filename: '25.json' },
           { id: '26', name: 'Odam va yuk tashish', filename: '26.json' },
           { id: '27', name: 'Transport vositalarining qo\'shimcha majburiyatlari', filename: '27.json' },
           { id: '28', name: 'Harakat xavfsizligi 1', filename: '28.json' },

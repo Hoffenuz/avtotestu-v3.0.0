@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect, useMemo, useCallback } from "react";
-import { Menu, X, User, LogIn, Crown, Globe, ChevronDown, Home, Phone, BookOpen, Info } from "lucide-react";
+import { Menu, X, User, LogIn, Crown, Globe, ChevronDown, Home, Phone, BookOpen, Info, Car } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
@@ -36,6 +36,7 @@ export function MainLayout({ children }: MainLayoutProps) {
 
   const navLinks = useMemo(() => [
     { path: "/", label: t("nav.home") },
+    { path: "/belgilar", label: t("home.btnBelgilar") },
     { path: "/contact", label: t("nav.contact") },
     { path: "/darslik", label: t("nav.darslik") },
     { path: "/qoshimcha", label: t("nav.qoshimcha") },
@@ -112,9 +113,9 @@ export function MainLayout({ children }: MainLayoutProps) {
               </div>
 
               <Link to="/" className="flex items-center gap-2 sm:gap-3 ml-2 sm:ml-4">
-                <img 
-                  src="/rasm1.webp" 
-                  alt="AvtoExclusive Logo" 
+                <img
+                  src="/rasm1.webp"
+                  alt="Avtotestu.uz Logo"
                   className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl shadow-md object-contain"
                   width="40"
                   height="40"
@@ -163,7 +164,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                     </AvatarFallback>
                   </Avatar>
                   <span className="hidden xl:block font-medium">
-                    {profile?.full_name || profile?.username || t("nav.user")}
+                    {profile?.full_name || profile?.username || t("nav.profile")}
                   </span>
                 </Button>
               ) : (
@@ -283,10 +284,22 @@ export function MainLayout({ children }: MainLayoutProps) {
                 </Link>
                 
                 <Link
+                  to="/belgilar"
+                  className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors ${
+                    location.pathname === '/belgilar'
+                      ? 'bg-primary text-primary-foreground'
+                      : 'text-foreground hover:bg-muted'
+                  }`}
+                >
+                  <Car className="w-5 h-5" />
+                  {t("home.btnBelgilar")}
+                </Link>
+
+                <Link
                   to="/contact"
                   className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors ${
-                    location.pathname === '/contact' 
-                      ? 'bg-primary text-primary-foreground' 
+                    location.pathname === '/contact'
+                      ? 'bg-primary text-primary-foreground'
                       : 'text-foreground hover:bg-muted'
                   }`}
                 >
@@ -352,9 +365,9 @@ export function MainLayout({ children }: MainLayoutProps) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <img 
-                  src="/rasm1.webp" 
-                  alt="AvtoExclusive Logo" 
+                <img
+                  src="/rasm1.webp"
+                  alt="Avtotestu.uz Logo"
                   className="w-10 h-10 rounded-xl object-contain"
                   width="40"
                   height="40"

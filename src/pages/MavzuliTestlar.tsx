@@ -36,10 +36,10 @@ const topics = [
   { id: '33', name: { uz_lat: "Tartibga solinmagan chorrahada asosiy yo'l", uz_cyr: "Тартибга солинмаган чорраҳада асосий йўл", ru: "Главная дорога на нерегулируемом перекрестке" } },
   { id: '2', name: { uz_lat: "Haydovchining umumiy vazifalari", uz_cyr: "Ҳайдовчининг умумий вазифалари ва пиёдалар", ru: "Общие обязанности водителя и пешеходы" } },
   { id: '21', name: { uz_lat: "Piyodalar o'tish joylari va turar joylar", uz_cyr: "Пиёдалар ўтиш жойлари ва турар жой даҳаларида ҳаракатланиш", ru: "Пешеходные переходы и движение в жилых зонах" } },
-  { id: '22', name: { uz_lat: "Temir yo'l kesishmalari va Avtomagistrallarda harakat", uz_cyr: "Темир йўл кесишмалари ва Автомагистралларда ҳаракат", ru: "Железнодорожные переезды и движение по автомагистралям" } },
-  { id: '23', name: { uz_lat: "Yo'nalishli transport vositalarining imtiyozlari", uz_cyr: "Йўналишли транспорт воситаларининг имтиёзлари ва ташқи ёритиш", ru: "Преимущества маршрутных транспортных средств и внешнее освещение" } },
+  { id: '22', name: { uz_lat: "Temir yo'l kesishmalari va Avtomagistrallar", uz_cyr: "Темир йўл кесишмалари ва Автомагистраллар", ru: "Железнодорожные переезды и движение по автомагистралям" } },
+  { id: '23', name: { uz_lat: "Yo'nalishli transport vositalarining imtiyozlari", uz_cyr: "Йўналишли транспорт воситаларининг имтиёзлари ва ташқи ёритиш", ru: "Преимущества маршрутных транспортных средств" } },
   { id: '24', name: { uz_lat: "Shatakka olish", uz_cyr: "Транспорт воситаларини шатакка олиш", ru: "Буксировка транспортных средств" } },
-  { id: '25', name: { uz_lat: "Transport boshqarishni o'rganish va Yo'l harakati xavfsizligini ta'minlash", uz_cyr: "Транспорт бошқаришни ўрганиш ва Йўл ҳаракати хавфсизлигини таъминлаш", ru: "Обучение вождению и обеспечение безопасности дорожного движения" } },
+  { id: '25', name: { uz_lat: "Yo'l harakati xavfsizligini ta'minlash", uz_cyr: "Йўл ҳаракати хавфсизлигини таъминлаш", ru: "Обучение вождению" } },
   { id: '26', name: { uz_lat: "Odam va yuk tashish", uz_cyr: "Одам ва юк ташиш", ru: "Перевозка людей и грузов" } },
   { id: '27', name: { uz_lat: "Harakatlanish taqiqlanadigan vaziyatlar", uz_cyr: "Транспорт воситаларида ҳаракатланиш тақиқланадиган вазиятлар", ru: "Ситуации, когда запрещено движение транспортных средств" } },
   { id: '28', name: { uz_lat: "Harakat xavfsizligini ta'minlash 1", uz_cyr: "Ҳаракат хавфсизлигини таъминлаш 1", ru: "Обеспечение безопасности движения 1" } },
@@ -77,6 +77,15 @@ export default function MavzuliTestlar() {
   const handleStartTest = () => {
     if (selectedTopic !== null) {
       setTestStarted(true);
+    }
+  };
+
+  // Double-tap to start on mobile: first tap selects topic, second tap starts test
+  const handleMobileTopicTap = (topicId: string) => {
+    if (selectedTopic === topicId) {
+      setTestStarted(true);
+    } else {
+      setSelectedTopic(topicId);
     }
   };
 
@@ -191,7 +200,7 @@ export default function MavzuliTestlar() {
                   key={topic.id}
                   variant="outline"
                   className={`w-full justify-start text-left h-auto py-3 px-4 ${getTopicButtonClass(topic.id)}`}
-                  onClick={() => setSelectedTopic(topic.id)}
+                  onClick={() => handleMobileTopicTap(topic.id)}
                 >
                   <span className="text-sm font-medium">{getTopicName(topic)}</span>
                 </Button>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
+import { SEO } from '@/components/SEO';
 import { useUserValidation } from '@/hooks/useUserValidation';
 import { useRegistrationAge } from '@/hooks/useRegistrationAge';
 import { useTrialStatus, formatTimeRemaining } from '@/hooks/useTrialStatus';
@@ -187,6 +188,13 @@ useEffect(() => {
   const displayName = profile?.full_name || profile?.username || 'Foydalanuvchi';
 
   return (
+    <>
+    <SEO
+      title="Profilim"
+      description="Avtotestu.uz foydalanuvchi profili."
+      path="/profile"
+      noIndex={true}
+    />
     <div className="min-h-screen bg-background">
       {/* Header with User Name */}
       <header className="bg-primary text-primary-foreground px-4 py-6 md:py-8">
@@ -495,6 +503,7 @@ useEffect(() => {
         </Card>
       </main>
     </div>
+    </>
   );
 };
 

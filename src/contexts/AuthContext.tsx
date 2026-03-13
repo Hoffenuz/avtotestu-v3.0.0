@@ -21,6 +21,7 @@ interface AuthContextType {
   session: Session | null;
   profile: Profile | null;
   isLoading: boolean;
+  profileLoading: boolean;
   signUp: (email: string, password: string, username?: string, fullName?: string) => Promise<{ error: Error | null }>;
   signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
   signInWithGoogle: () => Promise<{ error: Error | null }>;
@@ -35,6 +36,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [session, setSession] = useState<Session | null>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [profileLoading, setProfileLoading] = useState(false);
 
   const fetchProfile = useCallback(async (userId: string): Promise<Profile | null> => {
     try {
@@ -90,11 +92,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         if (currentSession?.user) {
           setSession(currentSession);
           setUser(currentSession.user);
-          
+
           // Fetch profile in background - don't block on it
+          setProfileLoading(true);
           fetchProfile(currentSession.user.id).then(profileData => {
             if (isMounted) {
               setProfile(profileData);
+              setProfileLoading(false);
             }
           });
         }
@@ -135,10 +139,19 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           
           setSession(currentSession);
           setUser(currentSession?.user ?? null);
-          
-          // Do not fetch profile here - it's handled during initialization or via refreshProfile
-          if (!currentSession?.user) {
+
+          // Fetch profile on sign-in so PRO access is available immediately without a page refresh
+          if (currentSession?.user && (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED')) {
+            setProfileLoading(true);
+            fetchProfile(currentSession.user.id).then(profileData => {
+              if (isMounted) {
+                setProfile(profileData);
+                setProfileLoading(false);
+              }
+            });
+          } else if (!currentSession?.user) {
             setProfile(null);
+            setProfileLoading(false);
           }
         } catch (err) {
           console.error('Auth Error - State change:', err);
@@ -228,17 +241,18 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <AuthContext.Provider value={useMemo(() => ({ 
-      user, 
-      session, 
-      profile, 
-      isLoading, 
-      signUp, 
+    <AuthContext.Provider value={useMemo(() => ({
+      user,
+      session,
+      profile,
+      isLoading,
+      profileLoading,
+      signUp,
       signIn,
       signInWithGoogle,
       signOut,
       refreshProfile,
-    }), [user, session, profile, isLoading, signUp, signIn, signInWithGoogle, signOut, refreshProfile])}>
+    }), [user, session, profile, isLoading, profileLoading, signUp, signIn, signInWithGoogle, signOut, refreshProfile])}>
       {children}
     </AuthContext.Provider>
   );

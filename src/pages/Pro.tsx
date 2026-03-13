@@ -22,7 +22,7 @@ import {
 
 export default function Pro() {
   const navigate = useNavigate();
-  const { user, isLoading } = useAuth();
+  const { user, profile, isLoading } = useAuth();
   const { t } = useLanguage();
 
   const features = [
@@ -87,13 +87,40 @@ export default function Pro() {
 
   return (
     <MainLayout>
-      <SEO 
+      <SEO
         title={t("pro.seoTitle")}
         description={t("pro.seoDescription")}
         path="/pro"
         keywords={t("pro.seoKeywords")}
       />
-      
+
+      {/* PRO Active Banner */}
+      {user && profile?.is_pro && (
+        <div className="bg-gradient-to-r from-amber-500/15 via-yellow-500/10 to-amber-500/15 border-b border-amber-500/30">
+          <div className="max-w-7xl mx-auto px-4 lg:px-8 py-4">
+            <div className="flex items-center justify-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-yellow-400 to-amber-500 flex items-center justify-center shadow-md flex-shrink-0">
+                <Crown className="w-5 h-5 text-white" />
+              </div>
+              <div className="text-center">
+                <p className="font-bold text-amber-700 dark:text-amber-400 text-sm md:text-base">
+                  {t("home.proStatusActive")}
+                </p>
+                <p className="text-xs text-muted-foreground mt-0.5">
+                  Barcha PRO imkoniyatlar faol — testlarni boshlang!
+                </p>
+              </div>
+              <button
+                onClick={() => navigate('/')}
+                className="ml-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white text-xs font-bold shadow-md transition-all hover:scale-[1.03] flex-shrink-0"
+              >
+                Bosh sahifa →
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Asosiy Qism: Ma'lumotlar va Narxlar */}
       <section className="py-6 md:py-10 bg-background">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">

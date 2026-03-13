@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
+import { SEO } from '@/components/SEO';
 
 const AuthCallback = () => {
   const navigate = useNavigate();
@@ -20,6 +21,13 @@ const AuthCallback = () => {
   }, [isLoading, user, navigate]);
 
   return (
+    <>
+    <SEO
+      title="Autentifikatsiya"
+      description="Avtotestu.uz autentifikatsiya jarayoni."
+      path="/auth/callback"
+      noIndex={true}
+    />
     <div style={{
       display: 'flex',
       alignItems: 'center',
@@ -41,6 +49,7 @@ const AuthCallback = () => {
         }
       `}</style>
     </div>
+    </>
   );
 };
 

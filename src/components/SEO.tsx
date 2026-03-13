@@ -6,21 +6,23 @@ interface SEOProps {
   path: string;
   keywords?: string;
   ogImage?: string;
+  noIndex?: boolean;
 }
 
 const BASE_URL = "https://www.avtotestu.uz";
 const DEFAULT_OG_IMAGE = `${BASE_URL}/rasm1.webp`;
 
-export function SEO({ 
-  title, 
-  description, 
-  path, 
+export function SEO({
+  title,
+  description,
+  path,
   keywords,
-  ogImage = DEFAULT_OG_IMAGE 
+  ogImage = DEFAULT_OG_IMAGE,
+  noIndex = false,
 }: SEOProps) {
   const fullUrl = `${BASE_URL}${path}`;
   const fullTitle = path === "/" ? title : `${title} | Avtotestu`;
-  
+
   return (
     <Helmet>
       {/* Primary Meta Tags */}
@@ -29,7 +31,10 @@ export function SEO({
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
       <meta name="author" content="Avtotestu.uz" />
-      
+
+      {/* Robots */}
+      <meta name="robots" content={noIndex ? "noindex, nofollow" : "index, follow"} />
+
       {/* Canonical URL */}
       <link rel="canonical" href={fullUrl} />
       

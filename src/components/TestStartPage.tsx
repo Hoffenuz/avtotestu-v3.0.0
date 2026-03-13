@@ -42,6 +42,15 @@ export const TestStartPage = ({ onStartTest }: TestStartPageProps) => {
     }
   };
 
+  // Double-tap to start: first tap selects, second tap on same variant starts the test
+  const handleMobileVariantTap = (v: number) => {
+    if (selectedVariant === v) {
+      onStartTest(v);
+    } else {
+      setSelectedVariant(v);
+    }
+  };
+
   const getVariantButtonClass = (v: number) => {
     const status = getVariantStatus(v);
     const isSelected = selectedVariant === v;
@@ -171,7 +180,7 @@ export const TestStartPage = ({ onStartTest }: TestStartPageProps) => {
                 key={v}
                 variant="outline"
                 className={`h-12 text-base font-semibold transition-all ${getVariantButtonClass(v)}`}
-                onClick={() => setSelectedVariant(v)}
+                onClick={() => handleMobileVariantTap(v)}
               >
                 {v}
               </Button>
