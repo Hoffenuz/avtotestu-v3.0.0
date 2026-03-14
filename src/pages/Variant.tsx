@@ -73,28 +73,23 @@ export default function Variant() {
     setTestStarted(true);
   };
 
+  // TestStartPage has its own full-page layout (header, profile, language)
+  // so we render it without MainLayout wrapper, same as MavzuliTestlar
   return (
-    <MainLayout>
+    <>
       <SEO
         title="Test variantlari - 61 variant"
         description="Haydovchilik guvohnomasi uchun 61 test varianti."
         path="/variant"
         keywords="test varianti, prava test, imtihon savollari, YHQ test"
       />
-      {startError && (
-        <div className="max-w-xl mx-auto mt-4 flex items-center gap-3 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
-          <AlertTriangle className="w-4 h-4 text-red-500 flex-shrink-0" />
-          <p className="text-sm text-red-700">{startError}</p>
-        </div>
-      )}
-      {starting && (
-        <div className="min-h-[60vh] flex items-center justify-center">
+      {starting ? (
+        <div className="min-h-screen flex items-center justify-center">
           <div className="w-10 h-10 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
         </div>
+      ) : (
+        <TestStartPage onStartTest={handleStartTest} startError={startError} />
       )}
-      {!starting && (
-        <TestStartPage onStartTest={handleStartTest} />
-      )}
-    </MainLayout>
+    </>
   );
 }

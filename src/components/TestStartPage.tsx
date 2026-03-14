@@ -5,10 +5,11 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useTestResults } from "@/hooks/useTestResults";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Home, BookOpen, Car, FileText, Clock, CheckCircle, HelpCircle, ChevronDown, ChevronUp, User, LogIn, Globe, Play } from "lucide-react";
+import { Home, BookOpen, Car, FileText, Clock, CheckCircle, HelpCircle, ChevronDown, ChevronUp, User, LogIn, Globe, Play, AlertTriangle } from "lucide-react";
 
 interface TestStartPageProps {
   onStartTest: (variant: number) => void;
+  startError?: string | null;
 }
 
 const languages = [
@@ -21,7 +22,7 @@ const languages = [
 const TOTAL_VARIANTS = 61;
 const variants = Array.from({ length: TOTAL_VARIANTS }, (_, i) => i + 1);
 
-export const TestStartPage = ({ onStartTest }: TestStartPageProps) => {
+export const TestStartPage = ({ onStartTest, startError }: TestStartPageProps) => {
   const [selectedVariant, setSelectedVariant] = useState<number | null>(null);
   const [showAllVariants, setShowAllVariants] = useState(false);
   const { language, setLanguage, t } = useLanguage();
@@ -143,6 +144,12 @@ export const TestStartPage = ({ onStartTest }: TestStartPageProps) => {
             </div>
           )}
 
+          {startError && (
+            <div className="mb-2 flex items-center gap-2 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+              <AlertTriangle className="w-4 h-4 text-red-500 flex-shrink-0" />
+              <p className="text-xs text-red-700">{startError}</p>
+            </div>
+          )}
           <Button
             size="lg"
             className="w-full gap-2"
@@ -299,6 +306,12 @@ export const TestStartPage = ({ onStartTest }: TestStartPageProps) => {
             </div>
 
             {/* Start Button */}
+            {startError && (
+              <div className="mb-2 flex items-center gap-2 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+                <AlertTriangle className="w-4 h-4 text-red-500 flex-shrink-0" />
+                <p className="text-xs text-red-700">{startError}</p>
+              </div>
+            )}
             <Button
               size="lg"
               className="w-full mb-3 gap-2 h-12 text-sm font-semibold shadow-lg hover:shadow-xl transition-all"
