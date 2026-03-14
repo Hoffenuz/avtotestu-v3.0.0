@@ -32,7 +32,7 @@ export default function Home() {
   const { user, profile } = useAuth();
   const { t } = useLanguage();
   const navigate = useNavigate();
-  const { isPremium } = useAccessState();
+  const { isPremium, loading: accessLoading } = useAccessState();
 
   const features = [
     { icon: MonitorSmartphone, titleKey: "home.feature1Title", descKey: "home.feature1Desc" },
@@ -46,6 +46,12 @@ export default function Home() {
   };
 
   const handleProRoute = (route: string) => {
+    // Still loading access state — navigate optimistically if user is logged in,
+    // the target page's own guard will redirect if needed.
+    if (accessLoading && user) {
+      navigate(route);
+      return;
+    }
     if (user && isPremium) {
       navigate(route);
     } else {
