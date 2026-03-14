@@ -18,7 +18,7 @@ export default function Variant() {
   const { hasAccess, loading: accessLoading } = useProAccess();
   const { starting, startSession } = useTestSession();
 
-  if (isLoading || accessLoading) {
+  if (isLoading || accessLoading || !hasAccess) {
     return (
       <MainLayout>
         <SEO
@@ -33,8 +33,6 @@ export default function Variant() {
       </MainLayout>
     );
   }
-
-  if (!user || !hasAccess) return null;
 
   // Test in progress
   if (testStarted && selectedVariant !== null) {
