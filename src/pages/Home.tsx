@@ -3,6 +3,7 @@ import { MainLayout } from "@/components/layout/MainLayout";
 import { SEO } from "@/components/SEO";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useAccessState } from "@/hooks/useAccessState";
 import { useState } from "react";
 import {
   Play,
@@ -31,6 +32,7 @@ export default function Home() {
   const { user, profile } = useAuth();
   const { t } = useLanguage();
   const navigate = useNavigate();
+  const { isPremium } = useAccessState();
 
   const features = [
     { icon: MonitorSmartphone, titleKey: "home.feature1Title", descKey: "home.feature1Desc" },
@@ -44,7 +46,7 @@ export default function Home() {
   };
 
   const handleProRoute = (route: string) => {
-    if (user && profile?.is_pro) {
+    if (user && isPremium) {
       navigate(route);
     } else {
       setShowProPopup(true);
