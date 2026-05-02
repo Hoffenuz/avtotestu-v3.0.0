@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /c/Users/Umid/Desktop/avtotestu-v3.0.0-main -type f \\\\\\(-name *.sql -o -name *.ts -o -name *.tsx \\\\\\))",
+      "Bash(grep -r \"skip\\\\|\\\\.todo\\\\|\\\\.only\\\\|\\\\.skip\" c:UsersUmidDesktopavtotestu-v3.0.0-main --include=*.test.ts --include=*.test.tsx --include=*.spec.ts --include=*.spec.tsx)"
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+/*
+  # HSTS — force HTTPS for 1 year, including subdomains; submit to preload list
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+  # Prevent MIME-type sniffing
+  X-Content-Type-Options: nosniff
+
+  # Block clickjacking (site should never be framed)
+  X-Frame-Options: DENY
+
+  # Limit referrer data sent to third parties
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Restrict browser feature access
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
+  # Content Security Policy
+  # NOTE: 'unsafe-inline' for script-src is required by the inline GA loader in
+  #       index.html. To remove it, move that script to an external .js file and
+  #       use a hash or nonce instead.
+  # NOTE: Replace YOUR_PROJECT_REF with your Supabase project reference ID
+  #       (e.g. abcdefghijklmnop) so connect-src is as tight as possible.
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' https://pub-ad116decdc154b0f90a4b452c72fa433.r2.dev blob:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://pub-ad116decdc154b0f90a4b452c72fa433.r2.dev; font-src 'self'; frame-ancestors 'none'; object-src 'none'; base-uri 'self'
+
+# Cache large static JSON test data files for 1 hour (revalidate after)
+/600.json
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/barcha.json
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/700baza.json
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/700baza2.json
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/malumotlar.json
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+# Cache images aggressively (content doesn't change)
+/images/*
+  Cache-Control: public, max-age=2592000, immutable
+
+/lovable-uploads/*
+  Cache-Control: public, max-age=2592000, immutable
