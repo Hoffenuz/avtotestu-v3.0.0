@@ -1,0 +1,74 @@
+/*
+  # HTML sahifalari uchun kesh yo'q — middleware bot vs user routing qiladi.
+  # HTML ni brauzer ham, CF edge ham keshlamasligi kerak.
+  # (Assetlar quyidagi aniqroq qoidalar bilan kesha olinadi.)
+  Cache-Control: no-store
+
+  # HSTS — 1 yil HTTPS majburiyati; subdomenlar + preload
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+  # MIME-type sniffing himoyasi
+  X-Content-Type-Options: nosniff
+
+  # Clickjacking blok
+  X-Frame-Options: DENY
+
+  # Referrer cheklovi
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Brauzer imkoniyatlarini cheklash
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
+  # Content Security Policy
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' https://pub-ad116decdc154b0f90a4b452c72fa433.r2.dev blob:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://pub-ad116decdc154b0f90a4b452c72fa433.r2.dev; font-src 'self'; frame-ancestors 'none'; object-src 'none'; base-uri 'self'
+
+# ---------------------------------------------------------------------------
+# JSON test ma'lumotlari — 1 soat brauzer + 24 soat edge kesh
+# ---------------------------------------------------------------------------
+/600.json
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/barcha.json
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/700baza.json
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/700baza2.json
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/malumotlar.json
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/data/variants/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# ---------------------------------------------------------------------------
+# Vite build assetlari — xesh nomli, abadiy kesh
+# ---------------------------------------------------------------------------
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# ---------------------------------------------------------------------------
+# Rasmlar — uzoq muddatli kesh
+# ---------------------------------------------------------------------------
+/images/*
+  Cache-Control: public, max-age=2592000, immutable
+
+/lovable-uploads/*
+  Cache-Control: public, max-age=2592000, immutable
+
+# ---------------------------------------------------------------------------
+# SEO fayllar — to'g'ri MIME tur, qisqa kesh
+# ---------------------------------------------------------------------------
+/sitemap.xml
+  Content-Type: application/xml; charset=utf-8
+  Cache-Control: public, max-age=3600, s-maxage=86400
+
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600, s-maxage=86400
+
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=86400, s-maxage=604800

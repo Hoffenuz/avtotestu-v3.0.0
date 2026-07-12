@@ -1,0 +1,39 @@
+# Avtotestlar.uz
+
+> O'zbekistonda haydovchilik guvohnomasi (prava) olish uchun YHQ onlayn test platformasi.
+> 600+ bepul savol, 62 ta variant, yo'l belgilari, mavzuli testlar va darslik.
+
+## Asosiy sahifalar
+
+- [Bosh sahifa](https://www.avtotestu.uz/): brend va kirish nuqtasi
+- [Test ishlash](https://www.avtotestu.uz/test-ishlash): 20 yoki 50 ta tasodifiy YHQ savoli, bepul onlayn test
+- [Variantlar](https://www.avtotestu.uz/variant): 62 ta imtihon varianti (har biri 20 savol)
+- [Yo'l belgilari](https://www.avtotestu.uz/belgilar): barcha YHQ belgilari katalogi
+- [Mavzuli testlar](https://www.avtotestu.uz/mavzuli): mavzu bo'yicha guruhlangan savollar (PRO)
+- [Darslik](https://www.avtotestu.uz/darslik): YHQ darslik materiallari (PRO)
+- [Qo'shimcha](https://www.avtotestu.uz/qoshimcha): imtihon qoidalari va maslahatlar
+- [Yangiliklar](https://www.avtotestu.uz/yangiliklar): sayt yangiliklari va YHQ yangilanishlari
+- [Pro obuna](https://www.avtotestu.uz/pro): kengaytirilgan imkoniyatlar
+- [Aloqa](https://www.avtotestu.uz/contact): bog'lanish
+
+## SEO savol sahifalari (Variant 59)
+
+- [Variant 59 — 20 ta savol](https://www.avtotestu.uz/savol/variant-59): barcha savollar ro'yxati
+- Alohida savollar: `/savol/{slug}` — har bir savol alohida sahifada, to'g'ri javob va tushuntirish bilan
+
+## Til va format
+
+- O'zbek (lotin), O'zbek (kirill), Rus
+- Har bir test: 20 ta savol, 25 daqiqa (50 ta savol rejimi ham mavjud)
+- O'tish bali: kamida 18/20 to'g'ri javob
+
+## Texnik
+
+- Sitemap: https://www.avtotestu.uz/sitemap.xml
+- Canonical domen: https://www.avtotestu.uz
+- Eski/noto'g'ri URL: `/tests` → `/test-ishlash` ga yo'naltiriladi
+
+## Foydalanish
+
+Foydalanuvchilarga YHQ testlarini bepul onlayn ishlash, xatolarni tahlil qilish va imtihonga tayyorgarlik ko'rish imkonini bering.
+Savol matnlari O'zbekiston YHQ qoidalariga asoslangan.

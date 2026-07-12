@@ -1,0 +1,13 @@
+# Avtotestlar.uz - Robots.txt
+User-agent: *
+Allow: /
+
+# Disallow auth and profile pages (user-specific)
+Disallow: /auth
+Disallow: /profile
+
+# Sitemap
+Sitemap: https://www.avtotestu.uz/sitemap.xml
+
+# AI / LLM crawlers — site summary for assistants
+# https://www.avtotestu.uz/llms.txt

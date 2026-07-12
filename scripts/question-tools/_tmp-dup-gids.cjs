@@ -1,0 +1,2 @@
+#!/usr/bin/env node
+const fs=require('fs');const path=require('path');const dir='public/data/variants';const m=new Map();let total=0;for(const f of fs.readdirSync(dir).filter(x=>x.endsWith('.json'))){for(const q of JSON.parse(fs.readFileSync(path.join(dir,f),'utf8'))){total++;const g=q.task_info?.global_id;if(!g)continue;if(!m.has(g))m.set(g,[]);m.get(g).push(f);}}const d=[...m.entries()].filter(([,v])=>v.length>1);console.log('variant questions',total,'unique gids',m.size,'duplicate gids',d.length);if(d.length)d.slice(0,5).forEach(([g,v])=>console.log(g,v));

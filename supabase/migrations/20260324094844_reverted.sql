@@ -1,0 +1,2 @@
+-- Reverted migration placeholder.
+-- This file exists to match remote Supabase migration history.

@@ -1,0 +1,68 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Environment variables — NEVER commit real .env files
+.env
+.env.local
+.env.*.local
+.env.production
+.env.staging
+
+# Backend secrets — same rules
+backend/.env
+backend/.env.local
+backend/.env.*
+
+# Supabase CLI temporary / auto-generated files (may contain DB credentials)
+supabase/.temp/
+
+# Vite dev-server timestamp cache files
+vite.config.ts.timestamp-*.mjs
+
+# Claude AI assistant local settings
+.claude/
+
+# Question JSON fix backups / local audit artifacts
+*.bak
+*.backup.json
+*.pending-fix.bak
+*.pending-fix.diff
+*.audit-full.json
+*.audit-full.md
+*.audit-real.json
+*.audit-final.json
+*.fix-report.json
+*.manual-spelling.json
+*-sync.report.json
+variants-sync-*.report.json
+scripts/question-tools/ru_all_audit.json
+scripts/question-tools/_patch-paths.cjs
+
+# Redundant / platform-specific files
+bun.lock
+netlify.toml
+live_test.sh
+test_migrations.sql
+test_review_ratelimit.js
