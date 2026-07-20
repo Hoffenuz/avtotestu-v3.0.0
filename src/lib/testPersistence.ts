@@ -23,6 +23,10 @@ export function formatTestTime(seconds: number | null | undefined): string {
 
 export interface PersistedTestState {
   questions?: unknown[];
+  /** Raw multi-lang items (for random tests) so language switch/restore stays correct */
+  rawSelected?: unknown[];
+  /** questionLang at save time: oz | uz | ru */
+  questionLang?: string;
   currentQuestion?: number;
   selectedAnswers?: Record<number, number>;
   correctAnswers?: Record<number, boolean>;

@@ -13,6 +13,7 @@ import {
   getSavedTestState,
   clearTestState,
 } from "@/lib/testPersistence";
+import { pickIzohText, pickLangContent } from "@/lib/pickLangContent";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
@@ -52,8 +53,6 @@ interface VariantData {
 }
 
 // Yangi format: task_info, media_url, content.uz_lat / uz_cyr / ru
-type ContentLangKey = 'uz_lat' | 'uz_cyr' | 'ru';
-
 interface VariantTaskNew {
   task_info?: { global_id?: string; ticket_num?: number; order?: number };
   media_url?: string;
@@ -73,21 +72,14 @@ function isNewVariantFormat(raw: unknown): raw is VariantTaskNew[] {
   );
 }
 
-function getContentKey(questionLang: string): ContentLangKey {
-  if (questionLang === 'oz') return 'uz_lat';
-  if (questionLang === 'uz') return 'uz_cyr';
-  return 'ru';
-}
-
 function transformVariantRaw(raw: unknown, questionLang: string): Question[] {
-  const contentKey = getContentKey(questionLang);
-
   if (isNewVariantFormat(raw)) {
     const tasks = raw as VariantTaskNew[];
     if (tasks.length === 0) return [];
     const imageBase = "/images/";
     return tasks.map((task, idx) => {
-      const langContent = task.content[contentKey] || task.content.uz_lat || task.content.uz_cyr || task.content.ru;
+      // Never fall back ru/cyr → Latin (stale CDN caches used to hide missing langs)
+      const langContent = pickLangContent(task.content, questionLang);
       if (!langContent || !langContent.options?.length) {
         return {
           id: idx + 1,
@@ -108,18 +100,13 @@ function transformVariantRaw(raw: unknown, questionLang: string): Question[] {
           image = imageBase + (path.endsWith(".webp") ? path : path.replace(/\.[^.]+$/, "") + ".webp");
         }
       }
-      const izohRaw = task.izoh;
-      const izoh =
-        typeof izohRaw === "string"
-          ? izohRaw.trim()
-          : (izohRaw?.[contentKey] || izohRaw?.uz_lat || izohRaw?.uz_cyr || izohRaw?.ru || "").trim();
       return {
         id: idx + 1,
         text: langContent.text || "",
         image,
         correctAnswer,
         answers: options.map((o) => ({ id: o.id, text: o.text })),
-        izoh: izoh || undefined,
+        izoh: pickIzohText(task.izoh, questionLang),
       };
     });
   }
@@ -257,22 +244,8 @@ export const TestInterface = ({
         setLoading(true);
         setError(null);
 
-        const saved = getSavedTestState(storageKey);
-        if (
-          saved?.questions &&
-          Array.isArray(saved.questions) &&
-          saved.questions.length > 0
-        ) {
-          if (!cancelled) {
-            setQuestions(saved.questions as Question[]);
-            setCurrentQuestion(saved.currentQuestion ?? 1);
-            setSelectedAnswers((saved.selectedAnswers as Record<number, number>) ?? {});
-            setCorrectAnswers((saved.correctAnswers as Record<number, boolean>) ?? {});
-            setRevealedQuestions((saved.revealedQuestions as Record<number, boolean>) ?? {});
-          }
-          return;
-        }
-
+        // Always load JSON + transform with CURRENT language.
+        // Never restore saved.questions text — they freeze the old language (e.g. uz-lat).
         const raw = await loadVariantFile();
         if (cancelled || generation !== loadGenerationRef.current) return;
 
@@ -281,7 +254,28 @@ export const TestInterface = ({
         if (transformedQuestions.length === 0) {
           throw new Error(t("test.noQuestionsFound"));
         }
-        setQuestions(transformedQuestions);
+
+        const saved = getSavedTestState(storageKey);
+        const savedMatchesFile =
+          saved?.questions &&
+          Array.isArray(saved.questions) &&
+          saved.questions.length === transformedQuestions.length;
+
+        if (!cancelled) {
+          setQuestions(transformedQuestions);
+        }
+
+        if (savedMatchesFile) {
+          if (!cancelled) {
+            setCurrentQuestion(saved!.currentQuestion ?? 1);
+            setSelectedAnswers((saved!.selectedAnswers as Record<number, number>) ?? {});
+            setCorrectAnswers((saved!.correctAnswers as Record<number, boolean>) ?? {});
+            setRevealedQuestions((saved!.revealedQuestions as Record<number, boolean>) ?? {});
+          }
+        } else if (saved?.questions?.length) {
+          // File size changed — drop stale progress
+          clearTestState(storageKey);
+        }
       } catch (err) {
         if (!cancelled && generation === loadGenerationRef.current) {
           if (!import.meta.env.PROD) console.error('Error fetching variant data:', err);
@@ -299,17 +293,7 @@ export const TestInterface = ({
     return () => {
       cancelled = true;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- questionLang: separate effect
-  }, [variant, storageKey, loadVariantFile, t, reloadKey]);
-
-  // Retranslate when language changes — no second network request
-  useEffect(() => {
-    if (!rawDataRef.current) return;
-    const transformed = transformVariantRaw(rawDataRef.current, questionLang);
-    if (transformed.length > 0) {
-      setQuestions(transformed);
-    }
-  }, [questionLang]);
+  }, [variant, storageKey, loadVariantFile, t, reloadKey, questionLang]);
 
   // Timer – restarted whenever timerKey changes (e.g. after onTryAgain),
   // stops when showResults becomes true (in deps so cleanup fires)
@@ -356,6 +340,7 @@ export const TestInterface = ({
     try {
       localStorage.setItem(storageKey, JSON.stringify({
         questions,
+        questionLang,
         currentQuestion,
         selectedAnswers,
         correctAnswers,
@@ -366,7 +351,7 @@ export const TestInterface = ({
     } catch {
       // ignore quota errors
     }
-  }, [questions, currentQuestion, selectedAnswers, correctAnswers, revealedQuestions, showResults, storageKey, testStartTime]);
+  }, [questions, currentQuestion, selectedAnswers, correctAnswers, revealedQuestions, showResults, storageKey, testStartTime, questionLang]);
 
   const formatTime = (seconds: number) => formatTestTime(seconds);
 

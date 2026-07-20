@@ -1,5 +1,7 @@
 /** Map raw JSON question items to in-app question shape (uz_lat / uz_cyr / ru). */
 
+import { pickIzohText, pickLangContent } from "@/lib/pickLangContent";
+
 export interface AppQuestion {
   id: number;
   text: string;
@@ -8,18 +10,6 @@ export interface AppQuestion {
   answers: { id: number; text: string }[];
   /** Tanlangan tildagi izoh matni */
   izoh?: string;
-}
-
-type IzohLangMap = { uz_lat?: string; uz_cyr?: string; ru?: string };
-
-function pickIzoh(izoh: IzohLangMap | string | undefined, langKey: 'uz_lat' | 'uz_cyr' | 'ru'): string | undefined {
-  if (!izoh) return undefined;
-  if (typeof izoh === 'string') {
-    const t = izoh.trim();
-    return t || undefined;
-  }
-  const t = (izoh[langKey] || izoh.uz_lat || izoh.uz_cyr || izoh.ru || '').trim();
-  return t || undefined;
 }
 
 export function transformRawToQuestions(
@@ -35,7 +25,7 @@ export function transformRawToQuestions(
         ru?: { text: string; options: { id: number; text: string; is_correct: boolean }[] };
       };
       media_url?: string;
-      izoh?: IzohLangMap | string;
+      izoh?: { uz_lat?: string; uz_cyr?: string; ru?: string } | string;
       choises?: Array<{ text: string; answer: boolean }>;
       question?: string | { oz?: string; uz?: string; ru?: string };
       image?: string;
@@ -48,10 +38,7 @@ export function transformRawToQuestions(
     };
 
     if (q.content && (q.content.uz_lat || q.content.uz_cyr || q.content.ru)) {
-      const langKey =
-        questionLang === 'oz' ? 'uz_lat' : questionLang === 'uz' ? 'uz_cyr' : 'ru';
-      const langContent =
-        q.content[langKey] || q.content.uz_lat || q.content.uz_cyr || q.content.ru;
+      const langContent = pickLangContent(q.content, questionLang);
       if (!langContent?.options?.length) {
         return { id: idx + 1, text: '', answers: [], correctAnswer: 1 };
       }
@@ -65,11 +52,11 @@ export function transformRawToQuestions(
       }
       return {
         id: idx + 1,
-        text: langContent.text,
+        text: langContent.text || '',
         image: imagePath,
         correctAnswer,
         answers: langContent.options.map((o) => ({ id: o.id, text: o.text })),
-        izoh: pickIzoh(q.izoh, langKey),
+        izoh: pickIzohText(q.izoh, questionLang),
       };
     }
 

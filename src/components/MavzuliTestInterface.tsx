@@ -13,6 +13,8 @@ import {
   formatTestTime,
   MAX_TEST_TIME_SECONDS,
 } from "@/lib/testPersistence";
+import { pickIzohText, pickLangContent } from "@/lib/pickLangContent";
+import { fetchQuestionJson } from "@/lib/fetchQuestionJson";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
@@ -180,20 +182,13 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
               ? '/barcha-uz-cyr.json'
               : '/barcha-ru.json';
         const dataPath = topicId === '31' ? barchaByLang : `/mavzuli2/${filename}`;
-        const response = await fetch(dataPath);
-        
-        if (!response.ok) {
-          throw new Error(t("test.errorLoadingData"));
-        }
-        
-        const jsonData = await response.json();
+        const jsonData = await fetchQuestionJson(dataPath);
         if (cancelled) return;
         
         // New format: array of tasks with content.uz_lat/uz_cyr/ru structure
-        if (Array.isArray(jsonData) && jsonData.length > 0 && jsonData[0].content) {
-          const contentKey = questionLang === 'oz' ? 'uz_lat' : questionLang === 'uz' ? 'uz_cyr' : 'ru';
-          const tQuestions: Question[] = jsonData.map((task: RawTask, idx: number) => {
-            const langContent = task.content?.[contentKey] || task.content?.['uz_lat'] || task.content?.['uz_cyr'] || task.content?.['ru'];
+        if (Array.isArray(jsonData) && jsonData.length > 0 && (jsonData[0] as RawTask).content) {
+          const tQuestions: Question[] = (jsonData as RawTask[]).map((task: RawTask, idx: number) => {
+            const langContent = pickLangContent(task.content, questionLang);
             if (!langContent || !langContent.options?.length) {
               return {
                 id: idx + 1,
@@ -209,18 +204,13 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
               const path = task.media_url.replace(/^\//, "");
               image = "/images/" + path;
             }
-            const izohRaw = task.izoh;
-            const izoh =
-              typeof izohRaw === "string"
-                ? izohRaw.trim()
-                : (izohRaw?.[contentKey] || izohRaw?.uz_lat || izohRaw?.uz_cyr || izohRaw?.ru || "").trim();
             return {
               id: idx + 1,
               text: langContent.text || "",
               image,
               correctAnswer,
               answers: langContent.options.map((o: TaskOption) => ({ id: o.id, text: o.text })),
-              izoh: izoh || undefined,
+              izoh: pickIzohText(task.izoh, questionLang),
             };
           });
           parsedQuestions = tQuestions;

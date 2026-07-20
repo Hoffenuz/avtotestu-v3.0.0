@@ -51,15 +51,26 @@ export function normalizeQuestionArray(jsonData: unknown): unknown[] {
   return [];
 }
 
+/** Bump when question JSON structure/langs change — busts long CDN/browser caches */
+export const QUESTION_DATA_CACHE_BUST = "20260720b";
+
+function withCacheBust(url: string): string {
+  if (/^https?:\/\//i.test(url)) return url;
+  const sep = url.includes("?") ? "&" : "?";
+  return `${url}${sep}v=${QUESTION_DATA_CACHE_BUST}`;
+}
+
 export async function fetchQuestionJson(
   url: string,
   retries = 3
 ): Promise<unknown> {
   let lastErr: Error | null = null;
+  const finalUrl = withCacheBust(url);
 
   for (let attempt = 0; attempt <= retries; attempt++) {
     try {
-      const response = await fetch(url, { cache: 'default' });
+      // no-cache: avoid stale variant JSON (e.g. early v63 Latin-only) after lang updates
+      const response = await fetch(finalUrl, { cache: "no-cache" });
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}`);
       }

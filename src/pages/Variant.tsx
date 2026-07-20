@@ -9,6 +9,7 @@ import {
   getVariantDataId,
   isVariantLocked,
 } from "@/lib/variantAccess";
+import { clearTestState } from "@/lib/testPersistence";
 
 export default function Variant() {
   const { user, isLoading } = useAuth();
@@ -144,6 +145,11 @@ export default function Variant() {
         setStartError("Serverga ulanishda xatolik. Qayta urinib ko'ring.");
       }
       return;
+    }
+
+    // Drop stale in-progress state so a prior Latin session can't stick after RU/Cyr switch
+    if (user) {
+      clearTestState(`testState_variant_${variant}_${user.id}`);
     }
 
     setSessionId(result.session?.sessionId ?? null);

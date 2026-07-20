@@ -130,10 +130,33 @@ export const TestInterfaceCombined = ({
         setError(null);
 
         const saved = getSavedTestState(storageKey);
+
+        if (
+          saved?.rawSelected &&
+          Array.isArray(saved.rawSelected) &&
+          saved.rawSelected.length === questionCount
+        ) {
+          selectedRawRef.current = saved.rawSelected;
+          const transformed = transformRawToQuestions(
+            saved.rawSelected,
+            questionLang,
+            imagePrefix,
+          );
+          if (!cancelled) {
+            setQuestions(transformed);
+            setCurrentQuestion(saved.currentQuestion ?? 1);
+            setSelectedAnswers((saved.selectedAnswers as Record<number, number>) ?? {});
+            setCorrectAnswers((saved.correctAnswers as Record<number, boolean>) ?? {});
+            setRevealedQuestions((saved.revealedQuestions as Record<number, boolean>) ?? {});
+          }
+          return;
+        }
+
         if (
           saved?.questions &&
           Array.isArray(saved.questions) &&
-          saved.questions.length === questionCount
+          saved.questions.length === questionCount &&
+          saved.questionLang === questionLang
         ) {
           if (!cancelled) {
             setQuestions(saved.questions as Question[]);
@@ -143,6 +166,10 @@ export const TestInterfaceCombined = ({
             setRevealedQuestions((saved.revealedQuestions as Record<number, boolean>) ?? {});
           }
           return;
+        }
+
+        if (saved?.questions?.length && saved.questionLang !== questionLang) {
+          clearTestState(storageKey);
         }
 
         const transformed = await loadQuestionBank(questionLang);
@@ -216,6 +243,8 @@ export const TestInterfaceCombined = ({
     try {
       localStorage.setItem(storageKey, JSON.stringify({
         questions,
+        rawSelected: selectedRawRef.current ?? undefined,
+        questionLang,
         currentQuestion,
         selectedAnswers,
         correctAnswers,
@@ -224,7 +253,7 @@ export const TestInterfaceCombined = ({
         startedAt: testStartTime,
       }));
     } catch { /* ignore quota errors */ }
-  }, [questions, currentQuestion, selectedAnswers, correctAnswers, revealedQuestions, showResults, storageKey, testStartTime]);
+  }, [questions, currentQuestion, selectedAnswers, correctAnswers, revealedQuestions, showResults, storageKey, testStartTime, questionLang]);
 
   const formatTime = (seconds: number) => formatTestTime(seconds);
 

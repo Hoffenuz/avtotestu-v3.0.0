@@ -141,10 +141,35 @@ export const TestInterfaceBase = ({
         setError(null);
 
         const saved = getSavedTestState(storageKey);
+
+        // Prefer rawSelected so we can always re-translate to current language
+        if (
+          saved?.rawSelected &&
+          Array.isArray(saved.rawSelected) &&
+          saved.rawSelected.length === questionCount
+        ) {
+          selectedRawRef.current = saved.rawSelected;
+          const transformed = transformRawToQuestions(
+            saved.rawSelected,
+            questionLang,
+            imagePrefix,
+          );
+          if (!cancelled) {
+            setQuestions(transformed);
+            setCurrentQuestion(saved.currentQuestion ?? 1);
+            setSelectedAnswers((saved.selectedAnswers as Record<number, number>) ?? {});
+            setCorrectAnswers((saved.correctAnswers as Record<number, boolean>) ?? {});
+            setRevealedQuestions((saved.revealedQuestions as Record<number, boolean>) ?? {});
+          }
+          return;
+        }
+
+        // Legacy save without raw: only reuse if language matches, else new draw
         if (
           saved?.questions &&
           Array.isArray(saved.questions) &&
-          saved.questions.length === questionCount
+          saved.questions.length === questionCount &&
+          saved.questionLang === questionLang
         ) {
           if (!cancelled) {
             setQuestions(saved.questions as Question[]);
@@ -154,6 +179,10 @@ export const TestInterfaceBase = ({
             setRevealedQuestions((saved.revealedQuestions as Record<number, boolean>) ?? {});
           }
           return;
+        }
+
+        if (saved?.questions?.length && saved.questionLang !== questionLang) {
+          clearTestState(storageKey);
         }
 
         const transformed = await loadQuestionBank(questionLang);
@@ -227,6 +256,8 @@ export const TestInterfaceBase = ({
     try {
       localStorage.setItem(storageKey, JSON.stringify({
         questions,
+        rawSelected: selectedRawRef.current ?? undefined,
+        questionLang,
         currentQuestion,
         selectedAnswers,
         correctAnswers,
@@ -235,7 +266,7 @@ export const TestInterfaceBase = ({
         startedAt: testStartTime,
       }));
     } catch { /* ignore quota errors */ }
-  }, [questions, currentQuestion, selectedAnswers, correctAnswers, revealedQuestions, showResults, storageKey, testStartTime]);
+  }, [questions, currentQuestion, selectedAnswers, correctAnswers, revealedQuestions, showResults, storageKey, testStartTime, questionLang]);
 
   const formatTime = (seconds: number) => formatTestTime(seconds);
 
