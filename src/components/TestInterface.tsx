@@ -576,7 +576,7 @@ export const TestInterface = ({
             <Button 
               variant="outline" 
               size="sm" 
-              className={`h-7 w-7 p-0 md:h-8 md:w-auto md:px-3 text-xs ${autoAdvance ? 'bg-primary/10 text-primary border-primary/30' : 'text-muted-foreground'}`}
+              className={`h-9 w-9 p-0 md:h-8 md:w-auto md:px-3 text-xs ${autoAdvance ? 'bg-primary/10 text-primary border-primary/30' : 'text-muted-foreground'}`}
               onClick={() => setAutoAdvance(prev => {
                 const next = !prev;
                 try { localStorage.setItem('autoAdvance', String(next)); } catch { /* storage error ignored */ }
@@ -584,16 +584,16 @@ export const TestInterface = ({
               })}
               title={autoAdvance ? "Avto-o'tish yoqilgan" : "Avto-o'tish o'chirilgan"}
             >
-              <SkipForward className="w-4 h-4" />
+              <SkipForward className="w-5 h-5 md:w-4 md:h-4" />
             </Button>
             <Button
               variant="outline"
               size="sm"
-              className={`h-7 w-7 p-0 md:h-8 md:w-auto md:px-3 text-xs ${isDark ? 'bg-yellow-400/10 text-yellow-400 border-yellow-400/30' : 'text-muted-foreground'}`}
+              className={`h-9 w-9 p-0 md:h-8 md:w-auto md:px-3 text-xs ${isDark ? 'bg-yellow-400/10 text-yellow-400 border-yellow-400/30' : 'text-muted-foreground'}`}
               onClick={toggleDark}
               title={isDark ? "Yorug' rejim" : "Qorong'u rejim"}
             >
-              {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              {isDark ? <Sun className="w-5 h-5 md:w-4 md:h-4" /> : <Moon className="w-5 h-5 md:w-4 md:h-4" />}
             </Button>
             <Button 
               variant="outline" 
@@ -607,7 +607,7 @@ export const TestInterface = ({
             <Button 
               variant="outline" 
               size="sm" 
-              className="h-7 px-1.5 md:h-8 md:px-3 text-[11px] md:text-xs bg-green-500/10 text-green-600 border-green-500/30 hover:bg-green-500/20"
+              className="h-9 px-2.5 md:h-8 md:px-3 text-xs md:text-xs bg-green-500/10 text-green-600 border-green-500/30 hover:bg-green-500/20"
               onClick={handleFinishTest}
             >
               {t("test.finish")}
@@ -615,7 +615,7 @@ export const TestInterface = ({
             <Button 
               variant="outline" 
               size="sm" 
-              className="h-7 px-1.5 md:h-8 md:px-3 text-[11px] md:text-xs text-destructive border-destructive/30 hover:bg-destructive/10"
+              className="h-9 px-2.5 md:h-8 md:px-3 text-xs md:text-xs text-destructive border-destructive/30 hover:bg-destructive/10"
               onClick={onExit}
             >
               {t("test.exit")}
