@@ -1,0 +1,82 @@
+{
+  "range": {
+    "from": 21,
+    "to": 63
+  },
+  "total": 850,
+  "flagged": 4,
+  "byType": {
+    "suspicious-code-ru": 2,
+    "short-izoh-lat": 1,
+    "short-izoh-ru": 1,
+    "dup-options": 1
+  },
+  "items": [
+    {
+      "id": "t_21_q_1",
+      "file": "v21.json",
+      "flags": [
+        {
+          "type": "suspicious-code-ru"
+        }
+      ],
+      "preview": {
+        "q": "Avtomagistralda boshqarishni o'rganish:",
+        "ans": "Taqiqlangan",
+        "iz": "YHQ 19-bo'limi 121-bandi 6-xatboshiga asosan, avtomagistrallarda transport vositasini boshqarishni o",
+        "ruIz": "В соответствии с пунктом 6 статьи 19 статьи 121 Уголовного кодекса запрещается о"
+      }
+    },
+    {
+      "id": "t_37_q_19",
+      "file": "v37.json",
+      "flags": [
+        {
+          "type": "short-izoh-lat",
+          "len": 38
+        },
+        {
+          "type": "short-izoh-ru",
+          "len": 36
+        }
+      ],
+      "preview": {
+        "q": "Ushbu belgilardan qaysi biri \"Notekis yo'l\" deb ataladi?",
+        "ans": "C",
+        "iz": "YHQ, 1.16. “Yo‘l notekisligi” belgisi.",
+        "ruIz": "YHQ, 1.16. Знак «Неровности дороги»."
+      }
+    },
+    {
+      "id": "t_49_q_12",
+      "file": "v49.json",
+      "flags": [
+        {
+          "type": "suspicious-code-ru"
+        }
+      ],
+      "preview": {
+        "q": "Qayrilib olish taqiqlanadi:",
+        "ans": "Hamma sanab o'tilgan hollarda",
+        "iz": "YHQ 9-bobi 62-bandiga asosan, quyidagi joylarda qayrilib olish taqiqlanadi: piyodalarning o‘tish joy",
+        "ruIz": "Согласно статье 62 главы 9 Уголовного кодекса запрещается сбор в следующих места"
+      }
+    },
+    {
+      "id": "t_59_q_10",
+      "file": "v59.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Qattiq yoki egiluvchan ulagich yordamida shatakka olinganda, yuk avtomobilining yukxonasid",
+        "ans": "Faqat shatakka olgan avtomobil yukxonasida ruxsat beriladi",
+        "iz": "Yo‘l harakati qoidalarining 143 bandiga asosan, qattiq yoki egiluvchan ulagich bilan shatakka olinga",
+        "ruIz": "Согласно статье 143 Правил дорожного движения запрещается находиться в салоне и "
+      }
+    }
+  ]
+}

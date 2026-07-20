@@ -1,0 +1,890 @@
+{
+  "t_2_q_19": {
+    "opts_lat": [
+      {
+        "id": 1,
+        "t": "B",
+        "c": false
+      },
+      {
+        "id": 2,
+        "t": "B va C",
+        "c": false
+      },
+      {
+        "id": 3,
+        "t": "A",
+        "c": false
+      },
+      {
+        "id": 4,
+        "t": "C",
+        "c": true
+      }
+    ],
+    "opts_ru": [
+      {
+        "id": 1,
+        "t": "В",
+        "c": false
+      },
+      {
+        "id": 2,
+        "t": "В и С",
+        "c": false
+      },
+      {
+        "id": 3,
+        "t": "А",
+        "c": false
+      },
+      {
+        "id": 4,
+        "t": "С",
+        "c": true
+      }
+    ],
+    "iz_lat": "YHQ 1-ilovasi 3.2. “Harakatlanish taqiqlangan”.",
+    "iz_ru": "Приложение 1 МПК 3.2. «Нет движения».",
+    "q_ru": "Какой из этих знаков не запрещает проезд до места жительства или работы?"
+  },
+  "t_3_q_2": {
+    "opts_lat": [
+      {
+        "id": 1,
+        "t": "Temir yo'l kesishmalarida va ulargacha 100 m dan kam masofa qolganda",
+        "c": true
+      },
+      {
+        "id": 2,
+        "t": "Temir yo'l kesishmalarida va ulargacha 100 m dan ko'p masofa qolganda",
+        "c": false
+      },
+      {
+        "id": 3,
+        "t": "Temir yo'l kesishmalarida va aholi yashaydigan joylardan tashqarida ulardan 100 m ko'p masofa qolganda",
+        "c": false
+      }
+    ],
+    "opts_ru": [
+      {
+        "id": 1,
+        "t": "На железнодорожных переездах и на расстоянии менее 100 м от них.",
+        "c": true
+      },
+      {
+        "id": 2,
+        "t": "На железнодорожных переездах и на расстоянии более 100 м от них.",
+        "c": false
+      },
+      {
+        "id": 3,
+        "t": "При удалении от них более 100 м на железнодорожных переездах и вне населенных пунктов.",
+        "c": false
+      }
+    ],
+    "iz_lat": "YHQ 12-bobi 86-band 4-xatboshisiga asosan, temir yo'l kesishmalarida va ulargacha 100 metrdan kam masofa qolganda quvib o'tish taqiqlanadi.",
+    "iz_ru": "В соответствии с главой 12, пунктом 86, пунктом 4 ПДД обгон запрещается на железнодорожных переездах и при расстоянии до них менее 100 метров.",
+    "q_ru": "Обгон запрещается?"
+  },
+  "t_3_q_5": {
+    "opts_lat": [
+      {
+        "id": 1,
+        "t": "Tramvay va yashil avtomobil, sariq avtomobil",
+        "c": true
+      },
+      {
+        "id": 2,
+        "t": "Yashil, sariq avtomobillar, tramvay",
+        "c": false
+      },
+      {
+        "id": 3,
+        "t": "Tramvay, sariq, yashil avtomobillar",
+        "c": false
+      }
+    ],
+    "opts_ru": [
+      {
+        "id": 1,
+        "t": "Трамвай и зеленая машина, желтая машина",
+        "c": true
+      },
+      {
+        "id": 2,
+        "t": "Зеленые, желтые автомобили, трамвай",
+        "c": false
+      },
+      {
+        "id": 3,
+        "t": "Трамвай, желтые, зеленые автомобили",
+        "c": false
+      }
+    ],
+    "iz_lat": "YHQ 16-bobi 105-bandiga asosan, teng ahamiyatga ega bo'lgan yo'llar kesishgan chorrahada relssiz transport vositasining haydovchisi o'ngdan yaqinlashib kelayotgan transport vositalariga yo'l berishi shart. Bunday chorrahalarda, keyingi harakat yo'nalishidan qat'i nazar, tramvay relssiz transport vositalariga nisbatan oldin o'tish huquqiga ega bo'ladi.",
+    "iz_ru": "Согласно пункту 105 главы 16 ПДД, на перекрёстке равнозначных дорог водитель безрельсового транспортного средства обязан уступить дорогу транспортным средствам, приближающимся справа. На таких перекрёстках трамвай имеет преимущество перед безрельсовыми транспортными средствами независимо от направления своего дальнейшего движения.",
+    "q_ru": "Транспортные средства проедут перекрёсток следующем порядке:"
+  },
+  "t_3_q_8": {
+    "opts_lat": [
+      {
+        "id": 1,
+        "t": "Kiyim ikkala qo'lga barobar kiydiriladi",
+        "c": false
+      },
+      {
+        "id": 2,
+        "t": "Kiyim avval jarohatlangan qo'lga, so'ngra sog' qo'lga kiydiriladi",
+        "c": true
+      },
+      {
+        "id": 3,
+        "t": "Kiyim avval sog' qo'lga, so'ngra jarohatlangan qo'lga kiydiriladi",
+        "c": false
+      }
+    ],
+    "opts_ru": [
+      {
+        "id": 1,
+        "t": "Одежда носится одинаково на обеих руках.",
+        "c": false
+      },
+      {
+        "id": 2,
+        "t": "Повязку накладывают сначала на травмированную руку, а затем на здоровую руку.",
+        "c": true
+      },
+      {
+        "id": 3,
+        "t": "Сначала одежду надевают на здоровую руку, а затем на поврежденную.",
+        "c": false
+      }
+    ],
+    "iz_lat": "Shikastlangan qo'l yoki oyoqni majburiy harakatga solmasdan kiyim kiydirish imkonini yaratish uchun avval kiyim shikastlangan, so'ngra shikastlanmagan qo'l yoki oyoqqa ehtiyotlik bilan kiydiriladi.",
+    "iz_ru": "Повязку осторожно накладывают сначала на травмированную руку или ногу, а затем на неповрежденную руку или ногу, чтобы можно было наложить повязку, не заставляя травмированную руку или ногу двигаться.",
+    "q_ru": "Как правильно надевается одежда при ранении руки?"
+  },
+  "t_4_q_2": {
+    "opts_lat": [
+      {
+        "id": 1,
+        "t": "Har ikkisiga ham yo'l berishingiz kerak",
+        "c": true
+      },
+      {
+        "id": 2,
+        "t": "Motosiklga yo'l berishingiz kerak",
+        "c": false
+      },
+      {
+        "id": 3,
+        "t": "Birinchi o'tish huquqiga egasiz",
+        "c": false
+      }
+    ],
+    "opts_ru": [
+      {
+        "id": 1,
+        "t": "Вы должны уступить место обоим",
+        "c": true
+      },
+      {
+        "id": 2,
+        "t": "Вы должны уступить дорогу мотоциклу",
+        "c": false
+      },
+      {
+        "id": 3,
+        "t": "У вас есть право первого прохода",
+        "c": false
+      }
+    ],
+    "iz_lat": "Yo‘l harakati qoidalarining 98 bandi 3 xatboshiga asosan, aylanma harakatlanish chorrahasida harakatlanayotgan transport vositalari aylanaga kirib kelayotgan transport vositalariga nisbatan ustunlikka (imtiyozga) ega.",
+    "iz_ru": "Согласно пункту 3 статьи 98 Правил дорожного движения транспортные средства, движущиеся по кольцевой развязке, имеют приоритет (привилегию) перед транспортными средствами, въезжающими на кольцевую развязку.",
+    "q_ru": "При въезде на перекрёсток Вы:"
+  },
+  "t_4_q_6": {
+    "opts_lat": [
+      {
+        "id": 1,
+        "t": "Ko'k ayni vaqtda qizil bilan; yashil; sariq",
+        "c": false
+      },
+      {
+        "id": 2,
+        "t": "Sariq avtomobil chorrahaga kirib keladi va ko'kni o'tkazib yuborish uchun to'xtaydi; yashil; ko'k, qizil bilan bir vaqtda; sariq",
+        "c": true
+      },
+      {
+        "id": 3,
+        "t": "Yashil; ko'k ayni vaqtda qizil bilan; sariq",
+        "c": false
+      }
+    ],
+    "opts_ru": [
+      {
+        "id": 1,
+        "t": "Синий одновременно с красным; зеленый; желтый",
+        "c": false
+      },
+      {
+        "id": 2,
+        "t": "Желтая машина выезжает на перекресток и останавливается, чтобы пропустить синюю машину; зеленый; синий, одновременно с красным; желтый",
+        "c": true
+      },
+      {
+        "id": 3,
+        "t": "Зеленый; синий одновременно с красным; желтый",
+        "c": false
+      }
+    ],
+    "iz_lat": "YHQ 16-bobi 105-bandiga asosan, teng ahamiyatga ega bo'lgan yo'llar kesishgan chorrahada relssiz transport vositasining haydovchisi o'ngdan yaqinlashayotgan transport vositalariga yo'l berishi shart. YHQ 16-bobi 107-bandiga asosan, chapga burilishda yoki qayrilib olishda relssiz transport vositasining haydovchisi teng ahamiyatli yo'ldan qarama-qarshi yo'nalishdan to'g'riga yoki o'ngga harakatlanayotgan transport vositalariga yo'l berishi shart.",
+    "iz_ru": "Согласно статье 105 главы 16 ПДД, водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, приближающимся справа, на перекрестке, где пересекаются дороги равной важности. Согласно статье 107 главы 16 ПДД, при повороте налево или развороте водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, движущимся прямо или вправо с встречного направления на дороге равного значения.",
+    "q_ru": "Автомобили проедут перекрёсток в следующем порядке:"
+  },
+  "t_4_q_8": {
+    "opts_lat": [
+      {
+        "id": 1,
+        "t": "Motosikl, avtomobil, tramvay",
+        "c": true
+      },
+      {
+        "id": 2,
+        "t": "Tramvay, motosikl, avtomobil",
+        "c": false
+      },
+      {
+        "id": 3,
+        "t": "Tramvay, avtomobil, motosikl",
+        "c": false
+      }
+    ],
+    "opts_ru": [
+      {
+        "id": 1,
+        "t": "Мотоцикл, автомобиль, трамвай",
+        "c": true
+      },
+      {
+        "id": 2,
+        "t": "Трамвай, мотоцикл, автомобиль",
+        "c": false
+      },
+      {
+        "id": 3,
+        "t": "Трамвай, автомобиль, мотоцикл",
+        "c": false
+      }
+    ],
+    "iz_lat": "YHQ 16-bobi 106-,105 - va 104 - bandlariga asosan, asosiy yo'lning yo'nalishi chorrahada o'zgarganda, asosiy yo'lda harakatlanayotgan haydovchilar o'zaro teng ahamiyatli yo'llar chorrahasidan o'tish qoidasiga amal qilishlari kerak. Teng ahamiyatga ega bo'lgan yo'llar kesishgan chorrahada relssiz transport vositasining haydovchisi o'ngdan yaqinlashayotgan transport vositalariga yo'l berishi shart. Teng ahamiyatga ega bo'lmagan yo'llar kesishgan chorrahada tramvay harakatlanish yo'nalishidan qat'i nazar, teng ahamiyatli yo'lda bir yo'nalishda yoki qarama-qarshi yo'nalishda harakatlanayotgan relssiz transport vositalariga nisbatan imtiyozga ega.",
+    "iz_ru": "Согласно пунктам 106, 105 и 104 главы 16 ПДД, если направление главной дороги на перекрёстке изменяется, водители, движущиеся по главной дороге, должны руководствоваться правилами проезда перекрёстков равнозначных дорог. На перекрёстке равнозначных дорог водитель безрельсового транспортного средства обязан уступить дорогу транспортным средствам, приближающимся справа. На перекрёстке неравнозначных дорог трамвай имеет преимущество перед безрельсовыми транспортными средствами, движущимися в попутном или встречном направлении по равнозначной дороге, независимо от направления своего движения.",
+    "q_ru": "Транспортные средства проедут перекрёсток следующем порядке:"
+  },
+  "t_5_q_13": {
+    "opts_lat": [
+      {
+        "id": 1,
+        "t": "Kiyim-boshni ikkala qo'ldan bir vaqtda echish",
+        "c": false
+      },
+      {
+        "id": 2,
+        "t": "Kiyim-boshni echishni sog' qo'ldan boshlash, so'ng kasal qo'lni bo'shatish",
+        "c": true
+      },
+      {
+        "id": 3,
+        "t": "Kiyim-boshni echishni kasal qo'ldan boshlash, so'ng sog' qo'lni bo'shatish",
+        "c": false
+      }
+    ],
+    "opts_ru": [
+      {
+        "id": 1,
+        "t": "Раздевание обеими руками одновременно",
+        "c": false
+      },
+      {
+        "id": 2,
+        "t": "Начните снимать одежду со здоровой руки, затем отпустите больную руку.",
+        "c": true
+      },
+      {
+        "id": 3,
+        "t": "Начните снимать одежду с больной руки, затем отпустите здоровую руку.",
+        "c": false
+      }
+    ],
+    "iz_lat": "Shikastlangan qo'l yoki oyoqni majburiy harakatga solmasdan kiyim yechish imkonini yaratish uchun avval kiyim shikastlanmagan, so'ngra shikastlangan qo'l yoki oyoqdan ehtiyotlik bilan yechiladi.",
+    "iz_ru": "Чтобы можно было снять одежду, не надавливая на поврежденную руку или ногу, одежду снимают сначала с неповрежденной, а затем с поврежденной руки или ноги.",
+    "q_ru": "Как правильно снять с пострадавшего рубашку, пиджак при ранении руки?"
+  },
+  "t_6_q_8": {
+    "opts_lat": [
+      {
+        "id": 1,
+        "t": "Har qanday piyodalar o'tish joyida o'tkazib yuborish kerak",
+        "c": false
+      },
+      {
+        "id": 2,
+        "t": "Barcha hollarda o'tkazib yuborishi kerak, shu jumladan piyodalar o'tish joylardan tashqarida ham",
+        "c": true
+      },
+      {
+        "id": 3,
+        "t": "Tartibga solinadigan piyodalar o'tish joyida o'tkazib yuborishi kerak",
+        "c": false
+      },
+      {
+        "id": 4,
+        "t": "Tartibga solinmagan piyodalar o'tish joyida o'tkazib yuborishi kerak",
+        "c": false
+      }
+    ],
+    "opts_ru": [
+      {
+        "id": 1,
+        "t": "Вы должны пропустить любой пешеходный переход",
+        "c": false
+      },
+      {
+        "id": 2,
+        "t": "Необходимо пропускать во всех случаях, в том числе за пределами пешеходных переходов.",
+        "c": true
+      },
+      {
+        "id": 3,
+        "t": "Регулируемые пешеходы должны пропускать пешеходный переход",
+        "c": false
+      },
+      {
+        "id": 4,
+        "t": "Нерегулируемые пешеходы должны пропускать пешеходный переход",
+        "c": false
+      }
+    ],
+    "iz_lat": "YHQ 17-bobi 113-bandiga muvofiq, barcha hollarda, shu jumladan, piyodalar o'tish joylaridan tashqarida ham haydovchi oq hassa bilan ishora berayotgan ko'zi ojiz piyoda(lar)ni o'tkazib yuborishi kerak.",
+    "iz_ru": "Согласно статье 113 главы 17 ПДД во всех случаях, в том числе вне пешеходных переходов, водитель обязан уступить дорогу слабовидящему пешеходу(ам), сигнализирующему белой тростью.",
+    "q_ru": "Должен ли водитель пропускать слепых пешеходов, подающих сигнал белой тростью?"
+  },
+  "t_7_q_6": {
+    "opts_lat": [
+      {
+        "id": 1,
+        "t": "Ko'k; qizil; yashil",
+        "c": true
+      },
+      {
+        "id": 2,
+        "t": "Yashil; ko'k; qizil",
+        "c": false
+      },
+      {
+        "id": 3,
+        "t": "Ko'k bilan yashil bir vaqtda, qizil",
+        "c": false
+      }
+    ],
+    "opts_ru": [
+      {
+        "id": 1,
+        "t": "Синий; красный; зеленый",
+        "c": true
+      },
+      {
+        "id": 2,
+        "t": "Зеленый; синий; красный",
+        "c": false
+      },
+      {
+        "id": 3,
+        "t": "Синий и зеленый одновременно, красный",
+        "c": false
+      }
+    ],
+    "iz_lat": "YHQ 16-bobi 105-bandiga asosan, teng ahamiyatga ega bo'lgan yo'llar kesishgan chorrahada relssiz transport vositasining haydovchisi o'ngdan yaqinlashayotgan transport vositalariga yo'l berishi shart.",
+    "iz_ru": "Согласно пункту 105 главы 16 ПДД, на перекрёстке равнозначных дорог водитель безрельсового транспортного средства обязан уступить дорогу транспортным средствам, приближающимся справа.",
+    "q_ru": "Автомобили проедут перекрёсток в следующем порядке:"
+  },
+  "t_7_q_16": {
+    "opts_lat": [
+      {
+        "id": 1,
+        "t": "Avtobus, yengil avtomobil, tramvay",
+        "c": false
+      },
+      {
+        "id": 2,
+        "t": "Yengil avtomobil, tramvay, avtobus",
+        "c": false
+      },
+      {
+        "id": 3,
+        "t": "Tramvay, avtobus, yengil avtomobil",
+        "c": true
+      }
+    ],
+    "opts_ru": [
+      {
+        "id": 1,
+        "t": "Автобус, машина, трамвай",
+        "c": false
+      },
+      {
+        "id": 2,
+        "t": "Автомобиль, трамвай, автобус",
+        "c": false
+      },
+      {
+        "id": 3,
+        "t": "Трамвай, автобус, машина",
+        "c": true
+      }
+    ],
+    "iz_lat": "YHQ 16-bobi 105-bandiga asosan, teng ahamiyatga ega bo'lgan yo'llar kesishgan chorrahada keyingi harakat yo'nalishidan qat'i nazar, tramvay relssiz transport vositalariga nisbatan oldin o'tish huquqiga ega bo'ladi. YHQ 16-bobi 107-bandiga asosan, chapga burilishda yoki qayrilib olishda relssiz transport vositasining haydovchisi teng ahamiyatli yo'ldan qarama-qarshi yo'nalishdan to'g'riga yoki o'ngga harakatlanayotgan transport vositalariga yo'l berishi shart.",
+    "iz_ru": "Согласно пункту 105 главы 16 ПДД, на перекрёстке равнозначных дорог трамвай имеет преимущество перед безрельсовыми транспортными средствами независимо от направления своего дальнейшего движения. Согласно пункту 107 главы 16 ПДД, при повороте налево или развороте водитель безрельсового транспортного средства обязан уступить дорогу транспортным средствам, движущимся по равнозначной дороге со встречного направления прямо или направо.",
+    "q_ru": "Транспортные средства проедут перекрёсток в следующем порядке:"
+  },
+  "t_8_q_2": {
+    "opts_lat": [
+      {
+        "id": 1,
+        "t": "Burilish markaziga nisbatan avtomobil trayektoriyasidan tashqarida",
+        "c": false
+      },
+      {
+        "id": 2,
+        "t": "Burilish markaziga nisbatan avtomobil trayektoriyasidan ichkarida",
+        "c": true
+      },
+      {
+        "id": 3,
+        "t": "Avtomobil burilish trayektoriyasi bo'yicha",
+        "c": false
+      }
+    ],
+    "opts_ru": [
+      {
+        "id": 1,
+        "t": "Вне траектории движения автомобиля относительно центра вращения",
+        "c": false
+      },
+      {
+        "id": 2,
+        "t": "Внутри траектории движения автомобиля относительно центра вращения",
+        "c": true
+      },
+      {
+        "id": 3,
+        "t": "По траектории поворота автомобиля",
+        "c": false
+      }
+    ],
+    "iz_lat": "Harakat xavfsizligi asoslari talablariga asosan, yengil avtomobil tirkamasi burilishda burilish markaziga nisbatan avtomobil trayektoriyasidan ichkarida harakatlanadi.",
+    "iz_ru": "Согласно требованиям принципов безопасности дорожного движения, автомобильный прицеп движется внутри траектории движения автомобиля относительно центра поворота.",
+    "q_ru": "Какова траектория движения прицепа при повороте автомобиля к центру поворота?"
+  },
+  "t_8_q_10": {
+    "opts_lat": [
+      {
+        "id": 1,
+        "t": "Uchta harakatlanish bo'lagiga",
+        "c": false
+      },
+      {
+        "id": 2,
+        "t": "Ikkita harakatlanish bo'lagiga",
+        "c": true
+      },
+      {
+        "id": 3,
+        "t": "Bitta harakatlanish bo'lagiga",
+        "c": false
+      }
+    ],
+    "opts_ru": [
+      {
+        "id": 1,
+        "t": "На три полосы движения",
+        "c": false
+      },
+      {
+        "id": 2,
+        "t": "На две полосы движения",
+        "c": true
+      },
+      {
+        "id": 3,
+        "t": "В одну полосу движения",
+        "c": false
+      }
+    ],
+    "iz_lat": "YHQ umumiy qoidalar: Harakatlanish bo‘lagi - avtomobillarning bir qator bo‘lib harakatlanishi uchun yetarlicha keng bo‘lgan, yo‘l chiziqlari bilan belgilangan yoki belgilanmagan yo‘l qatnov qismining har qanday bo‘ylama bo‘lagi.",
+    "iz_ru": "Общие правила Закона о дорожном движении: Полоса движения – это любой продольный участок проезжей части, независимо от того, имеет ли он разметку или нет, достаточно широкий для движения транспортных средств в ряд.",
+    "q_ru": "Сколько полос движений имеет данная дорога?"
+  },
+  "t_9_q_18": {
+    "opts_lat": [
+      {
+        "id": 1,
+        "t": "Yengil avtomobil",
+        "c": false
+      },
+      {
+        "id": 2,
+        "t": "Har ikkisi noto'g'ri qo'yilgan",
+        "c": true
+      },
+      {
+        "id": 3,
+        "t": "Yuk avtomobil",
+        "c": false
+      },
+      {
+        "id": 4,
+        "t": "Har ikkisi to'g'ri qo'yilgan",
+        "c": false
+      }
+    ],
+    "opts_ru": [
+      {
+        "id": 1,
+        "t": "Легкая машина",
+        "c": false
+      },
+      {
+        "id": 2,
+        "t": "Оба неуместны",
+        "c": true
+      },
+      {
+        "id": 3,
+        "t": "Грузовик",
+        "c": false
+      },
+      {
+        "id": 4,
+        "t": "Оба правильно поставлены",
+        "c": false
+      }
+    ],
+    "iz_lat": "YHQ 13-bobi 88-bandi 3-xatboshi va 91-band, 8-xatboshiga asosan, ruxsat etilgan to‘liq vazni 3,5 tonnadan ko‘p bo‘lgan yuk transport vositalari bir tomonlama harakatli yo‘llarning chap tomonida faqat yuk ortish va tushirish uchun to‘xtashlari mumkin. Piyodalar o‘tish joylarida va ulardan oldin 10 metrdan kam masofa qolganda to‘xtash va to‘xtab turish taqiqlanadi.",
+    "iz_ru": "Согласно главе 13, п. 88, п. 3 и п. 91, п. 8, грузовые транспортные средства разрешенной полной массой более 3,5 тонны могут останавливаться с левой стороны дорог с односторонним движением только для погрузки и разгрузки. Запрещается останавливаться и парковаться у пешеходных переходов и на расстоянии менее 10 метров перед ними.",
+    "q_ru": "Какой автомобиль правильно поставлен на стоянку?"
+  },
+  "t_12_q_1": {
+    "opts_lat": [
+      {
+        "id": 1,
+        "t": "Shatakka oluvchi avtomobilning kabinasida",
+        "c": true
+      },
+      {
+        "id": 2,
+        "t": "Shatakka oluvchi avtomobilning kuzovida",
+        "c": false
+      },
+      {
+        "id": 3,
+        "t": "Har ikki avtomobilning kabinasida",
+        "c": false
+      },
+      {
+        "id": 4,
+        "t": "Shatakka olingan avtomobilning kabinasida",
+        "c": false
+      }
+    ],
+    "opts_ru": [
+      {
+        "id": 1,
+        "t": "Приемник находится в кабине автомобиля",
+        "c": true
+      },
+      {
+        "id": 2,
+        "t": "В кузове автомобиля",
+        "c": false
+      },
+      {
+        "id": 3,
+        "t": "В салоне обеих машин",
+        "c": false
+      },
+      {
+        "id": 4,
+        "t": "В кабине угнанного автомобиля",
+        "c": false
+      }
+    ],
+    "iz_lat": "YHQ 24 – bobi 143 – bandiga asosan: Qattiq yoki egiluvchan ulagich yordamida shatakka olingan avtobusda, trolleybusda va yuk avtomobili yukxonasida odam tashish, qisman ortish yo‘li bilan shatakka olishda esa shatakka olingan transport vositasining kabinasida va yukxonasida, shuningdek shatakka olgan transport vositasining yukxonasida odamlar bo‘lishi taqiqlanadi.\r\nShunga ko‘ra, yo‘lovchilar qisman ortish yo‘li bilan shatakka olish yordamida shatakka olgan avtomobilning kabinasida bo‘lishlari mumkin.",
+    "iz_ru": "В соответствии со статьей 143 главы 24 ПДД запрещается перевозить людей в багажнике автобуса, троллейбуса, грузового автомобиля, буксируемого с жесткой или гибкой сцепкой, а также размещать людей в салоне и багажнике буксируемого транспортного средства, а также в багажнике буксируемого транспортного средства в случае буксировки с частичной погрузкой. \r\nСоответственно, пассажиры могут находиться в салоне автомобиля, закрепленном с помощью частичного увеличения.",
+    "q_ru": "Где могут находиться пассажиры при буксировке путем частичной погрузки?"
+  },
+  "t_12_q_10": {
+    "opts_lat": [
+      {
+        "id": 1,
+        "t": "Harakatlanayotgan transport vositalari aylanaga kirib kelayotgan transport vositalariga nisbatan ustunlikka (imtiyozga) ega",
+        "c": true
+      },
+      {
+        "id": 2,
+        "t": "Harakatlanayotgan transport vositalariga nisbatan aylanaga kirib kelayotgan transport vositalari ustunlikka (imtiyozga) ega",
+        "c": false
+      }
+    ],
+    "opts_ru": [
+      {
+        "id": 1,
+        "t": "Движущиеся транспортные средства имеют приоритет (привилегию) перед транспортными средствами, въезжающими в круг.",
+        "c": true
+      },
+      {
+        "id": 2,
+        "t": "Транспортные средства, въезжающие в круг, имеют приоритет (привилегию) по сравнению с движущимися транспортными средствами.",
+        "c": false
+      }
+    ],
+    "iz_lat": "Yo‘l harakati qoidalarining 98 bandi 3 xatboshiga asosan, aylanma harakatlanish chorrahasida harakatlanayotgan transport vositalari aylanaga kirib kelayotgan transport vositalariga nisbatan ustunlikka (imtiyozga) ega.",
+    "iz_ru": "Согласно пункту 3 статьи 98 Правил дорожного движения транспортные средства, движущиеся по кольцевой развязке, имеют приоритет (привилегию) перед транспортными средствами, въезжающими на кольцевую развязку.",
+    "q_ru": "На перекрёстке кругового движения:"
+  },
+  "t_12_q_15": {
+    "opts_lat": [
+      {
+        "id": 1,
+        "t": "Yengil avtomobil, avtobus, tramvay",
+        "c": false
+      },
+      {
+        "id": 2,
+        "t": "Tramvay, avtobus, Yengil avtomobil",
+        "c": false
+      },
+      {
+        "id": 3,
+        "t": "Tramvay, Yengil avtomobil, avtobus",
+        "c": true
+      }
+    ],
+    "opts_ru": [
+      {
+        "id": 1,
+        "t": "Автомобиль, автобус, трамвай",
+        "c": false
+      },
+      {
+        "id": 2,
+        "t": "Трамвай, автобус, машина",
+        "c": false
+      },
+      {
+        "id": 3,
+        "t": "Трамвай, автомобиль, автобус",
+        "c": true
+      }
+    ],
+    "iz_lat": "YHQ 16-bobi 105-bandiga asosan, teng ahamiyatga ega bo'lgan yo'llar kesishgan chorrahada relssiz transport vositasining haydovchisi o'ngdan yaqinlashayotgan transport vositalariga yo'l berishi shart. Bunday chorrahalarda keyingi harakat yo'nalishidan qat'i nazar, tramvay relssiz transport vositalariga nisbatan oldin o'tish huquqiga ega bo'ladi.",
+    "iz_ru": "Согласно пункту 105 главы 16 ПДД, на перекрёстке равнозначных дорог водитель безрельсового транспортного средства обязан уступить дорогу транспортным средствам, приближающимся справа. На таких перекрёстках трамвай имеет преимущество перед безрельсовыми транспортными средствами независимо от направления его дальнейшего движения.",
+    "q_ru": "Транспортные средства проедут перекрёсток следующем порядке:"
+  },
+  "t_14_q_7": {
+    "opts_lat": [
+      {
+        "id": 1,
+        "t": "Transport vositasining bitta o'qiga diaganal shinalar radial shinalar bilan birga o'rnatilgan",
+        "c": false
+      },
+      {
+        "id": 2,
+        "t": "M1 toifadagi avtotransport vositalarining oldingi o'qiga birinchi toifada tamirlangan shinalar o'rnatilgan",
+        "c": true
+      },
+      {
+        "id": 3,
+        "t": "Shinalar o'lchami va yo'l qo'yiladigan bosimi bo'yicha transport vositasining rusumiga mos emas",
+        "c": false
+      }
+    ],
+    "opts_ru": [
+      {
+        "id": 1,
+        "t": "Диагональные шины устанавливаются на одну ось автомобиля вместе с радиальными шинами.",
+        "c": false
+      },
+      {
+        "id": 2,
+        "t": "Передняя ось автомобилей категории М1 оснащена первоклассными шинами с восстановленным протектором.",
+        "c": true
+      },
+      {
+        "id": 3,
+        "t": "Шины не соответствуют модели автомобиля по размеру и допустимому давлению.",
+        "c": false
+      }
+    ],
+    "iz_lat": "YHQ 3-ilovasi 5-bo‘limining 5.7-bandiga asosan, M1, M2, M3 toifadagi I klass avtotransport vositalarining oldingi o‘qiga ikkinchi ta’mirlash klassi bo‘yicha qayta tiklangan shinalar o‘rnatilsa — foydalanish taqiqlanadi. Shu sababli birinchi ta’mirlash klassi bo‘yicha qayta tiklangan shinalar o‘rnatilgan bo‘lsa, foydalanishga ruxsat etiladi. Bir o‘qqa diagonal va radial shinalarni birga qo‘yish yoki shina o‘lchami (bosimi) rusumga mos kelmasa — foydalanish taqiqlanadi.",
+    "iz_ru": "Согласно п. 5.7 раздела 5 приложения 3 ПДД, если на передней оси автотранспортных средств категории М1, М2, М3 класса I установлены шины, восстановленные по второму классу ремонта, эксплуатация запрещена. Если установлены шины, отремонтированные по первому классу, эксплуатация разрешается.",
+    "q_ru": "В каком из перечисленных случаев разрешается эксплуатация транспортных средств?"
+  },
+  "t_14_q_17": {
+    "opts_lat": [
+      {
+        "id": 1,
+        "t": "Ko'rsatilgan trayektoriyalardan istalgan biri bo'yicha",
+        "c": false
+      },
+      {
+        "id": 2,
+        "t": "Faqat A trayektoriya bo'yicha",
+        "c": false
+      },
+      {
+        "id": 3,
+        "t": "Faqat B trayektoriya bo'yicha",
+        "c": true
+      }
+    ],
+    "opts_ru": [
+      {
+        "id": 1,
+        "t": "По любой из указанных траекторий",
+        "c": false
+      },
+      {
+        "id": 2,
+        "t": "Только по траектории А",
+        "c": false
+      },
+      {
+        "id": 3,
+        "t": "Только по траектории Б",
+        "c": true
+      }
+    ],
+    "iz_lat": "YHQning 9-bob. 56-band 1-xatboshiga asosan: 56. Aylanma harakatlanish tashkil qilingan chorrahalarga kirish uchun burilishdan boshqa barcha hollarda, haydovchi o‘ngga, chapga burilishi yoki qayrilib olishdan oldinroq shu yo‘nalishda harakatlanishi uchun mo‘ljallangan qatnov qismining eng chetki holatni egallashi shart.",
+    "iz_ru": "Глава 9 ООН. Согласно пункту 1 статьи 56: 56. Во всех случаях, кроме поворота на въезд на перекрестки, на которых организовано круговое движение, водитель перед поворотом направо или налево обязан занять самое крайнее положение участка движения, предназначенного для движения в этом направлении.",
+    "q_ru": "По какой траектории вам разрешается выполнить поворот налево?"
+  },
+  "t_18_q_1": {
+    "opts_lat": [
+      {
+        "id": 1,
+        "t": "Yashil, qizil bilan ko'k bir vaqtda",
+        "c": true
+      },
+      {
+        "id": 2,
+        "t": "Ko'k, yashil bilan bir vaqtda, qizil",
+        "c": false
+      },
+      {
+        "id": 3,
+        "t": "Ko'k, yashil, qizil",
+        "c": false
+      }
+    ],
+    "opts_ru": [
+      {
+        "id": 1,
+        "t": "Зелёный, красный и синий одновременно",
+        "c": true
+      },
+      {
+        "id": 2,
+        "t": "Синий красный одновременно с зеленым",
+        "c": false
+      },
+      {
+        "id": 3,
+        "t": "Синий, зеленый, красный",
+        "c": false
+      }
+    ],
+    "iz_lat": "YHQ 16-bobi 106-,105 - va 104 - bandlariga asosan, asosiy yo'lning yo'nalishi chorrahada o'zgarganda, asosiy yo'lda harakatlanayotgan haydovchilar o'zaro teng ahamiyatli yo'llar chorrahasidan o'tish qoidasiga amal qilishlari kerak. Teng ahamiyatga ega bo'lgan yo'llar kesishgan chorrahada relssiz transport vositasining haydovchisi o'ngdan yaqinlashayotgan transport vositalariga yo'l berishi shart. Teng ahamiyatga ega bo'lmagan yo'llar kesishgan chorrahada ikkinchi darajali yo'ldan harakatlanayotgan transport vositasining haydovchisi asosiy yo'ldan yaqinlashayotgan transport vositalariga ularning keyingi harakatlanish yo'nalishidan qat'i nazar, yo'l berishi kerak.",
+    "iz_ru": "Согласно статьям 106, 105 и 104 главы 16 ПДД при изменении направления главной дороги на перекрестке водители, движущиеся по главной дороге, должны соблюдать правило проезда через пересечение дорог равной важности. На перекрестке, где пересекаются дороги равной важности, водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, приближающимся справа. На пересечении неравных дорог водитель транспортного средства, движущегося со второстепенной дороги, обязан уступить дорогу транспортным средствам, приближающимся с основной дороги, независимо от направления их дальнейшего движения.",
+    "q_ru": "Автомобили проедут перекрёсток в следующем порядке:"
+  },
+  "t_18_q_15": {
+    "opts_lat": [
+      {
+        "id": 1,
+        "t": "Qizil avtomobilga - to'g'riga, ko'k avtomobilga - to'g'riga va chapga",
+        "c": false
+      },
+      {
+        "id": 2,
+        "t": "Qizil va ko'k avtomobilga - to'g'riga",
+        "c": false
+      },
+      {
+        "id": 3,
+        "t": "Qizil avtomobilga - to'g'riga, ko'kiga - chapga",
+        "c": true
+      }
+    ],
+    "opts_ru": [
+      {
+        "id": 1,
+        "t": "К красной машине – направо, к синей машине – направо и налево.",
+        "c": false
+      },
+      {
+        "id": 2,
+        "t": "К красно-синей машине – направо",
+        "c": false
+      },
+      {
+        "id": 3,
+        "t": "Красной машине – направо, синей – налево.",
+        "c": true
+      }
+    ],
+    "iz_lat": "YHQ 10-bobi 67-bandiga muvofiq, bir yo'nalishdagi uch va undan ortiq tasmali har qanday yo'lda yuk avtomobillariga faqat chapga burilish yoki qayrilib olish uchun chetki chap tasmani egallashga ruxsat etiladi. Boshqa hollarda yuk avtomobillariga yo'lning chetki chap tasmasida harakatlanish taqiqlanadi.",
+    "iz_ru": "В соответствии с разделом 67 главы 10 ПДД на любой дороге с тремя и более полосами движения в одну сторону грузовым автомобилям разрешается занимать крайнюю левую полосу только для поворота налево или разворота. В остальных случаях грузовым автомобилям запрещено движение по крайней левой полосе дороги.",
+    "q_ru": "В каком направлении разрешается движение автомобилям?"
+  },
+  "t_20_q_9": {
+    "opts_lat": [
+      {
+        "id": 1,
+        "t": "Velosiped, oq avtomobil, qizil avtomobil",
+        "c": true
+      },
+      {
+        "id": 2,
+        "t": "Qizil avtomobil, oq avtomobil, velosiped",
+        "c": false
+      },
+      {
+        "id": 3,
+        "t": "Velosiped, qizil avtomobil, oq avtomobil",
+        "c": false
+      }
+    ],
+    "opts_ru": [
+      {
+        "id": 1,
+        "t": "Велосипед, белая машина, красная машина.",
+        "c": true
+      },
+      {
+        "id": 2,
+        "t": "Красная машина, белая машина, велосипед.",
+        "c": false
+      },
+      {
+        "id": 3,
+        "t": "Велосипед, красная машина, белая машина.",
+        "c": false
+      }
+    ],
+    "iz_lat": "\"YHQning 16-bob. 104-band 1-xatboshi va 107-bandga asosan: 104. Teng ahamiyatga ega bo‘lmagan yo‘llar kesishgan chorrahada ikkinchi darajali yo‘ldan harakatlanayotgan transport vositasining haydovchisi asosiy yo‘ldan yaqinlashayotgan transport vositalariga ularning keyingi harakatlanish yo‘nalishidan qat’iy nazar, yo‘l berishi kerak.\r\n107. Chapga burilishda yoki qayrilib olishda relssiz transport vositasining haydovchisi teng ahamiyatli yo‘ldan qarama-qarshi yo‘nalishdan to‘g‘riga yoki o‘ngga harakatlanayotgan transport vositalariga yo‘l berishi shart. Bu qoidaga tramvay haydovchilari ham o‘zaro amal qilishlari kerak.\"",
+    "iz_ru": "\"Глава 16. Статья 104, пункт 1 и статья 107 Закона на основании: 104. На пересечении дорог неравного значения водитель транспортного средства, движущегося по второстепенной дороге, обязан уступить дорогу транспортным средствам, приближающимся с основной дороги, независимо от направления их дальнейшего движения.\r\n107. При повороте налево или развороте водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, движущимся прямо или вправо с противоположного направления на дороге равного значения. Водители трамвая также должны соблюдать это правило».",
+    "q_ru": "Укажите порядок проезда перекрёстка:"
+  }
+}

@@ -1,0 +1,591 @@
+{
+  "mode": "dry-run",
+  "variants": {
+    "n": 1250,
+    "withIzoh": 1250
+  },
+  "totals": {
+    "updated": 0,
+    "same": 6260,
+    "unmatched": 0,
+    "matched": 6260
+  },
+  "files": [
+    {
+      "label": "barcha.json",
+      "total": 1250,
+      "matched": 1250,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 1250,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "id": 1250
+      },
+      "samples": []
+    },
+    {
+      "label": "barcha-uz-lat.json",
+      "total": 1250,
+      "matched": 1250,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 1250,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "id": 1250
+      },
+      "samples": []
+    },
+    {
+      "label": "barcha-uz-cyr.json",
+      "total": 1250,
+      "matched": 1250,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 1250,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "id": 1250
+      },
+      "samples": []
+    },
+    {
+      "label": "barcha-ru.json",
+      "total": 1250,
+      "matched": 1250,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 1250,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "id": 1250
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/1.json",
+      "total": 51,
+      "matched": 51,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 51,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "text+opts": 37,
+        "media-unique": 9,
+        "text+same-izoh": 3,
+        "size+fuzzy": 1,
+        "size+text": 1
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/10.json",
+      "total": 42,
+      "matched": 42,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 42,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "media-unique": 27,
+        "text+opts": 4,
+        "text+same-izoh": 1,
+        "size+text": 9,
+        "manual-media": 1
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/11.json",
+      "total": 39,
+      "matched": 39,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 39,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "media-unique": 28,
+        "text+opts": 8,
+        "size+text": 2,
+        "text+same-izoh": 1
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/12.json",
+      "total": 30,
+      "matched": 30,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 30,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "media-unique": 25,
+        "size+text": 1,
+        "text+opts": 3,
+        "text+same-izoh": 1
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/13.json",
+      "total": 27,
+      "matched": 27,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 27,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "text+opts": 22,
+        "media-unique": 4,
+        "text+same-izoh": 1
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/14.json",
+      "total": 62,
+      "matched": 62,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 62,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "text+same-izoh": 2,
+        "text+opts": 22,
+        "media-unique": 35,
+        "size+text": 3
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/15.json",
+      "total": 44,
+      "matched": 44,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 44,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "text+opts": 25,
+        "media-unique": 17,
+        "fuzzy": 1,
+        "text+same-izoh": 1
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/16.json",
+      "total": 34,
+      "matched": 34,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 34,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "text+opts": 22,
+        "media-unique": 7,
+        "size+text": 3,
+        "text+same-izoh": 2
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/17.json",
+      "total": 33,
+      "matched": 33,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 33,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "text+opts": 11,
+        "media-unique": 17,
+        "size+text": 4,
+        "text+same-izoh": 1
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/18.json",
+      "total": 36,
+      "matched": 36,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 36,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "media-unique": 26,
+        "text+opts": 10
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/19.json",
+      "total": 33,
+      "matched": 33,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 33,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "text+opts": 17,
+        "media-unique": 11,
+        "fuzzy": 1,
+        "size+text": 4
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/2.json",
+      "total": 51,
+      "matched": 51,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 51,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "text+same-izoh": 10,
+        "text+opts": 30,
+        "media-unique": 11
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/20.json",
+      "total": 66,
+      "matched": 66,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 66,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "media-unique": 61,
+        "size+text": 1,
+        "text+opts": 2,
+        "text+same-izoh": 2
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/21.json",
+      "total": 23,
+      "matched": 23,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 23,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "text+opts": 13,
+        "media-unique": 10
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/22.json",
+      "total": 34,
+      "matched": 34,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 34,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "text+opts": 27,
+        "media-unique": 6,
+        "manual-text": 1
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/23.json",
+      "total": 42,
+      "matched": 42,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 42,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "media-unique": 12,
+        "text+same-izoh": 4,
+        "size+text": 1,
+        "text+opts": 25
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/24.json",
+      "total": 28,
+      "matched": 28,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 28,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "text+opts": 26,
+        "text+same-izoh": 1,
+        "size+text": 1
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/25.json",
+      "total": 20,
+      "matched": 20,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 20,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "text+opts": 9,
+        "media-unique": 10,
+        "manual-media": 1
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/26.json",
+      "total": 38,
+      "matched": 38,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 38,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "text+opts": 33,
+        "text+same-izoh": 1,
+        "media-unique": 3,
+        "size+text": 1
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/27.json",
+      "total": 47,
+      "matched": 47,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 47,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "text+opts": 42,
+        "fuzzy": 1,
+        "text+same-izoh": 1,
+        "size+text": 2,
+        "media-unique": 1
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/28.json",
+      "total": 46,
+      "matched": 46,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 46,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "text+opts": 34,
+        "text+same-izoh": 3,
+        "media-unique": 8,
+        "manual-text": 1
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/29.json",
+      "total": 26,
+      "matched": 26,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 26,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "text+opts": 20,
+        "text+same-izoh": 4,
+        "media-unique": 2
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/3.json",
+      "total": 38,
+      "matched": 38,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 38,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "media-unique": 35,
+        "size+text": 2,
+        "size+opts": 1
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/30.json",
+      "total": 34,
+      "matched": 34,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 34,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "text+opts": 33,
+        "text+same-izoh": 1
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/33.json",
+      "total": 29,
+      "matched": 29,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 29,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "media-unique": 29
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/34tengaxamiyatli.json",
+      "total": 49,
+      "matched": 49,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 49,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "media-unique": 49
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/35a.json",
+      "total": 25,
+      "matched": 25,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 25,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "text+opts": 2,
+        "media-unique": 23
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/35b.json",
+      "total": 0,
+      "matched": 0,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 0,
+      "missingIzohInSrc": 0,
+      "byHow": {},
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/4.json",
+      "total": 19,
+      "matched": 19,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 19,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "media-unique": 17,
+        "size+text": 1,
+        "text+opts": 1
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/5.json",
+      "total": 59,
+      "matched": 59,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 59,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "media-unique": 54,
+        "size+text": 3,
+        "size+opts": 2
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/6.json",
+      "total": 30,
+      "matched": 30,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 30,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "media-unique": 29,
+        "text+same-izoh": 1
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/7.json",
+      "total": 53,
+      "matched": 53,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 53,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "size+text": 8,
+        "media-unique": 39,
+        "text+opts": 2,
+        "manual-text": 1,
+        "size+opts": 1,
+        "size+fuzzy": 2
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/8.json",
+      "total": 37,
+      "matched": 37,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 37,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "media-unique": 31,
+        "media+text": 1,
+        "size+opts": 3,
+        "size+text": 2
+      },
+      "samples": []
+    },
+    {
+      "label": "mavzuli2/9.json",
+      "total": 35,
+      "matched": 35,
+      "unmatched": 0,
+      "updated": 0,
+      "same": 35,
+      "missingIzohInSrc": 0,
+      "byHow": {
+        "media-unique": 29,
+        "size+text": 3,
+        "text+opts": 3
+      },
+      "samples": []
+    },
+    {
+      "label": "600.json",
+      "total": 600,
+      "note": "Free bank: izoh field not used (PRO promo in UI)",
+      "questionsWithIzoh": 0
+    }
+  ]
+}

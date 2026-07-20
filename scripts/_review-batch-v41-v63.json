@@ -1,0 +1,589 @@
+{
+  "range": {
+    "from": 41,
+    "to": 63
+  },
+  "total": 450,
+  "flagged": 36,
+  "byType": {
+    "dup-options": 35,
+    "suspicious-code-ru": 1
+  },
+  "items": [
+    {
+      "id": "t_42_q_10",
+      "file": "v42.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Ruxsat etilgan harakatlanish yo'nalishini ko'rsating:",
+        "ans": "« А ва « Б »",
+        "iz": "YHQ 1-ilovasi 4-bo'lim 5-xatboshiga asosan, 4.1.1. \"Harakatlanish to'g'riga\". Faqat to'g'ri yo'nalis",
+        "ruIz": "Согласно пункту 5 раздела 4 Приложения 1 Общего регламента, 4.1.1. «Двигаемся на"
+      }
+    },
+    {
+      "id": "t_42_q_20",
+      "file": "v42.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Bu yo'l belgisi nimani bildiradi?",
+        "ans": "Shlagbaum bilan jihozlanmagan ikki va undan ko'p izli temir ",
+        "iz": "YHQ 1-ilovasining 1-bo'limidagi 1.3.2. \"Ko'p izli temir yo'l\" belgisi ikki va undan ortiq izli temir",
+        "ruIz": "1.3.2 главы 1 приложения 1 Знак «Многопутная железная дорога» устанавливается пе"
+      }
+    },
+    {
+      "id": "t_43_q_2",
+      "file": "v43.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Aylanma harakatlanish chorrahasida...",
+        "ans": "Harakatlanayotgan transport vositalari aylanaga kirib kelayo",
+        "iz": "Yo‘l harakati qoidalarining 98 bandi 3 xatboshiga asosan, aylanma harakatlanish chorrahasida harakat",
+        "ruIz": "Согласно пункту 3 статьи 98 Правил дорожного движения транспортные средства, дви"
+      }
+    },
+    {
+      "id": "t_43_q_11",
+      "file": "v43.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Bu yotiq chiziq nimani anglatadi?",
+        "ans": "Transport vositalari oqimi qo'shiladigan joylardagi yo'nalti",
+        "iz": "YHQ 2-ilovasining 1-bo'limidagi 16.3 chizig'i transport oqimlarini qo'shiladigan joylarida yo'naltir",
+        "ruIz": "Строкой 16.3 раздела 1 приложения 2 НПД обозначены острова, отклоняющие транспор"
+      }
+    },
+    {
+      "id": "t_44_q_3",
+      "file": "v44.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Ushbu qo'shimcha axborot yo'l belgisi bildiradi:",
+        "ans": "Belgi ta'siri oralig'ida to'xtagan transport vositalari majb",
+        "iz": "YHQ 1-ilovasining 7-bo‘limidagi 7.21 belgiga asosan, «Evakuator ishlamoqda». 3.27 — 3.30 yo‘l belgil",
+        "ruIz": "По условному обозначению 7.21 Приложения 1, раздел 7 «Эвакуатор работает». Дорож"
+      }
+    },
+    {
+      "id": "t_46_q_5",
+      "file": "v46.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Qaysi transport vositasining haydovchisi quvib o'tishni to'g'ri bajaryapti?",
+        "ans": "Yashil avtomobil haydovchisi",
+        "iz": "YHQ 10-bobining 66-bandiga muvofiq, harakat ikki tomonlama bo'lgan va chiziqlar bilan belgilangan (1",
+        "ruIz": "В соответствии со статьей 66 главы 10 ПДД на трехполосных дорогах с двусторонним"
+      }
+    },
+    {
+      "id": "t_46_q_18",
+      "file": "v46.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Sanab o'tilgan hollarning qay birida qatnov qismining o'ng chetidan yoki yo'lning o'ng yoq",
+        "ans": "Chorrahalardan tashqarida, agar qatnov qismining kengligi ch",
+        "iz": "YHQ 9-bobi 59-bandining ikkinchi xatboshisiga asosan: Chorrahadan tashqarida qayrilib olishda, agar ",
+        "ruIz": "Согласно абзацу второму статьи 59 главы 9: При повороте за пределами перекрестка"
+      }
+    },
+    {
+      "id": "t_47_q_2",
+      "file": "v47.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Harakatlanish tartibini ko'rsating:",
+        "ans": "1-tramvay sariq avtomobil bilan bir vaqtda, 2-tramvay qora a",
+        "iz": "\"YHQning 16-bob. 105-bandiga asosan: 105. Teng ahamiyatga ega bo‘lgan yo‘llar kesishgan chorrahada r",
+        "ruIz": "Согласно главе 16. ст. 105 ГК: 105. На перекрестке, где пересекаются дороги равн"
+      }
+    },
+    {
+      "id": "t_47_q_11",
+      "file": "v47.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Qish vaqtida orqa etakchi ko'prikli avtomobilda chuqur bo'lib qolgan g'ildirak izidan qand",
+        "ans": "Uncha katta bo'lmagan tezliqda chiqish, birinchi galda boshq",
+        "iz": "Tuproqli yo‘lda chuqur qor bo‘ylab oldindan tanlangan pastgi uzatmada rul chambaragini keskin burmas",
+        "ruIz": "Езда по глубокому снегу по грунтовой дороге на заранее выбранной пониженной пере"
+      }
+    },
+    {
+      "id": "t_47_q_18",
+      "file": "v47.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Hayvonlarni yo'lda haydab borishga qoidaga ko'ra ruxsat etiladi",
+        "ans": "Kunning yorug' vaqtida.",
+        "iz": "Yo‘l harakati qoidalarining 171 bandiga asosan, hayvonlarni yo‘lda, asosan sutkaning yorug‘ vaqtida ",
+        "ruIz": "Согласно статье 171 ПДД, животных следует перегонять по дороге преимущественно в"
+      }
+    },
+    {
+      "id": "t_48_q_11",
+      "file": "v48.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Tartibga soluvchining mazkur ishorasi qo'yidagini bildiradi:",
+        "ans": "Ko'k, qizil, yashil avtomobillarga harakatlanishga ruxsat et",
+        "iz": "YHQ 7-bobi 38-bandiga asosan, tartibga soluvchining o'ng qo'li oldinga uzatilganda: chap yonidan tra",
+        "ruIz": "Согласно главе 7, пункту 38 Закона, при вытягивании правой руки регулятора впере"
+      }
+    },
+    {
+      "id": "t_48_q_14",
+      "file": "v48.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Qishloq xo'jalik ishlari olib boriladigan dalada yuk avtomobili va traktorning harakat tra",
+        "ans": "O'ng tomonidan transport vositasi yaqinlashayotgan haydovchi",
+        "iz": "YHQ 9-bobi 60-bandiga asosan: Transport vositalarining harakat yo‘nalishlari kesishadigan va o‘tish ",
+        "ruIz": "Согласно статье 60 главы 9 ПДД: В случаях, когда направления движения транспортн"
+      }
+    },
+    {
+      "id": "t_48_q_16",
+      "file": "v48.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Transport vositalari chorrahani quyidagi tartibda kesib o'tadilar:",
+        "ans": "Ko'k, yashil, qizil avtomobillar",
+        "iz": "YHQ 16-bobi 106-,105 - va 104 - bandlariga asosan, asosiy yo'lning yo'nalishi chorrahada o'zgarganda",
+        "ruIz": "Согласно пунктам 106, 105 и 104 главы 16 ПДД, если главная дорога на перекрёстке"
+      }
+    },
+    {
+      "id": "t_48_q_19",
+      "file": "v48.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Egiluvchan yoki qattiq ulagichda shatakka olingan mexanik transport vositasida odamlar tas",
+        "ans": "Yuk avtomobili kabinasida va yengil avtomobilda ruxsat etila",
+        "iz": "YHQ 24 – bobi 143 – bandiga asosan: Qattiq yoki egiluvchan ulagich yordamida shatakka olingan avtobu",
+        "ruIz": "В соответствии со статьей 143 главы 24 ПДД запрещается перевозить людей в багажн"
+      }
+    },
+    {
+      "id": "t_49_q_1",
+      "file": "v49.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Qaysi hollarda bir yo'nalishda harakatlanish uchun uchtadan kam bo'lagi bo'lgan yo'lda to'",
+        "ans": "Barcha sanab o'tilgan hollarda",
+        "iz": "YHQ 13-bobi 91-bandiga asosan, bir yo'nalishda harakatlanish uchun uchtadan kam tasmaga ega bo'lgan ",
+        "ruIz": "Согласно статье 91 главы 13 ПДД запрещается останавливаться и парковаться на мос"
+      }
+    },
+    {
+      "id": "t_49_q_12",
+      "file": "v49.json",
+      "flags": [
+        {
+          "type": "suspicious-code-ru"
+        }
+      ],
+      "preview": {
+        "q": "Qayrilib olish taqiqlanadi:",
+        "ans": "Hamma sanab o'tilgan hollarda",
+        "iz": "YHQ 9-bobi 62-bandiga asosan, quyidagi joylarda qayrilib olish taqiqlanadi: piyodalarning o‘tish joy",
+        "ruIz": "Согласно статье 62 главы 9 Уголовного кодекса запрещается сбор в следующих места"
+      }
+    },
+    {
+      "id": "t_49_q_19",
+      "file": "v49.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Aholi punktlaridan tashqarida yengil avtomobillarning qanday eng katta tezlik bilan haraka",
+        "ans": "100 km/c",
+        "iz": "YHQ 11-bobi 79-bandi 1-xatboshiga asosan, aholi punktlaridan tashqarida yengil avtomobillarga va rux",
+        "ruIz": "В соответствии с главой 11 статьи 79 пункта 1 ПДД легковым и грузовым автомобиля"
+      }
+    },
+    {
+      "id": "t_52_q_17",
+      "file": "v52.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Avtomobillar chorrahani quyidagi tartibda kesib o'tadilar:",
+        "ans": "Yashil, ko'k, qizil",
+        "iz": "YHQ 16-bobi 105-bandiga asosan, teng ahamiyatga ega bo'lgan yo'llar kesishgan chorrahada relssiz tra",
+        "ruIz": "Согласно пункту 105 главы 16 ПДД, на перекрёстке равнозначных дорог водитель без"
+      }
+    },
+    {
+      "id": "t_53_q_4",
+      "file": "v53.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Transport vositalari chorrahadan quyidagi tartibda o'tadilar:",
+        "ans": "Ko'k avtomobil, tramvay, qizil avtomobil",
+        "iz": "YHQ 16-bobi 106-,105 - va 104 - bandlariga asosan, asosiy yo'lning yo'nalishi chorrahada o'zgarganda",
+        "ruIz": "Согласно пунктам 106, 105 и 104 главы 16 ПДД, если направление главной дороги на"
+      }
+    },
+    {
+      "id": "t_53_q_9",
+      "file": "v53.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Mexanik transport vositalarini shatakka olishda egiluvchan ulagichga kamida nechta ogohlan",
+        "ans": "Kamida ikkita",
+        "iz": "Yo‘l harakati qoidalarining 177 bandiga asosan, mexanik transport vositalarini shatakka olishda egil",
+        "ruIz": "Согласно статье 177 Правил дорожного движения должен быть установлен предупрежда"
+      }
+    },
+    {
+      "id": "t_53_q_14",
+      "file": "v53.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Bu belgilar aholi yashaydigan joylarda havfli yo'l qismi boshlanishidan qancha masofada o'",
+        "ans": "50-100 m",
+        "iz": "YHQ 1-ilovasining 1-bo'limi izohining 1-xatboshiga asosan, 1.1, 1.2, 1.6, 1.8 i 1.30 ogohlantiruvchi",
+        "ruIz": "Согласно пункту 1 пояснения к 1-й части приложения 1, предупредительные знаки 1."
+      }
+    },
+    {
+      "id": "t_53_q_16",
+      "file": "v53.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Avtomobillar chorrahadan quyidagi tartibda o'tadi:",
+        "ans": "Uchchalasi bir vaqtda",
+        "iz": "YHQ 16-bobi 105-bandiga asosan, teng ahamiyatga ega bo'lgan yo'llar kesishgan chorrahada relssiz tra",
+        "ruIz": "Согласно статье 105 главы 16 ПДД, водитель нерельсового транспортного средства о"
+      }
+    },
+    {
+      "id": "t_53_q_19",
+      "file": "v53.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Haydovchi piyodalarga qachon yo'l berishi kerak?",
+        "ans": "Barcha sanab o'tilgan hollarda",
+        "iz": "YHQ 9-bobi 54-bandiga muvofiq, yondosh hududlardan yo'lga chiqayotgan haydovchi unda harakatlanayotg",
+        "ruIz": "В соответствии с главой 9 статьи 54 ПДД водитель, выезжающий с прилегающей терри"
+      }
+    },
+    {
+      "id": "t_54_q_3",
+      "file": "v54.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Mazkur chiziq nimani bildiradi?",
+        "ans": "Velosiped yo'lkasining qatnov qismini kesib o'tadigan joyni",
+        "iz": "YHQ 2-ilovasi 1-bo‘limining o‘n to‘qqizinchi xatboshisiga asosan: 1.15-yo‘lning velosiped yo‘lkasi k",
+        "ruIz": "Согласно пункту 19 статьи 1 приложения 2 Закона о дорожном движении: 1.15 означа"
+      }
+    },
+    {
+      "id": "t_54_q_15",
+      "file": "v54.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Qaysi avtomobil haydovchisi yo'l berishi kerak?",
+        "ans": "Ko'k avtomobil haydovchisi",
+        "iz": "YHQ 1 ilova: 5.38. “Turar joy dahasi”.\r\nYo‘l harakati qoidalarining turar joy dahalarida harakatlani",
+        "ruIz": "Приложение 1 к ПДД: 5.38. «Жилая зона».\r\nДорога, на которой установлен порядок д"
+      }
+    },
+    {
+      "id": "t_55_q_3",
+      "file": "v55.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Qaysi haydovchi to'xtash qoidasini buzdi?",
+        "ans": "Ikkisi ham buzdi",
+        "iz": "YHQ 1-ilovasi 3-bo‘limining o‘ttiz birinchi xatboshisiga asosan: 3.27. \"To‘xtash taqiqlangan\". Trans",
+        "ruIz": "Согласно абзацу тридцать первому раздела 3 Приложения 1 ПДД о гражданском процес"
+      }
+    },
+    {
+      "id": "t_55_q_10",
+      "file": "v55.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Qaysi javobda yo'l belgilari guruhlarining ketma-ketligi to'g'ri ko'rsatilgan?",
+        "ans": "Ogohlantiruvchi, Imtiyoz, Taqiqlovchi, Buyuruvchi, Axborot-k",
+        "iz": "YHQning 1-ILOVAsiga asosan: Yo‘l belgilari 7 guruhga bo‘linadi. Ular quyidagilar: 1. Ogohlantiruvchi",
+        "ruIz": "Согласно ПРИЛОЖЕНИЮ 1 «Знаков дорожного движения» дорожные знаки делятся на 7 гр"
+      }
+    },
+    {
+      "id": "t_55_q_17",
+      "file": "v55.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Transport vositalari chorrahadan quyidagi tartibda o'tadilar:",
+        "ans": "Motosikl, tramvay va avtomobil",
+        "iz": "YHQ 16-bobi 104-bandiga asosan, teng ahamiyatga ega bo'lmagan yo'llar kesishgan chorrahada ikkinchi ",
+        "ruIz": "Согласно статье 104 главы 16 ПДД, водитель транспортного средства, движущегося п"
+      }
+    },
+    {
+      "id": "t_57_q_15",
+      "file": "v57.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Avtomobillar chorrahani quyidagi tartibda kesib o'tadi:",
+        "ans": "Qizil chorrahaga chiqadi va ko'kni o'tkazib yuborish uchun t",
+        "iz": "YHQ 16-bobi 105-bandiga asosan, teng ahamiyatga ega bo'lgan yo'llar kesishgan chorrahada relssiz tra",
+        "ruIz": "Согласно статье 105 главы 16 ПДД, водитель нерельсового транспортного средства о"
+      }
+    },
+    {
+      "id": "t_57_q_17",
+      "file": "v57.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Transport vositalari chorrahani quyidagi tartibda kesib o'tadilar:",
+        "ans": "Velosiped, avtobus, yengil avtomobil",
+        "iz": "YHQ 16-bobi 106-,105 - va 104 - bandlariga asosan, asosiy yo'lning yo'nalishi chorrahada o'zgarganda",
+        "ruIz": "Согласно пунктам 106, 105 и 104 главы 16 ПДД, если направление главной дороги на"
+      }
+    },
+    {
+      "id": "t_57_q_19",
+      "file": "v57.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Transport vositalari chorrahadan quyidagi tartibda o'tadilar:",
+        "ans": "yengil avtomobil, tramvay va avtobus",
+        "iz": "YHQ 15-bobi 100 - va 101 - bandlariga asosan, svetoforning taqiqlovchi qizil yoki sariq ishorasi bil",
+        "ruIz": "Согласно главе 15, статьям 100 и 101 ПДД водитель, движущийся в направлении зеле"
+      }
+    },
+    {
+      "id": "t_58_q_15",
+      "file": "v58.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Transport vositasi haydovchisi tomonidan chiqarilgan havotadi etanol bug'lari kontsentrasi",
+        "ans": "Puflangan havoning bir litrida 0,135 milligramm va undan yuq",
+        "iz": "O‘z. R. SSV, O‘z. R. IIV, O‘z. R. Oliy sudi, O‘z. R. Bosh prokuraturasining 2018 yil 20 noyabrdagi 5",
+        "ruIz": "Собственный. Р. ССВ, Вл. Р. МВД, Вл. Р. Верховный суд, Оз. Согласно пункту 10 ПО"
+      }
+    },
+    {
+      "id": "t_58_q_20",
+      "file": "v58.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Temir yo'l kesishmasida umumiy xatar ishorasi sifatida quyidagi ishoralar turkumi xizmat q",
+        "ans": "Bitta uzun va uchta qisqa tovushli ishoralari",
+        "iz": "YHQ 18-bobi 120-bandi 6-xatboshi izohiga asosan, bitta uzun va uchta qisqa tovushli ishoralar umumiy",
+        "ruIz": "Согласно разъяснению пункта 6 пункта 120 главы 18 ГК, знаком общей опасности счи"
+      }
+    },
+    {
+      "id": "t_59_q_5",
+      "file": "v59.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Transport vositalari chorrahadan qanday tartibda o'tadilar?",
+        "ans": "Qizil; ko'k sariq bilan bir vaqtda; yashil",
+        "iz": "YHQ 16-bobi 104-bandiga asosan, teng ahamiyatga ega bo'lmagan yo'llar kesishgan chorrahada ikkinchi ",
+        "ruIz": "Согласно статье 104 главы 16 ПДД, водитель транспортного средства, движущегося п"
+      }
+    },
+    {
+      "id": "t_59_q_10",
+      "file": "v59.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "Qattiq yoki egiluvchan ulagich yordamida shatakka olinganda, yuk avtomobilining yukxonasid",
+        "ans": "Faqat shatakka olgan avtomobil yukxonasida ruxsat beriladi",
+        "iz": "Yo‘l harakati qoidalarining 143 bandiga asosan, qattiq yoki egiluvchan ulagich bilan shatakka olinga",
+        "ruIz": "Согласно статье 143 Правил дорожного движения запрещается находиться в салоне и "
+      }
+    },
+    {
+      "id": "t_60_q_1",
+      "file": "v60.json",
+      "flags": [
+        {
+          "type": "dup-options",
+          "lang": "ru"
+        }
+      ],
+      "preview": {
+        "q": "«Ruxsat etilgan to'la vazn» nima?",
+        "ans": "Aslahalangan transport vositasining ishlab chiqaruvchi korxo",
+        "iz": "YHQ 1-bo'lim 6-bandini 43-tushunchasiga asosan, ruxsat etilgan to'liq vazn — jihozlangan transport v",
+        "ruIz": "Согласно понятию 43 раздела 1 пункта 6 ПДД допустимой полной массой является мак"
+      }
+    }
+  ]
+}
