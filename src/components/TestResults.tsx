@@ -2,6 +2,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CheckCircle, XCircle, Clock, Trophy, RotateCcw, Home } from "lucide-react";
+import { formatTestTime } from "@/lib/testPersistence";
 
 interface TestResultsProps {
   totalQuestions: number;
@@ -28,12 +29,6 @@ export const TestResults = ({
 
   const score = totalQuestions > 0 ? Math.round((correctAnswers / totalQuestions) * 100) : 0;
   const passed = score >= 90;
-
-  const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
-  };
 
   return (
     <div
@@ -89,7 +84,7 @@ export const TestResults = ({
             </div>
             <div className="text-center p-2.5 sm:p-3 bg-muted/30 rounded-lg">
               <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-primary mx-auto mb-1" />
-              <div className="text-lg sm:text-xl font-bold text-foreground">{formatTime(timeTaken)}</div>
+              <div className="text-lg sm:text-xl font-bold text-foreground">{formatTestTime(timeTaken)}</div>
               <p className="text-[10px] sm:text-xs text-muted-foreground leading-tight">{t("results.timeTaken")}</p>
             </div>
           </div>

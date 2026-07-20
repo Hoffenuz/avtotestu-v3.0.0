@@ -13,10 +13,12 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useTestResults } from "@/hooks/useTestResults";
 import {
+  getElapsedTestSeconds,
   getInitialTimeRemaining,
   getInitialStartedAt,
   getSavedTestState,
   clearTestState,
+  formatTestTime,
 } from "@/lib/testPersistence";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -235,11 +237,7 @@ export const TestInterfaceBase = ({
     } catch { /* ignore quota errors */ }
   }, [questions, currentQuestion, selectedAnswers, correctAnswers, revealedQuestions, showResults, storageKey, testStartTime]);
 
-  const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-  };
+  const formatTime = (seconds: number) => formatTestTime(seconds);
 
   const totalQuestions = questions.length;
   const question = questions[currentQuestion - 1];
@@ -352,7 +350,7 @@ export const TestInterfaceBase = ({
   useEffect(() => {
     if (showResults && user && !resultSaved && variant > 0) {
       const stats = getTestStats();
-      const timeTaken = Math.min(Math.floor((Date.now() - testStartTime) / 1000), timeLimit);
+      const timeTaken = getElapsedTestSeconds(testStartTime, timeLimit);
       // Pass sessionId + isPremiumSession so backend enforces access at submit time
       saveTestResult(variant, stats.correct, totalQuestions, timeTaken, sessionId, isPremiumSession);
       setResultSaved(true);
@@ -363,7 +361,7 @@ export const TestInterfaceBase = ({
   // Show results screen
   if (showResults) {
     const stats = getTestStats();
-    const timeTaken = Math.min(Math.floor((Date.now() - testStartTime) / 1000), timeLimit);
+    const timeTaken = getElapsedTestSeconds(testStartTime, timeLimit);
     exitFullscreen();
     
     return (

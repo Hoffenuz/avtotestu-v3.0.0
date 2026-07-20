@@ -11,10 +11,12 @@ import { QuestionNavigation } from "./QuestionNavigation";
 import { TestResults } from "./TestResults";
 import { useLanguage } from "@/contexts/LanguageContext";
 import {
+  getElapsedTestSeconds,
   getInitialTimeRemaining,
   getInitialStartedAt,
   getSavedTestState,
   clearTestState,
+  formatTestTime,
 } from "@/lib/testPersistence";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -224,11 +226,7 @@ export const TestInterfaceCombined = ({
     } catch { /* ignore quota errors */ }
   }, [questions, currentQuestion, selectedAnswers, correctAnswers, revealedQuestions, showResults, storageKey, testStartTime]);
 
-  const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-  };
+  const formatTime = (seconds: number) => formatTestTime(seconds);
 
   const totalQuestions = questions.length;
   const question = questions[currentQuestion - 1];
@@ -339,7 +337,7 @@ export const TestInterfaceCombined = ({
 
   if (showResults) {
     const stats = getTestStats();
-    const timeTaken = Math.floor((Date.now() - testStartTime) / 1000);
+    const timeTaken = getElapsedTestSeconds(testStartTime, timeLimit);
     exitFullscreen();
     
     return (

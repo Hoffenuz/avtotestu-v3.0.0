@@ -91,7 +91,7 @@ function writeDesktopPage() {
       <li>Tez va barqaror mahalliy ilova</li>
       <li>1200+ savollar bazasi (PRO litsenziya bilan)</li>
     </ul>
-    <p style="margin-top:24px"><a href="/desktop" style="background:#1E2350;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:700">Ilovani yuklab olish</a></p>
+    <p style="margin-top:24px"><a href="https://pub-ad116decdc154b0f90a4b452c72fa433.r2.dev/ilova/Avtotestlar.uz-Setup.exe" style="background:#1E2350;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:700">Ilovani yuklab olish (.exe)</a></p>
     <p style="margin-top:16px;font-size:14px;color:#64748b">Mobil qurilmada bu sahifadan yuklab olish mumkin emas — kompyuter yoki noutbukdan kiring.</p>
   </div>
 </body>

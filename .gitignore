@@ -60,6 +60,19 @@ variants-sync-*.report.json
 scripts/question-tools/ru_all_audit.json
 scripts/question-tools/_patch-paths.cjs
 
+# Local-only SEO/content tooling dumps (not needed for deploy)
+# Keep: generate-*.cjs/js, build-belgilar-i18n.cjs, question-tools/, package.json scripts
+scripts/_img-check/
+scripts/_*
+scripts/ru-batches/
+scripts/*-REPORT.md
+scripts/*-report.json
+scripts/LETTER-MISMATCH*
+scripts/VARIANTS-MANUAL*
+scripts/FIX-REPORT*
+scripts/SYNC-MATCHED-FROM-REPORT.md
+scripts/*-cache.json
+
 # Redundant / platform-specific files
 bun.lock
 netlify.toml

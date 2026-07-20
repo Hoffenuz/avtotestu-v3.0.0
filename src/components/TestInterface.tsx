@@ -6,7 +6,9 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useTestResults } from "@/hooks/useTestResults";
 import {
+  getElapsedTestSeconds,
   getInitialTimeRemaining,
+  formatTestTime,
   getInitialStartedAt,
   getSavedTestState,
   clearTestState,
@@ -366,11 +368,7 @@ export const TestInterface = ({
     }
   }, [questions, currentQuestion, selectedAnswers, correctAnswers, revealedQuestions, showResults, storageKey, testStartTime]);
 
-  const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-  };
+  const formatTime = (seconds: number) => formatTestTime(seconds);
 
   const totalQuestions = questions.length || 20;
   const question = questions[currentQuestion - 1];
@@ -482,7 +480,7 @@ export const TestInterface = ({
   useEffect(() => {
     if (showResults && user && !resultSaved) {
       const stats = getTestStats();
-      const timeTaken = Math.floor((Date.now() - testStartTime) / 1000);
+      const timeTaken = getElapsedTestSeconds(testStartTime, 30 * 60);
       saveTestResult(variant, stats.correct, totalQuestions, timeTaken, sessionId, isPremiumSession);
       setResultSaved(true);
     }
@@ -492,7 +490,7 @@ export const TestInterface = ({
   // Show results screen
   if (showResults) {
     const stats = getTestStats();
-    const timeTaken = Math.floor((Date.now() - testStartTime) / 1000);
+    const timeTaken = getElapsedTestSeconds(testStartTime, 30 * 60);
     exitFullscreen();
     
     return (

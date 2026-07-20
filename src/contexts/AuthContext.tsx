@@ -77,6 +77,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const accessFetchSeqRef = useRef(0);
   /** Last successful RPC confirmation — used so flaky network doesn't strip PRO mid-session. */
   const accessConfirmedRef = useRef(false);
+  /** User clicked Chiqish — ignore SIGNED_OUT "session still there" recovery. */
+  const signingOutRef = useRef(false);
 
   const clearAccessState = useCallback(() => {
     accessFetchSeqRef.current++; // invalidate any in-flight fetch
@@ -207,6 +209,16 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           if (event === 'INITIAL_SESSION') return;
 
           if (event === 'SIGNED_OUT') {
+            // Intentional logout: never re-hydrate session (that made Chiqish feel stuck).
+            if (signingOutRef.current) {
+              setSession(null);
+              setUser(null);
+              setProfile(null);
+              clearAccessState();
+              clearAllUserData();
+              setIsLoading(false);
+              return;
+            }
             // Another tab may have just rotated tokens and written a fresh
             // session to shared localStorage. Confirm before wiping — otherwise
             // a failed refresh in tab B deletes tab A's valid session.
@@ -383,18 +395,28 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const signOut = useCallback(async () => {
-    try {
-      // local: faqat shu qurilma. global boshqa telefon/kompyuterdagi sessiyani ham
-      // bekor qilardi — foydalanuvchi "akkauntdan otib ketdi" deb hisoblagan.
-      await supabase.auth.signOut({ scope: 'local' });
-    } catch (err) {
-      if (!import.meta.env.PROD) console.error('Sign out error:', err);
-    }
+    signingOutRef.current = true;
+    // UI darhol chiqsin — tarmoq kutishiga bog'lanmasin
     clearAllUserData();
     setUser(null);
     setSession(null);
     setProfile(null);
     clearAccessState();
+    setIsLoading(false);
+    try {
+      // local: faqat shu qurilma. Timeout: sekin tarmoqda tugma "qotib" qolmasin.
+      await Promise.race([
+        supabase.auth.signOut({ scope: 'local' }),
+        new Promise<void>((resolve) => setTimeout(resolve, 1500)),
+      ]);
+    } catch (err) {
+      if (!import.meta.env.PROD) console.error('Sign out error:', err);
+    } finally {
+      clearAllUserData();
+      window.setTimeout(() => {
+        signingOutRef.current = false;
+      }, 800);
+    }
   }, [clearAccessState]);
 
   // ── Context value ──────────────────────────────────────────────────────────

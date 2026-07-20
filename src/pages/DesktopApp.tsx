@@ -15,10 +15,10 @@ import {
   Smartphone,
 } from "lucide-react";
 import {
+  DESKTOP_APP_DOWNLOAD_URL,
   DESKTOP_APP_FILENAME,
   DESKTOP_APP_SIZE_MB,
   isMobileDevice,
-  triggerDesktopAppDownload,
 } from "@/lib/desktopApp";
 
 const perks = [
@@ -134,12 +134,17 @@ export default function DesktopApp() {
 
                 <Button
                   size="lg"
-                  type="button"
-                  onClick={triggerDesktopAppDownload}
+                  asChild
                   className="w-full gap-2 text-base py-6 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold shadow-md shadow-emerald-600/20 border-0"
                 >
-                  <Download className="w-5 h-5" />
-                  Yuklab olish
+                  <a
+                    href={DESKTOP_APP_DOWNLOAD_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Download className="w-5 h-5" />
+                    Yuklab olish
+                  </a>
                 </Button>
 
                 <div className="mt-4 space-y-2 text-center">

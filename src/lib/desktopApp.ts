@@ -12,12 +12,17 @@ export const DESKTOP_APP_DOWNLOAD_URL =
 export const DESKTOP_APP_FILENAME = "Avtotestlar.uz-Setup.exe";
 export const DESKTOP_APP_SIZE_MB = 131;
 
+/**
+ * Cross-origin R2 da `<a download>` ishlamaydi — brauzer atributni e'tiborsiz qoldiradi.
+ * To'g'ridan-to'g'ri URL ochiladi / yuklab olinadi.
+ */
 export function triggerDesktopAppDownload() {
-  const link = document.createElement("a");
-  link.href = DESKTOP_APP_DOWNLOAD_URL;
-  link.download = DESKTOP_APP_FILENAME;
-  link.rel = "noopener noreferrer";
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  if (typeof window === "undefined") return;
+  const a = document.createElement("a");
+  a.href = DESKTOP_APP_DOWNLOAD_URL;
+  a.rel = "noopener noreferrer";
+  a.target = "_blank";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
 }

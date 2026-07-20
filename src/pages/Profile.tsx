@@ -30,6 +30,8 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { DeviceLicenseCard } from '@/components/DeviceLicenseCard';
+import { formatTestTime } from '@/lib/testPersistence';
+
 interface TestResult {
   id: string;
   variant: number;
@@ -187,9 +189,16 @@ useEffect(() => {
     fetchResults();
   }, [user]);
 
+  const [signingOut, setSigningOut] = useState(false);
+
   const handleSignOut = async () => {
-    await signOut();
-    navigate('/auth');
+    if (signingOut) return;
+    setSigningOut(true);
+    try {
+      await signOut();
+    } finally {
+      navigate('/auth', { replace: true });
+    }
   };
 
   const handleSaveProfile = async () => {
@@ -227,9 +236,7 @@ useEffect(() => {
 
   const formatTime = (seconds: number | null) => {
     if (!seconds) return '--:--';
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    return formatTestTime(seconds);
   };
 
   // Group results by variant and get best score for each
@@ -283,10 +290,11 @@ useEffect(() => {
               variant="outline"
               size="sm"
               onClick={handleSignOut}
-              className="bg-white text-black border-white hover:bg-gray-100"
+              disabled={signingOut}
+              className="bg-white text-black border-white hover:bg-gray-100 disabled:opacity-70"
             >
               <LogOut className="w-4 h-4 mr-2" />
-              Chiqish
+              {signingOut ? 'Chiqilmoqda…' : 'Chiqish'}
             </Button>
           </div>
           

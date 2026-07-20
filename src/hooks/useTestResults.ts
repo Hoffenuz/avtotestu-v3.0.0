@@ -1,6 +1,7 @@
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
 import { useState, useEffect, useCallback } from 'react';
+import { clampTestTimeSeconds } from '@/lib/testPersistence';
 
 interface VariantResult {
   variant: number;
@@ -84,8 +85,8 @@ export const useTestResults = () => {
       if (!import.meta.env.PROD) console.error('Invalid correct_answers:', correctAnswers);
       return { success: false, error: 'Invalid score' };
     }
-    // Clamp time rather than reject — network delays can cause slight overrun
-    const clampedTime = Math.min(7200, Math.max(0, Math.round(timeTakenSeconds ?? 0)));
+    // Never store more than 60:59 (stale startedAt / abandoned tabs)
+    const clampedTime = clampTestTimeSeconds(timeTakenSeconds ?? 0);
 
     try {
       const { data, error } = await supabase.rpc('verify_and_save_test_result', {

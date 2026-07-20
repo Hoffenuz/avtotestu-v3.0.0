@@ -6,9 +6,12 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useTestResults } from "@/hooks/useTestResults";
 import {
+  getElapsedTestSeconds,
   getInitialTimeRemaining,
   getInitialStartedAt,
   clearTestState,
+  formatTestTime,
+  MAX_TEST_TIME_SECONDS,
 } from "@/lib/testPersistence";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -346,11 +349,7 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
     }
   }, [questions, currentQuestion, selectedAnswers, correctAnswers, revealedQuestions, showResults, storageKey, testStartTime]);
 
-  const formatTime = (seconds: number) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-  };
+  const formatTime = (seconds: number) => formatTestTime(seconds);
 
   const totalQuestions = questions.length;
   const question = questions[currentQuestion - 1];
@@ -427,7 +426,7 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
     // Save result before showing results screen
     let correct = 0;
     Object.values(correctAnswers).forEach(isCorrect => { if (isCorrect) correct++; });
-    const timeTaken = Math.min(Math.floor((Date.now() - testStartTime) / 1000), 60 * 60);
+    const timeTaken = getElapsedTestSeconds(testStartTime, MAX_TEST_TIME_SECONDS);
     saveTestResult(
       parseInt(topicId, 10) || 0,
       correct,
@@ -455,7 +454,7 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
   // Show results screen
   if (showResults) {
     const stats = getTestStats();
-    const timeTaken = Math.min(Math.floor((Date.now() - testStartTime) / 1000), 60 * 60);
+    const timeTaken = getElapsedTestSeconds(testStartTime, MAX_TEST_TIME_SECONDS);
     exitFullscreen();
     
     return (
