@@ -31,6 +31,15 @@
 /barcha.json
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
+/barcha-uz-lat.json
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/barcha-uz-cyr.json
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/barcha-ru.json
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
 /700baza.json
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
@@ -41,6 +50,12 @@
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
 /data/variants/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/mavzuli2/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/data/belgilar.json
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
 # ---------------------------------------------------------------------------

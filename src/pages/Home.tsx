@@ -80,7 +80,7 @@ export default function Home() {
               {t("home.badge")}
             </div>
 
-            <h1 className="text-3xl md:text-5xl font-bold text-primary-foreground mb-4 leading-tight drop-shadow-sm" style={{ fontFamily: "'Segoe UI', system-ui, -apple-system, sans-serif" }}>
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary-foreground mb-4 leading-tight drop-shadow-sm" style={{ fontFamily: "'Segoe UI', system-ui, -apple-system, sans-serif" }}>
               {t("home.heroTitle")}
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto leading-relaxed">
@@ -126,9 +126,9 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Mavzuli testlar — faqat kirgan userlar uchun */}
+              {/* Mavzuli testlar — faqat desktop + kirgan userlar (mobilda hero band qilmasin) */}
               {user && (
-                <div className="relative w-full md:w-auto">
+                <div className="relative hidden md:block md:w-auto">
                   <span className="absolute -top-2 -right-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full z-10 shadow-sm">
                     {t("common.pro")}
                   </span>
@@ -182,102 +182,76 @@ export default function Home() {
 
       {/* Profile Section - Only for logged in users */}
       {user && (
-        <section className="py-12 bg-secondary/30">
+        <section className="py-10 md:py-12 bg-background border-t border-border">
           <div className="max-w-4xl mx-auto px-4">
-            <Card className="border border-muted shadow-sm overflow-hidden rounded-2xl">
-              <CardContent className="p-0">
-                <div className="bg-primary p-6 text-center">
-                  <Avatar className="h-20 w-20 mx-auto mb-4 bg-gradient-to-br from-amber-500 to-orange-600 border-4 border-white/20 shadow-md" style={{ aspectRatio: '1' }}>
-                    <AvatarFallback className="bg-transparent text-white text-2xl font-bold">
-                      {getInitials(profile?.full_name || profile?.username)}
-                    </AvatarFallback>
-                  </Avatar>
-                  <h3 className="text-2xl font-bold text-primary-foreground" style={{ fontFamily: "'Segoe UI', system-ui, -apple-system, sans-serif" }}>
-                    {profile?.full_name || profile?.username || t("nav.user")}
-                  </h3>
-                  {profile?.username && (
-                    <p className="text-primary-foreground/80 mt-1">@{profile.username}</p>
-                  )}
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-6">
+              <Avatar className="h-14 w-14 bg-primary/10 text-primary shrink-0" style={{ aspectRatio: "1" }}>
+                <AvatarFallback className="bg-primary/10 text-primary text-lg font-semibold">
+                  {getInitials(profile?.full_name || profile?.username)}
+                </AvatarFallback>
+              </Avatar>
+              <div className="min-w-0 flex-1">
+                <h3 className="text-xl font-semibold text-foreground truncate">
+                  {profile?.full_name || profile?.username || t("nav.user")}
+                </h3>
+                {profile?.username && (
+                  <p className="text-sm text-muted-foreground truncate">@{profile.username}</p>
+                )}
+              </div>
+              {isPremium && (
+                <div className="flex items-center gap-2 text-sm text-muted-foreground sm:ml-auto">
+                  <Crown className="w-4 h-4" />
+                  <span>{t("home.proStatusActive")}</span>
                 </div>
-                <div className="p-4 bg-card">
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                    {[
-                      { icon: User, label: t("home.profileProfil"), nav: "/profile" },
-                      { icon: BarChart3, label: t("home.profileStatistika"), nav: "/profile" },
-                      { icon: BookOpen, label: t("home.profileDarslik"), nav: "/darslik" },
-                      { icon: Settings, label: t("home.profileSozlamalar"), nav: "/profile" }
-                    ].map((item, idx) => (
-                      <Button
-                        key={idx}
-                        variant="outline"
-                        className="flex flex-col items-center gap-2 h-auto py-4 rounded-xl hover:bg-muted/50 transition-all border-muted/80 hover:border-primary/30 group"
-                        onClick={() => navigate(item.nav)}
-                      >
-                        <item.icon className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
-                        <span className="text-sm font-medium">{item.label}</span>
-                      </Button>
-                    ))}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+              )}
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+              {[
+                { icon: User, label: t("home.profileProfil"), nav: "/profile" },
+                { icon: BarChart3, label: t("home.profileStatistika"), nav: "/profile" },
+                { icon: BookOpen, label: t("home.profileDarslik"), nav: "/darslik" },
+                { icon: Settings, label: t("home.profileSozlamalar"), nav: "/profile" },
+              ].map((item, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  className="flex items-center gap-2.5 px-3 py-3 rounded-lg border border-border bg-card text-left hover:bg-muted/40 transition-colors"
+                  onClick={() => navigate(item.nav)}
+                >
+                  <item.icon className="w-4 h-4 text-muted-foreground shrink-0" />
+                  <span className="text-sm font-medium text-foreground">{item.label}</span>
+                </button>
+              ))}
+            </div>
           </div>
         </section>
       )}
 
-      {/* PRO Section — sodda, rangsiz fon */}
+      {/* PRO Section — sodda */}
       {!(user && isPremium) && (
-        <section className="py-10 md:py-12 bg-muted/40 border-y border-border">
+        <section className="py-10 md:py-12 bg-muted/30 border-t border-border">
           <div className="max-w-4xl mx-auto px-4">
-            <div className="rounded-2xl border border-border bg-card shadow-sm p-6 md:p-8">
-                <div className="flex flex-col md:flex-row items-start gap-4 sm:gap-6">
-                  {/* Icon */}
-                  <div className="flex-shrink-0">
-                    <div className="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-muted flex items-center justify-center border border-border">
-                      <Crown className="w-7 h-7 md:w-8 md:h-8 text-foreground/70" />
-                    </div>
-                  </div>
-
-                  {/* Text */}
-                  <div className="flex-1 text-left md:text-left">
-                    <span className="inline-block text-[10px] sm:text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-2">
-                      PRO
-                    </span>
-                    <h2 className="text-lg sm:text-2xl md:text-3xl font-bold text-foreground mb-2 leading-tight" style={{ fontFamily: "'Segoe UI', system-ui, -apple-system, sans-serif" }}>
-                      {t("home.proSectionTitle")}
-                    </h2>
-                    <p className="text-muted-foreground leading-relaxed text-xs sm:text-sm md:text-base max-w-xl">
-                      {t("home.proSectionDesc")}
-                    </p>
-
-                    <div className="mt-5">
-                      <Link to="/pro">
-                        <Button size="lg" className="font-semibold gap-2">
-                          <Zap className="w-4 h-4" />
-                          <span>{t("home.proGetButton")}</span>
-                        </Button>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+              <div className="flex-1">
+                <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground mb-1">PRO</p>
+                <h2 className="text-xl md:text-2xl font-semibold text-foreground mb-1.5">
+                  {t("home.proSectionTitle")}
+                </h2>
+                <p className="text-sm text-muted-foreground max-w-xl">
+                  {t("home.proSectionDesc")}
+                </p>
+              </div>
+              <Link to="/pro" className="shrink-0">
+                <Button size="lg" className="font-semibold gap-2 w-full sm:w-auto">
+                  <Zap className="w-4 h-4" />
+                  <span>{t("home.proGetButton")}</span>
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
       )}
-
-      {/* PRO Active status for subscribers */}
-      {user && isPremium && (
-        <section className="py-8 bg-gradient-to-r from-secondary to-secondary/50 border-y border-muted">
-          <div className="max-w-4xl mx-auto px-4 flex justify-center">
-            <div className="flex items-center gap-3 bg-yellow-500/10 border border-yellow-500/30 rounded-xl px-6 py-4">
-              <Crown className="w-6 h-6 text-amber-500" />
-              <span className="font-semibold text-foreground text-lg">{t("home.proStatusActive")}</span>
-            </div>
-          </div>
-        </section>
-      )}
-
-
     </MainLayout>
   );
 }

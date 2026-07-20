@@ -22,9 +22,10 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { Clock, ChevronLeft, ChevronRight, X, Check, Maximize, Minimize, SkipForward, Moon, Sun } from "lucide-react";
+import { Clock, ChevronRight, X, Check, Maximize, Minimize, SkipForward, Moon, Sun } from "lucide-react";
 import { ImageLightbox } from "./ImageLightbox";
 import { QuestionImageBlock } from "./QuestionImageBlock";
+import { IzohNavButton } from "./IzohBox";
 import { useDarkMode } from "@/hooks/useDarkMode";
 
 interface QuestionData {
@@ -56,6 +57,7 @@ interface Question {
   image?: string;
   correctAnswer: number;
   answers: { id: number; text: string }[];
+  izoh?: string;
 }
 
 /** Shape of a single answer option inside a task's language content */
@@ -75,6 +77,7 @@ interface TaskLangContent {
 interface RawTask {
   media_url?: string;
   content?: Record<string, TaskLangContent>;
+  izoh?: { uz_lat?: string; uz_cyr?: string; ru?: string } | string;
 }
 
 interface MavzuliTestInterfaceProps {
@@ -167,7 +170,13 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
           filename = '34tengaxamiyatli.json';
         }
 
-        const dataPath = topicId === '31' ? '/barcha.json' : `/mavzuli2/${filename}`;
+        const barchaByLang =
+          questionLang === 'oz'
+            ? '/barcha-uz-lat.json'
+            : questionLang === 'uz'
+              ? '/barcha-uz-cyr.json'
+              : '/barcha-ru.json';
+        const dataPath = topicId === '31' ? barchaByLang : `/mavzuli2/${filename}`;
         const response = await fetch(dataPath);
         
         if (!response.ok) {
@@ -197,12 +206,18 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
               const path = task.media_url.replace(/^\//, "");
               image = "/images/" + path;
             }
+            const izohRaw = task.izoh;
+            const izoh =
+              typeof izohRaw === "string"
+                ? izohRaw.trim()
+                : (izohRaw?.[contentKey] || izohRaw?.uz_lat || izohRaw?.uz_cyr || izohRaw?.ru || "").trim();
             return {
               id: idx + 1,
               text: langContent.text || "",
               image,
               correctAnswer,
               answers: langContent.options.map((o: TaskOption) => ({ id: o.id, text: o.text })),
+              izoh: izoh || undefined,
             };
           });
           parsedQuestions = tQuestions;
@@ -367,9 +382,10 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
       if (autoAdvanceTimeoutRef.current) {
         clearTimeout(autoAdvanceTimeoutRef.current);
       }
+      const delay = 1100;
       autoAdvanceTimeoutRef.current = setTimeout(() => {
         setCurrentQuestion(prev => Math.min(totalQuestions, prev + 1));
-      }, 1100);
+      }, delay);
     }
   };
 
@@ -588,12 +604,12 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
           </div>
 
           {/* Desktop: 60/40 split layout */}
-          <div className="md:flex md:gap-8 md:items-start">
+          <div className="md:flex md:gap-5 md:items-start">
             {/* Left Column: Question + Answers (60%) */}
-            <div className="md:w-[60%] md:flex-shrink-0">
+            <div className="md:w-[55%] md:flex-shrink-0">
               {/* Question Text */}
               <Card className="p-4 md:p-5 bg-card border-border mb-4">
-                <p className="text-base md:text-lg font-medium text-foreground leading-relaxed">
+                <p className="text-base md:text-[15px] font-medium text-foreground leading-relaxed">
                   {question.text}
                 </p>
               </Card>
@@ -648,17 +664,18 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
                           <X className="w-4 h-4 md:w-5 md:h-5 text-white" />
                         ) : null}
                       </div>
-                      <span className="text-base md:text-base font-medium">{answer.text}</span>
+                      <span className="text-base md:text-sm font-medium">{answer.text}</span>
                     </button>
                   );
                 })}
               </div>
+
             </div>
 
             {/* Right Column: Image (Desktop only - 40%) - bosilsa kattalashadi */}
             {question.image && (
-              <div className="hidden md:block md:w-[40%] md:flex-shrink-0">
-                <Card className="p-4 bg-card border-border overflow-hidden sticky top-4">
+              <div className="hidden md:block md:w-[45%] md:flex-shrink-0">
+                <Card className="p-3 bg-card border-border overflow-hidden sticky top-4">
                   <QuestionImageBlock
                     src={question.image}
                     onZoom={() => setZoomImage(question.image!)}
@@ -673,31 +690,23 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
 
       {/* Bottom Navigation */}
       <footer className="bg-card border-t border-border px-3 py-2.5 md:px-4 md:py-3 shrink-0">
-        <div className="max-w-5xl mx-auto flex items-center justify-between gap-2">
-          <Button
-            variant="outline"
-            size="default"
-            className="h-9 px-3 md:h-10 md:px-4 text-sm"
-            disabled={currentQuestion === 1}
-            onClick={() => {
+        <div className="max-w-5xl mx-auto flex items-center justify-between gap-1.5 sm:gap-2">
+          <IzohNavButton
+            key={`izoh-${currentQuestion}`}
+            text={question?.izoh}
+            title={t("test.explanation")}
+            emptyText={t("test.noExplanation")}
+            isDark={isDark}
+            onOpen={() => {
               if (autoAdvanceTimeoutRef.current) {
                 clearTimeout(autoAdvanceTimeoutRef.current);
               }
-              setCurrentQuestion(prev => Math.max(1, prev - 1));
             }}
-          >
-            <ChevronLeft className="w-4 h-4 mr-1" />
-            {t("test.previous")}
-          </Button>
-          
-          <div className="text-xs md:text-sm text-muted-foreground text-center">
-            <span className="font-medium text-primary">{Object.keys(selectedAnswers).length}</span>
-            <span> / {totalQuestions}</span>
-          </div>
+          />
 
           <Button
             size="default"
-            className="h-9 px-3 md:h-10 md:px-4 text-sm"
+            className="h-9 px-2.5 sm:px-3 md:h-10 md:px-4 text-sm shrink-0"
             disabled={currentQuestion === totalQuestions}
             onClick={() => {
               if (autoAdvanceTimeoutRef.current) {
@@ -706,8 +715,8 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
               setCurrentQuestion(prev => Math.min(totalQuestions, prev + 1));
             }}
           >
-            {t("test.next")}
-            <ChevronRight className="w-4 h-4 ml-1" />
+            <span className="max-[340px]:hidden">{t("test.next")}</span>
+            <ChevronRight className="w-4 h-4 ml-0.5 sm:ml-1" />
           </Button>
         </div>
       </footer>

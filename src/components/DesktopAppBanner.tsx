@@ -28,7 +28,7 @@ export function DesktopAppBanner() {
   if (!visible) return null;
 
   return (
-    <div className="hidden md:block fixed top-16 left-0 right-0 z-40 bg-emerald-50/70 backdrop-blur-md border-b border-emerald-200/40 shadow-sm">
+    <div className="hidden md:block relative z-10 bg-emerald-50/70 backdrop-blur-md border-b border-emerald-200/40">
       <div className="flex items-center gap-1 px-2 lg:px-3 py-1.5 max-w-7xl mx-auto">
         <button
           type="button"

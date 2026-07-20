@@ -27,16 +27,18 @@ const ROUTE_MAP = {
 
 function applyContentFixes(html) {
   return html
-    .replace(/40\+ test varianti/gi, "62 ta test varianti")
-    .replace(/40\+ Variant/gi, "62 ta Variant")
-    .replace(/40\+ variant/gi, "62 ta variant")
-    .replace(/40 ta variant/gi, "62 ta variant")
-    .replace(/Barcha 40\+ variant/gi, "Barcha 62 ta variant")
+    .replace(/40\+ test varianti/gi, "63 ta test varianti")
+    .replace(/40\+ Variant/gi, "63 ta Variant")
+    .replace(/40\+ variant/gi, "63 ta variant")
+    .replace(/40 ta variant/gi, "63 ta variant")
+    .replace(/Barcha 40\+ variant/gi, "Barcha 63 ta variant")
     .replace(/"numberOfItems": 300/g, '"numberOfItems": 269')
     .replace(/700\+ savol/g, "600+ bepul savol")
     .replace(/700 ta umumiy savollar/gi, "600+ ta bepul savollar")
-    .replace(/61 variant/gi, "62 ta variant")
-    .replace(/61 ta to'liq variant/gi, "62 ta to'liq variant")
+    .replace(/6[12] variant/gi, "63 ta variant")
+    .replace(/6[12] ta variant/gi, "63 ta variant")
+    .replace(/6[12] ta to'liq variant/gi, "63 ta to'liq variant")
+    .replace(/6[12] ta test varianti/gi, "63 ta test varianti")
     .replace(/Avtotestu/g, "Avtotestlar.uz")
     .replace(/og:site_name" content="Avtotestlar"/g, `og:site_name" content="${BRAND}"`);
 }

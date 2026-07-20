@@ -21,7 +21,7 @@ export function QuestionImageBlock({
   const imgClass =
     layout === "mobile"
       ? "mx-auto block w-auto max-w-full max-h-52 sm:max-h-56 object-contain rounded"
-      : "mx-auto block w-auto max-w-full max-h-60 md:max-h-64 lg:max-h-72 object-contain rounded";
+      : "mx-auto block w-auto max-w-full max-h-64 lg:max-h-72 object-contain rounded";
 
   const buttonClass =
     "flex w-full justify-center cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded";

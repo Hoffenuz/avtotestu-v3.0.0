@@ -12,7 +12,7 @@ import {
 
 export default function Variant() {
   const { user, isLoading } = useAuth();
-  const { isPremium, loading: accessLoading } = useAccessState();
+  const { isPremium, loading: accessLoading, backendConfirmed } = useAccessState();
   const { starting, startSession } = useTestSession();
 
   const variantStorageKey = user ? `variant_activeTest_${user.id}` : null;
@@ -79,16 +79,18 @@ export default function Variant() {
     } catch (e) { /* ignore */ }
   }, [variantStorageKey, testStarted, selectedVariant, dataVariant, sessionId]);
 
-  // PRO muddati tugasa yoki qulflangan variant saqlangan bo'lsa — sessiyani tozalash
+  // PRO muddati tugasa yoki qulflangan variant saqlangan bo'lsa — sessiyani tozalash.
+  // Faqat backend tasdiqlaganda: RPC fail bo'lsa isPremium=false bo'lishi mumkin —
+  // o'sha holda faol testni o'chirmaymiz (sekin internetda "chiqarib yuborish").
   useEffect(() => {
-    if (isLoading || accessLoading) return;
+    if (isLoading || accessLoading || !backendConfirmed) return;
     if (testStarted && selectedVariant !== null && isVariantLocked(selectedVariant, isPremium)) {
       setTestStarted(false);
       setSelectedVariant(null);
       setDataVariant(null);
       setSessionId(null);
     }
-  }, [isLoading, accessLoading, testStarted, selectedVariant, isPremium]);
+  }, [isLoading, accessLoading, backendConfirmed, testStarted, selectedVariant, isPremium]);
 
   if (isLoading || accessLoading) {
     return (
@@ -153,10 +155,10 @@ export default function Variant() {
   return (
     <>
       <SEO
-        title="Test variantlari — 62 ta YHQ varianti"
-        description="Haydovchilik guvohnomasi uchun 62 ta YHQ test varianti. Har birida 20 ta savol, haqiqiy imtihon formatida. Prava imtihoniga to'liq tayyorgarlik — Avtotestlar.uz."
+        title="Test variantlari — 63 ta YHQ varianti"
+        description="Haydovchilik guvohnomasi uchun 63 ta YHQ test varianti. Haqiqiy imtihon formatida. Prava imtihoniga to'liq tayyorgarlik — Avtotestlar.uz."
         path="/variant"
-        keywords="test varianti, prava test, imtihon savollari, YHQ test, 62 variant"
+        keywords="test varianti, prava test, imtihon savollari, YHQ test, 63 variant"
       />
       {starting ? (
         <div className="min-h-screen flex items-center justify-center">

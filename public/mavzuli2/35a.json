@@ -1,694 +1,1599 @@
 [
     {
         "task_info": {
-            "global_id": "t_59_q_11",
-            "ticket_num": 59,
+            "global_id": "t_62_q_6",
+            "ticket_num": 62,
             "order": 1
-        },
-        "media_url": "u1000uz.webp",
-        "content": {
-            "uz_lat": {
-                "text": "Ushbu holatda siz qanday yo'l tutishingiz kerak?",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Ovozli ishora berib, tezlikni oshiring",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Zarur bo'lganda darhol to'xtash imkoniyatini beradigan darajada tezlikni kamaytiring",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "Chapga burilib, to'siqni aylanib o'ting",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "To'xtovsiz harakatni davom ettiring",
-                        "is_correct": false
-                    }
-                ]
-            },
-            "uz_cyr": {
-                "text": "Ушбу ҳолатда сиз қандай йўл тутишингиз керак?",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Овозли ишора бериб, тезликни оширинг",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Зарур бўлганда дарҳол тўхташ имкониятини берадиган даражада тезликни камайтиринг",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "Чапга бурилиб, тўсиқни айланиб ўтинг",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "Тўхтовсиз ҳаракатни давом эттиринг",
-                        "is_correct": false
-                    }
-                ]
-            },
-            "ru": {
-                "text": "Как следует поступить в данной ситуации?",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Снизить скорость настолько, чтобы при необходимости можно было немедленно остановиться",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Подать звуковой сигнал и увеличить скорость",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "Повернуть налево и объехать препятствие",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "Продолжить движение без остановки",
-                        "is_correct": false
-                    }
-                ]
-            }
-        }
-    },
-    {
-        "task_info": {
-            "global_id": "t_59_q_12",
-            "ticket_num": 59,
-            "order": 2
-        },
-        "media_url": "u999uz.webp",
-        "content": {
-            "uz_lat": {
-                "text": "Ushbu ko'rsatilgan yo'l nechta qatnov qismiga ega?",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Bitta",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Ikkita",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "Sakkizta",
-                        "is_correct": false
-                    }
-                ]
-            },
-            "uz_cyr": {
-                "text": "Ушбу кўрсатилган йўл нечта қатнов қисмига эга?",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Битта",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Иккита",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "Саккизта",
-                        "is_correct": false
-                    }
-                ]
-            },
-            "ru": {
-                "text": "Сколько проезжих частей имеет указанная дорога?",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Одну",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Две",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "Восемь",
-                        "is_correct": false
-                    }
-                ]
-            }
-        }
-    },
-    {
-        "task_info": {
-            "global_id": "t_59_q_13",
-            "ticket_num": 59,
-            "order": 3
-        },
-        "media_url": "u1003uz.webp",
-        "content": {
-            "uz_lat": {
-                "text": "Qaysi avtomobil haydovchisi yo'l berishi kerak?",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Sariq avtomobil haydovchisi",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Yashil avtomobil haydovchisi",
-                        "is_correct": false
-                    }
-                ]
-            },
-            "uz_cyr": {
-                "text": "Қайси автомобиль ҳайдовчиси йўл бериши керак?",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Сариқ автомобиль ҳайдовчиси",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Яшил автомобиль ҳайдовчиси",
-                        "is_correct": false
-                    }
-                ]
-            },
-            "ru": {
-                "text": "Водитель какого автомобиля должен уступить дорогу?",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Водитель жёлтого автомобиля",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Водитель зелёного автомобиля",
-                        "is_correct": false
-                    }
-                ]
-            }
-        }
-    },
-    {
-        "task_info": {
-            "global_id": "t_59_q_14",
-            "ticket_num": 59,
-            "order": 4
         },
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Avtomagistrallarda yuk avtomobillariga yo'lning chetki chap qatorida harakatlanishga ruxsat etiladimi?",
+                "text": "Ikki tomonlama yo'lda harakatsiz holda bo'lgan jism bor (bo'chka, meshok, ...). Siz bu narsalarni qaysi tomonidan aylanib o'tasiz?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ruxsat etiladi.",
+                        "text": "O'ng va chap tomonidan",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Taqiqlanadi.",
+                        "text": "O'ng tomonidan",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Chap tomonidan",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Икки томонлама йўлда ҳаракатсиз ҳолда бўлган жисм бор (бўчка, мешок, ...). Сиз бу нарсаларни қайси томонидан айланиб ўтасиз?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ўнг ва чап томонидан",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ўнг томонидан",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Чап томонидан",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "На дороге с двусторонним движением находится неподвижный предмет (бочка, мешок и т.д.). С какой стороны вы объезжаете эти предметы?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "С обеих сторон (справа и слева)",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Справа",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Слева",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 10-bob. 76-bandiga asosan: 76. Agar yo‘l belgilari va chiziqlari boshqa yo‘nalishni ko‘rsatmagan bo‘lsa, haydovchilar ajratuvchi bo‘lagi bo‘lmagan ikki tomonlama harakat tashkil etilgan yo‘llardagi xavfsizlik orolchalari, ustunchalar va yo‘l inshooti qismlari (ko‘prik, yo‘l o‘tkazgich ustunlari va shunga o‘xshashlar)ni o‘ng tomondan aylanib o‘tishlari kerak.",
+            "uz_cyr": "YHQнинг 10-боб. 76-бандига асосан: 76. Агар йўл белгилари ва чизиқлари бошқа йўналишни кўрсатмаган бўлса, ҳайдовчилар ажратувчи бўлаги бўлмаган икки томонлама ҳаракат ташкил этилган йўллардаги хавфсизлик оролчалари, устунчалар ва йўл иншооти қисмлари (кўприк, йўл ўтказгич устунлари ва шунга ўхшашлар)ни ўнг томондан айланиб ўтишлари керак.",
+            "ru": "Глава 10 ООН. Согласно пункту 76: 76. Если дорожные знаки и линии не указывают иное направление, водители должны объезжать островки безопасности, столбы и части дорожных сооружений (мосты, эстакады и т.п.) на дорогах с двусторонним движением без разделительной полосы с правой стороны."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_62_q_7",
+            "ticket_num": 62,
+            "order": 2
+        },
+        "media_url": "u1019uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ushbu belgi o'rnatilgan hududda qaysi toifalarga ega avtotransport vositalari harakatlanishi mumkin?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Toza",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "O'rta",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Zararli",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ушбу белги ўрнатилган ҳудудда қайси тоифаларга ега автотранспорт воситалари ҳаракатланиши мумкин?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Тоза",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ўрта",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Зарарли",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какие категории автотранспортных средств могут двигаться в зоне, где установлен этот знак?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "«Чистые»",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "«Средние»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "«Вредные»",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 1-ILOVA 3.35 bandiga asosan: 3.35. Ekologik zona hududida «o‘rta» va «zararli» ekologik toifalarga ega avtotransport vositalari harakatlanishi taqiqlangan. \r\n3.35 belgisi ekologik zona hududiga kirishdan 150 — 300 metr oldin o‘rnatiladi.",
+            "uz_cyr": "YHQга 1-ИЛОВА 3.35 бандига асосан: 3.35. Экологик зона ҳудудида «ўрта» ва «зарарли» экологик тоифаларга эга автотранспорт воситалари ҳаракатланиши тақиқланган. \r\n3.35 белгиси экологик зона ҳудудига киришдан 150 — 300 метр олдин ўрнатилади.",
+            "ru": "Согласно п. 3.35 ПРИЛОЖЕНИЯ 1 к Общему регламенту: 3.35. Транспортным средствам, имеющим «среднюю» и «вредную» экологическую категорию, запрещено движение по экологической зоне. \r\nЗнак 3.35 устанавливается за 150-300 метров до входа в экологическую зону."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_62_q_8",
+            "ticket_num": 62,
+            "order": 3
+        },
+        "media_url": "u1021uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Yo'l-patrul xizmati xodimlari “Yo'l-patrul xizmati xodimlarining yo'l harakati qatnashchilari bilan o'zaro munosabatlari hamda maxsus moslamalardan foydalanishi tartibi to'g'risida”gi nizomga ko'ra qanday huquqlarga ega?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Yo'l transport hodisasining oldini olish va harakat xavfsizligini ta'minlash",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Maxsus tadbirlar o'tkazish",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ta'qib qilish",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Kuzatish",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Ko'rsatilgan barcha javoblar",
                         "is_correct": true
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Автомагистралларда юк автомобилларига йўлнинг четки чап қаторида ҳаракатланишга рухсат этиладими?",
+                "text": "Йўл-патрул хизмати ходимлари “Йўл-патрул хизмати ходимларининг йўл ҳаракати қатнашчилари билан ўзаро муносабатлари ҳамда махсус мосламалардан фойдаланиши тартиби тўғрисида”ги низомга кўра қандай ҳуқуқларга ега?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Рухсат этилади.",
+                        "text": "Йўл транспорт ҳодисасининг олдини олиш ва ҳаракат хавфсизлигини та'минлаш",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Тақиқланади.",
+                        "text": "Махсус тадбирлар ўтказиш",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Та'қиб қилиш",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Кузатиш",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Кўрсатилган барча жавоблар",
                         "is_correct": true
                     }
                 ]
             },
             "ru": {
-                "text": "Разрешается ли грузовым автомобилям на автомагистралях двигаться по крайней левой полосе?",
+                "text": "Какими правами обладают сотрудники дорожно-патрульной службы согласно положению об их взаимодействии с участниками дорожного движения и порядке использования специальных средств?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается.",
+                        "text": "Предотвращение дорожно-транспортных происшествий и обеспечение безопасности движения",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Запрещается.",
+                        "text": "Проведение специальных мероприятий",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Преследование",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Наблюдение",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Все перечисленные ответы",
                         "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "O‘zbekiston Respublikasi Vazirlar Mahkamasining 2018 yil 1 dekabrdagi 975-son qarori bilan tasdiqlangan, “Yo‘l-patrul xizmati xodimlarining yo‘l harakati qatnashchilari bilan o‘zaro munosabatlari hamda maxsus moslamalardan foydalanishi tartibi to‘g‘risida”gi NIZOMga asosan: YPX xodimi o‘z xizmat vazifalarini bajarishda quyidagi huquq va majburiyatlarga ega: maxsus tadbirlar o‘tkazish, transport vositasini ta’qib qilish yoki kuzatish, yo‘l-transport hodisasining oldini olish va harakat xavfsizligini ta’minlash.",
+            "uz_cyr": "Ўзбекистон Республикаси Вазирлар Маҳкамасининг 2018 йил 1 декабрдаги 975-сон қарори билан тасдиқланган, “Йўл-патрул хизмати ходимларининг йўл ҳаракати қатнашчилари билан ўзаро муносабатлари ҳамда махсус мосламалардан фойдаланиши тартиби тўғрисида”ги НИЗОМга асосан: ЙПХ ходими ўз хизмат вазифаларини бажаришда қуйидаги ҳуқуқ ва мажбуриятларга эга: махсус тадбирлар ўтказиш, транспорт воситасини таъқиб қилиш ёки кузатиш, йўл-транспорт ҳодисасининг олдини олиш ва ҳаракат хавфсизлигини таъминлаш.",
+            "ru": "Согласно ПОЛОЖЕНИЮ Кабинета Министров Республики Узбекистан от 1 декабря 2018 года № 975 «О взаимодействии сотрудников дорожно-патрульной службы с участниками дорожного движения и порядке применения специальных средств»: работник YPX при исполнении своих служебных обязанностей имеет следующие права и обязанности: проведение специальных мероприятий, преследование или слежение за транспортным средством, предотвращение дорожно-транспортного происшествия и обеспечение безопасности дорожного движения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_59_q_15",
-            "ticket_num": 59,
+            "global_id": "t_62_q_9",
+            "ticket_num": 62,
+            "order": 4
+        },
+        "media_url": "u1017uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ushbu yo'l belgisi chorrahalarda o'ngga burilayotgan relssiz transport vositalariga svetaforning qaysi ishorasida harakatlanishga ruxsat etiladi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Qizil ishorasida",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Sariq ishorasida",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Yashil ishorasida",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Ko'rsatilgan barchasida",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ушбу йўл белгиси чорраҳаларда ўнгга бурилайотган релссиз транспорт воситаларига светофорнинг қайси ишорасида ҳаракатланишга рухсат этилади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Қизил ишорасида",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Сариқ ишорасида",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Яшил ишорасида",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Кўрсатилган барчасида",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "При каком сигнале светофора разрешается движение безрельсовым транспортным средствам, поворачивающим направо на перекрёстках, при наличии этого дорожного знака?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "При красном сигнале",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "При желтом сигнале",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "При зеленом сигнале",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "При всех перечисленных",
+                        "is_correct": true
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 1-ILOVA 5.42 bandiga asosan: 5.42. «Qizil chiroqda o‘ngga harakatlanish». Transport svetofori qizil chirog‘ining o‘ng yoniga 5.42 yo‘l belgisi o‘rnatilgan bo‘lsa, transport vositalarining haydovchilari svetoforning taqiqlovchi ishorasi yonib turganda, barcha xavfsizlik choralarini ko‘rgan holda o‘ngga burilishlari mumkin. Bunda ular harakat yo‘nalishi bo‘yicha va burilayotgan ko‘chani kesib o‘tayotgan piyodalarga hamda boshqa transport vositalariga yo‘l berishlari shart.",
+            "uz_cyr": "YHQга 1-ИЛОВА 5.42 бандига асосан: 5.42. «Қизил чироқда ўнгга ҳаракатланиш». Транспорт светофори қизил чироғининг ўнг ёнига 5.42 йўл белгиси ўрнатилган бўлса, транспорт воситаларининг ҳайдовчилари светофорнинг тақиқловчи ишораси ёниб турганда, барча хавфсизлик чораларини кўрган ҳолда ўнгга бурилишлари мумкин. Бунда улар ҳаракат йўналиши бўйича ва бурилаётган кўчани кесиб ўтаётган пиёдаларга ҳамда бошқа транспорт воситаларига йўл беришлари шарт.",
+            "ru": "Согласно пункту 5.42 ПРИЛОЖЕНИЯ 1 к НХК: 5.42. «Двигаемся направо на красный свет». Если дорожный знак 5.42 установлен справа от красного света светофора, водители транспортных средств могут повернуть направо при горящем запрещающем знаке светофора, соблюдая все меры безопасности. При этом они должны уступать дорогу пешеходам и другим транспортным средствам, пересекающим поворачивающую улицу по направлению движения транспорта."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_62_q_10",
+            "ticket_num": 62,
             "order": 5
         },
-        "media_url": "u1002uz.webp",
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Tartibga soluvchining ushbu ishorasida qaysi transport vositalariga harakatlanishga ruxsat etiladi?",
+                "text": "L- toifasi bu?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yashil va oq avtomobillarga",
+                        "text": "Yuk avtomobillari",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Qizil avtomobil va YPX avtomobiliga",
-                        "is_correct": false
+                        "text": "Mototransport vositalari",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Faqat YPX avtomobiliga",
+                        "text": "Yo'lovchi tashuvchi transport vositalari",
                         "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "Hech biriga ruxsat etilmaydi",
-                        "is_correct": true
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Тартибга солувчининг ушбу ишорасида қайси транспорт воситаларига ҳаракатланишга рухсат этилади?",
+                "text": "Л- тоифаси бу?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Яшил ва оқ автомобилларга",
+                        "text": "Юк автомобиллари",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Қизил автомобиль ва ЙПХ автомобилига",
-                        "is_correct": false
+                        "text": "Мототранспорт воситалари",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Фақат ЙПХ автомобилига",
+                        "text": "Йўловчи ташувчи транспорт воситалари",
                         "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "Ҳеч бирига рухсат этилмайди",
-                        "is_correct": true
                     }
                 ]
             },
             "ru": {
-                "text": "Каким транспортным средствам разрешено движение при данном сигнале регулировщика?",
+                "text": "Что означает категория L?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Красному автомобилю и автомобилю ДПС",
+                        "text": "Грузовые автомобили",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Зелёному и белому автомобилям",
-                        "is_correct": false
+                        "text": "Мототранспортные средства",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Только автомобилю ДПС",
+                        "text": "Транспортные средства для перевозки пассажиров",
                         "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "Ни одному из них движение не разрешается",
-                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 3-ILOVA 7.22 bandi 25-xatboshiga asosan: L toifasi — mototransport vositalari.",
+            "uz_cyr": "YHQга 3-ИЛОВА 7.22 банди 25-хатбошига асосан: Л тоифаси — мототранспорт воситалари.",
+            "ru": "Согласно пункту 25 приложения 3 к 7.22: Категория Л — автомобили."
         }
     },
     {
         "task_info": {
-            "global_id": "t_59_q_16",
-            "ticket_num": 59,
+            "global_id": "t_62_q_11",
+            "ticket_num": 62,
             "order": 6
         },
-        "media_url": "u1005uz.webp",
+        "media_url": "u1013uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Ushbu belgilardan qaysi biri “Sun'iy yo'l notekisligi” deb ataladi?",
+                "text": "Ushbu yo'l nechta harakatlanish tasmasiga ega?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ikkinchi belgi",
+                        "text": "Bitta harakatlanish tasmasiga",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Har ikkala belgi",
+                        "text": "Uchta harakatlanish tasmasiga",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Birinchi belgi",
+                        "text": "Ikkita harakatlanish tasmasiga",
                         "is_correct": true
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Ушбу белгилардан қайси бири “Сунъий йўл нотекислиги” деб аталади?",
+                "text": "Ушбу йўл нечта ҳаракатланиш тасмасига ега?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Иккинчи белги",
+                        "text": "Битта ҳаракатланиш тасмасига",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Ҳар иккала белги",
+                        "text": "Учта ҳаракатланиш тасмасига",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Биринчи белги",
+                        "text": "Иккита ҳаракатланиш тасмасига",
                         "is_correct": true
                     }
                 ]
             },
             "ru": {
-                "text": "Какой из этих знаков называется “Искусственная неровность”?",
+                "text": "Сколько полос движения имеет эта дорога?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Второй знак",
+                        "text": "Одну полосу движения",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Оба знака",
+                        "text": "Три полосы движения",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Первый знак",
+                        "text": "Две полосы движения",
                         "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 1-bob. 6-band 84-xatboshiga asosan: harakatlanish tasmasi — avtomobillarning bir qator bo‘lib harakatlanishi uchun yetarlicha keng bo‘lgan, yo‘l chiziqlari bilan belgilangan yoki belgilanmagan yo‘l qatnov qismining har qanday bo‘ylama tasmasi.",
+            "uz_cyr": "YHQнинг 1-боб. 6-банд 84-хатбошига асосан: ҳаракатланиш тасмаси — автомобилларнинг бир қатор бўлиб ҳаракатланиши учун етарлича кенг бўлган, йўл чизиқлари билан белгиланган ёки белгиланмаган йўл қатнов қисмининг ҳар қандай бўйлама тасмаси.",
+            "ru": "Глава 1 YHQ. Согласно пункту 6 пункта 84: полоса движения - любая продольная полоса проезжей части, независимо от того, обозначена ли она линиями дороги, достаточно широкая для движения транспортных средств в ряду."
         }
     },
     {
         "task_info": {
-            "global_id": "t_59_q_17",
-            "ticket_num": 59,
+            "global_id": "t_62_q_12",
+            "ticket_num": 62,
             "order": 7
         },
-        "media_url": "u1004uz.webp",
+        "media_url": "u1014uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Ushbu ko'rsatilgan joyda to'xtashga ruxsat etiladimi?",
+                "text": "Bu joyda avtomobilning to'xtab turishiga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ruxsat etiladi",
-                        "is_correct": true
+                        "text": "Taqiqlanadi",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Taqiqlanadi",
-                        "is_correct": false
+                        "text": "Ruxsat etiladi",
+                        "is_correct": true
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Ушбу кўрсатилган жойда тўхташга рухсат этиладими?",
+                "text": "Бу жойда автомобилнинг тўхтаб туришига рухсат этиладими?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Рухсат этилади",
-                        "is_correct": true
+                        "text": "Тақиқланади",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Тақиқланади",
-                        "is_correct": false
+                        "text": "Рухсат этилади",
+                        "is_correct": true
                     }
                 ]
             },
             "ru": {
-                "text": "Разрешается ли остановка в указанном месте?",
+                "text": "Разрешена ли стоянка автомобиля в этом месте?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается",
-                        "is_correct": true
+                        "text": "Запрещена",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Запрещается",
-                        "is_correct": false
+                        "text": "Разрешена",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 13-bob. 88-band 2-xatboshi va 91-band 13-xatboshiga asosan: Aholi punktlarida o‘rtada tramvay yo‘li bo‘lmagan, har yo‘nalishda bittadan tasmasi bo‘lgan, shuningdek bir tomonlama harakat tashkil etilgan yo‘llarda yo‘lning chap tomonida to‘xtash va to‘xtab turishga ruxsat etiladi.\r\n91. Quyidagilarda to‘xtash taqiqlanadi: qatnov qismi kesishmalarida va kesishayotgan qatnov qismi chetiga 30 metrdan kam masofada (uch tomonlama kesishadigan chorrahalarda yondan tutashgan yo‘lning sidirg‘a chiziq yoki ajratuvchi mintaqa bilan ajratilgan qarama-qarshi tomoni bundan mustasno).",
+            "uz_cyr": "YHQнинг 13-боб. 88-банд 2-хатбоши ва 91-банд 13-хатбошига асосан: Аҳоли пунктларида ўртада трамвай йўли бўлмаган, ҳар йўналишда биттадан тасмаси бўлган, шунингдек бир томонлама ҳаракат ташкил этилган йўлларда йўлнинг чап томонида тўхташ ва тўхтаб туришга рухсат этилади.\r\n91. Қуйидагиларда тўхташ тақиқланади: қатнов қисми кесишмаларида ва кесишаётган қатнов қисми четига 30 метрдан кам масофада (уч томонлама кесишадиган чорраҳаларда ёндан туташган йўлнинг сидирға чизиқ ёки ажратувчи минтақа билан ажратилган қарама-қарши томони бундан мустасно).",
+            "ru": "Глава 13 ООН. Согласно п. 88, п. 2 и п. 91, п. 13: Разрешается останавливаться и парковаться с левой стороны дороги в населенных пунктах, где нет трамвайного пути посередине, где имеется по одной полосе движения в каждую сторону и где организовано одностороннее движение. \r\n91. Запрещается останавливаться на перекрестках проезжей части и на расстоянии менее 30 метров от края пересекающейся проезжей части (кроме противоположной стороны соседней дороги, отделенной разделительной линией или разделительной зоной на трехсторонних перекрестках)."
         }
     },
     {
         "task_info": {
-            "global_id": "t_59_q_18",
-            "ticket_num": 59,
+            "global_id": "t_62_q_13",
+            "ticket_num": 62,
             "order": 8
         },
-        "media_url": "u1012uz.webp",
+        "media_url": "u1015uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Qaysi yo'nalishlarga harakatlanishga ruxsat etiladi?",
+                "text": "Qaysi rasmda quvib o'tishning to'g'ri holati ko'rsatilgan?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Barcha yo'nalishlarga o'ngga burilish va qayrilishdan tashqari",
-                        "is_correct": true
+                        "text": "1",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Barcha yo'nalishlarga",
+                        "text": "3",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Faqat to'g'riga",
-                        "is_correct": false
+                        "text": "2 va 3",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "To'g'riga, chapga va qayrilishga",
+                        "text": "3 va 4",
                         "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Қайси йўналишларга ҳаракатланишга рухсат этилади?",
+                "text": "Қайси расмда қувиб ўтишнинг тўғри ҳолати кўрсатилган?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Барча йўналишларга ўнгга бурилиш ва қайрилишдан ташқари",
-                        "is_correct": true
+                        "text": "1",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Барча йўналишларга",
+                        "text": "3",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Фақат тўғрига",
-                        "is_correct": false
+                        "text": "2 ва 3",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Тўғрига, чапга ва қайрилишга",
+                        "text": "3 ва 4",
                         "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "В каких направлениях разрешено движение?",
+                "text": "На каком рисунке показан правильный случай обгона?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Во всех направлениях, кроме поворота направо и разворота",
-                        "is_correct": true
+                        "text": "1",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Во всех направлениях",
+                        "text": "3",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Только прямо",
-                        "is_correct": false
+                        "text": "2 и 3",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Прямо, налево и на разворот",
+                        "text": "3 и 4",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 2-ILOVA 1.1 bandi va 44-xatboshi, 1.11 bandi va 49-xatboshi hamda YHQning 12-bob. 86-band 2-xatboshiga asosan: 1.1 — qarama-qarshi yo‘nalishlarda harakatlanayotgan transport oqimlarini ajratadi. 1.1 va 1.3 chiziqlarini bosib o‘tish taqiqlanadi, qatnov qismining chetini bildirish uchun qo‘llanilgan 1.1 chizig‘i bundan mustasno.\r\n1.11 — faqat bir tomondan qayta tizilishga ruxsat etilgan yo‘l qismlarida, bir yo‘nalishdagi yoki qarama-qarshi kelayotgan transport oqimlarini ajratadi; qayrilib olish, to‘xtash maydonchalari va shunga o‘xshashlarga kirish-chiqish joylarida harakatlanish faqat bir yo‘nalishda ruxsat etilganligini ko‘rsatadi. 1.11 chizig‘ini uzuq-uzuq chiziq tomonidan, sidirg‘a chiziq tomonidan esa faqat quvib yoki aylanib o‘tishni tugatayotganda bosib o‘tishga ruxsat etiladi.\r\n86. Quvib o‘tish quyidagi hollarda taqiqlanadi: tartibga solingan chorrahalarda.",
+            "uz_cyr": "YHQга 2-ИЛОВА 1.1 банди ва 44-хатбоши, 1.11 банди ва 49-хатбоши ҳамда YHQнинг 12-боб. 86-банд 2-хатбошига асосан: 1.1 — қарама-қарши йўналишларда ҳаракатланаётган транспорт оқимларини ажратади. 1.1 ва 1.3 чизиқларини босиб ўтиш тақиқланади, қатнов қисмининг четини билдириш учун қўлланилган 1.1 чизиғи бундан мустасно.\r\n1.11 — фақат бир томондан қайта тизилишга рухсат этилган йўл қисмларида, бир йўналишдаги ёки қарама-қарши келаётган транспорт оқимларини ажратади; қайрилиб олиш, тўхташ майдончалари ва шунга ўхшашларга кириш-чиқиш жойларида ҳаракатланиш фақат бир йўналишда рухсат этилганлигини кўрсатади. 1.11 чизиғини узуқ-узуқ чизиқ томонидан, сидирға чизиқ томонидан эса фақат қувиб ёки айланиб ўтишни тугатаётганда босиб ўтишга рухсат этилади.\r\n86. Қувиб ўтиш қуйидаги ҳолларда тақиқланади: тартибга солинган чорраҳаларда.",
+            "ru": "ПРИЛОЖЕНИЕ 2 к КПЕС, пункт 1.1 и пункт 44, пункт 1.11 и пункт 49, глава 12 КПЕС. На основании абзаца 2 пункта 86: 1.1 — разделяет транспортные потоки, движущиеся в противоположных направлениях. Проезд по линиям 1.1 и 1.3 запрещен, за исключением линии 1.1, которая используется для обозначения края проезжей части. \r\n1.11 — разделяет транспортные потоки в попутном или встречном направлении на участках дороги, где допускается перестановка только в одну сторону; указывает на то, что движение разрешено только в одном направлении на входах и выходах турникетов, парковок и т.п. Линию 1.11 разрешается пересекать по кольцевой линии и по грудной линии только при обгоне или финише круга. \r\n86. Обгон запрещается в следующих случаях: на регулируемых перекрестках."
         }
     },
     {
         "task_info": {
-            "global_id": "t_59_q_19",
-            "ticket_num": 59,
+            "global_id": "t_62_q_14",
+            "ticket_num": 62,
             "order": 9
         },
-        "media_url": "u1006uz.webp",
+        "media_url": "u1016uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Mazkur joyda yo'lovchilarni tushirish yoki chiqarish uchun to'xtashga ruxsat etiladimi?",
+                "text": "Qaysi transport vositasi yo'l berishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ruxsat etiladi",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Taqiqlanadi",
+                        "text": "Yashil avtomobil",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
-                        "text": "Faqat taksi haydovchilariga ruxsat etiladi",
+                        "id": 2,
+                        "text": "Sariq avtomobil",
                         "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Мазкур жойда йўловчиларни тушириш ёки чиқариш учун тўхташга рухсат этиладими?",
+                "text": "Қайси транспорт воситаси йўл бериши керак?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Рухсат этилади",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Тақиқланади",
+                        "text": "Яшил автомобил",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
-                        "text": "Фақат такси ҳайдовчиларига рухсат этилади",
+                        "id": 2,
+                        "text": "Сариқ автомобил",
                         "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Разрешается ли в данном месте остановка для посадки или высадки пассажиров?",
+                "text": "Какое транспортное средство должно уступить дорогу?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Запрещается",
+                        "text": "Зеленый автомобиль",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
-                        "text": "Разрешается только водителям такси",
+                        "id": 2,
+                        "text": "Желти автомобиль",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 10-bob. 75-bandiga asosan: 75. Agar biror to‘siq sababli qarama-qarshi yo‘nalishlarda harakatlanish qiyin bo‘lsa, to‘siq o‘z tomonida bo‘lgan haydovchi yo‘l berishi kerak.",
+            "uz_cyr": "YHQнинг 10-боб. 75-бандига асосан: 75. Агар бирор тўсиқ сабабли қарама-қарши йўналишларда ҳаракатланиш қийин бўлса, тўсиқ ўз томонида бўлган ҳайдовчи йўл бериши керак.",
+            "ru": "Глава 10 ООН. Согласно пункту 75: 75. Если движение в встречных направлениях затруднено из-за препятствия, водитель, находящийся со стороны препятствия, должен уступить дорогу."
         }
     },
     {
         "task_info": {
-            "global_id": "t_59_q_20",
-            "ticket_num": 59,
+            "global_id": "t_62_q_15",
+            "ticket_num": 62,
             "order": 10
         },
-        "media_url": "u1007uz.webp",
+        "media_url": "u1018uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Qizil avtomobil chorrahadan nechanchi bo'lib kesib o'tadi?",
+                "text": "Ushbu ko'rsatilgan holatda qaysi transport vositasi yo'l berishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Birinchi",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Ikkinchi",
+                        "text": "Yashil avtomobil",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
-                        "text": "Uchinchi",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "Oxirgi",
+                        "id": 2,
+                        "text": "Qizil avtomobil",
                         "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Qizil автомобиль чорраҳадан нечанчи бўлиб кесиб ўтади?",
+                "text": "Ушбу кўрсатилган ҳолатда қайси транспорт воситаси йўл бериши керак?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Биринчи",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Иккинчи",
+                        "text": "Яшил автомобил",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
-                        "text": "Учинчи",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "Охирги",
+                        "id": 2,
+                        "text": "Қизил автомобил",
                         "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Каким по счёту красный автомобиль проедет перекрёсток?",
+                "text": "В показанной ситуации какое транспортное средство должно уступить дорогу?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Зеленый автомобиль",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Красный автомобиль",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 10-bob. 75-bandiga asosan: 75. Agar biror to‘siq sababli qarama-qarshi yo‘nalishlarda harakatlanish qiyin bo‘lsa, to‘siq o‘z tomonida bo‘lgan haydovchi yo‘l berishi kerak.",
+            "uz_cyr": "YHQнинг 10-боб. 75-бандига асосан: 75. Агар бирор тўсиқ сабабли қарама-қарши йўналишларда ҳаракатланиш қийин бўлса, тўсиқ ўз томонида бўлган ҳайдовчи йўл бериши керак.",
+            "ru": "Глава 10 ООН. Согласно пункту 75: 75. Если движение в встречных направлениях затруднено из-за препятствия, водитель, находящийся со стороны препятствия, должен уступить дорогу."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_62_q_16",
+            "ticket_num": 62,
+            "order": 11
+        },
+        "media_url": "u62-16.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi rasmdagi yo'l to'rtta harakatlanish tasmasiga ega?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat ikkinchi rasmda",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat uchinchi rasmda",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Barcha rasmlarda",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Faqat birinchi rasmda",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Faqat ikkinchi va uchinchi rasmda",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси расмдаги йўл тўртта ҳаракатланиш тасмасига эга?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат иккинчи расмда",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат учинчи расмда",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Барча расмларда",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Фақат биринчи расмда",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Фақат иккинчи ва учинчи расмда",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "На каком рисунке дорога имеет четыре полосы движения?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только на втором рисунке",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только на третьем рисунке",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "На всех рисунках",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Только на первом рисунке",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Только на втором и третьем рисунках",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 1-bob. 6-band 84-xatboshiga asosan: harakatlanish tasmasi — avtomobillarning bir qator bo‘lib harakatlanishi uchun yetarlicha keng bo‘lgan, yo‘l chiziqlari bilan belgilangan yoki belgilanmagan yo‘l qatnov qismining har qanday bo‘ylama tasmasi.",
+            "uz_cyr": "YHQнинг 1-боб. 6-банд 84-хатбошига асосан: ҳаракатланиш тасмаси — автомобилларнинг бир қатор бўлиб ҳаракатланиши учун етарлича кенг бўлган, йўл чизиқлари билан белгиланган ёки белгиланмаган йўл қатнов қисмининг ҳар қандай бўйлама тасмаси.",
+            "ru": "Глава 1 YHQ. Согласно пункту 6 пункта 84: полоса движения - любая продольная полоса проезжей части, независимо от того, обозначена ли она линиями дороги, достаточно широкая для движения транспортных средств в ряду."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_62_q_17",
+            "ticket_num": 62,
+            "order": 12
+        },
+        "media_url": "u62-17.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ushbu vaziyatda qaysi avtomobil haydovchisiga qayrilib olish taqiqlangan?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Har ikki haydovchilarga ruxsat etilgan",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat sariq avtomobil haydovchisiga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faqat qizil avtomobil haydovchisiga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Har ikki haydovchiga taqiqlangan",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ушбу вазиятда қайси автомобил ҳайдовчисига қайрилиб олиш тақиқланган?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ҳар икки ҳайдовчиларга рухсат этилган",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат сариқ автомобил ҳайдовчисига",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақат қизил автомобил ҳайдовчисига",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Ҳар икки ҳайдовчига тақиқланган",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В данной ситуации какому водителю запрещён разворот?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Обоим водителям разрешён",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только водителю жёлтого автомобиля",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только водителю красного автомобиля",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Обоим водителям запрещён",
+                        "is_correct": true
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 2-ILOVA 1.11 bandi va 49-xatboshi hamda YHQning 9-bob. 56-band 1-xatboshiga asosan: 1.11 — faqat bir tomondan qayta tizilishga ruxsat etilgan yo‘l qismlarida, bir yo‘nalishdagi yoki qarama-qarshi kelayotgan transport oqimlarini ajratadi; qayrilib olish, to‘xtash maydonchalari va shunga o‘xshashlarga kirish-chiqish joylarida harakatlanish faqat bir yo‘nalishda ruxsat etilganligini ko‘rsatadi. 1.11 chizig‘ini uzuq-uzuq chiziq tomonidan, sidirg‘a chiziq tomonidan esa faqat quvib yoki aylanib o‘tishni tugatayotganda bosib o‘tishga ruxsat etiladi.\r\n56. Aylanma harakatlanish tashkil qilingan chorrahalarga kirish uchun burilishdan boshqa barcha hollarda, haydovchi o‘ngga, chapga burilishi yoki qayrilib olishdan oldinroq shu yo‘nalishda harakatlanishi uchun mo‘ljallangan qatnov qismining eng chetki holatni egallashi shart.",
+            "uz_cyr": "YHQга 2-ИЛОВА 1.11 банди ва 49-хатбоши ҳамда YHQнинг 9-боб. 56-банд 1-хатбошига асосан: 1.11 — фақат бир томондан қайта тизилишга рухсат этилган йўл қисмларида, бир йўналишдаги ёки қарама-қарши келаётган транспорт оқимларини ажратади; қайрилиб олиш, тўхташ майдончалари ва шунга ўхшашларга кириш-чиқиш жойларида ҳаракатланиш фақат бир йўналишда рухсат этилганлигини кўрсатади. 1.11 чизиғини узуқ-узуқ чизиқ томонидан, сидирға чизиқ томонидан эса фақат қувиб ёки айланиб ўтишни тугатаётганда босиб ўтишга рухсат этилади.\r\n56. Айланма ҳаракатланиш ташкил қилинган чорраҳаларга кириш учун бурилишдан бошқа барча ҳолларда, ҳайдовчи ўнгга, чапга бурилиши ёки қайрилиб олишдан олдинроқ шу йўналишда ҳаракатланиши учун мўлжалланган қатнов қисмининг энг четки ҳолатни эгаллаши шарт.",
+            "ru": "1.11 и пункт 49 ПРИЛОЖЕНИЯ 2 к ЗК и главы 9 ЗК. На основании абзаца 1 пункта 56: 1.11 — разделяет транспортные потоки в попутном или встречном направлении, на участках дороги, где перепланировка допускается только в одну сторону; указывает на то, что движение разрешено только в одном направлении на входах и выходах турникетов, парковок и т.п. Линию 1.11 разрешается пересекать по кольцевой линии и по грудной линии только при обгоне или финише круга. \r\n56. Во всех случаях, за исключением поворота на въезд на перекрестки, на которых организовано круговое движение, водитель перед поворотом направо или налево обязан занять самое крайнее положение участка движения, предназначенного для движения в этом направлении."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_62_q_18",
+            "ticket_num": 62,
+            "order": 13
+        },
+        "media_url": "u62-18.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ushbu vaziyatda avtomobil haydovchisiga qaysi yo'nalishlarga harakatlanish taqiqlanadi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat 3 va 4-yo'nalishlarga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat 1-yo'nalishga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faqat 2-yo'nalishga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Faqat 1, 3 va 4-yo'nalishlarga",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 5,
+                        "text": "Faqat 3-yo'nalishga",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ушбу вазиятда автомобил ҳайдовчисига қайси йўналишларга ҳаракатланиш тақиқланади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат 3 ва 4-йўналишларга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат 1-йўналишга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақат 2-йўналишга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Фақат 1, 3 ва 4-йўналишларга",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 5,
+                        "text": "Фақат 3-йўналишга",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В данной ситуации в каких направлениях водителю автомобиля запрещено движение?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только в направлениях 3 и 4",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только в направлении 1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только в направлении 2",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Только в направлениях 1, 3 и 4",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 5,
+                        "text": "Только в направлении 3",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 1-ILOVA 3.18.1 bandi va 49-xatboshi hamda YHQning 9-bob. 56-band 1-xatboshiga asosan: 3.18.1. «O‘ngga burilish taqiqlangan». 3.18.1 va 3.18.2 belgilari qatnov qismlarining qaysi kesishmasi oldiga o‘rnatilsa, shu kesishmaga tatbiq etiladi.\r\n56. Aylanma harakatlanish tashkil qilingan chorrahalarga kirish uchun burilishdan boshqa barcha hollarda, haydovchi o‘ngga, chapga burilishi yoki qayrilib olishdan oldinroq shu yo‘nalishda harakatlanishi uchun mo‘ljallangan qatnov qismining eng chetki holatni egallashi shart.",
+            "uz_cyr": "YHQга 1-ИЛОВА 3.18.1 банди ва 49-хатбоши ҳамда YHQнинг 9-боб. 56-банд 1-хатбошига асосан: 3.18.1. «Ўнгга бурилиш тақиқланган». 3.18.1 ва 3.18.2 белгилари қатнов қисмларининг қайси кесишмаси олдига ўрнатилса, шу кесишмага татбиқ этилади.\r\n56. Айланма ҳаракатланиш ташкил қилинган чорраҳаларга кириш учун бурилишдан бошқа барча ҳолларда, ҳайдовчи ўнгга, чапга бурилиши ёки қайрилиб олишдан олдинроқ шу йўналишда ҳаракатланиши учун мўлжалланган қатнов қисмининг энг четки ҳолатни эгаллаши шарт.",
+            "ru": "ПРИЛОЖЕНИЕ 1 к УПК, пункту 3.18.1 и пункту 49, а также главе 9 УПК. На основании абзаца 1 пункта 56: 3.18.1. «Поворот направо запрещен». Знаки 3.18.1 и 3.18.2 устанавливаются на перекрестке, перед которым установлено пересечение участков движения. \r\n56. Во всех случаях, за исключением поворота на въезд на перекрестки, на которых организовано круговое движение, водитель перед поворотом направо или налево обязан занять самое крайнее положение участка движения, предназначенного для движения в этом направлении."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_62_q_19",
+            "ticket_num": 62,
+            "order": 14
+        },
+        "media_url": "u62-19.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Chorrahada harakatlanish navbatini to'g'ri belgilang:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Velosiped, sariq avtomobil, qizil avtomobil",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Velosiped, qizil avtomobil, sariq avtomobil",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Qizil avtomobil, velosiped, sariq avtomobil",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Чорраҳада ҳаракатланиш навбатини тўғри белгиланг:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Велосипед, сариқ автомобил, қизил автомобил",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Велосипед, қизил автомобил, сариқ автомобил",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Қизил автомобил, велосипед, сариқ автомобил",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Укажите правильную очерёдность проезда перекрёстка:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Велосипед, жёлтый автомобиль, красный автомобиль",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Велосипед, красный автомобиль, жёлтый автомобиль",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Красный автомобиль, велосипед, жёлтый автомобиль",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 16-bob. 104-band 1-xatboshi va 107-bandiga asosan: 104. Teng ahamiyatga ega bo‘lmagan yo‘llar kesishgan chorrahada ikkinchi darajali yo‘ldan harakatlanayotgan transport vositasining haydovchisi asosiy yo‘ldan yaqinlashayotgan transport vositalariga ularning keyingi harakatlanish yo‘nalishidan qat’iy nazar, yo‘l berishi kerak.\r\n107. Chapga burilishda yoki qayrilib olishda relssiz transport vositasining haydovchisi teng ahamiyatli yo‘ldan qarama-qarshi yo‘nalishdan to‘g‘riga yoki o‘ngga harakatlanayotgan transport vositalariga yo‘l berishi shart. Bu qoidaga tramvay haydovchilari ham o‘zaro amal qilishlari kerak.",
+            "uz_cyr": "YHQнинг 16-боб. 104-банд 1-хатбоши ва 107-бандига асосан: 104. Тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада иккинчи даражали йўлдан ҳаракатланаётган транспорт воситасининг ҳайдовчиси асосий йўлдан яқинлашаётган транспорт воситаларига уларнинг кейинги ҳаракатланиш йўналишидан қатий назар, йўл бериши керак.\r\n107. Чапга бурилишда ёки қайрилиб олишда релссиз транспорт воситасининг ҳайдовчиси тенг аҳамиятли йўлдан қарама-қарши йўналишдан тўғрига ёки ўнгга ҳаракатланаётган транспорт воситаларига йўл бериши шарт. Бу қоидага трамвай ҳайдовчилари ҳам ўзаро амал қилишлари керак.",
+            "ru": "Глава 16 ООН. В соответствии с пунктом 1 статьи 104 и статьей 107: 104. При пересечении неравных дорог водитель транспортного средства, движущегося по второстепенной дороге, обязан уступить дорогу транспортным средствам, приближающимся с основной дороги, независимо от дальнейшего направления их движения. \r\n107. При повороте налево или развороте водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, движущимся прямо или вправо с противоположного направления на дороге равного значения. Водители трамваев также должны соблюдать это правило."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_62_q_20",
+            "ticket_num": 62,
+            "order": 15
+        },
+        "media_url": "u62-20.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi avtomobil haydovchisi burilish manevrini to'g'ri bajarmoqda?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat oq avtomobil haydovchisi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Har ikki haydovchi to'g'ri bajarmoqda",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Har ikki haydovchi noto'g'ri bajarmoqda",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Faqat sariq avtomobil haydovchisi",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси автомобил ҳайдовчиси бурилиш маневрини тўғри бажармоқда?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат оқ автомобил ҳайдовчиси",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ҳар икки ҳайдовчи тўғри бажармоқда",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ҳар икки ҳайдовчи нотўғри бажармоқда",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Фақат сариқ автомобил ҳайдовчиси",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Водитель какого автомобиля правильно выполняет манёвр поворота?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только водитель белого автомобиля",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Оба водителя выполняют правильно",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Оба водителя выполняют неправильно",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Только водитель жёлтого автомобиля",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 9-bob. 56-band 1-xatboshi va 57-bandiga asosan: 56. Aylanma harakatlanish tashkil qilingan chorrahalarga kirish uchun burilishdan boshqa barcha hollarda, haydovchi o‘ngga, chapga burilishi yoki qayrilib olishdan oldinroq shu yo‘nalishda harakatlanishi uchun mo‘ljallangan qatnov qismining eng chetki holatni egallashi shart.\r\n57. Burilishni shunday amalga oshirish kerakki, bunda qatnov qismlarining kesishmasidan chiqayotgan transport vositasi qarama-qarshi yo‘nalishdagi harakatlanish tomoniga o‘tib ketmasligi kerak.\r\nO‘ngga burilishda transport vositasi iloji boricha qatnov qismining o‘ng chetiga yaqinroqda harakatlanishi kerak.",
+            "uz_cyr": "YHQнинг 9-боб. 56-банд 1-хатбоши ва 57-бандига асосан: 56. Айланма ҳаракатланиш ташкил қилинган чорраҳаларга кириш учун бурилишдан бошқа барча ҳолларда, ҳайдовчи ўнгга, чапга бурилиши ёки қайрилиб олишдан олдинроқ шу йўналишда ҳаракатланиши учун мўлжалланган қатнов қисмининг энг четки ҳолатни эгаллаши шарт.\r\n57. Бурилишни шундай амалга ошириш керакки, бунда қатнов қисмларининг кесишмасидан чиқаётган транспорт воситаси қарама-қарши йўналишдаги ҳаракатланиш томонига ўтиб кетмаслиги керак.\r\nЎнгга бурилишда транспорт воситаси иложи борича қатнов қисмининг ўнг четига яқинроқда ҳаракатланиши керак.",
+            "ru": "Глава 9 ООН. Согласно п. 56, п. 1 и п. 57: 56. Во всех случаях, кроме поворота на въезд на перекрестки, на которых организовано круговое движение, водитель перед поворотом обязан занять самое крайнее положение участка движения, предназначенного для поворота направо или налево или движения в этом направлении. \r\n57. Поворот необходимо совершать таким образом, чтобы транспортное средство, выезжающее из пересечения участков движения, не проезжало навстречу движению транспорта. \r\nПри повороте направо транспортное средство должно двигаться как можно ближе к правому краю проезжей части."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_63_q_1",
+            "ticket_num": 63,
+            "order": 16
+        },
+        "media_url": "u63-1.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ko'rsatilgan joyda sariq avtomobilga to'xtashga ruxsat etiladimi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Taqiqlanadi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ruxsat etiladi",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Кўрсатилган жойда сариқ автомобилга тўхташга рухсат этиладими?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Тақиқланади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Рухсат этилади",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Разрешена ли остановка жёлтому автомобилю в указанном месте?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Запрещена",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Разрешена",
+                        "is_correct": true
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 1-ILOVA 5.22 bandi va YHQning 13-bob. 88-band 1-xatboshiga asosan: 5.22. «Aholi punktining boshlanishi». Ushbu Qoidalarning aholi punktlarida harakatlanish tartibini belgilovchi talablariga amal qilinadigan joylarning nomi hamda uning boshlanishini bildiradi.\r\nAholi punktlarida o‘rtada tramvay yo‘li bo‘lmagan, har yo‘nalishda bittadan tasmasi bo‘lgan, shuningdek bir tomonlama harakat tashkil etilgan yo‘llarda yo‘lning chap tomonida to‘xtash va to‘xtab turishga ruxsat etiladi.",
+            "uz_cyr": "YHQга 1-ИЛОВА 5.22 банди ва YHQнинг 13-боб. 88-банд 1-хатбошига асосан: 5.22. «Аҳоли пунктининг бошланиши». Ушбу Қоидаларнинг аҳоли пунктларида ҳаракатланиш тартибини белгиловчи талабларига амал қилинадиган жойларнинг номи ҳамда унинг бошланишини билдиради.\r\nАҳоли пунктларида ўртада трамвай йўли бўлмаган, ҳар йўналишда биттадан тасмаси бўлган, шунингдек бир томонлама ҳаракат ташкил этилган йўлларда йўлнинг чап томонида тўхташ ва тўхтаб туришга рухсат этилади.",
+            "ru": "5.22 ПРИЛОЖЕНИЯ 1 к МПК и главы 13 МПК. На основании пункта 1 статьи 88: 5.22. «Начало поселения». В нем указывается наименование мест, в которых соблюдаются требования настоящих Правил, определяющие порядок движения в населенных пунктах, и его начало. \r\nРазрешается останавливаться и парковаться с левой стороны дороги в населенных пунктах, где нет трамвайного пути посередине, где имеется по одной полосе движения в каждую сторону и где организовано одностороннее движение."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_63_q_2",
+            "ticket_num": 63,
+            "order": 17
+        },
+        "media_url": "u63-2.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qayrilib olish taqiqlangan?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat 2-yo'nalish bo'yicha",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Har ikki yo'nalish bo'yicha",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faqat 1-yo'nalish bo'yicha",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайрилиб олиш тақиқланган?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат 2-йўналиш бўйича",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ҳар икки йўналиш бўйича",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақат 1-йўналиш бўйича",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Разворот запрещён?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только по направлению 2",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "По обоим направлениям",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только по направлению 1",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 1-ILOVA 3.19-bandi va 49-xatboshiga asosan: 3.19. «Qayrilish taqiqlangan».\r\n3.18.1 va 3.18.2 belgilari qatnov qismlarining qaysi kesishmasi oldiga o‘rnatilsa, shu kesishmaga tatbiq etiladi.\r\n3.19 belgisi 3.18.1 va 3.18.2 belgilari kabi faqat qatnov qismlarining qaysi kesishmasi oldiga o‘rnatilsa, shu kesishmaga tatbiq etilmasdan, butun chorrahaga ta’sir qiladi.",
+            "uz_cyr": "YHQга 1-ИЛОВА 3.19-банди ва 49-хатбошига асосан: 3.19. «Қайрилиш тақиқланган».\r\n3.18.1 ва 3.18.2 белгилари қатнов қисмларининг қайси кесишмаси олдига ўрнатилса, шу кесишмага татбиқ этилади.\r\n3.19 белгиси 3.18.1 ва 3.18.2 белгилари каби фақат қатнов қисмларининг қайси кесишмаси олдига ўрнатилса, шу кесишмага татбиқ этилмасдан, бутун чорраҳага таъсир қилади.",
+            "ru": "Согласно п.3.19 и п.49 ПРИЛОЖЕНИЯ 1 к НХК: 3.19. «Апелляция запрещена». \r\nЗнаки 3.18.1 и 3.18.2 устанавливаются на перекрестке, перед которым установлено пересечение участков движения. \r\nЗнак 3.19, как и знаки 3.18.1 и 3.18.2, устанавливается только перед любым пересечением участков движения, он влияет на весь перекресток, не распространяясь на этот перекресток."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_63_q_3",
+            "ticket_num": 63,
+            "order": 18
+        },
+        "media_url": "u63-3.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ko'rsatilgan vaziyatda yashil avtomobil qaysi tomondan aylanib o'tadi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Har ikki tomonidan ruxsat etiladi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "O'ng tomonidan",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Chap tomonidan",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Har ikki tomonidan taqiqlanadi",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Кўрсатилган вазиятда яшил автомобил қайси томондан айланиб ўтади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ҳар икки томонидан рухсат этилади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ўнг томонидан",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Чап томонидан",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Ҳар икки томонидан тақиқланади",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "С какой стороны объезжает зелёный автомобиль в показанной ситуации?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Разрешается с обеих сторон",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Справа",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Слева",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Запрещается с обеих сторон",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 2-ILOVA 1.3 bandi va 44-xatboshi hamda YHQning 11-bob. 77-band 3-xatboshiga asosan: 1.3 — to‘rt va undan ortiq harakatlanish bo‘lagi bo‘lgan yo‘llarda qarama-qarshi yo‘nalishdagi transport vositalari oqimini ajratadi. \r\n1.1 va 1.3 chiziqlarini bosib o‘tish taqiqlanadi, qatnov qismining chetini bildirish uchun qo‘llanilgan 1.1 chizig‘i bundan mustasno.\r\nHaydovchi transport vositasini boshqarish paytida aniqlay olishi mumkin bo‘lgan xavf yuzaga kelsa, u transport vositasining tezligini to‘liq to‘xtashni ta’minlaydigan darajada kamaytirishi yoki to‘siqni boshqa harakat ishtirokchilari uchun xavf tug‘dirmagan holda aylanib o‘tish choralarini ko‘rishi kerak.",
+            "uz_cyr": "YHQга 2-ИЛОВА 1.3 банди ва 44-хатбоши ҳамда YHQнинг 11-боб. 77-банд 3-хатбошига асосан: 1.3 — тўрт ва ундан ортиқ ҳаракатланиш бўлаги бўлган йўлларда қарама-қарши йўналишдаги транспорт воситалари оқимини ажратади. \r\n1.1 ва 1.3 чизиқларини босиб ўтиш тақиқланади, қатнов қисмининг четини билдириш учун қўлланилган 1.1 чизиғи бундан мустасно.\r\nҲайдовчи транспорт воситасини бошқариш пайтида аниқлай олиши мумкин бўлган хавф юзага келса, у транспорт воситасининг тезлигини тўлиқ тўхташни таъминлайдиган даражада камайтириши ёки тўсиқни бошқа ҳаракат иштирокчилари учун хавф туғдирмаган ҳолда айланиб ўтиш чораларини кўриши керак.",
+            "ru": "ПРИЛОЖЕНИЕ 2 к НПЦ, пункт 1.3 и пункт 44 и глава 11 НПЦ. На основании абзаца 3 пункта 77: 1.3 - разделяет поток транспортных средств встречного направления на дорогах с четырьмя и более полосами движения. \r\nПроезд по линиям 1.1 и 1.3 запрещен, за исключением линии 1.1, которая используется для обозначения края проезжей части. \r\nВ случае возникновения опасности, которую водитель может обнаружить во время управления транспортным средством, он обязан снизить скорость транспортного средства до уровня, обеспечивающего полную остановку, или принять меры по обходу препятствия, не создавая опасности для других участников дорожного движения."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_63_q_4",
+            "ticket_num": 63,
+            "order": 19
+        },
+        "media_url": "u63-4.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi rasmdagi avtomobil haydovchisi qoidani buzmay buriladi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "2-rasmda",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Har ikki haydovchi buzadi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Har ikki haydovchi buzmaydi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "1-rasmda",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси расмдаги автомобиль ҳайдовчиси қоидани бузмай бурилади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "2-расмда",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ҳар икки ҳайдовчи бузади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ҳар икки ҳайдовчи бузмайди",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "1-расмда",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "На каком рисунке водитель автомобиля поворачивает, не нарушая правила?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "На 2-м рисунке",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Оба водителя нарушают",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Оба водителя не нарушают",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "На 1-м рисунке",
+                        "is_correct": true
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 22-bob. 132-bandi 2 va 3 - xatboshiga asosan: Agar 5.9 yo‘l belgisi bilan belgilangan tasma qatnov qismining boshqa tasmalardan uzuq-uzuq chiziq bilan ajratilgan bo‘lsa, burilmoqchi bo‘layotgan transport vositalari bu tasmaga qayta tizilishlari kerak.\r\nShuningdek, bunday joylarda yo‘nalishli transport vositalarining harakatiga xalaqit bermaslik sharti bilan yo‘lga chiqish, qatnov qismining chetki o‘ng tomonida yo‘lovchilarni chiqarish va tushirish uchun bu bo‘lakka o‘tishga ruxsat etiladi.",
+            "uz_cyr": "YHQнинг 22-боб. 132-банди 2 ва 3 - хатбошига асосан: Агар 5.9 йўл белгиси билан белгиланган тасма қатнов қисмининг бошқа тасмалардан узуқ-узуқ чизиқ билан ажратилган бўлса, бурилмоқчи бўлаётган транспорт воситалари бу тасмага қайта тизилишлари керак.\r\nШунингдек, бундай жойларда йўналишли транспорт воситаларининг ҳаракатига халақит бермаслик шарти билан йўлга чиқиш, қатнов қисмининг четки ўнг томонида йўловчиларни чиқариш ва тушириш учун бу бўлакка ўтишга рухсат этилади.",
+            "ru": "Глава 22 ООН. Согласно абзацам 2 и 3 пункта 132: Если полоса движения, обозначенная дорожным знаком 5.9, отделена от других полос проезжей части кольцевой линией, транспортные средства, пытающиеся повернуть, должны снова выстроиться на этой полосе движения. \r\nТакже в таких местах разрешается выезжать на эту полосу для выхода и высадки пассажиров на крайней правой стороне проезжей части при условии, что они не мешают движению направленных транспортных средств."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_63_q_5",
+            "ticket_num": 63,
+            "order": 20
+        },
+        "media_url": "u63-5.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qizil avtomobil chorrahani kesib o'tadi:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Birinchi bo'lib",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Uchinchi bo'lib",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ikkinchi bo'lib",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қизил автомобиль чорраҳани кесиб ўтади:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Биринчи бўлиб",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Учинчи бўлиб",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Иккинчи бўлиб",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Красный автомобиль пересекает перекрёсток:",
                 "options": [
                     {
                         "id": 1,
@@ -697,431 +1602,441 @@
                     },
                     {
                         "id": 2,
-                        "text": "Вторым",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Третьим",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
-                        "text": "Последним",
-                        "is_correct": false
+                        "id": 3,
+                        "text": "Вторым",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 16-bob. 104-band, 105-band 1-xatboshi va 106-bandiga asosan: 104. Teng ahamiyatga ega bo‘lmagan yo‘llar kesishgan chorrahada ikkinchi darajali yo‘ldan harakatlanayotgan transport vositasining haydovchisi asosiy yo‘ldan yaqinlashayotgan transport vositalariga ularning keyingi harakatlanish yo‘nalishidan qat’i nazar, yo‘l berishi kerak.\r\nBunday chorrahalarda tramvay harakatlanish yo‘nalishidan qat’i nazar, teng ahamiyatli yo‘lda bir yo‘nalishda yoki qarama-qarshi yo‘nalishda harakatlanayotgan relssiz transport vositalariga nisbatan imtiyozga ega.\r\n105. Teng ahamiyatga ega bo‘lgan yo‘llar kesishgan chorrahada relssiz transport vositasining haydovchisi o‘ngdan yaqinlashayotgan transport vositalariga yo‘l berishi shart. Bu qoidaga tramvay haydovchilari ham o‘zaro amal qilishlari kerak.\r\n106. Asosiy yo‘lning yo‘nalishi chorrahada o‘zgarganda, asosiy yo‘lda harakatlanayotgan haydovchilar o‘zaro teng ahamiyatli yo‘llar chorrahasidan o‘tish qoidalariga amal qilishlari kerak.\r\nIkkinchi darajali yo‘llarda harakatlanayotgan haydovchilar ham o‘zaro shu qoidaga amal qilishlari kerak.",
+            "uz_cyr": "YHQнинг 16-боб. 104-банд, 105-банд 1-хатбоши ва 106-бандига асосан: 104. Тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада иккинчи даражали йўлдан ҳаракатланаётган транспорт воситасининг ҳайдовчиси асосий йўлдан яқинлашаётган транспорт воситаларига уларнинг кейинги ҳаракатланиш йўналишидан қати назар, йўл бериши керак.\r\nБундай чорраҳаларда трамвай ҳаракатланиш йўналишидан қати назар, тенг аҳамиятли йўлда бир йўналишда ёки қарама-қарши йўналишда ҳаракатланаётган релссиз транспорт воситаларига нисбатан имтиёзга эга.\r\n105. Тенг аҳамиятга эга бўлган йўллар кесишган чорраҳада релссиз транспорт воситасининг ҳайдовчиси ўнгдан яқинлашаётган транспорт воситаларига йўл бериши шарт. Бу қоидага трамвай ҳайдовчилари ҳам ўзаро амал қилишлари керак.\r\n106. Асосий йўлнинг йўналиши чорраҳада ўзгарганда, асосий йўлда ҳаракатланаётган ҳайдовчилар ўзаро тенг аҳамиятли йўллар чорраҳасидан ўтиш қоидаларига амал қилишлари керак.\r\nИккинчи даражали йўлларда ҳаракатланаётган ҳайдовчилар ҳам ўзаро шу қоидага амал қилишлари керак.",
+            "ru": "Глава 16 ООН. Согласно пункту 104, пункту 1 пункта 105 и пункту 106: 104. На пересечении дорог неравнозначного значения водитель транспортного средства, движущегося по второстепенной дороге, обязан уступить дорогу транспортным средствам, приближающимся с основной дороги, независимо от дальнейшего направления их движения. \r\nНа таких перекрестках, независимо от направления движения, трамвай имеет приоритет перед нерельсовыми транспортными средствами, движущимися в том же или встречном направлении по дороге равного значения. \r\n105. На перекрестке, где пересекаются дороги равной важности, водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, приближающимся справа. Водители трамваев также должны соблюдать это правило. \r\n106. При изменении направления главной дороги на перекрестке водители, движущиеся по главной дороге, должны соблюдать правила проезда через пересечение дорог равной важности. \r\nВодители, движущиеся по второстепенным дорогам, также должны соблюдать это правило."
         }
     },
     {
         "task_info": {
-            "global_id": "t_62_q_1",
-            "ticket_num": 62,
-            "order": 11
+            "global_id": "t_63_q_6",
+            "ticket_num": 63,
+            "order": 21
         },
-        "media_url": "u1008uz.webp",
+        "media_url": "u63-6.webp",
         "content": {
             "uz_lat": {
-                "text": "Qaysi yo'nalishlarda sizga harakatni davom ettirishga ruxsat etiladi?",
+                "text": "Qaysi transport vositasiga ko'rsatilgan yo'nalishlarda qayrilib olishga ruxsat etilgan?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat chapga",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "To'g'riga va chapga",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Chapga va orqaga qayrilib olishga",
-                        "is_correct": false
-                    }
-                ]
-            },
-            "uz_cyr": {
-                "text": "Қайси йўналишларда сизга ҳаракатни давом эттиришга рухсат этилади?",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Фақат чапга",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Тўғрига ва чапга",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Чапга ва орқага қайрилиб олишга",
-                        "is_correct": false
-                    }
-                ]
-            },
-            "ru": {
-                "text": "В каких направлениях вам разрешено продолжить движение?",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Только налево",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Прямо и налево",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Налево и на разворот",
-                        "is_correct": false
-                    }
-                ]
-            }
-        }
-    },
-    {
-        "task_info": {
-            "global_id": "t_62_q_2",
-            "ticket_num": 62,
-            "order": 12
-        },
-        "media_url": "u1011uz.webp",
-        "content": {
-            "uz_lat": {
-                "text": "Ko'k avtomobil qaysi yo'nalishlar bo'yicha harakatlanishga ruxsat etiladi?",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "To'g'riga va chapga",
+                        "text": "Sariq avtomobilga",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "To'g'riga va qayrilib olishga",
+                        "text": "Har ikkisiga taqiqlangan",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Faqat to'g'riga",
+                        "text": "Har ikkisiga ruxsat etilgan",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Faqat chapga",
+                        "text": "Qora avtomobilga",
                         "is_correct": true
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Кўк автомобиль қайси йўналишлар бўйича ҳаракатланишга рухсат этилади?",
+                "text": "Қайси транспорт воситасига кўрсатилган йўналишларда қайрилиб олишга рухсат этилган?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тўғрига ва чапга",
+                        "text": "Сариқ автомобилга",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Тўғрига ва қайрилиб олишга",
+                        "text": "Ҳар иккисига тақиқланган",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Фақат тўғрига",
+                        "text": "Ҳар иккисига рухсат этилган",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Фақат чапга",
+                        "text": "Қора автомобилга",
                         "is_correct": true
                     }
                 ]
             },
             "ru": {
-                "text": "В каких направлениях разрешено движение синему автомобилю?",
+                "text": "Какому транспортному средству разрешён разворот в указанных направлениях?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Прямо и налево",
+                        "text": "Жёлтому автомобилю",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Прямо и на разворот",
+                        "text": "Обоим запрещён",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Только прямо",
+                        "text": "Обоим разрешён",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Только налево",
+                        "text": "Чёрному автомобилю",
                         "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 1-ILOVA 5.8.2 bandi va 5. Axborot-ko‘rsatgich belgilarining 11-xatboshiga asosan: 5.8.2. «Tasma bo‘yicha harakatlanish yo‘nalishi». Tasma bo‘yicha ruxsat etilgan harakatlanish yo‘nalishi. Boshqa yo‘nalishlar bo‘yicha harakatlanish taqiqlanadi.\r\nYo‘lning chetki chap bo‘lagidan chapga burilishga ruxsat beruvchi 5.8.1 va 5.8.2 belgilari shu tasmadan qayrilishga ham ruxsat beradi.",
+            "uz_cyr": "YHQга 1-ИЛОВА 5.8.2 банди ва 5. Ахборот-кўрсатгич белгиларининг 11-хатбошига асосан: 5.8.2. «Тасма бўйича ҳаракатланиш йўналиши». Тасма бўйича рухсат этилган ҳаракатланиш йўналиши. Бошқа йўналишлар бўйича ҳаракатланиш тақиқланади.\r\nЙўлнинг четки чап бўлагидан чапга бурилишга рухсат берувчи 5.8.1 ва 5.8.2 белгилари шу тасмадан қайрилишга ҳам рухсат беради.",
+            "ru": "В соответствии с пунктом 5.8.2 ПРИЛОЖЕНИЯ 1 к Стандарту и 5. Пунктом 11 информационно-указательных знаков: 5.8.2. «Направление движения по ленте». Разрешенное направление движения по полосе. Движение в других направлениях запрещено. \r\nЗнаки 5.8.1 и 5.8.2, разрешающие поворот налево из крайней левой полосы дороги, разрешают и поворот с этой полосы."
         }
     },
     {
         "task_info": {
-            "global_id": "t_62_q_3",
-            "ticket_num": 62,
-            "order": 13
+            "global_id": "t_63_q_7",
+            "ticket_num": 63,
+            "order": 22
         },
-        "media_url": "u1009uz.webp",
+        "media_url": "u63-7.webp",
         "content": {
             "uz_lat": {
-                "text": "Oq avtomobil qaysi yo'nalishga harakatlanishga ruxsat etiladi?",
+                "text": "Qaysi rasmdagi piyoda qatnov qismini qoidani buzgan holda kesib o'tadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Harakatlanish taqiqlanadi",
-                        "is_correct": false
+                        "text": "Uchinchi rasmda",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "To'g'riga, chapga va orqaga qayrilishga",
+                        "text": "Ikkinchi rasmda",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "To'g'riga va chapga",
+                        "text": "Ikkinchi va uchinchi rasmlarda",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Faqat to'g'riga",
-                        "is_correct": true
-                    }
-                ]
-            },
-            "uz_cyr": {
-                "text": "Оқ автомобиль қайси йўналишга ҳаракатланишга рухсат этилади?",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Ҳаракатланиш тақиқланади",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Тўғрига, чапга ва орқага қайрилишга",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Тўғрига ва чапга",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "Фақат тўғрига",
-                        "is_correct": true
-                    }
-                ]
-            },
-            "ru": {
-                "text": "В каком направлении разрешено движение белому автомобилю?",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Движение запрещено",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Прямо, налево и на разворот",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Прямо и налево",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "Только прямо",
-                        "is_correct": true
-                    }
-                ]
-            }
-        }
-    },
-    {
-        "task_info": {
-            "global_id": "t_62_q_4",
-            "ticket_num": 62,
-            "order": 14
-        },
-        "media_url": "",
-        "content": {
-            "uz_lat": {
-                "text": "Harakat tezligi 40 km/soatdan oshmaydigan transport vositasiga qatnov qismining o'ng qatoridan chiqishga qachon ruxsat etiladi?",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Aylanib o'tishda",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Chapga burilish yoki qayrilib olish uchun qayta tizilishda",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Barcha sanab o'tilgan hollarda",
-                        "is_correct": true
-                    }
-                ]
-            },
-            "uz_cyr": {
-                "text": "Ҳаракат тезлиги 40 км/соатдан ошмайдиган транспорт воситасига қатнов қисмининг ўнг қаторидан чиқишга қачон рухсат этилади?",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Айланиб ўтишда",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Чапга бурилиш ёки қайрилиб олиш учун қайта тизилишда",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Барча санаб ўтилган ҳолларда",
-                        "is_correct": true
-                    }
-                ]
-            },
-            "ru": {
-                "text": "Когда транспортному средству, скорость которого не превышает 40 км/ч, разрешается выезжать из правой полосы проезжей части?",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "При объезде",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "При перестроении для поворота налево или разворота",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Во всех перечисленных случаях",
-                        "is_correct": true
-                    }
-                ]
-            }
-        }
-    },
-    {
-        "task_info": {
-            "global_id": "t_62_q_5",
-            "ticket_num": 62,
-            "order": 15
-        },
-        "media_url": "u1010uz.webp",
-        "content": {
-            "uz_lat": {
-                "text": "Qaysi transport vositasi to'g'ri harakatlanmoqda?",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Oq avtomobil",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Oq va Ko'k",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "Qora",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "Barchasi noto'g'ri",
+                        "text": "Uchinchi va to'rtinchi rasmlarda",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "Barchasi to'g'ri",
+                        "text": "Ikkinchi, uchinchi va to'rtinchi rasmlarda",
                         "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Қайси транспорт воситаси тўғри ҳаракатланмоқда?",
+                "text": "Қайси расмдаги пиёда қатнов қисмини қоидани бузган ҳолда кесиб ўтади?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Оқ",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Оқ ва Кўк",
+                        "text": "Учинчи расмда",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "Иккинчи расмда",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Қора",
+                        "text": "Иккинчи ва учинчи расмларда",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Барчаси нотўғри",
+                        "text": "Учинчи ва тўртинчи расмларда",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "Барчаси тўғри",
+                        "text": "Иккинчи, учинчи ва тўртинчи расмларда",
                         "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Какое транспортное средство движется правильно?",
+                "text": "Пешеход на каком рисунке пересекает проезжую часть с нарушением правил?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Белое",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Белое и синее",
+                        "text": "На третьем рисунке",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "На втором рисунке",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Синее",
+                        "text": "На втором и третьем рисунках",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Все движутся неправильно",
+                        "text": "На третьем и четвёртом рисунках",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "Все движутся правильно",
+                        "text": "На втором, третьем и четвёртом рисунках",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 4-bob. 17-bandiga asosan: 17. Piyodalar yo‘lning qatnov qismini piyodalar o‘tish joylaridan, shuningdek, yer osti va yer usti o‘tish joylaridan, ular bo‘lmaganda esa chorrahalarda trotuar chiziqlari yoki yo‘l yoqasi bo‘ylab kesib o‘tishlari kerak.\r\nPiyodalarga ko‘rinadigan oraliqda o‘tish joyi yoki chorraha bo‘lmasa, ajratuvchi mintaqasiz va to‘siqsiz yo‘llardan yo‘lning ikki tomoni yaxshi ko‘rinadigan joyidan, qatnov qismining chetiga nisbatan to‘g‘ri burchak ostida kesib o‘tish ruxsat etiladi.",
+            "uz_cyr": "YHQнинг 4-боб. 17-бандига асосан: 17. Пиёдалар йўлнинг қатнов қисмини пиёдалар ўтиш жойларидан, шунингдек, ер ости ва ер усти ўтиш жойларидан, улар бўлмаганда эса чорраҳаларда тротуар чизиқлари ёки йўл ёқаси бўйлаб кесиб ўтишлари керак.\r\nПиёдаларга кўринадиган оралиқда ўтиш жойи ёки чорраҳа бўлмаса, ажратувчи минтақасиз ва тўсиқсиз йўллардан йўлнинг икки томони яхши кўринадиган жойидан, қатнов қисмининг четига нисбатан тўғри бурчак остида кесиб ўтиш рухсат этилади.",
+            "ru": "Глава 4 ООН. Согласно пункту 17: 17. Пешеходы обязаны пересекать проезжую часть дороги через пешеходные переходы, а также подземные и эстакады, а при их отсутствии на перекрестках по линиям тротуара или обочине дороги. \r\nПешеходам разрешается переходить дорогу без разделительной зоны и без препятствий с места, где хорошо просматриваются обе стороны дороги, под прямым углом к ​​краю проезжей части, если в видимом расстоянии нет пешеходного перехода или перекрестка."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_63_q_8",
+            "ticket_num": 63,
+            "order": 23
+        },
+        "media_url": "u63-8.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Bu joyda to'xtashga ruxsat etilganmi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Taqiqlangan",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ruxsat etilgan",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Бу жойда тўхташга рухсат этилганми?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Тақиқланган",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Рухсат этилган",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Разрешена ли остановка в этом месте?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Запрещена",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Разрешена",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 2-ILOVA 1.4 bandiga asosan: 1.4 — to‘xtash taqiqlangan joyni bildiradi. Yakka holda yoki 3.27 «To‘xtash taqiqlangan» yo‘l belgisi bilan qo‘llaniladi hamda yo‘lning qatnov qismi chetiga yoki yo‘l chetidagi to‘siq ustidan chiziladi (xizmat vazifasini bajarayotgan xodimga biriktirilgan ko‘k yoki qizil yoxud ko‘k va qizil rangli yaltiroq mayoqchasi bilan jihozlangan hamda maxsus rangli bo‘yoq sxemalar va yozuvlar bilan belgilangan transport vositalari bundan mustasno).",
+            "uz_cyr": "YHQга 2-ИЛОВА 1.4 бандига асосан: 1.4 — тўхташ тақиқланган жойни билдиради. Якка ҳолда ёки 3.27 «Тўхташ тақиқланган» йўл белгиси билан қўлланилади ҳамда йўлнинг қатнов қисми четига ёки йўл четидаги тўсиқ устидан чизилади (хизмат вазифасини бажараётган ходимга бириктирилган кўк ёки қизил ёхуд кўк ва қизил рангли ялтироқ маёқчаси билан жиҳозланган ҳамда махсус рангли бўёқ схемалар ва ёзувлар билан белгиланган транспорт воситалари бундан мустасно).",
+            "ru": "Согласно пункту 1.4 ПРИЛОЖЕНИЯ 2 к ТК: 1.4 означает место, где парковка запрещена. Применяется отдельно или вместе со знаком 3.27 «Остановка запрещена» и наносится на краю проезжей части или через придорожное ограждение (за исключением транспортных средств, оборудованных синим или красным или сине-красным блестящим маячком, прикрепленным к дежурному работнику и обозначенным специальными цветовыми схемами и надписями)."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_63_q_9",
+            "ticket_num": 63,
+            "order": 24
+        },
+        "media_url": "u63-9.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi rasmda haydovchi belgi talabini buzmay to'xtadi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ikkala rasmda",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat 2-rasmda",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faqat 1-rasmda",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси расмда ҳайдовчи белги талабини бузмай тўхтади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Иккала расмда",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат 2-расмда",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақат 1-расмда",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "На каком рисунке водитель останавливается, не нарушая требования знака?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "На обоих рисунках",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только на 2-м рисунке",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только на 1-м рисунке",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 1-ILOVA 2.5 bandiga asosan: 2.5. «To‘xtamasdan harakatlanish taqiqlangan». To‘xtash chizig‘i oldida, agar u bo‘lmasa, kesib o‘tiladigan qatnov qismining chetida to‘xtamasdan harakatlanish taqiqlanadi. Haydovchi kesib o‘tilayotgan yo‘ldan, 7.13 qo‘shimcha-axborot belgisi bo‘lganda esa asosiy yo‘ldan harakatlanayotgan transport vositalariga yo‘l berishi kerak.\r\nBu belgi temir yo‘l kesishmasi yoki karantin maskanidan oldin o‘rnatilishi mumkin. Bunday hollarda haydovchi to‘xtash chizig‘i oldida, u bo‘lmasa, belgi oldida to‘xtashi kerak.",
+            "uz_cyr": "YHQга 1-ИЛОВА 2.5 бандига асосан: 2.5. «Тўхтамасдан ҳаракатланиш тақиқланган». Тўхташ чизиғи олдида, агар у бўлмаса, кесиб ўтиладиган қатнов қисмининг четида тўхтамасдан ҳаракатланиш тақиқланади. Ҳайдовчи кесиб ўтилаётган йўлдан, 7.13 қўшимча-ахборот белгиси бўлганда эса асосий йўлдан ҳаракатланаётган транспорт воситаларига йўл бериши керак.\r\nБу белги темир йўл кесишмаси ёки карантин масканидан олдин ўрнатилиши мумкин. Бундай ҳолларда ҳайдовчи тўхташ чизиғи олдида, у бўлмаса, белги олдида тўхташи керак.",
+            "ru": "В соответствии с пунктом 2.5 ПРИЛОЖЕНИЯ 1 к МПК: 2.5. «Движение без остановки запрещено». Запрещается движение без остановки перед стоп-линией, если ее нет, на краю пересекаемого участка движения. Водитель обязан уступить дорогу транспортным средствам, движущимся с пересекаемой дороги, а также с основной дороги при наличии знака дополнительной информации 7.13. \r\nЭтот знак можно разместить перед железнодорожным переездом или карантинной станцией. В таких случаях водитель должен остановиться перед стоп-линией, а при отсутствии остановки – перед знаком."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_63_q_10",
+            "ticket_num": 63,
+            "order": 25
+        },
+        "media_url": "u63-10.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi transport vositasining haydovchisi yo'naltirgich bo'yicha burilayotib qoidani buzadi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Qizil avtomobil haydovchisi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ko'k avtomobil haydovchisi",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Har ikki haydovchi buzadi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Har ikki haydovchi buzmaydi",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси транспорт воситасининг ҳайдовчиси йўналтиргич бўйича бурилаётиб қоидани бузади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Қизил автомобил ҳайдовчиси",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Кўк автомобил ҳайдовчиси",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ҳар икки ҳайдовчи бузади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Ҳар икки ҳайдовчи бузмайди",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Водитель какого транспортного средства нарушает правила, поворачивая по указателю?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Водитель красного автомобиля",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Водитель синего автомобиля",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Оба водителя нарушают",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Оба водителя не нарушают",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 9-bob. 56-band 1-xatboshi va 57-band 2-xatboshi hamda YHQning 11-bob. 77-band 3-xatboshiga asosan: 56. Aylanma harakatlanish tashkil qilingan chorrahalarga kirish uchun burilishdan boshqa barcha hollarda, haydovchi o‘ngga, chapga burilishi yoki qayrilib olishdan oldinroq shu yo‘nalishda harakatlanishi uchun mo‘ljallangan qatnov qismining eng chetki holatni egallashi shart.\r\nO‘ngga burilishda transport vositasi iloji boricha qatnov qismining o‘ng chetiga yaqinroqda harakatlanishi kerak.\r\nHaydovchi transport vositasini boshqarish paytida aniqlay olishi mumkin bo‘lgan xavf yuzaga kelsa, u transport vositasining tezligini to‘liq to‘xtashni ta’minlaydigan darajada kamaytirishi yoki to‘siqni boshqa harakat ishtirokchilari uchun xavf tug‘dirmagan holda aylanib o‘tish choralarini ko‘rishi kerak.",
+            "uz_cyr": "YHQнинг 9-боб. 56-банд 1-хатбоши ва 57-банд 2-хатбоши ҳамда YHQнинг 11-боб. 77-банд 3-хатбошига асосан: 56. Айланма ҳаракатланиш ташкил қилинган чорраҳаларга кириш учун бурилишдан бошқа барча ҳолларда, ҳайдовчи ўнгга, чапга бурилиши ёки қайрилиб олишдан олдинроқ шу йўналишда ҳаракатланиши учун мўлжалланган қатнов қисмининг энг четки ҳолатни эгаллаши шарт.\r\nЎнгга бурилишда транспорт воситаси иложи борича қатнов қисмининг ўнг четига яқинроқда ҳаракатланиши керак.\r\nҲайдовчи транспорт воситасини бошқариш пайтида аниқлай олиши мумкин бўлган хавф юзага келса, у транспорт воситасининг тезлигини тўлиқ тўхташни таъминлайдиган даражада камайтириши ёки тўсиқни бошқа ҳаракат иштирокчилари учун хавф туғдирмаган ҳолда айланиб ўтиш чораларини кўриши керак.",
+            "ru": "Глава 9 ООН. Пункт 1 статьи 56 и пункт 2 статьи 57 и глава 11 Гражданского кодекса. Согласно абзацу 3 пункта 77: 56. Во всех случаях, за исключением поворота на въезд на перекрестки, на которых организовано круговое движение, водитель перед поворотом обязан занять самое крайнее положение участка движения, предназначенного для поворота направо или налево или движения в этом направлении. \r\nПри повороте направо транспортное средство должно двигаться как можно ближе к правому краю проезжей части. \r\nВ случае возникновения опасности, которую водитель может обнаружить во время управления транспортным средством, он обязан снизить скорость транспортного средства до уровня, обеспечивающего полную остановку, или принять меры по обходу препятствия, не создавая опасности для других участников дорожного движения."
         }
     }
 ]

@@ -83,9 +83,10 @@ export function MainLayout({ children }: MainLayoutProps) {
   }, [qoshimchaOpen]);
 
   const footerLinks = useMemo(() => [
-    ...navLinks,
-    { path: "/qoshimcha", label: t("nav.qoshimcha") },
-  ], [navLinks, t]);
+    { path: "/", label: t("nav.home") },
+    { path: "/mavzuli", label: t("home.btnMavzuli") },
+    { path: "/contact", label: t("nav.contact") },
+  ], [t]);
 
   const qoshimchaLinkClass = (isActive: boolean) =>
     `flex items-center gap-2.5 px-3.5 py-2 text-sm transition-colors ${
@@ -128,14 +129,14 @@ export function MainLayout({ children }: MainLayoutProps) {
     <div className="min-h-screen flex flex-col bg-background">
       <nav className="sticky top-0 z-50 bg-primary shadow-lg">
         <div className="w-full px-2 sm:px-4 md:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-14">
+          <div className="flex justify-between items-center h-14 md:h-[60px]">
             
            <div className="flex items-center gap-3 sm:gap-6 md:gap-8">
               
               <div className="relative flex-shrink-0">
                 <button
                   onClick={() => setLangMenuOpen(!langMenuOpen)}
-                  className="flex items-center gap-1 text-primary-foreground/90 hover:text-primary-foreground py-2 text-xs sm:text-sm font-bold transition-colors rounded-md hover:bg-primary-foreground/10 px-1.5 sm:px-2"
+                  className="flex items-center gap-1 text-primary-foreground/90 hover:text-primary-foreground py-2 text-xs sm:text-sm md:text-[15px] font-bold transition-colors rounded-md hover:bg-primary-foreground/10 px-1.5 sm:px-2"
                 >
                   <Globe className="w-4 h-4 sm:w-5 sm:h-5" />
                   <span className="tracking-wide">{currentLangDisplay}</span>
@@ -168,11 +169,11 @@ export function MainLayout({ children }: MainLayoutProps) {
                 <img
                   src="/rasm1.webp"
                   alt="Avtotestlar.uz logo"
-                  className="hidden md:block w-10 h-10 rounded-xl shadow-md object-contain"
-                  width="40"
-                  height="40"
+                  className="hidden md:block w-10 h-10 md:w-[42px] md:h-[42px] rounded-xl shadow-md object-contain"
+                  width="42"
+                  height="42"
                 />
-                <span className="text-primary-foreground font-bold text-lg sm:text-xl hidden md:block tracking-tight font-montserrat">
+                <span className="text-primary-foreground font-bold text-lg sm:text-xl md:text-[1.3125rem] hidden md:block tracking-tight font-montserrat">
                   {t("common.siteName")}
                 </span>
               </Link>
@@ -185,7 +186,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                   <Link
                     key={item.path}
                     to={item.path}
-                    className={`px-2.5 py-1.5 text-sm font-medium transition-colors duration-200 rounded-md ${
+                    className={`px-2.5 py-1.5 text-sm md:text-[15px] font-medium transition-colors duration-200 rounded-md ${
                       isActive
                         ? "text-[hsl(var(--cta-green))]"
                         : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/5"
@@ -202,7 +203,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                   type="button"
                   onClick={toggleQoshimchaMenu}
                   aria-expanded={qoshimchaOpen}
-                  className={`flex items-center gap-1 px-2.5 py-1.5 text-sm font-medium transition-colors duration-200 rounded-md ${
+                  className={`flex items-center gap-1 px-2.5 py-1.5 text-sm md:text-[15px] font-medium transition-colors duration-200 rounded-md ${
                     isQoshimchaActive || qoshimchaOpen
                       ? "text-[hsl(var(--cta-green))]"
                       : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/5"
@@ -506,11 +507,11 @@ export function MainLayout({ children }: MainLayoutProps) {
 
       <main className="flex-1">{children}</main>
 
-      <footer className="bg-primary text-primary-foreground py-12">
+      <footer className="bg-primary text-primary-foreground py-10">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-3 mb-2">
                 <img
                   src="/rasm1.webp"
                   alt="Avtotestlar.uz logo"
@@ -521,8 +522,8 @@ export function MainLayout({ children }: MainLayoutProps) {
                 />
                 <span className="font-bold text-xl font-montserrat">{t("common.siteName")}</span>
               </div>
-              <p className="text-primary-foreground/70 text-sm leading-relaxed">
-                {t("footer.aboutText")}
+              <p className="text-primary-foreground/70 text-sm pl-[52px]">
+                {t("footer.tagline")}
               </p>
             </div>
 
@@ -546,7 +547,6 @@ export function MainLayout({ children }: MainLayoutProps) {
               <div className="space-y-2 text-sm text-primary-foreground/70">
                 <p>{t("footer.telegramLabel")}</p>
                 <p>{t("footer.botLabel")}</p>
-                <p>{t("footer.workingHoursLabel")}</p>
               </div>
             </div>
           </div>

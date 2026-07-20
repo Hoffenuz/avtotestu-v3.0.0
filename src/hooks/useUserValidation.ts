@@ -5,16 +5,24 @@ import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
 
 /** True when Supabase reports the session/JWT is invalid — not a transient network blip. */
-const isDefinitiveAuthFailure = (error: { status?: number; message?: string }): boolean => {
+const isDefinitiveAuthFailure = (error: { status?: number; message?: string; code?: string }): boolean => {
   const status = error.status;
+  const code = (error.code ?? '').toLowerCase();
   const msg = (error.message ?? '').toLowerCase();
+  // Avoid broad substrings like "session" / "invalid" / "expired" — they false-positive
+  // on network and rate-limit messages and caused spurious force-logouts.
   return (
     status === 401 ||
     status === 403 ||
-    msg.includes('jwt') ||
-    msg.includes('expired') ||
-    msg.includes('invalid') ||
-    msg.includes('session') ||
+    code === 'bad_jwt' ||
+    code === 'session_not_found' ||
+    code === 'refresh_token_not_found' ||
+    code === 'user_not_found' ||
+    msg.includes('jwt expired') ||
+    msg.includes('invalid jwt') ||
+    msg.includes('invalid claim') ||
+    msg.includes('user from sub claim in jwt does not exist') ||
+    msg.includes('auth session missing') ||
     msg.includes('not authenticated')
   );
 };

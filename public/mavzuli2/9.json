@@ -1,8 +1,8 @@
 [
     {
         "task_info": {
-            "global_id": "t_16_q_5",
-            "ticket_num": 16,
+            "global_id": "t_1_q_13",
+            "ticket_num": 1,
             "order": 1
         },
         "media_url": "u175uz.webp",
@@ -17,13 +17,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Transport vositasi piyodalarga yo'l berishi kerak bo'lgan joyni ko'rsatadi",
-                        "is_correct": false
+                        "text": "«Тўхтамасдан ҳаракатланиш тақиқланган» belgisi bilan birga qo'llanilganda haydovchini «Тўхташ» chiziq'iga yaqinlashayotganligini",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "«Тўхтамасдан ҳаракатланиш тақиқланган» belgisi bilan birga qo'llanilganda haydovchini «Тўхташ» chizig'iga yaqinlashayotganligini",
-                        "is_correct": true
+                        "text": "Transport vositasi piyodalarga yo'l berishi kerak bo'lgan joyni ko'rsatadi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -37,13 +37,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Транспорт воситаси пиёдаларга йўл бериши керак бўлган жойни кўрсатади",
-                        "is_correct": false
+                        "text": "«Тўхтамасдан ҳаракатланиш тақиқланган» белгиси билан бирга қўлланилганда ҳайдовчини «Тўхташ» чизиғига яқинлашаётганлигини",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "«Тўхтамасдан ҳаракатланиш тақиқланган» белгиси билан бирга қўлланилганда ҳайдовчини «Тўхташ» чизиғига яқинлашаётганлигини",
-                        "is_correct": true
+                        "text": "Транспорт воситаси пиёдаларга йўл бериши керак бўлган жойни кўрсатади",
+                        "is_correct": false
                     }
                 ]
             },
@@ -58,21 +58,26 @@
                     {
                         "id": 2,
                         "text": "О приближении транспортных средств к \"СТОП-ЛИНИИ\", когда она применяется в сочетании со знаком \"Движение без остановки запрещено\"",
-                        "is_correct": false
+                        "is_correct": true
                     },
                     {
                         "id": 3,
                         "text": "Указывает место, где транспортное средство должно уступить дорогу пешеходам",
-                        "is_correct": true
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasining 1-bo'limiga asosan, 1.21 yotiq chizig'i (\"STOP\" – to'xtang! yozuvi) – 2.5 belgisi bilan birga qo'llanilganda haydovchini 1.12 chizig'iga yaqinlashayotganligi haqida ogohlantiradi.",
+            "uz_cyr": "YHQ 2-иловасининг 1-бўлимига асосан, 1.21 ётиқ чизиғи (\"СТОП\" – тўхтанг! ёзуви) – 2.5 белгиси билан бирга қўлланилганда ҳайдовчини 1.12 чизиғига яқинлашаётганлиги ҳақида огоҳлантиради.",
+            "ru": "Согласно части 1 приложения 2 Закона о дорожном движении горизонтальная линия 1.21 (знак «СТОП») – при использовании совместно со знаком 2.5 предупреждает водителя о приближении к линии 1.12."
         }
     },
     {
         "task_info": {
-            "global_id": "t_25_q_14",
-            "ticket_num": 25,
+            "global_id": "t_3_q_12",
+            "ticket_num": 3,
             "order": 2
         },
         "media_url": "u276uz.webp",
@@ -82,13 +87,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Taqiqlanadi",
-                        "is_correct": false
+                        "text": "Ruxsat etiladi.",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Ruxsat etiladi.",
-                        "is_correct": true
+                        "text": "Taqiqlanadi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -97,13 +102,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тақиқланади",
-                        "is_correct": false
+                        "text": "Рухсат этилади.",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Рухсат этилади.",
-                        "is_correct": true
+                        "text": "Тақиқланади",
+                        "is_correct": false
                     }
                 ]
             },
@@ -112,25 +117,30 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Запрещается",
-                        "is_correct": false
+                        "text": "Разрешается",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Разрешается",
-                        "is_correct": true
+                        "text": "Запрещается",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasi 1-bo'limining 1.11 yotiq chizig'i faqat bir tomondan qayta tizilishga ruxsat etilgan yo'l qismlarida, bir yo'nalishdagi yoki qarama-qarshi kelayotgan transport oqimlarini ajratadi. Qayrilib olish, to'xtash maydonchalari va shunga o'xshashlarga kirish-chiqish joylarida harakatlanish faqat bir yo'nalishda ruxsat etilganligini ko'rsatadi. 1.11 chizig'ini uzuq-uzuq chiziq tomonidan, sidirg'a chiziq tomonidan esa faqat quvib yoki aylanib o'tishni tugatayotganda bosib o'tishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 2-иловаси 1-бўлимининг 1.11 ётиқ чизиғи фақат бир томондан қайта тизилишга рухсат этилган йўл қисмларида, бир йўналишдаги ёки қарама-қарши келаётган транспорт оқимларини ажратади. Қайрилиб олиш, тўхташ майдончалари ва шунга ўхшашларга кириш-чиқиш жойларида ҳаракатланиш фақат бир йўналишда рухсат этилганлигини кўрсатади. 1.11 чизиғини узуқ-узуқ чизиқ томонидан, сидирға чизиқ томонидан эса фақат қувиб ёки айланиб ўтишни тугатаётганда босиб ўтишга рухсат этилади.",
+            "ru": "Раздел 1.11 приложения 2 статьи 1 Закона о дорожном движении разделяет потоки движения в попутном или встречном направлении на участках дорог, перепланировка которых допускается только в одну сторону. Указывает, что движение разрешено только в одном направлении при входах и выходах на турникеты, парковки и т.п. Линию 1.11 разрешается пересекать кольцевой линией и линией груди только при завершении погони или обгона."
         }
     },
     {
         "task_info": {
-            "global_id": "t_34_q_1",
-            "ticket_num": 34,
+            "global_id": "t_5_q_3",
+            "ticket_num": 5,
             "order": 3
         },
-        "media_url": "u382uz.webp",
+        "media_url": "v487uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Ushbu holatda quvib o'tishga ruxsat etiladimi?",
@@ -142,13 +152,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Agar quvib o'tilayotgan transport vositasi 40 km/s dan kam tezlik bilan harakatlanayotgan bo'lsa, ruxsat beriladi",
-                        "is_correct": false
+                        "text": "Taqiqlanadi",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Taqiqlanadi",
-                        "is_correct": true
+                        "text": "Agar quvib o'tilayotgan transport vositasi 40 km/s dan kam tezlik bilan harakatlanayotgan bo'lsa, ruxsat beriladi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -162,13 +172,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Агар қувиб ўтилаётган транспорт воситаси 40 км/с дан кам тезлик билан ҳаракатланаётган бўлса, рухсат берилади",
-                        "is_correct": false
+                        "text": "Тақиқланади",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Тақиқланади",
-                        "is_correct": true
+                        "text": "Агар қувиб ўтилаётган транспорт воситаси 40 км/с дан кам тезлик билан ҳаракатланаётган бўлса, рухсат берилади",
+                        "is_correct": false
                     }
                 ]
             },
@@ -182,22 +192,27 @@
                     },
                     {
                         "id": 2,
-                        "text": "Разрешается, если обгоняемый автомобиль движется со скоростью меньше 40 км/ч",
-                        "is_correct": false
+                        "text": "Запрещается",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Запрещается",
-                        "is_correct": true
+                        "text": "Разрешается, если обгоняемый автомобиль движется со скоростью меньше 40 км/ч",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasining 1-bo'limi 1-xatboshiga asosan, 1.1 chizig'i qarama-qarshi yo'nalishlarda harakatlanayotgan transport oqimlarini ajratadi, yo'lning xavfli joylaridagi harakatlanish tasmasi chegarasini va velosipedchilar uchun tasmaning chegarasini bildiradi; yo'lning kirish taqiqlangan qismi chegarasini belgilaydi; transport vositalarining to'xtab turish joyi chegarasini hamda avtomagistral qatoriga kiritilmagan yo'lning qatnov qismi chegarasini bildiradi. 1.1 chizig'ini bosib o'tish taqiqlanadi, qatnov qismining chetini bildirish uchun qo'llanilgan 1.1 chizig'i bundan mustasno.",
+            "uz_cyr": "YHQ 2-иловасининг 1-бўлими 1-хатбошига асосан, 1.1 чизиғи қарама-қарши йўналишларда ҳаракатланаётган транспорт оқимларини ажратади, йўлнинг хавфли жойларидаги ҳаракатланиш тасмаси чегарасини ва велосипедчилар учун тасманинг чегарасини билдиради; йўлнинг кириш тақиқланган қисми чегарасини белгилайди; транспорт воситаларининг тўхтаб туриш жойи чегарасини ҳамда автомагистрал қаторига киритилмаган йўлнинг қатнов қисми чегарасини билдиради. 1.1 чизиғини босиб ўтиш тақиқланади, қатнов қисмининг четини билдириш учун қўлланилган 1.1 чизиғи бундан мустасно.",
+            "ru": "Согласно пункту 1 раздела 1 приложения 2 Закона о дорожном движении линия 1.1 разделяет транспортные потоки, движущиеся в встречных направлениях, указывает границу полосы движения на опасных участках дороги и границу полосы движения для велосипедистов; определяет границу запрещенного участка дороги; означает границу места стоянки транспортных средств и границу проезжей части дороги, не входящей в линию автомобильной дороги. Пересечение линии 1.1 запрещено, за исключением линии 1.1, которая используется для обозначения края проезжей части."
         }
     },
     {
         "task_info": {
-            "global_id": "t_55_q_13",
-            "ticket_num": 55,
+            "global_id": "t_6_q_3",
+            "ticket_num": 6,
             "order": 4
         },
         "media_url": "u639uz.webp",
@@ -207,18 +222,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "«Б» bo'yicha ruxsat etilgan",
+                        "text": "«А» bo'yicha ruxsat etilgan",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Ikkovi bo'yicha ham ruxsat etilgan",
-                        "is_correct": true
+                        "text": "«Б» bo'yicha ruxsat etilgan",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "«А» bo'yicha ruxsat etilgan",
-                        "is_correct": false
+                        "text": "Ikkovi bo'yicha ham ruxsat etilgan",
+                        "is_correct": true
                     }
                 ]
             },
@@ -227,18 +242,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "«Б» бўйича рухсат этилган",
+                        "text": "«А» бўйича рухсат этилган",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Иккови бўйича ҳам рухсат этилган",
-                        "is_correct": true
+                        "text": "«Б» бўйича рухсат этилган",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "«А» бўйича рухсат этилган",
-                        "is_correct": false
+                        "text": "Иккови бўйича ҳам рухсат этилган",
+                        "is_correct": true
                     }
                 ]
             },
@@ -247,27 +262,32 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешено только по «Б»",
+                        "text": "Разрешено только по «А»",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Разрешено только по «А»",
-                        "is_correct": true
+                        "text": "Разрешено только по «Б»",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
                         "text": "Разрешено по обеим",
-                        "is_correct": false
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasining 1-bo'limi 1.5, 1.6 yotiq chiziqlariga asosan, 1.5 – ikki yoki uch tasmali yo'llarda qarama-qarshi yo'nalishlarda harakatlanayotgan transport vositalari oqimlarini ajratadi; bir yo'nalishda harakatlanish uchun mo'ljallangan ikki yoki undan ko'proq tasmali yo'llarda tasmalarning chegaralarini va bir yo'nalishdagi harakatlanish bo'lagi bilan velosiped bo'lagi chegarasini bildiradi. 1.6 (yaqinlashish chizig'i – har bir chiziq uzunligi ular orasidagi masofadan uch barobar katta bo'lgan uzuq-uzuq chiziq) — qarama-qarshi yoki bir yo'nalishda harakatlanayotgan transport vositalari oqimlarini ajratuvchi 1.1 yoki 1.11 chizig'iga yaqinlashayotganlik haqida ogohlantiradi. 1.5 va 1.6 chiziqlarini istalgan tomondan bosib o'tish mumkin.",
+            "uz_cyr": "YHQ 2-иловасининг 1-бўлими 1.5, 1.6 ётиқ чизиқларига асосан, 1.5 – икки ёки уч тасмали йўлларда қарама-қарши йўналишларда ҳаракатланаётган транспорт воситалари оқимларини ажратади; бир йўналишда ҳаракатланиш учун мўлжалланган икки ёки ундан кўпроқ тасмали йўлларда тасмаларнинг чегараларини ва бир йўналишдаги ҳаракатланиш бўлаги билан велосипед бўлаги чегарасини билдиради. 1.6 (яқинлашиш чизиғи – ҳар бир чизиқ узунлиги улар орасидаги масофадан уч баробар катта бўлган узуқ-узуқ чизиқ) — қарама-қарши ёки бир йўналишда ҳаракатланаётган транспорт воситалари оқимларини ажратувчи 1.1 ёки 1.11 чизиғига яқинлашаётганлик ҳақида огоҳлантиради. 1.5 ва 1.6 чизиқларини исталган томондан босиб ўтиш мумкин.",
+            "ru": "Раздел 1 приложения 2 Национальных правил безопасности дорожного движения 1.5, 1.6 разделяет поток транспортных средств, движущихся встречно, на 1,5 – двух- или трехполосные дороги; означает границы полос на дорогах с двумя и более полосами движения, предназначенными для движения в одном направлении, и границу велосипедной полосы с полосой одностороннего движения. 1.6 (линия подъезда – кольцевая линия, длина каждой линии в три раза превышает расстояние между ними) – предупреждает о приближении линии 1.1 или 1.11, разделяющей потоки транспортных средств, движущихся в встречном или попутном направлении. Линии 1,5 и 1,6 можно пересекать с любой стороны."
         }
     },
     {
         "task_info": {
-            "global_id": "t_52_q_14",
-            "ticket_num": 52,
+            "global_id": "t_6_q_13",
+            "ticket_num": 6,
             "order": 5
         },
         "media_url": "u599uz.webp",
@@ -287,12 +307,12 @@
                     },
                     {
                         "id": 3,
-                        "text": "Hamma hollarda ruxsat etiladi, agar to'xtab turish joyida boshqa transport vositalari yo'q bo'lsa",
+                        "text": "Kirish va chiqish uchun ruxsat etiladi",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Kirish va chiqish uchun ruxsat etiladi",
+                        "text": "Hamma hollarda ruxsat etiladi, agar to'xtab turish joyida boshqa transport vositalari yo'q bo'lsa",
                         "is_correct": false
                     }
                 ]
@@ -312,12 +332,12 @@
                     },
                     {
                         "id": 3,
-                        "text": "Ҳамма ҳолларда рухсат этилади, агар тўхтаб туриш жойида бошқа транспорт воситалари йўқ бўлса",
+                        "text": "Кириш ва чиқиш учун рухсат этилади",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Кириш ва чиқиш учун рухсат этилади",
+                        "text": "Ҳамма ҳолларда рухсат этилади, агар тўхтаб туриш жойида бошқа транспорт воситалари йўқ бўлса",
                         "is_correct": false
                     }
                 ]
@@ -337,22 +357,27 @@
                     },
                     {
                         "id": 3,
-                        "text": "Разрешается в любом случае, если на стоянке нет других транспортных средств",
+                        "text": "Разрешается для въезда и выезда",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Разрешается для въезда и выезда",
+                        "text": "Разрешается в любом случае, если на стоянке нет других транспортных средств",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasining 1-bo'limi 1-xatboshiga asosan, 1.1 chizig'i qarama-qarshi yo'nalishlarda harakatlanayotgan transport oqimlarini ajratadi, yo'lning xavfli joylaridagi harakatlanish tasmasi chegarasini va velosipedchilar uchun tasmaning chegarasini bildiradi; yo'lning kirish taqiqlangan qismi chegarasini belgilaydi; transport vositalarining to'xtab turish joyi chegarasini hamda avtomagistral qatoriga kiritilmagan yo'lning qatnov qismi chegarasini bildiradi. 1.1 chizig'ini bosib o'tish taqiqlanadi, qatnov qismining chetini bildirish uchun qo'llanilgan 1.1 chizig'i bundan mustasno.",
+            "uz_cyr": "YHQ 2-иловасининг 1-бўлими 1-хатбошига асосан, 1.1 чизиғи қарама-қарши йўналишларда ҳаракатланаётган транспорт оқимларини ажратади, йўлнинг хавфли жойларидаги ҳаракатланиш тасмаси чегарасини ва велосипедчилар учун тасманинг чегарасини билдиради; йўлнинг кириш тақиқланган қисми чегарасини белгилайди; транспорт воситаларининг тўхтаб туриш жойи чегарасини ҳамда автомагистрал қаторига киритилмаган йўлнинг қатнов қисми чегарасини билдиради. 1.1 чизиғини босиб ўтиш тақиқланади, қатнов қисмининг четини билдириш учун қўлланилган 1.1 чизиғи бундан мустасно.",
+            "ru": "Согласно пункту 1 раздела 1 приложения 2 Закона о дорожном движении линия 1.1 разделяет транспортные потоки, движущиеся в встречных направлениях, указывает границу полосы движения на опасных участках дороги и границу полосы движения для велосипедистов; определяет границу запрещенного участка дороги; означает границу места стоянки транспортных средств и границу проезжей части дороги, не входящей в линию автомобильной дороги. Пересечение линии 1.1 запрещено, за исключением линии 1.1, которая используется для обозначения края проезжей части."
         }
     },
     {
         "task_info": {
-            "global_id": "t_11_q_4",
-            "ticket_num": 11,
+            "global_id": "t_7_q_13",
+            "ticket_num": 7,
             "order": 6
         },
         "media_url": "u116uz.webp",
@@ -362,17 +387,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ikkita yoki uchta",
+                        "text": "Ikkita",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Uchta",
+                        "text": "Ikkita yoki uchta",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Ikkita",
+                        "text": "Uchta",
                         "is_correct": false
                     },
                     {
@@ -387,17 +412,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Иккита ёки учта",
+                        "text": "Иккита",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Учта",
+                        "text": "Иккита ёки учта",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Иккита",
+                        "text": "Учта",
                         "is_correct": false
                     },
                     {
@@ -412,17 +437,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Две или три полосы",
+                        "text": "Две",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Три полосы",
+                        "text": "Две или три полосы",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Две",
+                        "text": "Три полосы",
                         "is_correct": false
                     },
                     {
@@ -432,23 +457,28 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasining 1-bo'limi 1.3-bandiga asosan, ushbu chiziq to'rt va undan ortiq harakatlanish bo'lagi bo'lgan yo'llarda qarama-qarshi yo'nalishdagi transport vositalari oqimini ajratadi, 1.3 chizig'ini bosib o'tish taqiqlanadi.",
+            "uz_cyr": "YHQ 2-иловасининг 1-бўлими 1.3-бандига асосан, ушбу чизиқ тўрт ва ундан ортиқ ҳаракатланиш бўлаги бўлган йўлларда қарама-қарши йўналишдаги транспорт воситалари оқимини ажратади, 1.3 чизиғини босиб ўтиш тақиқланади.",
+            "ru": "Согласно пункту 1.3 раздела 1 приложения 2 Закона о дорожном движении эта линия разделяет поток транспортных средств встречного направления на дорогах с четырьмя и более полосами движения, пересекать линию 1.3 запрещается."
         }
     },
     {
         "task_info": {
-            "global_id": "t_17_q_16",
-            "ticket_num": 17,
+            "global_id": "t_8_q_3",
+            "ticket_num": 8,
             "order": 7
         },
         "media_url": "u193uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Yotiq chiziqning uzluksiz sariq chizig'i nimani bildiradi?",
+                "text": "Yotiq chiziqning uzluksiz sariq chiziq'i nimani bildiradi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Transport vositalarining to'xtab turishi taqiqlangan joyni",
-                        "is_correct": false
+                        "text": "Transport vositalarining to'xtashi taqiqlangan joyni",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -457,8 +487,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Transport vositalarining to'xtashi taqiqlangan joyni",
-                        "is_correct": true
+                        "text": "Transport vositalarining to'xtab turishi taqiqlangan joyni",
+                        "is_correct": false
                     }
                 ]
             },
@@ -467,8 +497,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Транспорт воситаларининг тўхтаб туриши тақиқланган жойни",
-                        "is_correct": false
+                        "text": "Транспорт воситаларининг тўхташи тақиқланган жойни",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -477,8 +507,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Транспорт воситаларининг тўхташи тақиқланган жойни",
-                        "is_correct": true
+                        "text": "Транспорт воситаларининг тўхтаб туриши тақиқланган жойни",
+                        "is_correct": false
                     }
                 ]
             },
@@ -487,27 +517,32 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Место, где разрешена остановка маршрутных транспортных средств и такси",
-                        "is_correct": false
+                        "text": "Место, где запрещается остановка транспортных средств",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Место, где запрещается остановка транспортных средств",
+                        "text": "Место, где разрешена остановка маршрутных транспортных средств и такси",
                         "is_correct": false
                     },
                     {
                         "id": 3,
                         "text": "Место, где запрещена стоянка транспортных средств",
-                        "is_correct": true
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasining 1-bo'limiga asosan, 1.4 yotiq chizig'i – to'xtash taqiqlangan joyni bildiradi. Yakka holda yoki 3.27 \"To'xtash taqiqlangan\" yo'l belgisi bilan qo'llaniladi hamda yo'lning qatnov qismi chetiga yoki yo'l chetidagi to'siq ustidan chiziladi.",
+            "uz_cyr": "YHQ 2-иловасининг 1-бўлимига асосан, 1.4 ётиқ чизиғи – тўхташ тақиқланган жойни билдиради. Якка ҳолда ёки 3.27 \"Тўхташ тақиқланган\" йўл белгиси билан қўлланилади ҳамда йўлнинг қатнов қисми четига ёки йўл четидаги тўсиқ устидан чизилади.",
+            "ru": "Согласно разделу 1 приложения 2 к ПДД, разметка 1.4 обозначает места, где запрещена остановка. Применяется самостоятельно или совместно со знаком 3.27 «Остановка запрещена» и наносится у края проезжей части или по верху бордюра."
         }
     },
     {
         "task_info": {
-            "global_id": "t_50_q_18",
-            "ticket_num": 50,
+            "global_id": "t_8_q_13",
+            "ticket_num": 8,
             "order": 8
         },
         "media_url": "u575uz.webp",
@@ -517,23 +552,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Belgilangan yo'nalishdagi transport vositalari yo'q bo'lganda ruxsat beriladi",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Belgilangan yo'nalishdagi transport vositalariga ruxsat beriladi",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Ruxsat beriladi",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Taqiqlanadi",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Belgilangan yo'nalishdagi transport vositalari yo'q bo'lganda ruxsat beriladi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Belgilangan yo'nalishdagi transport vositalariga ruxsat beriladi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -542,23 +577,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Белгиланган йўналишдаги транспорт воситалари йўқ бўлганда рухсат берилади",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Белгиланган йўналишдаги транспорт воситаларига рухсат берилади",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Рухсат берилади",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Тақиқланади",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Белгиланган йўналишдаги транспорт воситалари йўқ бўлганда рухсат берилади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Белгиланган йўналишдаги транспорт воситаларига рухсат берилади",
+                        "is_correct": true
                     }
                 ]
             },
@@ -567,32 +602,37 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается в отсутствии маршрутных транспортных средств.",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Разрешается только маршрутным транспортным средствам",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Разрешается",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Запрещается",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Разрешается в отсутствии маршрутных транспортных средств.",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Разрешается только маршрутным транспортным средствам",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2 – ilovasi 1 – bo‘limining oltinchi xatboshisiga asosan: 1.4 – to‘xtash taqiqlangan joyni bildiradi. Yakka holda yoki 3.27 “To‘xtash taqiqlangan” yo‘l belgisi bilan qo‘llaniladi hamda yo‘lning qatnov qismi chetiga yoki yo‘l chetidagi to‘siq ustidan chiziladi.\r\nYHQ 1 – ilovasi 3 – bo‘limining o‘ttiz sakkizinchi xatboshisiga asosan: 3.27 belgisiga amal qilish yo‘nalishli transport vositalariga ta‘sir qilmaydi.\r\nShunga ko‘ra, yo‘lovchilarni tushirishni to‘xtash taqiqlangan joyni bildiruvchi 3.27 belgisi bilan birgalikda sariq sidirg‘a chiziq chizilgan joyda faqatgina belgilangan yo‘nalishdagi transport vositalari amalga oshirishi mumkin.",
+            "uz_cyr": "YHQ 2 – иловаси 1 – бўлимининг олтинчи хатбошисига асосан: 1.4 – тўхташ тақиқланган жойни билдиради. Якка ҳолда ёки 3.27 “Тўхташ тақиқланган” йўл белгиси билан қўлланилади ҳамда йўлнинг қатнов қисми четига ёки йўл четидаги тўсиқ устидан чизилади.\r\nYHQ 1 – иловаси 3 – бўлимининг ўттиз саккизинчи хатбошисига асосан: 3.27 белгисига амал қилиш йўналишли транспорт воситаларига таъсир қилмайди.\r\nШунга кўра, йўловчиларни туширишни тўхташ тақиқланган жойни билдирувчи 3.27 белгиси билан биргаликда сариқ сидирға чизиқ чизилган жойда фақатгина белгиланган йўналишдаги транспорт воситалари амалга ошириши мумкин.",
+            "ru": "Согласно абзацу шестому раздела 1 Приложения 2 Общих правил: 1.4 – означает место, где парковка запрещена. Он используется отдельно или вместе с дорожным знаком 3.27 «Стоянка запрещена» и рисуется на краю проезжей части или над придорожным барьером. \r\nВ соответствии с тридцать восьмым абзацем Приложения 3 раздел 1: 3.27 не распространяется на направленные транспортные средства. \r\nСоответственно, высадка пассажиров допускается только на транспортных средствах указанного направления в месте, где совмещена желтая пунктирная линия со знаком 3.27, обозначающим место, где парковка запрещена."
         }
     },
     {
         "task_info": {
-            "global_id": "t_58_q_4",
-            "ticket_num": 58,
+            "global_id": "t_9_q_9",
+            "ticket_num": 9,
             "order": 9
         },
         "media_url": "u665uz.webp",
@@ -602,18 +642,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yo'lning yotiq sariq chizig'i oxirida",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Birinchi chorrahada",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Aholi yashaydigan joyning oxirida",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Yo'lning yotiq sariq chiziq'i oxirida",
+                        "is_correct": true
                     }
                 ]
             },
@@ -622,18 +662,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Йўлнинг ётиқ сариқ чизиғи охирида",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Биринчи чорраҳада",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Аҳоли яшайдиган жойнинг охирида",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Йўлнинг ётиқ сариқ чизиғи охирида",
+                        "is_correct": true
                     }
                 ]
             },
@@ -642,27 +682,32 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "В конце желтой линии дорожной разметки.",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "У первого перекрёстка",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "В конце населённого пункта",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "В конце желтой линии дорожной разметки.",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 3-bo'limi 11-xatboshiga asosan, 3.27 \"To'xtash taqiqlangan\" belgisi 1.4 yotiq chizig'i bilan birgalikda qo'llanishi mumkin, bunda belgining ta'sir hududi shu yo'l chizig'i uzunligi bilan aniqlanadi.",
+            "uz_cyr": "YHQ 1-иловасининг 3-бўлими 11-хатбошига асосан, 3.27 \"Тўхташ тақиқланган\" белгиси 1.4 ётиқ чизиғи билан биргаликда қўлланиши мумкин, бунда белгининг таъсир ҳудуди шу йўл чизиғи узунлиги билан аниқланади.",
+            "ru": "Согласно пункту 11 раздела 3 приложения 1 Закона о дорожном движении знак 3.27 «Стоянка запрещена» может использоваться совместно с горизонтальной линией 1.4, где зона воздействия знака определяется длиной этой линии дороги."
         }
     },
     {
         "task_info": {
-            "global_id": "t_22_q_13",
-            "ticket_num": 22,
+            "global_id": "t_10_q_13",
+            "ticket_num": 10,
             "order": 10
         },
         "media_url": "u247uz.webp",
@@ -677,22 +722,22 @@
                     },
                     {
                         "id": 2,
-                        "text": "« А », « Б » va « В » yo'nalishlarida",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "« Б » yo'nalishida",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
-                        "text": "« Б » va « В » yo'nalishlarida",
+                        "id": 3,
+                        "text": "« В » yo'nalishida",
                         "is_correct": false
                     },
                     {
+                        "id": 4,
+                        "text": "« А », « Б » va « В » yo'nalishlarida",
+                        "is_correct": true
+                    },
+                    {
                         "id": 5,
-                        "text": "« В » yo'nalishida",
+                        "text": "« Б » va « В » yo'nalishlarida",
                         "is_correct": false
                     }
                 ]
@@ -707,22 +752,22 @@
                     },
                     {
                         "id": 2,
-                        "text": "« А », « Б » ва « В » йўналишларида",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "« Б » йўналишида",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
-                        "text": "« Б » ва « В » йўналишларида",
+                        "id": 3,
+                        "text": "« В » йўналишида",
                         "is_correct": false
                     },
                     {
+                        "id": 4,
+                        "text": "« А », « Б » ва « В » йўналишларида",
+                        "is_correct": true
+                    },
+                    {
                         "id": 5,
-                        "text": "« В » йўналишида",
+                        "text": "« Б » ва « В » йўналишларида",
                         "is_correct": false
                     }
                 ]
@@ -737,32 +782,37 @@
                     },
                     {
                         "id": 2,
-                        "text": "По направлениям « А », « Б » и « В »",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "По направлениям « Б » и « В »",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
                         "text": "По направлению « Б »",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 3,
                         "text": "По направлению « В »",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "По направлениям « А », « Б » и « В »",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 5,
+                        "text": "По направлениям « Б » и « В »",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasi 1-bo'limining 1.11 yotiq chizig'i faqat bir tomondan qayta tizilishga ruxsat etilgan yo'l qismlarida, bir yo'nalishdagi yoki qarama-qarshi kelayotgan transport oqimlarini ajratadi. Qayrilib olish, to'xtash maydonchalari va shunga o'xshashlarga kirish-chiqish joylarida harakatlanish faqat bir yo'nalishda ruxsat etilganligini ko'rsatadi. 1.11 chizig'ini uzuq-uzuq chiziq tomonidan, sidirg'a chiziq tomonidan esa faqat quvib yoki aylanib o'tishni tugatayotganda bosib o'tishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 2-иловаси 1-бўлимининг 1.11 ётиқ чизиғи фақат бир томондан қайта тизилишга рухсат этилган йўл қисмларида, бир йўналишдаги ёки қарама-қарши келаётган транспорт оқимларини ажратади. Қайрилиб олиш, тўхташ майдончалари ва шунга ўхшашларга кириш-чиқиш жойларида ҳаракатланиш фақат бир йўналишда рухсат этилганлигини кўрсатади. 1.11 чизиғини узуқ-узуқ чизиқ томонидан, сидирға чизиқ томонидан эса фақат қувиб ёки айланиб ўтишни тугатаётганда босиб ўтишга рухсат этилади.",
+            "ru": "Раздел 1.11 приложения 2 статьи 1 Закона о дорожном движении разделяет потоки движения в попутном или встречном направлении на участках дорог, перепланировка которых допускается только в одну сторону. Указывает, что движение разрешено только в одном направлении при входах и выходах на турникеты, парковки и т.п. Линию 1.11 разрешается пересекать кольцевой линией и линией груди только при завершении погони или обгона."
         }
     },
     {
         "task_info": {
-            "global_id": "t_3_q_19",
-            "ticket_num": 3,
+            "global_id": "t_10_q_18",
+            "ticket_num": 10,
             "order": 11
         },
         "media_url": "u28uz.webp",
@@ -772,8 +822,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Piyodalar o'tish joyini bildiradi,chiziq yo'naltirgichlari piyodalar harakatlanish yo'nalishini ko'rsatadi",
-                        "is_correct": true
+                        "text": "Maxsus piyodalar yo'lkasini bildiradi",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -782,8 +832,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Maxsus piyodalar yo'lkasini bildiradi",
-                        "is_correct": false
+                        "text": "Piyodalar o'tish joyini bildiradi,chiziq yo'naltirgichlari piyodalar harakatlanish yo'nalishini ko'rsatadi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -792,8 +842,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Пиёдалар ўтиш жойини билдиради,чизиқ йўналтиргичлари пиёдалар ҳаракатланиш йўналишини кўрсатади",
-                        "is_correct": true
+                        "text": "Махсус пиёдалар йўлкасини билдиради",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -802,8 +852,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Махсус пиёдалар йўлкасини билдиради",
-                        "is_correct": false
+                        "text": "Пиёдалар ўтиш жойини билдиради,чизиқ йўналтиргичлари пиёдалар ҳаракатланиш йўналишини кўрсатади",
+                        "is_correct": true
                     }
                 ]
             },
@@ -812,27 +862,32 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Обозначает дорожку для велосипедистов, стрелки показывают направление движения",
-                        "is_correct": true
+                        "text": "Обозначает специальную дорожку для пешеходов",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Обозначает пешеходный переход, стрелки указыают направление движения пешеходов",
+                        "text": "Обозначает дорожку для велосипедистов, стрелки показывают направление движения",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Обозначает специальную дорожку для пешеходов",
-                        "is_correct": false
+                        "text": "Обозначает пешеходный переход, стрелки указыают направление движения пешеходов",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2 – ilovasi 1 – bo‘limining o‘n oltinchi va o‘n yettinchi xatboshlariga asosan: 1.14.2 (zebra) – tartibga solinmagan piyodalarning o‘tish joyini belgilaydi, 1.14.2 yotiq chiziqning yo‘naltirgichlari piyodalarning harakatlanish yo‘nalishini ko‘rsatadi.",
+            "uz_cyr": "YHQ 2 – иловаси 1 – бўлимининг ўн олтинчи ва ўн еттинчи хатбошларига асосан: 1.14.2 (зебра) – тартибга солинмаган пиёдаларнинг ўтиш жойини белгилайди, 1.14.2 ётиқ чизиқнинг йўналтиргичлари пиёдаларнинг ҳаракатланиш йўналишини кўрсатади.",
+            "ru": "В соответствии с абзацами шестнадцатым и семнадцатым раздела 1 приложения 1 ГПК: 1.14.2 (зебра) - определяет нерегулируемый пешеходный переход, 1.14.2 горизонтальные линии-направляющие указывают направление движения пешеходов."
         }
     },
     {
         "task_info": {
-            "global_id": "t_16_q_3",
-            "ticket_num": 16,
+            "global_id": "t_11_q_3",
+            "ticket_num": 11,
             "order": 12
         },
         "media_url": "u173uz.webp",
@@ -887,22 +942,27 @@
                     },
                     {
                         "id": 2,
-                        "text": "Прямо, налево и в обратном направлении",
+                        "text": "Налево и в обратном направлении",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Налево и в обратном направлении",
+                        "text": "Прямо, налево и в обратном направлении",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasi 1-bo'limining 1.11 yotiq chizig'i faqat bir tomondan qayta tizilishga ruxsat etilgan yo'l qismlarida, bir yo'nalishdagi yoki qarama-qarshi kelayotgan transport oqimlarini ajratadi. Qayrilib olish, to'xtash maydonchalari va shunga o'xshashlarga kirish-chiqish joylarida harakatlanish faqat bir yo'nalishda ruxsat etilganligini ko'rsatadi. 1.11 chizig'ini uzuq-uzuq chiziq tomonidan, sidirg'a chiziq tomonidan esa faqat quvib yoki aylanib o'tishni tugatayotganda bosib o'tishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 2-иловаси 1-бўлимининг 1.11 ётиқ чизиғи фақат бир томондан қайта тизилишга рухсат этилган йўл қисмларида, бир йўналишдаги ёки қарама-қарши келаётган транспорт оқимларини ажратади. Қайрилиб олиш, тўхташ майдончалари ва шунга ўхшашларга кириш-чиқиш жойларида ҳаракатланиш фақат бир йўналишда рухсат этилганлигини кўрсатади. 1.11 чизиғини узуқ-узуқ чизиқ томонидан, сидирға чизиқ томонидан эса фақат қувиб ёки айланиб ўтишни тугатаётганда босиб ўтишга рухсат этилади.",
+            "ru": "Раздел 1.11 приложения 2 статьи 1 Закона о дорожном движении разделяет потоки движения в попутном или встречном направлении на участках дорог, перепланировка которых допускается только в одну сторону. Указывает, что движение разрешено только в одном направлении при входах и выходах на турникеты, парковки и т.п. Линию 1.11 разрешается пересекать кольцевой линией и линией груди только при завершении погони или обгона."
         }
     },
     {
         "task_info": {
-            "global_id": "t_6_q_13",
-            "ticket_num": 6,
+            "global_id": "t_12_q_13",
+            "ticket_num": 12,
             "order": 13
         },
         "media_url": "u56uz.webp",
@@ -912,7 +972,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yo'lning xavfli burilish yo'nalishini ko'rsatadi",
+                        "text": "Haydovchini yo'lning xavfli qismiga yaqinlashayotganligi haqida ogohlantiradi",
                         "is_correct": false
                     },
                     {
@@ -922,7 +982,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Haydovchini yo'lning xavfli qismiga yaqinlashayotganligi haqida ogohlantiradi",
+                        "text": "Yo'lning xavfli burilish yo'nalishini ko'rsatadi",
                         "is_correct": false
                     }
                 ]
@@ -932,7 +992,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Йўлнинг хавфли бурилиш йўналишини кўрсатади",
+                        "text": "Ҳайдовчини йўлнинг хавфли қисмига яқинлашаётганлиги ҳақида огоҳлантиради",
                         "is_correct": false
                     },
                     {
@@ -942,7 +1002,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Ҳайдовчини йўлнинг хавфли қисмига яқинлашаётганлиги ҳақида огоҳлантиради",
+                        "text": "Йўлнинг хавфли бурилиш йўналишини кўрсатади",
                         "is_correct": false
                     }
                 ]
@@ -952,27 +1012,32 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Указывают направление опасного поворота дороги",
+                        "text": "Предупреждают водителя о приближении к опасному участку дороги",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Предупреждают водителя о приближении к опасному участку дороги",
+                        "text": "Предупреждают о приближении к сужению проезжей части",
                         "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Предупреждают о приближении к сужению проезжей части",
+                        "text": "Указывают направление опасного поворота дороги",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasining 1-bo'limidagi 1.19 chizig‘iga asosan, qatnov qismining toraygan (shu yo‘nalishdagi harakatlanish tasmalarining soni kamaygan) joyiga yoki qarama-qarshi yo‘nalishdan kelayotgan transport vositalari oqimlarini ajratuvchi 1.1 yoki 1.11 chizig‘iga yaqinlashganlik haqida ogohlantiruvchi chiziq. Birinchi holda 1.18.1 – 1.18.3 belgilari bilan qo‘llanilishi mumkin.",
+            "uz_cyr": "YHQ 2-иловасининг 1-бўлимидаги 1.19 чизиғига асосан, қатнов қисмининг торайган (шу йўналишдаги ҳаракатланиш тасмаларининг сони камайган) жойига ёки қарама-қарши йўналишдан келаётган транспорт воситалари оқимларини ажратувчи 1.1 ёки 1.11 чизиғига яқинлашганлик ҳақида огоҳлантирувчи чизиқ. Биринчи ҳолда 1.18.1 – 1.18.3 белгилари билан қўлланилиши мумкин.",
+            "ru": "На основании строки 1.19 части 1 приложения 2 Закона о дорожном движении устанавливается линия, предупреждающая о приближении к суженному участку проезжей части (уменьшается количество полос движения в одном направлении) или линия 1.1 или 1.11, разделяющая транспортные потоки встречного направления. В первом случае его можно использовать со знаками 1.18.1 – 1.18.3."
         }
     },
     {
         "task_info": {
-            "global_id": "t_37_q_20",
-            "ticket_num": 37,
+            "global_id": "t_13_q_3",
+            "ticket_num": 13,
             "order": 14
         },
         "media_url": "u428uz.webp",
@@ -982,13 +1047,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "«А» va «Б»",
+                        "text": "«А»",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "«А»",
-                        "is_correct": false
+                        "text": "«Б»",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -997,8 +1062,8 @@
                     },
                     {
                         "id": 4,
-                        "text": "«Б»",
-                        "is_correct": true
+                        "text": "«А» va «Б»",
+                        "is_correct": false
                     },
                     {
                         "id": 5,
@@ -1012,13 +1077,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "«А» ва «Б»",
+                        "text": "«А»",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "«А»",
-                        "is_correct": false
+                        "text": "«Б»",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1027,8 +1092,8 @@
                     },
                     {
                         "id": 4,
-                        "text": "«Б»",
-                        "is_correct": true
+                        "text": "«А» ва «Б»",
+                        "is_correct": false
                     },
                     {
                         "id": 5,
@@ -1047,8 +1112,8 @@
                     },
                     {
                         "id": 2,
-                        "text": "«А» и «Б»",
-                        "is_correct": false
+                        "text": "«Б»",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1057,8 +1122,8 @@
                     },
                     {
                         "id": 4,
-                        "text": "«Б»",
-                        "is_correct": true
+                        "text": "«А» и «Б»",
+                        "is_correct": false
                     },
                     {
                         "id": 5,
@@ -1067,12 +1132,17 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2 – ilovasi 1 – bo‘limining yigirma birinchi xatboshisiga asosan: 1.17 – yo‘nalishli transport vositalarining bekatlari hamda taksilarning to‘xtab turish joylarini bildiradi.",
+            "uz_cyr": "YHQ 2 – иловаси 1 – бўлимининг йигирма биринчи хатбошисига асосан: 1.17 – йўналишли транспорт воситаларининг бекатлари ҳамда таксиларнинг тўхтаб туриш жойларини билдиради.",
+            "ru": "Согласно двадцать первому абзацу раздела 1 приложения 2 Общего административного кодекса: 1.17 - относится к остановкам маршрутных транспортных средств и местам стоянки такси."
         }
     },
     {
         "task_info": {
-            "global_id": "t_50_q_17",
-            "ticket_num": 50,
+            "global_id": "t_13_q_13",
+            "ticket_num": 13,
             "order": 15
         },
         "media_url": "u574uz.webp",
@@ -1082,13 +1152,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "2-chiziq",
-                        "is_correct": true
+                        "text": "1-chiziq",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "2- va 3-chiziq",
-                        "is_correct": false
+                        "text": "2-chiziq",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1097,7 +1167,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "1-chiziq",
+                        "text": "2- va 3-chiziq",
                         "is_correct": false
                     },
                     {
@@ -1112,13 +1182,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "2-чизиқ",
-                        "is_correct": true
+                        "text": "1-чизиқ",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "2- ва 3-чизиқ",
-                        "is_correct": false
+                        "text": "2-чизиқ",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1127,7 +1197,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "1-чизиқ",
+                        "text": "2- ва 3-чизиқ",
                         "is_correct": false
                     },
                     {
@@ -1142,13 +1212,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Линия 2",
-                        "is_correct": true
+                        "text": "Линия 1",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Линия 2 и 3",
-                        "is_correct": false
+                        "text": "Линия 2",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1157,7 +1227,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Линия 1",
+                        "text": "Линия 2 и 3",
                         "is_correct": false
                     },
                     {
@@ -1167,33 +1237,38 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2 – ilovasi 1 – bo‘limining o‘n birinchi xatboshisiga asosan: 1.9 – reversiv harakat tashkil etilgan bo‘laklarning chegarasini belgilaydi;\r\nreversiv harakatlanish amalga oshirilgan yo‘llarda (reversiv svetafori o‘chirilgan holatda) qarama-qarshi yo‘nalishdagi transport oqimini ajratadi.",
+            "uz_cyr": "YHQ 2 – иловаси 1 – бўлимининг ўн биринчи хатбошисига асосан: 1.9 – реверсив ҳаракат ташкил этилган бўлакларнинг чегарасини белгилайди;\r\nреверсив ҳаракатланиш амалга оширилган йўлларда (реверсив светафори ўчирилган ҳолатда) қарама-қарши йўналишдаги транспорт оқимини ажратади.",
+            "ru": "Согласно абзацу одиннадцатому раздела 1 Приложения 2 Общего закона о: 1.9 - определяет границу участков, на которых организовано реверсивное движение; \r\nразделяет потоки встречного транспорта на дорогах, где осуществляется реверсивное движение (при выключении реверсивного светофора)."
         }
     },
     {
         "task_info": {
-            "global_id": "t_51_q_11",
-            "ticket_num": 51,
+            "global_id": "t_14_q_3",
+            "ticket_num": 14,
             "order": 16
         },
-        "media_url": "u582uz.webp",
+        "media_url": "v64uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Bu «to'xtash» yotiq chiziq qaysi yo'l belgisi bilan qo'llaniladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "«Yo'l bering» belgisi bilan va «To'xtamasdan harakatlanish taqiqlangan» belgisi bilan",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "«Yo'l bering» belgisi bilan",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "«To'xtamasdan harakatlanish taqiqlangan» belgisi bilan",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "«Yo'l bering» belgisi bilan va «To'xtamasdan harakatlanish taqiqlangan» belgisi bilan",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1202,18 +1277,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "«Йўл беринг» белгиси билан ва «Тўхтамасдан ҳаракатланиш тақиқланган» белгиси билан",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "«Йўл беринг» белгиси билан",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "«Тўхтамасдан ҳаракатланиш тақиқланган» белгиси билан",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "«Йўл беринг» белгиси билан ва «Тўхтамасдан ҳаракатланиш тақиқланган» белгиси билан",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1222,27 +1297,32 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Со знаком «Уступите дорогу» и со знаком «Движение без остановки запрещено»",
+                        "text": "Со знаком «Уступите дорогу»",
                         "is_correct": false
                     },
                     {
                         "id": 2,
                         "text": "Со знаком «Движение без остановки запрещено»",
-                        "is_correct": false
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Со знаком «Уступите дорогу»",
-                        "is_correct": true
+                        "text": "Со знаком «Уступите дорогу» и со знаком «Движение без остановки запрещено»",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasining 1-bo'limidagi 1.12 chizig'iga asosan, 1.12 (to'xtash chizig'i) – 2.5 \"To'xtamasdan harakatlanish taqiqlangan\" belgisi yoki svetoforning (tartibga soluvchining) taqiqlovchi ishorasida haydovchi to'xtash kerak bo'lgan joyni ko'rsatadi.",
+            "uz_cyr": "YHQ 2-иловасининг 1-бўлимидаги 1.12 чизиғига асосан, 1.12 (тўхташ чизиғи) – 2.5 \"Тўхтамасдан ҳаракатланиш тақиқланган\" белгиси ёки светофорнинг (тартибга солувчининг) тақиқловчи ишорасида ҳайдовчи тўхташ керак бўлган жойни кўрсатади.",
+            "ru": "Согласно строке 1.12 части 1 приложения 2 Правил дорожного движения, 1.12 (стоп-линия) - 2.5 Знак «Движение без остановки запрещено» или запрещающий знак светофора (регулятора) указывает место, где водитель должен остановиться."
         }
     },
     {
         "task_info": {
-            "global_id": "t_6_q_17",
-            "ticket_num": 6,
+            "global_id": "t_14_q_13",
+            "ticket_num": 14,
             "order": 17
         },
         "media_url": "u58uz.webp",
@@ -1257,17 +1337,17 @@
                     },
                     {
                         "id": 2,
-                        "text": "Ogohlantiruvchi «Тенг аҳамиятли йўллар кесишуви» belgisi bilan",
+                        "text": "«Тўхтамасдан ҳаракатланиш тақиқланган» belgisi bilan",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Barcha sanab o'tilgan belgilar bilan",
+                        "text": "Ogohlantiruvchi «Тенг аҳамиятли йўллар кесишуви» belgisi bilan",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "«Тўхтамасдан ҳаракатланиш тақиқланган» belgisi bilan",
+                        "text": "Barcha sanab o'tilgan belgilar bilan",
                         "is_correct": false
                     }
                 ]
@@ -1282,17 +1362,17 @@
                     },
                     {
                         "id": 2,
-                        "text": "Огоҳлантирувчи «Тенг аҳамиятли йўллар кесишуви» белгиси билан",
+                        "text": "«Тўхтамасдан ҳаракатланиш тақиқланган» белгиси билан",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Барча санаб ўтилган белгилар билан",
+                        "text": "Огоҳлантирувчи «Тенг аҳамиятли йўллар кесишуви» белгиси билан",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "«Тўхтамасдан ҳаракатланиш тақиқланган» белгиси билан",
+                        "text": "Барча санаб ўтилган белгилар билан",
                         "is_correct": false
                     }
                 ]
@@ -1302,32 +1382,37 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Со всеми перечисленными знаками",
+                        "text": "Со знаком «Уступите дорогу»",
                         "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "С предупреждающим знаком «Пересечение равнозначных дорог»",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Со знаком «Движение без остановки запрещено»",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "С предупреждающим знаком «Пересечение равнозначных дорог»",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Со знаком «Уступите дорогу»",
+                        "text": "Со всеми перечисленными знаками",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasining 1-bo'limidagi 1.13 chizig'i kesishayotgan yo'lda harakatlanayotgan transport vositasiga yo'l berish uchun to'xtash zarur bo'lganda, haydovchiga transport vositasini to'xtatish joyini ko'rsatadi. 2.4. \"Yo'l bering!\"belgisida haydovchi kesib o'tilayotgan yo'ldan harakatlanayotgan transport vositasiga yo'l berishi kerak.",
+            "uz_cyr": "YHQ 2-иловасининг 1-бўлимидаги 1.13 чизиғи кесишаётган йўлда ҳаракатланаётган транспорт воситасига йўл бериш учун тўхташ зарур бўлганда, ҳайдовчига транспорт воситасини тўхтатиш жойини кўрсатади. 2.4. \"Йўл беринг!\"белгисида ҳайдовчи кесиб ўтилаётган йўлдан ҳаракатланаётган транспорт воситасига йўл бериши керак.",
+            "ru": "Строка 1.13 части 1 приложения 2 Закона о дорожном движении указывает водителю место остановки транспортного средства при необходимости остановки для уступки места транспортному средству, движущемуся по пересекающейся дороге. 2.4. На \"Уступи дорогу!\" знака, водитель обязан уступить дорогу транспортному средству, движущемуся с пересекаемой дороги."
         }
     },
     {
         "task_info": {
-            "global_id": "t_19_q_19",
-            "ticket_num": 19,
+            "global_id": "t_15_q_3",
+            "ticket_num": 15,
             "order": 18
         },
         "media_url": "u217uz.webp",
@@ -1337,12 +1422,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Harakatlanish qismining chetida",
+                        "text": "Harakatlanish qismida",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Faqat to'siq (bordyur) ustida",
+                        "text": "Harakatlanish qismining chetida",
                         "is_correct": false
                     },
                     {
@@ -1352,7 +1437,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Harakatlanish qismida",
+                        "text": "Faqat to'siq (bordyur) ustida",
                         "is_correct": false
                     }
                 ]
@@ -1362,12 +1447,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ҳаракатланиш қисмининг четида",
+                        "text": "Ҳаракатланиш қисмида",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Фақат тўсиқ (бордюр) устида",
+                        "text": "Ҳаракатланиш қисмининг четида",
                         "is_correct": false
                     },
                     {
@@ -1377,7 +1462,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Ҳаракатланиш қисмида",
+                        "text": "Фақат тўсиқ (бордюр) устида",
                         "is_correct": false
                     }
                 ]
@@ -1387,12 +1472,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "У края проезжей части",
+                        "text": "На проезжей части",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Только по верху бордюра",
+                        "text": "У края проезжей части",
                         "is_correct": false
                     },
                     {
@@ -1402,23 +1487,28 @@
                     },
                     {
                         "id": 4,
-                        "text": "На проезжей части",
+                        "text": "Только по верху бордюра",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2 – ilovasi 1 – bo‘limining oltinchi xatboshisiga asosan: 1.4 – to‘xtash taqiqlangan joyni bildiradi. Yakka holda yoki 3.27 “To‘xtash taqiqlangan” yo‘l belgisi bilan qo‘llaniladi hamda yo‘lning qatnov qismi chitiga yoki yo’l chetidagi to‘siq ustidan chiziladi.",
+            "uz_cyr": "YHQ 2 – иловаси 1 – бўлимининг олтинчи хатбошисига асосан: 1.4 – тўхташ тақиқланган жойни билдиради. Якка ҳолда ёки 3.27 “Тўхташ тақиқланган” йўл белгиси билан қўлланилади ҳамда йўлнинг қатнов қисми читига ёки йўл четидаги тўсиқ устидан чизилади.",
+            "ru": "Согласно абзацу шестому раздела 1 Приложения 2 Общих правил: 1.4 – означает место, где парковка запрещена. Он используется отдельно или вместе с дорожным знаком 3.27 «Стоянка запрещена» и рисуется на обочине проезжей части или над придорожным барьером."
         }
     },
     {
         "task_info": {
-            "global_id": "t_50_q_2",
-            "ticket_num": 50,
+            "global_id": "t_15_q_13",
+            "ticket_num": 15,
             "order": 19
         },
-        "media_url": "u568uz.webp",
+        "media_url": "v70uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Bu yo'l chizig'i nimani bildiradi?",
+                "text": "Bu yo'l chiziq'i nimani bildiradi?",
                 "options": [
                     {
                         "id": 1,
@@ -1427,7 +1517,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Qatnov qismining torayishiga yoki qarama-qarshi yo'nalishdan kelayotgan transport oqimini ajratuvchi 1,1 yoki 1,11 chizig'iga yaqinlashayotganini",
+                        "text": "Qatnov qismining torayishiga yoki qarama-qarshi yo'nalishdan kelayotgan transport oqimini ajratuvchi 1,1 yoki 1,11 chiziq'iga yaqinlashayotganini",
                         "is_correct": true
                     },
                     {
@@ -1477,12 +1567,17 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasining 1-bo'limidagi 1.19 chizig'iga asosan, qatnov qismining toraygan (shu yo'nalishdagi harakatlanish tasmalarining soni kamaygan) joyiga yoki qarama-qarshi yo'nalishdan kelayotgan transport vositalari oqimlarini ajratuvchi 1.1 yoki 1.11 chizig'iga yaqinlashganlik haqida ogohlantiruvchi chiziq. Birinchi holda 1.18.1 – 1.18.3 belgilari bilan qo'llanilishi mumkin.",
+            "uz_cyr": "YHQ 2-иловасининг 1-бўлимидаги 1.19 чизиғига асосан, қатнов қисмининг торайган (шу йўналишдаги ҳаракатланиш тасмаларининг сони камайган) жойига ёки қарама-қарши йўналишдан келаётган транспорт воситалари оқимларини ажратувчи 1.1 ёки 1.11 чизиғига яқинлашганлик ҳақида огоҳлантирувчи чизиқ. Биринчи ҳолда 1.18.1 – 1.18.3 белгилари билан қўлланилиши мумкин.",
+            "ru": "Согласно разметке 1.19 раздела 1 приложения 2 к ПДД, предупреждающая линия обозначает сужение проезжей части (уменьшение числа полос движения в данном направлении) или приближение к разметке 1.1 или 1.11, разделяющей встречные транспортные потоки. В первом случае может применяться совместно со знаками 1.18.1 – 1.18.3."
         }
     },
     {
         "task_info": {
-            "global_id": "t_23_q_15",
-            "ticket_num": 23,
+            "global_id": "t_17_q_4",
+            "ticket_num": 17,
             "order": 20
         },
         "media_url": "u257uz.webp",
@@ -1492,18 +1587,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Transport vositalarining to'xtashi va to'xtab turishi uchun belgilangan maydonchalarni",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Qatnov qismi bilan yo'l yoqasi o'rtasidagi chegarani",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Tezlanish yoki sekinlanish bo'lagi bilan qatnov qismi asosiy bo'lagi o'rtasidagi chegarani bildiradi",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Transport vositalarining to'xtashi va to'xtab turishi uchun belgilangan maydonchalarni",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1512,18 +1607,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Транспорт воситаларининг тўхташи ва тўхтаб туриши учун белгиланган майдончаларни",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Қатнов қисми билан йўл ёқаси ўртасидаги чегарани",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Тезланиш ёки секинланиш бўлаги билан қатнов қисми асосий бўлаги ўртасидаги чегарани билдиради",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Транспорт воситаларининг тўхташи ва тўхтаб туриши учун белгиланган майдончаларни",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1532,27 +1627,32 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Границу между основной проезжей частью и полосой разгона или торможения",
+                        "text": "Границу между проезжей частью дороги и обочиной",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Площадки для остановки и стоянки транспортных средств",
-                        "is_correct": false
+                        "text": "Границу между основной проезжей частью и полосой разгона или торможения",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Границу между проезжей частью дороги и обочиной",
-                        "is_correct": true
+                        "text": "Площадки для остановки и стоянки транспортных средств",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasining 1-bo'limi 1.8 chizig'i (enli uzuq-uzuq chiziq) – tezlashish yoki sekinlashish tasmasi bilan yo'lning qatnov qismidagi asosiy tasmasi o'rtasidagi chegarani bildiradi (chorrahalarda, yo'lning turli sathda kesishgan qismlarida, avtobuslar to'xtaydigan joylarda va boshqalar). 1.8 chizig'ini istalgan tomondan bosib o'tish mumkin.",
+            "uz_cyr": "YHQ 2-иловасининг 1-бўлими 1.8 чизиғи (энли узуқ-узуқ чизиқ) – тезлашиш ёки секинлашиш тасмаси билан йўлнинг қатнов қисмидаги асосий тасмаси ўртасидаги чегарани билдиради (чорраҳаларда, йўлнинг турли сатҳда кесишган қисмларида, автобуслар тўхтайдиган жойларда ва бошқалар). 1.8 чизиғини исталган томондан босиб ўтиш мумкин.",
+            "ru": "Линия 1.8 части 1 приложения 2 Правил безопасности дорожного движения (широкая кольцевая линия) – обозначает границу между полосой разгона или торможения и основной полосой дороги (на перекрестках, на разных уровнях дороги, на остановках и т.п.). Линию 1.8 можно пересекать с любой стороны."
         }
     },
     {
         "task_info": {
-            "global_id": "t_43_q_11",
-            "ticket_num": 43,
+            "global_id": "t_17_q_11",
+            "ticket_num": 17,
             "order": 21
         },
         "media_url": "u497uz.webp",
@@ -1562,13 +1662,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Transport vositalari oqimi ajraladigan joydagi yo'naltiruvchi orolchani",
-                        "is_correct": false
+                        "text": "Transport vositalari oqimi qo'shiladigan joylardagi yo'naltiruvchi orolchani",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Transport vositalari oqimi qo'shiladigan joylardagi yo'naltiruvchi orolchani",
-                        "is_correct": true
+                        "text": "Qatnov qismidagi xavfli joylarda piyodalar uchun orolchani",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1577,7 +1677,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Qatnov qismidagi xavfli joylarda piyodalar uchun orolchani",
+                        "text": "Transport vositalari oqimi ajraladigan joydagi yo'naltiruvchi orolchani",
                         "is_correct": false
                     }
                 ]
@@ -1587,13 +1687,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Транспорт воситалари оқими ажраладиган жойдаги йўналтирувчи оролчани",
-                        "is_correct": false
+                        "text": "Транспорт воситалари оқими қўшиладиган жойлардаги йўналтирувчи оролчани",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Транспорт воситалари оқими қўшиладиган жойлардаги йўналтирувчи оролчани",
-                        "is_correct": true
+                        "text": "Қатнов қисмидаги хавфли жойларда пиёдалар учун оролчани",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1602,7 +1702,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Қатнов қисмидаги хавфли жойларда пиёдалар учун оролчани",
+                        "text": "Транспорт воситалари оқими ажраладиган жойдаги йўналтирувчи оролчани",
                         "is_correct": false
                     }
                 ]
@@ -1613,31 +1713,36 @@
                     {
                         "id": 1,
                         "text": "Направляющий островок в местах слияния транспортных потоков",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Островок, обозначающий в местах разделения транспортных потоков",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Островок для пешеходов на опасных участках движения",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Границу места стоянки транспортных средств",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Островок, обозначающий в местах разделения транспортных потоков",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasining 1-bo'limidagi 16.3 chizig'i transport oqimlarini qo'shiladigan joylarida yo'naltiruvchi orolchalarni bildiradi.",
+            "uz_cyr": "YHQ 2-иловасининг 1-бўлимидаги 16.3 чизиғи транспорт оқимларини қўшиладиган жойларида йўналтирувчи оролчаларни билдиради.",
+            "ru": "Строкой 16.3 раздела 1 приложения 2 НПД обозначены острова, отклоняющие транспортные потоки на перекрестках."
         }
     },
     {
         "task_info": {
-            "global_id": "t_1_q_3",
-            "ticket_num": 1,
+            "global_id": "t_18_q_3",
+            "ticket_num": 18,
             "order": 22
         },
         "media_url": "u1uz.webp",
@@ -1702,27 +1807,32 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasining 1-bo'limi 1.6 yotiq chiziqlariga asosan, 1.6 (yaqinlashish chizig'i – har bir chiziq uzunligi ular orasidagi masofadan uch barobar katta bo'lgan uzuq-uzuq chiziq) — qarama-qarshi yoki bir yo'nalishda harakatlanayotgan transport vositalari oqimlarini ajratuvchi 1.1 yoki 1.11 chizig'iga yaqinlashayotganlik haqida ogohlantiradi. 1.6 chizig'ini istalgan tomondan bosib o'tish mumkin.",
+            "uz_cyr": "YHQ 2-иловасининг 1-бўлими 1.6 ётиқ чизиқларига асосан, 1.6 (яқинлашиш чизиғи – ҳар бир чизиқ узунлиги улар орасидаги масофадан уч баробар катта бўлган узуқ-узуқ чизиқ) — қарама-қарши ёки бир йўналишда ҳаракатланаётган транспорт воситалари оқимларини ажратувчи 1.1 ёки 1.11 чизиғига яқинлашаётганлик ҳақида огоҳлантиради. 1.6 чизиғини исталган томондан босиб ўтиш мумкин.",
+            "ru": "Раздел 1 приложения 2 Закона о дорожном движении 1.6 на основе горизонтальных линий, 1.6 (линия подъезда - кольцевая линия, длина каждой линии равна трехкратному расстоянию между ними) - предупреждает о приближении к линии 1.1 или 1.11, разделяющей потоки транспортных средств, движущихся в встречном или попутном направлении. Линию 1.6 можно пересекать с любой стороны."
         }
     },
     {
         "task_info": {
-            "global_id": "t_12_q_20",
-            "ticket_num": 12,
+            "global_id": "t_18_q_13",
+            "ticket_num": 18,
             "order": 23
         },
         "media_url": "u136uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Bu yo'l chizig'i quyidagi maqsadni:",
+                "text": "Bu yo'l chiziq'i quyidagi maqsadni:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Mexanik transport vositalarining to'xtashi taqiqlangan joylarni bildiradi",
+                        "text": "Trotuar yaqinidagi to'xtab turish joyida mexanik transport vositalarining qo'yish usullari ko'rsatilgan to'xtab turish joyini bildiradi",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Trotuar yaqinidagi to'xtab turish joyida mexanik transport vositalarining qo'yish usullari ko'rsatilgan to'xtab turish joyini bildiradi",
+                        "text": "Mexanik transport vositalarining to'xtashi taqiqlangan joylarni bildiradi",
                         "is_correct": false
                     },
                     {
@@ -1737,12 +1847,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Механик транспорт воситаларининг тўхташи тақиқланган жойларни билдиради",
+                        "text": "Тротуар яқинидаги тўхтаб туриш жойида механик транспорт воситаларининг қўйиш усуллари кўрсатилган тўхтаб туриш жойини билдиради",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Тротуар яқинидаги тўхтаб туриш жойида механик транспорт воситаларининг қўйиш усуллари кўрсатилган тўхтаб туриш жойини билдиради",
+                        "text": "Механик транспорт воситаларининг тўхташи тақиқланган жойларни билдиради",
                         "is_correct": false
                     },
                     {
@@ -1757,12 +1867,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Обозначает места, где запрещена остановка механических транспортных средств",
+                        "text": "Обозначает стояночные места, где указаны способы постановки механических транспортных средств на около тротуарной стоянке",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Обозначает стояночные места, где указаны способы постановки механических транспортных средств на около тротуарной стоянке",
+                        "text": "Обозначает места, где запрещена остановка механических транспортных средств",
                         "is_correct": false
                     },
                     {
@@ -1772,12 +1882,17 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasining 1-bo'limidagi 1.17 chizig'i sariq rangdagi, arrasimon chiziq yo'nalishli transport vositalarining bekatlari hamda taksilarning to'xtab turish joylarini bildiradi.",
+            "uz_cyr": "YHQ 2-иловасининг 1-бўлимидаги 1.17 чизиғи сариқ рангдаги, аррасимон чизиқ йўналишли транспорт воситаларининг бекатлари ҳамда таксиларнинг тўхтаб туриш жойларини билдиради.",
+            "ru": "Согласно линии 1.17 раздела 1 приложения 2 к ПДД, жёлтая зигзагообразная линия обозначает остановки маршрутных транспортных средств и места стоянки такси."
         }
     },
     {
         "task_info": {
-            "global_id": "t_5_q_2",
-            "ticket_num": 5,
+            "global_id": "t_19_q_3",
+            "ticket_num": 19,
             "order": 24
         },
         "media_url": "u40uz.webp",
@@ -1787,17 +1902,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Mazkur yo'nalishda harakatlanish bo'lagi soni kamaya borib, qatnov qismining torayishini",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Kesib o'tiladigan yo'l bo'ylab harakatlanayotgan transport vositasiga yo'l berar ekan, haydovchi zarur holda qayerda to'xtashi kerak bo'lgan joyni",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "To'xtash taqiqlangan joyga yaqinlashilganini",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Mazkur yo'nalishda harakatlanish bo'lagi soni kamaya borib, qatnov qismining torayishini",
+                        "text": "To'xtash taqiqlangan joyga yaqinlashilganini",
                         "is_correct": false
                     }
                 ]
@@ -1807,17 +1922,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Мазкур йўналишда ҳаракатланиш бўлаги сони камая бориб, қатнов қисмининг торайишини",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Кесиб ўтиладиган йўл бўйлаб ҳаракатланаётган транспорт воситасига йўл берар экан, ҳайдовчи зарур ҳолда қаерда тўхташи керак бўлган жойни",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Тўхташ тақиқланган жойга яқинлашилганини",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Мазкур йўналишда ҳаракатланиш бўлаги сони камая бориб, қатнов қисмининг торайишини",
+                        "text": "Тўхташ тақиқланган жойга яқинлашилганини",
                         "is_correct": false
                     }
                 ]
@@ -1827,13 +1942,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Место, где водитель должен при необходимости остановиться, уступая дорогу транспортным средствам движущимся по пересекаемой дороге",
-                        "is_correct": true
+                        "text": "Сужение проезжей части, где уменьшается количество полос движения в данном направлении",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Сужение проезжей части, где уменьшается количество полос движения в данном направлении",
-                        "is_correct": false
+                        "text": "Место, где водитель должен при необходимости остановиться, уступая дорогу транспортным средствам движущимся по пересекаемой дороге",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1842,15 +1957,20 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasining 1-bo'limidagi 1.13 chizig'i kesishayotgan yo'lda harakatlanayotgan transport vositasiga yo'l berish uchun to'xtash zarur bo'lganda, haydovchiga transport vositasini to'xtatish joyini ko'rsatadi.",
+            "uz_cyr": "YHQ 2-иловасининг 1-бўлимидаги 1.13 чизиғи кесишаётган йўлда ҳаракатланаётган транспорт воситасига йўл бериш учун тўхташ зарур бўлганда, ҳайдовчига транспорт воситасини тўхтатиш жойини кўрсатади.",
+            "ru": "Разметка 1.13 раздела 1 приложения 2 к ПДД указывает водителю место, где необходимо остановиться при необходимости уступить дорогу транспортному средству, движущемуся по пересекаемой дороге."
         }
     },
     {
         "task_info": {
-            "global_id": "t_24_q_12",
-            "ticket_num": 24,
+            "global_id": "t_19_q_6",
+            "ticket_num": 19,
             "order": 25
         },
-        "media_url": "",
+        "media_url": null,
         "content": {
             "uz_lat": {
                 "text": "Transport vositalariga sidirg'a oq chiziq bilan ajratilgan va «Belgilangan yo'nalishdagi transport vositalari uchun mo'ljallangan bo'lak» yo'l belgisi bilan belgilangan yo'lning o'ng bo'lagida to'xtab turishga ruxsat etiladimi?",
@@ -1862,13 +1982,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Faqat shu hududdagi korxonaga xizmat qiladigan yoki yaqin o'rtadagi uylarda yashaydigan fuqarolarga qarashli avtomobillarga ruxsat etiladi",
-                        "is_correct": false
+                        "text": "Taqiqlanadi",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Taqiqlanadi",
-                        "is_correct": true
+                        "text": "Faqat shu hududdagi korxonaga xizmat qiladigan yoki yaqin o'rtadagi uylarda yashaydigan fuqarolarga qarashli avtomobillarga ruxsat etiladi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1882,13 +2002,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Фақат шу ҳудуддаги корхонага хизмат қиладиган ёки яқин ўртадаги уйларда яшайдиган фуқароларга қарашли автомобилларга рухсат этилади",
-                        "is_correct": false
+                        "text": "Тақиқланади",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Тақиқланади",
-                        "is_correct": true
+                        "text": "Фақат шу ҳудуддаги корхонага хизмат қиладиган ёки яқин ўртадаги уйларда яшайдиган фуқароларга қарашли автомобилларга рухсат этилади",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1897,27 +2017,32 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается только автомобилям которые обслуживают предприятия находящиеся в этой зоне или принадлежат гражданам проживающим в ближайших дома",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Разрешается если нет знака запрещающего стоянку",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Запрещается",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Разрешается только автомобилям которые обслуживают предприятия находящиеся в этой зоне или принадлежат гражданам проживающим в ближайших дома",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 22-bobi 132-bandining birinchi xatboshisiga asosan: Yo‘nalishli transport vositalarining harakatlanishi uchun 5.9, 5.10.1 - 5.10.3 yo‘l belgilari bilan ajratilgan tasmada boshqa transport vositalarining harakatlanishi va to‘xtashi taqiqlanadi.",
+            "uz_cyr": "YHQ 22-боби 132-бандининг биринчи хатбошисига асосан: Йўналишли транспорт воситаларининг ҳаракатланиши учун 5.9, 5.10.1 - 5.10.3 йўл белгилари билан ажратилган тасмада бошқа транспорт воситаларининг ҳаракатланиши ва тўхташи тақиқланади.",
+            "ru": "Согласно абзацу первому статьи 132 главы 22 Гражданского кодекса: Запрещается движение и остановка других транспортных средств на полосе, обозначенной дорожными знаками 5.9, 5.10.1 - 5.10.3 для движения направленных транспортных средств."
         }
     },
     {
         "task_info": {
-            "global_id": "t_54_q_6",
-            "ticket_num": 54,
+            "global_id": "t_19_q_13",
+            "ticket_num": 19,
             "order": 26
         },
         "media_url": "u620uz.webp",
@@ -1927,13 +2052,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Chorrahada bo'laklar bo'ylab ruxsat etilgan harakat yo'nalishlarini ko'rsatadi",
-                        "is_correct": true
+                        "text": "Ko'rsatilgan yo'nalishlarda harakatlanishni taqiqlaydi",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Ko'rsatilgan yo'nalishlarda harakatlanishni taqiqlaydi",
-                        "is_correct": false
+                        "text": "Chorrahada bo'laklar bo'ylab ruxsat etilgan harakat yo'nalishlarini ko'rsatadi",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1947,13 +2072,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Чорраҳада бўлаклар бўйлаб рухсат этилган ҳаракат йўналишларини кўрсатади",
-                        "is_correct": true
+                        "text": "Кўрсатилган йўналишларда ҳаракатланишни тақиқлайди",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Кўрсатилган йўналишларда ҳаракатланишни тақиқлайди",
-                        "is_correct": false
+                        "text": "Чорраҳада бўлаклар бўйлаб рухсат этилган ҳаракат йўналишларини кўрсатади",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1967,27 +2092,32 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Приближение к пересечению дорог на котором движение разрешается во всех направлениях",
-                        "is_correct": true
+                        "text": "Запрещается движение в указанных направлениях",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
                         "text": "Указывает разрешенные на перекрёстке направления движения по полосам",
-                        "is_correct": false
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Запрещается движение в указанных направлениях",
+                        "text": "Приближение к пересечению дорог на котором движение разрешается во всех направлениях",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasining 1-bo‘limidagi 1.18 chizig‘i, chorrahada tasmalar bo‘laklar bo‘yicha ruxsat etilgan harakatlanish yo‘nalishlarini ko‘rsatadi. Mustaqil yoki 5.8.1, 5.8.2 “Bo‘laklar bo‘yicha harakatlanishning yo‘nalishi” belgilari bilan birgalikda qo‘llanilishi mumkin; oxiri berk yo‘l tasvirlangan chiziq shu yo‘nalishdagi yon tomonda joylashgan qatnov qismiga burilish taqiqlanganligini ko‘rsatish uchun chiziladi; chetki chap tasmadan chapga burilishga ruxsat beruvchi yo‘naltirgich shu tasmadan qayrilishga ham ruxsat beradi.",
+            "uz_cyr": "YHQ 2-иловасининг 1-бўлимидаги 1.18 чизиғи, чорраҳада тасмалар бўлаклар бўйича рухсат этилган ҳаракатланиш йўналишларини кўрсатади. Мустақил ёки 5.8.1, 5.8.2 “Бўлаклар бўйича ҳаракатланишнинг йўналиши” белгилари билан биргаликда қўлланилиши мумкин; охири берк йўл тасвирланган чизиқ шу йўналишдаги ён томонда жойлашган қатнов қисмига бурилиш тақиқланганлигини кўрсатиш учун чизилади; четки чап тасмадан чапга бурилишга рухсат берувчи йўналтиргич шу тасмадан қайрилишга ҳам рухсат беради.",
+            "ru": "В строке 1.18 раздела 1 приложения 2 Закона о дорожном движении указаны направления движения, разрешенные по полосам движения на перекрестке. Могут использоваться самостоятельно или совместно со знаками 5.8.1, 5.8.2 «Направление движения по полосам движения»; чертится тупиковая линия, обозначающая, что поворот на проселочную дорогу в этом направлении запрещен; Маршрутизатор, который разрешает поворот налево из крайней левой полосы, также разрешает поворот из этой полосы."
         }
     },
     {
         "task_info": {
-            "global_id": "t_51_q_18",
-            "ticket_num": 51,
+            "global_id": "t_20_q_3",
+            "ticket_num": 20,
             "order": 27
         },
         "media_url": "u587uz.webp",
@@ -1997,23 +2127,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Taqiqlanadi",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Istalgan tomondan ruxsat etiladi",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Agar u haydovchining chap tomonida bo'lsa ruxsat etiladi",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Agar u haydovchining o'ng tomonida bo'lsa ruxsat etiladi",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Istalgan tomondan ruxsat etiladi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Taqiqlanadi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2022,23 +2152,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тақиқланади",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Исталган томондан рухсат этилади",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Агар у ҳайдовчининг чап томонида бўлса рухсат этилади",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Агар у ҳайдовчининг ўнг томонида бўлса рухсат этилади",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Исталган томондан рухсат этилади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Тақиқланади",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2047,48 +2177,53 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Запрещается",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Разрешается с любой стороны",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Разрешается если она расположена слева от водителя",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Разрешается если она расположена справа от водителя",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Разрешается с любой стороны",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Запрещается",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilova 3-bo'lim 3.22. \"Yuk avtomobillarida quvib o'tish taqiqlangan\" yo'l belgisi, to'liq vazni 3,5 tonnadan ortiq bo'lgan yuk avtomobillarida barcha transport vositalarini quvib o'tish taqiqlanishini bildiradi (soatiga 40 km dan kam tezlikda harakatlanayotgan transport vositasi, traktor, ot-arava, velosiped bundan mustasno), belgisi ostidagi 7.1.1. \"Obyektgacha bo'lgan masofa\" qo'shimcha axborot belgisi 3.22 belgisi ta'sir hududi boshlanadigan joygacha bo'lgan masofani ko'rsatadi.",
+            "uz_cyr": "YHQ 1-илова 3-бўлим 3.22. \"Юк автомобилларида қувиб ўтиш тақиқланган\" йўл белгиси, тўлиқ вазни 3,5 тоннадан ортиқ бўлган юк автомобилларида барча транспорт воситаларини қувиб ўтиш тақиқланишини билдиради (соатига 40 км дан кам тезликда ҳаракатланаётган транспорт воситаси, трактор, от-арава, велосипед бундан мустасно), белгиси остидаги 7.1.1. \"Объектгача бўлган масофа\" қўшимча ахборот белгиси 3.22 белгиси таъсир ҳудуди бошланадиган жойгача бўлган масофани кўрсатади.",
+            "ru": "Приложение 1, раздел 3 НПЦ 3.22. Дорожный знак «Обгон грузовых автомобилей запрещен» указывает, что запрещается обгон всех транспортных средств общей массой более 3,5 тонн (за исключением транспортных средств, движущихся со скоростью менее 40 км в час, тракторов, телег, велосипедов), под знаком 7.1.1. Символ дополнительной информации «Расстояние до объекта» 3.22 указывает расстояние до начальной точки зоны воздействия."
         }
     },
     {
         "task_info": {
-            "global_id": "t_43_q_10",
-            "ticket_num": 43,
+            "global_id": "t_20_q_13",
+            "ticket_num": 20,
             "order": 28
         },
-        "media_url": "",
+        "media_url": null,
         "content": {
             "uz_lat": {
-                "text": "Yotiq chiziqlarning sidirg'a chizig'ini bosib o'tishga ruxsat etiladimi?",
+                "text": "Yotiq chiziqlarning sidirg'a chiziq'ini bosib o'tishga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat shunday holda ruxsat etiladiki, agar chiziq yo'l qatnov qismining chetlarini bildirsa",
-                        "is_correct": true
+                        "text": "Agar u haydovchining o'ng tomonida bo'lsa ruxsat etiladi",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Agar u haydovchining o'ng tomonida bo'lsa ruxsat etiladi",
-                        "is_correct": false
+                        "text": "Faqat shunday holda ruxsat etiladiki, agar chiziq yo'l qatnov qismining chetlarini bildirsa",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -2102,13 +2237,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат шундай ҳолда рухсат этиладики, агар чизиқ йўл қатнов қисмининг четларини билдирса",
-                        "is_correct": true
+                        "text": "Агар у ҳайдовчининг ўнг томонида бўлса рухсат этилади",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Агар у ҳайдовчининг ўнг томонида бўлса рухсат этилади",
-                        "is_correct": false
+                        "text": "Фақат шундай ҳолда рухсат этиладики, агар чизиқ йўл қатнов қисмининг четларини билдирса",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -2122,27 +2257,32 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается только при маневрировании, когда линия обозначает границы полос движения одного направления",
-                        "is_correct": true
+                        "text": "Разрешается если она расположена справа от водителя",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
                         "text": "Разрешается только в случае, если линия обозначает край проезжей части дороги",
-                        "is_correct": false
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Разрешается если она расположена справа от водителя",
+                        "text": "Разрешается только при маневрировании, когда линия обозначает границы полос движения одного направления",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasi 1-bo‘limining uchinchi va o‘ttiz to‘rtinchi xatboshlariga asosan: 1.1 qarama-qarshi yo‘nalishlarda harakatlanayotgan transport oqimlarini ajratadi, yo‘lning xavfli joylaridagi harakatlanish bo‘lagi chegarasini va velosipedchilar uchun bo‘lagining chegarasini bildiradi; yo‘lning kirish taqiqlangan qismi chegarasini belgilaydi; transport vositalarining to‘xtab turish joyi chegarasini hamda avtomagistral qatoriga kiritilmagan yo‘lning qatnov qismi chegarasini bildiradi; 1.1 va 1.3 chiziqlarini bosib o‘tish taqiqlanadi, qatnov qismining chetini bildirish uchun qo‘llanilgan 1.1 chizig‘i bundan mustasno.",
+            "uz_cyr": "YHQ 2-иловаси 1-бўлимининг учинчи ва ўттиз тўртинчи хатбошларига асосан: 1.1 қарама-қарши йўналишларда ҳаракатланаётган транспорт оқимларини ажратади, йўлнинг хавфли жойларидаги ҳаракатланиш бўлаги чегарасини ва велосипедчилар учун бўлагининг чегарасини билдиради; йўлнинг кириш тақиқланган қисми чегарасини белгилайди; транспорт воситаларининг тўхтаб туриш жойи чегарасини ҳамда автомагистрал қаторига киритилмаган йўлнинг қатнов қисми чегарасини билдиради; 1.1 ва 1.3 чизиқларини босиб ўтиш тақиқланади, қатнов қисмининг четини билдириш учун қўлланилган 1.1 чизиғи бундан мустасно.",
+            "ru": "Согласно абзацам третьему и тридцать четвертому раздела 1 приложения 2 Закона о дорожном движении: 1.1 разделяет транспортные потоки, движущиеся в встречных направлениях, указывает границу полосы движения на опасных участках дороги и границу полосы движения для велосипедистов; определяет границу запрещенного участка дороги; означает границу места стоянки транспортных средств и границу проезжей части дороги, не входящей в линию автомобильной дороги; Проезд по линиям 1.1 и 1.3 запрещен, за исключением линии 1.1, которая используется для обозначения края проезжей части."
         }
     },
     {
         "task_info": {
-            "global_id": "t_24_q_11",
-            "ticket_num": 24,
+            "global_id": "t_21_q_13",
+            "ticket_num": 21,
             "order": 29
         },
         "media_url": "u264uz.webp",
@@ -2152,12 +2292,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Orqa bilan harakat qilganda ruxsat etiladi",
+                        "text": "Faqat to'xtash uchun ruxsat etiladi",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Faqat to'xtash uchun ruxsat etiladi",
+                        "text": "Orqa bilan harakat qilganda ruxsat etiladi",
                         "is_correct": false
                     },
                     {
@@ -2172,12 +2312,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Орқа билан ҳаракат қилганда рухсат этилади",
+                        "text": "Фақат тўхташ учун рухсат этилади",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Фақат тўхташ учун рухсат этилади",
+                        "text": "Орқа билан ҳаракат қилганда рухсат этилади",
                         "is_correct": false
                     },
                     {
@@ -2192,12 +2332,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается при движении задним ходом",
+                        "text": "Разрешается только для остановки",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Разрешается только для остановки",
+                        "text": "Разрешается при движении задним ходом",
                         "is_correct": false
                     },
                     {
@@ -2207,18 +2347,23 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasining 1-bo‘limidagi 1.16.2 chizig‘i transport oqimlari ajraladigan yoki qo‘shiladigan xavfsizlik orolchasini bildiradi. YHQ 2-ilovasining 1-bo‘limidagi 1.1 chizig‘i chegaraning kirish taqiqlangan o‘tish qismini bildiradi.",
+            "uz_cyr": "YHQ 2-иловасининг 1-бўлимидаги 1.16.2 чизиғи транспорт оқимлари ажраладиган ёки қўшиладиган хавфсизлик оролчасини билдиради. YHQ 2-иловасининг 1-бўлимидаги 1.1 чизиғи чегаранинг кириш тақиқланган ўтиш қисмини билдиради.",
+            "ru": "В строке 1.16.2 части 1 приложения 2 МПК указан остров безопасности, на котором потоки движения разделяются или соединяются. В строке 1.1 раздела 1 приложения 2 МПК указано пересечение границы, въезд на который запрещен."
         }
     },
     {
         "task_info": {
-            "global_id": "t_32_q_7",
-            "ticket_num": 32,
+            "global_id": "t_22_q_3",
+            "ticket_num": 22,
             "order": 30
         },
-        "media_url": "",
+        "media_url": null,
         "content": {
             "uz_lat": {
-                "text": "Transport vositasining haydovchisi oldida «to'xtash chizig'i» chizilgan va svetoforning yashil yoritkichi yoniq bo'lgan chorrahaga yaqinlashayotib nima qilishi kerak?",
+                "text": "Transport vositasining haydovchisi oldida «to'xtash chiziq'i» chizilgan va svetoforning yashil yoritkichi yoniq bo'lgan chorrahaga yaqinlashayotib nima qilishi kerak?",
                 "options": [
                     {
                         "id": 1,
@@ -2252,22 +2397,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Продолжить движение через перекрёсток без остановки",
+                        "text": "Остановиться у «стоп-линии», а затем возобновить движение",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Остановиться у «стоп-линии», а затем возобновить движение",
+                        "text": "Продолжить движение через перекрёсток без остановки",
                         "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 31-bandiga muvofiq, svetoforning doirasimon yashil rangli ishorasi harakatlanishga ruxsat beradi.",
+            "uz_cyr": "YHQ 7-боби 31-бандига мувофиқ, светофорнинг доирасимон яшил рангли ишораси ҳаракатланишга рухсат беради.",
+            "ru": "В соответствии с главой 7 пункта 31 ПДД круговой зеленый сигнал светофора дает разрешение на движение."
         }
     },
     {
         "task_info": {
-            "global_id": "t_32_q_2",
-            "ticket_num": 32,
+            "global_id": "t_22_q_13",
+            "ticket_num": 22,
             "order": 31
         },
         "media_url": "u362uz.webp",
@@ -2317,7 +2467,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Место перегона скота",
+                        "text": "Пешеходный переход",
                         "is_correct": false
                     },
                     {
@@ -2327,17 +2477,22 @@
                     },
                     {
                         "id": 3,
-                        "text": "Пешеходный переход",
+                        "text": "Место перегона скота",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasining 1-bo'limidagi 1.15 chizig'i yo'lning velosiped yo'lkasi kesib o'tgan joyini bildiradi.",
+            "uz_cyr": "YHQ 2-иловасининг 1-бўлимидаги 1.15 чизиғи йўлнинг велосипед йўлкаси кесиб ўтган жойини билдиради.",
+            "ru": "В строке 1.15 части 1 приложения 2 Дорожной карты указано место пересечения дороги велосипедной полосой."
         }
     },
     {
         "task_info": {
-            "global_id": "t_37_q_16",
-            "ticket_num": 37,
+            "global_id": "t_23_q_13",
+            "ticket_num": 23,
             "order": 32
         },
         "media_url": "u425uz.webp",
@@ -2347,13 +2502,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat belgilangan yo'nalishdagi transport vositalarining harakatlanishi uchun mo'ljallangan bo'lakni bildiradi",
-                        "is_correct": true
+                        "text": "Faqat avtobusning harakatlanishi uchun mo'ljallangan bo'lakni bildiradi",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Avtobuslar va marshrutli taksi (alohida kichik avtobuslar)ning harakatlanishi uchun mo'ljallangan bo'lakni bildiradi",
-                        "is_correct": false
+                        "text": "Faqat belgilangan yo'nalishdagi transport vositalarining harakatlanishi uchun mo'ljallangan bo'lakni bildiradi",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -2362,7 +2517,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Faqat avtobusning harakatlanishi uchun mo'ljallangan bo'lakni bildiradi",
+                        "text": "Avtobuslar va marshrutli taksi (alohida kichik avtobuslar)ning harakatlanishi uchun mo'ljallangan bo'lakni bildiradi",
                         "is_correct": false
                     }
                 ]
@@ -2372,13 +2527,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат белгиланган йўналишдаги транспорт воситаларининг ҳаракатланиши учун мўлжалланган бўлакни билдиради",
-                        "is_correct": true
+                        "text": "Фақат автобуснинг ҳаракатланиши учун мўлжалланган бўлакни билдиради",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Автобуслар ва маршрутли такси (алоҳида кичик автобуслар)нинг ҳаракатланиши учун мўлжалланган бўлакни билдиради",
-                        "is_correct": false
+                        "text": "Фақат белгиланган йўналишдаги транспорт воситаларининг ҳаракатланиши учун мўлжалланган бўлакни билдиради",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -2387,7 +2542,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Фақат автобуснинг ҳаракатланиши учун мўлжалланган бўлакни билдиради",
+                        "text": "Автобуслар ва маршрутли такси (алоҳида кичик автобуслар)нинг ҳаракатланиши учун мўлжалланган бўлакни билдиради",
                         "is_correct": false
                     }
                 ]
@@ -2397,13 +2552,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Обозначает полосу, предназначенную для движения автобусов и маршрутных такси (особо малых автобусов)",
-                        "is_correct": true
+                        "text": "Обозначает полосу, предназначенную только для движения автобусов",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
                         "text": "Обозначает полосу, предназначенную только для движения маршрутных транспортных средств",
-                        "is_correct": false
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -2412,17 +2567,22 @@
                     },
                     {
                         "id": 4,
-                        "text": "Обозначает полосу, предназначенную только для движения автобусов",
+                        "text": "Обозначает полосу, предназначенную для движения автобусов и маршрутных такси (особо малых автобусов)",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasining 1-bo‘limidagi 1.23 chizig‘i faqat yo‘nalishli transport vositalari uchun mo‘ljallangan bo‘lagini bildiradi.",
+            "uz_cyr": "YHQ 2-иловасининг 1-бўлимидаги 1.23 чизиғи фақат йўналишли транспорт воситалари учун мўлжалланган бўлагини билдиради.",
+            "ru": "В строке 1.23 раздела 1 приложения 2 Закона о дорожном движении указан участок, предназначенный только для направленных транспортных средств."
         }
     },
     {
         "task_info": {
-            "global_id": "t_56_q_9",
-            "ticket_num": 56,
+            "global_id": "t_25_q_3",
+            "ticket_num": 25,
             "order": 33
         },
         "media_url": "u647uz.webp",
@@ -2432,8 +2592,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Hamma transport vositalari",
-                        "is_correct": false
+                        "text": "Qizil avtomobil",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -2442,17 +2602,17 @@
                     },
                     {
                         "id": 3,
-                        "text": "Qizil avtomobil",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 4,
                         "text": "Motosikl",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 4,
                         "text": "Har ikki avtomobil",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Hamma transport vositalari",
                         "is_correct": false
                     }
                 ]
@@ -2462,8 +2622,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ҳамма транспорт воситалари",
-                        "is_correct": false
+                        "text": "Қизил автомобил",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -2472,17 +2632,17 @@
                     },
                     {
                         "id": 3,
-                        "text": "Қизил автомобил",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 4,
                         "text": "Мотоцикл",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 4,
                         "text": "Ҳар икки автомобил",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Ҳамма транспорт воситалари",
                         "is_correct": false
                     }
                 ]
@@ -2493,21 +2653,21 @@
                     {
                         "id": 1,
                         "text": "Водитель красного автомобиля",
-                        "is_correct": false
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Водитель мотоцикла",
+                        "text": "Синий автомобиль",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Водители обоих автомобилей",
-                        "is_correct": true
+                        "text": "Водитель мотоцикла",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Синий автомобиль",
+                        "text": "Водители обоих автомобилей",
                         "is_correct": false
                     },
                     {
@@ -2517,33 +2677,38 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasi 1-bo‘limining oltinchi xatboshisiga asosan: 1.4 - to‘xtash taqiqlangan joyni bildiradi. Yakka holda yoki 3.27 “To‘xtash taqiqlangan” yo‘l belgisi bilan qo‘llaniladi hamda yo‘lning qatnov qismi chetiga yoki yo‘l chetidagi to‘siq ustidan chiziladi. YHQ 13-bobi 91-bandiga asosan, Quyidagilarda to‘xtash taqiqlanadi: bekat maydonchalarida, yo‘nalishli transport vositalari to‘xtash joylarida, jumladan, 1.17 chizig‘i bilan belgilangan, ular bo‘lmaganda esa yo‘nalishli transport vositalari to‘xtash joyi belgilari va bekatdan harakatlanish yo‘nalishi bo‘ylab (etmasdan va o‘tib ketib) 15 metrdan kam masofada (yo‘nalishli transport vositalari harakatiga xalaqit bermasa yo‘lovchilarni chiqarish yoki tushirish uchun to‘xtash bundan mustasno).",
+            "uz_cyr": "YHQ 2-иловаси 1-бўлимининг олтинчи хатбошисига асосан: 1.4 - тўхташ тақиқланган жойни билдиради. Якка ҳолда ёки 3.27 “Тўхташ тақиқланган” йўл белгиси билан қўлланилади ҳамда йўлнинг қатнов қисми четига ёки йўл четидаги тўсиқ устидан чизилади. YHQ 13-боби 91-бандига асосан, Қуйидагиларда тўхташ тақиқланади: бекат майдончаларида, йўналишли транспорт воситалари тўхташ жойларида, жумладан, 1.17 чизиғи билан белгиланган, улар бўлмаганда эса йўналишли транспорт воситалари тўхташ жойи белгилари ва бекатдан ҳаракатланиш йўналиши бўйлаб (этмасдан ва ўтиб кетиб) 15 метрдан кам масофада (йўналишли транспорт воситалари ҳаракатига халақит бермаса йўловчиларни чиқариш ёки тушириш учун тўхташ бундан мустасно).",
+            "ru": "Согласно абзацу шестому раздела 1 Приложения 2 Общих правил: 1.4 – означает место, где парковка запрещена. Он используется отдельно или вместе с дорожным знаком 3.27 «Стоянка запрещена» и рисуется на краю проезжей части или над придорожным барьером. В соответствии со статьей 91 главы 13 Гражданского кодекса запрещается парковаться в следующих местах: на платформах станций, местах стоянки направленных транспортных средств, в том числе обозначенных линией 1.17, а также при отсутствии знаков направленной парковки транспортных средств и на расстоянии менее 15 метров по направлению движения станции (не доезжая и не проходя мимо) (препятствуя движению направленных транспортных средств, за исключением остановки для посадки или высадки пассажиров)."
         }
     },
     {
         "task_info": {
-            "global_id": "t_30_q_12",
-            "ticket_num": 30,
+            "global_id": "t_25_q_13",
+            "ticket_num": 25,
             "order": 34
         },
         "media_url": "u345uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Yo'l chizig'i bilan ajratilgan bekat maydonchasidan harakatlanish uchun foydalanishga ruxsat etiladimi?",
+                "text": "Yo'l chiziq'i bilan ajratilgan bekat maydonchasidan harakatlanish uchun foydalanishga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "To'xtash joyida tramvay bo'lmaganda ruxsat etiladi",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Ruxsat etiladi",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Taqiqlanadi",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "To'xtash joyida tramvay bo'lmaganda ruxsat etiladi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2552,18 +2717,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тўхташ жойида трамвай бўлмаганда рухсат этилади",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Рухсат этилади",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Тақиқланади",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Тўхташ жойида трамвай бўлмаганда рухсат этилади",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2572,21 +2737,26 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается при отсутствии трамвая на остановке",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Разрешается",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Запрещается",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Разрешается при отсутствии трамвая на остановке",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasining 1-bo'limi 1-xatboshiga asosan, 1.1 chizig'i qarama-qarshi yo'nalishlarda harakatlanayotgan transport oqimlarini ajratadi, yo'lning xavfli joylaridagi harakatlanish tasmasi chegarasini va velosipedchilar uchun tasmaning chegarasini bildiradi; yo'lning kirish taqiqlangan qismi chegarasini belgilaydi; transport vositalarining to'xtab turish joyi chegarasini hamda avtomagistral qatoriga kiritilmagan yo'lning qatnov qismi chegarasini bildiradi. 1.1 chizig'ini bosib o'tish taqiqlanadi, qatnov qismining chetini bildirish uchun qo'llanilgan 1.1 chizig'i bundan mustasno.",
+            "uz_cyr": "YHQ 2-иловасининг 1-бўлими 1-хатбошига асосан, 1.1 чизиғи қарама-қарши йўналишларда ҳаракатланаётган транспорт оқимларини ажратади, йўлнинг хавфли жойларидаги ҳаракатланиш тасмаси чегарасини ва велосипедчилар учун тасманинг чегарасини билдиради; йўлнинг кириш тақиқланган қисми чегарасини белгилайди; транспорт воситаларининг тўхтаб туриш жойи чегарасини ҳамда автомагистрал қаторига киритилмаган йўлнинг қатнов қисми чегарасини билдиради. 1.1 чизиғини босиб ўтиш тақиқланади, қатнов қисмининг четини билдириш учун қўлланилган 1.1 чизиғи бундан мустасно.",
+            "ru": "Согласно пункту 1 раздела 1 приложения 2 Закона о дорожном движении линия 1.1 разделяет транспортные потоки, движущиеся в встречных направлениях, указывает границу полосы движения на опасных участках дороги и границу полосы движения для велосипедистов; определяет границу запрещенного участка дороги; означает границу места стоянки транспортных средств и границу проезжей части дороги, не входящей в линию автомобильной дороги. Пересечение линии 1.1 запрещено, за исключением линии 1.1, которая используется для обозначения края проезжей части."
         }
     },
     {
@@ -2602,18 +2772,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Ruxsat etiladi",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Taqiqlanadi",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Agar avtomagistralda harakatlanish serqatnov bo'lsa, taqiqlanadi",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Ruxsat etiladi",
-                        "is_correct": true
                     }
                 ]
             },
@@ -2622,18 +2792,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Рухсат этилади",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Тақиқланади",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Агар автомагистралда ҳаракатланиш серқатнов бўлса, тақиқланади",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Рухсат этилади",
-                        "is_correct": true
                     }
                 ]
             },
@@ -2642,21 +2812,26 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Разрешается",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Запрещается",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Запрещается, если на автомагистрали очень интенсивное движение",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Разрешается",
-                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-ilovasining 1-bo'limidagi 1.2 (enli sidirg'a chiziq) – avtomagistrallarda qatnov qismi chetini bildiradi. 1.2 chizig'ini istalgan tomondan bosib o'tish mumkin.",
+            "uz_cyr": "YHQ 2-иловасининг 1-бўлимидаги 1.2 (энли сидирға чизиқ) – автомагистралларда қатнов қисми четини билдиради. 1.2 чизиғини исталган томондан босиб ўтиш мумкин.",
+            "ru": "1.2 (широкая пунктирная линия) в разделе 1 приложения 2 Закона о дорожном движении – обозначает край проезжей части на автомобильных дорогах. Линию 1.2 можно пересекать с любой стороны."
         }
     }
 ]

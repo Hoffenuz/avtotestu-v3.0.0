@@ -52,12 +52,17 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 1-bo'limi 1.20. \"Piyodalar o'tish joyi\" belgisi 5.16.1, 5.16.2 belgilari va (yoki) 1.14.1-1.14.3 chiziqlari bilan belgilangan piyodalar o'tish joyini bildiradi.",
+            "uz_cyr": "YHQ 1-иловасининг 1-бўлими 1.20. \"Пиёдалар ўтиш жойи\" белгиси 5.16.1, 5.16.2 белгилари ва (ёки) 1.14.1-1.14.3 чизиқлари билан белгиланган пиёдалар ўтиш жойини билдиради.",
+            "ru": "Раздел 1 Приложения 1 МПК 1.20. Знак «Пешеходный переход» означает пешеходный переход, обозначенный знаками 5.16.1, 5.16.2 и (или) линиями 1.14.1-1.14.3."
         }
     },
     {
         "task_info": {
-            "global_id": "t_48_q_7",
-            "ticket_num": 48,
+            "global_id": "t_2_q_13",
+            "ticket_num": 2,
             "order": 2
         },
         "media_url": "u548uz.webp",
@@ -67,17 +72,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Shlagbaum bilan jihozlanmagan bir izli temir yo'l kesishmasi borligidan",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Bir izli temir yo'l kesishmasiga yaqinlashayotganligi haqida",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Shlagbaum bilan jixozlanmagan bir izli temir yo'l kesishmasi borligidan",
+                        "is_correct": true
+                    },
+                    {
                         "id": 3,
-                        "text": "Shlagbaum bilan jihozlanmagan ikki izli temir yo'l kesishmasi borligidan",
+                        "text": "Shlagbaum bilan jixozlanmagan ikki izli temir yo'l kesishmasi borligidan",
                         "is_correct": false
                     }
                 ]
@@ -87,13 +92,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Шлагбаум билан жихозланмаган бир изли темир йўл кесишмаси борлигидан",
-                        "is_correct": true
+                        "text": "Бир изли темир йўл кесишмасига яқинлашаётганлиги ҳақида",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Бир изли темир йўл кесишмасига яқинлашаётганлиги ҳақида",
-                        "is_correct": false
+                        "text": "Шлагбаум билан жихозланмаган бир изли темир йўл кесишмаси борлигидан",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -107,27 +112,32 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "О приближение к железнодорожному переезду с одним путем",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Необорудованный шлагбаумом железнодорожный переезд с одним путем",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Необорудованный шлагбаумом Железнодорожный переезд с двумя путями",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "О приближение к железнодорожному переезду с одним путем",
+                        "text": "Необорудованный шлагбаумом Железнодорожный переезд с двумя путями",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 1-bo'limidagi 1.3.1 belgi \"Bir izli temir yo'l\" – shlagbaum bilan jihozlanmagan bir izli temir yo'l kesishmasi haqida ogohlantiradi.",
+            "uz_cyr": "YHQ 1-иловасининг 1-бўлимидаги 1.3.1 белги \"Бир изли темир йўл\" – шлагбаум билан жиҳозланмаган бир изли темир йўл кесишмаси ҳақида огоҳлантиради.",
+            "ru": "Знак 1.3.1 приложения 1 раздела 1 МПК предупреждает о «Однопутном железнодорожном переезде» - однопутном железнодорожном переезде, не оборудованном шлагбаумом."
         }
     },
     {
         "task_info": {
-            "global_id": "t_53_q_14",
-            "ticket_num": 53,
+            "global_id": "t_3_q_13",
+            "ticket_num": 3,
             "order": 3
         },
         "media_url": "u613uz.webp",
@@ -137,8 +147,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "50-100 m",
-                        "is_correct": true
+                        "text": "15-25 m",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -147,8 +157,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "15-25 m",
-                        "is_correct": false
+                        "text": "50-100 m",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
@@ -167,8 +177,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "50-100 м",
-                        "is_correct": true
+                        "text": "15-25 м",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -177,8 +187,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "15-25 м",
-                        "is_correct": false
+                        "text": "50-100 м",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
@@ -197,8 +207,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "50-100 м",
-                        "is_correct": true
+                        "text": "15-25 м",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -207,8 +217,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "15-25 м",
-                        "is_correct": false
+                        "text": "50-100 м",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
@@ -222,12 +232,17 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 1-bo'limi izohining 1-xatboshiga asosan, 1.1, 1.2, 1.6, 1.8 i 1.30 ogohlantiruvchi belgilar aholi punktlarida xavfli joydan 50-100 metr oldin o'rnatiladi.",
+            "uz_cyr": "YHQ 1-иловасининг 1-бўлими изоҳининг 1-хатбошига асосан, 1.1, 1.2, 1.6, 1.8 и 1.30 огоҳлантирувчи белгилар аҳоли пунктларида хавфли жойдан 50-100 метр олдин ўрнатилади.",
+            "ru": "Согласно пункту 1 пояснения к 1-й части приложения 1, предупредительные знаки 1.1, 1.2, 1.6, 1.8 и 1.30 устанавливаются в населенных пунктах за 50-100 метров до опасного места."
         }
     },
     {
         "task_info": {
-            "global_id": "t_41_q_9",
-            "ticket_num": 41,
+            "global_id": "t_4_q_13",
+            "ticket_num": 4,
             "order": 4
         },
         "media_url": "u469uz.webp",
@@ -322,12 +337,17 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 1-bo'limi 1.31.3. \"Burilishning yo'nalishi\" belgisi T-Simon chorrahada yoki yo'l ayrilishlarida harakatlanish yo'nalishini, ta'mirlanayotgan yo'l qismini aylanib o'tish yo'nalishini bildiradi.",
+            "uz_cyr": "YHQ 1-иловасининг 1-бўлими 1.31.3. \"Бурилишнинг йўналиши\" белгиси Т-Симон чорраҳада ёки йўл айрилишларида ҳаракатланиш йўналишини, таъмирланаётган йўл қисмини айланиб ўтиш йўналишини билдиради.",
+            "ru": "Раздел 1 Приложения 1 МПК 1.31.3. Символ «Направление поворота» Т-Саймон указывает направление движения на перекрестке или примыканиях дорог, направление обхода ремонтируемого участка дороги."
         }
     },
     {
         "task_info": {
-            "global_id": "t_44_q_10",
-            "ticket_num": 44,
+            "global_id": "t_5_q_13",
+            "ticket_num": 5,
             "order": 5
         },
         "media_url": "u507uz.webp",
@@ -422,6 +442,11 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 1-bo‘limidagi 1.6 belgiga asosan, “Teng ahamiyatli yo‘llar kesishuvi” haydovchilarni teng ahamiyatli yo‘llar chorrahasiga yaqinlashayotganligi haqida axborot beradi.",
+            "uz_cyr": "YHQ 1-иловасининг 1-бўлимидаги 1.6 белгига асосан, “Тенг аҳамиятли йўллар кесишуви” ҳайдовчиларни тенг аҳамиятли йўллар чорраҳасига яқинлашаётганлиги ҳақида ахборот беради.",
+            "ru": "Согласно знаку 1.6 части 1 приложения 1 Кодекса безопасности дорожного движения «Перекресток равной важности» информирует водителей о приближении к перекрестку дорог равной важности."
         }
     },
     {
@@ -433,7 +458,7 @@
         "media_url": "u34uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Quyidagi qaysi belgilar ogohlantiruvchi belgilar jumlasiga kiradi?",
+                "text": "Quyidagi qaysi belgilar ogohlantiruvchi belgilar turiga kiradi?",
                 "options": [
                     {
                         "id": 1,
@@ -492,6 +517,11 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 1-bo‘limidagi 1.11.1 belgiga asosan, «Xavfli burilish». 1.11.1 — o‘ngga, yo‘lning kichik radiusli yoki ko‘rinishi cheklangan burilish joyini bildiradi.",
+            "uz_cyr": "YHQ 1-иловасининг 1-бўлимидаги 1.11.1 белгига асосан, «Хавфли бурилиш». 1.11.1 — ўнгга, йўлнинг кичик радиусли ёки кўриниши чекланган бурилиш жойини билдиради.",
+            "ru": "Согласно знаку 1.11.1 раздела 1 приложения 1 к ПДД «Опасный поворот»: 1.11.1 — предупреждает о повороте дороги направо с малым радиусом или ограниченной видимостью."
         }
     },
     {
@@ -507,27 +537,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "2",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "3",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 4,
                         "text": "4",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 2,
+                        "text": "3",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
                         "text": "5",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "2",
                         "is_correct": false
                     }
                 ]
@@ -537,27 +567,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "2",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "3",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 4,
                         "text": "4",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 2,
+                        "text": "3",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
                         "text": "5",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "2",
                         "is_correct": false
                     }
                 ]
@@ -567,31 +597,36 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "2",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "3",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 4,
                         "text": "4",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 2,
+                        "text": "3",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
                         "text": "5",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "2",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 1-bo'limidagi 1.10 belgi \"Sohilga chiqish\" belgisi aholi punklaridan tashqari takrorlanadi. Ikkinchi belgi yo'lning xavfli qismi boshlanishiga kamida 50 metr qolganda o'rnatiladi.",
+            "uz_cyr": "YHQ 1-иловасининг 1-бўлимидаги 1.10 белги \"Соҳилга чиқиш\" белгиси аҳоли пункларидан ташқари такрорланади. Иккинчи белги йўлнинг хавфли қисми бошланишига камида 50 метр қолганда ўрнатилади.",
+            "ru": "Знак 1.10 Приложения 1, раздел 1 «Выход на пляж» повторяется, за исключением населенных пунктов. Второй знак устанавливается не менее чем за 50 метров до начала опасного участка дороги."
         }
     },
     {
@@ -607,7 +642,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "3",
                         "is_correct": false
                     },
                     {
@@ -617,7 +652,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "3",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
@@ -627,7 +662,7 @@
                     },
                     {
                         "id": 5,
-                        "text": "5",
+                        "text": "1",
                         "is_correct": false
                     }
                 ]
@@ -637,7 +672,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "3",
                         "is_correct": false
                     },
                     {
@@ -647,7 +682,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "3",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
@@ -657,7 +692,7 @@
                     },
                     {
                         "id": 5,
-                        "text": "5",
+                        "text": "1",
                         "is_correct": false
                     }
                 ]
@@ -667,7 +702,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "3",
                         "is_correct": false
                     },
                     {
@@ -677,7 +712,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "3",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
@@ -687,17 +722,22 @@
                     },
                     {
                         "id": 5,
-                        "text": "5",
+                        "text": "1",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 1-bo'limidagi 1.22 belgi \"Velosiped yo'lkasi bilan kesishuv\"ni bildiradi.",
+            "uz_cyr": "YHQ 1-иловасининг 1-бўлимидаги 1.22 белги \"Велосипед йўлкаси билан кесишув\"ни билдиради.",
+            "ru": "Знак 1.22 в 1-м разделе Приложения 1 Дорожной карты обозначает «Пересечение с велосипедной полосой»."
         }
     },
     {
         "task_info": {
-            "global_id": "t_52_q_9",
-            "ticket_num": 52,
+            "global_id": "t_16_q_2",
+            "ticket_num": 16,
             "order": 9
         },
         "media_url": "u596uz.webp",
@@ -792,12 +832,17 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 1-bo'limidagi 1.11.2 “Xavfli burilish” belgisi yo'lning kichik radiusli yoki ko'rinish cheklangan burilish joyi haqida ogohlantiradi, 1.11.2-chapga.",
+            "uz_cyr": "YHQ 1-иловасининг 1-бўлимидаги 1.11.2 “Хавфли бурилиш” белгиси йўлнинг кичик радиусли ёки кўриниш чекланган бурилиш жойи ҳақида огоҳлантиради, 1.11.2-чапга.",
+            "ru": "1.11.2 Знак «Опасный поворот» приложения 1 статьи 1 Закона о дорожном движении предупреждает о повороте на дороге малого радиуса или ограниченной видимости, 1.11.2 Налево."
         }
     },
     {
         "task_info": {
-            "global_id": "t_54_q_9",
-            "ticket_num": 54,
+            "global_id": "t_16_q_3",
+            "ticket_num": 16,
             "order": 10
         },
         "media_url": "u623uz.webp",
@@ -807,12 +852,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "«B»",
+                        "text": "«А»",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "«А»",
+                        "text": "«B»",
                         "is_correct": false
                     },
                     {
@@ -827,12 +872,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "«B»",
+                        "text": "«А»",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "«А»",
+                        "text": "«B»",
                         "is_correct": false
                     },
                     {
@@ -847,12 +892,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "«B»",
+                        "text": "«А»",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "«А»",
+                        "text": "«B»",
                         "is_correct": false
                     },
                     {
@@ -862,6 +907,11 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 1-bo'limi 1.11.2 belgisi \"Xavfli burilish\" – chapga, yo'lning kichik radiusli yoki ko'rinishi cheklangan burilish joyini bildiradi va 1.31.2 yo'l belgisi \"Burilishning yo'nalishi\", kichik radiusli, ko'rinishi cheklangan yo'lda harakatlanish yo'nalishini va yo'lning ta'mirlanayotgan qismini aylanib o'tish yo'nalishini bildiradi. To'g'riga chapga yoki o'nga harakatlanish taqiqlanmagan.",
+            "uz_cyr": "YHQ 1-иловасининг 1-бўлими 1.11.2 белгиси \"Хавфли бурилиш\" – чапга, йўлнинг кичик радиусли ёки кўриниши чекланган бурилиш жойини билдиради ва 1.31.2 йўл белгиси \"Бурилишнинг йўналиши\", кичик радиусли, кўриниши чекланган йўлда ҳаракатланиш йўналишини ва йўлнинг таъмирланаётган қисмини айланиб ўтиш йўналишини билдиради. Тўғрига чапга ёки ўнга ҳаракатланиш тақиқланмаган.",
+            "ru": "Знак 1.11.2 «Опасный поворот» части 1 Приложения 1 ЯГК означает место поворота налево, с малым радиусом дороги или с ограниченной видимостью, а дорожный знак 1.31.2 «Направление поворота» указывает направление движения по дороге малого радиуса, с ограниченной видимостью и направление обхода ремонтируемого участка дороги. Не запрещено двигаться прямо влево или вправо."
         }
     },
     {
@@ -873,7 +923,7 @@
         "media_url": "u105uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Bu yo'l belgisi oldinda nima borligidan ogohlantiradi?",
+                "text": "Bu yo'l belgisi nimadan ogohlantiradi?",
                 "options": [
                     {
                         "id": 1,
@@ -922,22 +972,27 @@
                     },
                     {
                         "id": 2,
-                        "text": "Участок дороги с водной преградой, на котором имеется разводной мост",
+                        "text": "Место, где дорога выходит на набережную или берег какого-либо водоема",
                         "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Место, где дорога выходит на набережную или берег какого-либо водоема",
+                        "text": "Участок дороги с водной преградой, на котором имеется разводной мост",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 1-bo'limidagi 1.10 belgi \"Sohilga chiqish\" - daryo yoki suv havzasi qirg'og'iga chiqish haqida ogohlantiradi.",
+            "uz_cyr": "YHQ 1-иловасининг 1-бўлимидаги 1.10 белги \"Соҳилга чиқиш\" - дарё ёки сув ҳавзаси қирғоғига чиқиш ҳақида огоҳлантиради.",
+            "ru": "Знак 1.10 в 1-м разделе Приложения 1 ЗП предупреждает о «Выходе на берег» - выходе на берег реки или водоема."
         }
     },
     {
         "task_info": {
-            "global_id": "t_42_q_20",
-            "ticket_num": 42,
+            "global_id": "t_25_q_4",
+            "ticket_num": 25,
             "order": 12
         },
         "media_url": "u489uz.webp",
@@ -992,16 +1047,21 @@
                     },
                     {
                         "id": 2,
-                        "text": "Не оборудованный шлагбаумом железнодорожный переезд с двумя и более путями",
+                        "text": "Оборудованный шлагбаумом железнодорожный переезд с одним путем",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Оборудованный шлагбаумом железнодорожный переезд с одним путем",
+                        "text": "Не оборудованный шлагбаумом железнодорожный переезд с двумя и более путями",
                         "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 1-bo'limidagi 1.3.2. \"Ko'p izli temir yo'l\" belgisi ikki va undan ortiq izli temir yo'l belgilari shlagbaum bilan jihozlanmagan temir yo'l kesishmasi oldida o'rnatiladi.",
+            "uz_cyr": "YHQ 1-иловасининг 1-бўлимидаги 1.3.2. \"Кўп изли темир йўл\" белгиси икки ва ундан ортиқ изли темир йўл белгилари шлагбаум билан жиҳозланмаган темир йўл кесишмаси олдида ўрнатилади.",
+            "ru": "1.3.2 главы 1 приложения 1 Знак «Многопутная железная дорога» устанавливается перед железнодорожным переездом, где два и более путевых железнодорожных знака не оборудованы шлагбаумом."
         }
     },
     {
@@ -1017,12 +1077,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "4",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "2",
+                        "text": "1",
                         "is_correct": false
                     },
                     {
@@ -1032,7 +1092,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "4",
+                        "text": "2",
                         "is_correct": false
                     },
                     {
@@ -1047,12 +1107,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "4",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "2",
+                        "text": "1",
                         "is_correct": false
                     },
                     {
@@ -1062,7 +1122,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "4",
+                        "text": "2",
                         "is_correct": false
                     },
                     {
@@ -1077,12 +1137,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "4",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "2",
+                        "text": "1",
                         "is_correct": false
                     },
                     {
@@ -1092,7 +1152,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "4",
+                        "text": "2",
                         "is_correct": false
                     },
                     {
@@ -1102,12 +1162,17 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-bo'limiga muvofiq, 1.3.1 \"Bir izli temir yo'li\" belgisi bevosita shlagbaum bilan jihozlanmagan bir izli temir yo'l kesishmasi oldida o'rnatiladi.",
+            "uz_cyr": "YHQ 1-бўлимига мувофиқ, 1.3.1 \"Бир изли темир йўли\" белгиси бевосита шлагбаум билан жиҳозланмаган бир изли темир йўл кесишмаси олдида ўрнатилади.",
+            "ru": "В соответствии с разделом 1 ХК 1.3.1 знак «Однопутная железная дорога» устанавливается непосредственно перед однопутным железнодорожным переездом, не оборудованным шлагбаумом."
         }
     },
     {
         "task_info": {
-            "global_id": "t_43_q_6",
-            "ticket_num": 43,
+            "global_id": "t_28_q_2",
+            "ticket_num": 28,
             "order": 14
         },
         "media_url": "u493uz.webp",
@@ -1202,12 +1267,17 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 1-bo'limidagi 1.1 \"Shlagbaumli temir yo'l kesishmasi\" belgisi shlagbaum bilan jihozlangan temir yo'l kesishmasiga yaqinlashayotganligi haqida ogohlantiradi.",
+            "uz_cyr": "YHQ 1-иловасининг 1-бўлимидаги 1.1 \"Шлагбаумли темир йўл кесишмаси\" белгиси шлагбаум билан жиҳозланган темир йўл кесишмасига яқинлашаётганлиги ҳақида огоҳлантиради.",
+            "ru": "Знак 1.1 «Железнодорожный переезд со шлагбаумом» в Приложении 1, раздел 1 предупреждает о приближении к железнодорожному переезду, оборудованному шлагбаумом."
         }
     },
     {
         "task_info": {
-            "global_id": "t_11_q_2",
-            "ticket_num": 11,
+            "global_id": "t_37_q_8",
+            "ticket_num": 37,
             "order": 15
         },
         "media_url": "u114uz.webp",
@@ -1217,18 +1287,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqatgina o'ng tomondan yaqinlashib kelayotgan transport vositalariga yo'l berishingiz kerak",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Birinchi bo'lib o'tish huquqiga egasiz",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Kesib o'tayotgan yo'ldagi transport vositalariga yo'l berishingiz kerak",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faqatgina o'ng tomondan yaqinlashib kelayotgan transport vositalariga yo'l berishingiz kerak",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1237,18 +1307,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақатгина ўнг томондан яқинлашиб келаётган транспорт воситаларига йўл беришингиз керак",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Биринчи бўлиб ўтиш ҳуқуқига эгасиз",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Кесиб ўтаётган йўлдаги транспорт воситаларига йўл беришингиз керак",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақатгина ўнг томондан яқинлашиб келаётган транспорт воситаларига йўл беришингиз керак",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1257,27 +1327,32 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Должны уступить дорогу всем транспортным средствам, движущимся по пересекаемой дороге",
-                        "is_correct": true
+                        "text": "Имеете право преимущественного проезда",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Имеете право преимущественного проезда",
+                        "text": "Должны уступить дорогу всем транспортным средствам, движущимся по пересекаемой дороге",
                         "is_correct": false
                     },
                     {
                         "id": 3,
                         "text": "Должны уступить дорогу только транспортным средствам, приближающимся справа",
-                        "is_correct": false
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 1-bo'limi 1.6 belgisi, \"Teng ahamiyatli yo'llar kesishuvi\". Aholi punktlarida xavfli joydan 50 — 100 metr oldin o'rnatiladi. YHQ 16-bobi 105-bandiga muvofiq, teng ahamiyatga ega bo'lgan yo'llar kesishgan chorrahada relssiz transport vositasining haydovchisi o'ngdan kelayotgan transport vositalariga yo'l berishi shart.",
+            "uz_cyr": "YHQ 1-иловасининг 1-бўлими 1.6 белгиси, \"Тенг аҳамиятли йўллар кесишуви\". Аҳоли пунктларида хавфли жойдан 50 — 100 метр олдин ўрнатилади. YHQ 16-боби 105-бандига мувофиқ, тенг аҳамиятга эга бўлган йўллар кесишган чорраҳада релссиз транспорт воситасининг ҳайдовчиси ўнгдан келаётган транспорт воситаларига йўл бериши шарт.",
+            "ru": "Раздел 1 приложения 1 Кодекса безопасности дорожного движения, знак 1.6 «Перекресток равнозначного значения». В населенных пунктах его устанавливают за 50-100 метров до опасного места. В соответствии со статьей 105 главы 16 Гражданского кодекса водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, едущим справа, на перекрестке, где пересекаются дороги равной важности."
         }
     },
     {
         "task_info": {
-            "global_id": "t_33_q_5",
-            "ticket_num": 33,
+            "global_id": "t_41_q_2",
+            "ticket_num": 41,
             "order": 16
         },
         "media_url": "u374uz.webp",
@@ -1342,12 +1417,17 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 1-bo'limidagi 1.32 \"Tirbandlik\". Ushbu yo'l belgisi vaqtinchalik yoki tasviri o'zgaradigan holatda tirbandlik hosil bo'lgan yo'l yoki chorrahaga kirish oldidan yo'lni yoki chorrahani aylanib o'tish imkoniyati bo'lgan joyga o'rnatiladi.",
+            "uz_cyr": "YHQ 1-иловасининг 1-бўлимидаги 1.32 \"Тирбандлик\". Ушбу йўл белгиси вақтинчалик ёки тасвири ўзгарадиган ҳолатда тирбандлик ҳосил бўлган йўл ёки чорраҳага кириш олдидан йўлни ёки чорраҳани айланиб ўтиш имконияти бўлган жойга ўрнатилади.",
+            "ru": "1.32 «Дорожное движение» в разделе 1 Приложения 1 МПК. Данный дорожный знак устанавливается в месте, где можно объехать дорогу или перекресток перед выездом на дорогу или перекресток с движением транспорта в случае временного или меняющегося изображения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_45_q_16",
-            "ticket_num": 45,
+            "global_id": "t_41_q_9",
+            "ticket_num": 41,
             "order": 17
         },
         "media_url": "u525uz.webp",
@@ -1412,12 +1492,17 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 1-bo‘limidagi 1.30 belgiga asosan, «Boshqa xavf-xatarlar».",
+            "uz_cyr": "YHQ 1-иловасининг 1-бўлимидаги 1.30 белгига асосан, «Бошқа хавф-хатарлар».",
+            "ru": "«Прочие риски» согласно отметке 1,30 в 1-м разделе Приложения 1 МПК."
         }
     },
     {
         "task_info": {
-            "global_id": "t_57_q_10",
-            "ticket_num": 57,
+            "global_id": "t_41_q_20",
+            "ticket_num": 41,
             "order": 18
         },
         "media_url": "u658uz.webp",
@@ -1482,6 +1567,11 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 1-bo‘limidagi 1.20 belgiga asosan, «Piyodalar o‘tish joyi». 5.16.1, 5.16.2 belgilari va (yoki) 1.14.1 — 1.14.4 chiziqlari bilan belgilangan piyodalar o‘tish joyini bildiradi.",
+            "uz_cyr": "YHQ 1-иловасининг 1-бўлимидаги 1.20 белгига асосан, «Пиёдалар ўтиш жойи». 5.16.1, 5.16.2 белгилари ва (ёки) 1.14.1 — 1.14.4 чизиқлари билан белгиланган пиёдалар ўтиш жойини билдиради.",
+            "ru": "«Пешеходный переход» по знаку 1.20 Приложения 1, раздела 1, знакам 5.16.1, 5.16.2 и (или) означает пешеходный переход, обозначенный линиями 1.14.1 — 1.14.4."
         }
     },
     {
@@ -1552,6 +1642,11 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 1-bo‘limidagi 1.15 belgiga asosan, «Sirpanchiq yo‘l». Qatnov qismi o‘ta sirpanchiq bo‘lgan yo‘l qismi.",
+            "uz_cyr": "YHQ 1-иловасининг 1-бўлимидаги 1.15 белгига асосан, «Сирпанчиқ йўл». Қатнов қисми ўта сирпанчиқ бўлган йўл қисми.",
+            "ru": "По условному обозначению 1.15 1 части Приложения 1 МПК «Скользкая дорога». Участок дороги, на котором проезжая часть очень скользкая."
         }
     },
     {
@@ -1567,23 +1662,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "A",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "B",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "A",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "C",
-                        "is_correct": true
+                        "text": "D",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "D",
-                        "is_correct": false
+                        "text": "C",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1592,23 +1687,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "A",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "B",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "A",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "C",
-                        "is_correct": true
+                        "text": "D",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "D",
-                        "is_correct": false
+                        "text": "C",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1617,47 +1712,52 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "A",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "B",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "A",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "C",
-                        "is_correct": true
+                        "text": "D",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "D",
-                        "is_correct": false
+                        "text": "C",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 1-bo'limidagi 1.34. \"Diqqat, boshqariladigan to'siq\" yo'l belgisi boshqariladigan to'suvchi qurilmasiga yetmasdan o'rnatiladi va transport vositalari haydovchilarini oldinda to'suvchi qurilma borligi haqida ogohlantiradi.",
+            "uz_cyr": "YHQ 1-иловасининг 1-бўлимидаги 1.34. \"Диққат, бошқариладиган тўсиқ\" йўл белгиси бошқариладиган тўсувчи қурилмасига етмасдан ўрнатилади ва транспорт воситалари ҳайдовчиларини олдинда тўсувчи қурилма борлиги ҳақида огоҳлантиради.",
+            "ru": "1.34 главы 1 приложения 1 МПК. Дорожный знак «Осторожно, обитаемый шлагбаум» устанавливается перед подъездом к обитаемому шлагбауму и предупреждает водителей транспортных средств о наличии впереди обитаемого шлагбаума."
         }
     },
     {
         "task_info": {
-            "global_id": "t_43_q_19",
-            "ticket_num": 43,
+            "global_id": "t_44_q_2",
+            "ticket_num": 44,
             "order": 21
         },
-        "media_url": "u501uz.webp",
+        "media_url": "v415uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Ushbu belgi nimani bildiradi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Oldinda ko'tarma ko'prik borligini",
+                        "text": "Oldinda tik balandlik borligini",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Oldinda tik balandlik borligini",
+                        "text": "Oldinda ko'tarma ko'prik borligini",
                         "is_correct": false
                     },
                     {
@@ -1672,12 +1772,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Олдинда кўтарма кўприк борлигини",
+                        "text": "Олдинда тик баландлик борлигини",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Олдинда тик баландлик борлигини",
+                        "text": "Олдинда кўтарма кўприк борлигини",
                         "is_correct": false
                     },
                     {
@@ -1692,7 +1792,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Искусственная неровность дороги",
+                        "text": "Впереди крутой подъём",
                         "is_correct": false
                     },
                     {
@@ -1702,17 +1802,22 @@
                     },
                     {
                         "id": 3,
-                        "text": "Впереди крутой подъём",
+                        "text": "Искусственная неровность дороги",
                         "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ, 1.31. “Sun’iy yo‘l notekisligi” belgisi.",
+            "uz_cyr": "YHQ, 1.31. “Суний йўл нотекислиги” белгиси.",
+            "ru": "YHQ, 1.31. Знак «Искусственные неровности дороги»."
         }
     },
     {
         "task_info": {
-            "global_id": "t_37_q_19",
-            "ticket_num": 37,
+            "global_id": "t_44_q_4",
+            "ticket_num": 44,
             "order": 22
         },
         "media_url": "u427uz.webp",
@@ -1777,15 +1882,20 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ, 1.16. “Yo‘l notekisligi” belgisi.",
+            "uz_cyr": "YHQ, 1.16. “Йўл нотекислиги” белгиси.",
+            "ru": "YHQ, 1.16. Знак «Неровности дороги»."
         }
     },
     {
         "task_info": {
-            "global_id": "t_46_q_8",
-            "ticket_num": 46,
+            "global_id": "t_45_q_19",
+            "ticket_num": 45,
             "order": 23
         },
-        "media_url": "u529uz.webp",
+        "media_url": "v426uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Ushbu belgilardan qaysi biri oldinda yo'l qoplamasi ustida suniy notekslik borligi haqida ogohlantiradi?",
@@ -1802,12 +1912,12 @@
                     },
                     {
                         "id": 3,
-                        "text": "A va S",
+                        "text": "S",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "S",
+                        "text": "A va S",
                         "is_correct": false
                     }
                 ]
@@ -1827,12 +1937,12 @@
                     },
                     {
                         "id": 3,
-                        "text": "А ва С",
+                        "text": "С",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "С",
+                        "text": "А и С",
                         "is_correct": false
                     }
                 ]
@@ -1862,12 +1972,17 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ, 1.31. “Sun’iy yo‘l notekisligi” belgisi.",
+            "uz_cyr": "YHQ, 1.31. “Суний йўл нотекислиги” белгиси.",
+            "ru": "YHQ, 1.31. Знак «Искусственные неровности дороги»."
         }
     },
     {
         "task_info": {
-            "global_id": "t_56_q_18",
-            "ticket_num": 56,
+            "global_id": "t_47_q_10",
+            "ticket_num": 47,
             "order": 24
         },
         "media_url": "u651uz.webp",
@@ -1922,16 +2037,21 @@
                     },
                     {
                         "id": 2,
-                        "text": "Для принятия меры предосторожности",
+                        "text": "Для резкого торможения",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Для резкого торможения",
+                        "text": "Для принятия меры предосторожности",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1 ilova: 1.31. “Sun‘iy yo‘l notekisligi”. Yo‘lning sun‘iy notekislik o‘rnatilgan qismiga yaqinlashayotganligi to‘g‘risida ogohlantiradi. Transport vositasining harakatlanish tezligini majburiy tarzda kamaytirish uchun qo‘llaniladi.",
+            "uz_cyr": "YHQ 1 илова: 1.31. “Суний йўл нотекислиги”. Йўлнинг суний нотекислик ўрнатилган қисмига яқинлашаётганлиги тўғрисида огоҳлантиради. Транспорт воситасининг ҳаракатланиш тезлигини мажбурий тарзда камайтириш учун қўлланилади.",
+            "ru": "Приложение YHQ 1: 1.31. «Искусственные неровности дороги». Он предупреждает о приближении к участку дороги с искусственными неровностями. Он используется для принудительного снижения скорости автомобиля."
         }
     },
     {
@@ -1947,13 +2067,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "2",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "2",
-                        "is_correct": false
+                        "text": "5",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1967,8 +2087,8 @@
                     },
                     {
                         "id": 5,
-                        "text": "5",
-                        "is_correct": true
+                        "text": "1",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1977,13 +2097,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "2",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "2",
-                        "is_correct": false
+                        "text": "5",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1997,8 +2117,8 @@
                     },
                     {
                         "id": 5,
-                        "text": "5",
-                        "is_correct": true
+                        "text": "1",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2007,13 +2127,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "2",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "2",
-                        "is_correct": false
+                        "text": "5",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -2027,11 +2147,16 @@
                     },
                     {
                         "id": 5,
-                        "text": "5",
-                        "is_correct": true
+                        "text": "1",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1 ilova: 1.11.1, 1.11.2. “Xavfli burilishi”. 1.11.1 o‘ngga, 1.11.2 - chapga yo‘l belgilari yo‘lning kichik radiusli yoki ko‘rinishi cheklangan burilish joyini bildiradi.",
+            "uz_cyr": "YHQ 1 илова: 1.11.1, 1.11.2. “Хавфли бурилиши”. 1.11.1 ўнгга, 1.11.2 - чапга йўл белгилари йўлнинг кичик радиусли ёки кўриниши чекланган бурилиш жойини билдиради.",
+            "ru": "Приложение YHQ 1: 1.11.1, 1.11.2. «Опасный поворот». Дорожные знаки 1.11.1 справа, 1.11.2 слева указывают на поворот дороги с малым радиусом или ограниченной видимостью."
         }
     },
     {
@@ -2087,21 +2212,26 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Означает, что впереди находится управляемое блокирующее устройство",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Обозначает что, на проезжей части имеется заградительное устройство",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Обозначает что, перед перекрёстком заградительное устройство",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Означает, что впереди находится управляемое блокирующее устройство",
                         "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Znak 1.34 razdela 1 prilojeniya № 1 k PDD, «Vnimaniye, zagraditelnoye ustroystvo». Znak ustanavlivayetsya v mestax, oborudovannim zagraditelnim ustroystvom, i preduprejdayet voditeley transportnix sredstv o nalichii zagraditelnogo ustroystva.",
+            "uz_cyr": "Знак 1.34 раздела 1 приложения № 1 к ПДД, «Внимание, заградителное устройство». Знак устанавливается в местах, оборудованним заградителним устройством, и предупреждает водителей транспортних средств о наличии заградителного устройства.",
+            "ru": "Знак 1.34 раздел 1 приложения № 1 к ПДД, «Внимание, заградительное устройство». Знак устанавливается в местексе, оборудованным заградительным строительством, и предупреждает водителей транспортных средств о наличии заградительного строительства."
         }
     },
     {
@@ -2162,7 +2292,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "А ва В",
+                        "text": "А и В",
                         "is_correct": false
                     },
                     {
@@ -2172,6 +2302,11 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 1-bo‘limidagi 1.20 belgiga asosan, «Piyodalar o‘tish joyi». 5.16.1, 5.16.2 belgilari va (yoki) 1.14.1 — 1.14.4 chiziqlari bilan belgilangan piyodalar o‘tish joyini bildiradi.",
+            "uz_cyr": "YHQ 1-иловасининг 1-бўлимидаги 1.20 белгига асосан, «Пиёдалар ўтиш жойи». 5.16.1, 5.16.2 белгилари ва (ёки) 1.14.1 — 1.14.4 чизиқлари билан белгиланган пиёдалар ўтиш жойини билдиради.",
+            "ru": "«Пешеходный переход» по знаку 1.20 Приложения 1, раздела 1, знакам 5.16.1, 5.16.2 и (или) означает пешеходный переход, обозначенный линиями 1.14.1 — 1.14.4."
         }
     },
     {
@@ -2197,7 +2332,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Shlagbaumli temir yo'l kesishmasi",
+                        "text": "Shlagbaunli temir yo'l kesishmasi",
                         "is_correct": false
                     }
                 ]
@@ -2227,7 +2362,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Железнодорожный переезд со шлагбаумом",
+                        "text": "Однопутный железнодорожный переезд",
                         "is_correct": false
                     },
                     {
@@ -2237,11 +2372,16 @@
                     },
                     {
                         "id": 3,
-                        "text": "Однопутный железнодорожный переезд",
+                        "text": "Железнодорожный переезд со шлагбаумом",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ, 1 ilova 3.32: “Xavfli yuk tashiyotgan transport vositasining harakati taqiqlangan”.",
+            "uz_cyr": "YHQ, 1 илова 3.32: “Хавфли юк ташиётган транспорт воситасининг ҳаракати тақиқланган”.",
+            "ru": "ХК, Приложение 1 3.32: «Движение транспортных средств, перевозящих опасные грузы, запрещено»."
         }
     },
     {
@@ -2312,12 +2452,17 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 1-bo'limidagi 1.32 \"Tirbandlik\". Ushbu yo'l belgisi vaqtinchalik yoki tasviri o'zgaradigan holatda tirbandlik hosil bo'lgan yo'l yoki chorrahaga kirish oldidan yo'lni yoki chorrahani aylanib o'tish imkoniyati bo'lgan joyga o'rnatiladi.",
+            "uz_cyr": "YHQ 1-иловасининг 1-бўлимидаги 1.32 \"Тирбандлик\". Ушбу йўл белгиси вақтинчалик ёки тасвири ўзгарадиган ҳолатда тирбандлик ҳосил бўлган йўл ёки чорраҳага кириш олдидан йўлни ёки чорраҳани айланиб ўтиш имконияти бўлган жойга ўрнатилади.",
+            "ru": "1.32 «Дорожное движение» в разделе 1 Приложения 1 МПК. Данный дорожный знак устанавливается в месте, где можно объехать дорогу или перекресток перед выездом на дорогу или перекресток с движением транспорта в случае временного или меняющегося изображения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_24_q_16",
-            "ticket_num": 24,
+            "global_id": "t_53_q_3",
+            "ticket_num": 53,
             "order": 30
         },
         "media_url": "u267uz.webp",
@@ -2382,6 +2527,11 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilova: 1.33. “Qatnov qismi kesishmasi hududi”. 1.30 yotiq chizig‘i bilan belgilangan chorrahaga yaqinlashayotganligini anglatib, oldinda tirbandlik yuzaga kelganligi tufayli majburiy to‘xtab, ko‘ndalang yo‘nalishdagi transport vositalarining harakatlanishiga to‘sqinlik tug‘diradigan bo‘lsa, chorrahaga kirish taqiqlanadi. Agar to‘xtash chizig‘i yoki 5.33 yo‘l belgisidan o‘tib bo‘lgan haydovchiga esa qatnov qismlari kesishmasiga kirish taqiqlanishini bildiradi.",
+            "uz_cyr": "YHQ 1-илова: 1.33. “Қатнов қисми кесишмаси ҳудуди”. 1.30 ётиқ чизиғи билан белгиланган чорраҳага яқинлашаётганлигини англатиб, олдинда тирбандлик юзага келганлиги туфайли мажбурий тўхтаб, кўндаланг йўналишдаги транспорт воситаларининг ҳаракатланишига тўсқинлик туғдирадиган бўлса, чорраҳага кириш тақиқланади. Агар тўхташ чизиғи ёки 5.33 йўл белгисидан ўтиб бўлган ҳайдовчига эса қатнов қисмлари кесишмасига кириш тақиқланишини билдиради.",
+            "ru": "Приложение 1: 1.33. «Зона пересечения проезжей части». 1.30 означает приближение к перекрестку, отмеченному горизонтальной линией, и если он вынужден остановиться из-за движения впереди идущего транспорта и препятствует движению транспортных средств в поперечном направлении, то выезд на перекресток запрещен. Если водитель проехал стоп-линию или дорожный знак 5.33, это означает, что выезд на перекресток ему запрещен."
         }
     },
     {
@@ -2437,27 +2587,32 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Зона, где пешеходы могут ходить по тротуарам",
+                        "text": "Зона, где пешеходы могут ходить по проезжей части",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Зона, где пешеходы могут ходить по проезжей части",
+                        "text": "Зона, где пешеходы могут ходить по обочине",
                         "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Зона, где пешеходы могут ходить по обочине",
+                        "text": "Зона, где пешеходы могут ходить по тротуарам",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1 ilova: 1.35 “Piyodalarning yo‘l yoqasidan yurishi mumkin bo‘lgan hudud”.",
+            "uz_cyr": "YHQ 1 илова: 1.35 “Пиёдаларнинг йўл ёқасидан юриши мумкин бўлган ҳудуд”.",
+            "ru": "Приложение 1: 1.35 Пешеходы могут ходить по обочине дороги."
         }
     },
     {
         "task_info": {
-            "global_id": "t_13_q_20",
-            "ticket_num": 13,
+            "global_id": "t_53_q_9",
+            "ticket_num": 53,
             "order": 32
         },
         "media_url": "u150uz.webp",
@@ -2522,6 +2677,11 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1 ilova: 1.21. “Bolalar”. Bolalar muassasasi (maktablar, bolalarning dam olish maskanlari va shunga o‘xshashlar)ga yaqin yo‘lning qatnov qismidan bolalarning chiqib qolish ehtimolini bildiradi.",
+            "uz_cyr": "YHQ 1 илова: 1.21. “Болалар”. Болалар муассасаси (мактаблар, болаларнинг дам олиш масканлари ва шунга ўхшашлар)га яқин йўлнинг қатнов қисмидан болаларнинг чиқиб қолиш эҳтимолини билдиради.",
+            "ru": "Приложение 1 к ПДД: 1.21 «Дети». Означает возможность появления детей на проезжей части дороги вблизи детского учреждения (школы, детские оздоровительные лагеря и тому подобное)."
         }
     },
     {
@@ -2537,27 +2697,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
-                        "text": "3",
+                        "id": 2,
+                        "text": "1",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "4",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 4,
                         "text": "2 va 4",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "3",
                         "is_correct": false
                     }
                 ]
@@ -2567,61 +2727,66 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
-                        "text": "3",
+                        "id": 2,
+                        "text": "1",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "4",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 4,
                         "text": "2 ва 4",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "3",
                         "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Показать знак «Дикие животные»:",
+                "text": "Показать знак диких животных:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
-                        "text": "3",
+                        "id": 2,
+                        "text": "1",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "4",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 4,
                         "text": "2 и 4",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "3",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilova: 1.25.1. “Yovvoyi hayvonlar”.",
+            "uz_cyr": "YHQ 1-илова: 1.25.1. “Ёввойи ҳайвонлар”.",
+            "ru": "Приложение 1 МПК: 1.25.1. «Дикие животные»."
         }
     },
     {
@@ -2633,141 +2798,146 @@
         "media_url": "u213uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Kemiruvchi va sudraluvchi yuruvchi hayvonlar qaysi javobda ko'rsatilgan?",
+                "text": "Kemiruvchi va sudralim yuruvchi hayvonlar qaysi javobda ko'rsatilgan?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "2",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "3",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 4,
                         "text": "4",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 2,
+                        "text": "3",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "2",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
                         "text": "1 va 3",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "1",
                         "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Кемирувчи ва судраловчи юрувчи ҳайвонлар қайси жавобда кўрсатилган?",
+                "text": "Кемирувчи ва судралим юрувчи ҳайвонлар қайси жавобда кўрсатилган?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "2",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "3",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 4,
                         "text": "4",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 2,
+                        "text": "3",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "2",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
                         "text": "1 ва 3",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "1",
                         "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "В каком ответе показаны грызуны и рептилий?",
+                "text": "В каком ответе показаны грызуны и рептилии?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "2",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "3",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 4,
                         "text": "4",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 2,
+                        "text": "3",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "2",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
                         "text": "1 и 3",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "1",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1 ilova: 1.25.3. “Kemiruvchi va sudralib yuruvchi hayvonlar”.",
+            "uz_cyr": "YHQ 1 илова: 1.25.3. “Кемирувчи ва судралиб юрувчи ҳайвонлар”.",
+            "ru": "Приложение 1 к ПДД: 1.25.3 «Грызуны и пресмыкающиеся животные»."
         }
     },
     {
         "task_info": {
-            "global_id": "t_37_q_11",
-            "ticket_num": 37,
+            "global_id": "t_54_q_19",
+            "ticket_num": 54,
             "order": 35
         },
-        "media_url": "u423uz.webp",
+        "media_url": "v549uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Ushbu belgi aholi punktlarida xavfli yo'l qismi boshlanishidan qancha masofa oldin urnatiladi?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "150-300 m",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "50-100 m",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Xavfli yo'l qismi oldiga o'rnatiladi",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "150-300 m",
+                        "text": "Xavfli yo'l qismi oldiga brnatiladi",
                         "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Ушбу белги аҳоли пунктларида хавфли йўл қисми бошланишидан қанча масофа олдин урнатилади?",
+                "text": "Ушбу белги аҳоли пунктларида хавфли йўл қисми бошланишидан қанча масофа олдин ўрнатилади?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "150-300 м",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "50-100 м",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Хавфли йўл қисми олдига ўрнатилади",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "150-300 м",
+                        "text": "Хавфли йўл қисми олдига ўрнатилади",
                         "is_correct": false
                     }
                 ]
@@ -2777,21 +2947,26 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "150-300 м",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "50-100 м",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Устанавливаются перед опасного участка",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "150-300 м",
+                        "text": "Устанавливаются перед опасного участка",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 1-bo'limi 1.15 belgisi, \"Sirpanchiq yo'l\". Yo'lning o'ta sirpanchiq bo'lgan qismini bildiradi.",
+            "uz_cyr": "YHQ 1-иловасининг 1-бўлими 1.15 белгиси, \"Сирпанчиқ йўл\". Йўлнинг ўта сирпанчиқ бўлган қисмини билдиради.",
+            "ru": "Глава 1 Приложения 1 YHQ, условное обозначение 1.15, «Скользкая дорога». Указывает на очень скользкий участок дороги."
         }
     },
     {
@@ -2803,7 +2978,7 @@
         "media_url": "u443uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Harakatlanish vaqtida velosipedchi bilan avtomobil yo'llari kesishganda kim yo'l berishi kerak?",
+                "text": "Harakatlanish vaqtida velosipedchi bilan avtomobil yo‘llari kesishganda kim yo‘l berishi kerak?",
                 "options": [
                     {
                         "id": 1,
@@ -2812,7 +2987,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "O'zaro kelishib o'tishadi",
+                        "text": "O‘zaro kelishib o‘tishadi",
                         "is_correct": false
                     },
                     {
@@ -2852,42 +3027,47 @@
                     },
                     {
                         "id": 2,
-                        "text": "Велосипедисты",
+                        "text": "По взаимному согласованию",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "По взаимному согласованию",
+                        "text": "Велосипедисты",
                         "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 28-bobi 169-bandi: Chorrahadan tashqaridagi tartibga solinmagan velosiped yo‘lkasi bilan yo‘l kesishmasida velosiped va individual harakatlanish vositalari yo‘lda harakatlanayotgan boshqa transport vositalariga yo‘l berishlari kerak. Velosiped yo‘lkasi va piyodalar yo‘lkasi (trotuar) o‘zaro kesishgan holatlarda velosiped va individual harakatlanish vositasi piyodaga yo‘l berishi kerak.",
+            "uz_cyr": "YHQ 28-боби 169-банди: Чорраҳадан ташқаридаги тартибга солинмаган велосипед йўлкаси билан йўл кесишмасида велосипед ва индивидуал ҳаракатланиш воситалари йўлда ҳаракатланаётган бошқа транспорт воситаларига йўл беришлари керак. Велосипед йўлкаси ва пиёдалар йўлкаси (тротуар) ўзаро кесишган ҳолатларда велосипед ва индивидуал ҳаракатланиш воситаси пиёдага йўл бериши керак.",
+            "ru": "Статья 169 главы 28 ГК: Велосипеды и индивидуальные транспортные средства обязаны уступать дорогу другим транспортным средствам, движущимся по дороге, на пересечении с нерегулируемой велосипедной полосой за пределами перекрестка. В случаях, когда велосипедная дорожка и пешеходная дорожка (тротуар) пересекаются, велосипед и индивидуальное транспортное средство должны уступить дорогу пешеходу."
         }
     },
     {
         "task_info": {
-            "global_id": "t_39_q_13",
-            "ticket_num": 39,
+            "global_id": "t_35b_q_14",
+            "ticket_num": "35b",
             "order": 37
         },
         "media_url": "u448uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Ushbu belgi o'rnatiladi:",
+                "text": "Ushbu belgi o‘rnatiladi:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Maktab yoki maktabgacha ta'lim muassasalari oldida",
+                        "text": "Maktab yoki maktabgacha ta’lim muassasalari oldida",
                         "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "“Bolalar uyi” yoki oromgohlari oldidan o'tgan yo'l qismlarida o'rnatiladi",
+                        "text": "“Bolalar uyi” yoki oromgohlari oldidan o‘tgan yo‘l qismlarida o‘rnatiladi",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Ko'zi ojiz piyodalar harakatlanish ehtimoli ko'p bo'lgan yo'l qismlarida o'rnatiladi",
+                        "text": "Ko‘zi ojiz piyodalar harakatlanish ehtimoli ko‘p bo‘lgan yo‘l qismlarida o‘rnatiladi",
                         "is_correct": false
                     }
                 ]
@@ -2917,21 +3097,101 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "На участках дороги, проходящих перед «детским домом» или лагерем отдыха",
+                        "text": "Перед школой или дошкольным образовательным учреждением",
                         "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "На участках дороги, где велика вероятность движения слепых пешеходов",
+                        "text": "На участках дороги, проходящих перед «детским домом» или лагерем отдыха",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Перед школой или дошкольным образовательным учреждением",
+                        "text": "На участках дороги, где велика вероятность движения слепых пешеходов",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 1-ILOVA 5.46 bandiga asosan: 5.46 «Maktab». Maktab yoki maktabgacha ta’lim tashkilotlari oldida o‘rnatiladi.",
+            "uz_cyr": "YHQга 1-ИЛОВА 5.46 бандига асосан: 5.46 «Мактаб». Мактаб ёки мактабгача таълим ташкилотлари олдида ўрнатилади.",
+            "ru": "Согласно пункту 5.46 ПРИЛОЖЕНИЯ 1 к Общему закону: 5.46 «Школа». Его устанавливают перед школами или дошкольными образовательными организациями."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_59_q_16",
+            "ticket_num": 59,
+            "order": 38
+        },
+        "media_url": "u1005uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ushbu belgilardan qaysi biri “Sun’iy yo‘l notekisligi” deb ataladi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ikkinchi belgi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Har ikkala belgi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Birinchi belgi",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ушбу белгилардан қайси бири “Сунъий йўл нотекислиги” деб аталади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Иккинчи белги",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ҳар иккала белги",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Биринчи белги",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какой из этих знаков называется “Искусственная неровность”?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Второй знак",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Оба знака",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Первый знак",
+                        "is_correct": true
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 1-ILOVA 1.31 bandiga asosan: 1.31. “Sunʼiy yoʻl notekisligi”. Yoʻlning sunʼiy notekislik oʻrnatilgan qismiga yaqinlashayotganligi toʻgʻrisida ogohlantiradi. Transport vositasining harakatlanish tezligini majburiy tarzda kamaytirish uchun qoʻllaniladi.",
+            "uz_cyr": "YHQга 1-ИЛОВА 1.31 бандига асосан: 1.31. “Суний йўл нотекислиги”. Йўлнинг суний нотекислик ўрнатилган қисмига яқинлашаётганлиги тўғрисида огоҳлантиради. Транспорт воситасининг ҳаракатланиш тезлигини мажбурий тарзда камайтириш учун қўлланилади.",
+            "ru": "Согласно пункту 1.31 ПРИЛОЖЕНИЯ 1 к Генеральному соглашению: 1.31. «Искусственные неровности дороги». Предупреждает о приближении к участку дороги, где установлена ​​искусственная неровность. Он используется для принудительного снижения скорости автомобиля."
         }
     }
 ]

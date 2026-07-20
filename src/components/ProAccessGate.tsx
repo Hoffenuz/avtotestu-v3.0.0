@@ -48,10 +48,10 @@ export function ProAccessGate({ section, reason, returnPath, onRetry }: ProAcces
   const sectionLabel =
     section === "mavzuli"
       ? language === "ru"
-        ? "Тематические тесты"
+        ? "Темы"
         : language === "uz"
-          ? "Мавзули тестлар"
-          : "Mavzuli testlar"
+          ? "Мавзулар"
+          : "Mavzular"
       : language === "ru"
         ? "Видеоуроки"
         : language === "uz"

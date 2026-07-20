@@ -28,9 +28,10 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { Clock, ChevronLeft, ChevronRight, X, Check, SkipForward, Moon, Sun, Maximize, Minimize } from "lucide-react";
+import { Clock, ChevronRight, X, Check, SkipForward, Moon, Sun, Maximize, Minimize } from "lucide-react";
 import { ImageLightbox } from "./ImageLightbox";
 import { QuestionImageBlock } from "./QuestionImageBlock";
+import { IzohNavButton } from "./IzohBox";
 import { useDarkMode } from "@/hooks/useDarkMode";
 import { useFullscreen } from "@/hooks/useFullscreen";
 
@@ -44,6 +45,7 @@ interface TestInterfaceCombinedProps {
   timeLimit?: number;
   randomize?: boolean;
   imagePrefix?: string;
+  isPremiumSession?: boolean;
 }
 
 export const TestInterfaceCombined = ({
@@ -53,7 +55,8 @@ export const TestInterfaceCombined = ({
   questionCount = 50,
   timeLimit = 50 * 60,
   randomize = true,
-  imagePrefix = "/images/"
+  imagePrefix = "/images/",
+  isPremiumSession = false,
 }: TestInterfaceCombinedProps) => {
   const { t, questionLang } = useLanguage();
   const { user } = useAuth();
@@ -273,9 +276,10 @@ export const TestInterfaceCombined = ({
       if (autoAdvanceTimeoutRef.current) {
         clearTimeout(autoAdvanceTimeoutRef.current);
       }
+      const delay = 1100;
       autoAdvanceTimeoutRef.current = setTimeout(() => {
         setCurrentQuestion(prev => Math.min(totalQuestions, prev + 1));
-      }, 1100);
+      }, delay);
     }
   };
 
@@ -493,10 +497,10 @@ export const TestInterfaceCombined = ({
           <div className="text-sm md:text-base text-muted-foreground mb-3 font-medium">
           </div>
 
-          <div className="md:flex md:gap-8 md:items-start">
-            <div className="md:w-[60%] md:flex-shrink-0">
+          <div className="md:flex md:gap-5 md:items-start">
+            <div className="md:w-[55%] md:flex-shrink-0">
               <Card className="p-4 md:p-5 bg-card border-border mb-4">
-                <p className="text-base md:text-lg font-medium text-foreground leading-relaxed">
+                <p className="text-base md:text-[15px] font-medium text-foreground leading-relaxed">
                   {question.text}
                 </p>
               </Card>
@@ -546,15 +550,16 @@ export const TestInterfaceCombined = ({
                           String.fromCharCode(64 + answer.id)
                         )}
                       </span>
-                      <span className="text-sm md:text-base">{answer.text}</span>
+                      <span className="text-sm md:text-sm">{answer.text}</span>
                     </button>
                   );
                 })}
               </div>
+
             </div>
 
             {question.image && (
-              <div className="hidden md:block md:w-[40%] md:flex-shrink-0">
+              <div className="hidden md:block md:w-[45%] md:flex-shrink-0">
                 <Card className="p-3 bg-card border-border overflow-hidden sticky top-4">
                   <QuestionImageBlock
                     src={question.image}
@@ -571,31 +576,24 @@ export const TestInterfaceCombined = ({
 
       {/* Bottom Navigation */}
       <footer className="bg-card border-t border-border px-3 py-2.5 md:px-4 md:py-3 shrink-0">
-        <div className="max-w-5xl mx-auto flex items-center justify-between gap-2">
-          <Button
-            variant="outline"
-            size="default"
-            className="h-9 px-3 md:h-10 md:px-4 text-sm"
-            disabled={currentQuestion === 1}
-            onClick={() => {
+        <div className="max-w-5xl mx-auto flex items-center justify-between gap-1.5 sm:gap-2">
+          <IzohNavButton
+            key={`izoh-${currentQuestion}`}
+            text={question?.izoh}
+            title={t("test.explanation")}
+            emptyText={t("test.noExplanation")}
+            requirePro={!isPremiumSession}
+            isDark={isDark}
+            onOpen={() => {
               if (autoAdvanceTimeoutRef.current) {
                 clearTimeout(autoAdvanceTimeoutRef.current);
               }
-              setCurrentQuestion(prev => Math.max(1, prev - 1));
             }}
-          >
-            <ChevronLeft className="w-4 h-4 mr-1" />
-            {t("test.previous")}
-          </Button>
-
-          <div className="text-xs md:text-sm text-muted-foreground text-center">
-            <span className="font-medium text-primary">{Object.keys(selectedAnswers).length}</span>
-            <span> / {totalQuestions}</span>
-          </div>
+          />
 
           <Button
             size="default"
-            className="h-9 px-3 md:h-10 md:px-4 text-sm"
+            className="h-9 px-2.5 sm:px-3 md:h-10 md:px-4 text-sm shrink-0"
             disabled={currentQuestion === totalQuestions}
             onClick={() => {
               if (autoAdvanceTimeoutRef.current) {
@@ -604,8 +602,8 @@ export const TestInterfaceCombined = ({
               setCurrentQuestion(prev => Math.min(totalQuestions, prev + 1));
             }}
           >
-            {t("test.next")}
-            <ChevronRight className="w-4 h-4 ml-1" />
+            <span className="max-[340px]:hidden">{t("test.next")}</span>
+            <ChevronRight className="w-4 h-4 ml-0.5 sm:ml-1" />
           </Button>
         </div>
       </footer>

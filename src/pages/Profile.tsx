@@ -62,7 +62,6 @@ const Profile = () => {
     amount: number | null;
     currency: string;
     payment_method: string | null;
-    status: string;
     created_at: string;
   }>>([]);
 
@@ -95,7 +94,7 @@ useEffect(() => {
     try {
       const { data: receipts, error: receiptsError } = await supabase
         .from('payment_receipts')
-        .select('id, receipt_url, amount, currency, payment_method, status, created_at')
+        .select('id, receipt_url, amount, currency, payment_method, created_at')
         .eq('user_id', user.id)
         .order('created_at', { ascending: false })
         .limit(10);
@@ -140,15 +139,19 @@ useEffect(() => {
     try {
       const { data, error } = await supabase
         .from('subscriptions')
-        .select('id, plan_name, tariff_days, amount, currency, started_at, ends_at')
+        .select('id, plan_name, tariff_days, amount, currency, started_at, ends_at, is_trial')
         .eq('user_id', user.id)
         .order('started_at', { ascending: false })
-        .limit(10);
+        .limit(20);
 
       if (error) {
         if (!import.meta.env.PROD) console.error('Error fetching subscriptions:', error);
       } else {
-        setSubscriptions(data || []);
+        // Trial o'chirilgan — tarixda trial yozuvlarini ko'rsatmaymiz
+        const paidOnly = (data || []).filter(
+          (sub) => !sub.is_trial && (sub.plan_name || '').toLowerCase() !== 'trial'
+        );
+        setSubscriptions(paidOnly.slice(0, 10));
       }
     } catch (err) {
       if (!import.meta.env.PROD) console.error('Subscriptions fetch error:', err);
@@ -467,17 +470,10 @@ useEffect(() => {
                 <div key={receipt.id} className="flex items-center justify-between p-3 rounded-lg bg-muted/30 border border-border">
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
-                        receipt.status === 'approved'
-                          ? 'bg-green-500/20 text-green-700'
-                          : receipt.status === 'rejected'
-                          ? 'bg-red-500/20 text-red-700'
-                          : 'bg-amber-500/20 text-amber-700'
-                      }`}>
-                        {receipt.status === 'approved' ? 'Tasdiqlangan' : receipt.status === 'rejected' ? 'Rad etilgan' : 'Kutilmoqda'}
-                      </span>
-                      {receipt.payment_method && (
-                        <span className="text-xs text-muted-foreground">{receipt.payment_method}</span>
+                      {receipt.payment_method ? (
+                        <span className="text-xs font-medium text-foreground">{receipt.payment_method}</span>
+                      ) : (
+                        <span className="text-xs font-medium text-foreground">To'lov cheki</span>
                       )}
                     </div>
                     <p className="text-xs text-muted-foreground mt-1">

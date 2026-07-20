@@ -6,6 +6,20 @@ export interface AppQuestion {
   image?: string;
   correctAnswer: number;
   answers: { id: number; text: string }[];
+  /** Tanlangan tildagi izoh matni */
+  izoh?: string;
+}
+
+type IzohLangMap = { uz_lat?: string; uz_cyr?: string; ru?: string };
+
+function pickIzoh(izoh: IzohLangMap | string | undefined, langKey: 'uz_lat' | 'uz_cyr' | 'ru'): string | undefined {
+  if (!izoh) return undefined;
+  if (typeof izoh === 'string') {
+    const t = izoh.trim();
+    return t || undefined;
+  }
+  const t = (izoh[langKey] || izoh.uz_lat || izoh.uz_cyr || izoh.ru || '').trim();
+  return t || undefined;
 }
 
 export function transformRawToQuestions(
@@ -21,6 +35,7 @@ export function transformRawToQuestions(
         ru?: { text: string; options: { id: number; text: string; is_correct: boolean }[] };
       };
       media_url?: string;
+      izoh?: IzohLangMap | string;
       choises?: Array<{ text: string; answer: boolean }>;
       question?: string | { oz?: string; uz?: string; ru?: string };
       image?: string;
@@ -54,6 +69,7 @@ export function transformRawToQuestions(
         image: imagePath,
         correctAnswer,
         answers: langContent.options.map((o) => ({ id: o.id, text: o.text })),
+        izoh: pickIzoh(q.izoh, langKey),
       };
     }
 

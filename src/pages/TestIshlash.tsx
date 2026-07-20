@@ -24,9 +24,9 @@ import { TestInterfaceBase } from "@/components/TestInterfaceBase";
 import { TestInterfaceCombined } from "@/components/TestInterfaceCombined";
 
 const languages = [
-  { id: "uz-lat" as const, label: "Lotin", file: "600.json", proFile: "barcha.json" },
-  { id: "uz" as const, label: "Кирилл", file: "600.json", proFile: "barcha.json" },
-  { id: "ru" as const, label: "Русский", file: "600.json", proFile: "barcha.json" },
+  { id: "uz-lat" as const, label: "Lotin", file: "600.json", proFile: "barcha-uz-lat.json" },
+  { id: "uz" as const, label: "Кирилл", file: "600.json", proFile: "barcha-uz-cyr.json" },
+  { id: "ru" as const, label: "Русский", file: "600.json", proFile: "barcha-ru.json" },
 ];
 
 const FREE_VARIANT = 99; // sentinel for free/practice test in DB (0..100 constraint)
@@ -170,6 +170,7 @@ export default function TestIshlash() {
           questionCount={50}
           timeLimit={50 * 60}
           randomize={true}
+          isPremiumSession={activeSession.isPremium}
         />
       );
     }
@@ -199,9 +200,9 @@ export default function TestIshlash() {
       />
       <TestPageSchema />
 
-      <div className="min-h-screen bg-slate-200 dark:bg-background flex flex-col font-sans text-[#1E2350] dark:text-foreground">
+      <div className="min-h-screen bg-background flex flex-col font-sans text-[#1E2350] dark:text-foreground">
 
-        <header className="w-full bg-slate-200 dark:bg-background border-b border-slate-300 dark:border-border px-6 py-3 sticky top-0 z-20">
+        <header className="w-full bg-background border-b border-border px-6 py-3 sticky top-0 z-20">
           <div className="max-w-5xl mx-auto flex items-center justify-between">
             <Link to="/">
               <Button variant="ghost" size="sm" className="gap-2 font-bold text-[#1E2350] dark:text-foreground">
@@ -262,9 +263,9 @@ export default function TestIshlash() {
           )}
 
           {/* Main card */}
-          <div className="bg-card rounded-3xl border border-slate-300 dark:border-border shadow-2xl shadow-slate-400/30 overflow-hidden">
-            <div className="px-8 py-6 border-b border-slate-200 dark:border-border flex items-center gap-4 bg-slate-50 dark:bg-muted">
-              <div className="w-11 h-11 rounded-2xl bg-[#1E2350] flex items-center justify-center shadow-md shadow-[#1E2350]/30">
+          <div className="bg-card rounded-3xl border border-border overflow-hidden">
+            <div className="px-8 py-6 border-b border-border flex items-center gap-4 bg-slate-50 dark:bg-muted">
+              <div className="w-11 h-11 rounded-2xl bg-[#1E2350] flex items-center justify-center">
                 <Play className="w-5 h-5 text-white fill-current" />
               </div>
               <div>
@@ -331,7 +332,7 @@ export default function TestIshlash() {
                   onClick={handleStart}
                   disabled={starting || accessLoading}
                   style={{ backgroundColor: brandColor }}
-                  className="w-full h-14 rounded-xl text-white text-base font-black shadow-lg shadow-[#1E2350]/25 hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-3 mt-auto disabled:opacity-60"
+                  className="w-full h-14 rounded-xl text-white text-base font-black hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-3 mt-auto disabled:opacity-60"
                 >
                   {(starting || accessLoading)
                     ? <Loader2 className="w-5 h-5 animate-spin" />

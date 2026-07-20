@@ -1,8 +1,8 @@
 [
     {
         "task_info": {
-            "global_id": "t_30_q_7",
-            "ticket_num": 30,
+            "global_id": "t_5_q_1",
+            "ticket_num": 5,
             "order": 1
         },
         "media_url": "u340uz.webp",
@@ -12,18 +12,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Tramvay va avtomobil haydovchisiga",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Avtomobil haydovchisiga",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Avtomobil va motosikl haydovchisiga",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Tramvay va avtomobil haydovchisiga",
+                        "is_correct": true
                     }
                 ]
             },
@@ -32,18 +32,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Трамвай ва автомобил ҳайдовчисига",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Автомобил ҳайдовчисига",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Автомобил ва мотоцикл ҳайдовчисига",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Трамвай ва автомобил ҳайдовчисига",
+                        "is_correct": true
                     }
                 ]
             },
@@ -52,27 +52,32 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Водителям автомобиля и мотоцикла",
-                        "is_correct": true
+                        "text": "Водителю автомобиля",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Водителям трамвая и автомобиля",
+                        "text": "Водителям автомобиля и мотоцикла",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Водителю автомобиля",
-                        "is_correct": false
+                        "text": "Водителям трамвая и автомобиля",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 32-bandiga asosan, yo'naltirgich ko'rinishidagi qizil, sariq va yashil rangli svetofor ishoralari ham doirasimon shaklidagi svetofor ishoralari bilan bir xil ma'noga ega bo'ladi. Ular faqat ko'rsatilgan yo'nalishga ta'sir etadi.",
+            "uz_cyr": "YHQ 7-боби 32-бандига асосан, йўналтиргич кўринишидаги қизил, сариқ ва яшил рангли светофор ишоралари ҳам доирасимон шаклидаги светофор ишоралари билан бир хил маънога эга бўлади. Улар фақат кўрсатилган йўналишга таъсир этади.",
+            "ru": "В соответствии с пунктом 32 главы 7 Правил дорожного движения красный, желтый и зеленый сигналы светофора в виде указателя имеют то же значение, что и сигналы светофора в форме круга. Они влияют только на указанное направление."
         }
     },
     {
         "task_info": {
-            "global_id": "t_55_q_2",
-            "ticket_num": 55,
+            "global_id": "t_5_q_4",
+            "ticket_num": 5,
             "order": 2
         },
         "media_url": "u633uz.webp",
@@ -82,7 +87,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat belgilangan yo'nalishdagi transport vositalar uchun mo'ljallangan bo'lak bo'yicha",
+                        "text": "Qatnov qismining butun kengligi bo'yicha",
                         "is_correct": false
                     },
                     {
@@ -92,7 +97,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Qatnov qismining butun kengligi bo'yicha",
+                        "text": "Faqat belgilangan yo'nalishdagi transport vositalar uchun mo'ljallangan bo'lak bo'yicha",
                         "is_correct": false
                     }
                 ]
@@ -102,7 +107,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат белгиланган йўналишдаги транспорт воситалар учун мўлжалланган бўлак бўйича",
+                        "text": "Қатнов қисмининг бутун кенглиги бўйича",
                         "is_correct": false
                     },
                     {
@@ -112,7 +117,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Қатнов қисмининг бутун кенглиги бўйича",
+                        "text": "Фақат белгиланган йўналишдаги транспорт воситалар учун мўлжалланган бўлак бўйича",
                         "is_correct": false
                     }
                 ]
@@ -122,7 +127,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только на тех участках дороги, которые предназначены для маршрутных транспортных средств",
+                        "text": "По всей ширине проезжей части дороги",
                         "is_correct": false
                     },
                     {
@@ -132,17 +137,22 @@
                     },
                     {
                         "id": 3,
-                        "text": "По всей ширине проезжей части дороги",
+                        "text": "Только на тех участках дороги, которые предназначены для маршрутных транспортных средств",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 35-bandiga asosan, qatnov qismidagi harakat yo'nalishi qarama-qarshi tomonga o'zgarishi mumkin bo'lgan tasmalarida transport vositalarining harakatini tartibga solish uchun X-Simon qizil ishorali va pastga yo'nalgan yo'naltirgich ko'rinishidagi yashil ishorali reversiv svetoforlar qo'llaniladi.",
+            "uz_cyr": "YHQ 7-боби 35-бандига асосан, қатнов қисмидаги ҳаракат йўналиши қарама-қарши томонга ўзгариши мумкин бўлган тасмаларида транспорт воситаларининг ҳаракатини тартибга солиш учун Х-Симон қизил ишорали ва пастга йўналган йўналтиргич кўринишидаги яшил ишорали реверсив светофорлар қўлланилади.",
+            "ru": "Согласно главе 7, пункту 35 ПДД, красно- и зелено-сигнальный реверсивный светофор X-Simon в виде движения вниз применяется для регулирования движения транспортных средств по полосам, где направление движения может быть изменено в противоположном направлении."
         }
     },
     {
         "task_info": {
-            "global_id": "t_29_q_9",
-            "ticket_num": 29,
+            "global_id": "t_6_q_4",
+            "ticket_num": 6,
             "order": 3
         },
         "media_url": "u329uz.webp",
@@ -202,32 +212,37 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Прямо и направо",
+                        "text": "Только налево",
                         "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Только направо",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Прямо и налево",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Прямо и направо",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Только налево",
+                        "text": "Только направо",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 36-bandiga asosan, tramvaylarning hamda maxsus ajratilgan tasma bo'ylab harakatlanayotgan boshqa yo'nalishli transport vositalarining harakatlanishini tartibga solish uchun \"T\" harfi ko'rinishida joylashgan to'rtta doirasimon oq rang ishorali svetoforlar qo'llanilishi mumkin. Yuqoridagi bir yoki bir nechta va pastki ishora bir vaqtning o'zida yonganda, harakatlanishga ruxsat etiladi. Ulardan chapdagisi chapga, o'ngdagisi o'ngga, o'rtadagisi to'g'riga yurishga ruxsat beradi. Pastdagi ishora o'chirilib, yuqoridagi uchta ishora bir vaqtda yonsa, harakatlanish taqiqlanadi.",
+            "uz_cyr": "YHQ 7-боби 36-бандига асосан, трамвайларнинг ҳамда махсус ажратилган тасма бўйлаб ҳаракатланаётган бошқа йўналишли транспорт воситаларининг ҳаракатланишини тартибга солиш учун \"Т\" ҳарфи кўринишида жойлашган тўртта доирасимон оқ ранг ишорали светофорлар қўлланилиши мумкин. Юқоридаги бир ёки бир нечта ва пастки ишора бир вақтнинг ўзида ёнганда, ҳаракатланишга рухсат этилади. Улардан чапдагиси чапга, ўнгдагиси ўнгга, ўртадагиси тўғрига юришга рухсат беради. Пастдаги ишора ўчирилиб, юқоридаги учта ишора бир вақтда ёнса, ҳаракатланиш тақиқланади.",
+            "ru": "В соответствии со статьей 36 главы 7 Гражданского кодекса светофоры с четырьмя круговыми сигналами белого цвета в форме буквы «Т» могут использоваться для регулирования движения трамваев и других транспортных средств направленного действия, движущихся по специально отведенной полосе движения. Движение разрешено при одновременном загорании одного или нескольких верхних и нижних сигналов. Тот, что слева, позволяет идти налево, тот, что справа, направо, а тот, что посередине, направо. Если нижний сигнал выключен и одновременно горят три верхних сигнала, движение запрещено."
         }
     },
     {
         "task_info": {
-            "global_id": "t_39_q_1",
-            "ticket_num": 39,
+            "global_id": "t_18_q_15",
+            "ticket_num": 18,
             "order": 4
         },
         "media_url": "u441uz.webp",
@@ -237,8 +252,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Alohida ehtiyotkorlik bilan harakatlanishga ruxsat etadi",
-                        "is_correct": false
+                        "text": "Harakatni taqiqlaydi",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -247,8 +262,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Harakatni taqiqlaydi",
-                        "is_correct": true
+                        "text": "Alohida ehtiyotkorlik bilan harakatlanishga ruxsat etadi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -257,8 +272,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Алоҳида эҳтиёткорлик билан ҳаракатланишга рухсат этади",
-                        "is_correct": false
+                        "text": "Ҳаракатни тақиқлайди",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -267,8 +282,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Ҳаракатни тақиқлайди",
-                        "is_correct": true
+                        "text": "Алоҳида эҳтиёткорлик билан ҳаракатланишга рухсат этади",
+                        "is_correct": false
                     }
                 ]
             },
@@ -277,27 +292,32 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Запрещают движение",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Информируют других водителей о выезде на проезжую часть специальных транспортных средств",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Разрешают движение с особой осторожностью",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Запрещают движение",
-                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobining 31-bandiga asosan, qizil ishora, shuningdek miltillovchi qizil ishora harakatlanishni taqiqlaydi.",
+            "uz_cyr": "YHQ 7-бобининг 31-бандига асосан, қизил ишора, шунингдек милтилловчи қизил ишора ҳаракатланишни тақиқлайди.",
+            "ru": "Согласно статье 31 главы 7 ПДД красный сигнал, а также мигающий красный сигнал запрещают движение."
         }
     },
     {
         "task_info": {
-            "global_id": "t_57_q_2",
-            "ticket_num": 57,
+            "global_id": "t_19_q_5",
+            "ticket_num": 19,
             "order": 5
         },
         "media_url": "u654uz.webp",
@@ -307,13 +327,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Kerak emas",
-                        "is_correct": false
+                        "text": "Kerak",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Kerak",
-                        "is_correct": true
+                        "text": "Kerak emas",
+                        "is_correct": false
                     }
                 ]
             },
@@ -322,13 +342,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Керак эмас",
-                        "is_correct": false
+                        "text": "Керак",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Керак",
-                        "is_correct": true
+                        "text": "Керак эмас",
+                        "is_correct": false
                     }
                 ]
             },
@@ -337,22 +357,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Не должен",
-                        "is_correct": false
+                        "text": "Должен",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Должен",
-                        "is_correct": true
+                        "text": "Не должен",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 15-bobi 101 - bandiga asosan, svetoforning qizil yoki sariq ishorasi bilan bir vaqtda yongan qo'shimcha tarmog'ining yo'naltirgichli yashil ishorasi yo'nalishida harakatlanayotgan tramvay boshqa yo'nalishlarda harakatlanayotgan transport vositalariga yo'l berishi kerak.",
+            "uz_cyr": "YHQ 15-боби 101 - бандига асосан, светофорнинг қизил ёки сариқ ишораси билан бир вақтда ёнган қўшимча тармоғининг йўналтиргичли яшил ишораси йўналишида ҳаракатланаётган трамвай бошқа йўналишларда ҳаракатланаётган транспорт воситаларига йўл бериши керак.",
+            "ru": "Согласно статье 101 главы 15 ПДД трамвай, движущийся в направлении красного или желтого сигнала светофора с зеленым сигналом поворота, должен уступить дорогу транспортным средствам, движущимся в других направлениях."
         }
     },
     {
         "task_info": {
-            "global_id": "t_6_q_6",
-            "ticket_num": 6,
+            "global_id": "t_20_q_5",
+            "ticket_num": 20,
             "order": 6
         },
         "media_url": "u53uz.webp",
@@ -362,13 +387,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Sariq va qizil avtomobillarga",
-                        "is_correct": true
+                        "text": "Tramvay, sariq va qizil avtomobilga",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Tramvay, sariq va qizil avtomobilga",
-                        "is_correct": false
+                        "text": "Sariq va qizil avtomobillarga",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -382,13 +407,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Сариқ ва қизил автомобилларга",
-                        "is_correct": true
+                        "text": "Трамвай, сариқ ва қизил автомобилга",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Трамвай, сариқ ва қизил автомобилга",
-                        "is_correct": false
+                        "text": "Сариқ ва қизил автомобилларга",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -403,12 +428,12 @@
                     {
                         "id": 1,
                         "text": "Трамваю, желтому и красному автомобилям",
-                        "is_correct": true
+                        "is_correct": false
                     },
                     {
                         "id": 2,
                         "text": "Желтому и красному автомобилям",
-                        "is_correct": false
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -417,12 +442,17 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 32-bandiga asosan: Yo‘naltirgich ko‘rinishidagi qizil, sariq va yashil rangli svetofor ishoralari ham doira shaklidagi svetofor ishoralari bilan bir xil ma'noga ega bo‘ladi. Ular faqat ko‘rsatilgan yo‘nalishga ta'sir etadi. Agar tegishli yo‘l belgisi bilan qayrilib olish taqiqlanmagan bo‘lsa, chapga burilishga ruxsat beruvchi yo‘naltirgich qayrilib olishga ham ruxsat beradi. Qo‘shimcha tarmoqdagi yashil yo‘naltirgich ham xuddi shu ma'noni bildiradi. Qo‘shimcha tarmoqdagi ishora o‘chirilgan bo‘lsa, shu tarmoq tartibga solayotgan yo‘nalishda harakatlanish taqiqlanganligini bildiradi.",
+            "uz_cyr": "YHQ 7-боби 32-бандига асосан: Йўналтиргич кўринишидаги қизил, сариқ ва яшил рангли светофор ишоралари ҳам доира шаклидаги светофор ишоралари билан бир хил маънога эга бўлади. Улар фақат кўрсатилган йўналишга таъсир этади. Агар тегишли йўл белгиси билан қайрилиб олиш тақиқланмаган бўлса, чапга бурилишга рухсат берувчи йўналтиргич қайрилиб олишга ҳам рухсат беради. Қўшимча тармоқдаги яшил йўналтиргич ҳам худди шу маънони билдиради. Қўшимча тармоқдаги ишора ўчирилган бўлса, шу тармоқ тартибга солаётган йўналишда ҳаракатланиш тақиқланганлигини билдиради.",
+            "ru": "В соответствии с пунктом 32 главы 7 ПДД: красный, желтый и зеленый сигналы светофора в виде указателя имеют то же значение, что и сигналы кругового светофора. Они влияют только на указанное направление. Указатель поворота, разрешающий поворот налево, также разрешает поворот, если соответствующий дорожный знак не запрещает поворот. Зеленый роутер в дополнительной сети означает то же самое. Если знак дополнительной сети не горит, это означает, что движение в направлении, регулируемом этой сетью, запрещено."
         }
     },
     {
         "task_info": {
-            "global_id": "t_26_q_2",
-            "ticket_num": 26,
+            "global_id": "t_24_q_19",
+            "ticket_num": 24,
             "order": 7
         },
         "media_url": "u282uz.webp",
@@ -432,13 +462,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Harakatni taqiqlaydi va tezda yashil ishora yoqilishi haqida ogohlantiradi",
-                        "is_correct": true
+                        "text": "Harakatni boshlash mumkin",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Harakatni boshlash mumkin",
-                        "is_correct": false
+                        "text": "Harakatni taqiqlaydi va tezda yashil ishora yoqilishi haqida ogohlantiradi",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -452,13 +482,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ҳаракатни тақиқлайди ва тезда яшил ишора ёқилиши ҳақида огоҳлантиради",
-                        "is_correct": true
+                        "text": "Ҳаракатни бошлаш мумкин",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Ҳаракатни бошлаш мумкин",
-                        "is_correct": false
+                        "text": "Ҳаракатни тақиқлайди ва тезда яшил ишора ёқилиши ҳақида огоҳлантиради",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -472,13 +502,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Запрещает движение и информирует о скором включении зеленого света",
-                        "is_correct": true
+                        "text": "Можно начинать движение",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Можно начинать движение",
-                        "is_correct": false
+                        "text": "Запрещает движение и информирует о скором включении зеленого света",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -487,6 +517,11 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 31-bandi 7-xatboshisiga asosan, qizil va sariq ishoralarning bir vaqtda yonishi harakatlanishni taqiqlaydi va ko'p o'tmay yashil ishora yonishi haqida axborot beradi.",
+            "uz_cyr": "YHQ 7-боби 31-банди 7-хатбошисига асосан, қизил ва сариқ ишораларнинг бир вақтда ёниши ҳаракатланишни тақиқлайди ва кўп ўтмай яшил ишора ёниши ҳақида ахборот беради.",
+            "ru": "Согласно пункту 7 пункта 31 главы 7 ГПК одновременное зажигание красного и желтого сигналов запрещает движение, а вскоре после этого загорается зеленый сигнал."
         }
     },
     {
@@ -507,17 +542,17 @@
                     },
                     {
                         "id": 2,
+                        "text": "Avtomobillar va motosikl",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
                         "text": "Barcha transport vositalari",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
-                        "text": "Tramvay, yuk avtomobili va motosikl",
-                        "is_correct": false
-                    },
-                    {
                         "id": 4,
-                        "text": "Avtomobillar va motosikl",
+                        "text": "Tramvay, yuk avtomobili va motosikl",
                         "is_correct": false
                     }
                 ]
@@ -532,17 +567,17 @@
                     },
                     {
                         "id": 2,
+                        "text": "Автомобиллар ва мотоцикл",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
                         "text": "Барча транспорт воситалари",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
-                        "text": "Трамвай, юк автомобили ва мотоцикл",
-                        "is_correct": false
-                    },
-                    {
                         "id": 4,
-                        "text": "Автомобиллар ва мотоцикл",
+                        "text": "Трамвай, юк автомобили ва мотоцикл",
                         "is_correct": false
                     }
                 ]
@@ -552,26 +587,31 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Автомобили и мотоцикл",
+                        "text": "Трамвай и мотоцикл",
                         "is_correct": false
                     },
                     {
                         "id": 2,
+                        "text": "Автомобили и мотоцикл",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
                         "text": "Все транспортные средства",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
-                        "text": "Трамвай, грузовой автомобиль и мотоцикл",
-                        "is_correct": false
-                    },
-                    {
                         "id": 4,
-                        "text": "Трамвай и мотоцикл",
+                        "text": "Трамвай, грузовой автомобиль и мотоцикл",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 32-bandiga muvofiq, yo'naltirgich ko'rinishidagi qizil, sariq va yashil rangli svetofor ishoralari ham doira shaklidagi svetofor ishoralari bilan bir xil ma'noga ega bo'ladi. Ular faqat ko'rsatilgan yo'nalishga ta'sir etadi. Agar tegishli yo'l belgisi bilan taqiqlanmagan bo'lsa, chapga burilishga ruxsat beruvchi yo'naltirgich qayrilib olishga ham ruxsat beradi. Qo'shimcha tarmoqdagi yashil yo'naltirgich ham xuddi shu ma'noni bildiradi. Qo'shimcha tarmoqdagi ishora o'chirilgan bo'lsa, shu tarmoq tartibga solayotgan yo'nalishda harakatlanish taqiqlanganligini bildiradi.",
+            "uz_cyr": "YHQ 7-боби 32-бандига мувофиқ, йўналтиргич кўринишидаги қизил, сариқ ва яшил рангли светофор ишоралари ҳам доира шаклидаги светофор ишоралари билан бир хил маънога эга бўлади. Улар фақат кўрсатилган йўналишга таъсир этади. Агар тегишли йўл белгиси билан тақиқланмаган бўлса, чапга бурилишга рухсат берувчи йўналтиргич қайрилиб олишга ҳам рухсат беради. Қўшимча тармоқдаги яшил йўналтиргич ҳам худди шу маънони билдиради. Қўшимча тармоқдаги ишора ўчирилган бўлса, шу тармоқ тартибга солаётган йўналишда ҳаракатланиш тақиқланганлигини билдиради.",
+            "ru": "В соответствии с пунктом 32 главы 7 Правил дорожного движения красный, желтый и зеленый сигналы светофора в виде указателя имеют то же значение, что и сигналы светофора в форме круга. Они влияют только на указанное направление. Указатель поворота, разрешающий поворот налево, также разрешает поворот, если это не запрещено соответствующим дорожным знаком. Зеленый роутер в дополнительной сети означает то же самое. Если знак дополнительной сети не горит, это означает, что трафик в направлении, регулируемом этой сетью, запрещен."
         }
     },
     {
@@ -627,12 +667,17 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 32-bandiga asosan, yo'naltirgich ko'rinishidagi qizil, sariq va yashil rangli svetofor ishoralari ham doira shaklidagi svetofor ishoralari bilan bir xil ma'noga ega bo'ladi. Ular faqat ko'rsatilgan yo'nalishga ta'sir etadi. Agar tegishli yo'l belgisi bilan taqiqlanmagan bo'lsa, chapga burilishga ruxsat beruvchi yo'naltirgich qayrilib olishga ham ruxsat beradi. Qo'shimcha tarmoqdagi yashil yo'naltirgich ham xuddi shu ma'noni bildiradi. Qo'shimcha tarmoqdagi ishora o'chirilgan bo'lsa, shu tarmoq tartibga solayotgan yo'nalishda harakatlanish taqiqlanganligini bildiradi.",
+            "uz_cyr": "YHQ 7-боби 32-бандига асосан, йўналтиргич кўринишидаги қизил, сариқ ва яшил рангли светофор ишоралари ҳам доира шаклидаги светофор ишоралари билан бир хил маънога эга бўлади. Улар фақат кўрсатилган йўналишга таъсир этади. Агар тегишли йўл белгиси билан тақиқланмаган бўлса, чапга бурилишга рухсат берувчи йўналтиргич қайрилиб олишга ҳам рухсат беради. Қўшимча тармоқдаги яшил йўналтиргич ҳам худди шу маънони билдиради. Қўшимча тармоқдаги ишора ўчирилган бўлса, шу тармоқ тартибга солаётган йўналишда ҳаракатланиш тақиқланганлигини билдиради.",
+            "ru": "В соответствии с пунктом 32 главы 7 ПДД красный, желтый и зеленый сигналы светофора в виде указателя имеют то же значение, что и сигналы кругового светофора. Они влияют только на указанное направление. Указатель поворота, разрешающий поворот налево, также разрешает поворот, если это не запрещено соответствующим дорожным знаком. Зеленый роутер в дополнительной сети означает то же самое. Если знак дополнительной сети не горит, это означает, что трафик в направлении, регулируемом этой сетью, запрещен."
         }
     },
     {
         "task_info": {
-            "global_id": "t_17_q_9",
-            "ticket_num": 17,
+            "global_id": "t_28_q_5",
+            "ticket_num": 28,
             "order": 10
         },
         "media_url": "u186uz.webp",
@@ -647,17 +692,17 @@
                     },
                     {
                         "id": 2,
-                        "text": "O'ngga birinchi va ikkinchi yo'nalishga",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "O'ngga birinchi yo'nalishga",
                         "is_correct": true
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "O'ngga ikkinchi yo'nalishga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "O'ngga birinchi va ikkinchi yo'nalishga",
                         "is_correct": false
                     }
                 ]
@@ -672,17 +717,17 @@
                     },
                     {
                         "id": 2,
-                        "text": "Ўнгга биринчи ва иккинчи йўналишга",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Ўнгга биринчи йўналишга",
                         "is_correct": true
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Ўнгга иккинчи йўналишга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Ўнгга биринчи ва иккинчи йўналишга",
                         "is_correct": false
                     }
                 ]
@@ -692,32 +737,37 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Направо в первый и второй проезды",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Прямо и направо в первый проезд",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "Направо во второй проезд",
+                        "id": 2,
+                        "text": "Направо в первый проезд",
                         "is_correct": true
                     },
                     {
+                        "id": 3,
+                        "text": "Направо во второй проезд",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Направо в первый проезд",
+                        "text": "Направо в первый и второй проезды",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 36-bandi: Tramvaylarning hamda maxsus ajratilgan tasma bo‘ylab harakatlanayotgan boshqa yo‘nalishli transport vositalarining harakatlanishini tartibga solish uchun “T” harfi ko‘rinishida joylashgan to‘rtta doirasimon oq rang ishorali svetoforlar qo‘llanilishi mumkin. Yuqoridagi bir yoki bir nechta va pastki ishora bir vaqtning o‘zida yonganda, harakatlanishga ruxsat etiladi. Ulardan chapdagisi chapga, o‘ngdagisi o‘ngga, o‘rtadagisi to‘g‘riga yurishga ruxsat beradi. Pastdagi ishora o‘chirilib, yuqoridagi uchta ishora bir vaqtda yonsa, harakatlanish taqiqlanadi.",
+            "uz_cyr": "YHQ 7-боби 36-банди: Трамвайларнинг ҳамда махсус ажратилган тасма бўйлаб ҳаракатланаётган бошқа йўналишли транспорт воситаларининг ҳаракатланишини тартибга солиш учун “Т” ҳарфи кўринишида жойлашган тўртта доирасимон оқ ранг ишорали светофорлар қўлланилиши мумкин. Юқоридаги бир ёки бир нечта ва пастки ишора бир вақтнинг ўзида ёнганда, ҳаракатланишга рухсат этилади. Улардан чапдагиси чапга, ўнгдагиси ўнгга, ўртадагиси тўғрига юришга рухсат беради. Пастдаги ишора ўчирилиб, юқоридаги учта ишора бир вақтда ёнса, ҳаракатланиш тақиқланади.",
+            "ru": "Пункт 36 главы 7 ГК: Для регулирования движения трамваев и других направленных транспортных средств, движущихся по специально отведенной полосе, могут использоваться светофоры с четырьмя круговыми сигналами белого цвета в виде буквы «Т». Движение разрешено, если одновременно горит один или несколько верхних и нижних сигналов. Тот, что слева, позволяет идти налево, тот, что справа, направо, а тот, что посередине, направо. Если нижний сигнал выключен и одновременно включены три верхних сигнала, движение запрещено."
         }
     },
     {
         "task_info": {
-            "global_id": "t_50_q_15",
-            "ticket_num": 50,
+            "global_id": "t_30_q_5",
+            "ticket_num": 30,
             "order": 11
         },
         "media_url": "u572uz.webp",
@@ -777,7 +827,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Легковому и грузовому автомобилям",
+                        "text": "Трамваю и мотоциклу",
                         "is_correct": false
                     },
                     {
@@ -787,22 +837,27 @@
                     },
                     {
                         "id": 3,
-                        "text": "Всем транспортным средствам",
+                        "text": "Легковому и грузовому автомобилям",
                         "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Трамваю и мотоциклу",
+                        "text": "Всем транспортным средствам",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 32-bandi 3-xatboshiga asosan, svetoforning qo'shimcha tarmoqdagi ishora o'chirilgan bo'lsa, shu tarmoq tartibga solayotgan yo'nalishda harakatlanish taqiqlanganligini bildiradi.",
+            "uz_cyr": "YHQ 7-боби 32-банди 3-хатбошига асосан, светофорнинг қўшимча тармоқдаги ишора ўчирилган бўлса, шу тармоқ тартибга солаётган йўналишда ҳаракатланиш тақиқланганлигини билдиради.",
+            "ru": "Согласно главе 7 пункта 32 пункта 3 ПДД, если сигнал в дополнительной сети светофора выключен, это означает, что движение в направлении, регулируемом этой сетью, запрещено."
         }
     },
     {
         "task_info": {
-            "global_id": "t_2_q_6",
-            "ticket_num": 2,
+            "global_id": "t_30_q_15",
+            "ticket_num": 30,
             "order": 12
         },
         "media_url": "u13uz.webp",
@@ -812,13 +867,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Svetoforning qizil va sariq yoritkichlarida harakatlanishning ruxsat etilgan yo'nalishlari haqida",
-                        "is_correct": false
+                        "text": "Svetoforning yashil yoritkichi yoqilganda harakatlanishning ruxsat etilgan yo'nalishlari haqida",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Svetoforning yashil yoritkichi yoqilganda harakatlanishning ruxsat etilgan yo'nalishlari haqida",
-                        "is_correct": true
+                        "text": "Svetoforning qizil va sariq yoritkichlarida harakatlanishning ruxsat etilgan yo'nalishlari haqida",
+                        "is_correct": false
                     }
                 ]
             },
@@ -827,13 +882,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Светофорнинг қизил ва сариқ ёриткичларида ҳаракатланишнинг рухсат этилган йўналишлари ҳақида",
-                        "is_correct": false
+                        "text": "Светофорнинг яшил ёриткичи ёқилганда ҳаракатланишнинг рухсат этилган йўналишлари ҳақида",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Светофорнинг яшил ёриткичи ёқилганда ҳаракатланишнинг рухсат этилган йўналишлари ҳақида",
-                        "is_correct": true
+                        "text": "Светофорнинг қизил ва сариқ ёриткичларида ҳаракатланишнинг рухсат этилган йўналишлари ҳақида",
+                        "is_correct": false
                     }
                 ]
             },
@@ -843,21 +898,26 @@
                     {
                         "id": 1,
                         "text": "О разрешенных направлениях движения при включении зеленого сигнала светофора",
-                        "is_correct": false
+                        "is_correct": true
                     },
                     {
                         "id": 2,
                         "text": "О разрешенных направлениях движения при красном и желтом сигналах светофора",
-                        "is_correct": true
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 32-bandning 1-xatboshiga asosan, svetoforning qizil, sariq va yashil chiroqlariga tushirilgan yo'naltirgich izlari bu ishoralarning ma'nosini o'zgartirmaydi, balki u svetoforning yashil chirog'i yonganida ruxsat etilgan harakat yo'nalishini ko'rsatadi. Bu svetoforlar harakatlanishi ko'p yo'nalishli chorrahalarda har bir yo'nalish uchun alohida qo'llanilishi mumkin.",
+            "uz_cyr": "YHQ 7-боби 32-банднинг 1-хатбошига асосан, светофорнинг қизил, сариқ ва яшил чироқларига туширилган йўналтиргич излари бу ишораларнинг маъносини ўзгартирмайди, балки у светофорнинг яшил чироғи ёнганида рухсат этилган ҳаракат йўналишини кўрсатади. Бу светофорлар ҳаракатланиши кўп йўналишли чорраҳаларда ҳар бир йўналиш учун алоҳида қўлланилиши мумкин.",
+            "ru": "Согласно пункту 1 статьи 32 главы 7 Гражданского кодекса направляющие знаки на красных, желтых и зеленых огнях светофора не меняют значения этих знаков, но указывают направление движения, разрешенное при включении зеленого света светофора. Эти светофоры можно использовать отдельно для каждого направления на разнонаправленных перекрестках."
         }
     },
     {
         "task_info": {
-            "global_id": "t_21_q_7",
-            "ticket_num": 21,
+            "global_id": "t_33_q_15",
+            "ticket_num": 33,
             "order": 13
         },
         "media_url": "u232uz.webp",
@@ -867,12 +927,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Qatnov qismining barcha kengligi bo'ylab",
+                        "text": "Faqat bir qatorda",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Faqat bir qatorda",
+                        "text": "Qatnov qismining barcha kengligi bo'ylab",
                         "is_correct": false
                     },
                     {
@@ -892,12 +952,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Қатнов қисмининг барча кенглиги бўйлаб",
+                        "text": "Фақат бир қаторда",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Фақат бир қаторда",
+                        "text": "Қатнов қисмининг барча кенглиги бўйлаб",
                         "is_correct": false
                     },
                     {
@@ -917,12 +977,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "По всей ширине проезжей части",
+                        "text": "Только в один ряд",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Только в один ряд",
+                        "text": "По всей ширине проезжей части",
                         "is_correct": false
                     },
                     {
@@ -937,12 +997,17 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 35-bandiga asosan, qatnov qismidagi harakat yo'nalishi qarama-qarshi tomonga o'zgarishi mumkin bo'lgan tasmalarida transport vositalarining harakatini tartibga solish uchun X-Simon qizil ishorali va pastga yo'nalgan yo'naltirgich ko'rinishidagi yashil ishorali reversiv svetoforlar qo'llaniladi. Bu ishoralar qaysi tasma ustiga o'rnatilgan bo'lsa, unda harakatlanishni taqiqlaydi yoki ruxsat beradi.",
+            "uz_cyr": "YHQ 7-боби 35-бандига асосан, қатнов қисмидаги ҳаракат йўналиши қарама-қарши томонга ўзгариши мумкин бўлган тасмаларида транспорт воситаларининг ҳаракатини тартибга солиш учун Х-Симон қизил ишорали ва пастга йўналган йўналтиргич кўринишидаги яшил ишорали реверсив светофорлар қўлланилади. Бу ишоралар қайси тасма устига ўрнатилган бўлса, унда ҳаракатланишни тақиқлайди ёки рухсат беради.",
+            "ru": "Согласно главе 7, пункту 35 ПДД, красно- и зелено-сигнальный реверсивный светофор X-Simon в виде движения вниз применяется для регулирования движения транспортных средств по полосам, где направление движения может быть изменено в противоположном направлении. Эти знаки запрещают или разрешают движение по полосе, на которой они установлены."
         }
     },
     {
         "task_info": {
-            "global_id": "t_25_q_9",
-            "ticket_num": 25,
+            "global_id": "t_34_q_5",
+            "ticket_num": 34,
             "order": 14
         },
         "media_url": "u275uz.webp",
@@ -952,12 +1017,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat tramvaylarga",
+                        "text": "Tramvaylarga va avtobuslarga",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Tramvaylarga va avtobuslarga",
+                        "text": "Faqat tramvaylarga",
                         "is_correct": false
                     },
                     {
@@ -972,12 +1037,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат трамвайларга",
+                        "text": "Трамвайларга ва автобусларга",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Трамвайларга ва автобусларга",
+                        "text": "Фақат трамвайларга",
                         "is_correct": false
                     },
                     {
@@ -992,12 +1057,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только трамваев",
+                        "text": "Трамваев и троллейбусов",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Трамваев и троллейбусов",
+                        "text": "Только трамваев",
                         "is_correct": false
                     },
                     {
@@ -1007,32 +1072,37 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 36-bandiga asosan, tramvaylarning hamda maxsus ajratilgan tasma bo'ylab harakatlanayotgan yo'nalishli transport vositalarining harakatlanishini tartibga solish uchun \"T\" — harfi ko'rinishida joylashgan to'rtta doirasimon oq rang ishorali svetoforlar qo'llanilishi mumkin.",
+            "uz_cyr": "YHQ 7-боби 36-бандига асосан, трамвайларнинг ҳамда махсус ажратилган тасма бўйлаб ҳаракатланаётган йўналишли транспорт воситаларининг ҳаракатланишини тартибга солиш учун \"Т\" — ҳарфи кўринишида жойлашган тўртта доирасимон оқ ранг ишорали светофорлар қўлланилиши мумкин.",
+            "ru": "Согласно статье 36 главы 7 Гражданского кодекса светофоры с четырьмя круговыми белыми разметками в виде буквы «Т» могут использоваться для регулирования движения трамваев и направленных транспортных средств, движущихся по специально отведенной полосе движения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_54_q_12",
-            "ticket_num": 54,
+            "global_id": "t_36_q_1",
+            "ticket_num": 36,
             "order": 15
         },
-        "media_url": "",
+        "media_url": null,
         "content": {
             "uz_lat": {
                 "text": "Svetaforning yashil miltillovchi ishorasi nimani bildiradi?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "Svetafor nosozligini",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Harakatga ruxsat beradi va tez orada taqiqlovchi ishora yonishi to'g'risida axborot beradi",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Harakatni davom ettirishni taqiqlaydi",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Svetafor nosozligini",
+                        "text": "Harakatni davom ettirishni taqiqlaydi",
                         "is_correct": false
                     }
                 ]
@@ -1042,17 +1112,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Светофор носозлигини",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Ҳаракатга рухсат беради ва тез орада тақиқловчи ишора ёниши тўғрисида ахборот беради",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Ҳаракатни давом эттиришни тақиқлайди",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Светофор носозлигини",
+                        "text": "Ҳаракатни давом эттиришни тақиқлайди",
                         "is_correct": false
                     }
                 ]
@@ -1062,13 +1132,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешает движение и информирует о том, что вскоре будет включен запрещающий сигнал",
-                        "is_correct": true
+                        "text": "Предупреждает о неисправности светофора",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Предупреждает о неисправности светофора",
-                        "is_correct": false
+                        "text": "Разрешает движение и информирует о том, что вскоре будет включен запрещающий сигнал",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1077,15 +1147,20 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 31-bandiga muvofiq, miltillovchi yashil ishora ham harakatlanishga ruxsat beradi va uning ta'sir vaqti tugayotganligi hamda ko'p o'tmay taqiqlovchi ishora yonishi haqida axborot beradi.",
+            "uz_cyr": "YHQ 7-боби 31-бандига мувофиқ, милтилловчи яшил ишора ҳам ҳаракатланишга рухсат беради ва унинг таъсир вақти тугаётганлиги ҳамда кўп ўтмай тақиқловчи ишора ёниши ҳақида ахборот беради.",
+            "ru": "В соответствии со статьей 31 главы 7 Закона о дорожном движении мигающий зеленый сигнал также разрешает движение и информирует о том, что срок его действия истекает и вскоре после этого загорится запрещающий сигнал."
         }
     },
     {
         "task_info": {
-            "global_id": "t_49_q_17",
-            "ticket_num": 49,
+            "global_id": "t_37_q_16",
+            "ticket_num": 37,
             "order": 16
         },
-        "media_url": "",
+        "media_url": null,
         "content": {
             "uz_lat": {
                 "text": "Svetafor ishoralari qaysi guruh yo'l belgilarini bekor qiladi (miltillovchi sariq ishoradan tashqari)?",
@@ -1097,17 +1172,17 @@
                     },
                     {
                         "id": 2,
-                        "text": "Barcha sanab o'tilganlari",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Taqiqlovchi belgilar",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Buyuruvchi belgilar",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Barcha sanab o'tilganlari",
                         "is_correct": false
                     }
                 ]
@@ -1122,17 +1197,17 @@
                     },
                     {
                         "id": 2,
-                        "text": "Барча санаб ўтилганлари",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Тақиқловчи белгилар",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Буюрувчи белгилар",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Барча санаб ўтилганлари",
                         "is_correct": false
                     }
                 ]
@@ -1147,43 +1222,48 @@
                     },
                     {
                         "id": 2,
-                        "text": "Предписывающих знаков",
+                        "text": "Запрещающих знаков",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Всех перечисленных",
+                        "text": "Предписывающих знаков",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Запрещающих знаков",
+                        "text": "Всех перечисленных",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 43-bandiga asosan, svetofor ishoralari imtiyoz belgilari talablariga zid kelgan hollarda haydovchilar svetofor ishoralariga amal qilishlari kerak.",
+            "uz_cyr": "YHQ 7-боби 43-бандига асосан, светофор ишоралари имтиёз белгилари талабларига зид келган ҳолларда ҳайдовчилар светофор ишораларига амал қилишлари керак.",
+            "ru": "В соответствии со статьей 43 главы 7 Закона о дорожном движении водители обязаны подчиняться знакам светофора в случаях, когда знаки светофора противоречат требованиям знаков концессии."
         }
     },
     {
         "task_info": {
-            "global_id": "t_13_q_3",
-            "ticket_num": 13,
+            "global_id": "t_42_q_3",
+            "ticket_num": 42,
             "order": 17
         },
-        "media_url": "",
+        "media_url": null,
         "content": {
             "uz_lat": {
                 "text": "Agar haydovchi keskin tormoz bermasdan harakatni to'xtata olmasa, svetaforning yashil ishorasidan keyin yongan sariq ishorasida harakatni davom ettirishga ruxsat beriladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Taqiqlanadi",
-                        "is_correct": false
+                        "text": "Ruxsat etiladi",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Ruxsat etiladi",
-                        "is_correct": true
+                        "text": "Taqiqlanadi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1192,13 +1272,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тақиқланади",
-                        "is_correct": false
+                        "text": "Рухсат этилади",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Рухсат этилади",
-                        "is_correct": true
+                        "text": "Тақиқланади",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1208,32 +1288,37 @@
                     {
                         "id": 1,
                         "text": "Разрешается",
-                        "is_correct": false
+                        "is_correct": true
                     },
                     {
                         "id": 2,
                         "text": "Запрещено",
-                        "is_correct": true
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 42-bandiga asosan, sariq ishora yonganda to'xtash chizig'i oldida, bunday chiziq bo'lmaganda esa chorrahaning qatnov qismi bilan kesishgan joyida keskin tormoz bermasdan to'xtashga ulgura olmaydigan transport vositalarining haydovchilariga harakatni davom ettirishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 7-боби 42-бандига асосан, сариқ ишора ёнганда тўхташ чизиғи олдида, бундай чизиқ бўлмаганда эса чорраҳанинг қатнов қисми билан кесишган жойида кескин тормоз бермасдан тўхташга улгура олмайдиган транспорт воситаларининг ҳайдовчиларига ҳаракатни давом эттиришга рухсат этилади.",
+            "ru": "Согласно статье 42 главы 7 ПДД водителям транспортных средств, которые не могут остановиться без резкого торможения перед стоп-линией при горящем желтом сигнале, а также при ее отсутствии, разрешается продолжать движение."
         }
     },
     {
         "task_info": {
-            "global_id": "t_55_q_1",
-            "ticket_num": 55,
+            "global_id": "t_42_q_12",
+            "ticket_num": 42,
             "order": 18
         },
-        "media_url": "",
+        "media_url": null,
         "content": {
             "uz_lat": {
                 "text": "Svetaforning miltillovchi sariq ishorasi nima haqida ogohlantiradi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Barcha javoblar to'g'ri",
-                        "is_correct": true
+                        "text": "Harakatlanishga ruxsat beradi",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -1242,8 +1327,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Harakatlanishga ruxsat beradi",
-                        "is_correct": false
+                        "text": "Barcha javoblar to'g'ri",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1252,8 +1337,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Барча жавоблар тўғри",
-                        "is_correct": true
+                        "text": "Ҳаракатланишга рухсат беради",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -1262,8 +1347,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Ҳаракатланишга рухсат беради",
-                        "is_correct": false
+                        "text": "Барча жавоблар тўғри",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1272,8 +1357,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Все ответы правильные",
-                        "is_correct": true
+                        "text": "Разрешает движение",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -1282,17 +1367,22 @@
                     },
                     {
                         "id": 3,
-                        "text": "Разрешает движение",
-                        "is_correct": false
+                        "text": "Все ответы правильные",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 31 bandi 6 xatboshiga asosan, miltillovchi sariq ishora ehtiyotkorlik choralarini ko‘rgan holda harakatlanishga ruxsat beradi va tartibga solinmagan chorraha yoki piyodalar o‘tish joyi borligidan xabardor qiladi, xavf-xatar haqida ogohlantiradi.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 31 банди 6 хатбошига асосан, милтилловчи сариқ ишора эҳтиёткорлик чораларини кўрган ҳолда ҳаракатланишга рухсат беради ва тартибга солинмаган чорраҳа ёки пиёдалар ўтиш жойи борлигидан хабардор қилади, хавф-хатар ҳақида огоҳлантиради.",
+            "ru": "Согласно пункту 6 статьи 31 Правил дорожного движения мигающий желтый знак разрешает движение с осторожностью и информирует о наличии нерегулируемого перекрестка или пешеходного перехода, предупреждает об опасности."
         }
     },
     {
         "task_info": {
-            "global_id": "t_54_q_10",
-            "ticket_num": 54,
+            "global_id": "t_42_q_20",
+            "ticket_num": 42,
             "order": 19
         },
         "media_url": "u624uz.webp",
@@ -1302,23 +1392,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat to'g'riga va o'ngga",
-                        "is_correct": false
+                        "text": "Harakatlanish taqiqlanadi",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Barcha yo'nalishda ruxsat etiladi",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Faqat to'g'riga",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Faqat to'g'riga va o'ngga",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Harakatlanish taqiqlanadi",
-                        "is_correct": true
+                        "text": "Barcha yo'nalishda ruxsat etiladi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1327,23 +1417,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат тўғрига ва ўнгга",
-                        "is_correct": false
+                        "text": "Ҳаракатланиш тақиқланади",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Барча йўналишда рухсат этилади",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Фақат тўғрига",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Фақат тўғрига ва ўнгга",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Ҳаракатланиш тақиқланади",
-                        "is_correct": true
+                        "text": "Барча йўналишда рухсат этилади",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1352,48 +1442,53 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только прямо и направо",
-                        "is_correct": false
+                        "text": "Движение запрешено",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Разрешено во все направления",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Только прямо",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Только прямо и направо",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Движение запрешено",
-                        "is_correct": true
+                        "text": "Разрешено во все направления",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 36-bandi: Tramvaylarning hamda maxsus ajratilgan tasma bo‘ylab harakatlanayotgan boshqa yo‘nalishli transport vositalarining harakatlanishini tartibga solish uchun “T” harfi ko‘rinishida joylashgan to‘rtta doirasimon oq rang ishorali svetoforlar qo‘llanilishi mumkin. Yuqoridagi bir yoki bir nechta va pastki ishora bir vaqtning o‘zida yonganda, harakatlanishga ruxsat etiladi. Ulardan chapdagisi chapga, o‘ngdagisi o‘ngga, o‘rtadagisi to‘g‘riga yurishga ruxsat beradi. Pastdagi ishora o‘chirilib, yuqoridagi uchta ishora bir vaqtda yonsa, harakatlanish taqiqlanadi.",
+            "uz_cyr": "YHQ 7-боби 36-банди: Трамвайларнинг ҳамда махсус ажратилган тасма бўйлаб ҳаракатланаётган бошқа йўналишли транспорт воситаларининг ҳаракатланишини тартибга солиш учун “Т” ҳарфи кўринишида жойлашган тўртта доирасимон оқ ранг ишорали светофорлар қўлланилиши мумкин. Юқоридаги бир ёки бир нечта ва пастки ишора бир вақтнинг ўзида ёнганда, ҳаракатланишга рухсат этилади. Улардан чапдагиси чапга, ўнгдагиси ўнгга, ўртадагиси тўғрига юришга рухсат беради. Пастдаги ишора ўчирилиб, юқоридаги учта ишора бир вақтда ёнса, ҳаракатланиш тақиқланади.",
+            "ru": "Пункт 36 главы 7 ГК: Для регулирования движения трамваев и других направленных транспортных средств, движущихся по специально отведенной полосе, могут использоваться светофоры с четырьмя круговыми сигналами белого цвета в виде буквы «Т». Движение разрешено, если одновременно горит один или несколько верхних и нижних сигналов. Тот, что слева, позволяет идти налево, тот, что справа, направо, а тот, что посередине, направо. Если нижний сигнал выключен и одновременно включены три верхних сигнала, движение запрещено."
         }
     },
     {
         "task_info": {
-            "global_id": "t_23_q_2",
-            "ticket_num": 23,
+            "global_id": "t_46_q_12",
+            "ticket_num": 46,
             "order": 20
         },
-        "media_url": "",
+        "media_url": null,
         "content": {
             "uz_lat": {
                 "text": "Miltillovchi sariq ishorali svetofor:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Tartibga solingan chorraha borligidan xabardor qiladi",
-                        "is_correct": false
+                        "text": "Tartibga solinmagan chorraha yoki piyodalar o'tish joyi borligidan xabardor qiladi",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Tartibga solinmagan chorraha yoki piyodalar o'tish joyi borligidan xabardor qiladi",
-                        "is_correct": true
+                        "text": "Tartibga solingan chorraha borligidan xabardor qiladi",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1407,13 +1502,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тартибга солинган чорраҳа борлигидан хабардор қилади",
-                        "is_correct": false
+                        "text": "Тартибга солинмаган чорраҳа ёки пиёдалар ўтиш жойи борлигидан хабардор қилади",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Тартибга солинмаган чорраҳа ёки пиёдалар ўтиш жойи борлигидан хабардор қилади",
-                        "is_correct": true
+                        "text": "Тартибга солинган чорраҳа борлигидан хабардор қилади",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1428,12 +1523,12 @@
                     {
                         "id": 1,
                         "text": "Информирует о наличии нерегулируемого перекрёстка или пешеходного перехода",
-                        "is_correct": false
+                        "is_correct": true
                     },
                     {
                         "id": 2,
                         "text": "Информирует о наличии нерегулируемого перекрёстка",
-                        "is_correct": true
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1442,12 +1537,17 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 31-bandiga muvofiq, miltillovchi sariq ishora harakatlanishga ruxsat beradi va tartibga solinmagan chorraha yoki piyodalar o'tish joyi borligidan xabardor qiladi, xavf-xatar haqida ogohlantiradi;",
+            "uz_cyr": "YHQ 7-боби 31-бандига мувофиқ, милтилловчи сариқ ишора ҳаракатланишга рухсат беради ва тартибга солинмаган чорраҳа ёки пиёдалар ўтиш жойи борлигидан хабардор қилади, хавф-хатар ҳақида огоҳлантиради;",
+            "ru": "В соответствии с главой 7 статьи 31 Гражданского кодекса мигающий желтый знак разрешает движение и информирует о наличии нерегулируемого перекрестка или пешеходного перехода, предупреждает об опасности;"
         }
     },
     {
         "task_info": {
-            "global_id": "t_7_q_11",
-            "ticket_num": 7,
+            "global_id": "t_46_q_19",
+            "ticket_num": 46,
             "order": 21
         },
         "media_url": "u70uz.webp",
@@ -1462,17 +1562,17 @@
                     },
                     {
                         "id": 2,
-                        "text": "To'g'riga va chapga",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "To'g'riga va o'nga",
                         "is_correct": true
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Faqat o'ngga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "To'g'riga va chapga",
                         "is_correct": false
                     }
                 ]
@@ -1487,17 +1587,17 @@
                     },
                     {
                         "id": 2,
-                        "text": "Тўғрига ва чапга",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Тўғрига ва ўнга",
                         "is_correct": true
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Фақат ўнгга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Тўғрига ва чапга",
                         "is_correct": false
                     }
                 ]
@@ -1507,48 +1607,53 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Прямо и направо",
+                        "text": "Только налево",
                         "is_correct": false
                     },
                     {
                         "id": 2,
+                        "text": "Прямо и направо",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
                         "text": "Только направо",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "Прямо и налево",
-                        "is_correct": true
-                    },
-                    {
                         "id": 4,
-                        "text": "Только налево",
+                        "text": "Прямо и налево",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 36 bandiga asosan, Tramvaylarning hamda maxsus ajratilgan tasma bo‘ylab harakatlanayotgan boshqa yo‘nalishli transport vositalarining harakatlanishini tartibga solish uchun «T» harfi ko‘rinishida joylashgan to‘rtta doirasimon oq rang ishorali svetoforlar qo‘llanilishi mumkin. Yuqoridagi bir yoki bir nechta va pastki ishora bir vaqtning o‘zida yonganda, harakatlanishga ruxsat etiladi. Ulardan chapdagisi chapga, o‘ngdagisi o‘ngga, o‘rtadagisi to‘g‘riga yurishga ruxsat beradi. Pastdagi ishora o‘chirilib, yuqoridagi uchta ishora bir vaqtda yonsa, harakatlanish taqiqlanadi.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 36 бандига асосан, Трамвайларнинг ҳамда махсус ажратилган тасма бўйлаб ҳаракатланаётган бошқа йўналишли транспорт воситаларининг ҳаракатланишини тартибга солиш учун «Т» ҳарфи кўринишида жойлашган тўртта доирасимон оқ ранг ишорали светофорлар қўлланилиши мумкин. Юқоридаги бир ёки бир нечта ва пастки ишора бир вақтнинг ўзида ёнганда, ҳаракатланишга рухсат этилади. Улардан чапдагиси чапга, ўнгдагиси ўнгга, ўртадагиси тўғрига юришга рухсат беради. Пастдаги ишора ўчирилиб, юқоридаги учта ишора бир вақтда ёнса, ҳаракатланиш тақиқланади.",
+            "ru": "Согласно пункту 36 Правил дорожного движения, для регулирования движения трамваев, а также других маршрутных транспортных средств, движущихся по выделенной полосе, могут применяться светофоры с четырьмя круглыми сигналами бело-лунного цвета, расположенными в виде буквы «Т». Движение разрешается при одновременном включении нижнего сигнала и одного или нескольких верхних: левый разрешает движение налево, правый — направо, средний — прямо. Если нижний сигнал выключен, а три верхних включены одновременно, движение запрещено."
         }
     },
     {
         "task_info": {
-            "global_id": "t_58_q_9",
-            "ticket_num": 58,
+            "global_id": "t_49_q_4",
+            "ticket_num": 49,
             "order": 22
         },
-        "media_url": "",
+        "media_url": null,
         "content": {
             "uz_lat": {
                 "text": "Svetofor ishoralari imtiyoz belgilari talablariga zid kelgan hollarda?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Haydovchilar imtiyoz belgilari talablariga amal qilishlari kerak",
-                        "is_correct": false
+                        "text": "Haydovchilar svetofor ishoralariga amal qilishlari kerak",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Haydovchilar svetofor ishoralariga amal qilishlari kerak",
-                        "is_correct": true
+                        "text": "Haydovchilar imtiyoz belgilari talablariga amal qilishlari kerak",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1557,13 +1662,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ҳайдовчилар имтиёз белгилари талабларига амал қилишлари керак",
-                        "is_correct": false
+                        "text": "Ҳайдовчилар светофор ишораларига амал қилишлари керак",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Ҳайдовчилар светофор ишораларига амал қилишлари керак",
-                        "is_correct": true
+                        "text": "Ҳайдовчилар имтиёз белгилари талабларига амал қилишлари керак",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1572,28 +1677,33 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Водители должны руководствоваться требованиям знаков приоритета",
-                        "is_correct": false
+                        "text": "Водители должны руководствоваться сигналами светофора",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Водители должны руководствоваться сигналами светофора",
-                        "is_correct": true
+                        "text": "Водители должны руководствоваться требованиям знаков приоритета",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 33 bandi 2 xatboshiga asosan, svetofor ishoralari imtiyoz belgilari talablariga zid bo‘lgan hollarda haydovchilar svetofor ishoralariga amal qilishlari kerak.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 33 банди 2 хатбошига асосан, светофор ишоралари имтиёз белгилари талабларига зид бўлган ҳолларда ҳайдовчилар светофор ишораларига амал қилишлари керак.",
+            "ru": "Согласно пункту 2 статьи 33 Правил дорожного движения, в случаях, когда знаки светофора противоречат требованиям знаков концессии, водители обязаны следовать знакам светофора."
         }
     },
     {
         "task_info": {
-            "global_id": "t_36_q_3",
-            "ticket_num": 36,
+            "global_id": "t_52_q_6",
+            "ticket_num": 52,
             "order": 23
         },
         "media_url": "u407uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Harakatlanish qaysi yo'nalishga ruxsat etilgan?",
+                "text": "Harakatlanish qaysi yo‘nalishga ruxsat etilgan?",
                 "options": [
                     {
                         "id": 1,
@@ -1602,17 +1712,17 @@
                     },
                     {
                         "id": 2,
-                        "text": "Barcha yo'nalishda ruxsat etiladi",
+                        "text": "Faqat to‘g‘riga",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Faqat to'g'riga va o'ngga",
+                        "text": "Faqat to‘g‘riga va o‘ngga",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Faqat to'g'riga",
+                        "text": "Barcha yo‘nalishda ruxsat etiladi",
                         "is_correct": false
                     }
                 ]
@@ -1627,7 +1737,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Барча йўналишда рухсат этилади",
+                        "text": "Фақат тўғрига",
                         "is_correct": false
                     },
                     {
@@ -1637,7 +1747,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Фақат тўғрига",
+                        "text": "Барча йўналишда рухсат этилади",
                         "is_correct": false
                     }
                 ]
@@ -1647,12 +1757,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешено во все направления",
+                        "text": "Движение запрещено",
                         "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Движение запрещено",
+                        "text": "Только прямо",
                         "is_correct": false
                     },
                     {
@@ -1662,23 +1772,28 @@
                     },
                     {
                         "id": 4,
-                        "text": "Только прямо",
+                        "text": "Разрешено во все направления",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 36-bandi: Tramvaylarning hamda maxsus ajratilgan tasma bo‘ylab harakatlanayotgan boshqa yo‘nalishli transport vositalarining harakatlanishini tartibga solish uchun “T” harfi ko‘rinishida joylashgan to‘rtta doirasimon oq rang ishorali svetoforlar qo‘llanilishi mumkin. Yuqoridagi bir yoki bir nechta va pastki ishora bir vaqtning o‘zida yonganda, harakatlanishga ruxsat etiladi. Ulardan chapdagisi chapga, o‘ngdagisi o‘ngga, o‘rtadagisi to‘g‘riga yurishga ruxsat beradi. Pastdagi ishora o‘chirilib, yuqoridagi uchta ishora bir vaqtda yonsa, harakatlanish taqiqlanadi.",
+            "uz_cyr": "YHQ 7-боби 36-банди: Трамвайларнинг ҳамда махсус ажратилган тасма бўйлаб ҳаракатланаётган бошқа йўналишли транспорт воситаларининг ҳаракатланишини тартибга солиш учун “Т” ҳарфи кўринишида жойлашган тўртта доирасимон оқ ранг ишорали светофорлар қўлланилиши мумкин. Юқоридаги бир ёки бир нечта ва пастки ишора бир вақтнинг ўзида ёнганда, ҳаракатланишга рухсат этилади. Улардан чапдагиси чапга, ўнгдагиси ўнгга, ўртадагиси тўғрига юришга рухсат беради. Пастдаги ишора ўчирилиб, юқоридаги учта ишора бир вақтда ёнса, ҳаракатланиш тақиқланади.",
+            "ru": "Пункт 36 главы 7 ГК: Для регулирования движения трамваев и других направленных транспортных средств, движущихся по специально отведенной полосе, могут использоваться светофоры с четырьмя круговыми сигналами белого цвета в виде буквы «Т». Движение разрешено, если одновременно горит один или несколько верхних и нижних сигналов. Тот, что слева, позволяет идти налево, тот, что справа, направо, а тот, что посередине, направо. Если нижний сигнал выключен и одновременно включены три верхних сигнала, движение запрещено."
         }
     },
     {
         "task_info": {
-            "global_id": "t_47_q_8",
-            "ticket_num": 47,
+            "global_id": "t_52_q_11",
+            "ticket_num": 52,
             "order": 24
         },
-        "media_url": "u540uz.webp",
+        "media_url": "v509uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Qaysi yo'nalish bo'yicha harakatlanishga ruxsat beriladi?",
+                "text": "qaysi yo'nalish bo'yicha harakatlanishga ruxsat beriladi?",
                 "options": [
                     {
                         "id": 1,
@@ -1687,13 +1802,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "«D»",
-                        "is_correct": true
+                        "text": "«A» «B» «D»",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "«A» «B» «D»",
-                        "is_correct": false
+                        "text": "«D»",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1707,13 +1822,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "«D»",
-                        "is_correct": true
+                        "text": "«A» «B» «D»",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "«A» «B» «D»",
-                        "is_correct": false
+                        "text": "«D»",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1727,22 +1842,27 @@
                     },
                     {
                         "id": 2,
-                        "text": "«D»",
-                        "is_correct": true
+                        "text": "«A» «B» «D»",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "«A» «B» «D»",
-                        "is_correct": false
+                        "text": "«D»",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 32-bandi: Yo‘naltirgich ko‘rinishidagi qizil, sariq va yashil rangli svetofor ishoralari ham doirasimon shakldagi svetofor ishoralari bilan bir xil ma’noga ega bo‘ladi. Ular faqat ko‘rsatilgan yo‘nalishga ta’sir etadi. Agar tegishli yo‘l belgisi bilan qayrilib olish taqiqlanmagan bo‘lsa, chapga burilishga ruxsat beruvchi yo‘naltirgich qayrilib olishga ham ruxsat beradi. Qo‘shimcha tarmoqdagi yashil yo‘naltirgich ham xuddi shu ma’noni bildiradi. Svetoforning qo‘shimcha tarmoqdagi ishora o‘chirilgan bo‘lsa, shu tarmoq tartibga solayotgan yo‘nalishda harakatlanish taqiqlanganligini bildiradi. YHQ 1 ilova: 3.18.2. “Chapga burilish taqiqlanadi”.",
+            "uz_cyr": "YHQ 7-боби 32-банди: Йўналтиргич кўринишидаги қизил, сариқ ва яшил рангли светофор ишоралари ҳам доирасимон шаклдаги светофор ишоралари билан бир хил маънога эга бўлади. Улар фақат кўрсатилган йўналишга таъсир этади. Агар тегишли йўл белгиси билан қайрилиб олиш тақиқланмаган бўлса, чапга бурилишга рухсат берувчи йўналтиргич қайрилиб олишга ҳам рухсат беради. Қўшимча тармоқдаги яшил йўналтиргич ҳам худди шу маънони билдиради. Светофорнинг қўшимча тармоқдаги ишора ўчирилган бўлса, шу тармоқ тартибга солаётган йўналишда ҳаракатланиш тақиқланганлигини билдиради. YHQ 1 илова: 3.18.2. “Чапга бурилиш тақиқланади”.",
+            "ru": "Глава 7. Пункт 32 ГК: Красный, желтый и зеленый сигналы светофора в виде указателя имеют то же значение, что и сигналы кругового светофора. Они влияют только на указанное направление. Указатель поворота, разрешающий поворот налево, также разрешает поворот, если соответствующий дорожный знак не запрещает поворот. Зеленый роутер в дополнительной сети означает то же самое. Если сигнал в дополнительной сети светофора выключен, это означает, что движение в направлении, регулируемом этой сетью, запрещено. Приложение 1: 3.18.2. «Поворот налево запрещен»."
         }
     },
     {
         "task_info": {
-            "global_id": "t_40_q_6",
-            "ticket_num": 40,
+            "global_id": "t_53_q_2",
+            "ticket_num": 53,
             "order": 25
         },
         "media_url": "u456uz.webp",
@@ -1792,12 +1912,17 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 15-bobi 102-bandiga muvofiq, svetoforning ruxsat etuvchi ishorasida chorrahaga kirgan haydovchi undan chiqishda svetofor ishoralaridan qat'i nazar, mo'ljallangan yo'nalishda harakatlanishni davom ettirishi kerak. Biroq chorrahada haydovchining harakatlanish yo'lida joylashgan svetoforlar oldida to'xtash chiziqlari (yoki 5.33 yo'l belgisi) bo'lsa, u har bir svetofor ishoralariga amal qilishi shart.",
+            "uz_cyr": "YHQ 15-боби 102-бандига мувофиқ, светофорнинг рухсат этувчи ишорасида чорраҳага кирган ҳайдовчи ундан чиқишда светофор ишораларидан қати назар, мўлжалланган йўналишда ҳаракатланишни давом эттириши керак. Бироқ чорраҳада ҳайдовчининг ҳаракатланиш йўлида жойлашган светофорлар олдида тўхташ чизиқлари (ёки 5.33 йўл белгиси) бўлса, у ҳар бир светофор ишораларига амал қилиши шарт.",
+            "ru": "В соответствии с главой 15, пунктом 102 ГПК водитель, выехавший на перекресток с разрешительным сигналом светофора, обязан продолжать движение в заданном направлении независимо от сигналов светофора при выезде с него. Однако при наличии стоп-линий (или дорожных знаков 5.33) перед светофором, расположенным на пути движения водителя на перекрестке, он должен следовать знакам каждого светофора."
         }
     },
     {
         "task_info": {
-            "global_id": "t_27_q_12",
-            "ticket_num": 27,
+            "global_id": "t_53_q_5",
+            "ticket_num": 53,
             "order": 26
         },
         "media_url": "u301uz.webp",
@@ -1807,18 +1932,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Faqat to'g'riga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Barcha yo'nalishlarga",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Barcha yo'nalishlarda harakatlanish taqiqlanadi",
                         "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "Faqat to'g'riga",
-                        "is_correct": false
                     }
                 ]
             },
@@ -1827,18 +1952,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Фақат тўғрига",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Барча йўналишларга",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Барча йўналишларда ҳаракатланиш тақиқланади",
                         "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "Фақат тўғрига",
-                        "is_correct": false
                     }
                 ]
             },
@@ -1847,48 +1972,53 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Только прямо",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Во всех направлениях",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Во всех направлениях запрещает движение",
                         "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "Только прямо",
-                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 36-bandi: Tramvaylarning hamda maxsus ajratilgan tasma bo‘ylab harakatlanayotgan boshqa yo‘nalishli transport vositalarining harakatlanishini tartibga solish uchun “T” harfi ko‘rinishida joylashgan to‘rtta doirasimon oq rang ishorali svetoforlar qo‘llanilishi mumkin. Yuqoridagi bir yoki bir nechta va pastki ishora bir vaqtning o‘zida yonganda, harakatlanishga ruxsat etiladi. Ulardan chapdagisi chapga, o‘ngdagisi o‘ngga, o‘rtadagisi to‘g‘riga yurishga ruxsat beradi. Pastdagi ishora o‘chirilib, yuqoridagi uchta ishora bir vaqtda yonsa, harakatlanish taqiqlanadi.",
+            "uz_cyr": "YHQ 7-боби 36-банди: Трамвайларнинг ҳамда махсус ажратилган тасма бўйлаб ҳаракатланаётган бошқа йўналишли транспорт воситаларининг ҳаракатланишини тартибга солиш учун “Т” ҳарфи кўринишида жойлашган тўртта доирасимон оқ ранг ишорали светофорлар қўлланилиши мумкин. Юқоридаги бир ёки бир нечта ва пастки ишора бир вақтнинг ўзида ёнганда, ҳаракатланишга рухсат этилади. Улардан чапдагиси чапга, ўнгдагиси ўнгга, ўртадагиси тўғрига юришга рухсат беради. Пастдаги ишора ўчирилиб, юқоридаги учта ишора бир вақтда ёнса, ҳаракатланиш тақиқланади.",
+            "ru": "Пункт 36 главы 7 ГК: Для регулирования движения трамваев и других направленных транспортных средств, движущихся по специально отведенной полосе, могут использоваться светофоры с четырьмя круговыми сигналами белого цвета в виде буквы «Т». Движение разрешено, если одновременно горит один или несколько верхних и нижних сигналов. Тот, что слева, позволяет идти налево, тот, что справа, направо, а тот, что посередине, направо. Если нижний сигнал выключен и одновременно включены три верхних сигнала, движение запрещено."
         }
     },
     {
         "task_info": {
-            "global_id": "t_57_q_3",
-            "ticket_num": 57,
+            "global_id": "t_54_q_3",
+            "ticket_num": 54,
             "order": 27
         },
-        "media_url": "u655uz.webp",
+        "media_url": "v552uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Ushbu svetofor tramvayga qaysi yo'nalishda harakatlanishga ruxsat beradi?",
+                "text": "Ushbu svetofor tramvayga qaysi yunalishda harakatlanishga ruxsat beradi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Barcha yynalishlarga",
+                        "text": "Faqat turiga",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Barcha yo'nalishlarda harakatlanish taqiqlanadi",
-                        "is_correct": true
+                        "text": "Barcha yynalishlarga",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Faqat turiga",
-                        "is_correct": false
+                        "text": "Barcha yunalishlarda harakatlanish taqiqlanadi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1897,18 +2027,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Барча ййналишларга",
+                        "text": "Фақат турига",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Барча йўналишларда ҳаракатланиш тақиқланади",
-                        "is_correct": true
+                        "text": "Барча ййналишларга",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Фақат турига",
-                        "is_correct": false
+                        "text": "Барча йўналишларда ҳаракатланиш тақиқланади",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1917,53 +2047,58 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Только прямо",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Во всех направлениях",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Во всех направлениях запрещает движение",
                         "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "Только прямо",
-                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 36-bandi: Tramvaylarning hamda maxsus ajratilgan tasma bo‘ylab harakatlanayotgan boshqa yo‘nalishli transport vositalarining harakatlanishini tartibga solish uchun “T” harfi ko‘rinishida joylashgan to‘rtta doirasimon oq rang ishorali svetoforlar qo‘llanilishi mumkin. Yuqoridagi bir yoki bir nechta va pastki ishora bir vaqtning o‘zida yonganda, harakatlanishga ruxsat etiladi. Ulardan chapdagisi chapga, o‘ngdagisi o‘ngga, o‘rtadagisi to‘g‘riga yurishga ruxsat beradi. Pastdagi ishora o‘chirilib, yuqoridagi uchta ishora bir vaqtda yonsa, harakatlanish taqiqlanadi.",
+            "uz_cyr": "YHQ 7-боби 36-банди: Трамвайларнинг ҳамда махсус ажратилган тасма бўйлаб ҳаракатланаётган бошқа йўналишли транспорт воситаларининг ҳаракатланишини тартибга солиш учун “Т” ҳарфи кўринишида жойлашган тўртта доирасимон оқ ранг ишорали светофорлар қўлланилиши мумкин. Юқоридаги бир ёки бир нечта ва пастки ишора бир вақтнинг ўзида ёнганда, ҳаракатланишга рухсат этилади. Улардан чапдагиси чапга, ўнгдагиси ўнгга, ўртадагиси тўғрига юришга рухсат беради. Пастдаги ишора ўчирилиб, юқоридаги учта ишора бир вақтда ёнса, ҳаракатланиш тақиқланади.",
+            "ru": "Пункт 36 главы 7 ПДД: для регулирования движения трамваев, а также других маршрутных транспортных средств, движущихся по выделенной для них полосе, могут применяться светофоры с четырьмя круглыми сигналами бело-лунного цвета, расположенными в виде буквы «Т». Движение разрешается только при одновременном включении нижнего сигнала и одного или нескольких верхних. Левый верхний сигнал разрешает движение налево, правый — направо, средний — прямо. Если нижний сигнал выключен, а три верхних включены одновременно, движение запрещено."
         }
     },
     {
         "task_info": {
-            "global_id": "t_54_q_11",
-            "ticket_num": 54,
+            "global_id": "t_55_q_6",
+            "ticket_num": 55,
             "order": 28
         },
-        "media_url": "u625uz.webp",
+        "media_url": "v572uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Ushbu transport vositasi qaysi yo'nalishda harakatlanishiga ruxsat etiladi?",
+                "text": "Ushbu transport vositasi qaysi yunalishda harakatlanishiga ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "to'g'riga va o'ngga",
+                        "text": "Faqat tugriga",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Faqat to'g'riga",
+                        "text": "Tugriga va ungga",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Barcha yynalishlarga",
-                        "is_correct": false
+                        "text": "Faqat turiga va kayrilib olishga",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Faqat turiga va kayrilib olishga",
-                        "is_correct": true
+                        "text": "Barcha yynalishlarga",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1972,23 +2107,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тўғрига ва ўнгга",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Фақат тўғрига",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "Барча ййналишларга",
+                        "id": 2,
+                        "text": "Тўғрига ва ўнгга",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Фақат турига ва кайрилиб олишга",
                         "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Барча ййналишларга",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1997,32 +2132,37 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Прямо и направо",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Только прямо",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "Во всех направлениях",
+                        "id": 2,
+                        "text": "Прямо и направо",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Только прямо и в разворот",
                         "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Во всех направлениях",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilova: 3.18.2. “Chapga burilish taqiqlanadi”.",
+            "uz_cyr": "YHQ 1-илова: 3.18.2. “Чапга бурилиш тақиқланади”.",
+            "ru": "Приложение 1 к ПДД: 3.18.2 «Поворот налево запрещён»."
         }
     },
     {
         "task_info": {
-            "global_id": "t_19_q_7",
-            "ticket_num": 19,
+            "global_id": "t_56_q_19",
+            "ticket_num": 56,
             "order": 29
         },
         "media_url": "u212uz.webp",
@@ -2032,8 +2172,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Har ikkisiga taqiqlangan",
-                        "is_correct": true
+                        "text": "Har ikkisiga ruxsat etilgan",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -2042,12 +2182,12 @@
                     },
                     {
                         "id": 3,
-                        "text": "Qizil avtomobil haydovchisiga",
-                        "is_correct": false
+                        "text": "Har ikkisiga taqiqlangan",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Har ikkisiga ruxsat etilgan",
+                        "text": "Qizil avtomobil haydovchisiga",
                         "is_correct": false
                     }
                 ]
@@ -2057,8 +2197,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ҳар иккисига тақиқланган",
-                        "is_correct": true
+                        "text": "Ҳар иккисига рухсат этилган",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -2067,12 +2207,12 @@
                     },
                     {
                         "id": 3,
-                        "text": "Қизил автомобил ҳайдовчисига",
-                        "is_correct": false
+                        "text": "Ҳар иккисига тақиқланган",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Ҳар иккисига рухсат этилган",
+                        "text": "Қизил автомобил ҳайдовчисига",
                         "is_correct": false
                     }
                 ]
@@ -2082,8 +2222,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Запрещено обоим",
-                        "is_correct": true
+                        "text": "Разрешено обоим",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -2092,28 +2232,33 @@
                     },
                     {
                         "id": 3,
-                        "text": "Водителю красного автомобиля",
-                        "is_correct": false
+                        "text": "Запрещено обоим",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Разрешено обоим",
+                        "text": "Водителю красного автомобиля",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1 ilova: 4.1.1. “Harakatlanish to‘g‘riga”. Faqat belgilarda ko‘rsatilgan ko‘rsatkichlar yo‘nalishlarida harakatlanishga ruxsat etiladi. Chapga burilishga ruxsat beruvchi belgilar qayrilib olishga ham ruxsat beradi. (Muayyan kesishmada talab etilgan harakatlanish yo‘nalishiga tegishli ko‘rsatkichlarning shakli tushirilgan 4.1.1 — 4.1.6 belgilarini qo‘llash mumkin). 4.1.1 — 4.1.6 belgilarining ta’siri yo‘nalishli transport vositalariga joriy qilinmaydi. 4.1.1 — 4.1.6 yo‘l belgilari qatnov qismlarining qaysi kesishmasidan oldin o‘rnatilsa, belgining ta’siri shu kesishmaga joriy qilinadi. Yo‘lning qismi boshlanishida o‘rnatilgan 4.1.1 belgisining ta’siri yaqin chorrahagacha joriy qilinadi. Belgi o‘ng tomonda joylashgan hovlilarga va yo‘lga yondosh boshqa hududlarga burilishni taqiqlamaydi.",
+            "uz_cyr": "YHQ 1 илова: 4.1.1. “Ҳаракатланиш тўғрига”. Фақат белгиларда кўрсатилган кўрсаткичлар йўналишларида ҳаракатланишга рухсат этилади. Чапга бурилишга рухсат берувчи белгилар қайрилиб олишга ҳам рухсат беради. (Муайян кесишмада талаб этилган ҳаракатланиш йўналишига тегишли кўрсаткичларнинг шакли туширилган 4.1.1 — 4.1.6 белгиларини қўллаш мумкин). 4.1.1 — 4.1.6 белгиларининг таъсири йўналишли транспорт воситаларига жорий қилинмайди. 4.1.1 — 4.1.6 йўл белгилари қатнов қисмларининг қайси кесишмасидан олдин ўрнатилса, белгининг таъсири шу кесишмага жорий қилинади. Йўлнинг қисми бошланишида ўрнатилган 4.1.1 белгисининг таъсири яқин чорраҳагача жорий қилинади. Белги ўнг томонда жойлашган ҳовлиларга ва йўлга ёндош бошқа ҳудудларга бурилишни тақиқламайди.",
+            "ru": "Приложение 1: 4.1.1. «К действию». Разрешено двигаться только в направлениях, указанных на знаках. Знаки, разрешающие поворот налево, также разрешают разворот. (На определенном перекрестке могут использоваться знаки 4.1.1 – 4.1.6 в виде указателей, относящиеся к необходимому направлению движения). Действие знаков 4.1.1 — 4.1.6 не распространяется на направленные транспортные средства. 4.1.1 — 4.1.6 дорожные знаки устанавливаются перед любым пересечением участков движения, действие знака распространяется на этот перекресток. Действие знака 4.1.1, установленного в начале участка дороги, распространяется до ближайшего перекрестка. Знак не запрещает поворот во дворы и другие прилегающие к дороге территории справа."
         }
     },
     {
         "task_info": {
-            "global_id": "t_9_q_20",
-            "ticket_num": 9,
+            "global_id": "t_58_q_1",
+            "ticket_num": 58,
             "order": 30
         },
-        "media_url": "",
+        "media_url": null,
         "content": {
             "uz_lat": {
-                "text": "Svetoforning asosiy yashil ishorasiga yo'naltirgich (yo'naltirgichlar)ning shakli tushirilgan bo'lsa, haydovchilarga nima haqida axborot beradi?",
+                "text": "Svetoforning asosiy yashil ishorasiga yo‘naltirgich (yo‘naltirgichlar)ning shakli tushirilgan bo‘lsa, haydovchilarga nima haqida axborot beradi?",
                 "options": [
                     {
                         "id": 1,
@@ -2122,13 +2267,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Svetofor ishlamayotganligi to'g'risida axborot beradi",
-                        "is_correct": false
+                        "text": "Svetoforning qo‘shimcha tarmog‘i borligi haqida axborot beradi",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Svetoforning qo'shimcha tarmog'i borligi haqida axborot beradi",
-                        "is_correct": true
+                        "text": "Svetofor ishlamayotganligi to‘g‘risida axborot beradi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2142,13 +2287,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Светофор ишламаётганлиги тўғрисида ахборот беради",
-                        "is_correct": false
+                        "text": "Светофорнинг қўшимча тармоғи борлиги ҳақида ахборот беради",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Светофорнинг қўшимча тармоғи борлиги ҳақида ахборот беради",
-                        "is_correct": true
+                        "text": "Светофор ишламаётганлиги тўғрисида ахборот беради",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2157,42 +2302,47 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Информирует о наличии дополнительной секции светофора",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Информирует о том, что скоро загорится зелёный сигнал",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Информирует о наличии дополнительной секции светофора",
+                        "is_correct": true
+                    },
+                    {
                         "id": 3,
                         "text": "Информирует о том, что светофор не работает",
-                        "is_correct": true
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 7-bob. 33-bandga asosan: 33. Svetoforning asosiy yashil ishorasiga yo‘naltirgich (yo‘naltirgichlar)ning shakli tushirilgan bo‘lsa, u haydovchilarga svetoforning qo‘shimcha tarmog‘i borligi haqida axborot beradi va asosiy yashil ishora yonganda harakatlanishga ruxsat berilgan yo‘nalishlarni ko‘rsatadi.",
+            "uz_cyr": "YHQнинг 7-боб. 33-бандга асосан: 33. Светофорнинг асосий яшил ишорасига йўналтиргич (йўналтиргичлар)нинг шакли туширилган бўлса, у ҳайдовчиларга светофорнинг қўшимча тармоғи борлиги ҳақида ахборот беради ва асосий яшил ишора ёнганда ҳаракатланишга рухсат берилган йўналишларни кўрсатади.",
+            "ru": "Глава 7 ООН. Согласно пункту 33: 33. Если форма указателя (направляющих) размещена на основном зеленом сигнале светофора, она информирует водителей о наличии дополнительной сети светофора и указывает направления разрешенного движения при горении основного зеленого сигнала."
         }
     },
     {
         "task_info": {
-            "global_id": "t_3_q_7",
-            "ticket_num": 3,
+            "global_id": "t_58_q_7",
+            "ticket_num": 58,
             "order": 31
         },
         "media_url": "u22uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Qaysi yo'nalishlarda harakat qilish mumkin?",
+                "text": "Qaysi yo‘nalishlarda harakat qilish mumkin?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Barcha yo'nalishlarda harakatlanish taqiqlanadi",
+                        "text": "Barcha yo‘nalishlarda harakatlanishga ruxsat etiladi",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Barcha yo'nalishlarda harakatlanishga ruxsat etiladi",
+                        "text": "Chapga va orqaga qaytish (qayrilib olish)",
                         "is_correct": false
                     },
                     {
@@ -2202,12 +2352,12 @@
                     },
                     {
                         "id": 4,
-                        "text": "To'g'riga va chapga",
+                        "text": "To‘g‘riga va chapga",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "Chapga va orqaga qaytish (qayrilib olish)",
+                        "text": "Barcha yo‘nalishlarda harakatlanish taqiqlanadi",
                         "is_correct": false
                     }
                 ]
@@ -2217,12 +2367,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Барча йўналишларда ҳаракатланиш тақиқланади",
+                        "text": "Барча йўналишларда ҳаракатланишга рухсат этилади",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Барча йўналишларда ҳаракатланишга рухсат этилади",
+                        "text": "Чапга ва орқага қайтиш (қайрилиб олиш)",
                         "is_correct": false
                     },
                     {
@@ -2237,7 +2387,7 @@
                     },
                     {
                         "id": 5,
-                        "text": "Чапга ва орқага қайтиш (қайрилиб олиш)",
+                        "text": "Барча йўналишларда ҳаракатланиш тақиқланади",
                         "is_correct": false
                     }
                 ]
@@ -2247,12 +2397,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Движение во всех направлениях запрещается",
+                        "text": "Разрешается движение во всех направлениях",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Разрешается движение во всех направлениях",
+                        "text": "Налево и разворот",
                         "is_correct": false
                     },
                     {
@@ -2267,17 +2417,22 @@
                     },
                     {
                         "id": 5,
-                        "text": "Налево и разворот",
+                        "text": "Движение во всех направлениях запрещается",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "\"YHQning 7-bob. 32-band 1 va 2-xatboshiga asosan: 32. Yo‘naltirgich ko‘rinishidagi qizil, sariq va yashil rangli svetofor ishoralari ham doirasimon shaklidagi svetofor ishoralari bilan bir xil ma’noga ega bo‘ladi. Ular faqat ko‘rsatilgan yo‘nalishga ta’sir etadi.\r\nAgar tegishli yo‘l belgisi bilan qayrilib olish taqiqlanmagan bo‘lsa, chapga burilishga ruxsat beruvchi yo‘naltirgich qayrilib olishga ham ruxsat beradi. Qo‘shimcha tarmoqdagi yashil yo‘naltirgich ham xuddi shu ma’noni bildiradi.\"",
+            "uz_cyr": "\"YHQнинг 7-боб. 32-банд 1 ва 2-хатбошига асосан: 32. Йўналтиргич кўринишидаги қизил, сариқ ва яшил рангли светофор ишоралари ҳам доирасимон шаклидаги светофор ишоралари билан бир хил маънога эга бўлади. Улар фақат кўрсатилган йўналишга таъсир этади.\r\nАгар тегишли йўл белгиси билан қайрилиб олиш тақиқланмаган бўлса, чапга бурилишга рухсат берувчи йўналтиргич қайрилиб олишга ҳам рухсат беради. Қўшимча тармоқдаги яшил йўналтиргич ҳам худди шу маънони билдиради.\"",
+            "ru": "\"Глава 7. Статья 32, пункты 1 и 2 Закона на основании: 32. Светофорные знаки красного, желтого и зеленого цвета в виде указателя имеют то же значение, что и круговые светофорные знаки. Они влияют только на указанное направление.\r\nУказатель поворота, разрешающий поворот налево, также разрешает поворот, если соответствующий дорожный знак не запрещает поворот. Зеленый маршрутизатор в дополнительной сети означает то же самое»."
         }
     },
     {
         "task_info": {
-            "global_id": "t_37_q_9",
-            "ticket_num": 37,
+            "global_id": "t_35b_q_9",
+            "ticket_num": "35b",
             "order": 32
         },
         "media_url": "u422uz.webp",
@@ -2357,18 +2512,23 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 4-bo'limidagi 4.7 belgiga asosan, \"Eng kam tezlik\" belgisi faqat unda ko'rsatilgan yoki undan yuqori tezlikda (km/soat) harakatlanishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 1-иловасининг 4-бўлимидаги 4.7 белгига асосан, \"Энг кам тезлик\" белгиси фақат унда кўрсатилган ёки ундан юқори тезликда (км/соат) ҳаракатланишга рухсат этилади.",
+            "ru": "Согласно знаку 4.7 Приложения 1, раздел 4 знака «Минимальная скорость» разрешается двигаться только со скоростью (км/ч), указанной на нем."
         }
     },
     {
         "task_info": {
-            "global_id": "t_52_q_11",
-            "ticket_num": 52,
+            "global_id": "t_35b_q_35",
+            "ticket_num": "35b",
             "order": 33
         },
         "media_url": "u597uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Ko'k va Qora avtomobillar haydovchilariga o'ngga burilishni amalga oshirishga ruxsat etilganmi?",
+                "text": "Ko'k va Qora avtomobillar haydovchilariga o‘ngga burilishni amalga oshirishga ruxsat etilganmi?",
                 "options": [
                     {
                         "id": 1,
@@ -2412,37 +2572,42 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 1-ILOVA 4.1.1 bandi va 4.Buyuruvchi belgilarning 10-xatboshiga asosan: 4.1.1. «Harakatlanish to‘g‘riga». 4.1.1 — 4.1.6 yo‘l belgilari qatnov qismlarining qaysi kesishmasidan oldin o‘rnatilsa, belgining ta'siri shu kesishmaga joriy qilinadi.",
+            "uz_cyr": "YHQга 1-ИЛОВА 4.1.1 банди ва 4.Буюрувчи белгиларнинг 10-хатбошига асосан: 4.1.1. «Ҳаракатланиш тўғрига». 4.1.1 — 4.1.6 йўл белгилари қатнов қисмларининг қайси кесишмасидан олдин ўрнатилса, белгининг таъсири шу кесишмага жорий қилинади.",
+            "ru": "Согласно пункту 4.1.1 ПРИЛОЖЕНИЯ 1 и 4. Пункт 10 директивы: 4.1.1. «К действию». 4.1.1 — 4.1.6 дорожные знаки устанавливаются перед любым пересечением участков движения, действие знака вводится на этом перекрестке."
         }
     },
     {
         "task_info": {
-            "global_id": "t_53_q_8",
-            "ticket_num": 53,
+            "global_id": "t_35b_q_36",
+            "ticket_num": "35b",
             "order": 34
         },
         "media_url": "u610uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Qaysi yo'nalish bo'yicha chapga burilishga ruxsat etiladi?",
+                "text": "Qaysi yo'nalish bo‘yicha chapga burilishga ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Har ikki yo'nalishlarga taqiqlanadi",
+                        "text": "Har ikki yo‘nalishlarga taqiqlanadi",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Faqat 1-yo'nalish",
+                        "text": "Faqat 1-yo‘nalish",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Faqat 2-yo'nalish",
+                        "text": "Faqat 2-yo‘nalish",
                         "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Barcha yo'nalishlarga",
+                        "text": "Barcha yo‘nalishlarga",
                         "is_correct": false
                     }
                 ]
@@ -2482,7 +2647,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "По всем направлениям",
+                        "text": "Только по первому направлению",
                         "is_correct": false
                     },
                     {
@@ -2492,17 +2657,22 @@
                     },
                     {
                         "id": 4,
-                        "text": "Только по первому направлению",
+                        "text": "По всем направлениям",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 9-bob. 56-band 2-xatboshiga asosan: Agar 5.8.1 yoki 5.8.2 yo‘l belgilari yoxud 1.18 yo‘l chizig‘i bilan boshqa harakatlanish tartibi o‘rnatilmagan bo‘lsa, qatnov qismining o‘rtasida u bilan bir sathda joylashgan bir yo‘nalishdagi tramvay izidan chapga burilish va qayrilib olishga ruxsat etiladi. Biroq, bu tramvay harakatiga xalaqit bermasligi kerak.",
+            "uz_cyr": "YHQнинг 9-боб. 56-банд 2-хатбошига асосан: Агар 5.8.1 ёки 5.8.2 йўл белгилари ёхуд 1.18 йўл чизиғи билан бошқа ҳаракатланиш тартиби ўрнатилмаган бўлса, қатнов қисмининг ўртасида у билан бир сатҳда жойлашган бир йўналишдаги трамвай изидан чапга бурилиш ва қайрилиб олишга рухсат этилади. Бироқ, бу трамвай ҳаракатига халақит бермаслиги керак.",
+            "ru": "Глава 9 ООН. Согласно пункту 56, пункту 2: Если не установлен иной порядок движения дорожными знаками 5.8.1 или 5.8.2 или полосой дороги 1.18, разрешается повернуть налево и повернуть с трамвайного пути одностороннего движения, расположенного на одном уровне с ним посередине проезжей части. Однако это не должно мешать трамвайному движению."
         }
     },
     {
         "task_info": {
-            "global_id": "t_26_q_10",
-            "ticket_num": 26,
+            "global_id": "t_35a_q_34",
+            "ticket_num": "35a",
             "order": 35
         },
         "media_url": "",
@@ -2512,7 +2682,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Keskin tormoz bermasdan to'xtashga ulgura olmaydigan haydovchilarga harakatlanishni davom ettirishga ruxsat etiladi",
+                        "text": "Keskin tormoz bermasdan to‘xtashga ulgura olmaydigan haydovchilarga harakatlanishni davom ettirishga ruxsat etiladi",
                         "is_correct": false
                     },
                     {
@@ -2557,16 +2727,366 @@
                     },
                     {
                         "id": 2,
-                        "text": "Разрешает движение",
+                        "text": "Запрещает движение",
                         "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Запрещает движение",
+                        "text": "Разрешает движение",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 7-bob. 31-band 7-xatboshiga asosan: 31. Svetoforning doirasimon ishoralari quyidagi ma’noni bildiradi: qizil ishora, shuningdek, miltillovchi qizil ishora harakatlanishni taqiqlaydi.",
+            "uz_cyr": "YHQнинг 7-боб. 31-банд 7-хатбошига асосан: 31. Светофорнинг доирасимон ишоралари қуйидаги маънони билдиради: қизил ишора, шунингдек, милтилловчи қизил ишора ҳаракатланишни тақиқлайди.",
+            "ru": "Глава 7 ООН. Согласно абзацу 7 пункта 31: 31. Кольцевые знаки светофора означают следующее: красный знак, а также мигающий красный знак запрещают движение."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_62_q_1",
+            "ticket_num": 62,
+            "order": 36
+        },
+        "media_url": "u1008uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi yo‘nalishlarda sizga harakatni davom ettirishga ruxsat etiladi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat chapga",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "To‘g‘riga va chapga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Chapga va orqaga qayrilib olishga",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси йўналишларда сизга ҳаракатни давом эттиришга рухсат этилади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат чапга",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Тўғрига ва чапга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Чапга ва орқага қайрилиб олишга",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В каких направлениях вам разрешено продолжить движение?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Только налево",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Прямо и налево",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Налево и на разворот",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 1-ILOVA 5.8.2 bandi va 5. Axborot-ko‘rsatgich belgilarining 11-xatboshi hamda YHQning 7-bob. 32-band 1 va 2-xatboshiga asosan: 5.8.2. «Tasma bo‘yicha harakatlanish yo‘nalishi». Tasma bo‘yicha ruxsat etilgan harakatlanish yo‘nalishi. Boshqa yo‘nalishlar bo‘yicha harakatlanish taqiqlanadi.\r\nYo‘lning chetki chap bo‘lagidan chapga burilishga ruxsat beruvchi 5.8.1 va 5.8.2 belgilari shu tasmadan qayrilishga ham ruxsat beradi.\r\n32. Yo‘naltirgich ko‘rinishidagi qizil, sariq va yashil rangli svetofor ishoralari ham doirasimon shakldagi svetofor ishoralari bilan bir xil ma’noga ega bo‘ladi. Ular faqat ko‘rsatilgan yo‘nalishga ta’sir etadi.\r\nAgar tegishli yo‘l belgisi bilan qayrilib olish taqiqlanmagan bo‘lsa, chapga burilishga ruxsat beruvchi yo‘naltirgich qayrilib olishga ham ruxsat beradi. Qo‘shimcha tarmoqdagi yashil yo‘naltirgich ham xuddi shu ma’noni bildiradi.",
+            "uz_cyr": "YHQга 1-ИЛОВА 5.8.2 банди ва 5. Ахборот-кўрсатгич белгиларининг 11-хатбоши ҳамда YHQнинг 7-боб. 32-банд 1 ва 2-хатбошига асосан: 5.8.2. «Тасма бўйича ҳаракатланиш йўналиши». Тасма бўйича рухсат этилган ҳаракатланиш йўналиши. Бошқа йўналишлар бўйича ҳаракатланиш тақиқланади.\r\nЙўлнинг четки чап бўлагидан чапга бурилишга рухсат берувчи 5.8.1 ва 5.8.2 белгилари шу тасмадан қайрилишга ҳам рухсат беради.\r\n32. Йўналтиргич кўринишидаги қизил, сариқ ва яшил рангли светофор ишоралари ҳам доирасимон шаклдаги светофор ишоралари билан бир хил маънога эга бўлади. Улар фақат кўрсатилган йўналишга таъсир этади.\r\nАгар тегишли йўл белгиси билан қайрилиб олиш тақиқланмаган бўлса, чапга бурилишга рухсат берувчи йўналтиргич қайрилиб олишга ҳам рухсат беради. Қўшимча тармоқдаги яшил йўналтиргич ҳам худди шу маънони билдиради.",
+            "ru": "ПРИЛОЖЕНИЕ 1 к МПК, пункты 5.8.2 и 5. Пункт 11 информационно-указательных знаков и глава 7 МПК. На основании абзаца 1 и 2 пункта 32: 5.8.2. «Направление движения по ленте». Разрешенное направление движения по полосе. Движение в других направлениях запрещено. \r\nЗнаки 5.8.1 и 5.8.2, разрешающие поворот налево из крайней левой полосы дороги, разрешают и поворот с этой полосы. \r\n32. Красный, желтый и зеленый сигналы светофора в виде указателя имеют то же значение, что и сигналы кругового светофора. Они влияют только на указанное направление. \r\nУказатель поворота, разрешающий поворот налево, также разрешает поворот, если соответствующий дорожный знак не запрещает поворот. Зеленый роутер в дополнительной сети означает то же самое."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_62_q_2",
+            "ticket_num": 62,
+            "order": 37
+        },
+        "media_url": "u1011uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ko'k avtomobil qaysi yo‘nalishlar bo‘yicha harakatlanishga ruxsat etiladi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "To‘g‘riga va chapga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "To‘g‘riga va qayrilib olishga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faqat to‘g‘riga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Faqat chapga",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Кўк автомобиль қайси йўналишлар бўйича ҳаракатланишга рухсат этилади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Тўғрига ва чапга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Тўғрига ва қайрилиб олишга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақат тўғрига",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Фақат чапга",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В каких направлениях разрешено движение синему автомобилю?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Прямо и налево",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Прямо и на разворот",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только прямо",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Только налево",
+                        "is_correct": true
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 1-ILOVA 5.8.2 bandi va 5. Axborot-ko‘rsatgich belgilarining 11-xatboshi hamda YHQning 7-bob. 32-band 1 va 2-xatboshiga asosan: 5.8.2. «Tasma bo‘yicha harakatlanish yo‘nalishi». Tasma bo‘yicha ruxsat etilgan harakatlanish yo‘nalishi. Boshqa yo‘nalishlar bo‘yicha harakatlanish taqiqlanadi.\r\nYo‘lning chetki chap bo‘lagidan chapga burilishga ruxsat beruvchi 5.8.1 va 5.8.2 belgilari shu tasmadan qayrilishga ham ruxsat beradi.\r\n32. Yo‘naltirgich ko‘rinishidagi qizil, sariq va yashil rangli svetofor ishoralari ham doirasimon shakldagi svetofor ishoralari bilan bir xil ma’noga ega bo‘ladi. Ular faqat ko‘rsatilgan yo‘nalishga ta’sir etadi.\r\nAgar tegishli yo‘l belgisi bilan qayrilib olish taqiqlanmagan bo‘lsa, chapga burilishga ruxsat beruvchi yo‘naltirgich qayrilib olishga ham ruxsat beradi. Qo‘shimcha tarmoqdagi yashil yo‘naltirgich ham xuddi shu ma’noni bildiradi.",
+            "uz_cyr": "YHQга 1-ИЛОВА 5.8.2 банди ва 5. Ахборот-кўрсатгич белгиларининг 11-хатбоши ҳамда YHQнинг 7-боб. 32-банд 1 ва 2-хатбошига асосан: 5.8.2. «Тасма бўйича ҳаракатланиш йўналиши». Тасма бўйича рухсат этилган ҳаракатланиш йўналиши. Бошқа йўналишлар бўйича ҳаракатланиш тақиқланади.\r\nЙўлнинг четки чап бўлагидан чапга бурилишга рухсат берувчи 5.8.1 ва 5.8.2 белгилари шу тасмадан қайрилишга ҳам рухсат беради.\r\n32. Йўналтиргич кўринишидаги қизил, сариқ ва яшил рангли светофор ишоралари ҳам доирасимон шаклдаги светофор ишоралари билан бир хил маънога эга бўлади. Улар фақат кўрсатилган йўналишга таъсир этади.\r\nАгар тегишли йўл белгиси билан қайрилиб олиш тақиқланмаган бўлса, чапга бурилишга рухсат берувчи йўналтиргич қайрилиб олишга ҳам рухсат беради. Қўшимча тармоқдаги яшил йўналтиргич ҳам худди шу маънони билдиради.",
+            "ru": "ПРИЛОЖЕНИЕ 1 к МПК, пункты 5.8.2 и 5. Пункт 11 информационно-указательных знаков и глава 7 МПК. На основании абзаца 1 и 2 пункта 32: 5.8.2. «Направление движения по ленте». Разрешенное направление движения по полосе. Движение в других направлениях запрещено. \r\nЗнаки 5.8.1 и 5.8.2, разрешающие поворот налево из крайней левой полосы дороги, разрешают и поворот с этой полосы. \r\n32. Красный, желтый и зеленый сигналы светофора в виде указателя имеют то же значение, что и сигналы кругового светофора. Они влияют только на указанное направление. \r\nУказатель поворота, разрешающий поворот налево, также разрешает поворот, если соответствующий дорожный знак не запрещает поворот. Зеленый роутер в дополнительной сети означает то же самое."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_62_q_3",
+            "ticket_num": 62,
+            "order": 38
+        },
+        "media_url": "u1009uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Oq avtomobil qaysi yo‘nalishga harakatlanishga ruxsat etiladi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Harakatlanish taqiqlanadi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "To‘g‘riga, chapga va orqaga qayrilishga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "To‘g‘riga va chapga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Faqat to‘g‘riga",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Оқ автомобиль қайси йўналишга ҳаракатланишга рухсат этилади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ҳаракатланиш тақиқланади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Тўғрига, чапга ва орқага қайрилишга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Тўғрига ва чапга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Фақат тўғрига",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "В каком направлении разрешено движение белому автомобилю?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Движение запрещено",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Прямо, налево и на разворот",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Прямо и налево",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Только прямо",
+                        "is_correct": true
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 1-ILOVA 5.8.2 bandi va 5. Axborot-ko‘rsatgich belgilarining 11-xatboshi hamda YHQning 7-bob. 32-band 1 va 2-xatboshiga asosan: 5.8.2. «Tasma bo‘yicha harakatlanish yo‘nalishi». Tasma bo‘yicha ruxsat etilgan harakatlanish yo‘nalishi. Boshqa yo‘nalishlar bo‘yicha harakatlanish taqiqlanadi.\r\nYo‘lning chetki chap bo‘lagidan chapga burilishga ruxsat beruvchi 5.8.1 va 5.8.2 belgilari shu tasmadan qayrilishga ham ruxsat beradi.\r\n32. Yo‘naltirgich ko‘rinishidagi qizil, sariq va yashil rangli svetofor ishoralari ham doirasimon shakldagi svetofor ishoralari bilan bir xil ma’noga ega bo‘ladi. Ular faqat ko‘rsatilgan yo‘nalishga ta’sir etadi.\r\nAgar tegishli yo‘l belgisi bilan qayrilib olish taqiqlanmagan bo‘lsa, chapga burilishga ruxsat beruvchi yo‘naltirgich qayrilib olishga ham ruxsat beradi. Qo‘shimcha tarmoqdagi yashil yo‘naltirgich ham xuddi shu ma’noni bildiradi.",
+            "uz_cyr": "YHQга 1-ИЛОВА 5.8.2 банди ва 5. Ахборот-кўрсатгич белгиларининг 11-хатбоши ҳамда YHQнинг 7-боб. 32-банд 1 ва 2-хатбошига асосан: 5.8.2. «Тасма бўйича ҳаракатланиш йўналиши». Тасма бўйича рухсат этилган ҳаракатланиш йўналиши. Бошқа йўналишлар бўйича ҳаракатланиш тақиқланади.\r\nЙўлнинг четки чап бўлагидан чапга бурилишга рухсат берувчи 5.8.1 ва 5.8.2 белгилари шу тасмадан қайрилишга ҳам рухсат беради.\r\n32. Йўналтиргич кўринишидаги қизил, сариқ ва яшил рангли светофор ишоралари ҳам доирасимон шаклдаги светофор ишоралари билан бир хил маънога эга бўлади. Улар фақат кўрсатилган йўналишга таъсир этади.\r\nАгар тегишли йўл белгиси билан қайрилиб олиш тақиқланмаган бўлса, чапга бурилишга рухсат берувчи йўналтиргич қайрилиб олишга ҳам рухсат беради. Қўшимча тармоқдаги яшил йўналтиргич ҳам худди шу маънони билдиради.",
+            "ru": "ПРИЛОЖЕНИЕ 1 к МПК, пункты 5.8.2 и 5. Пункт 11 информационно-указательных знаков и глава 7 МПК. На основании абзаца 1 и 2 пункта 32: 5.8.2. «Направление движения по ленте». Разрешенное направление движения по полосе. Движение в других направлениях запрещено. \r\nЗнаки 5.8.1 и 5.8.2, разрешающие поворот налево из крайней левой полосы дороги, разрешают и поворот с этой полосы. \r\n32. Красный, желтый и зеленый сигналы светофора в виде указателя имеют то же значение, что и сигналы кругового светофора. Они влияют только на указанное направление. \r\nУказатель поворота, разрешающий поворот налево, также разрешает поворот, если соответствующий дорожный знак не запрещает поворот. Зеленый роутер в дополнительной сети означает то же самое."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_54_q_11",
+            "ticket_num": 54,
+            "order": 39
+        },
+        "media_url": "u625uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ushbu transport vositasi qaysi yo'nalishda harakatlanishiga ruxsat etiladi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "to'g'riga va o'ngga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat to'g'riga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Barcha yynalishlarga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Faqat turiga va kayrilib olishga",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ушбу транспорт воситаси қайси йўналишда ҳаракатланишига рухсат этилади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Тўғрига ва ўнгга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат тўғрига",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Барча ййналишларга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Фақат турига ва кайрилиб олишга",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "в каком направлении разрешено движение этого транспортного средства?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Прямо и направо",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только прямо",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Во всех направлениях",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Только прямо и в разворот",
+                        "is_correct": true
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilova: 3.18.2. “Chapga burilish taqiqlanadi”.",
+            "uz_cyr": "YHQ 1-илова: 3.18.2. “Чапга бурилиш тақиқланади”.",
+            "ru": "Приложение 1 МПК: 3.18.2. «Поворот налево запрещен»."
         }
     }
 ]

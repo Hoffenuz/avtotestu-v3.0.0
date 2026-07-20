@@ -1,34 +1,34 @@
 [
     {
         "task_info": {
-            "global_id": "t_26_q_4",
-            "ticket_num": 26,
+            "global_id": "t_5_q_19",
+            "ticket_num": 5,
             "order": 1
         },
-        "media_url": "",
+        "media_url": null,
         "content": {
             "uz_lat": {
                 "text": "Boshqarishni o'rgatishdagi transport vositasi qanday jihozlangan bo'lishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ilashma va ishchi tormozning qo'shimcha tepkilari bilan",
+                        "text": "Qoidalarning talablariga asosan taniqlik belgilari bilan",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "O'rgatuvchi uchun orqani ko'rsatuvchi ko'zgu bilan",
+                        "text": "Ilashma va ishchi tormozning qo'shimcha tepkilari bilan",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Sanab o'tilgan barcha jihozlar va belgilar bilan",
-                        "is_correct": true
+                        "text": "O'rgatuvchi uchun orqani ko'rsatuvchi ko'zgu bilan",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Qoidalarning talablariga asosan taniqlik belgilari bilan",
-                        "is_correct": false
+                        "text": "Sanab o'tilgan barcha jihozlar va belgilar bilan",
+                        "is_correct": true
                     }
                 ]
             },
@@ -37,23 +37,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Илашма ва ишчи тормознинг қўшимча тепкилари билан",
+                        "text": "Қоидаларнинг талабларига асосан таниқлик белгилари билан",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Ўргатувчи учун орқани кўрсатувчи кўзгу билан",
+                        "text": "Илашма ва ишчи тормознинг қўшимча тепкилари билан",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Санаб ўтилган барча жиҳозлар ва белгилар билан",
-                        "is_correct": true
+                        "text": "Ўргатувчи учун орқани кўрсатувчи кўзгу билан",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Қоидаларнинг талабларига асосан таниқлик белгилари билан",
-                        "is_correct": false
+                        "text": "Санаб ўтилган барча жиҳозлар ва белгилар билан",
+                        "is_correct": true
                     }
                 ]
             },
@@ -67,27 +67,32 @@
                     },
                     {
                         "id": 2,
-                        "text": "Со всеми перечисленными приборами и знаками.",
+                        "text": "Дополнительными педалями тормоза и сцепления",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Дополнительными педалями тормоза и сцепления",
-                        "is_correct": true
+                        "text": "Зеркалом заднего вида для обучающего",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Зеркалом заднего вида для обучающего",
-                        "is_correct": false
+                        "text": "Семи вышеперечисленными знаками и оборудованием",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 25-bobi 150-bandiga muvofiq, boshqarishni o'rgatish uchun mo'ljallangan mexanik transport vositalari \"Boshqarishni o'rgatish transport vositasi\" taniqlik belgisi va o'rgatuvchi uchun ulashish mexanizmi va ishchi tormozning qo'shimcha tepkilari, qo'shimcha orqani ko'rsatuvchi ko'zgu bilan jihozlanishi kerak.",
+            "uz_cyr": "YHQ 25-боби 150-бандига мувофиқ, бошқаришни ўргатиш учун мўлжалланган механик транспорт воситалари \"Бошқаришни ўргатиш транспорт воситаси\" таниқлик белгиси ва ўргатувчи учун улашиш механизми ва ишчи тормознинг қўшимча тепкилари, қўшимча орқани кўрсатувчи кўзгу билан жиҳозланиши керак.",
+            "ru": "В соответствии со статьей 150 главы 25 Гражданского процессуального кодекса механические транспортные средства, предназначенные для обучения вождению, должны быть оборудованы отличительным знаком «Машина для обучения вождению», дополнительными колесами для инструктора и рабочим тормозом, а также дополнительным зеркалом заднего вида."
         }
     },
     {
         "task_info": {
-            "global_id": "t_29_q_19",
-            "ticket_num": 29,
+            "global_id": "t_1_q_10",
+            "ticket_num": 1,
             "order": 2
         },
         "media_url": "u335uz.webp",
@@ -97,7 +102,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Furgon yukxonasida odamlarni tashuvchi",
+                        "text": "Og'ir vaznli va yirik o'lchamli yuklarni tashuvchi",
                         "is_correct": false
                     },
                     {
@@ -107,7 +112,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Og'ir vaznli va yirik o'lchamli yuklarni tashuvchi",
+                        "text": "Furgon yukxonasida odamlarni tashuvchi",
                         "is_correct": false
                     }
                 ]
@@ -117,7 +122,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фургон юкхонасида одамларни ташувчи",
+                        "text": "Оғир вазнли ва йирик ўлчамли юкларни ташувчи",
                         "is_correct": false
                     },
                     {
@@ -127,7 +132,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Оғир вазнли ва йирик ўлчамли юкларни ташувчи",
+                        "text": "Фургон юкхонасида одамларни ташувчи",
                         "is_correct": false
                     }
                 ]
@@ -137,12 +142,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Транспортное средство длина которого с грузом или без груза более 20м",
+                        "text": "Перевозящее тяжеловесные и крупногабаритные грузы",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Перевозящее тяжеловесные и крупногабаритные грузы",
+                        "text": "Транспортное средство длина которого с грузом или без груза более 20м",
                         "is_correct": true
                     },
                     {
@@ -152,42 +157,47 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 29-bobi 176-bandi 9-izohiga asosan, \"Uzun o'lchamli transport vositasi\" — yukli va yuksiz uzunligi 20 metrdan oshadigan transport vositasining, ikki yoki undan ko'proq tirkamali avtopoezdlarning orqasida — kengligi 40 millimetr bo'lgan qizil hoshiyali, o'lchami 1200x200 millimetr bo'lgan, sariq rangli, nur qaytaruvchi to'rtburchak shaklidagi belgi.",
+            "uz_cyr": "YHQ 29-боби 176-банди 9-изоҳига асосан, \"Узун ўлчамли транспорт воситаси\" — юкли ва юксиз узунлиги 20 метрдан ошадиган транспорт воситасининг, икки ёки ундан кўпроқ тиркамали автопоэздларнинг орқасида — кенглиги 40 миллиметр бўлган қизил ҳошияли, ўлчами 1200х200 миллиметр бўлган, сариқ рангли, нур қайтарувчи тўртбурчак шаклидаги белги.",
+            "ru": "Согласно примечанию 9 статьи 176 главы 29 Гражданского кодекса \"Длинногабаритное транспортное средство\" - транспортное средство длиной более 20 метров с грузом и без груза, на кузове автопоезда с двумя и более прицепами - желтый светоотражающий прямоугольный знак шириной 40 миллиметров и размером 1200х200 миллиметров."
         }
     },
     {
         "task_info": {
-            "global_id": "t_5_q_10",
-            "ticket_num": 5,
+            "global_id": "t_16_q_10",
+            "ticket_num": 16,
             "order": 3
         },
-        "media_url": "",
+        "media_url": null,
         "content": {
             "uz_lat": {
                 "text": "Mexanik transport vositalari va uning tirkamalarining egalari texnik holatidan qat'iy nazar; xarid qilgan (olgan) paytdan boshlab shu muddat mobaynida DYHX xizmatida ro'yxatdan o'tkazishlari kerak:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "10 kun",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "30 kun",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "15 kun",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
                         "text": "2 kun",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 2,
+                        "text": "10 kun",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
                         "text": "5 kun",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "15 kun",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "30 kun",
                         "is_correct": false
                     }
                 ]
@@ -197,27 +207,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "10 кун",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "30 кун",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "15 кун",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
                         "text": "2 кун",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 2,
+                        "text": "10 кун",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
                         "text": "5 кун",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "15 кун",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "30 кун",
                         "is_correct": false
                     }
                 ]
@@ -227,63 +237,68 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "10 суток",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "30 суток",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "15 суток",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
                         "text": "2 суток",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 2,
+                        "text": "10 суток",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
                         "text": "5 суток",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "15 суток",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "30 суток",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 6 bandiga asosan, mexanik transport vositasi — dvigatel bilan harakatga keltiriladigan transport vositasi (mopeddan tashqari). Bu atama barcha traktor va o‘zi yurar moslamalarga ham taalluqlidir.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 6 бандига асосан, механик транспорт воситаси — двигател билан ҳаракатга келтириладиган транспорт воситаси (мопеддан ташқари). Бу атама барча трактор ва ўзи юрар мосламаларга ҳам тааллуқлидир.",
+            "ru": "Механическим транспортным средством согласно пункту 6 Правил дорожного движения признается транспортное средство, приводимое в движение двигателем (кроме мопеда). Этот термин распространяется на все тракторы и самоходные орудия."
         }
     },
     {
         "task_info": {
-            "global_id": "t_35_q_8",
-            "ticket_num": 35,
+            "global_id": "t_18_q_1",
+            "ticket_num": 18,
             "order": 4
         },
-        "media_url": "",
+        "media_url": null,
         "content": {
             "uz_lat": {
                 "text": "Transport vositalaridan foydalanish va texnik holatiga javobgar mansabdor shaxslar majbur:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Barcha sanab o'tilganlarni bajarishga",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Belgilangan tartibda ro'yxatdan o'tkazilmagan transport vositalarini yo'lga chiqarmaslikka",
+                        "text": "Belgilangan muddatda tibbiyot ko'rigidan o'tmagan shaxslarning transport vositalarini boshqarishiga yo'l qo'ymaslikka",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Texnik holati va jihozlari qoidalarning talablariga mos kelmaydigan transport vositalarini yo'lga chiqarmaslikka",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
-                        "text": "Belgilangan muddatda tibbiyot ko'rigidan o'tmagan shaxslarning transport vositalarini boshqarishiga yo'l qo'ymaslikka",
+                        "id": 3,
+                        "text": "Belgilangan tartibda ro'yxatdan o'tkazilmagan transport vositalarini yo'lga chiqarmaslikka",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Barcha sanab o'tilganlarni bajarishga",
+                        "is_correct": true
                     }
                 ]
             },
@@ -292,23 +307,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Барча санаб ўтилганларни бажаришга",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Белгиланган тартибда рўйхатдан ўтказилмаган транспорт воситаларини йўлга чиқармасликка",
+                        "text": "Белгиланган муддатда тиббиёт кўригидан ўтмаган шахсларнинг транспорт воситаларини бошқаришига йўл қўймасликка",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Техник ҳолати ва жиҳозлари қоидаларнинг талабларига мос келмайдиган транспорт воситаларини йўлга чиқармасликка",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
-                        "text": "Белгиланган муддатда тиббиёт кўригидан ўтмаган шахсларнинг транспорт воситаларини бошқаришига йўл қўймасликка",
+                        "id": 3,
+                        "text": "Белгиланган тартибда рўйхатдан ўтказилмаган транспорт воситаларини йўлга чиқармасликка",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Барча санаб ўтилганларни бажаришга",
+                        "is_correct": true
                     }
                 ]
             },
@@ -317,32 +332,37 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Выполнить все перечисленные действия",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Не выпускать на линию транспортные средства, не зарегистрированные в установленном порядке",
+                        "text": "Не допускать к управлению транспортными средствами лиц, не прошедших в установленный срок медицинского освидетельствования",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Не выпускать на линию транспортные средства, техническое состояние и оборудование которых не соответствуют требованиям Правил",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
-                        "text": "Не допускать к управлению транспортными средствами лиц, не прошедших в установленный срок медицинского освидетельствования",
+                        "id": 3,
+                        "text": "Не выпускать на линию транспортные средства, не зарегистрированные в установленном порядке",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Выполнить все перечисленные действия",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 29-bobi 180-bandining birinchi va ikkinchi xatboshilariga asosan, transport vositalarining texnik holatiga va ulardan foydalanishga javobgar bo‘lgan mansabdor va boshqa shaxslarga quyidagilar taqiqlanadi: texnik nosoz, tegishli ruxsatsiz qayta jihozlangan, belgilangan tartibda ro‘yxatdan o‘tkazilmagan yoki davriy davlat texnik ko‘rigidan o‘tkazilmaganligi tufayli foydalanish taqiqlangan transport vositalarini yo‘lga chiqarish;\r\nmastlik (giyohvand moddalar, alkagol va boshqalar) holatida yoki sezgirlik va e’tiborni susaytiradigan dori-darmonlar ta’sirida, yo‘l harakati xavfsizligiga tahdid soladigan charchoqlik yoki betoblik holatida, shuningdek tegishli toifadagi transport vositalarini boshqarish huquqi bo‘magan, belgilangan muddatda tibbiy ko‘rikdan o‘tmagan, transport vositalari egalarining Fuqarolik javobgarligini majburiy sug‘urta qilish bo‘yicha sug‘urta polisi bo‘lmagan shaxslarni transport vositasini boshqarishga qo‘yish.",
+            "uz_cyr": "YHQ 29-боби 180-бандининг биринчи ва иккинчи хатбошиларига асосан, транспорт воситаларининг техник ҳолатига ва улардан фойдаланишга жавобгар бўлган мансабдор ва бошқа шахсларга қуйидагилар тақиқланади: техник носоз, тегишли рухсатсиз қайта жиҳозланган, белгиланган тартибда рўйхатдан ўтказилмаган ёки даврий давлат техник кўригидан ўтказилмаганлиги туфайли фойдаланиш тақиқланган транспорт воситаларини йўлга чиқариш;\r\nмастлик (гиёҳванд моддалар, алкагол ва бошқалар) ҳолатида ёки сезгирлик ва эътиборни сусайтирадиган дори-дармонлар таъсирида, йўл ҳаракати хавфсизлигига таҳдид соладиган чарчоқлик ёки бетоблик ҳолатида, шунингдек тегишли тоифадаги транспорт воситаларини бошқариш ҳуқуқи бўмаган, белгиланган муддатда тиббий кўрикдан ўтмаган, транспорт воситалари эгаларининг Фуқаролик жавобгарлигини мажбурий суғурта қилиш бўйича суғурта полиси бўлмаган шахсларни транспорт воситасини бошқаришга қўйиш.",
+            "ru": "В соответствии с абзацами первым и вторым статьи 180 главы 29 Гражданского кодекса должностным и иным лицам, ответственным за техническое состояние транспортных средств и их эксплуатацию, запрещается: управлять транспортными средствами, имеющими технические дефекты, переоборудованными без соответствующего разрешения, не зарегистрированными в установленном порядке или запрещенными к эксплуатации в связи с непрохождением периодического государственного технического осмотра; \r\nуправление транспортным средством в состоянии опьянения (наркотических, алкогольных и т.п.) или под воздействием лекарственных средств, снижающих чувствительность и внимание, в состоянии усталости или заболевания, угрожающего безопасности дорожного движения, а также лица, не имеющие права управления транспортными средствами соответствующей категории, не прошедшие в установленный срок медицинское освидетельствование и не имеющие страхового полиса по обязательному страхованию гражданской ответственности владельцев транспортных средств."
         }
     },
     {
         "task_info": {
-            "global_id": "t_56_q_11",
-            "ticket_num": 56,
+            "global_id": "t_19_q_20",
+            "ticket_num": 19,
             "order": 5
         },
         "media_url": "u648uz.webp",
@@ -357,18 +377,18 @@
                     },
                     {
                         "id": 2,
-                        "text": "Ikki yilgacha haydovchilik ish davriga ega bo'lgan haydovchilar boshqarayotgan",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Nogironlar boshqarayotgan",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Kar-soqov yoki kar haydovchilar boshqarayotganda",
                         "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Ikki yilgacha haydovchilik ish davriga ega bo'lgan haydovchilar boshqarayotgan",
+                        "is_correct": false
                     }
                 ]
             },
@@ -382,18 +402,18 @@
                     },
                     {
                         "id": 2,
-                        "text": "Икки йилгача ҳайдовчилик иш даврига эга бўлган ҳайдовчилар бошқараётган",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Ногиронлар бошқараётган",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Кар-соқов ёки кар ҳайдовчилар бошқараётганда",
                         "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Икки йилгача ҳайдовчилик иш даврига эга бўлган ҳайдовчилар бошқараётган",
+                        "is_correct": false
                     }
                 ]
             },
@@ -402,32 +422,37 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Управляемые инвалидами",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Управляемые водителями имеющими водительский стаж до 2-х лет",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Перевозящими опасные грузы",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
+                        "text": "Управляемые инвалидами",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
                         "text": "Управляемые глухонемыми и глухими водителями",
                         "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Управляемые водителями имеющими водительский стаж до 2-х лет",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 29-bobi 176-bandida keltirilgan 4-izohga asosan, \"Kar haydovchi\" — kar-soqov yoki kar haydovchi boshqarayotgan transport vositasining old va orqa tomonlarida — ichiga uchi pastga yo'nalgan hayoliy teng tomonli uchburchakning burchaklari bo'yicha diametri 40 millimetr bo'lgan uchta qora doira tushirilgan, diametri 160 millimetrni tashkil etadigan sariq rangli doira ko'rinishida.",
+            "uz_cyr": "YHQ 29-боби 176-бандида келтирилган 4-изоҳга асосан, \"Кар ҳайдовчи\" — кар-соқов ёки кар ҳайдовчи бошқараётган транспорт воситасининг олд ва орқа томонларида — ичига учи пастга йўналган ҳаёлий тенг томонли учбурчакнинг бурчаклари бўйича диаметри 40 миллиметр бўлган учта қора доира туширилган, диаметри 160 миллиметрни ташкил этадиган сариқ рангли доира кўринишида.",
+            "ru": "Согласно примечанию 4 главы 29 статьи 176 ГК «Глухой водитель» - на передней и задней сторонах транспортного средства, управляемого глухонемым или глухим водителем, - в виде желтого круга диаметром 160 миллиметров, с тремя черными кругами диаметром 40 миллиметров, нарисованными на углах воображаемого равностороннего треугольника вершиной вниз."
         }
     },
     {
         "task_info": {
-            "global_id": "t_56_q_5",
-            "ticket_num": 56,
+            "global_id": "t_20_q_10",
+            "ticket_num": 20,
             "order": 6
         },
         "media_url": "u645uz.webp",
@@ -437,18 +462,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Xavfli yuklar tashiyotgan",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Kar yoki kar-soqov haydovchilar boshqarayotgan",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Nogiron boshqarayotgan",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Xavfli yuklar tashiyotgan",
+                        "is_correct": false
                     }
                 ]
             },
@@ -457,18 +482,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Хавфли юклар ташиётган",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Кар ёки кар-соқов ҳайдовчилар бошқараётган",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Ногирон бошқараётган",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Хавфли юклар ташиётган",
+                        "is_correct": false
                     }
                 ]
             },
@@ -477,27 +502,32 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Управляемые инвалидами",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Управляемые глухими или глухонемыми водителями",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Управляемые инвалидами",
+                        "is_correct": true
+                    },
+                    {
                         "id": 3,
                         "text": "Перевозящими опасные грузы",
-                        "is_correct": true
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 29-bobi 176-bandi 12-xatboshiga asosan, \"Nogironligi bo'lgan shaxs\" — birinchi yoki ikkinchi guruh nogironligi bo'lgan shaxs boshqarayotgan, shuningdek, nogironligi bo'lgan shaxslarni yoki nogironligi bo'lgan bolalarni tashiyotgan transport vositalarining old va orqa tomonlarida — barcha tomonlari 150 millimetrdan bo'lgan va ichiga 7.17 yo'l belgisining qora rangli timsoli tushirilgan sariq rangli kvadrat ko'rinishidagi belgi.",
+            "uz_cyr": "YHQ 29-боби 176-банди 12-хатбошига асосан, \"Ногиронлиги бўлган шахс\" — биринчи ёки иккинчи гуруҳ ногиронлиги бўлган шахс бошқараётган, шунингдек, ногиронлиги бўлган шахсларни ёки ногиронлиги бўлган болаларни ташиётган транспорт воситаларининг олд ва орқа томонларида — барча томонлари 150 миллиметрдан бўлган ва ичига 7.17 йўл белгисининг қора рангли тимсоли туширилган сариқ рангли квадрат кўринишидаги белги.",
+            "ru": "В соответствии с главой 29 статьи 176 пункта 12 Гражданского кодекса \"Инвалид\" - знак в виде квадрата желтого цвета с черным обозначением дорожного знака 7.17 на передней и задней сторонах транспортных средств, управляемых лицом с инвалидностью первой или второй группы, а также перевозящих инвалидов или детей-инвалидов - со всех сторон по 150 миллиметров."
         }
     },
     {
         "task_info": {
-            "global_id": "t_33_q_2",
-            "ticket_num": 33,
+            "global_id": "t_20_q_20",
+            "ticket_num": 20,
             "order": 7
         },
         "media_url": "u372uz.webp",
@@ -507,7 +537,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Kar-soqov yoki kar haydovchilar boshqarayotgan",
+                        "text": "Nogiron boshqarayotgan",
                         "is_correct": false
                     },
                     {
@@ -522,7 +552,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Nogiron boshqarayotgan",
+                        "text": "Kar-soqov yoki kar haydovchilar boshqarayotgan",
                         "is_correct": false
                     }
                 ]
@@ -532,7 +562,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Кар-соқов ёки кар ҳайдовчилар бошқараётган",
+                        "text": "Ногирон бошқараётган",
                         "is_correct": false
                     },
                     {
@@ -547,7 +577,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Ногирон бошқараётган",
+                        "text": "Кар-соқов ёки кар ҳайдовчилар бошқараётган",
                         "is_correct": false
                     }
                 ]
@@ -557,83 +587,88 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Управляемые инвалидами",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Перевозящее тяжеловесные и крупногабаритные грузы",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
-                        "text": "Управляемые глухонемыми и глухими водителями",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Управляемые инвалидами",
+                        "text": "Перевозящими опасные грузы",
                         "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Перевозящими опасные грузы",
+                        "text": "Управляемые глухонемыми и глухими водителями",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 29-bobi 176-bandi 7-izohiga asosan, \"Xavfli yuk\" — xavfli yukni tashiyotgan transport vositasining old va orqa tomoniga o'rnatilgan o'lchami 690 x 300 millimetr, o'ng qismi 400 x 300 millimetr bo'lgan zarg'aldoq rangli, chap qismi esa yukning xavfli xususiyatini bildirib turgan belgilar tushirilgan qora hoshiyali (kengligi 15 millimetr) oq rangdagi to'rtburchak shaklidagi belgi.",
+            "uz_cyr": "YHQ 29-боби 176-банди 7-изоҳига асосан, \"Хавфли юк\" — хавфли юкни ташиётган транспорт воситасининг олд ва орқа томонига ўрнатилган ўлчами 690 х 300 миллиметр, ўнг қисми 400 х 300 миллиметр бўлган зарғалдоқ рангли, чап қисми эса юкнинг хавфли хусусиятини билдириб турган белгилар туширилган қора ҳошияли (кенглиги 15 миллиметр) оқ рангдаги тўртбурчак шаклидаги белги.",
+            "ru": "Согласно примечанию 7 статьи 176 главы 29 УК \"Опасный груз\" представляет собой прямоугольный знак размером 690 х 300 миллиметров, правая часть - 400 х 300 миллиметров, левая часть - белый прямоугольный знак с черной окантовкой (шириной 15 миллиметров), размещаемый спереди и сзади транспортного средства, перевозящего опасные грузы."
         }
     },
     {
         "task_info": {
-            "global_id": "t_40_q_8",
-            "ticket_num": 40,
+            "global_id": "t_21_q_11",
+            "ticket_num": 21,
             "order": 8
         },
-        "media_url": "",
+        "media_url": null,
         "content": {
             "uz_lat": {
-                "text": "Kunning qorong'i vaqtida va yetarlicha ko'rinmaydigan sharoitlarda yo'lda qoldirilgan yo'l mashinalari, qurilish materiallari, qurilmalar va hokazolar belgilanishi kerak:",
+                "text": "Kunning qorong'i vaqtida va etarlicha ko'rinmaydigan sharoitlarda yo'lda qoldirilgan yo'l mashinalari, qurilish materiallari, qurilmalar va hokazolar belgilanishi kerak:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Barcha sanab o'tilgan hollar bajarilishi kerak",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Qizil yoki sariq yoritkich chiroqlari bilan",
+                        "text": "Tegishli yo'l belgilari bilan",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Yo'naltiruvchi va tevaragini o'rovchi moslamalar bilan",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
-                        "text": "Tegishli yo'l belgilari bilan",
+                        "id": 3,
+                        "text": "Qizil yoki sariq yoritkich chiroqlari bilan",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Barcha sanab o'tilgan hollar bajarilishi kerak",
+                        "is_correct": true
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Куннинг қоронғи вақтида ва йетарлича кўринмайдиган шароитларда йўлда қолдирилган йўл машиналари, қурилиш материаллари, қурилмалар ва ҳоказолар белгиланиши керак:",
+                "text": "Куннинг қоронғи вақтида ва етарлича кўринмайдиган шароитларда йўлда қолдирилган йўл машиналари, қурилиш материаллари, қурилмалар ва ҳоказолар белгиланиши керак:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Барча санаб ўтилган ҳоллар бажарилиши керак",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Қизил ёки сариқ ёриткич чироқлари билан",
+                        "text": "Тегишли йўл белгилари билан",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Йўналтирувчи ва теварагини ўровчи мосламалар билан",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
-                        "text": "Тегишли йўл белгилари билан",
+                        "id": 3,
+                        "text": "Қизил ёки сариқ ёриткич чироқлари билан",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Барча санаб ўтилган ҳоллар бажарилиши керак",
+                        "is_correct": true
                     }
                 ]
             },
@@ -642,8 +677,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Красными или желтыми сигнальными огнями",
-                        "is_correct": true
+                        "text": "Соответствующими дорожными знаками",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -652,22 +687,27 @@
                     },
                     {
                         "id": 3,
-                        "text": "Всеми перечисленными обозначениями",
+                        "text": "Красными или желтыми сигнальными огнями",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Соответствующими дорожными знаками",
-                        "is_correct": false
+                        "text": "Всеми перечисленными обозначениями",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 29-bobi 182-bandiga asosan: Yo‘llarda ta’mirlash ishlarini bajarishga javobgar mansabdor va boshqa shaxslar ishlar olib borilayotgan joyda yo‘l harakati xavfsizligini ta’minlashga majbur. Bunday joylar, shuningdek yo‘ldan tashqariga olib chiqish imkoniyati bo‘lmagan ish bajarmayotgan yo‘l mashinalari, qurilish materiallari, qurilma va shunga o‘xshashlar tegishli yo‘l belgilari, yo‘naltiruvchi va to‘suvchi moslamalar bilan, sutkaning qorong‘i vaqtida va yetarlicha ko‘rinmaydigan sharoitda esa, qo‘shimcha qizil yoki sariq chiroqli ishoralar bilan belgilanishi kerak. Ta’mirlash ishlari tugagandan so‘ng transport vositalari va piyodalarning xavfsiz harakatlanishi ta’minlangan bo‘lishi kerak.",
+            "uz_cyr": "YHQ 29-боби 182-бандига асосан: Йўлларда таъмирлаш ишларини бажаришга жавобгар мансабдор ва бошқа шахслар ишлар олиб борилаётган жойда йўл ҳаракати хавфсизлигини таъминлашга мажбур. Бундай жойлар, шунингдек йўлдан ташқарига олиб чиқиш имконияти бўлмаган иш бажармаётган йўл машиналари, қурилиш материаллари, қурилма ва шунга ўхшашлар тегишли йўл белгилари, йўналтирувчи ва тўсувчи мосламалар билан, сутканинг қоронғи вақтида ва етарлича кўринмайдиган шароитда эса, қўшимча қизил ёки сариқ чироқли ишоралар билан белгиланиши керак. Таъмирлаш ишлари тугагандан сўнг транспорт воситалари ва пиёдаларнинг хавфсиз ҳаракатланиши таъминланган бўлиши керак.",
+            "ru": "Согласно статье 182 главы 29 Гражданского кодекса: Должностные и иные лица, ответственные за проведение дорожно-ремонтных работ, обязаны обеспечивать безопасность дорожного движения в месте проведения работ. Такие места, а также неработающие дорожные транспортные средства, строительные материалы, оборудование и тому подобное, которые нельзя убрать с дороги, должны быть обозначены соответствующими дорожными знаками, направляющими и блокирующими устройствами, а в темное время суток и в условиях недостаточной видимости - дополнительными световыми сигналами красного или желтого цвета. После завершения ремонтных работ должно быть обеспечено безопасное движение транспортных средств и пешеходов."
         }
     },
     {
         "task_info": {
-            "global_id": "t_55_q_4",
-            "ticket_num": 55,
+            "global_id": "t_21_q_20",
+            "ticket_num": 21,
             "order": 9
         },
         "media_url": "u635uz.webp",
@@ -677,12 +717,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "O'ng belgi",
+                        "text": "Chap belgi",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Chap belgi",
+                        "text": "O'ng belgi",
                         "is_correct": false
                     },
                     {
@@ -697,12 +737,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ўнг белги",
+                        "text": "Чап белги",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Чап белги",
+                        "text": "Ўнг белги",
                         "is_correct": false
                     },
                     {
@@ -722,22 +762,27 @@
                     },
                     {
                         "id": 2,
-                        "text": "Оба знака",
+                        "text": "Правый знак",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Правый знак",
+                        "text": "Оба знака",
                         "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 29-bobi 176-bandida berilgan 1-izohga asosan, \"Avtopoezd\" — yuk avtomobillari va g'ildirakli traktor (1,4 tonna va undan yuqori)larda tirkama bo'lganda, shuningdek tutashtirilgan avtobus va trolleybus kabinalari tomining old qismi o'rtasiga bir qator qilib 150 dan 300 millimetrgacha oraliqda ko'ndalang joylashgan uchta zarg'aldoq rangli chiroq yoki ichidan yoritiladigan, tomonlarining har biri 250 millimetr bo'lgan sariq rangli uchburchak shaklidagi belgi.",
+            "uz_cyr": "YHQ 29-боби 176-бандида берилган 1-изоҳга асосан, \"Автопоэзд\" — юк автомобиллари ва ғилдиракли трактор (1,4 тонна ва ундан юқори)ларда тиркама бўлганда, шунингдек туташтирилган автобус ва троллейбус кабиналари томининг олд қисми ўртасига бир қатор қилиб 150 дан 300 миллиметргача оралиқда кўндаланг жойлашган учта зарғалдоқ рангли чироқ ёки ичидан ёритиладиган, томонларининг ҳар бири 250 миллиметр бўлган сариқ рангли учбурчак шаклидаги белги.",
+            "ru": "Согласно примечанию 1 главы 29 статьи 176 ГК \"Автопоезд\" - это три фонаря золотистого цвета, расположенные поперечно в центре передней части крыши соединенных кабин автобусов и троллейбусов в случае грузовых автомобилей и колесных тягачей (1,4 тонны и выше) с прицепом, или подсвеченные изнутри, с каждой стороны по 250 желтым треугольным символом с миллиметрами."
         }
     },
     {
         "task_info": {
-            "global_id": "t_38_q_4",
-            "ticket_num": 38,
+            "global_id": "t_22_q_20",
+            "ticket_num": 22,
             "order": 10
         },
         "media_url": "u431uz.webp",
@@ -747,18 +792,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Mexanik transport vositasida tishli turumlangan (shiplar) shinalar o'rnatilganini",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Oldinda qatnov qismi notekis bo'lgan yo'l qismini",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Oldinda shu yo'nalishda harakatlanish uchun uch bo'lakli yo'l qismini",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Mexanik transport vositasida tishli turumlangan (shiplar) shinalar o'rnatilganini",
+                        "is_correct": true
                     }
                 ]
             },
@@ -767,18 +812,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Механик транспорт воситасида тишли турумланган (шиплар) шиналар ўрнатилганини",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Олдинда қатнов қисми нотекис бўлган йўл қисмини",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Олдинда шу йўналишда ҳаракатланиш учун уч бўлакли йўл қисмини",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Механик транспорт воситасида тишли турумланган (шиплар) шиналар ўрнатилганини",
+                        "is_correct": true
                     }
                 ]
             },
@@ -787,27 +832,32 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Впереди участок дороги с тремя полосами для движения в данной направлении",
-                        "is_correct": true
+                        "text": "Впереди участок дороги имеющий неровности на проезжей части",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Транспортное средство оборудованное шипованными шинами",
+                        "text": "Впереди участок дороги с тремя полосами для движения в данной направлении",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Впереди участок дороги имеющий неровности на проезжей части",
-                        "is_correct": false
+                        "text": "Транспортное средство оборудованное шипованными шинами",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 29-bobida 176-bandida keltirilgan 2-izohga asosan, \"Turumlangan\" (tishli, shipli) — turumlangan shinali mexanik transport vositalarining orqasida — ichiga qora rangda \"T\" harfi tushirilgan, qizil hoshiyali, oq rangli uchi yuqoriga yo'naltirilgan teng tomonli uchburchak ko'rinishida. Uchburchakning tomonlari 200 millimetrdan kam bo'lmasligi, hoshiyasining kengligi uchburchak tomonining 1/10 qismiga teng bo'lishi kerak.",
+            "uz_cyr": "YHQ 29-бобида 176-бандида келтирилган 2-изоҳга асосан, \"Турумланган\" (тишли, шипли) — турумланган шинали механик транспорт воситаларининг орқасида — ичига қора рангда \"Т\" ҳарфи туширилган, қизил ҳошияли, оқ рангли учи юқорига йўналтирилган тенг томонли учбурчак кўринишида. Учбурчакнинг томонлари 200 миллиметрдан кам бўлмаслиги, ҳошиясининг кенглиги учбурчак томонининг 1/10 қисмига тенг бўлиши керак.",
+            "ru": "Согласно примечанию 2 главы 29 ст. 176 ГК \"Турумланган\" (шестеренчатый, крытый) - на кузове механических транспортных средств с уложенными шинами - в виде равностороннего треугольника с буквой \"Т\" черного цвета, с красной каймой и белым кончиком, направленным вверх. Стороны треугольника не должны быть меньше 200 миллиметров, ширина границы должна быть равна 1/10 стороны треугольника."
         }
     },
     {
         "task_info": {
-            "global_id": "t_23_q_4",
-            "ticket_num": 23,
+            "global_id": "t_24_q_20",
+            "ticket_num": 24,
             "order": 11
         },
         "media_url": "u252uz.webp",
@@ -822,12 +872,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Avtomobil uyda tibbiy yordami ko'rsatish uchun mo'ljallanganini",
+                        "text": "Avtomobil haydovchi nogironga tegishli ekanini",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Avtomobil haydovchi nogironga tegishli ekanini",
+                        "text": "Avtomobil uyda tibbiy yordami ko'rsatish uchun mo'ljallanganini",
                         "is_correct": false
                     }
                 ]
@@ -842,12 +892,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Автомобил уйда тиббий ёрдами кўрсатиш учун мўлжалланганини",
+                        "text": "Автомобил ҳайдовчи ногиронга тегишли эканини",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Автомобил ҳайдовчи ногиронга тегишли эканини",
+                        "text": "Автомобил уйда тиббий ёрдами кўрсатиш учун мўлжалланганини",
                         "is_correct": false
                     }
                 ]
@@ -857,7 +907,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Автомобиль предназначен для оказания медпомощи на дому",
+                        "text": "Автомобиль принадлежит водителю врачу",
                         "is_correct": true
                     },
                     {
@@ -867,33 +917,38 @@
                     },
                     {
                         "id": 3,
-                        "text": "Автомобиль принадлежит водителю врачу",
+                        "text": "Автомобиль предназначен для оказания медпомощи на дому",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 26-bobi 176-bandining o‘n uchinchi xatboshisiga asosan: “Shifokor” shifokor-haydovchi boshqarayotgan transport vositasining old va orqa tomoniga o‘rnatiladigan, tomonlari 140 millimetr bo‘lgan, ko‘k rangli, to‘rtburchak ichida diametri 90 millimetrli oq doiraga qalinligi 25 millimetrli qizil xoch tasviri tushirilgan belgi.",
+            "uz_cyr": "YHQ 26-боби 176-бандининг ўн учинчи хатбошисига асосан: “Шифокор” шифокор-ҳайдовчи бошқараётган транспорт воситасининг олд ва орқа томонига ўрнатиладиган, томонлари 140 миллиметр бўлган, кўк рангли, тўртбурчак ичида диаметри 90 миллиметрли оқ доирага қалинлиги 25 миллиметрли қизил хоч тасвири туширилган белги.",
+            "ru": "Согласно пункту тринадцатому статьи 176 главы 26 Гражданского кодекса: «Шифокор» представляет собой боковой знак синего цвета шириной 140 миллиметров с красным крестом толщиной 25 миллиметров в белом круге диаметром 90 миллиметров."
         }
     },
     {
         "task_info": {
-            "global_id": "t_27_q_7",
-            "ticket_num": 27,
+            "global_id": "t_33_q_10",
+            "ticket_num": 33,
             "order": 12
         },
-        "media_url": "",
+        "media_url": null,
         "content": {
             "uz_lat": {
                 "text": "N2; N3; O3; O4; M2; M3 toifadagi avtotransport vositalarining orqa devoriga yozilishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yaxshi ko'rinadigan raqam belgisi",
-                        "is_correct": true
+                        "text": "Transport vositasining tegishligi haqida taniqlik belgisi",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Transport vositasining tegishligi haqida taniqlik belgisi",
-                        "is_correct": false
+                        "text": "Yaxshi ko'rinadigan raqam belgisi",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -907,13 +962,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Яхши кўринадиган рақам белгиси",
-                        "is_correct": true
+                        "text": "Транспорт воситасининг тегишлиги ҳақида таниқлик белгиси",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Транспорт воситасининг тегишлиги ҳақида таниқлик белгиси",
-                        "is_correct": false
+                        "text": "Яхши кўринадиган рақам белгиси",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -927,13 +982,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Хорошо видимый номерной знак",
-                        "is_correct": true
+                        "text": "Опознавательный знак о принадлежности транспортного средства",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Опознавательный знак о принадлежности транспортного средства",
-                        "is_correct": false
+                        "text": "Хорошо видимый номерной знак",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -942,12 +997,17 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 29-bobi 175-bandining ikkinchi xatboshisiga asosan: Yuk avtomobillari, tirkamalar (yengil avtomobillar tirkamalaridan tashqari) va avtobuslar (mikroavtobuslardan tashqari) kuzovining orqa devoriga uning davlat raqam belgisi va harflari yozilishi kerak. Raqamning balandligi 300 millimetr, kengligi 120 millimetr, chizig‘ining yo‘g‘onligi 30 millimetrdan kam bo‘lmasligi, harflar balandligi esa raqam o‘lchamlarining 2/3 qismiga teng bo‘lishi kerak.",
+            "uz_cyr": "YHQ 29-боби 175-бандининг иккинчи хатбошисига асосан: Юк автомобиллари, тиркамалар (енгил автомобиллар тиркамаларидан ташқари) ва автобуслар (микроавтобуслардан ташқари) кузовининг орқа деворига унинг давлат рақам белгиси ва ҳарфлари ёзилиши керак. Рақамнинг баландлиги 300 миллиметр, кенглиги 120 миллиметр, чизиғининг йўғонлиги 30 миллиметрдан кам бўлмаслиги, ҳарфлар баландлиги эса рақам ўлчамларининг 2/3 қисмига тенг бўлиши керак.",
+            "ru": "Согласно второму абзацу статьи 175 главы 29 ГК: Грузовые автомобили, прицепы (кроме легковых прицепов) и автобусы (кроме микроавтобусов) должны иметь номерной знак и буквы, написанные на задней стенке кузова. Высота цифры должна составлять 300 миллиметров, ширина 120 миллиметров, толщина линии не должна быть меньше 30 миллиметров, а высота букв должна быть равна 2/3 размера цифры."
         }
     },
     {
         "task_info": {
-            "global_id": "t_47_q_13",
-            "ticket_num": 47,
+            "global_id": "t_34_q_20",
+            "ticket_num": 34,
             "order": 13
         },
         "media_url": "u543uz.webp",
@@ -1012,27 +1072,32 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 29-bobi 176-bandida keltirilgan 3-izohga asosan, \"Bolalar guruhini tashish\" — bolalar guruhini tashkiliy tashishda, transport vositasining old va orqa tomonlariga qizil hoshiyali, ichiga 1.21 yo'l belgisidagi bolalar timsolining tasviri tushirilgan, sariq rangdagi, tomonlari teng bo'lgan to'rtburchak (kvadrat) ko'rinishidagi belgi. To'rtburchakning tomonlari 250 — 300 millimetrgacha, hoshiyaning kengligi to'rtburchak tomonining 1/10 qismiga teng bo'lishi kerak.",
+            "uz_cyr": "YHQ 29-боби 176-бандида келтирилган 3-изоҳга асосан, \"Болалар гуруҳини ташиш\" — болалар гуруҳини ташкилий ташишда, транспорт воситасининг олд ва орқа томонларига қизил ҳошияли, ичига 1.21 йўл белгисидаги болалар тимсолининг тасвири туширилган, сариқ рангдаги, томонлари тенг бўлган тўртбурчак (квадрат) кўринишидаги белги. Тўртбурчакнинг томонлари 250 — 300 миллиметргача, ҳошиянинг кенглиги тўртбурчак томонининг 1/10 қисмига тенг бўлиши керак.",
+            "ru": "Согласно примечанию 3 главы 29 статьи 176 Гражданского кодекса «Групповая перевозка детей» представляет собой знак в виде прямоугольника (квадрата) желтого цвета с равными сторонами, с красной каймой на передней и задней сторонах транспортного средства, с изображением детей в дорожном знаке 1.21. Стороны прямоугольника должны быть 250-300 миллиметров, ширина каймы должна быть равна 1/10 стороны прямоугольника."
         }
     },
     {
         "task_info": {
-            "global_id": "t_52_q_5",
-            "ticket_num": 52,
+            "global_id": "t_6_q_10",
+            "ticket_num": 6,
             "order": 14
         },
-        "media_url": "",
+        "media_url": null,
         "content": {
             "uz_lat": {
                 "text": "Qoida bo'yicha necha yoshdan boshlab yengil avtomobilni boshqarishga ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "16 yoshdan",
+                        "text": "14 yoshdan",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "14 yoshdan",
+                        "text": "16 yoshdan",
                         "is_correct": false
                     },
                     {
@@ -1047,12 +1112,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "16 ёшдан",
+                        "text": "14 ёшдан",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "14 ёшдан",
+                        "text": "16 ёшдан",
                         "is_correct": false
                     },
                     {
@@ -1067,12 +1132,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "С 16 лет",
+                        "text": "С 14 лет",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "С 14 лет",
+                        "text": "С 16 лет",
                         "is_correct": false
                     },
                     {
@@ -1082,15 +1147,20 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 25-bobi 149-bandiga asosan: Transport vositasini boshqarish huquqiga ega bo‘lishi uchun o‘rganuvchi o‘quv muddati yakunida: “B” va “C” toifalari uchun — 18 yoshga to‘lgan bo‘lishi kerak.",
+            "uz_cyr": "YHQ 25-боби 149-бандига асосан: Транспорт воситасини бошқариш ҳуқуқига эга бўлиши учун ўрганувчи ўқув муддати якунида: “Б” ва “С” тоифалари учун — 18 ёшга тўлган бўлиши керак.",
+            "ru": "Согласно главе 25, статье 149 Гражданского кодекса: Для того, чтобы иметь право на управление транспортным средством, обучающемуся на момент окончания срока обучения должно исполниться 18 лет: для категорий «В» и «С»."
         }
     },
     {
         "task_info": {
-            "global_id": "t_40_q_9",
-            "ticket_num": 40,
+            "global_id": "t_26_q_19",
+            "ticket_num": 26,
             "order": 15
         },
-        "media_url": "",
+        "media_url": null,
         "content": {
             "uz_lat": {
                 "text": "Kim o'quv tashkilotlarida avtomototransport vositalarini boshqarishni o'rgatish huquqiga ega?",
@@ -1102,17 +1172,17 @@
                     },
                     {
                         "id": 2,
-                        "text": "3 yillik ishlagan davri bo'lgan haydovchi",
+                        "text": "Tajribali haydovchi",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "5 yil haydovchilik ishlagan davriga ega bo'lgan 1 - va 2 - toifa haydovchilar",
+                        "text": "3 yillik ishlagan davri bo'lgan haydovchi",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Tajribali haydovchi",
+                        "text": "5 yil haydovchilik ishlagan davriga ega bo'lgan 1 - va 2 - toifa haydovchilar",
                         "is_correct": false
                     }
                 ]
@@ -1127,17 +1197,17 @@
                     },
                     {
                         "id": 2,
-                        "text": "3 йиллик ишлаган даври бўлган ҳайдовчи",
+                        "text": "Тажрибали ҳайдовчи",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "5 йил ҳайдовчилик ишлаган даврига эга бўлган 1 - ва 2 - тоифа ҳайдовчилар",
+                        "text": "3 йиллик ишлаган даври бўлган ҳайдовчи",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Тажрибали ҳайдовчи",
+                        "text": "5 йил ҳайдовчилик ишлаган даврига эга бўлган 1 - ва 2 - тоифа ҳайдовчилар",
                         "is_correct": false
                     }
                 ]
@@ -1152,21 +1222,26 @@
                     },
                     {
                         "id": 2,
-                        "text": "Водитель со стажем 3 года",
+                        "text": "Опытный водител",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Водитель 1 -го и 2-го класса, имеющий водительский стаж 5 лет",
+                        "text": "Водитель со стажем 3 года",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Опытный водител",
+                        "text": "Водитель 1 -го и 2-го класса, имеющий водительский стаж 5 лет",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 25-bobi 148-bandiga asosan: Avtomototransport vositasini yoki shahar elektr transportini boshqarish bo‘yicha amaliy mashg‘ulotlar instruktori boshqarishni o‘rgatish huquqini beruvchi hujjatga, shuningdek tegishli toifadagi transport vositasini boshqarish huquqini beruvchi guvohnomaga ega bo‘lishi kerak.",
+            "uz_cyr": "YHQ 25-боби 148-бандига асосан: Автомототранспорт воситасини ёки шаҳар электр транспортини бошқариш бўйича амалий машғулотлар инструктори бошқаришни ўргатиш ҳуқуқини берувчи ҳужжатга, шунингдек тегишли тоифадаги транспорт воситасини бошқариш ҳуқуқини берувчи гувоҳномага эга бўлиши керак.",
+            "ru": "Согласно статье 148 главы 25 Гражданского кодекса: Инструктор практической подготовки по вождению автомобиля или городского электромобиля должен иметь документ, дающий право на обучение вождению, а также удостоверение, дающее право управления транспортным средством соответствующей категории."
         }
     },
     {
@@ -1175,84 +1250,74 @@
             "ticket_num": 28,
             "order": 16
         },
-        "media_url": "u313uz.webp",
+        "media_url": null,
         "content": {
             "uz_lat": {
-                "text": "Bunday vaziyatda haydovchi nima qilishi kerak?",
+                "text": "Transport vositasini boshqarishni o'rgatyotgan shaxs haydovchi hisoplanadimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Qatnov qismidan o'tayotgan bolalarga yo'l berishi",
+                        "text": "Ha",
                         "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Bu yo'l qismidan o'tishi kerak, chunki bolalar qatnov qismini piyodalar o'tish joyidan kesib o'tmayaptilar",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Oldindan yaqin fara chiroqlarini yoqib va uzluksiz tovush ishorasini berib, eng kam tezlik bilan turgan transport vositasini aylanib o'tishi",
+                        "text": "Yo'q",
                         "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Бундай вазиятда ҳайдовчи нима қилиши керак?",
+                "text": "Транспорт воситасини бошқаришни ўргатётган шахс ҳайдовчи ҳисопланадими?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Қатнов қисмидан ўтаётган болаларга йўл бериши",
+                        "text": "Ҳа",
                         "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Бу йўл қисмидан ўтиши керак, чунки болалар қатнов қисмини пиёдалар ўтиш жойидан кесиб ўтмаяптилар",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Олдиндан яқин фара чироқларини ёқиб ва узлуксиз товуш ишорасини бериб, энг кам тезлик билан турган транспорт воситасини айланиб ўтиши",
+                        "text": "Йўқ",
                         "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Что должен сделать водитель в данной ситуации?",
+                "text": "Считается ли человек, обучающий вождению транспортного средства, водителем?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Уступить дорогу детям переходящим проезжую часть",
+                        "text": "Да",
                         "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Проехать данный участок, так как дети пересекают проезжую часть не по пешеходному переходу",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Объехать стоящее транспортное средство на минимальной скорости, заблаговременно включив ближний свет фар и периодически подавая звуковой сигнал",
+                        "text": "Нет",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 2-bobi 8-bandiga asosan: Tegishli toifadagi transport vositasini boshqarish huquqini beruvchi haydovchilik guvohnomasiga, uning taloniga, vaqtinchalik ruxsatnomaga ega bo'lgan shaxs, o'ziga tegishli bo'lmagan transport vositasini, uning egasi yonida bo'lganida yoxud tasarruf etish huquqini beruvchi yoki egalik qilishga, foydalanishga berilganligini tasdiqlovchi hujjatlari bo'lgan shaxs ishtirokidagina (ularning roziligi bilan) boshqarishi mumkin, agar transport vositalari egalarining fuqarolik javobgarligini majburiy sug'urta qilish bo'yicha shartnoma ushbu transport vositasidan cheklanmagan shaxslarning foydalanilishini hisobga olgan holda tuzilgan yoki transport vositasini boshqarayotgan shaxs sug'urta polisida ko'rsatilgan bo'lsa.",
+            "uz_cyr": "YHQ 2-боби 8-бандига асосан: Тегишли тоифадаги транспорт воситасини бошқариш ҳуқуқини берувчи ҳайдовчилик гувоҳномасига, унинг талонига, вақтинчалик рухсатномага эга бўлган шахс, ўзига тегишли бўлмаган транспорт воситасини, унинг эгаси ёнида бўлганида ёхуд тасарруф этиш ҳуқуқини берувчи ёки эгалик қилишга, фойдаланишга берилганлигини тасдиқловчи ҳужжатлари бўлган шахс иштирокидагина (уларнинг розилиги билан) бошқариши мумкин, агар транспорт воситалари эгаларининг фуқаролик жавобгарлигини мажбурий суғурта қилиш бўйича шартнома ушбу транспорт воситасидан чекланмаган шахсларнинг фойдаланилишини ҳисобга олган ҳолда тузилган ёки транспорт воситасини бошқараётган шахс суғурта полисида кўрсатилган бўлса.",
+            "ru": "Согласно пункту 8 главы 2 ПДД: лицо, имеющее водительское удостоверение соответствующей категории, талон к нему или временное разрешение, может управлять не принадлежащим ему транспортным средством только в присутствии его владельца либо лица, имеющего документы, подтверждающие право распоряжения транспортным средством или передачу его во владение, пользование (с их согласия), если договор обязательного страхования гражданской ответственности владельцев транспортных средств заключён с учётом использования данного транспортного средства неограниченным кругом лиц либо лицо, управляющее транспортным средством, указано в страховом полисе."
         }
     },
     {
         "task_info": {
-            "global_id": "t_11_q_1",
-            "ticket_num": 11,
+            "global_id": "t_54_q_8",
+            "ticket_num": 54,
             "order": 17
         },
-        "media_url": "u113uz.webp",
+        "media_url": "v556uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Bu taniqlilik belgisi o'rnatiladi:",
+                "text": "Bu taniklik belgisi urnatiladi:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Vaqtinchalik tamirlash ishlari olib borilayotgan yo'l kismlariga",
+                        "text": "Vaktinchalik tamirlash ishlari olib borilayotgan yo'l kismlariga",
                         "is_correct": false
                     },
                     {
@@ -1268,11 +1333,11 @@
                 ]
             },
             "uz_cyr": {
-                "text": "Бу таниқлилик белгиси ўрнатилади:",
+                "text": "Бу таниклик белгиси урнатилади:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Вақтинча тамирлаш ишлари олиб борилаётган йўл кисмларига",
+                        "text": "Вақтинча таъмирлаш ишлари олиб борилаётган йўл қисмларига",
                         "is_correct": false
                     },
                     {
@@ -1307,22 +1372,27 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 16-bobi 106-bandi: Asosiy yo‘lning yo‘nalishi chorrahada o‘zgarganda, asosiy yo‘lda harakatlanayotgan haydovchilar o‘zaro teng ahamiyatli yo‘llar chorrahasidan o‘tish qoidasiga amal qilishlari kerak. Ikkinchi darajali yo‘llarda harakatlanayotgan haydovchilar ham o‘zaro shu qoidaga amal qilishlari kerak. YHQ 16-bobi 107-bandi: Chapga burilishda yoki qayrilib olishda relssiz transport vositasining haydovchisi teng ahamiyatli yo‘ldan qarama-qarshi yo‘nalishdan to‘g‘riga yoki o‘ngga harakatlanayotgan transport vositalariga yo‘l berishi shart. Bu qoidaga tramvay haydovchilari ham o‘zaro amal qilishlari kerak.",
+            "uz_cyr": "YHQ 16-боби 106-банди: Асосий йўлнинг йўналиши чорраҳада ўзгарганда, асосий йўлда ҳаракатланаётган ҳайдовчилар ўзаро тенг аҳамиятли йўллар чорраҳасидан ўтиш қоидасига амал қилишлари керак. Иккинчи даражали йўлларда ҳаракатланаётган ҳайдовчилар ҳам ўзаро шу қоидага амал қилишлари керак. YHQ 16-боби 107-банди: Чапга бурилишда ёки қайрилиб олишда релссиз транспорт воситасининг ҳайдовчиси тенг аҳамиятли йўлдан қарама-қарши йўналишдан тўғрига ёки ўнгга ҳаракатланаётган транспорт воситаларига йўл бериши шарт. Бу қоидага трамвай ҳайдовчилари ҳам ўзаро амал қилишлари керак.",
+            "ru": "Статья 106 главы 16 Гражданского кодекса: При изменении направления главной дороги на перекрестке водители, движущиеся по главной дороге, обязаны соблюдать правило проезда через пересечение дорог равной важности. Водители, движущиеся по второстепенным дорогам, также должны соблюдать это правило. Глава 16 ГК, статья 107: При повороте налево или развороте водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, движущимся прямо или вправо с встречного направления на дороге равного значения. Водители трамваев также должны соблюдать это правило."
         }
     },
     {
         "task_info": {
-            "global_id": "t_56_q_6",
+            "global_id": "t_56_q_7",
             "ticket_num": 56,
             "order": 18
         },
-        "media_url": "",
+        "media_url": null,
         "content": {
             "uz_lat": {
                 "text": "Transport vositalarini boshqarishni dastlabki o'rgatish (boshiang'ich mashg'ulot) qayerda amalga oshiriladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Turar joy dahalarida",
+                        "text": "Avtomagistralda",
                         "is_correct": false
                     },
                     {
@@ -1332,7 +1402,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Avtomagistralda",
+                        "text": "Turar joy dahalarida",
                         "is_correct": false
                     },
                     {
@@ -1347,7 +1417,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Турар жой даҳаларида",
+                        "text": "Автомагистралда",
                         "is_correct": false
                     },
                     {
@@ -1357,7 +1427,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Автомагистралда",
+                        "text": "Турар жой даҳаларида",
                         "is_correct": false
                     },
                     {
@@ -1372,7 +1442,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Размещение в более",
+                        "text": "На шоссе",
                         "is_correct": false
                     },
                     {
@@ -1382,7 +1452,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "На шоссе",
+                        "text": "Размещение в более",
                         "is_correct": false
                     },
                     {
@@ -1392,43 +1462,48 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 25-bob. 146-bandga asosan: 146. Transport vositalarini boshqarishni dastlabki o‘rgatishga yopiq maydonchalarda yoki avtodromlarda o‘tkazilishi kerak.",
+            "uz_cyr": "YHQнинг 25-боб. 146-бандга асосан: 146. Транспорт воситаларини бошқаришни дастлабки ўргатишга ёпиқ майдончаларда ёки автодромларда ўтказилиши керак.",
+            "ru": "Согласно пункту 146 главы 25 ПДД: 146. Первоначальное обучение управлению транспортными средствами должно проводиться на закрытых площадках или автодромах."
         }
     },
     {
         "task_info": {
-            "global_id": "t_20_q_13",
-            "ticket_num": 20,
+            "global_id": "t_57_q_14",
+            "ticket_num": 57,
             "order": 19
         },
         "media_url": "u225uz.webp",
         "content": {
             "uz_lat": {
-                "text": "O'quv muddati yakunida “A” toifadagi mototransport vositasini boshqarish huquqiga ega bo'lish uchun necha yoshga to'lgan shaxslarga imtihonlar topshirishga ruxsat etiladi?",
+                "text": "O‘quv muddati yakunida “A” toifadagi mototransport vositasini boshqarish huquqiga ega bo‘lish uchun necha yoshga to‘lgan shaxslarga imtihonlar topshirishga ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "18 yoshga",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "14 yoshga",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "15 yoshga",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
                         "text": "17 yoshga",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 2,
                         "text": "16 yoshga",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "14 yoshga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "18 yoshga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "15 yoshga",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1437,28 +1512,28 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "18 ёшга",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "14 ёшга",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "15 ёшга",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
                         "text": "17 ёшга",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 2,
                         "text": "16 ёшга",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "14 ёшга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "18 ёшга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "15 ёшга",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1467,37 +1542,42 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "18 лет",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "14 лет",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "15 лет",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
                         "text": "17 лет",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 2,
                         "text": "16 лет",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "14 лет",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "18 лет",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "15 лет",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "\"YHQning 25-bob. 149-band 2-xatboshiga asosan: 149. Transport vositasini boshqarish huquqiga ega bo‘lishi uchun o‘rganuvchi o‘quv muddati yakunida:\r\n«A» toifasi uchun — 16 yoshga to‘lgan bo‘lishi kerak.\"",
+            "uz_cyr": "\"YHQнинг 25-боб. 149-банд 2-хатбошига асосан: 149. Транспорт воситасини бошқариш ҳуқуқига эга бўлиши учун ўрганувчи ўқув муддати якунида:\r\n«А» тоифаси учун — 16 ёшга тўлган бўлиши керак.\"",
+            "ru": "\"Согласно главе 25. пункта 149 пункта 2 Гражданского кодекса: 149. По окончании срока обучения обучающийся обязан:\r\nДля категории «А» - должно быть 16 лет."
         }
     },
     {
         "task_info": {
-            "global_id": "t_9_q_14",
-            "ticket_num": 9,
+            "global_id": "t_35a_q_9",
+            "ticket_num": "35a",
             "order": 20
         },
         "media_url": "u97uz.webp",
@@ -1562,6 +1642,11 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 20-bobi 124- bandi 1-xatboshiga asosan, turar joy dahalarida mexanik transport vositasini boshqarishni o'rganish taqiqlanadi.",
+            "uz_cyr": "YHQ 20-боби 124- банди 1-хатбошига асосан, турар жой даҳаларида механик транспорт воситасини бошқаришни ўрганиш тақиқланади.",
+            "ru": "Согласно пункту 1 пункта 124 главы 20 УК РФ запрещается обучаться управлению механическим транспортным средством в жилых помещениях."
         }
     }
 ]

@@ -1,8 +1,8 @@
 [
     {
         "task_info": {
-            "global_id": "t_17_q_17",
-            "ticket_num": 17,
+            "global_id": "t_1_q_5",
+            "ticket_num": 1,
             "order": 1
         },
         "media_url": "u194uz.webp",
@@ -12,18 +12,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Oq, ko'k va sariq avtomobillarga",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Qizil va oq avtomobillarga",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Ko'k, yashil va oq avtomobillarga",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Oq, ko'k va sariq avtomobillarga",
+                        "is_correct": false
                     }
                 ]
             },
@@ -32,18 +32,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Оқ, кўк ва сариқ автомобилларга",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Қизил ва оқ автомобилларга",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Кўк, яшил ва оқ автомобилларга",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Оқ, кўк ва сариқ автомобилларга",
+                        "is_correct": false
                     }
                 ]
             },
@@ -57,22 +57,27 @@
                     },
                     {
                         "id": 2,
-                        "text": "Белому, синему и желтому автомобилям",
-                        "is_correct": false
+                        "text": "Синему, зеленому и белому автомобилям",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Синему, зеленому и белому автомобилям",
-                        "is_correct": true
+                        "text": "Белому, синему и желтому автомобилям",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 38-bandiga asosan, tartibga soluvchining qo'llari yon tomonga uzatilganda yoki tushirilganda: chap va o'ng yon tomonidan tramvayga to'g'riga, relssiz transport vositalariga to'g'riga va o'ngga harakatlanishga, piyodalarga qatnov qismini kesib o'tishga ruxsat beriladi; old va orqa tomonidan barcha transport vositalari va piyodalarning harakatlanishi taqiqlanadi.",
+            "uz_cyr": "YHQ 7-боби 38-бандига асосан, тартибга солувчининг қўллари ён томонга узатилганда ёки туширилганда: чап ва ўнг ён томонидан трамвайга тўғрига, релссиз транспорт воситаларига тўғрига ва ўнгга ҳаракатланишга, пиёдаларга қатнов қисмини кесиб ўтишга рухсат берилади; олд ва орқа томонидан барча транспорт воситалари ва пиёдаларнинг ҳаракатланиши тақиқланади.",
+            "ru": "Согласно главе 7, пункту 38, при вытянутых или опущенных в стороны руках регулятора: разрешается двигаться с левой и правой стороны к трамваю, вправо и вправо к нерельсовым транспортным средствам, а также переходить проезжую часть пешеходам; движение всех транспортных средств и пешеходов спереди и сзади запрещено."
         }
     },
     {
         "task_info": {
-            "global_id": "t_13_q_9",
-            "ticket_num": 13,
+            "global_id": "t_1_q_15",
+            "ticket_num": 1,
             "order": 2
         },
         "media_url": "u142uz.webp",
@@ -82,12 +87,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yengil va yuk avtomobillari haydovchilari",
+                        "text": "Avtobus va motosikl haydovchilari",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Avtobus va motosikl haydovchilari",
+                        "text": "Yengil va yuk avtomobillari haydovchilari",
                         "is_correct": false
                     },
                     {
@@ -102,12 +107,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Енгил ва юк автомобиллари ҳайдовчилари",
+                        "text": "Автобус ва мотоцикл ҳайдовчилари",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Автобус ва мотоцикл ҳайдовчилари",
+                        "text": "Енгил ва юк автомобиллари ҳайдовчилари",
                         "is_correct": false
                     },
                     {
@@ -122,12 +127,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Водители легкового и грузового автомобилей",
+                        "text": "Водители автобуса и мотоцикла",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Водители автобуса и мотоцикла",
+                        "text": "Водители легкового и грузового автомобилей",
                         "is_correct": false
                     },
                     {
@@ -137,12 +142,17 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 38 bandiga asosan, Tartibga soluvchining ishoralari quyidagi ma’noni bildiradi: O‘ng qo‘li oldinga uzatilganda: chap yonidan tramvayga chapga, relssiz transport vositalariga barcha yo‘nalishlarda;\n\noldi tomonidan barcha transport vositalariga faqat o‘ngga harakatlanishga ruxsat beriladi; orqa tomonidan va o‘ng yonidan barcha transport vositalarining harakatlanishi taqiqlanadi; piyodalarga tartibga soluvchining orqa tomonida qatnov qismini kesib o‘tishga ruxsat etiladi.\n\nUshbu vaziyatda mototsiklga o‘nga, yengil avtomobilga to‘g‘riga va o‘nga harakatlanishga ruxsat etiladi.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 38 бандига асосан, Тартибга солувчининг ишоралари қуйидаги маънони билдиради: Ўнг қўли олдинга узатилганда: чап ёнидан трамвайга чапга, релссиз транспорт воситаларига барча йўналишларда;\n\nолди томонидан барча транспорт воситаларига фақат ўнгга ҳаракатланишга рухсат берилади; орқа томонидан ва ўнг ёнидан барча транспорт воситаларининг ҳаракатланиши тақиқланади; пиёдаларга тартибга солувчининг орқа томонида қатнов қисмини кесиб ўтишга рухсат этилади.\n\nУшбу вазиятда мототсиклга ўнга, енгил автомобилга тўғрига ва ўнга ҳаракатланишга рухсат этилади.",
+            "ru": "Согласно статье 38 Правил дорожного движения сигналы Регулятора имеют следующее значение: При вытянутой вперед правой руке: с левой стороны на трамвай налево, на нерельсовые транспортные средства во всех направлениях; \n\nспереди всем транспортным средствам разрешено движение только вправо; запрещено движение всех транспортных средств сзади и с правой стороны; пешеходам разрешено переходить проезжую часть позади регулятора. \n\nВ этой ситуации мотоциклу разрешается двигаться вправо, автомобилю – вправо и вправо."
         }
     },
     {
         "task_info": {
-            "global_id": "t_35_q_18",
-            "ticket_num": 35,
+            "global_id": "t_2_q_15",
+            "ticket_num": 2,
             "order": 3
         },
         "media_url": "u405uz.webp",
@@ -152,17 +162,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yuk avtomobiliga",
+                        "text": "Motosiklga",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Avtobusga",
+                        "text": "Yuk avtomobiliga",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Yengil va yuk avtomobillariga",
+                        "text": "Avtobusga",
                         "is_correct": false
                     },
                     {
@@ -172,7 +182,7 @@
                     },
                     {
                         "id": 5,
-                        "text": "Motosiklga",
+                        "text": "Yengil va yuk avtomobillariga",
                         "is_correct": false
                     }
                 ]
@@ -182,17 +192,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Юк автомобилига",
+                        "text": "Мотоциклга",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Автобусга",
+                        "text": "Юк автомобилига",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Енгил ва юк автомобилларига",
+                        "text": "Автобусга",
                         "is_correct": false
                     },
                     {
@@ -202,7 +212,7 @@
                     },
                     {
                         "id": 5,
-                        "text": "Мотоциклга",
+                        "text": "Енгил ва юк автомобилларига",
                         "is_correct": false
                     }
                 ]
@@ -212,40 +222,45 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Легковому автомобилю",
+                        "text": "Мотоциклу",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Автобусу",
+                        "text": "Грузовому автомобилю",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Легковому и и грузовому автомобилям",
+                        "text": "Автобусу",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Грузовому автомобилю",
+                        "text": "Легковому автомобилю",
                         "is_correct": true
                     },
                     {
                         "id": 5,
-                        "text": "Мотоциклу",
+                        "text": "Легковому и и грузовому автомобилям",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 38-bandiga asosan, tartibga soluvchining qo'llari yon tomonga uzatilganda yoki tushirilganda: chap va o'ng yon tomonidan tramvayga to'g'riga, relssiz transport vositalariga to'g'riga va o'ngga harakatlanishga, piyodalarga qatnov qismini kesib o'tishga ruxsat beriladi; old va orqa tomonidan barcha transport vositalari va piyodalarning harakatlanishi taqiqlanadi.",
+            "uz_cyr": "YHQ 7-боби 38-бандига асосан, тартибга солувчининг қўллари ён томонга узатилганда ёки туширилганда: чап ва ўнг ён томонидан трамвайга тўғрига, релссиз транспорт воситаларига тўғрига ва ўнгга ҳаракатланишга, пиёдаларга қатнов қисмини кесиб ўтишга рухсат берилади; олд ва орқа томонидан барча транспорт воситалари ва пиёдаларнинг ҳаракатланиши тақиқланади.",
+            "ru": "Согласно главе 7, пункту 38, при вытянутых или опущенных в стороны руках регулятора: разрешается двигаться с левой и правой стороны к трамваю, вправо и вправо к нерельсовым транспортным средствам, а также переходить проезжую часть пешеходам; движение всех транспортных средств и пешеходов спереди и сзади запрещено."
         }
     },
     {
         "task_info": {
-            "global_id": "t_48_q_11",
-            "ticket_num": 48,
+            "global_id": "t_3_q_6",
+            "ticket_num": 3,
             "order": 4
         },
-        "media_url": "u552uz.webp",
+        "media_url": "v272uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Tartibga soluvchining mazkur ishorasi qo'yidagini bildiradi:",
@@ -263,7 +278,7 @@
                 ]
             },
             "uz_cyr": {
-                "text": "Тартибга солувчининг мазкур ишораси қуйидагини билдиради:",
+                "text": "Тартибга солувчининг мазкур ишораси қўйидагини билдиради:",
                 "options": [
                     {
                         "id": 1,
@@ -278,11 +293,11 @@
                 ]
             },
             "ru": {
-                "text": "Этот сигнал регулировщика означает,что:",
+                "text": "Этот сигнал регулировщика означает, что:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешено движение синемлоу, зеленому автомобилям. Запрещено красному, желтому, бему",
+                        "text": "Разрешено движение синему, зеленому автомобилям. Запрещено красному, желтому, белому",
                         "is_correct": false
                     },
                     {
@@ -292,12 +307,17 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 38-bandiga asosan, tartibga soluvchining o'ng qo'li oldinga uzatilganda: chap yonidan tramvayga chapga, relssiz transport vositalariga barcha yo'nalishlarda; oldi tomonidan barcha transport vositalariga faqat o'ngga harakatlanishga ruxsat beriladi; orqa tomonidan va o'ng yonidan barcha transport vositalarining harakatlanishi taqiqlanadi; piyodalarga tartibga soluvchining orqa tomonida qatnov qismini kesib o'tishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 7-боби 38-бандига асосан, тартибга солувчининг ўнг қўли олдинга узатилганда: чап ёнидан трамвайга чапга, релссиз транспорт воситаларига барча йўналишларда; олди томонидан барча транспорт воситаларига фақат ўнгга ҳаракатланишга рухсат берилади; орқа томонидан ва ўнг ёнидан барча транспорт воситаларининг ҳаракатланиши тақиқланади; пиёдаларга тартибга солувчининг орқа томонида қатнов қисмини кесиб ўтишга рухсат этилади.",
+            "ru": "Согласно главе 7, пункту 38 Закона, при вытягивании правой руки регулятора вперед: с левой стороны на трамвай налево, на нерельсовые транспортные средства во всех направлениях; спереди всем транспортным средствам разрешено движение только вправо; запрещено движение всех транспортных средств сзади и с правой стороны; пешеходам разрешено переходить проезжую часть позади регулятора."
         }
     },
     {
         "task_info": {
-            "global_id": "t_38_q_15",
-            "ticket_num": 38,
+            "global_id": "t_3_q_16",
+            "ticket_num": 3,
             "order": 5
         },
         "media_url": "u438uz.webp",
@@ -307,8 +327,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Qizil, ko'k va yashil avtomobillarga.",
-                        "is_correct": true
+                        "text": "Faqat qizil avtomobilga.",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -317,8 +337,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Faqat qizil avtomobilga.",
-                        "is_correct": false
+                        "text": "Qizil, ko'k va yashil avtomobillarga.",
+                        "is_correct": true
                     }
                 ]
             },
@@ -327,8 +347,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Қизил, кўк ва яшил автомобилларга.",
-                        "is_correct": true
+                        "text": "Фақат қизил автомобилга.",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -337,18 +357,18 @@
                     },
                     {
                         "id": 3,
-                        "text": "Фақат қизил автомобилга.",
-                        "is_correct": false
+                        "text": "Қизил, кўк ва яшил автомобилларга.",
+                        "is_correct": true
                     }
                 ]
             },
             "ru": {
-                "text": "Каким транспортным средствам разрешено движение?",
+                "text": "Каким транспортным средствам разрешается повернуть направо?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Красному и зеленому автомобилям",
-                        "is_correct": true
+                        "text": "Только красному автомобилю",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -357,17 +377,22 @@
                     },
                     {
                         "id": 3,
-                        "text": "Только красному автомобилю",
-                        "is_correct": false
+                        "text": "Красному и зеленому автомобилям",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 38-bandiga asosan, tartibga soluvchining o'ng qo'li oldinga uzatilganda: chap yonidan tramvayga chapga, relssiz transport vositalariga barcha yo'nalishlarda; oldi tomonidan barcha transport vositalariga faqat o'ngga harakatlanishga ruxsat beriladi; orqa tomonidan va o'ng yonidan barcha transport vositalarining harakatlanishi taqiqlanadi; piyodalarga tartibga soluvchining orqa tomonida qatnov qismini kesib o'tishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 7-боби 38-бандига асосан, тартибга солувчининг ўнг қўли олдинга узатилганда: чап ёнидан трамвайга чапга, релссиз транспорт воситаларига барча йўналишларда; олди томонидан барча транспорт воситаларига фақат ўнгга ҳаракатланишга рухсат берилади; орқа томонидан ва ўнг ёнидан барча транспорт воситаларининг ҳаракатланиши тақиқланади; пиёдаларга тартибга солувчининг орқа томонида қатнов қисмини кесиб ўтишга рухсат этилади.",
+            "ru": "Согласно главе 7, пункту 38 Закона, при вытягивании правой руки регулятора вперед: с левой стороны на трамвай налево, на нерельсовые транспортные средства во всех направлениях; спереди всем транспортным средствам разрешено движение только вправо; запрещено движение всех транспортных средств сзади и с правой стороны; пешеходам разрешено переходить проезжую часть позади регулятора."
         }
     },
     {
         "task_info": {
-            "global_id": "t_43_q_18",
-            "ticket_num": 43,
+            "global_id": "t_4_q_6",
+            "ticket_num": 4,
             "order": 6
         },
         "media_url": "u500uz.webp",
@@ -382,13 +407,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Avtomobil va motosiklga",
-                        "is_correct": false
+                        "text": "Motosiklga",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Motosiklga",
-                        "is_correct": true
+                        "text": "Avtomobil va motosiklga",
+                        "is_correct": false
                     }
                 ]
             },
@@ -402,13 +427,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Автомобил ва мотоциклга",
-                        "is_correct": false
+                        "text": "Мотоциклга",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Мотоциклга",
-                        "is_correct": true
+                        "text": "Автомобил ва мотоциклга",
+                        "is_correct": false
                     }
                 ]
             },
@@ -422,22 +447,27 @@
                     },
                     {
                         "id": 2,
-                        "text": "Автомобилю и мотоциклу",
-                        "is_correct": false
+                        "text": "Мотоциклу",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Мотоциклу",
-                        "is_correct": true
+                        "text": "Автомобилю и мотоциклу",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 38-bandiga asosan, tartibga soluvchining qo'llari yon tomonga uzatilganda yoki tushirilganda: chap va o'ng yon tomonidan tramvayga to'g'riga, relssiz transport vositalariga to'g'riga va o'ngga harakatlanishga, piyodalarga qatnov qismini kesib o'tishga ruxsat beriladi; old va orqa tomonidan barcha transport vositalari va piyodalarning harakatlanishi taqiqlanadi.",
+            "uz_cyr": "YHQ 7-боби 38-бандига асосан, тартибга солувчининг қўллари ён томонга узатилганда ёки туширилганда: чап ва ўнг ён томонидан трамвайга тўғрига, релссиз транспорт воситаларига тўғрига ва ўнгга ҳаракатланишга, пиёдаларга қатнов қисмини кесиб ўтишга рухсат берилади; олд ва орқа томонидан барча транспорт воситалари ва пиёдаларнинг ҳаракатланиши тақиқланади.",
+            "ru": "Согласно главе 7, пункту 38, при вытянутых или опущенных в стороны руках регулятора: разрешается двигаться с левой и правой стороны к трамваю, вправо и вправо к нерельсовым транспортным средствам, а также переходить проезжую часть пешеходам; движение всех транспортных средств и пешеходов спереди и сзади запрещено."
         }
     },
     {
         "task_info": {
-            "global_id": "t_27_q_18",
-            "ticket_num": 27,
+            "global_id": "t_4_q_15",
+            "ticket_num": 4,
             "order": 7
         },
         "media_url": "u307uz.webp",
@@ -447,18 +477,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yashil, ko'k va qizil",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Yashil, ko'k va qora avtomobillarga",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Qizil, sariq va yashil avtomobillarga",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Yashil, ko'k va qizil",
+                        "is_correct": true
                     }
                 ]
             },
@@ -467,18 +497,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Яшил, кўк ва қизил",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Яшил, кўк ва қора автомобилларга",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Қизил, сариқ ва яшил автомобилларга",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Яшил, кўк ва қизил",
+                        "is_correct": true
                     }
                 ]
             },
@@ -487,8 +517,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Зеленому, синему и красному автомобилям",
-                        "is_correct": true
+                        "text": "Зеленому, синему и черному автомобилям",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -497,17 +527,22 @@
                     },
                     {
                         "id": 3,
-                        "text": "Зеленому, синему и черному автомобилям",
-                        "is_correct": false
+                        "text": "Зеленому, синему и красному автомобилям",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 38-bandiga asosan, tartibga soluvchining o'ng qo'li oldinga uzatilganda: chap yonidan tramvayga chapga, relssiz transport vositalariga barcha yo'nalishlarda; oldi tomonidan barcha transport vositalariga faqat o'ngga harakatlanishga ruxsat beriladi; orqa tomonidan va o'ng yonidan barcha transport vositalarining harakatlanishi taqiqlanadi; piyodalarga tartibga soluvchining orqa tomonida qatnov qismini kesib o'tishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 7-боби 38-бандига асосан, тартибга солувчининг ўнг қўли олдинга узатилганда: чап ёнидан трамвайга чапга, релссиз транспорт воситаларига барча йўналишларда; олди томонидан барча транспорт воситаларига фақат ўнгга ҳаракатланишга рухсат берилади; орқа томонидан ва ўнг ёнидан барча транспорт воситаларининг ҳаракатланиши тақиқланади; пиёдаларга тартибга солувчининг орқа томонида қатнов қисмини кесиб ўтишга рухсат этилади.",
+            "ru": "Согласно главе 7, пункту 38 Закона, при вытягивании правой руки регулятора вперед: с левой стороны на трамвай налево, на нерельсовые транспортные средства во всех направлениях; спереди всем транспортным средствам разрешено движение только вправо; запрещено движение всех транспортных средств сзади и с правой стороны; пешеходам разрешено переходить проезжую часть позади регулятора."
         }
     },
     {
         "task_info": {
-            "global_id": "t_45_q_1",
-            "ticket_num": 45,
+            "global_id": "t_6_q_1",
+            "ticket_num": 6,
             "order": 8
         },
         "media_url": "u516uz.webp",
@@ -517,23 +552,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Barcha yo'nalishlar bo'yicha",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Faqat o'ngga",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "To'xtash va svetoforning yashil chirog'ini kutish",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Faqat to'g'riga",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Barcha yo'nalishlar bo'yicha",
+                        "is_correct": true
                     }
                 ]
             },
@@ -542,23 +577,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Барча йўналишлар бўйича",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Фақат ўнгга",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Тўхташ ва светофорнинг яшил чироғини кутиш",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Фақат тўғрига",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Барча йўналишлар бўйича",
+                        "is_correct": true
                     }
                 ]
             },
@@ -567,32 +602,37 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Остановиться и ждать зеленого сигнала светофора",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Только направо",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Остановиться и ждать зеленого сигнала светофора",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Во всех направлениях",
+                        "text": "Только прямо",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Только прямо",
-                        "is_correct": false
+                        "text": "Во всех направлениях",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 38-bandiga asosan, tartibga soluvchining o'ng qo'li oldinga uzatilganda: chap yonidan tramvayga chapga, relssiz transport vositalariga barcha yo'nalishlarda; oldi tomonidan barcha transport vositalariga faqat o'ngga harakatlanishga ruxsat beriladi; orqa tomonidan va o'ng yonidan barcha transport vositalarining harakatlanishi taqiqlanadi; piyodalarga tartibga soluvchining orqa tomonida qatnov qismini kesib o'tishga ruxsat etiladi. YHQ 8-bobi 8.14-bandiga muvofiq, haydovchilar va piyodalar tartibga soluvchining ishorasi va ko'rsatmalariga ular svetofor ishoralari, yo'l belgilari va chiziqlariga zid kelgan taqdirda ham amal qilishlari kerak.",
+            "uz_cyr": "YHQ 7-боби 38-бандига асосан, тартибга солувчининг ўнг қўли олдинга узатилганда: чап ёнидан трамвайга чапга, релссиз транспорт воситаларига барча йўналишларда; олди томонидан барча транспорт воситаларига фақат ўнгга ҳаракатланишга рухсат берилади; орқа томонидан ва ўнг ёнидан барча транспорт воситаларининг ҳаракатланиши тақиқланади; пиёдаларга тартибга солувчининг орқа томонида қатнов қисмини кесиб ўтишга рухсат этилади. YHQ 8-боби 8.14-бандига мувофиқ, ҳайдовчилар ва пиёдалар тартибга солувчининг ишораси ва кўрсатмаларига улар светофор ишоралари, йўл белгилари ва чизиқларига зид келган тақдирда ҳам амал қилишлари керак.",
+            "ru": "Согласно главе 7, пункту 38 Закона, при вытягивании правой руки регулятора вперед: с левой стороны на трамвай налево, на нерельсовые транспортные средства во всех направлениях; спереди всем транспортным средствам разрешено движение только вправо; запрещено движение всех транспортных средств сзади и с правой стороны; пешеходам разрешено переходить проезжую часть позади регулятора. В соответствии с пунктом 8.14 главы 8 Закона о дорожном движении водители и пешеходы обязаны следовать указаниям и указаниям регулирующего органа, даже если они противоречат светофорам, дорожным знакам и линиям."
         }
     },
     {
         "task_info": {
-            "global_id": "t_49_q_6",
-            "ticket_num": 49,
+            "global_id": "t_7_q_14",
+            "ticket_num": 7,
             "order": 9
         },
         "media_url": "u559uz.webp",
@@ -602,12 +642,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Motosiklga, yengil va yuk avtomobillariga",
+                        "text": "Yengil va yuk avtomobillariga",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Yengil va yuk avtomobillariga",
+                        "text": "Motosiklga, yengil va yuk avtomobillariga",
                         "is_correct": false
                     },
                     {
@@ -622,17 +662,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Мотоциклга, енгил ва юк автомобилларига",
+                        "text": "Енгил ва юк автомобилларига",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Енгил автомобилга ва мотоциклга",
+                        "text": "Мотоциклга, енгил ва юк автомобилларига",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Енгил ва юк автомобилларига",
+                        "text": "Енгил автомобилга ва мотоциклга",
                         "is_correct": true
                     }
                 ]
@@ -642,12 +682,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Мотоциклу, легковому и грузовому автомобилям",
+                        "text": "Легковому и грузовому автомобилям",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Легковому и грузовому автомобилям",
+                        "text": "Мотоциклу, легковому и грузовому автомобилям",
                         "is_correct": false
                     },
                     {
@@ -657,12 +697,17 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 38-bandiga asosan, tartibga soluvchining o'ng qo'li oldinga uzatilganda: chap yonidan tramvayga chapga, relssiz transport vositalariga barcha yo'nalishlarda; oldi tomonidan barcha transport vositalariga faqat o'ngga harakatlanishga ruxsat beriladi; orqa tomonidan va o'ng yonidan barcha transport vositalarining harakatlanishi taqiqlanadi; piyodalarga tartibga soluvchining orqa tomonida qatnov qismini kesib o'tishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 7-боби 38-бандига асосан, тартибга солувчининг ўнг қўли олдинга узатилганда: чап ёнидан трамвайга чапга, релссиз транспорт воситаларига барча йўналишларда; олди томонидан барча транспорт воситаларига фақат ўнгга ҳаракатланишга рухсат берилади; орқа томонидан ва ўнг ёнидан барча транспорт воситаларининг ҳаракатланиши тақиқланади; пиёдаларга тартибга солувчининг орқа томонида қатнов қисмини кесиб ўтишга рухсат этилади.",
+            "ru": "Согласно главе 7, пункту 38 Закона, при вытягивании правой руки регулятора вперед: с левой стороны на трамвай налево, на нерельсовые транспортные средства во всех направлениях; спереди всем транспортным средствам разрешено движение только вправо; запрещено движение всех транспортных средств сзади и с правой стороны; пешеходам разрешено переходить проезжую часть позади регулятора."
         }
     },
     {
         "task_info": {
-            "global_id": "t_25_q_19",
-            "ticket_num": 25,
+            "global_id": "t_8_q_4",
+            "ticket_num": 8,
             "order": 10
         },
         "media_url": "u280uz.webp",
@@ -672,23 +717,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "O'ngga ikkinchi yo'lga",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "To'g'riga",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "O'ngga birinchi yo'lga",
+                        "is_correct": true
+                    },
+                    {
                         "id": 3,
-                        "text": "O'ngga birinchi va ikkinchi yo'llarga",
+                        "text": "O'ngga ikkinchi yo'lga",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "O'ngga birinchi yo'lga",
-                        "is_correct": true
+                        "text": "O'ngga birinchi va ikkinchi yo'llarga",
+                        "is_correct": false
                     }
                 ]
             },
@@ -697,23 +742,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ўнгга иккинчи йўлга",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Тўғрига",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Ўнгга биринчи йўлга",
+                        "is_correct": true
+                    },
+                    {
                         "id": 3,
-                        "text": "Ўнгга биринчи ва иккинчи йўлларга",
+                        "text": "Ўнгга иккинчи йўлга",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Ўнгга биринчи йўлга",
-                        "is_correct": true
+                        "text": "Ўнгга биринчи ва иккинчи йўлларга",
+                        "is_correct": false
                     }
                 ]
             },
@@ -722,32 +767,37 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Направо во второй проезд",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Прямо",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Направо в первый проезд",
+                        "is_correct": true
+                    },
+                    {
                         "id": 3,
-                        "text": "Направо в первый и второй проезды",
+                        "text": "Направо во второй проезд",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Направо в первый проезд",
-                        "is_correct": true
+                        "text": "Направо в первый и второй проезды",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 38 bandiga asosan, Tartibga soluvchining ishoralari quyidagi ma’noni bildiradi: Qo‘llari yon tomonga uzatilganda yoki tushirilganda: chap va o‘ng yon tomonidan tramvayga to‘g‘riga, relssiz transport vositalariga to‘g‘riga va o‘ngga harakatlanishga, piyodalarga qatnov qismini kesib o‘tishga ruxsat beriladi; old va orqa tomonidan barcha transport vositalari va piyodalarning harakatlanishi taqiqlanadi.\r\nUshbu vaziyatda qizil va sariq avtomobillarga harakatlanishga ruxsat etiladi.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 38 бандига асосан, Тартибга солувчининг ишоралари қуйидаги маънони билдиради: Қўллари ён томонга узатилганда ёки туширилганда: чап ва ўнг ён томонидан трамвайга тўғрига, релссиз транспорт воситаларига тўғрига ва ўнгга ҳаракатланишга, пиёдаларга қатнов қисмини кесиб ўтишга рухсат берилади; олд ва орқа томонидан барча транспорт воситалари ва пиёдаларнинг ҳаракатланиши тақиқланади.\r\nУшбу вазиятда қизил ва сариқ автомобилларга ҳаракатланишга рухсат этилади.",
+            "ru": "Согласно статье 38 Правил дорожного движения знаки Регулятора имеют следующее значение: При вытянутых или опущенных в стороны руках: разрешается движение с левой и правой стороны трамваю, безрельсовым транспортным средствам вправо и вправо, а пешеходам разрешается переходить проезжую часть; движение всех транспортных средств и пешеходов спереди и сзади запрещено. \r\nВ этой ситуации движение разрешено красным и желтым автомобилям."
         }
     },
     {
         "task_info": {
-            "global_id": "t_5_q_17",
-            "ticket_num": 5,
+            "global_id": "t_21_q_15",
+            "ticket_num": 21,
             "order": 11
         },
         "media_url": "u49uz.webp",
@@ -757,18 +807,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Yuk avtomobili va motosiklga",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Barcha transport vositalariga",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Tramvayga va yengil avtomobilga",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Yuk avtomobili va motosiklga",
-                        "is_correct": true
                     },
                     {
                         "id": 4,
@@ -782,18 +832,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Юк автомобили ва мотоциклга",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Барча транспорт воситаларига",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Трамвайга ва енгил автомобилга",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Юк автомобили ва мотоциклга",
-                        "is_correct": true
                     },
                     {
                         "id": 4,
@@ -807,32 +857,37 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Грузовому автомобилю и мотоциклу",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Всем транспортным средствам",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Трамваю и легковому автомобилю",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "Легковому и грузовому автомобилям, мотоциклу",
-                        "is_correct": true
-                    },
-                    {
                         "id": 4,
-                        "text": "Грузовому автомобилю и мотоциклу",
+                        "text": "Легковому и грузовому автомобилям, мотоциклу",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 38-bandiga asosan, tartibga soluvchining qo'llari yon tomonga uzatilganda yoki tushirilganda: chap va o'ng yon tomonidan tramvayga to'g'riga, relssiz transport vositalariga to'g'riga va o'ngga harakatlanishga, piyodalarga qatnov qismini kesib o'tishga ruxsat beriladi; old va orqa tomonidan barcha transport vositalari va piyodalarning harakatlanishi taqiqlanadi.",
+            "uz_cyr": "YHQ 7-боби 38-бандига асосан, тартибга солувчининг қўллари ён томонга узатилганда ёки туширилганда: чап ва ўнг ён томонидан трамвайга тўғрига, релссиз транспорт воситаларига тўғрига ва ўнгга ҳаракатланишга, пиёдаларга қатнов қисмини кесиб ўтишга рухсат берилади; олд ва орқа томонидан барча транспорт воситалари ва пиёдаларнинг ҳаракатланиши тақиқланади.",
+            "ru": "Согласно главе 7, пункту 38, при вытянутых или опущенных в стороны руках регулятора: разрешается двигаться с левой и правой стороны к трамваю, вправо и вправо к нерельсовым транспортным средствам, а также переходить проезжую часть пешеходам; движение всех транспортных средств и пешеходов спереди и сзади запрещено."
         }
     },
     {
         "task_info": {
-            "global_id": "t_48_q_17",
-            "ticket_num": 48,
+            "global_id": "t_23_q_15",
+            "ticket_num": 23,
             "order": 12
         },
         "media_url": "u555uz.webp",
@@ -842,8 +897,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "To'xtadi va tartibga soluvchining ruxsat etuvchi ishorasida to'xtamay chapga burildi",
-                        "is_correct": true
+                        "text": "Chorrahaga chiqdi, yuk avtomobilini o'tkazib yubordi, burilishni tugalladi",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -852,8 +907,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Chorrahaga chiqdi, yuk avtomobilini o'tkazib yubordi, burilishni tugalladi",
-                        "is_correct": false
+                        "text": "To'xtadi va tartibga soluvchining ruxsat etuvchi ishorasida to'xtamay chapga burildi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -862,8 +917,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тўхтади ва тартибга солувчининг рухсат этувчи ишорасида тўхтамай чапга бурилди",
-                        "is_correct": true
+                        "text": "Чорраҳага чиқди, юк автомобилини ўтказиб юборди, бурилишни тугаллади",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -872,8 +927,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Чорраҳага чиқди, юк автомобилини ўтказиб юборди, бурилишни тугаллади",
-                        "is_correct": false
+                        "text": "Тўхтади ва тартибга солувчининг рухсат этувчи ишорасида тўхтамай чапга бурилди",
+                        "is_correct": true
                     }
                 ]
             },
@@ -882,27 +937,32 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Выехал на перекрёсток и, дождавшись разрешающего жеста регулировщика, закончил поворот",
-                        "is_correct": true
+                        "text": "Выехал на перекрёсток, пропустил грузовой автомобиль, закончил поворот",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Остановится и при разрешающем жесте регулировщика повернёт налево",
+                        "text": "Выехал на перекрёсток и, дождавшись разрешающего жеста регулировщика, закончил поворот",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Выехал на перекрёсток, пропустил грузовой автомобиль, закончил поворот",
-                        "is_correct": false
+                        "text": "Остановится и при разрешающем жесте регулировщика повернёт налево",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 38-bandiga asosan, tartibga soluvchining qo'llari yon tomonga uzatilganda yoki tushirilganda: chap va o'ng yon tomonidan tramvayga to'g'riga, relssiz transport vositalariga to'g'riga va o'ngga harakatlanishga, piyodalarga qatnov qismini kesib o'tishga ruxsat beriladi; old va orqa tomonidan barcha transport vositalari va piyodalarning harakatlanishi taqiqlanadi. O'ng qo'li oldinga uzatilganda: chap yonidan tramvayga chapga, relssiz transport vositalariga barcha yo'nalishlarda; oldi tomonidan barcha transport vositalariga faqat o'ngga harakatlanishga ruxsat beriladi; orqa tomonidan va o'ng yonidan barcha transport vositalarining harakatlanishi taqiqlanadi;\r\npiyodalarga tartibga soluvchining orqa tomonida qatnov qismini kesib o'tishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 7-боби 38-бандига асосан, тартибга солувчининг қўллари ён томонга узатилганда ёки туширилганда: чап ва ўнг ён томонидан трамвайга тўғрига, релссиз транспорт воситаларига тўғрига ва ўнгга ҳаракатланишга, пиёдаларга қатнов қисмини кесиб ўтишга рухсат берилади; олд ва орқа томонидан барча транспорт воситалари ва пиёдаларнинг ҳаракатланиши тақиқланади. Ўнг қўли олдинга узатилганда: чап ёнидан трамвайга чапга, релссиз транспорт воситаларига барча йўналишларда; олди томонидан барча транспорт воситаларига фақат ўнгга ҳаракатланишга рухсат берилади; орқа томонидан ва ўнг ёнидан барча транспорт воситаларининг ҳаракатланиши тақиқланади;\r\nпиёдаларга тартибга солувчининг орқа томонида қатнов қисмини кесиб ўтишга рухсат этилади.",
+            "ru": "Согласно главе 7, пункту 38, при вытянутых или опущенных в стороны руках регулятора: разрешается двигаться с левой и правой стороны к трамваю, вправо и вправо к нерельсовым транспортным средствам, а также переходить проезжую часть пешеходам; движение всех транспортных средств и пешеходов спереди и сзади запрещено. При вытянутой вперед правой руке: с левой стороны на трамвай налево, на нерельсовые транспортные средства во всех направлениях; спереди всем транспортным средствам разрешено движение только вправо; запрещено движение всех транспортных средств сзади и с правой стороны; \r\nпешеходам разрешено переходить проезжую часть позади регулятора."
         }
     },
     {
         "task_info": {
-            "global_id": "t_22_q_18",
-            "ticket_num": 22,
+            "global_id": "t_24_q_5",
+            "ticket_num": 24,
             "order": 13
         },
         "media_url": "u249uz.webp",
@@ -917,12 +977,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Avtomobillar va tramvay",
+                        "text": "Barcha transport vositalari",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Barcha transport vositalari",
+                        "text": "Avtomobillar va tramvay",
                         "is_correct": false
                     }
                 ]
@@ -937,12 +997,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Автомобиллар ва трамвай",
+                        "text": "Барча транспорт воситалари",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Барча транспорт воситалари",
+                        "text": "Автомобиллар ва трамвай",
                         "is_correct": false
                     }
                 ]
@@ -957,22 +1017,27 @@
                     },
                     {
                         "id": 2,
-                        "text": "Автомобили и трамвай",
+                        "text": "Все транспортные средства",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Все транспортные средства",
+                        "text": "Автомобили и трамвай",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 38-bandiga asosan, tartibga soluvchining o'ng qo'li oldinga uzatilganda: chap yonidan tramvayga chapga, relssiz transport vositalariga barcha yo'nalishlarda; oldi tomonidan barcha transport vositalariga faqat o'ngga harakatlanishga ruxsat beriladi; orqa tomonidan va o'ng yonidan barcha transport vositalarining harakatlanishi taqiqlanadi; piyodalarga tartibga soluvchining orqa tomonida qatnov qismini kesib o'tishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 7-боби 38-бандига асосан, тартибга солувчининг ўнг қўли олдинга узатилганда: чап ёнидан трамвайга чапга, релссиз транспорт воситаларига барча йўналишларда; олди томонидан барча транспорт воситаларига фақат ўнгга ҳаракатланишга рухсат берилади; орқа томонидан ва ўнг ёнидан барча транспорт воситаларининг ҳаракатланиши тақиқланади; пиёдаларга тартибга солувчининг орқа томонида қатнов қисмини кесиб ўтишга рухсат этилади.",
+            "ru": "Согласно главе 7, пункту 38 Закона, при вытягивании правой руки регулятора вперед: с левой стороны на трамвай налево, на нерельсовые транспортные средства во всех направлениях; спереди всем транспортным средствам разрешено движение только вправо; запрещено движение всех транспортных средств сзади и с правой стороны; пешеходам разрешено переходить проезжую часть позади регулятора."
         }
     },
     {
         "task_info": {
-            "global_id": "t_12_q_2",
-            "ticket_num": 12,
+            "global_id": "t_24_q_15",
+            "ticket_num": 24,
             "order": 14
         },
         "media_url": "u126uz.webp",
@@ -1012,22 +1077,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "На правом рисунке",
+                        "text": "На левом рисунке",
                         "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "На левом рисунке",
+                        "text": "На правом рисунке",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 38-bandiga asosan, tartibga soluvchining qo'llari yon tomonga uzatilganda yoki tushirilganda: chap va o'ng yon tomonidan tramvayga to'g'riga, relssiz transport vositalariga to'g'riga va o'ngga harakatlanishga, piyodalarga qatnov qismini kesib o'tishga ruxsat beriladi; old va orqa tomonidan barcha transport vositalari va piyodalarning harakatlanishi taqiqlanadi. O'ng qo'li oldinga uzatilganda: chap yonidan tramvayga chapga, relssiz transport vositalariga barcha yo'nalishlarda; oldi tomonidan barcha transport vositalariga faqat o'ngga harakatlanishga ruxsat beriladi; orqa tomonidan va o'ng yonidan barcha transport vositalarining harakatlanishi taqiqlanadi;\r\npiyodalarga tartibga soluvchining orqa tomonida qatnov qismini kesib o'tishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 7-боби 38-бандига асосан, тартибга солувчининг қўллари ён томонга узатилганда ёки туширилганда: чап ва ўнг ён томонидан трамвайга тўғрига, релссиз транспорт воситаларига тўғрига ва ўнгга ҳаракатланишга, пиёдаларга қатнов қисмини кесиб ўтишга рухсат берилади; олд ва орқа томонидан барча транспорт воситалари ва пиёдаларнинг ҳаракатланиши тақиқланади. Ўнг қўли олдинга узатилганда: чап ёнидан трамвайга чапга, релссиз транспорт воситаларига барча йўналишларда; олди томонидан барча транспорт воситаларига фақат ўнгга ҳаракатланишга рухсат берилади; орқа томонидан ва ўнг ёнидан барча транспорт воситаларининг ҳаракатланиши тақиқланади;\r\nпиёдаларга тартибга солувчининг орқа томонида қатнов қисмини кесиб ўтишга рухсат этилади.",
+            "ru": "Согласно главе 7, пункту 38, при вытянутых или опущенных в стороны руках регулятора: разрешается двигаться с левой и правой стороны к трамваю, вправо и вправо к нерельсовым транспортным средствам, а также переходить проезжую часть пешеходам; движение всех транспортных средств и пешеходов спереди и сзади запрещено. При вытянутой вперед правой руке: с левой стороны на трамвай налево, на нерельсовые транспортные средства во всех направлениях; спереди всем транспортным средствам разрешено движение только вправо; запрещено движение всех транспортных средств сзади и с правой стороны; \r\nпешеходам разрешено переходить проезжую часть позади регулятора."
         }
     },
     {
         "task_info": {
-            "global_id": "t_8_q_4",
-            "ticket_num": 8,
+            "global_id": "t_25_q_5",
+            "ticket_num": 25,
             "order": 15
         },
         "media_url": "u79uz.webp",
@@ -1037,18 +1107,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Ko'k-sariq avtomobilga chapga",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Ko'k-sariq avtomobilga to'g'riga, qizil avtomobilga to'g'riga va o'ngga",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Qizil avtomobilga - to'g'riga va o'ngga",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Ko'k-sariq avtomobilga chapga",
-                        "is_correct": true
                     }
                 ]
             },
@@ -1057,18 +1127,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Кўк-сариқ автомобилга чапга",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Кўк-сариқ автомобилга тўғрига, қизил автомобилга тўғрига ва ўнгга",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Қизил автомобилга - тўғрига ва ўнгга",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Кўк-сариқ автомобилга чапга",
-                        "is_correct": true
                     }
                 ]
             },
@@ -1077,27 +1147,32 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Сине-желтому автомобилю - прямо, красному автомобилю - прямо и направо",
-                        "is_correct": false
+                        "text": "Сине-желтому автомобилю - налево",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Красному автомобилю - прямо и направо",
+                        "text": "Сине-желтому автомобилю - прямо, красному автомобилю — прямо и направо",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Сине-желтому автомобилю - налево",
-                        "is_correct": true
+                        "text": "Красному автомобилю — прямо и направо",
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 38-bandiga asosan, tartibga soluvchining qo'llari yon tomonga uzatilganda yoki tushirilganda: chap va o'ng yon tomonidan tramvayga to'g'riga, relssiz transport vositalariga to'g'riga va o'ngga harakatlanishga, piyodalarga qatnov qismini kesib o'tishga ruxsat beriladi; old va orqa tomonidan barcha transport vositalari va piyodalarning harakatlanishi taqiqlanadi.",
+            "uz_cyr": "YHQ 7-боби 38-бандига асосан, тартибга солувчининг қўллари ён томонга узатилганда ёки туширилганда: чап ва ўнг ён томонидан трамвайга тўғрига, релссиз транспорт воситаларига тўғрига ва ўнгга ҳаракатланишга, пиёдаларга қатнов қисмини кесиб ўтишга рухсат берилади; олд ва орқа томонидан барча транспорт воситалари ва пиёдаларнинг ҳаракатланиши тақиқланади.",
+            "ru": "Согласно главе 7, пункту 38, при вытянутых или опущенных в стороны руках регулятора: разрешается двигаться с левой и правой стороны к трамваю, вправо и вправо к нерельсовым транспортным средствам, а также переходить проезжую часть пешеходам; движение всех транспортных средств и пешеходов спереди и сзади запрещено."
         }
     },
     {
         "task_info": {
-            "global_id": "t_44_q_5",
-            "ticket_num": 44,
+            "global_id": "t_25_q_15",
+            "ticket_num": 25,
             "order": 16
         },
         "media_url": "u504uz.webp",
@@ -1107,28 +1182,28 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Tramvayga va qizil avtomobilga",
-                        "is_correct": false
+                        "text": "Qizil avtomobilga",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Tramvayga",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Motosiklga",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Tramvayga va qizil avtomobilga",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Ko'k avtomobilga",
+                        "text": "Tramvayga",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "Qizil avtomobilga",
-                        "is_correct": true
+                        "text": "Ko'k avtomobilga",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1137,28 +1212,28 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Трамвайга ва қизил автомобилга",
-                        "is_correct": false
+                        "text": "Қизил автомобилга",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Трамвайга",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Мотоциклга",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Трамвайга ва қизил автомобилга",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Кўк автомобилга",
+                        "text": "Трамвайга",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "Қизил автомобилга",
-                        "is_correct": true
+                        "text": "Кўк автомобилга",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1167,37 +1242,42 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Трамваю и красному автомобилю",
-                        "is_correct": false
+                        "text": "Красному автомобилю",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Трамваю",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Мотоциклу",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Трамваю и красному автомобилю",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Красному автомобилю",
+                        "text": "Трамваю",
                         "is_correct": false
                     },
                     {
                         "id": 5,
                         "text": "Синему автомобилю",
-                        "is_correct": true
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 38-bandiga asosan, tartibga soluvchining o'ng qo'li oldinga uzatilganda: chap yonidan tramvayga chapga, relssiz transport vositalariga barcha yo'nalishlarda; oldi tomonidan barcha transport vositalariga faqat o'ngga harakatlanishga ruxsat beriladi; orqa tomonidan va o'ng yonidan barcha transport vositalarining harakatlanishi taqiqlanadi; piyodalarga tartibga soluvchining orqa tomonida qatnov qismini kesib o'tishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 7-боби 38-бандига асосан, тартибга солувчининг ўнг қўли олдинга узатилганда: чап ёнидан трамвайга чапга, релссиз транспорт воситаларига барча йўналишларда; олди томонидан барча транспорт воситаларига фақат ўнгга ҳаракатланишга рухсат берилади; орқа томонидан ва ўнг ёнидан барча транспорт воситаларининг ҳаракатланиши тақиқланади; пиёдаларга тартибга солувчининг орқа томонида қатнов қисмини кесиб ўтишга рухсат этилади.",
+            "ru": "Согласно главе 7, пункту 38 Закона, при вытягивании правой руки регулятора вперед: с левой стороны на трамвай налево, на нерельсовые транспортные средства во всех направлениях; спереди всем транспортным средствам разрешено движение только вправо; запрещено движение всех транспортных средств сзади и с правой стороны; пешеходам разрешено переходить проезжую часть позади регулятора."
         }
     },
     {
         "task_info": {
-            "global_id": "t_38_q_13",
-            "ticket_num": 38,
+            "global_id": "t_26_q_5",
+            "ticket_num": 26,
             "order": 17
         },
         "media_url": "u436uz.webp",
@@ -1212,12 +1292,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Oq va yashil avtomobilga",
+                        "text": "Yashil, qizil va oq avtomobilgatosiklga",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Yashil, qizil va oq avtomobilgatosiklga",
+                        "text": "Oq va yashil avtomobilga",
                         "is_correct": false
                     }
                 ]
@@ -1232,12 +1312,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Оқ ва яшил автомобилга",
+                        "text": "Яшил, қизил ва оқ автомобилгатоциклга",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Яшил, қизил ва оқ автомобилгатоциклга",
+                        "text": "Оқ ва яшил автомобилга",
                         "is_correct": false
                     }
                 ]
@@ -1252,22 +1332,27 @@
                     },
                     {
                         "id": 2,
-                        "text": "Белому и зеленому автомобилю",
+                        "text": "Зеленому, красному и белому автомобилям",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Зеленому, красному и белому автомобилям",
+                        "text": "Белому и зеленому автомобилю",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 38-bandiga asosan, tartibga soluvchining qo'llari yon tomonga uzatilganda yoki tushirilganda: chap va o'ng yon tomonidan tramvayga to'g'riga, relssiz transport vositalariga to'g'riga va o'ngga harakatlanishga, piyodalarga qatnov qismini kesib o'tishga ruxsat beriladi; old va orqa tomonidan barcha transport vositalari va piyodalarning harakatlanishi taqiqlanadi.",
+            "uz_cyr": "YHQ 7-боби 38-бандига асосан, тартибга солувчининг қўллари ён томонга узатилганда ёки туширилганда: чап ва ўнг ён томонидан трамвайга тўғрига, релссиз транспорт воситаларига тўғрига ва ўнгга ҳаракатланишга, пиёдаларга қатнов қисмини кесиб ўтишга рухсат берилади; олд ва орқа томонидан барча транспорт воситалари ва пиёдаларнинг ҳаракатланиши тақиқланади.",
+            "ru": "Согласно главе 7, пункту 38, при вытянутых или опущенных в стороны руках регулятора: разрешается двигаться с левой и правой стороны к трамваю, вправо и вправо к нерельсовым транспортным средствам, а также переходить проезжую часть пешеходам; движение всех транспортных средств и пешеходов спереди и сзади запрещено."
         }
     },
     {
         "task_info": {
-            "global_id": "t_6_q_12",
-            "ticket_num": 6,
+            "global_id": "t_26_q_15",
+            "ticket_num": 26,
             "order": 18
         },
         "media_url": "u55uz.webp",
@@ -1277,28 +1362,28 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Tramvayga chapga, avtomobilga chapga va teskari yo'nalishga",
-                        "is_correct": true
+                        "text": "Tramvayga chapga yoki to'g'riga",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Tramvay va avtomobilga chapga",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Tramvayga chapga yoki to'g'riga, avtomobilga tramvaydan so'ng",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
                         "text": "Faqat avtomobilga chapga",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
-                        "text": "Tramvayga chapga yoki to'g'riga",
+                        "id": 3,
+                        "text": "Tramvay va avtomobilga chapga",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Tramvayga chapga yoki to'g'riga, avtomobilga tramvaydan so'ng",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Tramvayga chapga, avtomobilga chapga va teskari yo'nalishga",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1307,28 +1392,28 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Трамвайга чапга, автомобилга чапга ва тескари йўналишга",
-                        "is_correct": true
+                        "text": "Трамвайга чапга ёки тўғрига",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Трамвай ва автомобилга чапга",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Трамвайга чапга ёки тўғрига, автомобилга трамвайдан сўнг",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
                         "text": "Фақат автомобилга чапга",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
-                        "text": "Трамвайга чапга ёки тўғрига",
+                        "id": 3,
+                        "text": "Трамвай ва автомобилга чапга",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Трамвайга чапга ёки тўғрига, автомобилга трамвайдан сўнг",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Трамвайга чапга, автомобилга чапга ва тескари йўналишга",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1337,12 +1422,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Трамваю налево, автомобилю налево и в обратном направлении",
-                        "is_correct": true
+                        "text": "Трамваю налево или прямо",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Трамваю налево или прямо, автомобилю после трамвая",
+                        "text": "Только автомобилю налево",
                         "is_correct": false
                     },
                     {
@@ -1352,25 +1437,30 @@
                     },
                     {
                         "id": 4,
-                        "text": "Только автомобилю налево",
+                        "text": "Трамваю налево или прямо, автомобилю после трамвая",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "Трамваю налево или прямо",
-                        "is_correct": false
+                        "text": "Трамваю налево, автомобилю налево и в обратном направлении",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 38-bandiga asosan, tartibga soluvchining o'ng qo'li oldinga uzatilganda: chap yonidan tramvayga chapga, relssiz transport vositalariga barcha yo'nalishlarda; oldi tomonidan barcha transport vositalariga faqat o'ngga harakatlanishga ruxsat beriladi; orqa tomonidan va o'ng yonidan barcha transport vositalarining harakatlanishi taqiqlanadi; piyodalarga tartibga soluvchining orqa tomonida qatnov qismini kesib o'tishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 7-боби 38-бандига асосан, тартибга солувчининг ўнг қўли олдинга узатилганда: чап ёнидан трамвайга чапга, релссиз транспорт воситаларига барча йўналишларда; олди томонидан барча транспорт воситаларига фақат ўнгга ҳаракатланишга рухсат берилади; орқа томонидан ва ўнг ёнидан барча транспорт воситаларининг ҳаракатланиши тақиқланади; пиёдаларга тартибга солувчининг орқа томонида қатнов қисмини кесиб ўтишга рухсат этилади.",
+            "ru": "Согласно главе 7, пункту 38 Закона, при вытягивании правой руки регулятора вперед: с левой стороны на трамвай налево, на нерельсовые транспортные средства во всех направлениях; спереди всем транспортным средствам разрешено движение только вправо; запрещено движение всех транспортных средств сзади и с правой стороны; пешеходам разрешено переходить проезжую часть позади регулятора."
         }
     },
     {
         "task_info": {
-            "global_id": "t_29_q_15",
-            "ticket_num": 29,
+            "global_id": "t_31_q_1",
+            "ticket_num": 31,
             "order": 19
         },
-        "media_url": "",
+        "media_url": null,
         "content": {
             "uz_lat": {
                 "text": "Yo'lda harakatlanishni tartibga solish uchun vakolatli shaxsda o'zi bilan bo'lishi kerak:",
@@ -1382,18 +1472,18 @@
                     },
                     {
                         "id": 2,
-                        "text": "Barcha sanab o'tilgan belgilar",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Jezl",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Qizil chiroq (yorug'lik qaytargich) gardish yoki bayroqcha",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Barcha sanab o'tilgan belgilar",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1407,18 +1497,18 @@
                     },
                     {
                         "id": 2,
-                        "text": "Барча санаб ўтилган белгилар",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Жезл",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Қизил чироқ (ёруғлик қайтаргич) гардиш ёки байроқча",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Барча санаб ўтилган белгилар",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1432,38 +1522,43 @@
                     },
                     {
                         "id": 2,
-                        "text": "Все перечисленные отличительные знаки",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Жезл",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Диск с красным сигналом (светоотражателем) или флажок",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Все перечисленные отличительные знаки",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-bobi 6-bandi 44-tushunchasiga asosan, tartibga soluvchi — O'z.R. IIV DYHXXning, harbiy avtomobil nazorati organlari xodimi, o'z xizmat vazifalarini bajarayotgan, ushbu qoidalarda ko'zda tutilgan ishoralar yordamida yo'l harakatini tartibga solish vakolatiga ega bo'lgan va uni bevosita amalga oshirayotgan yo'ldan foydalanish xizmati xodimlari, temir yo'l kesishmasi va sol kechuvlaridagi navbatchilar hamda jamoatchilik vakillari. Tartibga soluvchi maxsus kiyim va (yoki) taniqlik belgisi (qo'l bog'ichi, jezl, qizil ishorali yorug'lik qaytargich, qizil chiroq yoki bayroqcha)ga ega bo'lishi shart.",
+            "uz_cyr": "YHQ 1-боби 6-банди 44-тушунчасига асосан, тартибга солувчи — Ўз.Р. ИИВ ДЙҲХХнинг, ҳарбий автомобил назорати органлари ходими, ўз хизмат вазифаларини бажараётган, ушбу қоидаларда кўзда тутилган ишоралар ёрдамида йўл ҳаракатини тартибга солиш ваколатига эга бўлган ва уни бевосита амалга ошираётган йўлдан фойдаланиш хизмати ходимлари, темир йўл кесишмаси ва сол кечувларидаги навбатчилар ҳамда жамоатчилик вакиллари. Тартибга солувчи махсус кийим ва (ёки) таниқлик белгиси (қўл боғичи, жезл, қизил ишорали ёруғлик қайтаргич, қизил чироқ ёки байроқча)га эга бўлиши шарт.",
+            "ru": "Согласно понятию главы 1, пункта 6, 44, регулирующий орган - Уз.Р. Работники органов внутренних дел МВД, органов управления военной техникой, сотрудники службы дорожного хозяйства, имеющие право регулировать дорожное движение с помощью знаков, предусмотренных настоящими правилами, и непосредственно осуществлять это, должностные лица, дежурящие на железнодорожных переездах и левых переездах, представители общественности. Регулятор должен иметь специальную форму и (или) узнаваемый знак (нарукавную повязку, значок, светоотражатель с красным сигналом, красный свет или флаг)."
         }
     },
     {
         "task_info": {
-            "global_id": "t_44_q_14",
-            "ticket_num": 44,
+            "global_id": "t_31_q_16",
+            "ticket_num": 31,
             "order": 20
         },
-        "media_url": "",
+        "media_url": null,
         "content": {
             "uz_lat": {
                 "text": "Tartibga soluvchining xushtak ishorasi xizmat qiladi:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Piyodalar uchun ruxsat etuvchi ishora bo'lib",
-                        "is_correct": false
+                        "text": "Harakat ishtirokchilarining e'tiborini jalb etish uchun",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -1472,8 +1567,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Harakat ishtirokchilarining e'tiborini jalb etish uchun",
-                        "is_correct": true
+                        "text": "Piyodalar uchun ruxsat etuvchi ishora bo'lib",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1482,8 +1577,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Пиёдалар учун рухсат этувчи ишора бўлиб",
-                        "is_correct": false
+                        "text": "Ҳаракат иштирокчиларининг эътиборини жалб этиш учун",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -1492,8 +1587,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Ҳаракат иштирокчиларининг эътиборини жалб этиш учун",
-                        "is_correct": true
+                        "text": "Пиёдалар учун рухсат этувчи ишора бўлиб",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1503,7 +1598,7 @@
                     {
                         "id": 1,
                         "text": "Для привлечения внимания участников движения",
-                        "is_correct": false
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -1513,19 +1608,24 @@
                     {
                         "id": 3,
                         "text": "Разрешающим сигналом для пешеходов",
-                        "is_correct": true
+                        "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 40-bandiga asosan, yo'l harakati qatnashchilarining e'tiborini jalb etish uchun hushtak bilan qo'shimcha ishora beriladi.",
+            "uz_cyr": "YHQ 7-боби 40-бандига асосан, йўл ҳаракати қатнашчиларининг эътиборини жалб этиш учун ҳуштак билан қўшимча ишора берилади.",
+            "ru": "Согласно главе 7 статьи 40 Закона о дорожном движении для привлечения внимания участников дорожного движения подается дополнительный сигнал свистком."
         }
     },
     {
         "task_info": {
-            "global_id": "t_10_q_12",
-            "ticket_num": 10,
+            "global_id": "t_36_q_20",
+            "ticket_num": 36,
             "order": 21
         },
-        "media_url": "",
+        "media_url": null,
         "content": {
             "uz_lat": {
                 "text": "Chorrahaga kirganingizda tartibga soluvchi qo'lini yuqoriga ko'tardi, sizga harakatlanishga ruxsat etiladimi?",
@@ -1537,13 +1637,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Ruxsat etiladi",
-                        "is_correct": true
+                        "text": "Ruxsat etiladi, agarda siz o'ngga buriladigan bo'lsangiz",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Ruxsat etiladi, agarda siz o'ngga buriladigan bo'lsangiz",
-                        "is_correct": false
+                        "text": "Ruxsat etiladi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1557,13 +1657,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Рухсат этилади",
-                        "is_correct": true
+                        "text": "Рухсат этилади, агарда сиз ўнгга буриладиган бўлсангиз",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Рухсат этилади, агарда сиз ўнгга буриладиган бўлсангиз",
-                        "is_correct": false
+                        "text": "Рухсат этилади",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1577,22 +1677,27 @@
                     },
                     {
                         "id": 2,
-                        "text": "Разрешается",
-                        "is_correct": true
+                        "text": "Разрешается, только если Вы поворачиваете направо",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Разрешается, только если Вы поворачиваете направо",
-                        "is_correct": false
+                        "text": "Разрешается",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 41-bandiga asosan, tartibga soluvchining qo'li yuqoriga ko'tarilganida, haydovchilar transport vositalarini to'xtash chizig'i oldida, bunday chiziq bo'lmaganda esa: chorrahaning qatnov qismi bilan kesishgan joyida, boshqa joylarda tartibga soluvchining oldida, harakatlanishiga ruxsat berilgan transport vositalari va piyodalarga xalaqit bermagan holda, keskin tormoz bermasdan to'xtashga ulgura olmaydigan transport vositalarining haydovchilariga harakatni davom ettirishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 7-боби 41-бандига асосан, тартибга солувчининг қўли юқорига кўтарилганида, ҳайдовчилар транспорт воситаларини тўхташ чизиғи олдида, бундай чизиқ бўлмаганда эса: чорраҳанинг қатнов қисми билан кесишган жойида, бошқа жойларда тартибга солувчининг олдида, ҳаракатланишига рухсат берилган транспорт воситалари ва пиёдаларга халақит бермаган ҳолда, кескин тормоз бермасдан тўхташга улгура олмайдиган транспорт воситаларининг ҳайдовчиларига ҳаракатни давом эттиришга рухсат этилади.",
+            "ru": "Согласно главе 7 статьи 41 Гражданского кодекса, при поднятой руке регулятора водители едут на своих транспортных средствах перед парковочной линией, а при отсутствии такой линии: на пересечении пересечения с проезжей частью, в других местах перед регулятором, не создавая помех транспортным средствам и пешеходам, которым разрешено движение, водителям транспортных средств, которые не могут остановиться без резкого торможения, разрешается продолжать движение."
         }
     },
     {
         "task_info": {
-            "global_id": "t_35_q_11",
-            "ticket_num": 35,
+            "global_id": "t_41_q_7",
+            "ticket_num": 41,
             "order": 22
         },
         "media_url": "u403uz.webp",
@@ -1602,17 +1707,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Qizil, ko'k, yashil va sariq avtomobilga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Qizil va sariq avtomobilga",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Qizil, sariq va yashil avtomobilga",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Qizil, ko'k, yashil va sariq avtomobilga",
+                        "text": "Qizil, sariq va yashil avtomobilga",
                         "is_correct": false
                     }
                 ]
@@ -1622,17 +1727,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Қизил, кўк, яшил ва сариқ автомобилга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Қизил ва сариқ автомобилга",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Қизил, сариқ ва яшил автомобилга",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Қизил, кўк, яшил ва сариқ автомобилга",
+                        "text": "Қизил, сариқ ва яшил автомобилга",
                         "is_correct": false
                     }
                 ]
@@ -1642,27 +1747,32 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Красному, синему, зеленому и желтому автомобилям",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Красному и желтому автомобилям",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Красному, желтому и зеленому автомобилям",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Красному, синему, зеленому и желтому автомобилям",
+                        "text": "Красному, желтому и зеленому автомобилям",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 38 bandiga asosan, Tartibga soluvchining ishoralari quyidagi ma’noni bildiradi: Qo‘llari yon tomonga uzatilganda yoki tushirilganda: chap va o‘ng yon tomonidan tramvayga to‘g‘riga, relssiz transport vositalariga to‘g‘riga va o‘ngga harakatlanishga, piyodalarga qatnov qismini kesib o‘tishga ruxsat beriladi; old va orqa tomonidan barcha transport vositalari va piyodalarning harakatlanishi taqiqlanadi.\r\nUshbu vaziyatda qizil va sariq avtomobillarga harakatlanishga ruxsat etiladi.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 38 бандига асосан, Тартибга солувчининг ишоралари қуйидаги маънони билдиради: Қўллари ён томонга узатилганда ёки туширилганда: чап ва ўнг ён томонидан трамвайга тўғрига, релссиз транспорт воситаларига тўғрига ва ўнгга ҳаракатланишга, пиёдаларга қатнов қисмини кесиб ўтишга рухсат берилади; олд ва орқа томонидан барча транспорт воситалари ва пиёдаларнинг ҳаракатланиши тақиқланади.\r\nУшбу вазиятда қизил ва сариқ автомобилларга ҳаракатланишга рухсат этилади.",
+            "ru": "Согласно статье 38 Правил дорожного движения знаки Регулятора имеют следующее значение: При вытянутых или опущенных в стороны руках: разрешается движение с левой и правой стороны трамваю, безрельсовым транспортным средствам вправо и вправо, а пешеходам разрешается переходить проезжую часть; движение всех транспортных средств и пешеходов спереди и сзади запрещено. \r\nВ этой ситуации движение разрешено красным и желтым автомобилям."
         }
     },
     {
         "task_info": {
-            "global_id": "t_6_q_2",
-            "ticket_num": 6,
+            "global_id": "t_46_q_18",
+            "ticket_num": 46,
             "order": 23
         },
         "media_url": "u51uz.webp",
@@ -1672,12 +1782,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yengil avtomobilga o'nga va to'g'riga",
+                        "text": "Motosiklga o'nga va yengil avtomobilga barcha yo'nalishlarga",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Motosiklga o'nga va yengil avtomobilga barcha yo'nalishlarga",
+                        "text": "Yengil avtomobilga o'nga va to'g'riga",
                         "is_correct": false
                     },
                     {
@@ -1692,17 +1802,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Мотоциклга ўнга, енгил автомобилга тўғрига ва ўнга",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Мотоциклга ўнга ва енгил автомобилга барча йўналишларга",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Енгил автомобилга ўнга ва тўғрига",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Мотоциклга ўнга, енгил автомобилга тўғрига ва ўнга",
                         "is_correct": true
                     }
                 ]
@@ -1712,12 +1822,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Легковому автомобилю на право и прямо",
+                        "text": "Мотоциклу направо, легковому автомобилю на все направления",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Мотоциклу направо, легковому автомобилю на все направления",
+                        "text": "Легковому автомобилю на право и прямо",
                         "is_correct": false
                     },
                     {
@@ -1727,15 +1837,20 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 7-bobi 38-bandi: Tartibga soluvchining ishoralari quyidagi ma‘noni bildiradi: Qo‘llari yon tomonga uzatilganda yoki tushirilganda: chap va o‘ng yon tomonidan tramvayga to‘g‘riga, relssiz transport vositalariga to‘g‘riga va o‘ngga harakatlanishga, piyodalarga qatnov qismini kesib o‘tishga ruxsat beriladi; old va orqa tomonidan barcha transport vositalari va piyodalarning harakatlanishi taqiqlanadi. O‘ng qo‘li oldinga uzatilganda: chap yonidan tramvayga chapga, relssiz transport vositalariga barcha yo‘nalishlarda; oldi tomonidan barcha transport vositalariga faqat o‘ngga harakatlanishga ruxsat beriladi; orqa tomonidan va o‘ng yonidan barcha transport vositalarining harakatlanishi taqiqlanadi; piyodalarga tartibga soluvchining orqa tomonida qatnov qismini kesib o‘tishga ruxsat etiladi.",
+            "uz_cyr": "YHQ 7-боби 38-банди: Тартибга солувчининг ишоралари қуйидаги маънони билдиради: Қўллари ён томонга узатилганда ёки туширилганда: чап ва ўнг ён томонидан трамвайга тўғрига, релссиз транспорт воситаларига тўғрига ва ўнгга ҳаракатланишга, пиёдаларга қатнов қисмини кесиб ўтишга рухсат берилади; олд ва орқа томонидан барча транспорт воситалари ва пиёдаларнинг ҳаракатланиши тақиқланади. Ўнг қўли олдинга узатилганда: чап ёнидан трамвайга чапга, релссиз транспорт воситаларига барча йўналишларда; олди томонидан барча транспорт воситаларига фақат ўнгга ҳаракатланишга рухсат берилади; орқа томонидан ва ўнг ёнидан барча транспорт воситаларининг ҳаракатланиши тақиқланади; пиёдаларга тартибга солувчининг орқа томонида қатнов қисмини кесиб ўтишга рухсат этилади.",
+            "ru": "Глава 7, пункт 38 ГПК: Сигналы регулятора означают следующее: При вытянутых или опущенных в стороны руках: с левой и правой стороны на трамвай, направо и налево от нерельсовых транспортных средств пешеходам разрешается переходить проезжую часть; движение всех транспортных средств и пешеходов спереди и сзади запрещено. При вытянутой вперед правой руке: с левой стороны на трамвай налево, на нерельсовые транспортные средства во всех направлениях; спереди всем транспортным средствам разрешено движение только вправо; запрещено движение всех транспортных средств сзади и с правой стороны; пешеходам разрешено переходить проезжую часть позади регулятора."
         }
     },
     {
         "task_info": {
-            "global_id": "t_29_q_6",
-            "ticket_num": 29,
+            "global_id": "t_48_q_4",
+            "ticket_num": 48,
             "order": 24
         },
-        "media_url": "u326uz.webp",
+        "media_url": "v469uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi transport vositasiga harakatlanish taqiqlangan?",
@@ -1747,13 +1862,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Yuk avtomobiliga",
-                        "is_correct": true
+                        "text": "Xech kimga taqiqlanmagan",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Xech kimga taqiqlanmagan",
-                        "is_correct": false
+                        "text": "Yuk avtomobiliga",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1767,13 +1882,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Юк автомобилига",
-                        "is_correct": true
+                        "text": "Ҳеч кимга тақиқланмаган",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Ҳеч кимга тақиқланмаган",
-                        "is_correct": false
+                        "text": "Юк автомобилига",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1787,22 +1902,27 @@
                     },
                     {
                         "id": 2,
-                        "text": "Грузовому автомобилю",
-                        "is_correct": true
+                        "text": "Никому незапрещено",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Никому незапрещено",
-                        "is_correct": false
+                        "text": "Грузовому автомобилю",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 38 bandiga asosan, Tartibga soluvchining ishoralari quyidagi ma’noni bildiradi: O‘ng qo‘li oldinga uzatilganda: chap yonidan tramvayga chapga, relssiz transport vositalariga barcha yo‘nalishlarda;\r\noldi tomonidan barcha transport vositalariga faqat o‘ngga harakatlanishga ruxsat beriladi; orqa tomonidan va o‘ng yonidan barcha transport vositalarining harakatlanishi taqiqlanadi; piyodalarga tartibga soluvchining orqa tomonida qatnov qismini kesib o‘tishga ruxsat etiladi.\r\nUshbu vaziyatda yuk avtomobiliga harakatlanish taqiqlangan.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 38 бандига асосан, Тартибга солувчининг ишоралари қуйидаги маънони билдиради: Ўнг қўли олдинга узатилганда: чап ёнидан трамвайга чапга, релссиз транспорт воситаларига барча йўналишларда;\r\nолди томонидан барча транспорт воситаларига фақат ўнгга ҳаракатланишга рухсат берилади; орқа томонидан ва ўнг ёнидан барча транспорт воситаларининг ҳаракатланиши тақиқланади; пиёдаларга тартибга солувчининг орқа томонида қатнов қисмини кесиб ўтишга рухсат этилади.\r\nУшбу вазиятда юк автомобилига ҳаракатланиш тақиқланган.",
+            "ru": "Согласно статье 38 Правил дорожного движения сигналы Регулятора имеют следующее значение: При вытянутой вперед правой руке: с левой стороны на трамвай налево, на нерельсовые транспортные средства во всех направлениях; \r\nспереди всем транспортным средствам разрешено движение только вправо; запрещено движение всех транспортных средств сзади и с правой стороны; пешеходам разрешено переходить проезжую часть позади регулятора. \r\nВ этой ситуации движение грузовика запрещено."
         }
     },
     {
         "task_info": {
-            "global_id": "t_13_q_17",
-            "ticket_num": 13,
+            "global_id": "t_47_q_15",
+            "ticket_num": 47,
             "order": 25
         },
         "media_url": "u147uz.webp",
@@ -1812,13 +1932,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Tramvayga yo'l berib qayrilib oladi",
-                        "is_correct": true
+                        "text": "Chorrahadan birinchi bo'lib o'tadi",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Chorrahadan birinchi bo'lib o'tadi",
-                        "is_correct": false
+                        "text": "Tramvayga yo'l berib qayrilib oladi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1827,13 +1947,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Трамвайга йўл бериб қайрилиб олади",
-                        "is_correct": true
+                        "text": "Чорраҳадан биринчи бўлиб ўтади",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Чорраҳадан биринчи бўлиб ўтади",
-                        "is_correct": false
+                        "text": "Трамвайга йўл бериб қайрилиб олади",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1842,22 +1962,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Выпольняет разворот, уступив дорогу трамваю",
-                        "is_correct": true
+                        "text": "Проедет перекрёсток первым",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Проедет перекрёсток первым",
-                        "is_correct": false
+                        "text": "Выпольняет разворот, уступив дорогу трамваю",
+                        "is_correct": true
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 38 bandiga asosan, Tartibga soluvchining ishoralari quyidagi ma’noni bildiradi: O‘ng qo‘li oldinga uzatilganda: chap yonidan tramvayga chapga, relssiz transport vositalariga barcha yo‘nalishlarda;\r\noldi tomonidan barcha transport vositalariga faqat o‘ngga harakatlanishga ruxsat beriladi; orqa tomonidan va o‘ng yonidan barcha transport vositalarining harakatlanishi taqiqlanadi; piyodalarga tartibga soluvchining orqa tomonida qatnov qismini kesib o‘tishga ruxsat etiladi.\r\nYo‘l harakati qoidalarining 101 bandiga asosan, agar svetofor yoki tartibga soluvchining ishoralari tramvay va relssiz transport vositalariga bir vaqtda harakatlanishga ruxsat bersa, harakatlanish yo‘nalishidan qat’i nazar, tramvay oldin o‘tish huquqiga ega bo‘ladi.\r\nUshbu vaziyatda avtomobil haydovchisi tramvayga yo‘l berib, qayrilib oladi.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 38 бандига асосан, Тартибга солувчининг ишоралари қуйидаги маънони билдиради: Ўнг қўли олдинга узатилганда: чап ёнидан трамвайга чапга, релссиз транспорт воситаларига барча йўналишларда;\r\nолди томонидан барча транспорт воситаларига фақат ўнгга ҳаракатланишга рухсат берилади; орқа томонидан ва ўнг ёнидан барча транспорт воситаларининг ҳаракатланиши тақиқланади; пиёдаларга тартибга солувчининг орқа томонида қатнов қисмини кесиб ўтишга рухсат этилади.\r\nЙўл ҳаракати қоидаларининг 101 бандига асосан, агар светофор ёки тартибга солувчининг ишоралари трамвай ва релссиз транспорт воситаларига бир вақтда ҳаракатланишга рухсат берса, ҳаракатланиш йўналишидан қати назар, трамвай олдин ўтиш ҳуқуқига эга бўлади.\r\nУшбу вазиятда автомобил ҳайдовчиси трамвайга йўл бериб, қайрилиб олади.",
+            "ru": "Согласно статье 38 Правил дорожного движения сигналы Регулятора имеют следующее значение: При вытянутой вперед правой руке: с левой стороны на трамвай налево, на нерельсовые транспортные средства во всех направлениях; \r\nспереди всем транспортным средствам разрешено движение только вправо; запрещено движение всех транспортных средств сзади и с правой стороны; пешеходам разрешено переходить проезжую часть позади регулятора. \r\nСогласно статье 101 Правил дорожного движения, если светофор или сигнал регулятора разрешают одновременное движение трамвая и безрельсового транспорта, трамвай имеет преимущество независимо от направления движения. \r\nВ этой ситуации водитель автомобиля уступает дорогу трамваю и поворачивает назад."
         }
     },
     {
         "task_info": {
-            "global_id": "t_41_q_5",
-            "ticket_num": 41,
+            "global_id": "t_52_q_13",
+            "ticket_num": 52,
             "order": 26
         },
         "media_url": "u466uz.webp",
@@ -1907,22 +2032,27 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "25. Tezkor va maxsus xizmatlarning ko‘k yoki qizil yoxud ko‘k va qizil rangli yalt-yalt etuvchi mayoqchalar yoqilgan transport vositalarining haydovchilari kechiktirib bo‘lmaydigan xizmat vazifalarini bajarayotib, harakatlanish xavfsizligini ta’minlash sharti bilan ushbu Qoidalarning 7-bobi (tartibga soluvchining ishoralaridan tashqari), 9 — 16, 19-20 va 22 boblari, 1 va 2-ilovalari talablaridan chetga chiqishlari mumkin.",
+            "uz_cyr": "25. Тезкор ва махсус хизматларнинг кўк ёки қизил ёхуд кўк ва қизил рангли ялт-ялт этувчи маёқчалар ёқилган транспорт воситаларининг ҳайдовчилари кечиктириб бўлмайдиган хизмат вазифаларини бажараётиб, ҳаракатланиш хавфсизлигини таъминлаш шарти билан ушбу Қоидаларнинг 7-боби (тартибга солувчининг ишораларидан ташқари), 9 — 16, 19-20 ва 22 боблари, 1 ва 2-иловалари талабларидан четга чиқишлари мумкин.",
+            "ru": "25. Водители транспортных средств скоростных и специальных служб, имеющих проблесковые маячки синего или красного или сине-красного цвета, могут отступать от требований главы 7 (за исключением указаний регулирующего органа), глав 9 - 16, 19-20 и 22 приложений 1 и 2 настоящих Правил при условии обеспечения безопасности движения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_44_q_13",
-            "ticket_num": 44,
+            "global_id": "t_35b_q_21",
+            "ticket_num": "35b",
             "order": 27
         },
         "media_url": "u509uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Qaysi yo'nalishlarda sizga harakatni davom ettirishga ruxsat etiladi?",
+                "text": "Qaysi yo‘nalishlarda sizga harakatni davom ettirishga ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "To'g'riga va chapga",
+                        "text": "To‘g‘riga va chapga",
                         "is_correct": false
                     },
                     {
@@ -1977,37 +2107,42 @@
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 1-ILOVA 5.8.2 bandi va 5. Axborot-ko‘rsatgich belgilarining 11-xatboshi hamda YHQning 7-bob. 32-band 1 va 2-xatboshiga asosan: 5.8.2. «Tasma bo‘yicha harakatlanish yo‘nalishi». Tasma bo‘yicha ruxsat etilgan harakatlanish yo‘nalishi. Boshqa yo‘nalishlar bo‘yicha harakatlanish taqiqlanadi.\r\nYo‘lning chetki chap bo‘lagidan chapga burilishga ruxsat beruvchi 5.8.1 va 5.8.2 belgilari shu tasmadan qayrilishga ham ruxsat beradi.\r\n32. Yo‘naltirgich ko‘rinishidagi qizil, sariq va yashil rangli svetofor ishoralari ham doirasimon shakldagi svetofor ishoralari bilan bir xil ma’noga ega bo‘ladi. Ular faqat ko‘rsatilgan yo‘nalishga ta’sir etadi.\r\nAgar tegishli yo‘l belgisi bilan qayrilib olish taqiqlanmagan bo‘lsa, chapga burilishga ruxsat beruvchi yo‘naltirgich qayrilib olishga ham ruxsat beradi. Qo‘shimcha tarmoqdagi yashil yo‘naltirgich ham xuddi shu ma’noni bildiradi.",
+            "uz_cyr": "YHQга 1-ИЛОВА 5.8.2 банди ва 5. Ахборот-кўрсатгич белгиларининг 11-хатбоши ҳамда YHQнинг 7-боб. 32-банд 1 ва 2-хатбошига асосан: 5.8.2. «Тасма бўйича ҳаракатланиш йўналиши». Тасма бўйича рухсат этилган ҳаракатланиш йўналиши. Бошқа йўналишлар бўйича ҳаракатланиш тақиқланади.\r\nЙўлнинг четки чап бўлагидан чапга бурилишга рухсат берувчи 5.8.1 ва 5.8.2 белгилари шу тасмадан қайрилишга ҳам рухсат беради.\r\n32. Йўналтиргич кўринишидаги қизил, сариқ ва яшил рангли светофор ишоралари ҳам доирасимон шаклдаги светофор ишоралари билан бир хил маънога эга бўлади. Улар фақат кўрсатилган йўналишга таъсир этади.\r\nАгар тегишли йўл белгиси билан қайрилиб олиш тақиқланмаган бўлса, чапга бурилишга рухсат берувчи йўналтиргич қайрилиб олишга ҳам рухсат беради. Қўшимча тармоқдаги яшил йўналтиргич ҳам худди шу маънони билдиради.",
+            "ru": "ПРИЛОЖЕНИЕ 1 к МПК, пункты 5.8.2 и 5. Пункт 11 информационно-указательных знаков и глава 7 МПК. На основании абзаца 1 и 2 пункта 32: 5.8.2. «Направление движения по ленте». Разрешенное направление движения по полосе. Движение в других направлениях запрещено. \r\nЗнаки 5.8.1 и 5.8.2, разрешающие поворот налево из крайней левой полосы дороги, разрешают и поворот с этой полосы. \r\n32. Красный, желтый и зеленый сигналы светофора в виде указателя имеют то же значение, что и сигналы кругового светофора. Они влияют только на указанное направление. \r\nУказатель поворота, разрешающий поворот налево, также разрешает поворот, если соответствующий дорожный знак не запрещает поворот. Зеленый роутер в дополнительной сети означает то же самое."
         }
     },
     {
         "task_info": {
-            "global_id": "t_30_q_2",
-            "ticket_num": 30,
+            "global_id": "t_35a_q_40",
+            "ticket_num": "35a",
             "order": 28
         },
         "media_url": "u337uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Avtomobillarga qaysi yo'nalishlarda harakatlanishga ruxsat beriladi?",
+                "text": "Avtomobillarga qaysi yo‘nalishlarda harakatlanishga ruxsat beriladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Qizilga ruxsat beriladi, ko'kka o'nga taqiqlangan",
+                        "text": "Qizilga ruxsat beriladi, ko‘kka o‘nga taqiqlangan",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Har ikkisiga ham ko'rsatilgan yo'nalishlarda ruxsat beriladi",
+                        "text": "Har ikkisiga ham ko‘rsatilgan yo‘nalishlarda ruxsat beriladi",
                         "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Qizilga chapga, ko'kka taqiqlaydi",
+                        "text": "Qizilga chapga, ko‘kka taqiqlaydi",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Ko'kka to'g'riga, qizilga chapga",
+                        "text": "Ko‘kka to‘g‘riga, qizilga chapga",
                         "is_correct": false
                     }
                 ]
@@ -2052,16 +2187,186 @@
                     },
                     {
                         "id": 3,
-                        "text": "Красному - налево, синему - запрещено",
+                        "text": "Красному — налево, синему — запрещено",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Синему - прямо, красному - налево",
+                        "text": "Синему — прямо, красному — налево",
                         "is_correct": false
                     }
                 ]
             }
+        },
+        "izoh": {
+            "uz_lat": "\"YHQning 7-bob. 38-bandiga asosan: 38. Tartibga soluvchining ishoralari quyidagi ma’noni bildiradi:\r\nO‘ng qo‘li oldinga uzatilganda:\r\nchap yonidan tramvayga chapga, relssiz transport vositalariga barcha yo‘nalishlarda.\"",
+            "uz_cyr": "\"YHQнинг 7-боб. 38-бандига асосан: 38. Тартибга солувчининг ишоралари қуйидаги маънони билдиради:\r\nЎнг қўли олдинга узатилганда:\r\nчап ёнидан трамвайга чапга, релссиз транспорт воситаларига барча йўналишларда.\"",
+            "ru": "\"Согласно главе 7. пункта 38 Закона Украины: 38. Указания регулятора означают следующее:\r\nКогда правая рука вытянута вперед:\r\nс левой стороны на трамвай налево, на нерельсовый транспорт во всех направлениях»."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_59_q_15",
+            "ticket_num": 59,
+            "order": 29
+        },
+        "media_url": "u1002uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Tartibga soluvchining ushbu ishorasida qaysi transport vositalariga harakatlanishga ruxsat etiladi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Yashil va oq avtomobillarga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Qizil avtomobil va YPX avtomobiliga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faqat YPX avtomobiliga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Hech biriga ruxsat etilmaydi",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Тартибга солувчининг ушбу ишорасида қайси транспорт воситаларига ҳаракатланишга рухсат этилади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Яшил ва оқ автомобилларга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Қизил автомобиль ва ЙПХ автомобилига",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақат ЙПХ автомобилига",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Ҳеч бирига рухсат этилмайди",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Каким транспортным средствам разрешено движение при данном сигнале регулировщика?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Зелёному и белому автомобилям",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Красному автомобилю и автомобилю ДПС",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только автомобилю ДПС",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Ни одному из них движение не разрешается",
+                        "is_correct": true
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 7-bob. 38-bandi va 6-bob. 25-bandi 1-xatboshiga asosan:\r\nTartibga soluvchining ishoralari quyidagi ma'noni bildiradi:\r\nQo‘lini yuqoriga ko‘targanda:\r\nushbu Qoidalarning 42-bandida ko‘rsatilganidan boshqa holatlarda transport vositalari va piyodalarning barcha yo‘nalishlarda harakatlanishi taqiqlanadi.\r\nTezkor va maxsus xizmatlarning ko‘k yoki qizil yoxud ko‘k va qizil rangli yalt-yalt etuvchi mayoqchalar yoqilgan transport vositalarining haydovchilari kechiktirib bo‘lmaydigan xizmat vazifalarini bajarayotib, harakatlanish xavfsizligini ta'minlash sharti bilan ushbu Qoidalarning 7-bobi (tartibga soluvchining ishoralaridan tashqari), 9 — 16, 19-20 va 22 boblari, 1 va 2-ilovalari talablaridan chetga chiqishlari mumkin.",
+            "uz_cyr": "YHQнинг 7-боб. 38-банди ва 6-боб. 25-банди 1-хатбошига асосан:\r\nТартибга солувчининг ишоралари қуйидаги маънони билдиради:\r\nҚўлини юқорига кўтарганда:\r\nушбу Қоидаларнинг 42-бандида кўрсатилганидан бошқа ҳолатларда транспорт воситалари ва пиёдаларнинг барча йўналишларда ҳаракатланиши тақиқланади.\r\nТезкор ва махсус хизматларнинг кўк ёки қизил ёхуд кўк ва қизил рангли ялт-ялт этувчи маёқчалар ёқилган транспорт воситаларининг ҳайдовчилари кечиктириб бўлмайдиган хизмат вазифаларини бажараётиб, ҳаракатланиш хавфсизлигини таъминлаш шарти билан ушбу Қоидаларнинг 7-боби (тартибга солувчининг ишораларидан ташқари), 9 — 16, 19-20 ва 22 боблари, 1 ва 2-иловалари талабларидан четга чиқишлари мумкин.",
+            "ru": "Глава 7 ООН. Статья 38 и глава 6. В соответствии с пунктом 1 пункта 25:\r\nПоказания регулятора имеют следующее значение:\r\nКогда он поднимает руку:\r\nДвижение транспортных средств и пешеходов во всех направлениях запрещается в случаях, кроме указанных в пункте 42 настоящих Правил. \r\nВодители транспортных средств скоростных и специальных служб, имеющих проблесковые маячки синего или красного или сине-красного цвета, могут отступать от требований главы 7 (за исключением указаний регулирующего органа), глав 9-16, 19-20 и 22 приложений 1 и 2 настоящих Правил при условии обеспечения безопасности движения при выполнении своих служебных обязанностей."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_34_q_16",
+            "ticket_num": 34,
+            "order": 30
+        },
+        "media_url": "u394uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi transport vositalari o'ngga harakatlanishga ruxsat etiladi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Tramvayga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Har ikkisiga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Yengil avtomobilga",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси транспорт воситалари ўнгга ҳаракатланишга рухсат этилади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Трамвайга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ҳар иккалага",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Енгил автомобилга",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Каким транспортным средствам разрешено движение направо?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Трамваю",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Обоим",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Легковому автомобилю",
+                        "is_correct": true
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "\"YHQning 7-bob. 31-band 2-xatboshi hamda 36-band 2-xatboshiga asosan:  31. Svetoforning doirasimon ishoralari quyidagi ma’noni bildiradi:\r\nyashil ishora harakatlanishga ruxsat beradi.\r\n36. Tramvaylarning hamda maxsus ajratilgan tasma bo‘ylab harakatlanayotgan boshqa yo‘nalishli transport vositalarining harakatlanishini tartibga solish uchun «T» harfi ko‘rinishida joylashgan to‘rtta doirasimon oq rang ishorali svetoforlar qo‘llanilishi mumkin.\r\nYuqoridagi bir yoki bir nechta va pastki ishora bir vaqtning o‘zida yonganda, harakatlanishga ruxsat etiladi. Ulardan chapdagisi chapga, o‘ngdagisi o‘ngga, o‘rtadagisi to‘g‘riga yurishga ruxsat beradi. Pastdagi ishora o‘chirilib, yuqoridagi uchta ishora bir vaqtda yonsa, harakatlanish taqiqlanadi.\"",
+            "uz_cyr": "\"YHQнинг 7-боб. 31-банд 2-хатбоши ҳамда 36-банд 2-хатбошига асосан:  31. Светофорнинг доирасимон ишоралари қуйидаги маънони билдиради:\r\nяшил ишора ҳаракатланишга рухсат беради.\r\n36. Трамвайларнинг ҳамда махсус ажратилган тасма бўйлаб ҳаракатланаётган бошқа йўналишли транспорт воситаларининг ҳаракатланишини тартибга солиш учун «Т» ҳарфи кўринишида жойлашган тўртта доирасимон оқ ранг ишорали светофорлар қўлланилиши мумкин.\r\nЮқоридаги бир ёки бир нечта ва пастки ишора бир вақтнинг ўзида ёнганда, ҳаракатланишга рухсат этилади. Улардан чапдагиси чапга, ўнгдагиси ўнгга, ўртадагиси тўғрига юришга рухсат беради. Пастдаги ишора ўчирилиб, юқоридаги учта ишора бир вақтда ёнса, ҳаракатланиш тақиқланади.\"",
+            "ru": "Согласно «Главе 7. Пункта 31, пункта 2 и статьи 36, пункта 2 Гражданского кодекса: 31. Круговые светофорные знаки имеют следующее значение:\r\nзеленый знак разрешает движение.\r\n36. Для регулирования движения трамваев и других направленных транспортных средств, движущихся по специально отведенной полосе, могут использоваться светофоры с четырьмя круговыми сигналами белого цвета в виде буквы \"Т\".\r\nДвижение разрешено, если одновременно горит один или несколько верхних и нижних сигналов. Тот, что слева, позволяет идти налево, тот, что справа, направо, а тот, что посередине, направо. Если нижний сигнал выключен и одновременно включены три верхних сигнала, движение запрещено»."
         }
     }
 ]

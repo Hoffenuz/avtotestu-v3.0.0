@@ -75,9 +75,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   // apply its result — a slow stale RPC response can never overwrite a newer
   // state (e.g. premium re-granted after logout/expiry).
   const accessFetchSeqRef = useRef(0);
+  /** Last successful RPC confirmation — used so flaky network doesn't strip PRO mid-session. */
+  const accessConfirmedRef = useRef(false);
 
   const clearAccessState = useCallback(() => {
     accessFetchSeqRef.current++; // invalidate any in-flight fetch
+    accessConfirmedRef.current = false;
     setAccessState('guest');
     setIsPremium(false);
     setExpiresAt(null);
@@ -123,24 +126,28 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           ? row.state
           : 'free_logged_in') as AccessState;
 
+        accessConfirmedRef.current = true;
         setAccessState(state);
         setIsPremium(!!row.is_premium);
         setExpiresAt(row.expires_at ? new Date(row.expires_at) : null);
         setBackendConfirmed(true);
-      } else {
-        // RPC unavailable — fail-closed: no premium granted
+      } else if (!accessConfirmedRef.current) {
+        // Never confirmed this session — fail-closed
         setAccessState('free_logged_in');
         setIsPremium(false);
         setExpiresAt(null);
         setBackendConfirmed(false);
       }
+      // else: keep last confirmed PRO/state on transient RPC failure
     } catch (err) {
       if (isStale()) return;
       if (!import.meta.env.PROD) console.error('Auth Error - Access state fetch:', err);
-      setAccessState('free_logged_in');
-      setIsPremium(false);
-      setExpiresAt(null);
-      setBackendConfirmed(false);
+      if (!accessConfirmedRef.current) {
+        setAccessState('free_logged_in');
+        setIsPremium(false);
+        setExpiresAt(null);
+        setBackendConfirmed(false);
+      }
     } finally {
       if (!isStale()) setAccessStateLoading(false);
     }
@@ -200,6 +207,17 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           if (event === 'INITIAL_SESSION') return;
 
           if (event === 'SIGNED_OUT') {
+            // Another tab may have just rotated tokens and written a fresh
+            // session to shared localStorage. Confirm before wiping — otherwise
+            // a failed refresh in tab B deletes tab A's valid session.
+            const { data: { session: stillThere } } = await supabase.auth.getSession();
+            if (!isMounted) return;
+            if (stillThere?.user) {
+              setSession(stillThere);
+              setUser(stillThere.user);
+              fetchAccessState(stillThere.user.id);
+              return;
+            }
             setSession(null);
             setUser(null);
             setProfile(null);
@@ -211,16 +229,27 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
           if (event === 'TOKEN_REFRESHED') {
             if (!currentSession) {
-              if (!import.meta.env.PROD) console.log('Token refresh failed');
+              // Concurrent multi-tab refresh: the losing tab gets null here while
+              // the winning tab already stored new tokens. Re-read storage first.
+              const { data: { session: recovered } } = await supabase.auth.getSession();
+              if (!isMounted) return;
+              if (recovered?.user) {
+                setSession(recovered);
+                setUser(recovered.user);
+                fetchAccessState(recovered.user.id);
+                return;
+              }
+              if (!import.meta.env.PROD) console.log('Token refresh failed — no recoverable session');
               setSession(null);
               setUser(null);
               setProfile(null);
               clearAccessState();
-              clearAllUserData();
+              // Do not clearAllUserData() here: a sibling tab may still be writing
+              // a valid rotation. Storage is already empty if refresh truly failed.
               setIsLoading(false);
               return;
             }
-            // Session still valid — re-check PRO/trial (e.g. after admin upgrade)
+            // Session still valid — re-check PRO (e.g. after admin upgrade)
             setSession(currentSession);
             setUser(currentSession.user);
             fetchAccessState(currentSession.user.id);
@@ -255,18 +284,25 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     };
   }, [loadUserState, clearAccessState, fetchAccessState]);
 
-  // Re-fetch PRO/trial when user returns to the tab (e.g. after admin activates subscription)
+  // Re-fetch PRO when user returns to the tab (e.g. after admin activates subscription).
+  // Debounce: rapid tab switches + slow network used to flip isPremium=false mid-test.
   useEffect(() => {
     if (!user?.id) return;
 
+    let timer: ReturnType<typeof setTimeout> | null = null;
     const onVisible = () => {
-      if (document.visibilityState === 'visible') {
+      if (document.visibilityState !== 'visible') return;
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(() => {
         fetchAccessState(user.id);
-      }
+      }, 800);
     };
 
     document.addEventListener('visibilitychange', onVisible);
-    return () => document.removeEventListener('visibilitychange', onVisible);
+    return () => {
+      if (timer) clearTimeout(timer);
+      document.removeEventListener('visibilitychange', onVisible);
+    };
   }, [user?.id, fetchAccessState]);
 
   // ── Public methods ─────────────────────────────────────────────────────────
@@ -348,7 +384,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signOut = useCallback(async () => {
     try {
-      await supabase.auth.signOut();
+      // local: faqat shu qurilma. global boshqa telefon/kompyuterdagi sessiyani ham
+      // bekor qilardi — foydalanuvchi "akkauntdan otib ketdi" deb hisoblagan.
+      await supabase.auth.signOut({ scope: 'local' });
     } catch (err) {
       if (!import.meta.env.PROD) console.error('Sign out error:', err);
     }
