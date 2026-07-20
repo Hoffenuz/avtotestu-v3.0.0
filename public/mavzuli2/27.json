@@ -1,28 +1,30 @@
 [
     {
         "task_info": {
-            "global_id": "t_1_q_3",
-            "ticket_num": 1,
-            "order": 1
+            "global_id": "t_50_q_6",
+            "global_id2": "t_50_q_6",
+            "ticket_num": 50,
+            "order": 1,
+            "remapped_from": "t_1_q_3"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Tibbiyot qutichasi va o't o'chirgich bo'lmagan qanday transport vositalaridan foydalanish taqiqlanadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat « M1 » toifali transport vositasi",
+                        "text": "Faqat «N2; N3» toifali transport vositasi",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Faqat « M2; M3; N1 » toifali transport vositasi",
+                        "text": "Faqat «M2; M3; N1» toifali transport vositasi",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Faqat « N2; N3 » toifali transport vositasi",
+                        "text": "Faqat «M1» toifali transport vositasi",
                         "is_correct": false
                     },
                     {
@@ -37,7 +39,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат «M1» тоифали транспорт воситаси",
+                        "text": "Фақат «N2; N3» тоифали транспорт воситаси",
                         "is_correct": false
                     },
                     {
@@ -47,7 +49,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Фақат «N2; N3» тоифали транспорт воситаси",
+                        "text": "Фақат «M1» тоифали транспорт воситаси",
                         "is_correct": false
                     },
                     {
@@ -62,7 +64,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только категории транспортных средств « М1 »",
+                        "text": "Только категории транспортных средств « N2, N3 »",
                         "is_correct": false
                     },
                     {
@@ -72,7 +74,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Только категории транспортных средств « N2, N3 »",
+                        "text": "Только категории транспортных средств « М1 »",
                         "is_correct": false
                     },
                     {
@@ -86,33 +88,35 @@
         "izoh": {
             "uz_lat": "YHQ 3 – ilovasi 7.10 – bandiga asosan: Transport vositalari quydagilar bilan jihozlanmagan bo‘lsa ulardan foydalanish taqiqlanadi:\n\nM2, M3 toifadagi – favqulodda holatlarda oynani sindirish uchun foydalaniladigan bolg‘acha, tibbiyot qutichasi, 2 ta o‘t o‘chirgich (bittasi haydovchining kabinasida, ikkinchisi – yo‘lovchilar salonida), majburiy to‘xtaganini bildiruvchi belgi (yoki miltillovchi qizil chiroq) va nur qaytargichli kamzul (jilet);\n\nM1, N1, N2, N3, toifadagi, mikroavtobus va g‘ildirakli traktorlarda tibbiyot qutuchasi, o‘t o‘chirgich, majburiy to‘xtaganligini bildiruvchi belgi (yoki miltillovchi qizil chiroq) va nur qaytargichli kamzul (jilet);\n\nM3, N2, N3 toifadagi – o‘zi yurub ketishidan saqlovchi, g‘ildirak diametriga muvofiq (kamida ikkita) tirgak;\n\nO toifadagi, traktorlar, aravalar va boshqa o‘ziyurar mashinalarda – tashqi nur qaytargichlar;\n\nkajavali mototsikllarda – tibbiyot qutuchasi, majburiy to‘xtaganligini bildiruvchi belgi.",
             "uz_cyr": "YHQ 3 – иловаси 7.10 – бандига асосан: Транспорт воситалари қуйдагилар билан жиҳозланмаган бўлса улардан фойдаланиш тақиқланади:\n\nМ2, М3 тоифадаги – фавқулодда ҳолатларда ойнани синдириш учун фойдаланиладиган болғача, тиббиёт қутичаси, 2 та ўт ўчиргич (биттаси ҳайдовчининг кабинасида, иккинчиси – йўловчилар салонида), мажбурий тўхтаганини билдирувчи белги (ёки милтилловчи қизил чироқ) ва нур қайтаргичли камзул (жилет);\n\nМ1, Н1, Н2, Н3, тоифадаги, микроавтобус ва ғилдиракли тракторларда тиббиёт қутучаси, ўт ўчиргич, мажбурий тўхтаганлигини билдирувчи белги (ёки милтилловчи қизил чироқ) ва нур қайтаргичли камзул (жилет);\n\nМ3, Н2, Н3 тоифадаги – ўзи юруб кетишидан сақловчи, ғилдирак диаметрига мувофиқ (камида иккита) тиргак;\n\nО тоифадаги, тракторлар, аравалар ва бошқа ўзиюрар машиналарда – ташқи нур қайтаргичлар;\n\nкажавали мототсиклларда – тиббиёт қутучаси, мажбурий тўхтаганлигини билдирувчи белги.",
-            "ru": "В соответствии с пунктом 7.10 приложения 3 Общих правил: Запрещается эксплуатация транспортных средств, не оборудованных:\n\nКатегория М2, М3 – молоток, используемый для разбивания стекла в экстренных ситуациях, аптечка, 2 огнетушителя (один в кабине водителя, другой в салоне), знак, обозначающий вынужденную остановку (или мигающий красный свет) и светоотражающий жилет (жилет); \n\nМ1, Н1, Н2, Н3, категория, микроавтобусы и колесные тракторы, аптечка, огнетушитель, знак обязательной остановки (или мигающий красный свет) и светоотражающий жилет (жилет); \n\nКатегория М3, Н2, Н3 - противоюзовые, по диаметру колеса (не менее двух) шпилек; \n\nНа тракторах, тележках и других самоходных машинах категории О - внешние светоотражатели; \n\nна мотоциклах с мотоциклом - медицинский бокс, знак, указывающий на обязательную остановку."
+            "ru": "В соответствии с пунктом 7.10 приложения 3 ПДД: Запрещается эксплуатация транспортных средств, не оборудованных:\n\nКатегория М2, М3 – молоток, используемый для разбивания стекла в экстренных ситуациях, аптечка, 2 огнетушителя (один в кабине водителя, другой в салоне), знак, обозначающий вынужденную остановку (или мигающий красный свет) и светоотражающий жилет (жилет); \n\nМ1, Н1, Н2, Н3, категория, микроавтобусы и колесные тракторы, аптечка, огнетушитель, знак обязательной остановки (или мигающий красный свет) и светоотражающий жилет (жилет); \n\nКатегория М3, Н2, Н3 - противоюзовые, по диаметру колеса (не менее двух) шпилек; \n\nНа тракторах, тележках и других самоходных машинах категории О - внешние светоотражатели; \n\nна мотоциклах с мотоциклом - медицинский бокс, знак, указывающий на обязательную остановку."
         }
     },
     {
         "task_info": {
-            "global_id": "t_1_q_20",
-            "ticket_num": 1,
-            "order": 2
+            "global_id": "t_43_q_13",
+            "global_id2": "t_43_q_13",
+            "ticket_num": 43,
+            "order": 2,
+            "remapped_from": "t_1_q_20"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qaysi shartlarda transport vositalaridan foydalanish taqiqlanadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Gidravlik tormoz tizimidan suyuqlik oqayotgan bo'lsa",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Ishchi tormoz tizimi samaradorligi talabga javob bermaydi",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Gidravlik tormoz tizimidan suyuqlik oqayotgan bo'lsa",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Kompressor pnevmatik tormoz tizimida o'rnatilgan bosimni taminlay olmagan holatda",
+                        "text": "Kompressor pnevmatik tormoz tizimida o'rnatilgan bosimni ta'minlay olmagan holatda",
                         "is_correct": false
                     },
                     {
@@ -127,12 +131,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Гидравлик тормоз тизимидан суюқлик оқаётган бўлса",
+                        "text": "Ишчи тормоз тизими самарадорлиги талабга жавоб бермайди",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Ишчи тормоз тизими самарадорлиги талабга жавоб бермайди",
+                        "text": "Гидравлик тормоз тизимидан суюқлик оқаётган бўлса",
                         "is_correct": false
                     },
                     {
@@ -152,17 +156,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Не действует рабочая тормозная система",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Подтекает жидкость из системы гидравлических тормозов",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Компрессор не обеспечивает установленного давления в системе пневматических тормозов",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Не действует рабочая тормозная система",
                         "is_correct": false
                     },
                     {
@@ -176,39 +180,41 @@
         "izoh": {
             "uz_lat": "YHQ 3 – ilovasi 1 – bo‘limning 1.3 va 1.4 – bandlariga asosan, transport vositalaridan foydalanish taqiqlanadi:\n\nGidravlik tormoz yurutmasining zichligi (germetikligi) buzulgan bo‘lsa.\n\nDvigatel ishlamay turganda pnevmatik yoki pnevmogidravlik tormoz yurutmasining zichligini buzulishi, boshqaruv qismlari ulanmaganda – 30 daqiqada, ulanganida – 15 daqiqada tizimdagi havo bosimini 0,05 MPa dan ko‘pga pasayishiga sabab bo‘lsa, g‘ildiraklardagi tormoz kameralaridan siqilgan havo chiqayotgan bo‘lsa.\n\nYHQ 2 – bobi 12 – bandining uchunchi xatboshisiga asosan: tormoz tizimi, rul boshqaruvi ishlamayotgan, ulagich moslamasi ( avtopoyezd tarkibida ) nosoz bo‘lgan, qorong‘i vaqtda yoki yetarlicha ko‘rinmaydigan sharoitda – old chiroqlar va orqa gabarit chiroqlari bo‘lmagan yoki yonmayotgan, yomg‘ir, qor yog‘ayotgan vaqtda haydovchi tomonidagi oyna tozalagich ishlamayotgan transport vositalarini boshqarish taqiqlanadi.\n\nShu bilan barcha ko‘rsatilgan shartlar asosida transport vositalaridan foydalanish taqiqlanadi.",
             "uz_cyr": "YHQ 3 – иловаси 1 – бўлимнинг 1.3 ва 1.4 – бандларига асосан, транспорт воситаларидан фойдаланиш тақиқланади:\n\nГидравлик тормоз юрутмасининг зичлиги (герметиклиги) бузулган бўлса.\n\nДвигател ишламай турганда пневматик ёки пневмогидравлик тормоз юрутмасининг зичлигини бузулиши, бошқарув қисмлари уланмаганда – 30 дақиқада, уланганида – 15 дақиқада тизимдаги ҳаво босимини 0,05 МПа дан кўпга пасайишига сабаб бўлса, ғилдираклардаги тормоз камераларидан сиқилган ҳаво чиқаётган бўлса.\n\nYHQ 2 – боби 12 – бандининг учунчи хатбошисига асосан: тормоз тизими, рул бошқаруви ишламаётган, улагич мосламаси ( автопоезд таркибида ) носоз бўлган, қоронғи вақтда ёки етарлича кўринмайдиган шароитда – олд чироқлар ва орқа габарит чироқлари бўлмаган ёки ёнмаётган, ёмғир, қор ёғаётган вақтда ҳайдовчи томонидаги ойна тозалагич ишламаётган транспорт воситаларини бошқариш тақиқланади.\n\nШу билан барча кўрсатилган шартлар асосида транспорт воситаларидан фойдаланиш тақиқланади.",
-            "ru": "Согласно пунктам 1.3 и 1.4 раздела 1 Приложения 3 Общих правил, использование транспортных средств запрещается:\n\nЕсли нарушена герметичность (герметичность) гидравлической тормозной системы. \n\nНарушение плотности пневматической или пневмогидравлической тормозной системы при неработающем двигателе, при неподсоединении органов управления - через 30 минут, при подключении - через 15 минут, при снижении давления воздуха в системе более чем на 0,05 МПа, при выходе сжатого воздуха из тормозных камер на колесах. \n\nСогласно третьему пункту главы 12 YHQ 2: запрещается управлять транспортными средствами с тормозной системой, неработающим рулевым колесом, неисправным соединительным устройством (в составе автопоезда), в темное время суток или в условиях недостаточной видимости - не горят или не горят передние фонари и задние габаритные огни, а также не работает стеклоочиститель со стороны водителя при дожде или снеге. \n\nНастоящим запрещается использовать транспортные средства при всех указанных условиях."
+            "ru": "Согласно пунктам 1.3 и 1.4 раздела 1 Приложения 3 ПДД, использование транспортных средств запрещается:\n\nЕсли нарушена герметичность (герметичность) гидравлической тормозной системы. \n\nНарушение плотности пневматической или пневмогидравлической тормозной системы при неработающем двигателе, при неподсоединении органов управления - через 30 минут, при подключении - через 15 минут, при снижении давления воздуха в системе более чем на 0,05 МПа, при выходе сжатого воздуха из тормозных камер на колесах. \n\nСогласно третьему пункту главы 12 ПДД 2: запрещается управлять транспортными средствами с тормозной системой, неисправным рулевым управлением, неисправным соединительным устройством (в составе автопоезда), в темное время суток или в условиях недостаточной видимости - не горят или не горят передние фонари и задние габаритные огни, а также не работает стеклоочиститель со стороны водителя при дожде или снеге. \n\nНастоящим запрещается использовать транспортные средства при всех указанных условиях."
         }
     },
     {
         "task_info": {
-            "global_id": "t_3_q_20",
-            "ticket_num": 3,
-            "order": 3
+            "global_id": "t_41_q_12",
+            "global_id2": "t_41_q_12",
+            "ticket_num": 41,
+            "order": 3,
+            "remapped_from": "t_3_q_19"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "M2, M3 toifali avtotransport vositalari shina protektorlari naqshlarining qoldiq balandligi kamida qancha bo'lishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "0,8 mm.",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "1,2 mm.",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "1,6 mm",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "2 mm.",
                         "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "0,8 mm.",
+                        "is_correct": false
                     },
                     {
                         "id": 5,
@@ -222,23 +228,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "0,8 мм.",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "1,2 мм.",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "1,6 мм",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "2 мм.",
                         "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "0,8 мм.",
+                        "is_correct": false
                     },
                     {
                         "id": 5,
@@ -248,27 +254,27 @@
                 ]
             },
             "ru": {
-                "text": "Шины автотранспортных средств категории М2, М3 должны иметь остаточную высоту рисунка протектора не менее:",
+                "text": "Какой должна быть минимальная остаточная высота рисунка протектора шин транспортных средств категорий M2 и M3?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "0,8 мм.",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "1,2 мм.",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "1,6 мм.",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "2 мм.",
                         "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "0,8 мм.",
+                        "is_correct": false
                     },
                     {
                         "id": 5,
@@ -286,29 +292,31 @@
     },
     {
         "task_info": {
-            "global_id": "t_4_q_20",
-            "ticket_num": 4,
-            "order": 4
+            "global_id": "t_1_q_1",
+            "global_id2": "t_1_q_1",
+            "ticket_num": 1,
+            "order": 4,
+            "remapped_from": "t_4_q_18"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qanday hollarda transport vositalaridan foydalanishga ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Qo'shaloq shinalar orasiga xavf-xatar tug'diruvchi begona qismlar qisilib, tiqilib qolganda",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Shina o'lchamlari yoki cheklangan og'irlik transport vositasining turiga mos kelmaydi",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "M1, M2, M3 toifali 1 klass avtotransport vositalarining oldingi o'qiga 1 klassda tamirlangan shinalar qo'yilgan",
+                        "id": 2,
+                        "text": "M1, M2, M3 toifali 1 klass avtotransport vositalarining oldingi o'qiga 1 klassda ta'mirlangan shinalar qo'yilgan",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Qo'shaloq shinalar orasiga xavf-xatar tug'diruvchi begona qismlar qisilib, tiqilib qolganda",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
@@ -322,18 +330,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Қўшалоқ шиналар орасига хавф-хатар туғдирувчи бегона қисмлар қисилиб, тиқилиб қолганда",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Шина ўлчамлари ёки чекланган оғирлик транспорт воситасининг турига мос келмайди",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "М1, М2, М3 тоифали 1 класс автотранспорт воситаларининг олдинги ўқига 1 классда таъмирланган шиналар қўйилган",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Қўшалоқ шиналар орасига хавф-хатар туғдирувчи бегона қисмлар қисилиб, тиқилиб қолганда",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
@@ -347,18 +355,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Между сдвоенными шинами имеются инородные предметы",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Шины по размеру или допустимой нагрузки не соответствуют модели транспортного средства",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "На передней оси автотранспортных средств категории М1, М2;М3 класса 1 установлены шины по первому классу ремонта",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Между сдвоенными шинами имеются инородные предметы",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
@@ -376,24 +384,26 @@
     },
     {
         "task_info": {
-            "global_id": "t_5_q_20",
-            "ticket_num": 5,
-            "order": 5
+            "global_id": "t_41_q_3",
+            "global_id2": "t_41_q_3",
+            "ticket_num": 41,
+            "order": 5,
+            "remapped_from": "t_5_q_17"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Sanab o'tilgan qaysi holatlarda transport vositasidan foydalanish taqiqlanadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Pnevmatik tormoz yuritmasining manometri ishlamaydi",
+                        "text": "Motosiklning boshqaruv dempferi nosoz",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Motosiklning boshqaruv dempferi nosoz",
-                        "is_correct": false
+                        "text": "Barcha sanab o'tilgan hollarda",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -402,8 +412,8 @@
                     },
                     {
                         "id": 4,
-                        "text": "Barcha sanab o'tilgan hollarda",
-                        "is_correct": true
+                        "text": "Pnevmatik tormoz yuritmasining manometri ishlamaydi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -412,13 +422,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Пневматик тормоз юритмасининг манометри ишламайди",
+                        "text": "Мотоциклнинг бошқарув демпфери носоз",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Мотоциклнинг бошқарув демпфери носоз",
-                        "is_correct": false
+                        "text": "Барча санаб ўтилган ҳолларда",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -427,8 +437,8 @@
                     },
                     {
                         "id": 4,
-                        "text": "Барча санаб ўтилган ҳолларда",
-                        "is_correct": true
+                        "text": "Пневматик тормоз юритмасининг манометри ишламайди",
+                        "is_correct": false
                     }
                 ]
             },
@@ -437,13 +447,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Не работает манометр пневматического привода тормозов",
+                        "text": "Неисправен рулевой демпфер мотоцикла",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Неисправен рулевой демпфер мотоцикла",
-                        "is_correct": false
+                        "text": "Во всех перечисленных случаях",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -452,8 +462,8 @@
                     },
                     {
                         "id": 4,
-                        "text": "Во всех перечисленных случаях",
-                        "is_correct": true
+                        "text": "Не работает манометр пневматического привода тормозов",
+                        "is_correct": false
                     }
                 ]
             }
@@ -466,33 +476,35 @@
     },
     {
         "task_info": {
-            "global_id": "t_6_q_20",
-            "ticket_num": 6,
-            "order": 6
+            "global_id": "t_4_q_12",
+            "global_id2": "t_4_q_12",
+            "ticket_num": 4,
+            "order": 6,
+            "remapped_from": "t_6_q_19"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "N2; N3 toifadagi avtotransport vositalarining boshqaruv qurilmasida qanday eng katta umumiy lyuft yig'indisiga yo'l qo'yiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "16°",
+                        "text": "26°",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "20°",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "25°",
                         "is_correct": true
                     },
                     {
+                        "id": 3,
+                        "text": "16°",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "26°",
+                        "text": "20°",
                         "is_correct": false
                     },
                     {
@@ -507,22 +519,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "16°",
+                        "text": "26°",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "20°",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "25°",
                         "is_correct": true
                     },
                     {
+                        "id": 3,
+                        "text": "16°",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "26°",
+                        "text": "20°",
                         "is_correct": false
                     },
                     {
@@ -537,22 +549,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "16°",
+                        "text": "26°",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "20°",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "25°",
                         "is_correct": true
                     },
                     {
+                        "id": 3,
+                        "text": "16°",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "26°",
+                        "text": "20°",
                         "is_correct": false
                     },
                     {
@@ -571,11 +583,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_7_q_10",
-            "ticket_num": 7,
-            "order": 7
+            "global_id": "t_12_q_17",
+            "global_id2": "t_12_q_17",
+            "ticket_num": 12,
+            "order": 7,
+            "remapped_from": "t_7_q_10"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Yengil avtomobilda tumanga qarshi faralarning nechtasini o'rnatishga ruxsat etiladi?",
@@ -587,12 +601,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "To'rtta",
+                        "text": "Haydovchining xohishiga ko'ra",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Haydovchining xohishiga ko'ra",
+                        "text": "To'rtta",
                         "is_correct": false
                     }
                 ]
@@ -607,12 +621,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Тўртта",
+                        "text": "Ҳайдовчининг хоҳишига кўра",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Ҳайдовчининг хоҳишига кўра",
+                        "text": "Тўртта",
                         "is_correct": false
                     }
                 ]
@@ -627,12 +641,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Четыре",
+                        "text": "По усмотрению водителя",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "По усмотрению водителя",
+                        "text": "Четыре",
                         "is_correct": false
                     }
                 ]
@@ -646,19 +660,21 @@
     },
     {
         "task_info": {
-            "global_id": "t_7_q_17",
-            "ticket_num": 7,
-            "order": 8
+            "global_id": "t_35_q_15",
+            "global_id2": "t_35_q_15",
+            "ticket_num": 35,
+            "order": 8,
+            "remapped_from": "t_7_q_16"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Transport vositasining bitta o'qiga har xil naqshli shinalarni o'rnatishga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat oldingi o'qiga ruxsat etiladi",
-                        "is_correct": false
+                        "text": "Taqiqlanadi",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -667,8 +683,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Taqiqlanadi",
-                        "is_correct": true
+                        "text": "Faqat oldingi o'qiga ruxsat etiladi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -677,8 +693,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат олдинги ўқига рухсат этилади",
-                        "is_correct": false
+                        "text": "Тақиқланади",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -687,8 +703,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Тақиқланади",
-                        "is_correct": true
+                        "text": "Фақат олдинги ўқига рухсат этилади",
+                        "is_correct": false
                     }
                 ]
             },
@@ -697,8 +713,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается только на переднюю ось",
-                        "is_correct": false
+                        "text": "Запрещается",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -707,8 +723,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Запрещается",
-                        "is_correct": true
+                        "text": "Разрешается только на переднюю ось",
+                        "is_correct": false
                     }
                 ]
             }
@@ -721,14 +737,16 @@
     },
     {
         "task_info": {
-            "global_id": "t_8_q_10",
-            "ticket_num": 8,
-            "order": 9
+            "global_id": "t_3_q_16",
+            "global_id2": "t_3_q_16",
+            "ticket_num": 3,
+            "order": 9,
+            "remapped_from": "t_8_q_10"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "To'xtab turish tormoz tizimi qanchadan kam bo'lgan qiyalikda M toifadagi avtotransport vositalarini harakasiz holatda ushlab tura olmasa, bu avtotransport vositalaridan foydalanish taqiqlanadi?",
+                "text": "To'xtab turish tormoz tizimi qanchadan kam bo'lgan qiyalikda M toifadagi avtotransport vositalarini harakatsiz holatda ushlab tura olmasa, bu avtotransport vositalaridan foydalanish taqiqlanadi?",
                 "options": [
                     {
                         "id": 1,
@@ -737,12 +755,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "20 %",
+                        "text": "24 %",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "24 %",
+                        "text": "20 %",
                         "is_correct": false
                     },
                     {
@@ -762,12 +780,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "20 %",
+                        "text": "24 %",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "24 %",
+                        "text": "20 %",
                         "is_correct": false
                     },
                     {
@@ -787,12 +805,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "20 %",
+                        "text": "24 %",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "24 %",
+                        "text": "20 %",
                         "is_correct": false
                     },
                     {
@@ -811,11 +829,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_8_q_20",
-            "ticket_num": 8,
-            "order": 10
+            "global_id": "t_6_q_16",
+            "global_id2": "t_6_q_16",
+            "ticket_num": 6,
+            "order": 10,
+            "remapped_from": "t_8_q_20"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Sanab o'tilgan sharoitlarning qaysi birlarida transport vositasidan foydalanish taqiqlanadi?",
@@ -827,18 +847,18 @@
                     },
                     {
                         "id": 2,
-                        "text": "Ishlatib bo'lingan gazlarni chiqarib yuborish tizimi nosoz",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Ishlab chiqargan korxona tomondan ko'zda tutilgan orqa himoya vositasi loyto'sgich va sachratmagichlar bo'lmasa",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Sanab o'tilgan hamma sharoitlarda",
                         "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Ishlatib bo'lingan gazlarni chiqarib yuborish tizimi nosoz",
+                        "is_correct": false
                     }
                 ]
             },
@@ -852,18 +872,18 @@
                     },
                     {
                         "id": 2,
-                        "text": "Ишлатиб бўлинган газларни чиқариб юбориш тизими носоз",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Ишлаб чиқарган корхона томондан кўзда тутилган орқа ҳимоя воситаси лойтўсгич ва сачратмагичлар бўлмаса",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Санаб ўтилган ҳамма шароитларда",
                         "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Ишлатиб бўлинган газларни чиқариб юбориш тизими носоз",
+                        "is_correct": false
                     }
                 ]
             },
@@ -877,18 +897,18 @@
                     },
                     {
                         "id": 2,
-                        "text": "Неисправна система выпуска отработанных газов",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Отсутствует предусмотренный конструкцией задний противооткатный буфер безопасности",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "При всех перечисленных условиях",
                         "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Неисправна система выпуска отработанных газов",
+                        "is_correct": false
                     }
                 ]
             }
@@ -901,23 +921,25 @@
     },
     {
         "task_info": {
-            "global_id": "t_9_q_10",
-            "ticket_num": 9,
-            "order": 11
+            "global_id": "t_44_q_8",
+            "global_id2": "t_44_q_8",
+            "ticket_num": 44,
+            "order": 11,
+            "remapped_from": "t_9_q_10"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "M1 toifadagi transport vositalari shinalari protektori naqshining qoldiq balandligi necha mm. dan kam bo'lmasligi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "0,8 mm",
+                        "text": "1,0 mm",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "1,0 mm",
+                        "text": "2,5 mm",
                         "is_correct": false
                     },
                     {
@@ -932,7 +954,7 @@
                     },
                     {
                         "id": 5,
-                        "text": "2,5 mm",
+                        "text": "0,8 mm",
                         "is_correct": false
                     }
                 ]
@@ -942,12 +964,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "0,8 мм",
+                        "text": "1,0 мм",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "1,0 мм",
+                        "text": "2,5 мм",
                         "is_correct": false
                     },
                     {
@@ -962,7 +984,7 @@
                     },
                     {
                         "id": 5,
-                        "text": "2,5 мм",
+                        "text": "0,8 мм",
                         "is_correct": false
                     }
                 ]
@@ -972,12 +994,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "0,8 мм",
+                        "text": "1,0 мм",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "1,0 мм",
+                        "text": "2,5 мм",
                         "is_correct": false
                     },
                     {
@@ -992,7 +1014,7 @@
                     },
                     {
                         "id": 5,
-                        "text": "2,5 мм",
+                        "text": "0,8 мм",
                         "is_correct": false
                     }
                 ]
@@ -1006,19 +1028,21 @@
     },
     {
         "task_info": {
-            "global_id": "t_9_q_20",
-            "ticket_num": 9,
-            "order": 12
+            "global_id": "t_37_q_15",
+            "global_id2": "t_37_q_15",
+            "ticket_num": 37,
+            "order": 12,
+            "remapped_from": "t_9_q_20"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Transport vositalaridan qanday sharoitlarda foydalanishga ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Shinalarning ayrim joylarida kord ko'rinib qoladigan nuqsonlari bor",
-                        "is_correct": false
+                        "text": "N2; N3 toifadagi transport vositalari shinalari protektori naqshining qoldiq balandligi 1,6 mm ni tashkil qiladi",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -1027,8 +1051,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "N2; N3 toifadagi transport vositalari shinalari protektori naqshining qoldiq balandligi 1,6 mm ni tashkil qiladi",
-                        "is_correct": true
+                        "text": "Shinalarning ayrim joylarida kord ko'rinib qoladigan nuqsonlari bor",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1037,8 +1061,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Шиналарнинг айрим жойларида корд кўриниб қоладиган нуқсонлари бор",
-                        "is_correct": false
+                        "text": "N2; N3 тоифадаги транспорт воситалари шиналари протектори нақшининг қолдиқ баландлиги 1,6 мм ни ташкил қилади",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -1047,8 +1071,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "N2; N3 тоифадаги транспорт воситалари шиналари протектори нақшининг қолдиқ баландлиги 1,6 мм ни ташкил қилади",
-                        "is_correct": true
+                        "text": "Шиналарнинг айрим жойларида корд кўриниб қоладиган нуқсонлари бор",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1057,18 +1081,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Шины имеют местные повреждения, обнажающие корд",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "На передней оси легкового автомобиля категории М1 установлены шины, восстановленные по второму классу ремонта",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Остаточная высота рисунка протектора шин грузовых автомобилей 1,6 мм",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Шины имеют местные повреждения, обнажающие корд",
+                        "is_correct": false
                     }
                 ]
             }
@@ -1081,11 +1105,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_10_q_10",
-            "ticket_num": 10,
-            "order": 13
+            "global_id": "t_25_q_16",
+            "global_id2": "t_25_q_16",
+            "ticket_num": 25,
+            "order": 13,
+            "remapped_from": "t_10_q_10"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Motosikllarning shinalari naqshining qoldiq chuqurligi qanchadan kam bo'lmasligi kerak?",
@@ -1097,13 +1123,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "0,8 mm",
-                        "is_correct": true
+                        "text": "2,0 mm",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "1,0 mm",
-                        "is_correct": false
+                        "text": "0,8 mm",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
@@ -1112,7 +1138,7 @@
                     },
                     {
                         "id": 5,
-                        "text": "2,0 mm",
+                        "text": "1,0 mm",
                         "is_correct": false
                     }
                 ]
@@ -1127,13 +1153,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "0,8 мм",
-                        "is_correct": true
+                        "text": "2,0 мм",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "1,0 мм",
-                        "is_correct": false
+                        "text": "0,8 мм",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
@@ -1142,7 +1168,7 @@
                     },
                     {
                         "id": 5,
-                        "text": "2,0 мм",
+                        "text": "1,0 мм",
                         "is_correct": false
                     }
                 ]
@@ -1157,13 +1183,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "0,8 мм",
-                        "is_correct": true
+                        "text": "2,0 мм",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "1,0 мм",
-                        "is_correct": false
+                        "text": "0,8 мм",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
@@ -1172,7 +1198,7 @@
                     },
                     {
                         "id": 5,
-                        "text": "2,0 мм",
+                        "text": "1,0 мм",
                         "is_correct": false
                     }
                 ]
@@ -1186,28 +1212,30 @@
     },
     {
         "task_info": {
-            "global_id": "t_11_q_10",
-            "ticket_num": 11,
-            "order": 14
+            "global_id": "t_26_q_18",
+            "global_id2": "t_26_q_18",
+            "ticket_num": 26,
+            "order": 14,
+            "remapped_from": "t_11_q_9"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qo'shaloq shinalar orasiga begona jismlar tiqilib qolganda transport vositalaridan foydalanishga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "Ko'pi bilan 40 km/soat tezlikda harakat qilishga ruxsat etiladi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Taqiqlanadi",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Mazkur yo'nalishda ikki va undan ortiq bo'lak bo'lganda yo'lning faqat o'ng tarafdagi bo'lagi bo'ylab harakatlanishga ruxsat etiladi",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Ko'pi bilan 40 km/soat tezlikda harakat qilishga ruxsat etiladi",
+                        "text": "Mazkur yo'nalishda ikki va undan ortiq bo'lak bo'lganda yo'lning faqat o'ng tarafdagi bo'lagi bo'ylab harakatlanishga ruxsat etiladi",
                         "is_correct": false
                     }
                 ]
@@ -1217,17 +1245,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Кўпи билан 40 км/соат тезликда ҳаракат қилишга рухсат этилади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Тақиқланади",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Мазкур йўналишда икки ва ундан ортиқ бўлак бўлганда йўлнинг фақат ўнг тарафдаги бўлаги бўйлаб ҳаракатланишга рухсат этилади",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Кўпи билан 40 км/соат тезликда ҳаракат қилишга рухсат этилади",
+                        "text": "Мазкур йўналишда икки ва ундан ортиқ бўлак бўлганда йўлнинг фақат ўнг тарафдаги бўлаги бўйлаб ҳаракатланишга рухсат этилади",
                         "is_correct": false
                     }
                 ]
@@ -1237,13 +1265,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Запрещается",
-                        "is_correct": true
+                        "text": "Разрешается только по правой полосе дороги при наличии двух и более полос для движения в данном направлении",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Разрешается только по правой полосе дороги при наличии двух и более полос для движения в данном направлении",
-                        "is_correct": false
+                        "text": "Запрещается",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1261,24 +1289,26 @@
     },
     {
         "task_info": {
-            "global_id": "t_13_q_10",
-            "ticket_num": 13,
-            "order": 15
+            "global_id": "t_25_q_10",
+            "global_id2": "t_25_q_10",
+            "ticket_num": 25,
+            "order": 15,
+            "remapped_from": "t_13_q_9"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Yonilg'i tizimi zich (germetik) emasligi malum bo'lganda, haydovchi nimalarni bajarishi shart?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Bundan keyingi harakatni to'xtatish",
-                        "is_correct": false
+                        "text": "Nosozlikni bartaraf etish tadbirlarini ko'rishi, agar buning imkoni bo'lmasa, zarur ehtiyot choralariga rioya qilgan holda to'xtab turish yoki ta'mirlash joyiga olib borish",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Nosozlikni bartaraf etish tadbirlarini ko'rishi, agar buning imkoni bo'lmasa, zarur ehtiyot choralariga rioya qilgan holda to'xtab turish yoki tamirlash joyiga olib borish",
-                        "is_correct": true
+                        "text": "Bundan keyingi harakatni to'xtatish",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1292,17 +1322,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Бундан кейинги ҳаракатни тўхтатиш",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Носозликни бартараф этиш тадбирларини кўриши, агар бунинг имкони бўлмаса, зарур эҳтиёт чораларига риоя қилган ҳолда тўхтаб туриш ёки таъмирлаш жойига олиб бориш",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "Бундан кейинги ҳаракатни тўхтатиш",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Белгиланган сафарни давом эттириш",
+                        "text": "Прекратить дальнейшее движение",
                         "is_correct": false
                     }
                 ]
@@ -1312,13 +1342,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Белгиланган сафарни давом эттириш",
-                        "is_correct": false
+                        "text": "Принять меры к устранению неисправности, а если это невозможно, следовать к месту стоянки или ремонта с соблюдением необходимых мер предосторожности",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Принять меры к устранению неисправности, а если это невозможно, следовать к месту стоянки или ремонта с соблюдением необходимых мер предосторожности",
-                        "is_correct": true
+                        "text": "Белгиланган сафарни давом эттириш",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1331,16 +1361,18 @@
         "izoh": {
             "uz_lat": "YHQ 3 – ilovasi 6 – bo‘liminig 6.2 – bandiga asosan: yonilg‘i uzatish tizimi zich bo‘lmasa foydalanish taqiqlanadi. YHQ 2 – bob 12 – bandi 11 – xatboshiga asosan: Harakatlanish vaqtida ushbu Qoidalarga 3-ilovada ko‘rsatilgan transport vositalaridan foydalanishni taqiqlovchi shartlar yuzaga kelganda, haydovchi ularni bartaraf etishi, agar buning iloji bo‘lmasa, zarur bo‘lgan ehtiyot choralarini ko‘rgan holda ta’mirlash yoki to‘xtab turish joyiga evakuator yoki shatakka olish orqali transport vositasini olib borish choralarini ko‘rishi mumkin.",
             "uz_cyr": "YHQ 3 – иловаси 6 – бўлиминиг 6.2 – бандига асосан: ёнилғи узатиш тизими зич бўлмаса фойдаланиш тақиқланади. YHQ 2 – боб 12 – банди 11 – хатбошига асосан: Ҳаракатланиш вақтида ушбу Қоидаларга 3-иловада кўрсатилган транспорт воситаларидан фойдаланишни тақиқловчи шартлар юзага келганда, ҳайдовчи уларни бартараф этиши, агар бунинг иложи бўлмаса, зарур бўлган эҳтиёт чораларини кўрган ҳолда таъмирлаш ёки тўхтаб туриш жойига эвакуатор ёки шатакка олиш орқали транспорт воситасини олиб бориш чораларини кўриши мумкин.",
-            "ru": "Согласно пункту 6.2 приложения 6 ХК 3: запрещается использовать, если система перекачки топлива негерметична. Согласно пункту 11 главы 12 ГПК: При возникновении во время движения условий, запрещающих использование транспортных средств, указанных в приложении 3 к настоящим Правилам, водитель вправе их устранить, если это невозможно, принять меры по ремонту транспортного средства с соблюдением необходимых мер предосторожности или доставить транспортное средство к месту стоянки с помощью эвакуатора или эвакуатора."
+            "ru": "Согласно пункту 6.2 приложения 6 ХК 3: запрещается использовать, если система перекачки топлива негерметична. Согласно пункту 11 главы 12 ПДД: При возникновении во время движения условий, запрещающих использование транспортных средств, указанных в приложении 3 к настоящим Правилам, водитель вправе их устранить, если это невозможно, принять меры по ремонту транспортного средства с соблюдением необходимых мер предосторожности или доставить транспортное средство к месту стоянки с помощью эвакуатора или эвакуатора."
         }
     },
     {
         "task_info": {
-            "global_id": "t_13_q_20",
-            "ticket_num": 13,
-            "order": 16
+            "global_id": "t_50_q_20",
+            "global_id2": "t_50_q_20",
+            "ticket_num": 50,
+            "order": 16,
+            "remapped_from": "t_13_q_19"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Sanab o'tilgan qaysi hollarda transport vositasidan foydalanish mumkin?",
@@ -1352,13 +1384,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Ishlab chiqarilishi to'xtatilgan yengil avtomobillarga boshqa turdagi va rusumdagi transport vositalarining tashqi yoritgichlari o'rnatilgan",
-                        "is_correct": true
+                        "text": "Tashqi yoritgichlar va nur qaytargichlar belgilangan tartibda ishlamaydi yoki ifloslangan",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Tashqi yoritgichlar va nur qaytargichlar belgilangan tartibda ishlamaydi yoki ifloslangan",
-                        "is_correct": false
+                        "text": "Ishlab chiqarilishi to'xtatilgan yengil avtomobillarga boshqa turdagi va rusumdagi transport vositalarining tashqi yoritgichlari o'rnatilgan",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1372,13 +1404,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Ишлаб чиқарилиши тўхтатилган енгил автомобилларга бошқа турдаги ва русумдаги транспорт воситаларининг ташқи ёритгичлари ўрнатилган",
-                        "is_correct": true
+                        "text": "Ташқи ёритгичлар ва нур қайтаргичлар белгиланган тартибда ишламайди ёки ифлосланган",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Ташқи ёритгичлар ва нур қайтаргичлар белгиланган тартибда ишламайди ёки ифлосланган",
-                        "is_correct": false
+                        "text": "Ишлаб чиқарилиши тўхтатилган енгил автомобилларга бошқа турдаги ва русумдаги транспорт воситаларининг ташқи ёритгичлари ўрнатилган",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1392,13 +1424,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "На автомобилях, которые были сняты с производства, были установлены внешние фонари автомобили различных типов и моделей",
-                        "is_correct": true
+                        "text": "Внешние фары и отражатели не работают должным образом или загрязнены",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Внешние фары и отражатели не работают должным образом или загрязнены",
-                        "is_correct": false
+                        "text": "На автомобилях, которые были сняты с производства, были установлены внешние фонари автомобили различных типов и моделей",
+                        "is_correct": true
                     }
                 ]
             }
@@ -1406,33 +1438,35 @@
         "izoh": {
             "uz_lat": "YHQ 3 – ilovasi 3 – bo‘limining 3.1 – bandiga asosan: tashqi yoritgichlar soni, turi, joylashuvi va ishlash tartibi transport vositasining konstruksiyasi talabiga mos kelmasa. Ishlab chiqarilishi to‘xtatilgan yengil avtomobillarga boshqa turdagi va rusumdagi transport vositalarining tashqi yoritqichlarini o‘rnatishga ruxsat etiladi.",
             "uz_cyr": "YHQ 3 – иловаси 3 – бўлимининг 3.1 – бандига асосан: ташқи ёритгичлар сони, тури, жойлашуви ва ишлаш тартиби транспорт воситасининг конструксияси талабига мос келмаса. Ишлаб чиқарилиши тўхтатилган енгил автомобилларга бошқа турдаги ва русумдаги транспорт воситаларининг ташқи ёритқичларини ўрнатишга рухсат этилади.",
-            "ru": "В соответствии с пунктом 3.1 раздела 3 Приложения 3 ГК: если количество, тип, расположение и режим работы наружных огней не соответствуют требованиям конструкции транспортного средства. На легковые автомобили, снятые с производства, допускается установка наружных огней транспортных средств других типов и моделей."
+            "ru": "В соответствии с пунктом 3.1 раздела 3 Приложения 3 ПДД: если количество, тип, расположение и режим работы наружных огней не соответствуют требованиям конструкции транспортного средства. На легковые автомобили, снятые с производства, допускается установка наружных огней транспортных средств других типов и моделей."
         }
     },
     {
         "task_info": {
-            "global_id": "t_14_q_20",
-            "ticket_num": 14,
-            "order": 17
+            "global_id": "t_46_q_3",
+            "global_id2": "t_46_q_3",
+            "ticket_num": 46,
+            "order": 17,
+            "remapped_from": "t_14_q_20"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Agar transport vositalarining tuzilishida ko'zda tutilgan orqani ko'rsatadigan ko'zgular bo'lmasa, avtomobildan foydalanishga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Agar orqa oyna pardalar bilan berkitilmagan bo'lsa ruxsat etiladi",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Taqiqlanadi",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Loaqal bitta ko'zgu bo'lsa ruxsat etiladi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Agar orqa oyna pardalar bilan berkitilmagan bo'lsa ruxsat etiladi",
                         "is_correct": false
                     }
                 ]
@@ -1442,17 +1476,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Агар орқа ойна пардалар билан беркитилмаган бўлса рухсат этилади",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Тақиқланади",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Лоақал битта кўзгу бўлса рухсат этилади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Агар орқа ойна пардалар билан беркитилмаган бўлса рухсат этилади",
                         "is_correct": false
                     }
                 ]
@@ -1462,17 +1496,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается, если заднее стекло не закрыто шторками",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Запрещается",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Разрешается, если имеется хотя бы одно зеркало",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Разрешается, если заднее стекло не закрыто шторками",
                         "is_correct": false
                     }
                 ]
@@ -1481,44 +1515,46 @@
         "izoh": {
             "uz_lat": "YHQ 3 – ilovasi 7 – bo‘limining 7.1 – bandiga asosan: Orqa tomonni ko‘rsatuvchi ko‘zgular soni, joylashuvi va turi belgilangan talablarga mos kelmasa, transport vositasining konstruksiyasida ko‘zda tutilgan oynalari bo’lmasa foydalanish taqiqlanadi.",
             "uz_cyr": "YHQ 3 – иловаси 7 – бўлимининг 7.1 – бандига асосан: Орқа томонни кўрсатувчи кўзгулар сони, жойлашуви ва тури белгиланган талабларга мос келмаса, транспорт воситасининг конструксиясида кўзда тутилган ойналари бўлмаса фойдаланиш тақиқланади.",
-            "ru": "Согласно пункту 7.1 раздела 7 приложения 3 ГКАП: Если количество, расположение и тип зеркал заднего вида не соответствуют установленным требованиям, их использование запрещается, если транспортное средство не имеет окон, предусмотренных конструкцией транспортного средства."
+            "ru": "Согласно пункту 7.1 раздела 7 приложения 3 ПДД: Если количество, расположение и тип зеркал заднего вида не соответствуют установленным требованиям, их использование запрещается, если транспортное средство не имеет окон, предусмотренных конструкцией транспортного средства."
         }
     },
     {
         "task_info": {
-            "global_id": "t_16_q_9",
-            "ticket_num": 16,
-            "order": 18
+            "global_id": "t_18_q_6",
+            "global_id2": "t_18_q_6",
+            "ticket_num": 18,
+            "order": 18,
+            "remapped_from": "t_16_q_9"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "N2; N3; O3; O4 toifadagi transport vositalari shina protektori naqshlarining qoldiq balandligi qanchadan kam bo'lmasligi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "0,5 mm",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "1 mm",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "1,6 mm",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "2 mm",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 3,
+                        "text": "0,5 mm",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
                         "text": "3 mm",
                         "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "1 mm",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1527,28 +1563,28 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "0,5 мм",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "1 мм",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "1,6 мм",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "2 мм",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 3,
+                        "text": "0,5 мм",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
                         "text": "3 мм",
                         "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "1 мм",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1557,28 +1593,28 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "0,5 мм",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "1 мм",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "1,6 мм",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "2 мм",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 3,
+                        "text": "0,5 мм",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
                         "text": "3 мм",
                         "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "1 мм",
+                        "is_correct": true
                     }
                 ]
             }
@@ -1592,103 +1628,92 @@
     {
         "task_info": {
             "global_id": "t_22_q_10",
+            "global_id2": "t_22_q_10",
             "ticket_num": 22,
-            "order": 19
+            "order": 19,
+            "remapped_from": "t_2_q_20"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Ishlamayotgan boshqaruv ruli bilan to'xtab turish yoki tamirlash joyiga borishga ruxsat etiladimi?",
+                "text": "Kunning qorong'i vaqtida sun'iy yoritilmagan yo'llarda yoki yetarli ko'rinmaslik sharoitida yonmaydigan orqa gabarit chiroqlari bilan to'xtab turish yoki ta'mirlash joyiga borishga ruxsat beriladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Qattiq ulagichda shatakka olinganda ruxsat etiladi",
-                        "is_correct": false
+                        "text": "Taqiqlanadi",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Harakat havfsizligini taminlovchi tezlikda ruxsat etiladi",
+                        "text": "Alohida ehtiyotkorlik bilan borishga ruxsat beriladi",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Taqiqlanadi",
-                        "is_correct": true
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Ишламаётган бошқарув рули билан тўхтаб туриш ёки таъмирлаш жойига боришга рухсат этиладими?",
+                "text": "Куннинг қоронғи вақтида сунъий ёритилмаган йўлларда ёки етарли кўринмаслик шароитида ёнмайдиган орқа габарит чироқлари билан тўхтаб туриш ёки таъмирлаш жойига боришга рухсат бериладими?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Қаттиқ улагичда шатакка олинганда рухсат этилади",
-                        "is_correct": false
+                        "text": "Тақиқланади",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Ҳаракат ҳавфсизлигини таъминловчи тезликда рухсат этилади",
+                        "text": "Алоҳида эҳтиёткорлик билан боришга рухсат берилади",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Тақиқланади",
-                        "is_correct": true
                     }
                 ]
             },
             "ru": {
-                "text": "Разрешается ли следовать к месту стоянки или ремонта с недействующим рулевым управлением?",
+                "text": "Разрешается ли следовать к месту стоянки или ремонта в темное время суток на дорогах без искусственного освещения или в условиях недостаточной видимости с негорящими задними габаритными огнями?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается при буксировке на жесткой сцепке",
-                        "is_correct": false
+                        "text": "Запрещается",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Разрешается со скоростью обеспечивающей безопасность движения",
+                        "text": "Разрешается с особой осторожностью",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Запрещается",
-                        "is_correct": true
                     }
                 ]
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 2-bobi 12-bandining uchinchi xatboshisiga asosan, haydovchiga quyidagilar taqiqlanadi: tormoz tizimi, rul boshqaruvi ishlamayotgan, ulagich moslamasi (avtopoyezd tarkibida) nosoz bo‘lgan, qorong‘i vaqtda yoki yetarlicha ko‘rinmaydigan sharoitda - old chiroqlar va orqa gabarit chiroqlari bo‘lmagan yoki yonmayotgan, yomg‘ir, qor yog‘ayotgan vaqtda haydovchi tomonidagi oyna tozalagich ishlamayotgan transport vositalarini boshqarish.",
-            "uz_cyr": "YHQ 2-боби 12-бандининг учинчи хатбошисига асосан, ҳайдовчига қуйидагилар тақиқланади: тормоз тизими, рул бошқаруви ишламаётган, улагич мосламаси (автопоезд таркибида) носоз бўлган, қоронғи вақтда ёки етарлича кўринмайдиган шароитда - олд чироқлар ва орқа габарит чироқлари бўлмаган ёки ёнмаётган, ёмғир, қор ёғаётган вақтда ҳайдовчи томонидаги ойна тозалагич ишламаётган транспорт воситаларини бошқариш.",
-            "ru": "Согласно третьему пункту 12-го пункта главы 2 ПДД водителю запрещается управлять транспортным средством с неработающей тормозной системой, рулевым колесом, неисправным соединительным устройством (в составе транспортного средства), в темное время суток или в условиях недостаточной видимости - не горящими или не горящими передними и задними габаритными фонарями, а также неработающим стеклоочистителем со стороны водителя во время дождя или снега."
+            "uz_lat": "YHQ 2 – bobi 12 – bandining uchunchi xatboshisiga asosan: tormoz tizimi, rul boshqaruvi ishlamayotgan, ulagich moslamasi ( avtopoyezd tarkibida ) nosoz bo‘lgan, sutkaning qorong‘i vaqtida yoki ko‘rinish cheklangan vaziyatlarda yonmaydigan fara chiroqlari va orqa gabarit fara chiroqlari, yomg‘ir yoki qor yog‘ayotgan vaqtda oyna tozalagich ishlamaydigan transport vositasini boshqarish taqiqlanadi.",
+            "uz_cyr": "YHQ 2 – боби 12 – бандининг учунчи хатбошисига асосан: тормоз тизими, рул бошқаруви ишламаётган, улагич мосламаси ( автопоезд таркибида ) носоз бўлган, сутканинг қоронғи вақтида ёки кўриниш чекланган вазиятларда ёнмайдиган фара чироқлари ва орқа габарит фара чироқлари, ёмғир ёки қор ёғаётган вақтда ойна тозалагич ишламайдиган транспорт воситасини бошқариш тақиқланади.",
+            "ru": "Согласно третьему пункту главы 12 ПДД 2: запрещается управлять транспортным средством с тормозной системой, неисправным рулевым управлением, неисправным соединительным устройством (в составе автопоезда), фарами и задними габаритными фонарями, не загорающимися в темное время суток или в ситуациях с ограниченной видимостью, неработающими дворниками во время дождя или снега."
         }
     },
     {
         "task_info": {
-            "global_id": "t_23_q_10",
-            "ticket_num": 23,
-            "order": 20
+            "global_id": "t_1_q_2",
+            "global_id2": "t_1_q_2",
+            "ticket_num": 1,
+            "order": 20,
+            "remapped_from": "t_23_q_10"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Agar transport vositasining ishchi tormozining samaradorligi Qoidalar talabiga javob bermasa, u holda siz majbursiz:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Belgilangan safarni davom ettirishga, bunda kunning yorug' vaqtida yaqinni yorituvchi fara chirog'ini yoqishga",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Bundan keyingi harakatni to'xtatishga",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "Nosozlikni o'sha joyda bartaraf etishga, agar buning iloji bo'lmasa zarur ehtiyot choralariga rioya qilgan holda to'xtab turish yoki tamirlashga olib borishga",
+                        "id": 2,
+                        "text": "Nosozlikni o'sha joyda bartaraf etishga, agar buning iloji bo'lmasa zarur ehtiyot choralariga rioya qilgan holda to'xtab turish yoki ta'mirlashga olib borishga",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Belgilangan safarni davom ettirishga, bunda kunning yorug' vaqtida yaqinni yorituvchi fara chirog'ini yoqishga",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1697,18 +1722,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Белгиланган сафарни давом эттиришга, бунда куннинг ёруғ вақтида яқинни ёритувчи фара чироғини ёқишга",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Бундан кейинги ҳаракатни тўхтатишга",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Носозликни ўша жойда бартараф этишга, агар бунинг иложи бўлмаса зарур эҳтиёт чораларига риоя қилган ҳолда тўхтаб туриш ёки таъмирлашга олиб боришга",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Белгиланган сафарни давом эттиришга, бунда куннинг ёруғ вақтида яқинни ёритувчи фара чироғини ёқишга",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1717,18 +1742,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Продолжить намеченную поездку, при этом в светлое время суток включить ближний свет фар",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Прекратить дальнейшее движение",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Устранить неисправность на месте, а если это невозможно. следовать к месту стоянки или ремонта с соблюдением необходимых мер предосторожности",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Продолжить намеченную поездку, при этом в светлое время суток включить ближний свет фар",
+                        "is_correct": false
                     }
                 ]
             }
@@ -1741,23 +1766,25 @@
     },
     {
         "task_info": {
-            "global_id": "t_26_q_10",
-            "ticket_num": 26,
-            "order": 21
+            "global_id": "t_33_q_7",
+            "global_id2": "t_33_q_7",
+            "ticket_num": 33,
+            "order": 21,
+            "remapped_from": "t_26_q_10"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Agar pnevmatik uzatmaning zichligi buzilib, kompressor ishlamay turganda boshqaruv asboblarining erkin holatida havo bosimining 30 daqiqada qancha MPa-ga pasayishiga sabab bo'lsa, tormoz tizimi nosoz hisoblanadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "0,025",
+                        "text": "0,035",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "0,035",
+                        "text": "0,06",
                         "is_correct": false
                     },
                     {
@@ -1772,7 +1799,7 @@
                     },
                     {
                         "id": 5,
-                        "text": "0,06",
+                        "text": "0,025",
                         "is_correct": false
                     }
                 ]
@@ -1782,12 +1809,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "0,025",
+                        "text": "0,035",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "0,035",
+                        "text": "0,06",
                         "is_correct": false
                     },
                     {
@@ -1802,7 +1829,7 @@
                     },
                     {
                         "id": 5,
-                        "text": "0,06",
+                        "text": "0,025",
                         "is_correct": false
                     }
                 ]
@@ -1812,12 +1839,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "0,025",
+                        "text": "0,035",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "0,035",
+                        "text": "0,06",
                         "is_correct": false
                     },
                     {
@@ -1832,7 +1859,7 @@
                     },
                     {
                         "id": 5,
-                        "text": "0,06",
+                        "text": "0,025",
                         "is_correct": false
                     }
                 ]
@@ -1846,34 +1873,36 @@
     },
     {
         "task_info": {
-            "global_id": "t_27_q_20",
-            "ticket_num": 27,
-            "order": 22
+            "global_id": "t_60_q_20",
+            "global_id2": "t_60_q_20",
+            "ticket_num": 60,
+            "order": 22,
+            "remapped_from": "t_27_q_20"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qanday sharoitlarda transport vositalaridan foydalanish taqiqlanadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yoritish chiroqlari yo'nalishi buzilgan bo'lsa",
-                        "is_correct": false
+                        "text": "Sanab o'tilgan barcha hollarda",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Tashqi yoritish asboblari va yorug'lik qaytargichlar ifloslanganda",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Yoritish asboblari o'rnida mazkur yoritish asboblarining turiga mos kelmaydigan lampalardan foydalanilganda",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Yoritish chiroqlari yo'nalishi buzilgan bo'lsa",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Sanab o'tilgan barcha hollarda",
-                        "is_correct": true
+                        "text": "Tashqi yoritish asboblari va yorug'lik qaytargichlar ifloslanganda",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1882,23 +1911,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ёритиш чироқлари йўналиши бузилган бўлса",
-                        "is_correct": false
+                        "text": "Санаб ўтилган барча ҳолларда",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Ташқи ёритиш асбоблари ва ёруғлик қайтаргичлар ифлосланганда",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Ёритиш асбоблари ўрнида мазкур ёритиш асбобларининг турига мос келмайдиган лампалардан фойдаланилганда",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Ёритиш чироқлари йўналиши бузилган бўлса",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Санаб ўтилган барча ҳолларда",
-                        "is_correct": true
+                        "text": "Ташқи ёритиш асбоблари ва ёруғлик қайтаргичлар ифлосланганда",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1907,7 +1936,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Нарушена регулировка фар",
+                        "text": "На световых приборах используются лампы не соответствующие типы данного светового прибора",
                         "is_correct": false
                     },
                     {
@@ -1917,13 +1946,13 @@
                     },
                     {
                         "id": 3,
-                        "text": "На световых приборах используются лампы не соответствующие типы данного светового прибора",
-                        "is_correct": false
+                        "text": "При всех перечисленных условиях",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "При всех перечисленных условиях",
-                        "is_correct": true
+                        "text": "Нарушена регулировка фар",
+                        "is_correct": false
                     }
                 ]
             }
@@ -1936,19 +1965,21 @@
     },
     {
         "task_info": {
-            "global_id": "t_30_q_10",
-            "ticket_num": 30,
-            "order": 23
+            "global_id": "t_39_q_15",
+            "global_id2": "t_39_q_15",
+            "ticket_num": 39,
+            "order": 23,
+            "remapped_from": "t_30_q_10"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Mexanik transport vositalaridan foydalanish qanday sharoitlarda taqiqlanadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yurgizgich ishida nuqson bo'lganda",
-                        "is_correct": false
+                        "text": "Davlat davriy texnik ko'rigidan belgilangan tartibda o'tmaganda",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -1957,8 +1988,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Davlat davriy texnik ko'rigidan belgilangan tartibda o'tmaganda",
-                        "is_correct": true
+                        "text": "Yurgizgich ishida nuqson bo'lganda",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1967,8 +1998,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Юргизгич ишида нуқсон бўлганда",
-                        "is_correct": false
+                        "text": "Давлат даврий техник кўригидан белгиланган тартибда ўтмаганда",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -1977,8 +2008,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Давлат даврий техник кўригидан белгиланган тартибда ўтмаганда",
-                        "is_correct": true
+                        "text": "Юргизгич ишида нуқсон бўлганда",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1987,18 +2018,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Не прошедших государственный периодический технический осмотр в установленном порядке",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Перебои в работе двигателя",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Шум в коробке передач",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Не прошедших государственный периодический технический осмотр в установленном порядке",
-                        "is_correct": true
                     }
                 ]
             }
@@ -2011,23 +2042,25 @@
     },
     {
         "task_info": {
-            "global_id": "t_30_q_20",
-            "ticket_num": 30,
-            "order": 24
+            "global_id": "t_26_q_9",
+            "global_id2": "t_26_q_9",
+            "ticket_num": 26,
+            "order": 24,
+            "remapped_from": "t_30_q_20"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "M2; M3 toifadagi avtotransport vositalarining shina protektori naqshlarining balandligi quyidagilardan kam bo'lmasligi kerak:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "0,8 mm",
-                        "is_correct": false
+                        "text": "2,0 mm",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "1,0 mm",
+                        "text": "2,5 mm",
                         "is_correct": false
                     },
                     {
@@ -2037,12 +2070,12 @@
                     },
                     {
                         "id": 4,
-                        "text": "2,0 mm",
-                        "is_correct": true
+                        "text": "0,8 mm",
+                        "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "2,5 mm",
+                        "text": "1,0 mm",
                         "is_correct": false
                     }
                 ]
@@ -2052,12 +2085,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "0,8 мм",
-                        "is_correct": false
+                        "text": "2,0 мм",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "1,0 мм",
+                        "text": "2,5 мм",
                         "is_correct": false
                     },
                     {
@@ -2067,12 +2100,12 @@
                     },
                     {
                         "id": 4,
-                        "text": "2,0 мм",
-                        "is_correct": true
+                        "text": "0,8 мм",
+                        "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "2,5 мм",
+                        "text": "1,0 мм",
                         "is_correct": false
                     }
                 ]
@@ -2082,12 +2115,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "0,8 мм",
-                        "is_correct": false
+                        "text": "2,0 мм",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "1,0 мм",
+                        "text": "2,5 мм",
                         "is_correct": false
                     },
                     {
@@ -2097,12 +2130,12 @@
                     },
                     {
                         "id": 4,
-                        "text": "2,0 мм",
-                        "is_correct": true
+                        "text": "0,8 мм",
+                        "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "2,5 мм",
+                        "text": "1,0 мм",
                         "is_correct": false
                     }
                 ]
@@ -2116,29 +2149,31 @@
     },
     {
         "task_info": {
-            "global_id": "t_31_q_20",
-            "ticket_num": 31,
-            "order": 25
+            "global_id": "t_14_q_7",
+            "global_id2": "t_14_q_7",
+            "ticket_num": 14,
+            "order": 25,
+            "remapped_from": "t_31_q_20"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Sanab o'tilgan hollardan qaysi birida transport vositalaridan foydalanishga ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Shinalar o'lchami va yo'l qo'yiladigan bosimi bo'yicha transport vositasining rusumiga mos emas",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Transport vositasining bitta o'qiga diaganal shinalar radial shinalar bilan birga o'rnatilgan",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "M1 toifadagi avtotransport vositalarining oldingi o'qiga birinchi toifada tamirlangan shinalar o'rnatilgan",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Shinalar o'lchami va yo'l qo'yiladigan bosimi bo'yicha transport vositasining rusumiga mos emas",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2147,18 +2182,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Шиналар ўлчами ва йўл қўйиладиган босими бўйича транспорт воситасининг русумига мос эмас",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Транспорт воситасининг битта ўқига диаганал шиналар радиал шиналар билан бирга ўрнатилган",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "М1 тоифадаги автотранспорт воситаларининг олдинги ўқига биринчи тоифада таъмирланган шиналар ўрнатилган",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Шиналар ўлчами ва йўл қўйиладиган босими бўйича транспорт воситасининг русумига мос эмас",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2167,18 +2202,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Шины по размеру и допустимой нагрузке не соответствуют модели транспортного средства",
+                        "text": "На одну ось установлены диагональные шины вместе с радиальными",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "На одну ось транспортного средства установлены диагональные шины совместно с радиальными",
-                        "is_correct": false
+                        "text": "На передней оси ТС категории М1 установлены шины, восстановленные по первому классу ремонта",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "На переднюю ось легкового автомобиля категории М1 установлены шины, восстановленные по первому классу ремонта",
-                        "is_correct": true
+                        "text": "Шины не соответствуют модели ТС по размеру и допустимому давлению",
+                        "is_correct": false
                     }
                 ]
             }
@@ -2191,11 +2226,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_32_q_10",
-            "ticket_num": 32,
-            "order": 26
+            "global_id": "t_19_q_17",
+            "global_id2": "t_19_q_17",
+            "ticket_num": 19,
+            "order": 26,
+            "remapped_from": "t_32_q_9"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Transport vositasining bir o'qiga izlari har xil naqshli shinalar o'rnatishga ruxsat etiladimi?",
@@ -2207,18 +2244,18 @@
                     },
                     {
                         "id": 2,
-                        "text": "Taqiqlanadi",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Faqat yuk avtomobiliga ruxsat etiladi",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Ruxsat etiladi",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Taqiqlanadi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2232,18 +2269,18 @@
                     },
                     {
                         "id": 2,
-                        "text": "Тақиқланади",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Фақат юк автомобилига рухсат этилади",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Рухсат этилади",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Тақиқланади",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2257,18 +2294,18 @@
                     },
                     {
                         "id": 2,
-                        "text": "Запрещается",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Разрешается только на грузовой автомобиль",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Разрешается",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Запрещается",
+                        "is_correct": true
                     }
                 ]
             }
@@ -2281,29 +2318,31 @@
     },
     {
         "task_info": {
-            "global_id": "t_32_q_20",
-            "ticket_num": 32,
-            "order": 27
+            "global_id": "t_11_q_15",
+            "global_id2": "t_11_q_15",
+            "ticket_num": 11,
+            "order": 27,
+            "remapped_from": "t_32_q_18"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Ikkinchi daraja tamirlash yo'li bilan tiklangan shinalarni M1 toifadagi avtotransport vositalariga o'rnatishga ruxsat etiladimi?",
+                "text": "Ikkinchi daraja ta'mirlash yo'li bilan tiklangan shinalarni M1 toifadagi avtotransport vositalariga o'rnatishga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "Faqat orqa o'qiga ruxsat etiladi",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Taqiqlanadi",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Avtomobilning har ikki o'qiga ruxsat etiladi",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Faqat orqa o'qiga ruxsat etiladi",
-                        "is_correct": true
                     }
                 ]
             },
@@ -2312,18 +2351,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Фақат орқа ўқига рухсат этилади",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Тақиқланади",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Автомобилнинг ҳар икки ўқига рухсат этилади",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Фақат орқа ўқига рухсат этилади",
-                        "is_correct": true
                     }
                 ]
             },
@@ -2332,18 +2371,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Разрешается только на задней оси",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Запрещается",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Разрешается на обоих осях автомобиля",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Разрешается только на задней оси",
-                        "is_correct": true
                     }
                 ]
             }
@@ -2351,29 +2390,31 @@
         "izoh": {
             "uz_lat": "YHQ 3-ilovasi 5-bo‘limining 5.7.-bandiga asosan: 5.7. M1, M2, M3 toifalarni 1 klassidagi avtotransport vositalarini oldingi o‘qiga, M3 toifani 2 va 3 klassidagi avtotransport vositalarini o‘rta va orqa o‘qlariga ikkinchi ta‘mirlash klassi bo‘yicha qayta tiklangan shinalar o‘rnatilgan bo‘lsa foydalanish taqiqlanadi.",
             "uz_cyr": "YHQ 3-иловаси 5-бўлимининг 5.7.-бандига асосан: 5.7. М1, М2, М3 тоифаларни 1 классидаги автотранспорт воситаларини олдинги ўқига, М3 тоифани 2 ва 3 классидаги автотранспорт воситаларини ўрта ва орқа ўқларига иккинчи таъмирлаш класси бўйича қайта тикланган шиналар ўрнатилган бўлса фойдаланиш тақиқланади.",
-            "ru": "Согласно пункту 5.7. раздела 5 приложения 3 Закона Украины: 5.7. Запрещается эксплуатация автомобилей М1, М2, М3 на передней оси автомобилей класса М1, М2, М3, а также на средней и задней осях автомобилей 2 и 3 категории М3, если установлены восстановленные шины второго класса ремонта."
+            "ru": "Согласно пункту 5.7. раздела 5 приложения 3 ПДД: 5.7. Запрещается эксплуатация автомобилей М1, М2, М3 на передней оси автомобилей класса М1, М2, М3, а также на средней и задней осях автомобилей 2 и 3 категории М3, если установлены восстановленные шины второго класса ремонта."
         }
     },
     {
         "task_info": {
-            "global_id": "t_34_q_10",
-            "ticket_num": 34,
-            "order": 28
+            "global_id": "t_37_q_14",
+            "global_id2": "t_37_q_14",
+            "ticket_num": 37,
+            "order": 28,
+            "remapped_from": "t_34_q_10"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qanday hollarda transport vositasidan foydalanishga ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Transport vositasining tashqi yuzasiga qonun hujjatlariga mos kelmaydigan va harakat xavfsizligiga salbiy ta'sir ko'rsatadigan turli xil tasvirlar tushurilgan bo'lsa",
-                        "is_correct": false
+                        "text": "Gaz ta'minlash tizimi bilan jihozlangan avtobus va avtomobil gaz ballonlarining tashqi tomonida ko'rsatilgan texnik ko'rsatkichlar (parametrlar) texnik pasportdagi ma'lumotlarga (ko'rsatkichlarga) mos kelsa, oxirgi va rejalashtirilgan tekshirishlarning sanasi bo'lsa",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Gaz taminlash tizimi bilan jihozlangan avtobus va avtomobil gaz ballonlarining tashqi tomonida ko'rsatilgan texnik ko'rsatkichlar (parametrlar) texnik pasportdagi malumotlarga (ko'rsatkichlarga) mos kelsa, oxirgi va rejalashtirilgan tekshirishlarning sanasi bo'lsa",
-                        "is_correct": true
+                        "text": "Transport vositasining tashqi yuzasiga qonun hujjatlariga mos kelmaydigan va harakat xavfsizligiga salbiy ta'sir ko'rsatadigan turli xil tasvirlar tushirilgan bo'lsa",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -2387,13 +2428,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Транспорт воситасининг ташқи юзасига қонун ҳужжатларига мос келмайдиган ва ҳаракат хавфсизлигига салбий таъсир кўрсатадиган турли хил тасвирлар тушурилган бўлса",
-                        "is_correct": false
+                        "text": "Газ таъминлаш тизими билан жиҳозланган автобус ва автомобиль газ баллонларининг ташқи томонида кўрсатилган техник кўрсаткичлар (параметрлар) техник паспортдаги маълумотларга (кўрсаткичларга) мос келса, охирги ва режалаштирилган текширишларнинг санаси бўлса",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Газ таъминлаш тизими билан жиҳозланган автобус ва автомобиль газ баллонларининг ташқи томонида кўрсатилган техник кўрсаткичлар (параметрлар) техник паспортдаги маълумотларга (кўрсаткичларга) мос келса, охирги ва режалаштирилган текширишларнинг санаси бўлса",
-                        "is_correct": true
+                        "text": "Транспорт воситасининг ташқи юзасига қонун ҳужжатларига мос келмайдиган ва ҳаракат хавфсизлигига салбий таъсир кўрсатадиган турли хил тасвирлар тушурилган бўлса",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -2407,13 +2448,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Если на внешней поверхности транспортного средства нанесены различные изображения, которые не соответствуют законодательству и негативно влияют на безопасность передвижения",
-                        "is_correct": false
+                        "text": "При соответствии технических показателей (параметров), указанных на внешней стороне газовых баллонов автобуса и автомобиля, оборудованных системой газоснабжения, данным (показателям) в техническом паспорте, дата последнего и планового осмотров",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "При соответствии технических показателей (параметров), указанных на внешней стороне газовых баллонов автобуса и автомобиля, оборудованных системой газоснабжения, данным (показателям) в техническом паспорте, дата последнего и планового осмотров",
-                        "is_correct": true
+                        "text": "Если на внешней поверхности транспортного средства нанесены различные изображения, которые не соответствуют законодательству и негативно влияют на безопасность передвижения",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -2431,19 +2472,21 @@
     },
     {
         "task_info": {
-            "global_id": "t_35_q_10",
-            "ticket_num": 35,
-            "order": 29
+            "global_id": "t_16_q_7",
+            "global_id2": "t_16_q_7",
+            "ticket_num": 16,
+            "order": 29,
+            "remapped_from": "t_35_q_10"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Spidometr jihozlari tamg'alanmagan transport vositalaridan foydalanishga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ruxsat etiladi",
-                        "is_correct": false
+                        "text": "Faqat xususiy egalariga tegishli avtomobillar, motosikllar va mopedlarga ruxsat etiladi",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -2452,8 +2495,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Faqat xususiy egalariga tegishli avtomobillar, motosikllar va mopedlarga ruxsat etiladi",
-                        "is_correct": true
+                        "text": "Ruxsat etiladi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2462,8 +2505,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Рухсат этилади",
-                        "is_correct": false
+                        "text": "Фақат хусусий эгаларига тегишли автомобиллар, мотоцикллар ва мопедларга рухсат этилади",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -2472,8 +2515,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Фақат хусусий эгаларига тегишли автомобиллар, мотоцикллар ва мопедларга рухсат этилади",
-                        "is_correct": true
+                        "text": "Рухсат этилади",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2482,8 +2525,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается",
-                        "is_correct": false
+                        "text": "Разрешается только автомобилей, мотоциклов и мопедов, принадлежащих индивидуальным владельцам",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -2492,8 +2535,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Разрешается только автомобилей, мотоциклов и мопедов, принадлежащих индивидуальным владельцам",
-                        "is_correct": true
+                        "text": "Разрешается",
+                        "is_correct": false
                     }
                 ]
             }
@@ -2506,11 +2549,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_35_q_20",
-            "ticket_num": 35,
-            "order": 30
+            "global_id": "t_3_q_18",
+            "global_id2": "t_3_q_18",
+            "ticket_num": 3,
+            "order": 30,
+            "remapped_from": "t_35_q_20"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qoidalar transport vositalarining harakatlanishni davom ettirishni qanday hollarda taqiqlaydi?",
@@ -2581,23 +2626,25 @@
     },
     {
         "task_info": {
-            "global_id": "t_36_q_14",
-            "ticket_num": 36,
-            "order": 31
+            "global_id": "t_6_q_14",
+            "global_id2": "t_6_q_14",
+            "ticket_num": 6,
+            "order": 31,
+            "remapped_from": "t_36_q_12"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Sanab o'tilgan qaysi holatda transport vositasidan foydalanishga ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Tashqi yoritgich asboblari ifloslangan bo'lsa",
+                        "text": "Yorituvchi chiroq nurining yo'nalishi buzilgan bo'lsa",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Yorituvchi chiroq nurining yo'nalishi buzilgan bo'lsa",
+                        "text": "Tashqi yoritgich asboblari ifloslangan bo'lsa",
                         "is_correct": false
                     },
                     {
@@ -2612,12 +2659,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ташқи ёритгич асбоблари ифлосланган бўлса",
+                        "text": "Ёритувчи чироқ нурининг йўналиши бузилган бўлса",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Ёритувчи чироқ нурининг йўналиши бузилган бўлса",
+                        "text": "Ташқи ёритгич асбоблари ифлосланган бўлса",
                         "is_correct": false
                     },
                     {
@@ -2632,12 +2679,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Загрязнены внешние световые приборы",
+                        "text": "Нарушена регулировка фар",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Нарушена регулировка фар",
+                        "text": "Загрязнены внешние световые приборы",
                         "is_correct": false
                     },
                     {
@@ -2656,29 +2703,31 @@
     },
     {
         "task_info": {
-            "global_id": "t_37_q_13",
-            "ticket_num": 37,
-            "order": 32
+            "global_id": "t_26_q_3",
+            "global_id2": "t_26_q_3",
+            "ticket_num": 26,
+            "order": 32,
+            "remapped_from": "t_37_q_13"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "M3 toifadagi avtotransport vositalarining boshqaruv qurilmasidagi qanday eng katta lyuft yig'indisiga yo'l qo'yiladi:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "10°",
+                        "text": "25°",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "20°",
-                        "is_correct": true
+                        "text": "10°",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "25°",
-                        "is_correct": false
+                        "text": "20°",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2687,18 +2736,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "10°",
+                        "text": "25°",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "20°",
-                        "is_correct": true
+                        "text": "10°",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "25°",
-                        "is_correct": false
+                        "text": "20°",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2707,18 +2756,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "10°",
+                        "text": "25°",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "20°",
-                        "is_correct": true
+                        "text": "10°",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "25°",
-                        "is_correct": false
+                        "text": "20°",
+                        "is_correct": true
                     }
                 ]
             }
@@ -2731,34 +2780,36 @@
     },
     {
         "task_info": {
-            "global_id": "t_37_q_18",
-            "ticket_num": 37,
-            "order": 33
+            "global_id": "t_29_q_13",
+            "global_id2": "t_29_q_13",
+            "ticket_num": 29,
+            "order": 33,
+            "remapped_from": "t_37_q_18"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qaysi hollarda transport vositasidan foydalanish taqiqlanadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yonilg'i darajasini ko'rsatish qurilmasi ishlamaydi",
-                        "is_correct": false
+                        "text": "Tovush signallari ishlamaydi",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "O't oldirish tizimi nosoz",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Dvigatel qiyinchilik bilan ishga tushadi",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "O't oldirish tizimi nosoz",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Tovush signallari ishlamaydi",
-                        "is_correct": true
+                        "text": "Yonilg'i darajasini ko'rsatish qurilmasi ishlamaydi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2767,23 +2818,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ёнилғи даражасини кўрсатиш қурилмаси ишламайди",
-                        "is_correct": false
+                        "text": "Товуш сигналлари ишламайди",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Ўт олдириш тизими носоз",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Двигатель қийинчилик билан ишга тушади",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Ўт олдириш тизими носоз",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Товуш сигналлари ишламайди",
-                        "is_correct": true
+                        "text": "Ёнилғи даражасини кўрсатиш қурилмаси ишламайди",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2792,23 +2843,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Не работает указатель уровня топлива",
-                        "is_correct": false
+                        "text": "Не работают звуковые сигналы",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Нарушена система зажигания",
+                        "text": "Двигатель запускается с трудом",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Затруднен пуск двигателя",
+                        "text": "Неисправна система зажигания",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Не работает звуковой сигнал",
-                        "is_correct": true
+                        "text": "Не работает указатель уровня топлива",
+                        "is_correct": false
                     }
                 ]
             }
@@ -2821,28 +2872,30 @@
     },
     {
         "task_info": {
-            "global_id": "t_38_q_2",
-            "ticket_num": 38,
-            "order": 34
+            "global_id": "t_41_q_10",
+            "global_id2": "t_41_q_10",
+            "ticket_num": 41,
+            "order": 34,
+            "remapped_from": "t_38_q_2"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Siz yengil avtomobildan qaysi jihozlar mavjud bo'lmaganda foydalanishingiz mumkin?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Tibbiy quticha",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "O't o'chirgich",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Falokat to'xtash belgisi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Tibbiy quticha",
                         "is_correct": false
                     },
                     {
@@ -2857,17 +2910,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тиббий қутича",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Ўт ўчиргич",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Фалокат тўхташ белгиси",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Тиббий қутича",
                         "is_correct": false
                     },
                     {
@@ -2882,17 +2935,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Аптечки",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Огнетушителя",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Знака аварийной остановки",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Аптечки",
                         "is_correct": false
                     },
                     {
@@ -2911,28 +2964,30 @@
     },
     {
         "task_info": {
-            "global_id": "t_38_q_3",
-            "ticket_num": 38,
-            "order": 35
+            "global_id": "t_46_q_17",
+            "global_id2": "t_46_q_17",
+            "ticket_num": 46,
+            "order": 35,
+            "remapped_from": "t_38_q_3"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qanday alomatlar charchash belgilari hisoblanadi?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "Bosh aylanishi, ko'zlarga qum kirgan kabi achishish, terlash alomati",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Uyquchanlik, bo'shashish, diqqatning susayishi",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Zo'riqish, asabiylashish",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Bosh aylanishi, ko'zlarga qum kirgan kabi achishish, terlash alomati",
+                        "text": "Zo'riqish, asabiylashish",
                         "is_correct": false
                     }
                 ]
@@ -2942,17 +2997,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Бош айланиши, кўзларга қум кирган каби ачишиш, терлаш аломати",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Уйқучанлик, бўшашиш, диққатнинг сусайиши",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Зўриқиш, асабийлашиш",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Бош айланиши, кўзларга қум кирган каби ачишиш, терлаш аломати",
+                        "text": "Зўриқиш, асабийлашиш",
                         "is_correct": false
                     }
                 ]
@@ -2962,22 +3017,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Аптечки",
-                        "is_correct": true
+                        "text": "Головокружение, ощущение песка в глазах, потливость",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Огнетушителя",
-                        "is_correct": false
+                        "text": "Сонливость, вялость, снижение внимания",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Знака аварийной остановки",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "Противооткатных упоров",
+                        "text": "Раздражительность, нервозность",
                         "is_correct": false
                     }
                 ]
@@ -2991,11 +3041,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_38_q_20",
-            "ticket_num": 38,
-            "order": 36
+            "global_id": "t_45_q_19",
+            "global_id2": "t_45_q_19",
+            "ticket_num": 45,
+            "order": 36,
+            "remapped_from": "t_38_q_19"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Sanab o'tilgan qaysi transport vositalarini o't o'chirgichsiz tasarruf etishga ruxsat etiladi?",
@@ -3007,7 +3059,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Avtobuslarni",
+                        "text": "Faqat yon kajavasiz motosikllarni",
                         "is_correct": false
                     },
                     {
@@ -3017,7 +3069,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Faqat yon kajavasiz motosikllarni",
+                        "text": "Avtobuslarni",
                         "is_correct": false
                     }
                 ]
@@ -3032,7 +3084,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Автобусларни",
+                        "text": "Фақат ён кажавасиз мотоциклларни",
                         "is_correct": false
                     },
                     {
@@ -3042,7 +3094,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Фақат ён кажавасиз мотоциклларни",
+                        "text": "Автобусларни",
                         "is_correct": false
                     }
                 ]
@@ -3057,7 +3109,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Автобусы",
+                        "text": "Только мотоциклы без бокового прицепа.",
                         "is_correct": false
                     },
                     {
@@ -3067,7 +3119,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Только мотоциклы без бокового прицепа.",
+                        "text": "Автобусы",
                         "is_correct": false
                     }
                 ]
@@ -3081,24 +3133,26 @@
     },
     {
         "task_info": {
-            "global_id": "t_39_q_18",
-            "ticket_num": 39,
-            "order": 37
+            "global_id": "t_14_q_19",
+            "global_id2": "t_14_q_19",
+            "ticket_num": 14,
+            "order": 37,
+            "remapped_from": "t_39_q_18"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Yengil avtomobilning orqa oynasiga parda yoki jalyuzilar o'rnatish mumkinmi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Taqiqlanadi",
-                        "is_correct": false
+                        "text": "Ruxsat etiladi, agarda ikki tomonda orqani ko'rsatuvchi ko'zgusi bo'lsa",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Ruxsat etiladi, agarda ikki tomonda orqani ko'rsatuvchi ko'zgusi bo'lsa",
-                        "is_correct": true
+                        "text": "Taqiqlanadi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -3107,13 +3161,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тақиқланади",
-                        "is_correct": false
+                        "text": "Рухсат этилади, агарда икки томонда орқани кўрсатувчи кўзгуси бўлса",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Рухсат этилади, агарда икки томонда орқани кўрсатувчи кўзгуси бўлса",
-                        "is_correct": true
+                        "text": "Тақиқланади",
+                        "is_correct": false
                     }
                 ]
             },
@@ -3122,13 +3176,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Запрещается",
-                        "is_correct": false
+                        "text": "Разрешается, но только при наличии с обеих сторон зеркал заднего вида",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Разрешается, но только при наличии с обеих сторон зеркал заднего вида",
-                        "is_correct": true
+                        "text": "Запрещается",
+                        "is_correct": false
                     }
                 ]
             }
@@ -3141,11 +3195,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_41_q_14",
-            "ticket_num": 41,
-            "order": 38
+            "global_id": "t_19_q_5",
+            "global_id2": "t_19_q_5",
+            "ticket_num": 19,
+            "order": 38,
+            "remapped_from": "t_41_q_12"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "To'xtab turish tormoz tizimi N toifadagi avtotransport vositalarini aslahalangan holatda qanday qiyalikda ushlab tura olmasa foydalanish taqiqlanadi?",
@@ -3157,7 +3213,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "16 % dan kam",
+                        "text": "20 % dan kam",
                         "is_correct": false
                     },
                     {
@@ -3167,7 +3223,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "20 % dan kam",
+                        "text": "16 % dan kam",
                         "is_correct": false
                     }
                 ]
@@ -3182,7 +3238,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "16 % дан кам",
+                        "text": "20 % дан кам",
                         "is_correct": false
                     },
                     {
@@ -3192,7 +3248,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "20 % дан кам",
+                        "text": "16 % дан кам",
                         "is_correct": false
                     }
                 ]
@@ -3207,7 +3263,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Менее 16 процентов.",
+                        "text": "Менее 20 процентов.",
                         "is_correct": false
                     },
                     {
@@ -3217,7 +3273,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Менее 20 процентов.",
+                        "text": "Менее 16 процентов.",
                         "is_correct": false
                     }
                 ]
@@ -3231,18 +3287,20 @@
     },
     {
         "task_info": {
-            "global_id": "t_44_q_12",
+            "global_id": "t_44_q_1",
+            "global_id2": "t_44_q_1",
             "ticket_num": 44,
-            "order": 39
+            "order": 39,
+            "remapped_from": "t_44_q_11"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "M3 toifadagi avtotransport vositalarining boshqaruv qurilmasidagi qanday eng katta lyuft yig'indisiga yo'l qo'yiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "10 gradus",
+                        "text": "25 gradus",
                         "is_correct": false
                     },
                     {
@@ -3252,7 +3310,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "25 gradus",
+                        "text": "10 gradus",
                         "is_correct": false
                     }
                 ]
@@ -3262,7 +3320,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "10 градус",
+                        "text": "25 градус",
                         "is_correct": false
                     },
                     {
@@ -3272,7 +3330,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "25 градус",
+                        "text": "10 градус",
                         "is_correct": false
                     }
                 ]
@@ -3282,7 +3340,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "10 градусов",
+                        "text": "25 градусов",
                         "is_correct": false
                     },
                     {
@@ -3292,7 +3350,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "25 градусов",
+                        "text": "10 градусов",
                         "is_correct": false
                     }
                 ]
@@ -3306,29 +3364,31 @@
     },
     {
         "task_info": {
-            "global_id": "t_45_q_3",
-            "ticket_num": 45,
-            "order": 40
+            "global_id": "t_20_q_12",
+            "global_id2": "t_20_q_12",
+            "ticket_num": 20,
+            "order": 40,
+            "remapped_from": "t_45_q_3"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "M2 toifali avtotransport vositalarining boshqaruv qurilmasidagi qanday eng katta lyuft yig'indisiga yo'l qo'yiladi",
                 "options": [
                     {
                         "id": 1,
-                        "text": "10 gradus",
+                        "text": "3,25 gradus",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "20 gradus",
-                        "is_correct": true
+                        "text": "10 gradus",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "3,25 gradus",
-                        "is_correct": false
+                        "text": "20 gradus",
+                        "is_correct": true
                     }
                 ]
             },
@@ -3337,18 +3397,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "10 градус",
+                        "text": "3,25 градус",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "20 градус",
-                        "is_correct": true
+                        "text": "10 градус",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "3,25 градус",
-                        "is_correct": false
+                        "text": "20 градус",
+                        "is_correct": true
                     }
                 ]
             },
@@ -3357,18 +3417,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "10 градусов",
+                        "text": "3,25 градусов",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "20 градусов",
-                        "is_correct": true
+                        "text": "10 градусов",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "3,25 градусов",
-                        "is_correct": false
+                        "text": "20 градусов",
+                        "is_correct": true
                     }
                 ]
             }
@@ -3381,11 +3441,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_46_q_20",
-            "ticket_num": 46,
-            "order": 41
+            "global_id": "t_42_q_2",
+            "global_id2": "t_42_q_2",
+            "ticket_num": 42,
+            "order": 41,
+            "remapped_from": "t_46_q_20"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "N1 toifadagi avtotransport vositalarining boshqaruv qurilmasidagi qanday eng katta lyuft yig'indisiga yo'l qo'yiladi?",
@@ -3397,13 +3459,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "20 gradus",
-                        "is_correct": true
+                        "text": "30 gradus",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "30 gradus",
-                        "is_correct": false
+                        "text": "20 gradus",
+                        "is_correct": true
                     }
                 ]
             },
@@ -3417,13 +3479,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "20 градус",
-                        "is_correct": true
+                        "text": "30 градус",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "30 градус",
-                        "is_correct": false
+                        "text": "20 градус",
+                        "is_correct": true
                     }
                 ]
             },
@@ -3456,11 +3518,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_48_q_20",
-            "ticket_num": 48,
-            "order": 42
+            "global_id": "t_58_q_6",
+            "global_id2": "t_58_q_6",
+            "ticket_num": 58,
+            "order": 42,
+            "remapped_from": "t_48_q_20"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "M toifadagi avtotransport vositalari bu:",
@@ -3531,23 +3595,25 @@
     },
     {
         "task_info": {
-            "global_id": "t_49_q_20",
-            "ticket_num": 49,
-            "order": 43
+            "global_id": "t_39_q_16",
+            "global_id2": "t_39_q_16",
+            "ticket_num": 39,
+            "order": 43,
+            "remapped_from": "t_49_q_17"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "To'la vazni 3,5 tonnadan oshmaydigan yuk avtomobillarini quyidagilar bilan jihozlanmagan bo'lsa xam foydalanishga ruxsat etiladi:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "O't o'chirgich",
+                        "text": "Majburiy to'xtaganini bildiruvchi belgi (yoki miltillovchi qizil chiroq)",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Tibbiyot qutichasi",
+                        "text": "O't o'chirgich",
                         "is_correct": false
                     },
                     {
@@ -3557,7 +3623,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Majburiy to'xtaganini bildiruvchi belgi (yoki miltillovchi qizil chiroq)",
+                        "text": "Tibbiyot qutichasi",
                         "is_correct": false
                     }
                 ]
@@ -3567,12 +3633,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ўт ўчиргич",
+                        "text": "Мажбурий тўхтаганини билдирувчи белги (ёки милтилловчи қизил чироқ)",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Тиббиёт қутичаси",
+                        "text": "Ўт ўчиргич",
                         "is_correct": false
                     },
                     {
@@ -3582,7 +3648,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Мажбурий тўхтаганини билдирувчи белги (ёки милтилловчи қизил чироқ)",
+                        "text": "Тиббиёт қутичаси",
                         "is_correct": false
                     }
                 ]
@@ -3592,12 +3658,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Огнетушителя",
+                        "text": "Знака аварийной остановки.",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Аптечки",
+                        "text": "Огнетушителя",
                         "is_correct": false
                     },
                     {
@@ -3607,7 +3673,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Знака аварийной остановки.",
+                        "text": "Аптечки",
                         "is_correct": false
                     }
                 ]
@@ -3621,11 +3687,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_53_q_14",
-            "ticket_num": 53,
-            "order": 44
+            "global_id": "t_19_q_15",
+            "global_id2": "t_19_q_15",
+            "ticket_num": 19,
+            "order": 44,
+            "remapped_from": "t_53_q_14"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "01.01.1981- yilgacha ishlab chiqarilgan yengil avtomobillar uchun Qoidalar tormozlashning 40km/s tezlikda harakatlanish tartibida ishchi tormoz tizimining qanday samaradorlik meyoriga ruxsat berilgan?",
@@ -3637,12 +3705,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "12,2 m",
+                        "text": "19,5 m",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "19,5 m",
+                        "text": "12,2 m",
                         "is_correct": false
                     },
                     {
@@ -3667,12 +3735,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "12,2 m",
+                        "text": "19,5 m",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "19,5 m",
+                        "text": "12,2 m",
                         "is_correct": false
                     },
                     {
@@ -3697,12 +3765,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "12,2 m",
+                        "text": "19,5 m",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "19,5 m",
+                        "text": "12,2 m",
                         "is_correct": false
                     },
                     {
@@ -3726,33 +3794,35 @@
     },
     {
         "task_info": {
-            "global_id": "t_55_q_17",
-            "ticket_num": 55,
-            "order": 45
+            "global_id": "t_37_q_8",
+            "global_id2": "t_37_q_8",
+            "ticket_num": 37,
+            "order": 45,
+            "remapped_from": "t_55_q_17"
         },
-        "media_url": "v565uz.webp",
+        "media_url": "u421uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Ushbu transport vositasi qaysi toifaga kiradi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "M1",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "M2",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "M1",
+                        "is_correct": true
+                    },
+                    {
                         "id": 3,
-                        "text": "N1",
+                        "text": "O1",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "O1",
+                        "text": "N1",
                         "is_correct": false
                     }
                 ]
@@ -3762,22 +3832,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "M1",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "M2",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "M1",
+                        "is_correct": true
+                    },
+                    {
                         "id": 3,
-                        "text": "N1",
+                        "text": "O1",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "O1",
+                        "text": "N1",
                         "is_correct": false
                     }
                 ]
@@ -3787,22 +3857,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "M1",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "M2",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "M1",
+                        "is_correct": true
+                    },
+                    {
                         "id": 3,
-                        "text": "N1",
+                        "text": "O1",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "O1",
+                        "text": "N1",
                         "is_correct": false
                     }
                 ]
@@ -3816,48 +3886,50 @@
     },
     {
         "task_info": {
-            "global_id": "t_55_q_18",
-            "ticket_num": 55,
-            "order": 46
+            "global_id": "t_41_q_8",
+            "global_id2": "t_41_q_8",
+            "ticket_num": 41,
+            "order": 46,
+            "remapped_from": "t_55_q_18"
         },
-        "media_url": "v566uz.webp",
+        "media_url": "u468uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Bu xavflilik belgisi qanday nomlanadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Oksidlovchi moddalar",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Organik proksidlar",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "Tez alangalanadigan gazlar va suyuqliklar",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Tez alangalanadigan gazlar va suyukliklar",
+                        "text": "Oksidlovchi moddalar",
                         "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Бу хавфлилик белгиси кандай номланади?",
+                "text": "Бу хавфлилик белгиси қандай номланади?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Оксидловчи моддалар",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Органик проксидлар",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Тез алангаланадиган газлар ва суюкликлар",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Оксидловчи моддалар",
                         "is_correct": false
                     }
                 ]
@@ -3867,17 +3939,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Окисляющие вещества",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Органические пероксиды",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Легковоспламеняющиеся газы и жидкости",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Окисляющие вещества",
                         "is_correct": false
                     }
                 ]
@@ -3891,9 +3963,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_35b_q_8",
-            "ticket_num": "35b",
-            "order": 47
+            "global_id": "t_36_q_19",
+            "global_id2": "t_36_q_19",
+            "ticket_num": 36,
+            "order": 47,
+            "remapped_from": "t_61_q_16"
         },
         "media_url": "u416uz.webp",
         "content": {
@@ -3947,13 +4021,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Токсичные вещества",
-                        "is_correct": false
+                        "text": "Окислители",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Окислители",
-                        "is_correct": true
+                        "text": "Токсичные вещества",
+                        "is_correct": false
                     }
                 ]
             }
@@ -3961,7 +4035,7 @@
         "izoh": {
             "uz_lat": "YHQga 4-ILOVA 5.1 bandiga asosan: 5.1 Oksidlovchi moddalar.",
             "uz_cyr": "YHQга 4-ИЛОВА 5.1 бандига асосан: 5.1 Оксидловчи моддалар.",
-            "ru": "Согласно п.5.1 ПРИЛОЖЕНИЯ 4 к НПЦ: 5.1 Окислители."
+            "ru": "Согласно п.5.1 ПРИЛОЖЕНИЯ 4 к ПДД: 5.1 Окислители."
         }
     }
 ]

@@ -1,0 +1,788 @@
+[
+  {
+    "id": "t_1_q_12",
+    "media": "u7uz.webp",
+    "q": "Avtomobilga qaysi yo'nalishlarda harakatlanishga ruxsat etiladi?",
+    "opts": [
+      "«Б» va «В»",
+      "Barcha yo'nalishlarga",
+      "«А» va «В»"
+    ],
+    "ans": "«А» va «В»",
+    "flags": [
+      "CYR_IN_LAT: «Б» va «В»; «А» va «В»"
+    ]
+  },
+  {
+    "id": "t_2_q_9",
+    "media": "u14uz.webp",
+    "q": "Ushbu yotiq chiziqlardan qaysi biri belgilangan yo'nalishdagi transport vositalari uchun to'xtashga ",
+    "opts": [
+      "«Б»",
+      "«В»",
+      "«А»",
+      "«А», «Б», «В»"
+    ],
+    "ans": "«А», «Б», «В»",
+    "flags": [
+      "CYR_IN_LAT: «Б»; «В»; «А»; «А», «Б», «В»"
+    ]
+  },
+  {
+    "id": "t_7_q_9",
+    "media": "u68uz.webp",
+    "q": "Qaysi belgi piyodalar o'tish joyini bildiradi?",
+    "opts": [
+      "«В»",
+      "«А»",
+      "«Б»"
+    ],
+    "ans": "«Б»",
+    "flags": [
+      "CYR_IN_LAT: «В»; «А»; «Б»"
+    ]
+  },
+  {
+    "id": "t_7_q_15",
+    "media": "u72uz.webp",
+    "q": "Qaysi yotiq yo'l chizig'i baland piyodalar o'tish joyini bildiradi?",
+    "opts": [
+      "«В»",
+      "«А»",
+      "«Б»"
+    ],
+    "ans": "«А»",
+    "flags": [
+      "CYR_IN_LAT: «В»; «А»; «Б»"
+    ]
+  },
+  {
+    "id": "t_7_q_19",
+    "media": "u76uz.webp",
+    "q": "Chorrahada qaysi yo'nalishlarda harakat qilishga ruxsat etiladi?",
+    "opts": [
+      "«Б», «В», «Г», «Д»",
+      "Faqat «Г» va «Е»",
+      "«А», «Б», «Г», «Д»"
+    ],
+    "ans": "Faqat «Г» va «Е»",
+    "flags": [
+      "CYR_IN_LAT: «Б», «В», «Г», «Д»; Faqat «Г» va «Е»; «А», «Б», «Г», «Д»"
+    ]
+  },
+  {
+    "id": "t_11_q_16",
+    "media": "u124uz.webp",
+    "q": "Qaysi belgilar yuk avtomobillariga quvib o'tish taqiqlangan hududning oxirini bildiradi?",
+    "opts": [
+      "B",
+      "A",
+      "A, B, V",
+      "A va B"
+    ],
+    "ans": "A, B, V",
+    "flags": [
+      "LAT_V: V harfi (rasmda odatda B)"
+    ]
+  },
+  {
+    "id": "t_14_q_9",
+    "media": "u156uz.webp",
+    "q": "Qaysi belgi \"Xavfli yuk tashiyotgan transport vositalarining harakatlanishini taqiqlangan\" deb nomla",
+    "opts": [
+      "S",
+      "A",
+      "V"
+    ],
+    "ans": "S",
+    "flags": [
+      "LAT_V: V harfi (rasmda odatda B)"
+    ]
+  },
+  {
+    "id": "t_15_q_14",
+    "media": "u169uz.webp",
+    "q": "Qaysi belgi yo'lning tor qismlarida ro'paradan kelayotgan transport vositasiga yo'l berish lozimligi",
+    "opts": [
+      "B",
+      "B va V",
+      "A",
+      "G",
+      "A va G"
+    ],
+    "ans": "A",
+    "flags": [
+      "LAT_V: V harfi (rasmda odatda B)",
+      "LAT_V: B va V birga"
+    ]
+  },
+  {
+    "id": "t_15_q_16",
+    "media": "u170uz.webp",
+    "q": "Ushbu belgilardan qaysi biri-bir yoki bir necha bo'laklarda harakatlanish yo'nalishi qarama-qarshi t",
+    "opts": [
+      "B",
+      "V",
+      "A"
+    ],
+    "ans": "V",
+    "flags": [
+      "LAT_V: V harfi (rasmda odatda B)"
+    ]
+  },
+  {
+    "id": "t_16_q_17",
+    "media": "u180uz.webp",
+    "q": "Ko'rsatilgan qaysi belgi reversiv harakat boshlanishi haqida axborot beradi?",
+    "opts": [
+      "«В»",
+      "«Б»",
+      "«А»"
+    ],
+    "ans": "«В»",
+    "flags": [
+      "CYR_IN_LAT: «В»; «Б»; «А»"
+    ]
+  },
+  {
+    "id": "t_17_q_1",
+    "media": "u181uz.webp",
+    "q": "Ko'rsatilgan yo'l belgilaridan qaysi biri faqat yo'l qoplamasi nam bo'lganda ta'sir etadi?",
+    "opts": [
+      "Faqat «А» va «Б»",
+      "Faqat «А»",
+      "Barchasi"
+    ],
+    "ans": "Faqat «А»",
+    "flags": [
+      "CYR_IN_LAT: Faqat «А» va «Б»; Faqat «А»"
+    ]
+  },
+  {
+    "id": "t_17_q_6",
+    "media": "u184uz.webp",
+    "q": "Qaysi yo'l belgilari qayrilib olishga ruxsat beradi?",
+    "opts": [
+      "Faqat «Б» va «Г»",
+      "Faqat «Б»",
+      "Barchasi",
+      "Faqat «А» , «Б» va «В»"
+    ],
+    "ans": "Barchasi",
+    "flags": [
+      "CYR_IN_LAT: Faqat «Б» va «Г»; Faqat «Б»; Faqat «А» , «Б» va «В»"
+    ]
+  },
+  {
+    "id": "t_17_q_10",
+    "media": "u187uz.webp",
+    "q": "Qaysi belgi to'xtash chizig'i oldida, u bo'lmaganda, kesib o'tiladigan qatnov qismining chetida to'x",
+    "opts": [
+      "B",
+      "A",
+      "G",
+      "B va V",
+      "A va G"
+    ],
+    "ans": "B",
+    "flags": [
+      "LAT_V: V harfi (rasmda odatda B)",
+      "LAT_V: B va V birga"
+    ]
+  },
+  {
+    "id": "t_19_q_6",
+    "media": "u211uz.webp",
+    "q": "Ko'rsatilgan qaysi belgi yo'lning o'ta sirpanchiq bo'lgan qismini bildiradi?",
+    "opts": [
+      "A",
+      "A va B",
+      "V"
+    ],
+    "ans": "V",
+    "flags": [
+      "LAT_V: V harfi (rasmda odatda B)"
+    ]
+  },
+  {
+    "id": "t_19_q_14",
+    "media": "u216uz.webp",
+    "q": "Suratlarning qaysi birida quvib o'tish ko'rsatilgan?",
+    "opts": [
+      "«А» va «Б»",
+      "«А»",
+      "«Б»"
+    ],
+    "ans": "«А»",
+    "flags": [
+      "CYR_IN_LAT: «А» va «Б»; «А»; «Б»"
+    ]
+  },
+  {
+    "id": "t_20_q_11",
+    "media": "u224uz.webp",
+    "q": "Shatakka olib harakatlanishingiz mumkin:",
+    "opts": [
+      "Faqat «А» yo'nalishi bo'yicha",
+      "Faqat «Б» yo'nalish bo'yicha",
+      "Ko'rsatilgan barcha yo'nalish bo'yicha"
+    ],
+    "ans": "Faqat «А» yo'nalishi bo'yicha",
+    "flags": [
+      "CYR_IN_LAT: Faqat «А» yo'nalishi bo'yicha; Faqat «Б» yo'nalish bo'yicha"
+    ]
+  },
+  {
+    "id": "t_21_q_14",
+    "media": "u235uz.webp",
+    "q": "Yo'naltirgichlar bilan belgilangan yo'nalishlarning qaysi biridan harakatlanishga ruxsat etiladi?",
+    "opts": [
+      "«А» va «В»",
+      "«Б» va «В»",
+      "«А» va «Б»"
+    ],
+    "ans": "«А» va «В»",
+    "flags": [
+      "CYR_IN_LAT: «А» va «В»; «Б» va «В»; «А» va «Б»"
+    ]
+  },
+  {
+    "id": "t_22_q_3",
+    "media": "u240uz.webp",
+    "q": "Avtomobil haydovchisi quvib o'tishni qaysi yo'nalish bo'yicha to'g'ri bajaradi?",
+    "opts": [
+      "«А» va «Б» yo'nalishi bo'yicha",
+      "«Б» yo'nalishi bo'yicha",
+      "«А» yo'nalishi bo'yicha"
+    ],
+    "ans": "«Б» yo'nalishi bo'yicha",
+    "flags": [
+      "CYR_IN_LAT: «А» va «Б» yo'nalishi bo'yicha; «Б» yo'nalishi bo'yicha; «А» yo'nalishi bo'yicha"
+    ]
+  },
+  {
+    "id": "t_22_q_6",
+    "media": "u242uz.webp",
+    "q": "Qaysi yotiq yo'l chizig'i avtomobil yo'llarida 3D ko'rinishidagi piyodalar o'tish joyini bildiradi?",
+    "opts": [
+      "«В»",
+      "«А»",
+      "«Б»"
+    ],
+    "ans": "«В»",
+    "flags": [
+      "CYR_IN_LAT: «В»; «А»; «Б»"
+    ]
+  },
+  {
+    "id": "t_22_q_9",
+    "media": "u245uz.webp",
+    "q": "Qaysi yo'l belgilari chapga burilishni taqiqlaydi?",
+    "opts": [
+      "Faqat «А» va «Б»",
+      "Barchasi",
+      "Faqat «А» va «Г»",
+      "Faqat «А»"
+    ],
+    "ans": "Faqat «А» va «Г»",
+    "flags": [
+      "CYR_IN_LAT: Faqat «А» va «Б»; Faqat «А» va «Г»; Faqat «А»"
+    ]
+  },
+  {
+    "id": "t_23_q_12",
+    "media": "u256uz.webp",
+    "q": "Qaysi yotiq yo'l chizig'i avtomobil yo'llarida 3D ko'rinishidagi baland piyodalar o'tish joyini bild",
+    "opts": [
+      "«А»",
+      "«Б»",
+      "«В»"
+    ],
+    "ans": "«Б»",
+    "flags": [
+      "CYR_IN_LAT: «А»; «Б»; «В»"
+    ]
+  },
+  {
+    "id": "t_24_q_16",
+    "media": "u267uz.webp",
+    "q": "Belgilardan qaysi biri qatnov qismi kesishmasi hududini bildiradi?",
+    "opts": [
+      "«A»",
+      "«Б»",
+      "«В»"
+    ],
+    "ans": "«A»",
+    "flags": [
+      "CYR_IN_LAT: «Б»; «В»"
+    ]
+  },
+  {
+    "id": "t_26_q_8",
+    "media": "u286uz.webp",
+    "q": "Qaysi yo'nalish bo'yicha burilish mumkin?",
+    "opts": [
+      "Faqat «А»",
+      "Ikkala sanab o'tilgan hollarda",
+      "Faqat «Б»"
+    ],
+    "ans": "Faqat «А»",
+    "flags": [
+      "CYR_IN_LAT: Faqat «А»; Faqat «Б»"
+    ]
+  },
+  {
+    "id": "t_27_q_4",
+    "media": "u296uz.webp",
+    "q": "Ko'rsatilgan qaysi belgilar sizga yashash manzilingizga avtomobilda o'tishga ruxsat beradi?",
+    "opts": [
+      "Barchasi",
+      "Faqat «Б»",
+      "Faqat «А» va «B»",
+      "Faqat «А»"
+    ],
+    "ans": "Faqat «А» va «B»",
+    "flags": [
+      "CYR_IN_LAT: Faqat «Б»; Faqat «А» va «B»; Faqat «А»",
+      "MIX: Latin B + kirill «А/Б/В»"
+    ]
+  },
+  {
+    "id": "t_28_q_8",
+    "media": "u311uz.webp",
+    "q": "Qaysi belgi tartibga solinmagan piyodalar o'tish joyiga yaqinlashayotganlik haqida ogohlantiradi?",
+    "opts": [
+      "Hammasi",
+      "A va V",
+      "Faqat A"
+    ],
+    "ans": "Faqat A",
+    "flags": [
+      "LAT_V: V harfi (rasmda odatda B)"
+    ]
+  },
+  {
+    "id": "t_28_q_12",
+    "media": "u315uz.webp",
+    "q": "Ko'rsatilgan yo'l belgilaridan qaysilari Siz yo'lning tor qismida yo'l berishingizni talab qiladi?",
+    "opts": [
+      "«Б» va «Г»",
+      "«Б» va «В»",
+      "«А» va «В»",
+      "Faqat «В»"
+    ],
+    "ans": "«А» va «В»",
+    "flags": [
+      "CYR_IN_LAT: «Б» va «Г»; «Б» va «В»; «А» va «В»; Faqat «В»"
+    ]
+  },
+  {
+    "id": "t_28_q_14",
+    "media": "u317uz.webp",
+    "q": "Qaysi transport vositalariga yo'lovchilarni tushirishga ruxsat etiladi?",
+    "opts": [
+      "«Б»",
+      "Hech qaysi biriga",
+      "«А»",
+      "«В»"
+    ],
+    "ans": "«А»",
+    "flags": [
+      "CYR_IN_LAT: «Б»; «А»; «В»"
+    ]
+  },
+  {
+    "id": "t_28_q_18",
+    "media": "u320uz.webp",
+    "q": "Qaysi yo'l belgisi barcha transport vositalarining harakatini istisnosiz taqiqlaydi?",
+    "opts": [
+      "«А»",
+      "«В»",
+      "«Б»"
+    ],
+    "ans": "«Б»",
+    "flags": [
+      "CYR_IN_LAT: «А»; «В»; «Б»"
+    ]
+  },
+  {
+    "id": "t_28_q_20",
+    "media": "u321uz.webp",
+    "q": "Ushbu belgilardan qaysi biri bir tomonlama harakat tashkil qilingan yo'lning boshida o'rnatiladi?",
+    "opts": [
+      "Faqat «А»",
+      "Faqat «Б»",
+      "«Б» yoki «В»",
+      "«Б» va «Г»"
+    ],
+    "ans": "Faqat «Б»",
+    "flags": [
+      "CYR_IN_LAT: Faqat «А»; Faqat «Б»; «Б» yoki «В»; «Б» va «Г»"
+    ]
+  },
+  {
+    "id": "t_29_q_1",
+    "media": "u322uz.webp",
+    "q": "Yengil avtomobil haydovchilarining qaysi biri aholi punktlarida harakatlanish qoidalarini buzmoqda?",
+    "opts": [
+      "Ikkalasi ham buzmoqda",
+      "Faqat «Б» avtomobil haydovchisi",
+      "Ikkalasi ham buzmayapti"
+    ],
+    "ans": "Ikkalasi ham buzmayapti",
+    "flags": [
+      "CYR_IN_LAT: Faqat «Б» avtomobil haydovchisi"
+    ]
+  },
+  {
+    "id": "t_30_q_16",
+    "media": "u348uz.webp",
+    "q": "Ko'rsatilgan belgilardan qaysi biri yo'lning ko'rinish masofasi cheklangan joylarda majburan to'xtag",
+    "opts": [
+      "«В»",
+      "«А»",
+      "«Б»"
+    ],
+    "ans": "«А»",
+    "flags": [
+      "CYR_IN_LAT: «В»; «А»; «Б»"
+    ]
+  },
+  {
+    "id": "t_31_q_11",
+    "media": "u358uz.webp",
+    "q": "Ko'rsatilgan qaysi belgilar faqat shu o'rnatilgan bo'lakka o'z ta'sirini qiladi?",
+    "opts": [
+      "«Б» va «В»",
+      "Faqat «Б»",
+      "Faqat «А»"
+    ],
+    "ans": "Faqat «А»",
+    "flags": [
+      "CYR_IN_LAT: «Б» va «В»; Faqat «Б»; Faqat «А»"
+    ]
+  },
+  {
+    "id": "t_32_q_17",
+    "media": "u370uz.webp",
+    "q": "Yo'l yoqasida qaysi transport vositalarining haydovchilari qoidani buzib to'xtadilar?",
+    "opts": [
+      "Faqat «А»",
+      "«А» va «Б»",
+      "Faqat «В»",
+      "Faqat «Б»",
+      "«Б» va «В»"
+    ],
+    "ans": "«А» va «Б»",
+    "flags": [
+      "CYR_IN_LAT: Faqat «А»; «А» va «Б»; Faqat «В»; Faqat «Б»"
+    ]
+  },
+  {
+    "id": "t_33_q_14",
+    "media": "u379uz.webp",
+    "q": "Yo'l harakati qoidalari bo'yicha «yonlama oraliq masofa»ni ko'rsating:",
+    "opts": [
+      "Faqat «В»",
+      "Faqat «Б»",
+      "«А» va «В»",
+      "Faqat «А»"
+    ],
+    "ans": "«А» va «В»",
+    "flags": [
+      "CYR_IN_LAT: Faqat «В»; Faqat «Б»; «А» va «В»; Faqat «А»"
+    ]
+  },
+  {
+    "id": "t_37_q_20",
+    "media": "u428uz.webp",
+    "q": "Bu yotiq chiziqlardan qaysi biri belgilangan yo'nalishdagi transport vositalarining to'xtash joyini ",
+    "opts": [
+      "«А» va «Б»",
+      "«А»",
+      "«В»",
+      "«Б»",
+      "«А» va «В»"
+    ],
+    "ans": "«Б»",
+    "flags": [
+      "CYR_IN_LAT: «А» va «Б»; «А»; «В»; «Б»"
+    ]
+  },
+  {
+    "id": "t_39_q_20",
+    "media": "u451uz.webp",
+    "q": "Ko'rsatilgan yo'l belgilaridan qaysi biri ruxsat etilgan to'la vazni 3,5 tonnadan kam bo'lgan yuk av",
+    "opts": [
+      "Faqat «А»",
+      "«Б» va «В»",
+      "«А» va «Б»",
+      "Faqat «Б»"
+    ],
+    "ans": "Faqat «Б»",
+    "flags": [
+      "CYR_IN_LAT: Faqat «А»; «Б» va «В»; «А» va «Б»; Faqat «Б»"
+    ]
+  },
+  {
+    "id": "t_40_q_11",
+    "media": "u458uz.webp",
+    "q": "Qaysi qo'shimcha axborot belgilari birga qo'llanilganda belgilarning ta'sir oralig'ini ko'rsatadi?",
+    "opts": [
+      "Faqat «А»",
+      "Faqat «Б»",
+      "«Б» va «В»"
+    ],
+    "ans": "«Б» va «В»",
+    "flags": [
+      "CYR_IN_LAT: Faqat «А»; Faqat «Б»; «Б» va «В»"
+    ]
+  },
+  {
+    "id": "t_43_q_9",
+    "media": "u496uz.webp",
+    "q": "Yo'naltirgichlar bilan ko'rsatilgan qaysi yo'nalishlarda harakatlanishga ruxsat etilgan?",
+    "opts": [
+      "«Б»",
+      "«А»",
+      "«А» va «Б»"
+    ],
+    "ans": "«А»",
+    "flags": [
+      "CYR_IN_LAT: «Б»; «А»; «А» va «Б»"
+    ]
+  },
+  {
+    "id": "t_44_q_9",
+    "media": "u506uz.webp",
+    "q": "Qaysi belgi svetaforning (tartibga soluvchining) taqiqlovchi ishorasida transport vositalari to'xtay",
+    "opts": [
+      "G",
+      "B",
+      "A",
+      "V"
+    ],
+    "ans": "V",
+    "flags": [
+      "LAT_V: V harfi (rasmda odatda B)"
+    ]
+  },
+  {
+    "id": "t_44_q_19",
+    "media": "u514uz.webp",
+    "q": "Xavfsiz oraliq masofani ko'rsating",
+    "opts": [
+      "V",
+      "A va V",
+      "B"
+    ],
+    "ans": "B",
+    "flags": [
+      "LAT_V: V harfi (rasmda odatda B)"
+    ]
+  },
+  {
+    "id": "t_45_q_16",
+    "media": "u525uz.webp",
+    "q": "Quyidagi belgilardan qaysi biri haydovchini boshqa xavf-xatarlar to'g'risida ogohlantiradi?",
+    "opts": [
+      "A",
+      "V",
+      "B"
+    ],
+    "ans": "V",
+    "flags": [
+      "LAT_V: V harfi (rasmda odatda B)"
+    ]
+  },
+  {
+    "id": "t_46_q_8",
+    "media": "u529uz.webp",
+    "q": "Ushbu belgilardan qaysi biri oldinda yo'l qoplamasi ustida sun'iy notekislik borligi haqida ogohlant",
+    "opts": [
+      "A",
+      "V",
+      "A va S",
+      "S"
+    ],
+    "ans": "V",
+    "flags": [
+      "LAT_V: V harfi (rasmda odatda B)"
+    ]
+  },
+  {
+    "id": "t_46_q_15",
+    "media": "u533uz.webp",
+    "q": "Bu belgilardan qaysi biri maktab va maktabgacha ta'lim tashkilotlari oldida o'rnatiladi?",
+    "opts": [
+      "«Б»",
+      "«А»",
+      "«В»"
+    ],
+    "ans": "«Б»",
+    "flags": [
+      "CYR_IN_LAT: «Б»; «А»; «В»"
+    ]
+  },
+  {
+    "id": "t_46_q_20",
+    "media": "u535uz.webp",
+    "q": "Ko'rsatilgan qaysi joyda siz avtomobilni qoidaga binoan to'xtatishingiz mumkin?",
+    "opts": [
+      "Faqat «А»",
+      "Faqat «Б»",
+      "Hech qaysisida",
+      "Faqat «Б» va «В»"
+    ],
+    "ans": "Faqat «Б»",
+    "flags": [
+      "CYR_IN_LAT: Faqat «А»; Faqat «Б»; Faqat «Б» va «В»"
+    ]
+  },
+  {
+    "id": "t_47_q_5",
+    "media": "u538uz.webp",
+    "q": "To'xtab turish qoidasini kim buzdi?",
+    "opts": [
+      "«А» va «Б»",
+      "Faqat «Б»",
+      "Faqat «А»"
+    ],
+    "ans": "Faqat «Б»",
+    "flags": [
+      "CYR_IN_LAT: «А» va «Б»; Faqat «Б»; Faqat «А»"
+    ]
+  },
+  {
+    "id": "t_48_q_2",
+    "media": "u547uz.webp",
+    "q": "Oraliq masofa deb nimaga aytiladi?",
+    "opts": [
+      "«А» masofa",
+      "«Б» masofa",
+      "«А» va «Б» masofa"
+    ],
+    "ans": "«А» masofa",
+    "flags": [
+      "CYR_IN_LAT: «А» masofa; «Б» masofa; «А» va «Б» masofa"
+    ]
+  },
+  {
+    "id": "t_48_q_9",
+    "media": "u550uz.webp",
+    "q": "Ko'rsatilgan yo'l belgilaridan qaysi biri taqiqlovchi belgilar ilgari kiritgan barcha cheklovlarni b",
+    "opts": [
+      "V va G",
+      "V",
+      "A va B",
+      "Barchasi"
+    ],
+    "ans": "V",
+    "flags": [
+      "LAT_V: V harfi (rasmda odatda B)"
+    ]
+  },
+  {
+    "id": "t_48_q_10",
+    "media": "u551uz.webp",
+    "q": "Qaysi yo'l belgisi piyodalar yo'lkasini bildiradi?",
+    "opts": [
+      "Faqat «Б»",
+      "Faqat «Б» va «В»",
+      "Barcha belgilar"
+    ],
+    "ans": "Faqat «Б»",
+    "flags": [
+      "CYR_IN_LAT: Faqat «Б»; Faqat «Б» va «В»"
+    ]
+  },
+  {
+    "id": "t_51_q_14",
+    "media": "u583uz.webp",
+    "q": "Qaysi transport vositalarining haydovchilari to'xtab turish qoidasini buzdilar?",
+    "opts": [
+      "«А» va «Б»",
+      "«В» va «Г»",
+      "Faqat «Г»",
+      "«Б» va «Г»",
+      "«Б», «В» va «Г»"
+    ],
+    "ans": "«Б», «В» va «Г»",
+    "flags": [
+      "CYR_IN_LAT: «А» va «Б»; «В» va «Г»; Faqat «Г»; «Б» va «Г»"
+    ]
+  },
+  {
+    "id": "t_53_q_1",
+    "media": "u605uz.webp",
+    "q": "Qaysi belgi haydovchiga kesib o'tilayotgan yo'lda harakatlanayotgan transport vositalariga yo'l beri",
+    "opts": [
+      "A",
+      "B va G",
+      "V",
+      "G",
+      "B"
+    ],
+    "ans": "B va G",
+    "flags": [
+      "LAT_V: V harfi (rasmda odatda B)"
+    ]
+  },
+  {
+    "id": "t_53_q_5",
+    "media": "u607uz.webp",
+    "q": "Haydovchi chapga burilishda qaysi yo'nalish bo'yicha qoidani buzmoqda?",
+    "opts": [
+      "Faqat «А» yo'nalishi bo'yicha",
+      "Faqat «Б» yo'nalishi bo'yicha",
+      "Ko'rsatilgan barcha yo'nalish bo'yicha"
+    ],
+    "ans": "Ko'rsatilgan barcha yo'nalish bo'yicha",
+    "flags": [
+      "CYR_IN_LAT: Faqat «А» yo'nalishi bo'yicha; Faqat «Б» yo'nalishi bo'yicha"
+    ]
+  },
+  {
+    "id": "t_54_q_9",
+    "media": "u623uz.webp",
+    "q": "Qaysi yo'ldan harakatlanishga ruxsat etilgan?",
+    "opts": [
+      "«B»",
+      "«А»",
+      "«А» va «B»"
+    ],
+    "ans": "«А» va «B»",
+    "flags": [
+      "CYR_IN_LAT: «А»; «А» va «B»",
+      "MIX: Latin B + kirill «А/Б/В»"
+    ]
+  },
+  {
+    "id": "t_55_q_13",
+    "media": "u639uz.webp",
+    "q": "Haydovchiga belgilangan traektoriya bo'yicha harakatlanib, manevrlar bajarishga ruxsat berilganmi?",
+    "opts": [
+      "«Б» bo'yicha ruxsat etilgan",
+      "Ikkovi bo'yicha ham ruxsat etilgan",
+      "«А» bo'yicha ruxsat etilgan"
+    ],
+    "ans": "Ikkovi bo'yicha ham ruxsat etilgan",
+    "flags": [
+      "CYR_IN_LAT: «Б» bo'yicha ruxsat etilgan; «А» bo'yicha ruxsat etilgan"
+    ]
+  },
+  {
+    "id": "t_57_q_5",
+    "media": "u656uz.webp",
+    "q": "Qaysi belgi velosiped yo'lkasini ko'rsatadi?",
+    "opts": [
+      "A",
+      "S",
+      "V"
+    ],
+    "ans": "S",
+    "flags": [
+      "LAT_V: V harfi (rasmda odatda B)"
+    ]
+  }
+]

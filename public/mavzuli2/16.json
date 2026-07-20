@@ -1,24 +1,26 @@
 [
     {
         "task_info": {
-            "global_id": "t_3_q_7",
-            "ticket_num": 3,
-            "order": 1
+            "global_id": "t_49_q_19",
+            "global_id2": "t_49_q_19",
+            "ticket_num": 49,
+            "order": 1,
+            "remapped_from": "t_3_q_7"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Aholi punktlaridan tashqarida yengil avtomobillarning qanday eng katta tezlik bilan harakatlanishiga ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "110 km/c",
+                        "text": "80 km/c",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "100 km/c",
-                        "is_correct": true
+                        "text": "110 km/c",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -27,13 +29,13 @@
                     },
                     {
                         "id": 4,
-                        "text": "80 km/c",
+                        "text": "70 km/c",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "70 km/c",
-                        "is_correct": false
+                        "text": "100 km/c",
+                        "is_correct": true
                     }
                 ]
             },
@@ -42,13 +44,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "110 км/c",
+                        "text": "80 км/c",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "100 км/c",
-                        "is_correct": true
+                        "text": "110 км/c",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -57,13 +59,13 @@
                     },
                     {
                         "id": 4,
-                        "text": "80 км/c",
+                        "text": "70 км/c",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "70 км/c",
-                        "is_correct": false
+                        "text": "100 км/c",
+                        "is_correct": true
                     }
                 ]
             },
@@ -72,13 +74,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "110 км/ч.",
+                        "text": "80 км/ч",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "100 км/ч.",
-                        "is_correct": true
+                        "text": "110 км/ч",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -87,13 +89,13 @@
                     },
                     {
                         "id": 4,
-                        "text": "80 км/ч.",
+                        "text": "70 км/ч",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "70 км/ч.",
-                        "is_correct": false
+                        "text": "100 км/ч",
+                        "is_correct": true
                     }
                 ]
             }
@@ -106,9 +108,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_3_q_17",
-            "ticket_num": 3,
-            "order": 2
+            "global_id": "t_37_q_3",
+            "global_id2": "t_37_q_3",
+            "ticket_num": 37,
+            "order": 2,
+            "remapped_from": "t_3_q_16"
         },
         "media_url": "u418uz.webp",
         "content": {
@@ -117,12 +121,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "60 km/c",
+                        "text": "100 km/c",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "70 km/c",
+                        "text": "60 km/c",
                         "is_correct": false
                     },
                     {
@@ -132,12 +136,12 @@
                     },
                     {
                         "id": 4,
-                        "text": "100 km/c",
+                        "text": "110 km/c",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "110 km/c",
+                        "text": "70 km/c",
                         "is_correct": false
                     }
                 ]
@@ -147,12 +151,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "60 км/c",
+                        "text": "100 км/c",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "70 км/c",
+                        "text": "60 км/c",
                         "is_correct": false
                     },
                     {
@@ -162,12 +166,12 @@
                     },
                     {
                         "id": 4,
-                        "text": "100 км/c",
+                        "text": "110 км/c",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "110 км/c",
+                        "text": "70 км/c",
                         "is_correct": false
                     }
                 ]
@@ -177,12 +181,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "60 км/ч",
+                        "text": "100 км/ч",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "70 км/ч",
+                        "text": "60 км/ч",
                         "is_correct": false
                     },
                     {
@@ -192,12 +196,12 @@
                     },
                     {
                         "id": 4,
-                        "text": "100 км/ч",
+                        "text": "110 км/ч",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "110 км/ч",
+                        "text": "70 км/ч",
                         "is_correct": false
                     }
                 ]
@@ -211,38 +215,40 @@
     },
     {
         "task_info": {
-            "global_id": "t_5_q_7",
-            "ticket_num": 5,
-            "order": 3
+            "global_id": "t_55_q_18",
+            "global_id2": "t_55_q_18",
+            "ticket_num": 55,
+            "order": 3,
+            "remapped_from": "t_5_q_6"
         },
-        "media_url": "v491uz.webp",
+        "media_url": "u641uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Shunday yo'l belgisi bo'lgan yo'l qismlarida ruxsat etilgan to'la vazni 3,5t. dan oshmaydigan yuk avtomobillariga qanday eng katta tezlik bilan harakat qilishga ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "110 km/s",
+                        "text": "110 km/soat",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "70 km/s",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "100 km/s",
+                        "text": "100 km/soat",
                         "is_correct": true
                     },
                     {
+                        "id": 3,
+                        "text": "90 km/soat",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "90 km/s",
+                        "text": "60 km/soat",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "60 km/s",
+                        "text": "70 km/soat",
                         "is_correct": false
                     }
                 ]
@@ -252,27 +258,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "110 км/с",
+                        "text": "110 км/соат",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "70 км/с",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "100 км/с",
+                        "text": "100 км/соат",
                         "is_correct": true
                     },
                     {
+                        "id": 3,
+                        "text": "90 км/соат",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "90 км/с",
+                        "text": "60 км/соат",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "60 км/с",
+                        "text": "70 км/соат",
                         "is_correct": false
                     }
                 ]
@@ -287,22 +293,22 @@
                     },
                     {
                         "id": 2,
-                        "text": "70 км/ч",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "100 км/ч",
                         "is_correct": true
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "90 км/ч",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 4,
                         "text": "60 км/ч",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "70 км/ч",
                         "is_correct": false
                     }
                 ]
@@ -316,23 +322,25 @@
     },
     {
         "task_info": {
-            "global_id": "t_5_q_9",
-            "ticket_num": 5,
-            "order": 4
+            "global_id": "t_11_q_20",
+            "global_id2": "t_11_q_20",
+            "ticket_num": 11,
+            "order": 4,
+            "remapped_from": "t_5_q_8"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Harakat tezligi ikki marta oshganda, tormozlanish yo'li necha marta ortadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Tormoz yo'li harakat tezligiga bog'liq emas",
+                        "text": "Uch marta",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Uch marta",
+                        "text": "Tormoz yo'li harakat tezligiga bog'liq emas",
                         "is_correct": false
                     },
                     {
@@ -352,12 +360,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тормоз йўли ҳаракат тезлигига боғлиқ эмас",
+                        "text": "Уч марта",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Уч марта",
+                        "text": "Тормоз йўли ҳаракат тезлигига боғлиқ эмас",
                         "is_correct": false
                     },
                     {
@@ -377,12 +385,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Длина тормозного пути не зависит от скорости движения",
+                        "text": "В три раза",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "В три раза",
+                        "text": "Длина тормозного пути не зависит от скорости движения",
                         "is_correct": false
                     },
                     {
@@ -406,11 +414,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_11_q_17",
-            "ticket_num": 11,
-            "order": 5
+            "global_id": "t_27_q_8",
+            "global_id2": "t_27_q_8",
+            "ticket_num": 27,
+            "order": 5,
+            "remapped_from": "t_11_q_16"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "To'xtash yo'li deb nimaga aytiladi?",
@@ -447,12 +457,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Дистанция, пройденная автомобилем за время, когда водителю стало известно об опасности до начала торможения",
+                        "text": "Включить левый указатель поворота и, пользуясь благоприятным расположением на проезжей части, приступить к маневру",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Путь, пройденный автомобилем с момента обнаружения водителем опасности, до его полной остановки",
+                        "text": "Включить левый указатель поворота лишь после того как вас обгонит следовавший за вами водитель",
                         "is_correct": true
                     }
                 ]
@@ -466,34 +476,36 @@
     },
     {
         "task_info": {
-            "global_id": "t_13_q_17",
-            "ticket_num": 13,
-            "order": 6
+            "global_id": "t_39_q_14",
+            "global_id2": "t_39_q_14",
+            "ticket_num": 39,
+            "order": 6,
+            "remapped_from": "t_13_q_16"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Quvib o'tishni boshlashdan oldin haydovchi shunga ishonch hosil qilishi kerakki:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "To'sqinlik tug'dirishi mumkin bo'lgan, o'zidan keyin kelayotgan biron-bir haydovchi quvib o'tishni boshlamagan bo'lsa",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Shy bo'lakda oldinda ketayotgan transport vositasining haydovchisi burilishga (chapga qayta tizilishga) ishora bermaganligiga",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Quvib o'tishni tugallaganda quvib o'tilayotgan transport vositasiga to'sqinlik tug'dirmasdan, ilgarigi egallagan bo'lagiga qayta olishiga",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
+                        "text": "To'sqinlik tug'dirishi mumkin bo'lgan, o'zidan keyin kelayotgan biron-bir haydovchi quvib o'tishni boshlamagan bo'lsa",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
                         "text": "Barcha ko'rsatilgan harakatlarni bajara olishida",
                         "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Shy bo'lakda oldinda ketayotgan transport vositasining haydovchisi burilishga (chapga qayta tizilishga) ishora bermaganligiga",
+                        "is_correct": false
                     }
                 ]
             },
@@ -502,23 +514,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тўсқинлик туғдириши мумкин бўлган, ўзидан кейин келаётган бирон-бир ҳайдовчи қувиб ўтишни бошламаган бўлса",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Шу бўлакда олдинда кетаётган транспорт воситасининг ҳайдовчиси бурилишга (чапга қайта тизилишга) ишора бермаганлигига",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Қувиб ўтишни тугаллаганда қувиб ўтилаётган транспорт воситасига тўсқинлик туғдирмасдан, илгариги эгаллаган бўлагига қайта олишига",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
+                        "text": "Тўсқинлик туғдириши мумкин бўлган, ўзидан кейин келаётган бирон-бир ҳайдовчи қувиб ўтишни бошламаган бўлса",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
                         "text": "Барча кўрсатилган ҳаракатларни бажара олишида",
                         "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Шу бўлакда олдинда кетаётган транспорт воситасининг ҳайдовчиси бурилишга (чапга қайта тизилишга) ишора бермаганлигига",
+                        "is_correct": false
                     }
                 ]
             },
@@ -527,23 +539,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ни один из следующих за ним водителей, которому может быть создана помеха, не начал обгона",
+                        "text": "Что по окончании обгона сможет вернуться на ранее занимаемую полосу, не создавая помех обгоняемому транспортному средству",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Водитель транспортного средства, движущегося впереди по той же полосе, не подал сигнал о повороте (перестроении) налево",
+                        "text": "Что ни один водитель, следующий сзади, который может создать помеху, не начал обгон",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "При завершении обгона он сможет, не создавая помехи обгоняемому транспортному средству, вернуться на ранее занимаемую полосу",
-                        "is_correct": false
+                        "text": "Что сможет выполнить все указанные действия",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Выполнить все перечисленные действия",
-                        "is_correct": true
+                        "text": "Что водитель транспортного средства, движущегося впереди по той же полосе, не подал сигнал поворота (перестроения) налево",
+                        "is_correct": false
                     }
                 ]
             }
@@ -556,23 +568,25 @@
     },
     {
         "task_info": {
-            "global_id": "t_14_q_7",
-            "ticket_num": 14,
-            "order": 7
+            "global_id": "t_6_q_11",
+            "global_id2": "t_6_q_11",
+            "ticket_num": 6,
+            "order": 7,
+            "remapped_from": "t_14_q_7"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Aholi yashaydigan joylardan tashqarida tirkamali yengil avtomobil haydovchisiga eng katta tezlikni soatiga necha kilometrdan oshirmasdan harakatlanishga ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "50 km/s",
+                        "text": "70 km/s",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "70 km/s",
+                        "text": "90 km/s",
                         "is_correct": false
                     },
                     {
@@ -582,12 +596,12 @@
                     },
                     {
                         "id": 4,
-                        "text": "90 km/s",
+                        "text": "100 km/s",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "100 km/s",
+                        "text": "50 km/s",
                         "is_correct": false
                     }
                 ]
@@ -597,12 +611,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "50 км/с",
+                        "text": "70 км/с",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "70 км/с",
+                        "text": "90 км/с",
                         "is_correct": false
                     },
                     {
@@ -612,12 +626,12 @@
                     },
                     {
                         "id": 4,
-                        "text": "90 км/с",
+                        "text": "100 км/с",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "100 км/с",
+                        "text": "50 км/с",
                         "is_correct": false
                     }
                 ]
@@ -627,12 +641,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "50 км/ч",
+                        "text": "70 км/ч",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "70 км/ч",
+                        "text": "90 км/ч",
                         "is_correct": false
                     },
                     {
@@ -642,12 +656,12 @@
                     },
                     {
                         "id": 4,
-                        "text": "90 км/ч",
+                        "text": "100 км/ч",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "100 км/ч",
+                        "text": "50 км/ч",
                         "is_correct": false
                     }
                 ]
@@ -661,18 +675,20 @@
     },
     {
         "task_info": {
-            "global_id": "t_14_q_18",
-            "ticket_num": 14,
-            "order": 8
+            "global_id": "t_2_q_10",
+            "global_id2": "t_2_q_10",
+            "ticket_num": 2,
+            "order": 8,
+            "remapped_from": "t_14_q_18"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qanday hollarda aholi punktlaridan tashqarida yengil avtomobil haydovchisiga soatiga 90 km.dan yuqori tezlikda harakatlanish taqiqlanadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat yo'lda tezlik cheklangan belgilar o'rnatilgan bo'lsa",
+                        "text": "Agar u boshqa transport vositasini shatakka olgan bo'lsa",
                         "is_correct": false
                     },
                     {
@@ -682,13 +698,13 @@
                     },
                     {
                         "id": 3,
-                        "text": "Agar u boshqa transport vositasini shatakka olgan bo'lsa",
-                        "is_correct": false
+                        "text": "Sanab o'tilgan barcha hollarda",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Sanab o'tilgan barcha hollarda",
-                        "is_correct": true
+                        "text": "Faqat yo'lda tezlik cheklangan belgilar o'rnatilgan bo'lsa",
+                        "is_correct": false
                     }
                 ]
             },
@@ -697,7 +713,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат йўлда тезлик чекланган белгилар ўрнатилган бўлса",
+                        "text": "Агар у бошқа транспорт воситасини шатакка олган бўлса",
                         "is_correct": false
                     },
                     {
@@ -707,13 +723,13 @@
                     },
                     {
                         "id": 3,
-                        "text": "Агар у бошқа транспорт воситасини шатакка олган бўлса",
-                        "is_correct": false
+                        "text": "Санаб ўтилган барча ҳолларда",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Санаб ўтилган барча ҳолларда",
-                        "is_correct": true
+                        "text": "Фақат йўлда тезлик чекланган белгилар ўрнатилган бўлса",
+                        "is_correct": false
                     }
                 ]
             },
@@ -727,12 +743,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Только если он двигается с прицепом",
+                        "text": "Если он буксирует другие транспортные средства",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Если он буксирует другие транспортные средства",
+                        "text": "Только если он двигается с прицепом",
                         "is_correct": false
                     },
                     {
@@ -744,36 +760,38 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 12-bobi 86-bandiga asosan, quvib o'tish quyidagi hollarda taqiqlanadi - tartibga solingan chorrahalarda, tartibga solinmaydigan chorrahalarda asosiy hisoblanmaydigan yo'llarda harakatlanishda, ko'priklarda, yo'l o'tkazgichlarda, estakadalarda va ularning ostida, piyodalar o'tish joylarida, temir yo'l kesishmalarida va ulargacha 100 metrdan kam masofa qolganda, quvib yoki aylanib o'tayotgan transport vositalarini, tepalikning oxirida va yo'lning ko'rinishi cheklangan joylarida, 3.20 va 3.22 yo'l belgilari ta'sir oralig'ida.",
-            "uz_cyr": "YHQ 12-боби 86-бандига асосан, қувиб ўтиш қуйидаги ҳолларда тақиқланади - тартибга солинган чорраҳаларда, тартибга солинмайдиган чорраҳаларда асосий ҳисобланмайдиган йўлларда ҳаракатланишда, кўприкларда, йўл ўтказгичларда, эстакадаларда ва уларнинг остида, пиёдалар ўтиш жойларида, темир йўл кесишмаларида ва уларгача 100 метрдан кам масофа қолганда, қувиб ёки айланиб ўтаётган транспорт воситаларини, тепаликнинг охирида ва йўлнинг кўриниши чекланган жойларида, 3.20 ва 3.22 йўл белгилари таъсир оралиғида.",
-            "ru": "Согласно статье 86 главы 12 ПДД обгон запрещается в следующих случаях - при движении на регулируемых перекрестках, нерегулируемых перекрестках на немагистральных дорогах, на и под мостами, эстакадами, эстакадами, пешеходными переходами, железнодорожными переездами и при расстоянии до них менее 100 метров, преследовании или объезде транспортных средств, холмов в конце и в местах ограниченной видимости дороги, дорожных знаков 3.20 и 3.22 находятся в пределах влияния."
+            "uz_lat": "YHQ 11-bobi 79-bandiga asosan, aholi punktlaridan tashqarida yengil avtomobil haydovchisiga soatiga 90 km dan yuqori tezlikda harakatlanish quyidagi hollarda taqiqlanadi: boshqa transport vositasini shatakka olganda; tirkamali yengil avtomobilda; yo‘lda tegishli tezlikni cheklovchi belgilar bo‘lganda. Shu bois to‘g‘ri javob — sanab o‘tilgan barcha hollarda.",
+            "uz_cyr": "YHQ 11-боби 79-бандига асосан, аҳоли пунктларидан ташқарида енгил автомобил ҳайдовчисига соатига 90 км дан юқори тезликда ҳаракатланиш қуйидаги ҳолларда тақиқланади: бошқа транспорт воситасини шатакка олганда; тиркамали енгил автомобилда; йўлда тегишли тезликни чекловчи белгилар бўлганда. Шу боис тўғри жавоб — санаб ўтилган барча ҳолларда.",
+            "ru": "Согласно пункту 79 главы 11 ПДД вне населённых пунктов водителю легкового автомобиля запрещается движение со скоростью свыше 90 км/ч в следующих случаях: при буксировке другого транспортного средства; при движении с прицепом; при наличии соответствующих знаков ограничения скорости. Поэтому правильный ответ — во всех перечисленных случаях."
         }
     },
     {
         "task_info": {
-            "global_id": "t_16_q_17",
-            "ticket_num": 16,
-            "order": 9
+            "global_id": "t_43_q_16",
+            "global_id2": "t_43_q_16",
+            "ticket_num": 43,
+            "order": 9,
+            "remapped_from": "t_16_q_17"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Haydovchi harakat tezligini tanlashda nimani hisobga olishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Harakatning serqatnovligini, transport vositasi va yukning hususiyati va holatini",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Yo'l va ob-havo sharoitini",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Barcha sanab o'tilgan omillarni",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Harakatning serqatnovligini, transport vositasi va yukning hususiyati va holatini",
+                        "is_correct": false
                     }
                 ]
             },
@@ -782,18 +800,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ҳаракатнинг серқатновлигини, транспорт воситаси ва юкнинг ҳусусияти ва ҳолатини",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Йўл ва об-ҳаво шароитини",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Барча санаб ўтилган омилларни",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ҳаракатнинг серқатновлигини, транспорт воситаси ва юкнинг ҳусусияти ва ҳолатини",
+                        "is_correct": false
                     }
                 ]
             },
@@ -802,18 +820,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Интенсивность движения, особенности и состояние транспортного средства и груза",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Дорожные и метрологические условия",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Все перечисленные факторы",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Интенсивность движения, особенности и состояние транспортного средства и груза",
+                        "is_correct": false
                     }
                 ]
             }
@@ -821,14 +839,16 @@
         "izoh": {
             "uz_lat": "YHQ 11-bobi 77-bandi 1-xatboshisiga asosan, haydovchi harakatlanishning serqatnovligini, transport vositasining va yukning xususiyati hamda holatini, yo'l va ob-havo sharoitini, shuningdek, harakatlanish yo'nalishidagi ko'rinishni hisobga olib transport vositasini belgilangan tezlikdan oshirmagan holda xavfsizlikni ta'minlovchi tezlik bilan boshqarishi kerak.",
             "uz_cyr": "YHQ 11-боби 77-банди 1-хатбошисига асосан, ҳайдовчи ҳаракатланишнинг серқатновлигини, транспорт воситасининг ва юкнинг хусусияти ҳамда ҳолатини, йўл ва об-ҳаво шароитини, шунингдек, ҳаракатланиш йўналишидаги кўринишни ҳисобга олиб транспорт воситасини белгиланган тезликдан оширмаган ҳолда хавфсизликни таъминловчи тезлик билан бошқариши керак.",
-            "ru": "Согласно пункту 1 пункта 77 главы 11 ГК водитель обязан вести транспортное средство со скоростью, обеспечивающей безопасность, не превышая указанную скорость, с учетом скорости движения, характера и состояния транспортного средства и груза, дорожных и погодных условий, а также видимости по направлению движения."
+            "ru": "Согласно пункту 1 пункта 77 главы 11 ПДД водитель обязан вести транспортное средство со скоростью, обеспечивающей безопасность, не превышая указанную скорость, с учетом скорости движения, характера и состояния транспортного средства и груза, дорожных и погодных условий, а также видимости по направлению движения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_17_q_15",
-            "ticket_num": 17,
-            "order": 10
+            "global_id": "t_53_q_20",
+            "global_id2": "t_53_q_20",
+            "ticket_num": 53,
+            "order": 10,
+            "remapped_from": "t_17_q_15"
         },
         "media_url": "u616uz.webp",
         "content": {
@@ -837,18 +857,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Har ikki haydovchiga",
+                        "text": "Har ikkisiga taqiqlangan",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Faqat mikroavtobus haydovchisiga",
-                        "is_correct": true
+                        "text": "Har ikki haydovchiga",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Har ikkisiga taqiqlangan",
-                        "is_correct": false
+                        "text": "Faqat mikroavtobus haydovchisiga",
+                        "is_correct": true
                     }
                 ]
             },
@@ -857,18 +877,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ҳар икки ҳайдовчига",
+                        "text": "Ҳар иккисига тақиқланган",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Фақат микроавтобус ҳайдовчисига",
-                        "is_correct": true
+                        "text": "Ҳар икки ҳайдовчига",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Ҳар иккисига тақиқланган",
-                        "is_correct": false
+                        "text": "Фақат микроавтобус ҳайдовчисига",
+                        "is_correct": true
                     }
                 ]
             },
@@ -877,18 +897,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Обоим водителям",
+                        "text": "Обоим запрещено",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Только водителю микроавтобуса",
-                        "is_correct": true
+                        "text": "Обоим водителям",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Обоим запрещено",
-                        "is_correct": false
+                        "text": "Только водителю микроавтобуса",
+                        "is_correct": true
                     }
                 ]
             }
@@ -901,9 +921,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_18_q_8",
-            "ticket_num": 18,
-            "order": 11
+            "global_id": "t_22_q_7",
+            "global_id2": "t_22_q_7",
+            "ticket_num": 22,
+            "order": 11,
+            "remapped_from": "t_18_q_8"
         },
         "media_url": "u243uz.webp",
         "content": {
@@ -917,7 +939,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Motosikl va yengil avtomobilning haydovchilari",
+                        "text": "Motosikl haydovchisi",
                         "is_correct": false
                     },
                     {
@@ -927,13 +949,13 @@
                     },
                     {
                         "id": 4,
-                        "text": "Motosikl haydovchisi",
-                        "is_correct": false
+                        "text": "Hech kim buzmaydi",
+                        "is_correct": true
                     },
                     {
                         "id": 5,
-                        "text": "Hech kim buzmaydi",
-                        "is_correct": true
+                        "text": "Motosikl va yengil avtomobilning haydovchilari",
+                        "is_correct": false
                     }
                 ]
             },
@@ -947,7 +969,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Мотоцикл ва енгил автомобилнинг ҳайдовчилари",
+                        "text": "Мотоцикл ҳайдовчиси",
                         "is_correct": false
                     },
                     {
@@ -957,13 +979,13 @@
                     },
                     {
                         "id": 4,
-                        "text": "Мотоцикл ҳайдовчиси",
-                        "is_correct": false
+                        "text": "Ҳеч ким бузмайди",
+                        "is_correct": true
                     },
                     {
                         "id": 5,
-                        "text": "Ҳеч ким бузмайди",
-                        "is_correct": true
+                        "text": "Мотоцикл ва енгил автомобилнинг ҳайдовчилари",
+                        "is_correct": false
                     }
                 ]
             },
@@ -977,7 +999,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Водители мотоцикла и легкового автомобиля",
+                        "text": "Водитель мотоцикла",
                         "is_correct": false
                     },
                     {
@@ -987,13 +1009,13 @@
                     },
                     {
                         "id": 4,
-                        "text": "Водитель мотоцикла",
-                        "is_correct": false
+                        "text": "Никто не нарушает",
+                        "is_correct": true
                     },
                     {
                         "id": 5,
-                        "text": "Никто не нарушает",
-                        "is_correct": true
+                        "text": "Водители мотоцикла и легкового автомобиля",
+                        "is_correct": false
                     }
                 ]
             }
@@ -1006,14 +1028,16 @@
     },
     {
         "task_info": {
-            "global_id": "t_18_q_9",
-            "ticket_num": 18,
-            "order": 12
+            "global_id": "t_49_q_4",
+            "global_id2": "t_49_q_4",
+            "ticket_num": 49,
+            "order": 12,
+            "remapped_from": "t_18_q_9"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "To'rmoz yo'li deganda nimani tushunasiz?",
+                "text": "Tormoz yo'li deganda nimani tushunasiz?",
                 "options": [
                     {
                         "id": 1,
@@ -1028,7 +1052,7 @@
                 ]
             },
             "uz_cyr": {
-                "text": "Тўрмоз йўли деганда нимани тушунасиз?",
+                "text": "Тормоз йўли деганда нимани тушунасиз?",
                 "options": [
                     {
                         "id": 1,
@@ -1066,9 +1090,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_18_q_18",
-            "ticket_num": 18,
-            "order": 13
+            "global_id": "t_25_q_1",
+            "global_id2": "t_25_q_1",
+            "ticket_num": 25,
+            "order": 13,
+            "remapped_from": "t_18_q_18"
         },
         "media_url": "u270uz.webp",
         "content": {
@@ -1077,18 +1103,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "70 km/s",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "90 km/s",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "100 km/s",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "70 km/s",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1097,18 +1123,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "70 км/с",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "90 км/с",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "100 км/с",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "70 км/с",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1117,18 +1143,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "70 км/ч",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "90 км/ч",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "100 км/ч",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "70 км/ч",
+                        "is_correct": true
                     }
                 ]
             }
@@ -1141,9 +1167,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_19_q_7",
-            "ticket_num": 19,
-            "order": 14
+            "global_id": "t_12_q_13",
+            "global_id2": "t_12_q_13",
+            "ticket_num": 12,
+            "order": 14,
+            "remapped_from": "t_19_q_7"
         },
         "media_url": "u131uz.webp",
         "content": {
@@ -1152,27 +1180,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "60 km/s",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "70 km/s",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "80 km/s",
                         "is_correct": true
                     },
                     {
+                        "id": 3,
+                        "text": "60 km/s",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "90 km/s",
+                        "text": "100 km/s",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "100 km/s",
+                        "text": "90 km/s",
                         "is_correct": false
                     }
                 ]
@@ -1182,27 +1210,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "60 км/с",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "70 км/с",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "80 км/с",
                         "is_correct": true
                     },
                     {
+                        "id": 3,
+                        "text": "60 км/с",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "90 км/с",
+                        "text": "100 км/с",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "100 км/с",
+                        "text": "90 км/с",
                         "is_correct": false
                     }
                 ]
@@ -1212,27 +1240,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "60 км/ч",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "70 км/ч",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "80 км/ч",
                         "is_correct": true
                     },
                     {
+                        "id": 3,
+                        "text": "60 км/ч",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "90 км/ч",
+                        "text": "100 км/ч",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "100 км/ч",
+                        "text": "90 км/ч",
                         "is_correct": false
                     }
                 ]
@@ -1246,39 +1274,41 @@
     },
     {
         "task_info": {
-            "global_id": "t_19_q_17",
-            "ticket_num": 19,
-            "order": 15
+            "global_id": "t_45_q_2",
+            "global_id2": "t_45_q_2",
+            "ticket_num": 45,
+            "order": 15,
+            "remapped_from": "t_19_q_17"
         },
-        "media_url": "v119uz.webp",
+        "media_url": "u517uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Shunday yo'l belgisi bilan belgilangan yo'l qismlarida shaharlararo bo'lmagan avtobuslarning qanday yuqori tezlik bilan harakatlanishiga ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "50 km/s",
+                        "text": "60 km/soat",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "60 km/s",
+                        "text": "90 km/soat",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "70 km/s",
+                        "text": "50 km/soat",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "80 km/s",
-                        "is_correct": true
+                        "text": "70 km/soat",
+                        "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "90 km/s",
-                        "is_correct": false
+                        "text": "80 km/soat",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1287,28 +1317,28 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "50 км/с",
+                        "text": "60 км/соат",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "60 км/с",
+                        "text": "90 км/соат",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "70 км/с",
+                        "text": "50 км/соат",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "80 км/с",
-                        "is_correct": true
+                        "text": "70 км/соат",
+                        "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "90 км/с",
-                        "is_correct": false
+                        "text": "80 км/соат",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1317,28 +1347,28 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "50 км/ч",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "60 км/ч",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "90 км/ч",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "70 км/ч",
+                        "text": "50 км/ч",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "80 км/ч",
-                        "is_correct": true
+                        "text": "70 км/ч",
+                        "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "90 км/ч",
-                        "is_correct": false
+                        "text": "80 км/ч",
+                        "is_correct": true
                     }
                 ]
             }
@@ -1351,39 +1381,41 @@
     },
     {
         "task_info": {
-            "global_id": "t_22_q_11",
-            "ticket_num": 22,
-            "order": 16
+            "global_id": "t_34_q_3",
+            "global_id2": "t_34_q_3",
+            "ticket_num": 34,
+            "order": 16,
+            "remapped_from": "t_22_q_11"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Aholi punktlaridan tashqarida yuk avtomobil yukxonasida odamlarni tashishda qanday eng yuqori tezlikda harakatlanishga ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "40 km/s",
+                        "text": "40 km/soat",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "50 km/s",
+                        "text": "50 km/soat",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "60 km/s",
-                        "is_correct": true
+                        "text": "80 km/soat",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "70 km/s",
+                        "text": "70 km/soat",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "80 km/s",
-                        "is_correct": false
+                        "text": "60 km/soat",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1392,28 +1424,28 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "40 км/с",
+                        "text": "40 км/соат",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "50 км/с",
+                        "text": "50 км/соат",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "60 км/с",
-                        "is_correct": true
+                        "text": "80 км/соат",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "70 км/с",
+                        "text": "70 км/соат",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "80 км/с",
-                        "is_correct": false
+                        "text": "60 км/соат",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1432,8 +1464,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "60 км/ч",
-                        "is_correct": true
+                        "text": "80 км/ч",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
@@ -1442,8 +1474,8 @@
                     },
                     {
                         "id": 5,
-                        "text": "80 км/ч",
-                        "is_correct": false
+                        "text": "60 км/ч",
+                        "is_correct": true
                     }
                 ]
             }
@@ -1451,16 +1483,18 @@
         "izoh": {
             "uz_lat": "YHQ 11-bobi 80-bandining birinchi xatboshisiga asosan, har qanday yo‘llarda: yukxonasida odam tashiyotgan yuk avtomobillariga tezlikni soatiga 60 kilometrdan oshirmasdan.",
             "uz_cyr": "YHQ 11-боби 80-бандининг биринчи хатбошисига асосан, ҳар қандай йўлларда: юкхонасида одам ташиётган юк автомобилларига тезликни соатига 60 километрдан оширмасдан.",
-            "ru": "Согласно первому пункту статьи 80 главы 11 УК, на любых дорогах: грузовики, перевозящие людей в багажниках, не превышая скорости 60 километров в час."
+            "ru": "Согласно первому пункту статьи 80 главы 11 ПДД, на любых дорогах: грузовики, перевозящие людей в багажниках, не превышая скорости 60 километров в час."
         }
     },
     {
         "task_info": {
-            "global_id": "t_23_q_19",
-            "ticket_num": 23,
-            "order": 17
+            "global_id": "t_51_q_13",
+            "global_id2": "t_51_q_13",
+            "ticket_num": 51,
+            "order": 17,
+            "remapped_from": "t_23_q_18"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Yo'lning chapga burilishiga yaqinlashganingizda, u o'ylaganingizdan ko'ra ancha keskinroq bo'lib chiqsa, Siz",
@@ -1512,13 +1546,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Снизите скорость движения",
-                        "is_correct": true
+                        "text": "Увеличите скорость чтобы быстрее пройти поворот",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Увеличите скорость чтобы быстрее пройти поворот",
-                        "is_correct": false
+                        "text": "Снизите скорость движения",
+                        "is_correct": true
                     }
                 ]
             }
@@ -1531,9 +1565,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_26_q_7",
-            "ticket_num": 26,
-            "order": 18
+            "global_id": "t_16_q_14",
+            "global_id2": "t_16_q_14",
+            "ticket_num": 16,
+            "order": 18,
+            "remapped_from": "t_26_q_7"
         },
         "media_url": "u178uz.webp",
         "content": {
@@ -1542,27 +1578,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "60 km/s",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "90 km/s",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "80 km/s",
                         "is_correct": true
                     },
                     {
+                        "id": 3,
+                        "text": "60 km/s",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "70 km/s",
+                        "text": "100 km/s",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "100 km/s",
+                        "text": "70 km/s",
                         "is_correct": false
                     }
                 ]
@@ -1572,27 +1608,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "60 км/с",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "90 км/с",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "80 км/с",
                         "is_correct": true
                     },
                     {
+                        "id": 3,
+                        "text": "60 км/с",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "70 км/с",
+                        "text": "100 км/с",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "100 км/с",
+                        "text": "70 км/с",
                         "is_correct": false
                     }
                 ]
@@ -1602,27 +1638,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "60 км/ч",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "90 км/ч",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "80 км/ч",
                         "is_correct": true
                     },
                     {
+                        "id": 3,
+                        "text": "60 км/ч",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "70 км/ч",
+                        "text": "100 км/ч",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "100 км/ч",
+                        "text": "70 км/ч",
                         "is_correct": false
                     }
                 ]
@@ -1636,14 +1672,16 @@
     },
     {
         "task_info": {
-            "global_id": "t_28_q_16",
-            "ticket_num": 28,
-            "order": 19
+            "global_id": "t_46_q_14",
+            "global_id2": "t_46_q_14",
+            "ticket_num": 46,
+            "order": 19,
+            "remapped_from": "t_28_q_14"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Shaharlararo qatnaydigan avtobusning haydovchisiga aholi punktlaridan tashqarida tezlikni 80 km/s dan oshirishga ruxsat etiladimi?",
+                "text": "Shaharlararo qatnaydigan avtobusning haydovchisiga aholi punktlaridan tashqarida tezlikni 80 km/soat dan oshirishga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
@@ -1663,7 +1701,7 @@
                 ]
             },
             "uz_cyr": {
-                "text": "Шаҳарлараро қатнайдиган автобуснинг ҳайдовчисига аҳоли пунктларидан ташқарида тезликни 80 км/с дан оширишга рухсат этиладими?",
+                "text": "Шаҳарлараро қатнайдиган автобуснинг ҳайдовчисига аҳоли пунктларидан ташқарида тезликни 80 км/соатдан оширишга рухсат этиладими?",
                 "options": [
                     {
                         "id": 1,
@@ -1711,38 +1749,40 @@
     },
     {
         "task_info": {
-            "global_id": "t_29_q_8",
-            "ticket_num": 29,
-            "order": 20
+            "global_id": "t_61_q_8",
+            "global_id2": "t_61_q_8",
+            "ticket_num": 61,
+            "order": 20,
+            "remapped_from": "t_29_q_8"
         },
-        "media_url": "v261uz.webp",
+        "media_url": "u693uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Bunday yo'l belgisi bilan belgilangan yo'l qismlarida shaharlararo qatnaydigan avtobuslarning qanday eng yuqori tezlikda harakatlanishiga ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "50 km/s",
+                        "text": "50 km/soat",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "60 km/s",
+                        "text": "70 km/soat",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "70 km/s",
+                        "text": "60 km/soat",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "80 km/s",
+                        "text": "80 km/soat",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "90 km/s",
+                        "text": "90 km/soat",
                         "is_correct": true
                     }
                 ]
@@ -1752,27 +1792,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "50 км/с",
+                        "text": "50 км/соат",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "60 км/с",
+                        "text": "70 км/соат",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "70 км/с",
+                        "text": "60 км/соат",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "80 км/с",
+                        "text": "80 км/соат",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "90 км/с",
+                        "text": "90 км/соат",
                         "is_correct": true
                     }
                 ]
@@ -1787,12 +1827,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "60 км/ч",
+                        "text": "70 км/ч",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "70 км/ч",
+                        "text": "60 км/ч",
                         "is_correct": false
                     },
                     {
@@ -1816,23 +1856,25 @@
     },
     {
         "task_info": {
-            "global_id": "t_30_q_6",
-            "ticket_num": 30,
-            "order": 21
+            "global_id": "t_47_q_17",
+            "global_id2": "t_47_q_17",
+            "ticket_num": 47,
+            "order": 21,
+            "remapped_from": "t_30_q_6"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Og'ir vaznli va katta o'lchamli yuklarni tashiyotgan transport vositalarining aholi yashaydigan joylardan tashqarida qanday tezlik bilan harakatlanishiga ruxsat etiladi",
                 "options": [
                     {
                         "id": 1,
-                        "text": "40 km/soatdan oshirmasdan",
+                        "text": "60 km/soatdan oshirmasdan",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "60 km/soatdan oshirmasdan",
+                        "text": "40 km/soatdan oshirmasdan",
                         "is_correct": false
                     },
                     {
@@ -1847,12 +1889,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "40 км/соатдан оширмасдан",
+                        "text": "60 км/соатдан оширмасдан",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "60 км/соатдан оширмасдан",
+                        "text": "40 км/соатдан оширмасдан",
                         "is_correct": false
                     },
                     {
@@ -1867,12 +1909,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Не более 40 км/час",
+                        "text": "Не более 60 км/час",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Не более 60 км/час",
+                        "text": "Не более 40 км/час",
                         "is_correct": false
                     },
                     {
@@ -1891,24 +1933,26 @@
     },
     {
         "task_info": {
-            "global_id": "t_32_q_6",
-            "ticket_num": 32,
-            "order": 22
+            "global_id": "t_37_q_18",
+            "global_id2": "t_37_q_18",
+            "ticket_num": 37,
+            "order": 22,
+            "remapped_from": "t_32_q_5"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Agar transport vositasida «Tezlik cheklangan» taniqli belgisi o‘rnatilgan bo‘lsa, bu transport vositasining haydovchisiga:",
+                "text": "Agar transport vositasida «Tezlik cheklangan» taniqli belgisi o'rnatilgan bo'lsa, bu transport vositasining haydovchisiga:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Belgida ko'rsatilgan tezlikdan oshirishga faqat tezlik tegishli yo'l belgisi o'rnatilib oshirilgan yo'l qismlarida ruxsat beriladi",
-                        "is_correct": false
+                        "text": "Belgida ko'rsatilgan tezlikdan oshirish taqiqlanadi",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Belgida ko'rsatilgan tezlikdan oshirish taqiqlanadi",
-                        "is_correct": true
+                        "text": "Belgida ko'rsatilgan tezlikdan oshirishga faqat tezlik tegishli yo'l belgisi o'rnatilib oshirilgan yo'l qismlarida ruxsat beriladi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1917,13 +1961,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Белгида кўрсатилган тезликдан оширишга фақат тезлик тегишли йўл белгиси ўрнатилиб оширилган йўл қисмларида рухсат берилади",
-                        "is_correct": false
+                        "text": "Белгида кўрсатилган тезликдан ошириш тақиқланади",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Белгида кўрсатилган тезликдан ошириш тақиқланади",
-                        "is_correct": true
+                        "text": "Белгида кўрсатилган тезликдан оширишга фақат тезлик тегишли йўл белгиси ўрнатилиб оширилган йўл қисмларида рухсат берилади",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1946,16 +1990,18 @@
         "izoh": {
             "uz_lat": "YHQ 11-bobi 81-bandining ikkinchi xatboshisiga asosan, haydovchilarga quyidagilar taqiqlanadi: tezlikni transport vositasiga o‘rnatilgan “Tezlik cheklangan” taniqlik belgisida ko‘rsatilganidan oshirish.",
             "uz_cyr": "YHQ 11-боби 81-бандининг иккинчи хатбошисига асосан, ҳайдовчиларга қуйидагилар тақиқланади: тезликни транспорт воситасига ўрнатилган “Тезлик чекланган” таниқлик белгисида кўрсатилганидан ошириш.",
-            "ru": "Согласно пункту второму статьи 81 главы 11 УК водителям запрещается: увеличивать скорость сверх скорости, указанной на знаке «Ограничение скорости», размещенном на транспортном средстве."
+            "ru": "Согласно пункту второму статьи 81 главы 11 ПДД водителям запрещается: увеличивать скорость сверх скорости, указанной на знаке «Ограничение скорости», размещенном на транспортном средстве."
         }
     },
     {
         "task_info": {
-            "global_id": "t_32_q_17",
-            "ticket_num": 32,
-            "order": 23
+            "global_id": "t_25_q_6",
+            "global_id2": "t_25_q_6",
+            "ticket_num": 25,
+            "order": 23,
+            "remapped_from": "t_32_q_15"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Transport vositasi texnik tavsifnomasida ko'rsatilgan yuqori tezlikdan oshirilishi mumkinmi?",
@@ -1967,13 +2013,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Aholi yashaydigan joylardan tashqaridagi yo'llarda oshirilishi mumkin. Bunday yo'l qismlarida «юқори тезлик чекланган» belgisi o'rnatiladi",
-                        "is_correct": false
+                        "text": "Oshirilishi mumkin emas",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Oshirilishi mumkin emas",
-                        "is_correct": true
+                        "text": "Aholi yashaydigan joylardan tashqaridagi yo'llarda oshirilishi mumkin. Bunday yo'l qismlarida «юқори тезлик чекланган» belgisi o'rnatiladi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1987,13 +2033,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Аҳоли яшайдиган жойлардан ташқаридаги йўлларда оширилиши мумкин. Бундай йўл қисмларида «юқори тезлик чекланган» белгиси ўрнатилади",
-                        "is_correct": false
+                        "text": "Оширилиши мумкин эмас",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Оширилиши мумкин эмас",
-                        "is_correct": true
+                        "text": "Аҳоли яшайдиган жойлардан ташқаридаги йўлларда оширилиши мумкин. Бундай йўл қисмларида «юқори тезлик чекланган» белгиси ўрнатилади",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2007,13 +2053,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Может быть повышена на дорогах вне населённых пунктов. На таких участках устанавливаются знаки \"Ограничение максимальной скорости\"",
-                        "is_correct": false
+                        "text": "Не может быть превышена",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Не может быть превышена",
-                        "is_correct": true
+                        "text": "Может быть повышена на дорогах вне населённых пунктов. На таких участках устанавливаются знаки \"Ограничение максимальной скорости\"",
+                        "is_correct": false
                     }
                 ]
             }
@@ -2026,24 +2072,26 @@
     },
     {
         "task_info": {
-            "global_id": "t_33_q_9",
-            "ticket_num": 33,
-            "order": 24
+            "global_id": "t_57_q_20",
+            "global_id2": "t_57_q_20",
+            "ticket_num": 57,
+            "order": 24,
+            "remapped_from": "t_33_q_8"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "«Reaksiya vaqti» tushunchasi nimani bildiradi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Haydovchi xavfni ko'rgan paytdan aniq harakatlarni bo'lguncha o'tilgan vaqt",
-                        "is_correct": true
+                        "text": "Haydovchining tormoz berishni boshlagan paytdan transport vositasining to'la to'xtagunicha vaqtni",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Haydovchining tormoz berishni boshlagan paytdan transport vositasining to'la to'xtagunicha vaqtni",
-                        "is_correct": false
+                        "text": "Haydovchi xavfni ko'rgan paytdan aniq harakatlarni bo'lguncha o'tilgan vaqt",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2052,13 +2100,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ҳайдовчи хавфни кўрган пайтдан аниқ ҳаракатларни бўлгунча ўтилган вақт",
-                        "is_correct": true
+                        "text": "Ҳайдовчининг тормоз беришни бошлаган пайтдан транспорт воситасининг тўла тўхтагунича вақтни",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Ҳайдовчининг тормоз беришни бошлаган пайтдан транспорт воситасининг тўла тўхтагунича вақтни",
-                        "is_correct": false
+                        "text": "Ҳайдовчи хавфни кўрган пайтдан аниқ ҳаракатларни бўлгунча ўтилган вақт",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2067,13 +2115,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Время с момента обнаружения водителем опасности, до начала ответных действий",
-                        "is_correct": true
+                        "text": "Время с момента, когда водитель начал тормозить, до полной остановки транспортного средства",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Время с момента, когда водитель начал тормозить, до полной остановки транспортного средства",
-                        "is_correct": false
+                        "text": "Время с момента обнаружения водителем опасности, до начала ответных действий",
+                        "is_correct": true
                     }
                 ]
             }
@@ -2086,23 +2134,25 @@
     },
     {
         "task_info": {
-            "global_id": "t_33_q_18",
-            "ticket_num": 33,
-            "order": 25
+            "global_id": "t_45_q_9",
+            "global_id2": "t_45_q_9",
+            "ticket_num": 45,
+            "order": 25,
+            "remapped_from": "t_33_q_17"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Harakat tezligini tanlashda haydovchiga taqiqlanadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ushbu qoidalarga muvofiq ravishda transport vositasiga o'rnatilgan taniqli belgida ko'rsatilgan tezlikdan oshirish",
+                        "text": "Keskin tormoz berish, agar bu harakatlanish xavfsizligini ta'minlash uchun talab qilinmasa",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Keskin tormoz berish, agar bu harakatlanish xavfsizligini taminlash uchun talab qilinmasa",
+                        "text": "Ushbu qoidalarga muvofiq ravishda transport vositasiga o'rnatilgan taniqli belgida ko'rsatilgan tezlikdan oshirish",
                         "is_correct": false
                     },
                     {
@@ -2117,12 +2167,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ушбу қоидаларга мувофиқ равишда транспорт воситасига ўрнатилган таниқли белгида кўрсатилган тезликдан ошириш",
+                        "text": "Кескин тормоз бериш, агар бу ҳаракатланиш хавфсизлигини таъминлаш учун талаб қилинмаса",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Кескин тормоз бериш, агар бу ҳаракатланиш хавфсизлигини таъминлаш учун талаб қилинмаса",
+                        "text": "Ушбу қоидаларга мувофиқ равишда транспорт воситасига ўрнатилган таниқли белгида кўрсатилган тезликдан ошириш",
                         "is_correct": false
                     },
                     {
@@ -2161,38 +2211,40 @@
     },
     {
         "task_info": {
-            "global_id": "t_35_q_6",
-            "ticket_num": 35,
-            "order": 26
+            "global_id": "t_30_q_18",
+            "global_id2": "t_30_q_18",
+            "ticket_num": 30,
+            "order": 26,
+            "remapped_from": "t_35_q_6"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Egiluvchan ulagichda shatakka olinganda qanday yuqori tezlik bilan harakatlanishga ruxsat etilgan?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "70 km/s",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "60 km/s",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "50 km/s",
                         "is_correct": true
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "40 km/s",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 4,
                         "text": "30 km/s",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "70 km/s",
                         "is_correct": false
                     }
                 ]
@@ -2202,27 +2254,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "70 км/с",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "60 км/с",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "50 км/с",
                         "is_correct": true
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "40 км/с",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 4,
                         "text": "30 км/с",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "70 км/с",
                         "is_correct": false
                     }
                 ]
@@ -2232,27 +2284,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "70 км/ч",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "60 км/ч",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "50 км/ч",
                         "is_correct": true
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "40 км/ч",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 4,
                         "text": "30 км/ч",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "70 км/ч",
                         "is_correct": false
                     }
                 ]
@@ -2266,11 +2318,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_37_q_11",
-            "ticket_num": 37,
-            "order": 27
+            "global_id": "t_8_q_16",
+            "global_id2": "t_8_q_16",
+            "ticket_num": 8,
+            "order": 27,
+            "remapped_from": "t_37_q_11"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "108 km/s tezlikda harakatlanayotgan transport vositasi 1 sekundda qancha masofani bosib o'tadi?",
@@ -2336,16 +2390,18 @@
         "izoh": {
             "uz_lat": "Harakat xavfsizligi asoslari talablariga asosan, 108 km/s tezlikda harakatlanayotgan transport vositasi 1 sekundda 30 m masofani bosib o‘tadi.",
             "uz_cyr": "Ҳаракат хавфсизлиги асослари талабларига асосан, 108 км/с тезликда ҳаракатланаётган транспорт воситаси 1 секундда 30 м масофани босиб ўтади.",
-            "ru": "Согласно требованиям принципов безопасности дорожного движения, транспортное средство, движущееся со скоростью 108 км/с, преодолевает расстояние 30 м за 1 секунду."
+            "ru": "Согласно требованиям принципов безопасности дорожного движения, транспортное средство, движущееся со скоростью 108 км/ч, преодолевает расстояние 30 м за 1 секунду."
         }
     },
     {
         "task_info": {
-            "global_id": "t_37_q_19",
-            "ticket_num": 37,
-            "order": 28
+            "global_id": "t_16_q_2",
+            "global_id2": "t_16_q_2",
+            "ticket_num": 16,
+            "order": 28,
+            "remapped_from": "t_37_q_19"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "72 km/soat tezlikda harakatlanayotgan transport vositasi 1 sekundda qancha masofani bosib o'tadi?",
@@ -2357,13 +2413,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "20 m",
-                        "is_correct": true
+                        "text": "25 m",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "25 m",
-                        "is_correct": false
+                        "text": "20 m",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2377,13 +2433,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "20 м",
-                        "is_correct": true
+                        "text": "25 м",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "25 м",
-                        "is_correct": false
+                        "text": "20 м",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2397,13 +2453,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "20 м",
-                        "is_correct": true
+                        "text": "25 м",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "25 м",
-                        "is_correct": false
+                        "text": "20 м",
+                        "is_correct": true
                     }
                 ]
             }
@@ -2411,38 +2467,40 @@
         "izoh": {
             "uz_lat": "Harakat xavfsizligi asoslari talablariga asosan, 72 km/s tezlikda harakatlanayotgan transport vositasi 1 sekundda 20 m masofani bosib o‘tadi.",
             "uz_cyr": "Ҳаракат хавфсизлиги асослари талабларига асосан, 72 км/с тезликда ҳаракатланаётган транспорт воситаси 1 секундда 20 м масофани босиб ўтади.",
-            "ru": "Согласно требованиям принципов безопасности дорожного движения, транспортное средство, движущееся со скоростью 72 км/с, преодолевает расстояние 20 м за 1 секунду."
+            "ru": "Согласно требованиям принципов безопасности дорожного движения, транспортное средство, движущееся со скоростью 72 км/ч, преодолевает расстояние 20 м за 1 секунду."
         }
     },
     {
         "task_info": {
-            "global_id": "t_44_q_3",
-            "ticket_num": 44,
-            "order": 29
+            "global_id": "t_53_q_18",
+            "global_id2": "t_53_q_18",
+            "ticket_num": 53,
+            "order": 29,
+            "remapped_from": "t_44_q_3"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Aholi punktlaridan tashqarida tirkamali yuk avtomobillari qanday yuqori tezlik bilan harakatlanishi mumkin?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "80 km/s",
+                        "text": "80 km/soat",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "70 km/s",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "90 km/s",
+                        "text": "60 km/soat",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "70 km/soat",
+                        "is_correct": true
+                    },
+                    {
                         "id": 4,
-                        "text": "60 km/s",
+                        "text": "90 km/soat",
                         "is_correct": false
                     }
                 ]
@@ -2452,22 +2510,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "80 км/с",
+                        "text": "80 км/соат",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "70 км/с",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "90 км/с",
+                        "text": "60 км/соат",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "70 км/соат",
+                        "is_correct": true
+                    },
+                    {
                         "id": 4,
-                        "text": "60 км/с",
+                        "text": "90 км/соат",
                         "is_correct": false
                     }
                 ]
@@ -2482,17 +2540,17 @@
                     },
                     {
                         "id": 2,
+                        "text": "60 км/ч",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
                         "text": "70 км/ч",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
-                        "text": "90 км/ч",
-                        "is_correct": false
-                    },
-                    {
                         "id": 4,
-                        "text": "60 км/ч",
+                        "text": "90 км/ч",
                         "is_correct": false
                     }
                 ]
@@ -2506,23 +2564,25 @@
     },
     {
         "task_info": {
-            "global_id": "t_45_q_1",
-            "ticket_num": 45,
-            "order": 30
+            "global_id": "t_15_q_3",
+            "global_id2": "t_15_q_3",
+            "ticket_num": 15,
+            "order": 30,
+            "remapped_from": "t_45_q_1"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Kunning qorong'i vaqtida harakatlanayotgan transport vositasining haydovchi tezlikni tanlashda qanday eng asosiy hal qiluvchi omilni etiborga olishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yo'l harakati qoidalari o'rnatgan tezlik chegaralarini",
+                        "text": "Transport vositasining texnik tavsifnomasida ko'rsatilgan tezlik chegarasini",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Transport vositasining texnik tavsifnomasida ko'rsatilgan tezlik chegarasini",
+                        "text": "Yo'l harakati qoidalari o'rnatgan tezlik chegaralarini",
                         "is_correct": false
                     },
                     {
@@ -2537,12 +2597,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Йўл ҳаракати қоидалари ўрнатган тезлик чегараларини",
+                        "text": "Транспорт воситасининг техник тавсифномасида кўрсатилган тезлик чегарасини",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Транспорт воситасининг техник тавсифномасида кўрсатилган тезлик чегарасини",
+                        "text": "Йўл ҳаракати қоидалари ўрнатган тезлик чегараларини",
                         "is_correct": false
                     },
                     {
@@ -2557,12 +2617,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ограничения скорости, установленные ПДД",
+                        "text": "Ограничение скорости, указанное в техническом описании транспортных средств",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Ограничение скорости, указанное в техническом описании транспортных средств",
+                        "text": "Ограничения скорости, установленные ПДД",
                         "is_correct": false
                     },
                     {
@@ -2581,33 +2641,35 @@
     },
     {
         "task_info": {
-            "global_id": "t_45_q_17",
-            "ticket_num": 45,
-            "order": 31
+            "global_id": "t_31_q_8",
+            "global_id2": "t_31_q_8",
+            "ticket_num": 31,
+            "order": 31,
+            "remapped_from": "t_45_q_16"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Turar joy dahalarida eng katta tezlikda harakatlanishga ruxsat etiladi:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "5km/s",
+                        "text": "30 km/soat",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "20 km/s",
+                        "text": "20 km/soat",
                         "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "30 km/s",
+                        "text": "5 km/soat",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "40 km/s",
+                        "text": "40 km/soat",
                         "is_correct": false
                     }
                 ]
@@ -2617,22 +2679,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "5км/с",
+                        "text": "30 км/соат",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "20 км/с",
+                        "text": "20 км/соат",
                         "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "30 км/с",
+                        "text": "5 км/соат",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "40 км/с",
+                        "text": "40 км/соат",
                         "is_correct": false
                     }
                 ]
@@ -2642,7 +2704,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "5км/ч",
+                        "text": "30 км/ч",
                         "is_correct": false
                     },
                     {
@@ -2652,7 +2714,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "30 км/ч",
+                        "text": "5км/ч",
                         "is_correct": false
                     },
                     {
@@ -2671,33 +2733,35 @@
     },
     {
         "task_info": {
-            "global_id": "t_47_q_2",
-            "ticket_num": 47,
-            "order": 32
+            "global_id": "t_49_q_5",
+            "global_id2": "t_49_q_5",
+            "ticket_num": 49,
+            "order": 32,
+            "remapped_from": "t_47_q_2"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Turar joy dahalarida qanday eng katta tezlikda harakatlanishga ruxsat etiladi:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "5 km/s",
+                        "text": "30 km/soat",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "40 km/s",
+                        "text": "40 km/soat",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "30 km/s",
+                        "text": "5 km/soat",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "20 km/s",
+                        "text": "20 km/soat",
                         "is_correct": true
                     }
                 ]
@@ -2707,22 +2771,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "5 км/с",
+                        "text": "30 км/соат",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "40 км/с",
+                        "text": "40 км/соат",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "30 км/с",
+                        "text": "5 км/соат",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "20 км/с",
+                        "text": "20 км/соат",
                         "is_correct": true
                     }
                 ]
@@ -2732,7 +2796,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "5 км/ч",
+                        "text": "30 км/ч",
                         "is_correct": false
                     },
                     {
@@ -2742,7 +2806,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "30 км/ч",
+                        "text": "5 км/ч",
                         "is_correct": false
                     },
                     {
@@ -2761,34 +2825,36 @@
     },
     {
         "task_info": {
-            "global_id": "t_51_q_10",
-            "ticket_num": 51,
-            "order": 33
+            "global_id": "t_2_q_4",
+            "global_id2": "t_2_q_4",
+            "ticket_num": 2,
+            "order": 33,
+            "remapped_from": "t_51_q_10"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Maktab va maktabgacha ta'lim tashkilotlari atrofidagi yo'llarda 300 metrgacha bo'lgan masofada qanday eng yuqori tezlikda harakatlanishga ruxsat etiladi",
                 "options": [
                     {
                         "id": 1,
-                        "text": "20 km/s",
+                        "text": "60 km/s",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "30 km/s",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "50 km/s",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
-                        "text": "60 km/s",
+                        "id": 3,
+                        "text": "20 km/s",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "30 km/s",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2797,23 +2863,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "20 км/с",
+                        "text": "60 км/с",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "30 км/с",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "50 км/с",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
-                        "text": "60 км/с",
+                        "id": 3,
+                        "text": "20 км/с",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "30 км/с",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2822,23 +2888,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "20 км/ч",
+                        "text": "60 км/ч",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "30 км/ч",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "50 км/ч",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
-                        "text": "60 км/ч",
+                        "id": 3,
+                        "text": "20 км/ч",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "30 км/ч",
+                        "is_correct": true
                     }
                 ]
             }
@@ -2852,13 +2918,15 @@
     {
         "task_info": {
             "global_id": "t_59_q_11",
+            "global_id2": "t_59_q_11",
             "ticket_num": 59,
-            "order": 34
+            "order": 34,
+            "remapped_from": "t_64_q_6"
         },
         "media_url": "u1000uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Ushbu holatda siz qanday yo‘l tutishingiz kerak?",
+                "text": "Ushbu holatda siz qanday yo'l tutishingiz kerak?",
                 "options": [
                     {
                         "id": 1,
@@ -2867,17 +2935,17 @@
                     },
                     {
                         "id": 2,
-                        "text": "Zarur bo‘lganda darhol to‘xtash imkoniyatini beradigan darajada tezlikni kamaytiring",
+                        "text": "Zarur bo'lganda darhol to'xtash imkoniyatini beradigan darajada tezlikni kamaytiring",
                         "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Chapga burilib, to‘siqni aylanib o‘ting",
+                        "text": "Chapga burilib, to'siqni aylanib o'ting",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "To‘xtovsiz harakatni davom ettiring",
+                        "text": "To'xtovsiz harakatni davom ettiring",
                         "is_correct": false
                     }
                 ]
@@ -2912,13 +2980,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Подать звуковой сигнал и увеличить скорость",
-                        "is_correct": false
+                        "text": "Снизить скорость настолько, чтобы при необходимости можно было немедленно остановиться",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Снизить скорость настолько, чтобы при необходимости можно было немедленно остановиться",
-                        "is_correct": true
+                        "text": "Подать звуковой сигнал и увеличить скорость",
+                        "is_correct": false
                     },
                     {
                         "id": 3,

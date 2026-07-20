@@ -1,9 +1,11 @@
 [
     {
         "task_info": {
-            "global_id": "t_1_q_4",
-            "ticket_num": 1,
-            "order": 1
+            "global_id": "t_8_q_7",
+            "global_id2": "t_8_q_7",
+            "ticket_num": 8,
+            "order": 1,
+            "remapped_from": "t_1_q_4"
         },
         "media_url": "u80uz.webp",
         "content": {
@@ -12,23 +14,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Qizil avtomobil",
-                        "is_correct": false
+                        "text": "Yashil avtomobil",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Ko'k avtomobil",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Sariq avtomobil",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Ko'k avtomobil",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Yashil avtomobil",
-                        "is_correct": true
+                        "text": "Qizil avtomobil",
+                        "is_correct": false
                     }
                 ]
             },
@@ -37,23 +39,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Қизил автомобил",
-                        "is_correct": false
+                        "text": "Яшил автомобил",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Кўк автомобил",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Сариқ автомобил",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Кўк автомобил",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Яшил автомобил",
-                        "is_correct": true
+                        "text": "Қизил автомобил",
+                        "is_correct": false
                     }
                 ]
             },
@@ -62,12 +64,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Красный автомобиль",
+                        "text": "Синий автомобиль",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Синий автомобиль",
+                        "text": "Красный автомобиль",
                         "is_correct": false
                     },
                     {
@@ -91,9 +93,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_4_q_16",
-            "ticket_num": 4,
-            "order": 2
+            "global_id": "t_7_q_16",
+            "global_id2": "t_7_q_16",
+            "ticket_num": 7,
+            "order": 2,
+            "remapped_from": "t_4_q_14"
         },
         "media_url": "u73uz.webp",
         "content": {
@@ -102,18 +106,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Tramvay, avtobus, yengil avtomobil",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Avtobus, yengil avtomobil, tramvay",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Yengil avtomobil, tramvay, avtobus",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Tramvay, avtobus, yengil avtomobil",
+                        "is_correct": true
                     }
                 ]
             },
@@ -122,18 +126,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Трамвай, автобус, енгил автомобил",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Автобус, енгил автомобил, трамвай",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Енгил автомобил, трамвай, автобус",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Трамвай, автобус, енгил автомобил",
+                        "is_correct": true
                     }
                 ]
             },
@@ -142,18 +146,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Трамвай, автобус и легковой автомобиль",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Автобус, легковой автомобиль, трамвай",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Легковой автомобиль, трамвай, автобус",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Трамвай, автобус, легковой автомобиль",
+                        "is_correct": true
                     }
                 ]
             }
@@ -166,29 +170,31 @@
     },
     {
         "task_info": {
-            "global_id": "t_7_q_1",
-            "ticket_num": 7,
-            "order": 3
+            "global_id": "t_4_q_16",
+            "global_id2": "t_4_q_16",
+            "ticket_num": 4,
+            "order": 3,
+            "remapped_from": "t_7_q_1"
         },
-        "media_url": "u592uz.webp",
+        "media_url": "u37uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Chorrahani ikkinchi bo'lib kesib o'tadi:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Qizil avtomobil",
+                        "text": "Yashil avtomobil",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Ko'k avtomobil",
-                        "is_correct": true
+                        "text": "Qizil avtomobil",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Yashil avtomobil",
-                        "is_correct": false
+                        "text": "Ko'k avtomobil",
+                        "is_correct": true
                     }
                 ]
             },
@@ -197,18 +203,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Қизил автомобил",
+                        "text": "Яшил автомобил",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Кўк автомобил",
-                        "is_correct": true
+                        "text": "Қизил автомобил",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Яшил автомобил",
-                        "is_correct": false
+                        "text": "Кўк автомобил",
+                        "is_correct": true
                     }
                 ]
             },
@@ -217,17 +223,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Красный автомобиль",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Синий автомобиль",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Зеленый автомобиль",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Красный автомобиль",
                         "is_correct": false
                     }
                 ]
@@ -241,9 +247,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_7_q_5",
-            "ticket_num": 7,
-            "order": 4
+            "global_id": "t_25_q_20",
+            "global_id2": "t_25_q_20",
+            "ticket_num": 25,
+            "order": 4,
+            "remapped_from": "t_7_q_5"
         },
         "media_url": "u281uz.webp",
         "content": {
@@ -252,12 +260,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Avtobus, avtomobil, velosiped",
+                        "text": "Avtomobil, avtobus, velosiped",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Avtomobil, avtobus, velosiped",
+                        "text": "Avtobus, avtomobil, velosiped",
                         "is_correct": false
                     },
                     {
@@ -272,12 +280,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Автобус, автомобил, велосипед",
+                        "text": "Автомобил, автобус, велосипед",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Автомобил, автобус, велосипед",
+                        "text": "Автобус, автомобил, велосипед",
                         "is_correct": false
                     },
                     {
@@ -292,12 +300,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Автобус, автомобиль, велосипед",
+                        "text": "Автомобиль, автобус, велосипед",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Автомобиль, автобус, велосипед",
+                        "text": "Автобус, автомобиль, велосипед",
                         "is_correct": false
                     },
                     {
@@ -316,9 +324,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_10_q_4",
-            "ticket_num": 10,
-            "order": 5
+            "global_id": "t_24_q_15",
+            "global_id2": "t_24_q_15",
+            "ticket_num": 24,
+            "order": 5,
+            "remapped_from": "t_15_q_9"
         },
         "media_url": "u266uz.webp",
         "content": {
@@ -376,9 +386,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_10_q_11",
-            "ticket_num": 10,
-            "order": 6
+            "global_id": "t_31_q_20",
+            "global_id2": "t_31_q_20",
+            "ticket_num": 31,
+            "order": 6,
+            "remapped_from": "t_10_q_11"
         },
         "media_url": "u361uz.webp",
         "content": {
@@ -417,13 +429,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Водитель дорожной машины",
-                        "is_correct": false
+                        "text": "Водитель легкового автомобиля",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Водитель легкового автомобиля",
-                        "is_correct": true
+                        "text": "Водитель дорожной машины",
+                        "is_correct": false
                     }
                 ]
             }
@@ -436,9 +448,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_10_q_15",
-            "ticket_num": 10,
-            "order": 7
+            "global_id": "t_53_q_16",
+            "global_id2": "t_53_q_16",
+            "ticket_num": 53,
+            "order": 7,
+            "remapped_from": "t_63_q_15"
         },
         "media_url": "u614uz.webp",
         "content": {
@@ -452,13 +466,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Ko'k, qizil, yashil",
-                        "is_correct": false
+                        "text": "Uchchalasi bir vaqtda",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Uchchalasi bir vaqtda",
-                        "is_correct": true
+                        "text": "Ko'k, qizil, yashil",
+                        "is_correct": false
                     }
                 ]
             },
@@ -472,13 +486,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Кўк, қизил, яшил",
-                        "is_correct": false
+                        "text": "Уччаласи бир вақтда",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Уччаласи бир вақтда",
-                        "is_correct": true
+                        "text": "Кўк, қизил, яшил",
+                        "is_correct": false
                     }
                 ]
             },
@@ -487,18 +501,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Красный, зеленый, синий",
+                        "text": "Красный, зелёный, синий",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Синий, красный, зеленый",
-                        "is_correct": false
+                        "text": "Все трое одновременно",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Все три одновременно",
-                        "is_correct": true
+                        "text": "Синий, красный, зелёный",
+                        "is_correct": false
                     }
                 ]
             }
@@ -511,9 +525,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_11_q_5",
-            "ticket_num": 11,
-            "order": 8
+            "global_id": "t_4_q_16",
+            "global_id2": "t_4_q_16",
+            "ticket_num": 4,
+            "order": 8,
+            "remapped_from": "t_7_q_1"
         },
         "media_url": "u37uz.webp",
         "content": {
@@ -522,18 +538,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Qizil avtomobil",
+                        "text": "Yashil avtomobil",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Ko'k avtomobil",
-                        "is_correct": true
+                        "text": "Qizil avtomobil",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Yashil avtomobil",
-                        "is_correct": false
+                        "text": "Ko'k avtomobil",
+                        "is_correct": true
                     }
                 ]
             },
@@ -542,18 +558,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Қизил автомобил",
+                        "text": "Яшил автомобил",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Кўк автомобил",
-                        "is_correct": true
+                        "text": "Қизил автомобил",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Яшил автомобил",
-                        "is_correct": false
+                        "text": "Кўк автомобил",
+                        "is_correct": true
                     }
                 ]
             },
@@ -562,17 +578,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Красный автомобиль",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Синий автомобиль",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Зеленый автомобиль",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Красный автомобиль",
                         "is_correct": false
                     }
                 ]
@@ -586,9 +602,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_11_q_15",
-            "ticket_num": 11,
-            "order": 9
+            "global_id": "t_23_q_5",
+            "global_id2": "t_23_q_5",
+            "ticket_num": 23,
+            "order": 9,
+            "remapped_from": "t_26_q_4"
         },
         "media_url": "u253uz.webp",
         "content": {
@@ -597,18 +615,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yashil avtomobil",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Ko'k avtomobil",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Qizil avtomobil",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Yashil avtomobil",
+                        "is_correct": false
                     }
                 ]
             },
@@ -617,18 +635,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Яшил автомобил",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Кўк автомобил",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Қизил автомобил",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Яшил автомобил",
+                        "is_correct": false
                     }
                 ]
             },
@@ -637,12 +655,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Зеленый автомобиль",
+                        "text": "Синий автомобиль",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Синий автомобиль",
+                        "text": "Зеленый автомобиль",
                         "is_correct": false
                     },
                     {
@@ -661,9 +679,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_12_q_17",
-            "ticket_num": 12,
-            "order": 10
+            "global_id": "t_40_q_12",
+            "global_id2": "t_40_q_12",
+            "ticket_num": 40,
+            "order": 10,
+            "remapped_from": "t_12_q_15"
         },
         "media_url": "u459uz.webp",
         "content": {
@@ -672,12 +692,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Qizil avtomobil",
+                        "text": "Yashil avtomobil",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Yashil avtomobil",
+                        "text": "Qizil avtomobil",
                         "is_correct": false
                     },
                     {
@@ -692,12 +712,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Қизил автомобил",
+                        "text": "Яшил автомобил",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Яшил автомобил",
+                        "text": "Қизил автомобил",
                         "is_correct": false
                     },
                     {
@@ -712,8 +732,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Красный автомобиль",
-                        "is_correct": false
+                        "text": "Синий автомобиль",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -722,8 +742,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Синий автомобиль",
-                        "is_correct": true
+                        "text": "Красный автомобиль",
+                        "is_correct": false
                     }
                 ]
             }
@@ -736,9 +756,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_13_q_4",
-            "ticket_num": 13,
-            "order": 11
+            "global_id": "t_10_q_9",
+            "global_id2": "t_10_q_9",
+            "ticket_num": 10,
+            "order": 11,
+            "remapped_from": "t_1_q_16"
         },
         "media_url": "u107uz.webp",
         "content": {
@@ -796,29 +818,31 @@
     },
     {
         "task_info": {
-            "global_id": "t_13_q_15",
-            "ticket_num": 13,
-            "order": 12
+            "global_id": "t_4_q_16",
+            "global_id2": "t_4_q_16",
+            "ticket_num": 4,
+            "order": 12,
+            "remapped_from": "t_7_q_1"
         },
-        "media_url": "u612uz.webp",
+        "media_url": "u37uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Chorrahani ikkinchi bo'lib kesib o'tadi:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ko'k avtomobil",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Yashil avtomobil",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Qizil avtomobil",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ko'k avtomobil",
+                        "is_correct": true
                     }
                 ]
             },
@@ -827,18 +851,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Кўк автомобил",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Яшил автомобил",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Қизил автомобил",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Кўк автомобил",
+                        "is_correct": true
                     }
                 ]
             },
@@ -871,9 +895,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_14_q_4",
-            "ticket_num": 14,
-            "order": 13
+            "global_id": "t_6_q_19",
+            "global_id2": "t_6_q_19",
+            "ticket_num": 6,
+            "order": 13,
+            "remapped_from": "t_14_q_4"
         },
         "media_url": "u60uz.webp",
         "content": {
@@ -922,18 +948,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Пропустил трамвай, мотоцикл и развернулся на перекрёстке",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Пропустил мотоцикл и развернулся на перекрёстке",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Пропустил трамвай и развернулся на перекрёстке",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Пропустил трамвай, мотоцикл и развернулся на перекрёстке",
-                        "is_correct": true
                     }
                 ]
             }
@@ -941,14 +967,16 @@
         "izoh": {
             "uz_lat": "YHQ 16-bobi 105-bandiga asosan, teng ahamiyatga ega bo'lgan yo'llar kesishgan chorrahada keyingi harakat yo'nalishidan qat'i nazar, tramvay relssiz transport vositalariga nisbatan oldin o'tish huquqiga ega bo'ladi. YHQ 16-bobi 107-bandiga asosan, chapga burilishda yoki qayrilib olishda relssiz transport vositasining haydovchisi teng ahamiyatli yo'ldan qarama-qarshi yo'nalishdan to'g'riga yoki o'ngga harakatlanayotgan transport vositalariga yo'l berishi shart.",
             "uz_cyr": "YHQ 16-боби 105-бандига асосан, тенг аҳамиятга эга бўлган йўллар кесишган чорраҳада кейинги ҳаракат йўналишидан қати назар, трамвай релссиз транспорт воситаларига нисбатан олдин ўтиш ҳуқуқига эга бўлади. YHQ 16-боби 107-бандига асосан, чапга бурилишда ёки қайрилиб олишда релссиз транспорт воситасининг ҳайдовчиси тенг аҳамиятли йўлдан қарама-қарши йўналишдан тўғрига ёки ўнгга ҳаракатланаётган транспорт воситаларига йўл бериши шарт.",
-            "ru": "В соответствии со статьей 105 главы 16 Закона о дорожном движении трамваи имеют преимущество перед нерельсовыми транспортными средствами независимо от направления последующего движения на перекрестках равной важности. Согласно статье 107 главы 16 ПДД, при повороте налево или развороте водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, движущимся прямо или вправо с встречного направления на дороге равного значения."
+            "ru": "В соответствии со статьей 105 главы 16 ПДД трамваи имеют преимущество перед нерельсовыми транспортными средствами независимо от направления последующего движения на перекрестках равной важности. Согласно статье 107 главы 16 ПДД, при повороте налево или развороте водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, движущимся прямо или вправо с встречного направления на дороге равного значения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_14_q_5",
-            "ticket_num": 14,
-            "order": 14
+            "global_id": "t_4_q_6",
+            "global_id2": "t_4_q_6",
+            "ticket_num": 4,
+            "order": 14,
+            "remapped_from": "t_14_q_5"
         },
         "media_url": "u32uz.webp",
         "content": {
@@ -957,13 +985,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Sariq avtomobil chorrahaga kirib keladi va ko'kni o'tkazib yuborish uchun to'xtaydi; yashil; ko'k, qizil bilan bir vaqtda; sariq",
-                        "is_correct": true
+                        "text": "Ko'k ayni vaqtda qizil bilan; yashil; sariq",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Ko'k ayni vaqtda qizil bilan; yashil; sariq",
-                        "is_correct": false
+                        "text": "Sariq avtomobil chorrahaga kirib keladi va ko'kni o'tkazib yuborish uchun to'xtaydi; yashil; ko'k, qizil bilan bir vaqtda; sariq",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -977,13 +1005,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Сариқ автомобил чорраҳага кириб келади ва кўкни ўтказиб юбориш учун тўхтайди; яшил; кўк, қизил билан бир вақтда; сариқ",
-                        "is_correct": true
+                        "text": "Кўк айни вақтда қизил билан; яшил; сариқ",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Кўк айни вақтда қизил билан; яшил; сариқ",
-                        "is_correct": false
+                        "text": "Сариқ автомобил чорраҳага кириб келади ва кўкни ўтказиб юбориш учун тўхтайди; яшил; кўк, қизил билан бир вақтда; сариқ",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -997,17 +1025,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Желтый въедет на перекрёсток и остановится, чтобы пропустить синий, зеленый, синий одновременно с красным, желтый",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Синий одновременно с красным, зеленый, желтый",
+                        "text": "Синий одновременно с красным; зелёный; жёлтый",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Жёлтый автомобиль въезжает на перекрёсток и останавливается, чтобы пропустить синий; зелёный; синий одновременно с красным; жёлтый",
+                        "is_correct": true
+                    },
+                    {
                         "id": 3,
-                        "text": "Зеленый, синий одновременно с красным, желтый",
+                        "text": "Зелёный; синий одновременно с красным; жёлтый",
                         "is_correct": false
                     }
                 ]
@@ -1021,9 +1049,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_14_q_14",
-            "ticket_num": 14,
-            "order": 15
+            "global_id": "t_22_q_17",
+            "global_id2": "t_22_q_17",
+            "ticket_num": 22,
+            "order": 15,
+            "remapped_from": "t_14_q_14"
         },
         "media_url": "u248uz.webp",
         "content": {
@@ -1037,12 +1067,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Ko'k",
+                        "text": "Yashil",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Yashil",
+                        "text": "Ko'k",
                         "is_correct": false
                     }
                 ]
@@ -1057,12 +1087,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Кўк",
+                        "text": "Яшил",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Яшил",
+                        "text": "Кўк",
                         "is_correct": false
                     }
                 ]
@@ -1077,12 +1107,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Синий",
+                        "text": "Зеленым",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Зеленым",
+                        "text": "Синий",
                         "is_correct": false
                     }
                 ]
@@ -1096,9 +1126,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_14_q_15",
-            "ticket_num": 14,
-            "order": 16
+            "global_id": "t_23_q_10",
+            "global_id2": "t_23_q_10",
+            "ticket_num": 23,
+            "order": 16,
+            "remapped_from": "t_16_q_5"
         },
         "media_url": "u255uz.webp",
         "content": {
@@ -1107,18 +1139,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Yashil; ko'k ayni vaqtda qizil bilan; sariq",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Sariq chorrahaga kiradi va yashilni o'tkazib yuborish uchun to'xtaydi; ko'k qizil bilan bir vaqtda",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Ko'k ayni vaqtda qizil bilan; yashil; sariq",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Yashil; ko'k ayni vaqtda qizil bilan; sariq",
-                        "is_correct": true
                     }
                 ]
             },
@@ -1127,18 +1159,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Яшил; кўк айни вақтда қизил билан; сариқ",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Сариқ чорраҳага киради ва яшилни ўтказиб юбориш учун тўхтайди; кўк қизил билан бир вақтда",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Кўк айни вақтда қизил билан; яшил; сариқ",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Яшил; кўк айни вақтда қизил билан; сариқ",
-                        "is_correct": true
                     }
                 ]
             },
@@ -1147,18 +1179,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Желтый выедет на перекрёсток и остановится, чтобы пропустить зеленый, синий одновременно с красным",
-                        "is_correct": false
+                        "text": "Зелёный; синий одновременно с красным; жёлтый",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Синий одновременно с красным, зеленый, желтый",
+                        "text": "Жёлтый въезжает на перекрёсток и останавливается, чтобы пропустить зелёный; синий одновременно с красным",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Зеленый, синий одновременно с красным, желтый",
-                        "is_correct": true
+                        "text": "Синий одновременно с красным; зелёный; жёлтый",
+                        "is_correct": false
                     }
                 ]
             }
@@ -1171,9 +1203,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_16_q_5",
-            "ticket_num": 16,
-            "order": 17
+            "global_id": "t_7_q_6",
+            "global_id2": "t_7_q_6",
+            "ticket_num": 7,
+            "order": 17,
+            "remapped_from": "t_14_q_15"
         },
         "media_url": "u65uz.webp",
         "content": {
@@ -1182,13 +1216,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yashil; ko'k; qizil",
-                        "is_correct": false
+                        "text": "Ko'k; qizil; yashil",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Ko'k; qizil; yashil",
-                        "is_correct": true
+                        "text": "Yashil; ko'k; qizil",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1202,13 +1236,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Яшил; кўк; қизил",
-                        "is_correct": false
+                        "text": "Кўк; қизил; яшил",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Кўк; қизил; яшил",
-                        "is_correct": true
+                        "text": "Яшил; кўк; қизил",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1222,17 +1256,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Зеленый, синий, красный",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Синий, красный, зеленый",
+                        "text": "Синий; красный; зеленый",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "Зеленый; синий; красный",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Синий одновременно с зеленым, красный",
+                        "text": "Синий и зеленый одновременно, красный",
                         "is_correct": false
                     }
                 ]
@@ -1246,9 +1280,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_16_q_14",
-            "ticket_num": 16,
-            "order": 18
+            "global_id": "t_39_q_11",
+            "global_id2": "t_39_q_11",
+            "ticket_num": 39,
+            "order": 18,
+            "remapped_from": "t_27_q_14"
         },
         "media_url": "u446uz.webp",
         "content": {
@@ -1257,17 +1293,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Ko'k, yashil, qizil",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Qizil chorrahaga kiradi va ko'k avtomobilni o'tkazib yuborish uchun to'xtaydi va ayni vaqtda yashil avtomobil chorrahani kesib o'tadi; ko'k; qizil burilishni tugallaydi",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Qizil, ko'k, yashil",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Ko'k, yashil, qizil",
+                        "text": "Qizil, ko'k, yashil",
                         "is_correct": false
                     }
                 ]
@@ -1277,17 +1313,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Кўк, яшил, қизил",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Қизил чорраҳага киради ва кўк автомобилни ўтказиб юбориш учун тўхтайди ва айни вақтда яшил автомобил чорраҳани кесиб ўтади; кўк; қизил бурилишни тугаллайди",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Қизил, кўк, яшил",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Кўк, яшил, қизил",
+                        "text": "Қизил, кўк, яшил",
                         "is_correct": false
                     }
                 ]
@@ -1297,17 +1333,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Красный выедет на перекрёсток и остановится, чтобы пропустить синий, и одновременно с красным проедет зеленый, синий, красный закончит разворот",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Красный, синий, зеленый",
+                        "text": "Синий, зелёный, красный",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Красный въезжает на перекрёсток и останавливается, чтобы пропустить синий, одновременно зелёный пересекает перекрёсток; синий; красный завершает поворот",
+                        "is_correct": true
+                    },
+                    {
                         "id": 3,
-                        "text": "Синий, зеленый, красный",
+                        "text": "Красный, синий, зелёный",
                         "is_correct": false
                     }
                 ]
@@ -1321,9 +1357,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_16_q_15",
-            "ticket_num": 16,
-            "order": 19
+            "global_id": "t_34_q_10",
+            "global_id2": "t_34_q_10",
+            "ticket_num": 34,
+            "order": 19,
+            "remapped_from": "t_16_q_15"
         },
         "media_url": "u390uz.webp",
         "content": {
@@ -1332,17 +1370,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yashil avtomobil",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Ko'k avtomobil",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Qizil avtomobil",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Yashil avtomobil",
                         "is_correct": false
                     }
                 ]
@@ -1352,17 +1390,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Яшил автомобил",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Кўк автомобил",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Қизил автомобил",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Яшил автомобил",
                         "is_correct": false
                     }
                 ]
@@ -1372,13 +1410,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Зеленый автомобиль",
-                        "is_correct": false
+                        "text": "Синий автомобиль",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Синий автомобиль",
-                        "is_correct": true
+                        "text": "Зеленый автомобиль",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1396,9 +1434,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_17_q_5",
-            "ticket_num": 17,
-            "order": 20
+            "global_id": "t_1_q_11",
+            "global_id2": "t_1_q_11",
+            "ticket_num": 1,
+            "order": 20,
+            "remapped_from": "t_17_q_5"
         },
         "media_url": "u6uz.webp",
         "content": {
@@ -1456,9 +1496,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_17_q_14",
-            "ticket_num": 17,
-            "order": 21
+            "global_id": "t_3_q_5",
+            "global_id2": "t_3_q_5",
+            "ticket_num": 3,
+            "order": 21,
+            "remapped_from": "t_17_q_14"
         },
         "media_url": "u21uz.webp",
         "content": {
@@ -1467,17 +1509,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Tramvay, sariq, yashil avtomobillar",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Tramvay va yashil avtomobil, sariq avtomobil",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Yashil, sariq avtomobillar, tramvay",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Tramvay, sariq, yashil avtomobillar",
                         "is_correct": false
                     }
                 ]
@@ -1487,17 +1529,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Трамвай, сариқ, яшил автомобиллар",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Трамвай ва яшил автомобил, сариқ автомобил",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Яшил, сариқ автомобиллар, трамвай",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Трамвай, сариқ, яшил автомобиллар",
                         "is_correct": false
                     }
                 ]
@@ -1507,17 +1549,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Трамвай, желтый, зеленый автомобили",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Трамвай и зеленый автомобиль, желтый автомобиль",
+                        "text": "Трамвай и зелёный автомобиль, жёлтый автомобиль",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "Зелёный, жёлтый автомобили, трамвай",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Зеленый, желтый автомобили, трамвай",
+                        "text": "Трамвай, жёлтый, зелёный автомобили",
                         "is_correct": false
                     }
                 ]
@@ -1531,9 +1573,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_18_q_14",
-            "ticket_num": 18,
-            "order": 22
+            "global_id": "t_10_q_1",
+            "global_id2": "t_10_q_1",
+            "ticket_num": 10,
+            "order": 22,
+            "remapped_from": "t_18_q_14"
         },
         "media_url": "u102uz.webp",
         "content": {
@@ -1542,13 +1586,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Motosikl haydovchisi",
-                        "is_correct": false
+                        "text": "Avtomobil haydovchisi",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Avtomobil haydovchisi",
-                        "is_correct": true
+                        "text": "Motosikl haydovchisi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1557,13 +1601,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Мотоцикл ҳайдовчиси",
-                        "is_correct": false
+                        "text": "Автомобил ҳайдовчиси",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Автомобил ҳайдовчиси",
-                        "is_correct": true
+                        "text": "Мотоцикл ҳайдовчиси",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1572,13 +1616,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Водитель мотоцикла",
-                        "is_correct": false
+                        "text": "Водитель автомобиля",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Водитель автомобиля",
-                        "is_correct": true
+                        "text": "Водитель мотоцикла",
+                        "is_correct": false
                     }
                 ]
             }
@@ -1591,9 +1635,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_19_q_8",
-            "ticket_num": 19,
-            "order": 23
+            "global_id": "t_21_q_17",
+            "global_id2": "t_21_q_17",
+            "ticket_num": 21,
+            "order": 23,
+            "remapped_from": "t_13_q_4"
         },
         "media_url": "u238uz.webp",
         "content": {
@@ -1602,18 +1648,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Har ikki avtomobilning haydovchisi",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Tramvay haydovchisi",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Yuk avtomobilining haydovchisi",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Har ikki avtomobilning haydovchisi",
-                        "is_correct": true
                     }
                 ]
             },
@@ -1622,18 +1668,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Ҳар икки автомобилнинг ҳайдовчиси",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Трамвай ҳайдовчиси",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Юк автомобилининг ҳайдовчиси",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Ҳар икки автомобилнинг ҳайдовчиси",
-                        "is_correct": true
                     }
                 ]
             },
@@ -1642,18 +1688,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Водитель трамвая",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Водитель грузового автомобиля",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Водители обоих автомобилей",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Водитель трамвая",
+                        "is_correct": false
                     }
                 ]
             }
@@ -1666,9 +1712,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_21_q_14",
-            "ticket_num": 21,
-            "order": 24
+            "global_id": "t_46_q_12",
+            "global_id2": "t_46_q_12",
+            "ticket_num": 46,
+            "order": 24,
+            "remapped_from": "t_19_q_8"
         },
         "media_url": "u532uz.webp",
         "content": {
@@ -1707,13 +1755,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Водитель синего автомобиля",
-                        "is_correct": true
+                        "text": "Водитель красного автомобиля",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Водитель красного автомобиля",
-                        "is_correct": false
+                        "text": "Водитель синего автомобиля",
+                        "is_correct": true
                     }
                 ]
             }
@@ -1726,9 +1774,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_24_q_6",
-            "ticket_num": 24,
-            "order": 25
+            "global_id": "t_10_q_19",
+            "global_id2": "t_10_q_19",
+            "ticket_num": 10,
+            "order": 25,
+            "remapped_from": "t_2_q_16"
         },
         "media_url": "u111uz.webp",
         "content": {
@@ -1786,9 +1836,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_24_q_11",
-            "ticket_num": 24,
-            "order": 26
+            "global_id": "t_52_q_8",
+            "global_id2": "t_52_q_8",
+            "ticket_num": 52,
+            "order": 26,
+            "remapped_from": "t_24_q_11"
         },
         "media_url": "u595uz.webp",
         "content": {
@@ -1802,13 +1854,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Ikkinchi bo'lib ayni vaqtda qizil bilan",
-                        "is_correct": false
+                        "text": "Uchinchi bo'lib ayni vaqtda qizil bilan",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Uchinchi bo'lib ayni vaqtda qizil bilan",
-                        "is_correct": true
+                        "text": "Ikkinchi bo'lib ayni vaqtda qizil bilan",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1822,13 +1874,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Иккинчи бўлиб айни вақтда қизил билан",
-                        "is_correct": false
+                        "text": "Учинчи бўлиб айни вақтда қизил билан",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Учинчи бўлиб айни вақтда қизил билан",
-                        "is_correct": true
+                        "text": "Иккинчи бўлиб айни вақтда қизил билан",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1837,18 +1889,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Первым одновременно с красным",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Вторым одновременно с красным",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Третьим одновременно с красным",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Первым одновременно с красным",
+                        "is_correct": false
                     }
                 ]
             }
@@ -1861,9 +1913,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_25_q_14",
-            "ticket_num": 25,
-            "order": 27
+            "global_id": "t_3_q_15",
+            "global_id2": "t_3_q_15",
+            "ticket_num": 3,
+            "order": 27,
+            "remapped_from": "t_25_q_14"
         },
         "media_url": "u26uz.webp",
         "content": {
@@ -1877,17 +1931,17 @@
                     },
                     {
                         "id": 2,
-                        "text": "Ko'k, qizil, yashil",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Ko'k ayni vaqtda yashil bilan, qizil",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Qizil, yashil bilan ko'k",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Ko'k, qizil, yashil",
                         "is_correct": false
                     }
                 ]
@@ -1902,17 +1956,17 @@
                     },
                     {
                         "id": 2,
-                        "text": "Кўк, қизил, яшил",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Кўк айни вақтда яшил билан, қизил",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Қизил, яшил билан кўк",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Кўк, қизил, яшил",
                         "is_correct": false
                     }
                 ]
@@ -1927,17 +1981,17 @@
                     },
                     {
                         "id": 2,
-                        "text": "Синий, красный, зеленый",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Синий одновременно с зеленым, красный",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Красный с зеленым, синий",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Синий, красный, зеленый",
                         "is_correct": false
                     }
                 ]
@@ -1951,9 +2005,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_26_q_4",
-            "ticket_num": 26,
-            "order": 28
+            "global_id": "t_8_q_1",
+            "global_id2": "t_8_q_1",
+            "ticket_num": 8,
+            "order": 28,
+            "remapped_from": "t_11_q_14"
         },
         "media_url": "u77uz.webp",
         "content": {
@@ -1962,13 +2018,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ko'k avtomobil",
-                        "is_correct": true
+                        "text": "Yashil avtomobil",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Yashil avtomobil",
-                        "is_correct": false
+                        "text": "Ko'k avtomobil",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1982,13 +2038,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Кўк автомобил",
-                        "is_correct": true
+                        "text": "Яшил автомобил",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Яшил автомобил",
-                        "is_correct": false
+                        "text": "Кўк автомобил",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -2007,12 +2063,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Зеленый автомобиль",
+                        "text": "Красный автомобиль",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Красный автомобиль",
+                        "text": "Зеленый автомобиль",
                         "is_correct": false
                     }
                 ]
@@ -2026,9 +2082,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_27_q_14",
-            "ticket_num": 27,
-            "order": 29
+            "global_id": "t_60_q_14",
+            "global_id2": "t_60_q_14",
+            "ticket_num": 60,
+            "order": 29,
+            "remapped_from": "t_34_q_14"
         },
         "media_url": "u685uz.webp",
         "content": {
@@ -2037,18 +2095,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Sariq chorrahaga chiqadi va yashilni o‘tkazib yuborish uchun to‘xtaydi; yashil, ko‘k ayni vaqtda qizil bilan, sariq",
+                        "text": "Sariq chorrahaga chiqadi va yashilni o'tkazib yuborish uchun to'xtaydi; yashil, ko'k ayni vaqtda qizil bilan, sariq",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Ko'k, ayni vaqtda qizil bilan, yashil, sariq",
-                        "is_correct": false
+                        "text": "Yashil, ko'k ayni vaqtda qizil, so'ng sariq",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Yashil, ko'k ayni vaqtda qizil, so'ng sariq",
-                        "is_correct": true
+                        "text": "Ko'k, ayni vaqtda qizil bilan, yashil, sariq",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2062,13 +2120,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Кўк, айни вақтда қизил билан, яшил, сариқ",
-                        "is_correct": false
+                        "text": "Яшил, кўк айни вақтда қизил, сўнг сариқ",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Яшил, кўк айни вақтда қизил, сўнг сариқ",
-                        "is_correct": true
+                        "text": "Кўк, айни вақтда қизил билан, яшил, сариқ",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2082,13 +2140,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Синий одновременно с красным, зеленый, желтый",
-                        "is_correct": false
+                        "text": "Зеленый, синий одновременно с красным, желтый",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Зеленый, синий одновременно с красным, желтый",
-                        "is_correct": true
+                        "text": "Синий одновременно с красным, зеленый, желтый",
+                        "is_correct": false
                     }
                 ]
             }
@@ -2101,9 +2159,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_28_q_14",
-            "ticket_num": 28,
-            "order": 30
+            "global_id": "t_10_q_13",
+            "global_id2": "t_10_q_13",
+            "ticket_num": 10,
+            "order": 30,
+            "remapped_from": "t_28_q_12"
         },
         "media_url": "u108uz.webp",
         "content": {
@@ -2112,18 +2172,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Qizil avtomobil",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Ko'k avtomobil",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Yashil avtomobil",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Qizil avtomobil",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2132,18 +2192,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Қизил автомобил",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Кўк автомобил",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Яшил автомобил",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Қизил автомобил",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2152,13 +2212,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Красный автомобиль",
-                        "is_correct": true
+                        "text": "Синий автомобиль",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Синий автомобиль",
-                        "is_correct": false
+                        "text": "Красный автомобиль",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -2176,9 +2236,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_29_q_14",
-            "ticket_num": 29,
-            "order": 31
+            "global_id": "t_61_q_14",
+            "global_id2": "t_61_q_14",
+            "ticket_num": 61,
+            "order": 31,
+            "remapped_from": "t_64_q_16"
         },
         "media_url": "u697uz.webp",
         "content": {
@@ -2187,17 +2249,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yashil avtomobil",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Qizil avtomobil ayni vaqtda ko'k bilan",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Sariq avtomobil",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Yashil avtomobil",
                         "is_correct": false
                     }
                 ]
@@ -2207,17 +2269,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Яшил автомобил",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Қизил автомобил айни вақтда кўк билан",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Сариқ автомобил",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Яшил автомобил",
                         "is_correct": false
                     }
                 ]
@@ -2227,17 +2289,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Зеленый автомобиль",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Красный автомобиль одновременно с синим",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Желтый автомобиль",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Зеленый автомобиль",
                         "is_correct": false
                     }
                 ]
@@ -2251,9 +2313,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_30_q_14",
-            "ticket_num": 30,
-            "order": 32
+            "global_id": "t_12_q_12",
+            "global_id2": "t_12_q_12",
+            "ticket_num": 12,
+            "order": 32,
+            "remapped_from": "t_29_q_14"
         },
         "media_url": "u130uz.webp",
         "content": {
@@ -2262,17 +2326,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Qizil avtomobil",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Ko'k avtomobil",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Yashil avtomobil",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Qizil avtomobil",
+                        "text": "Yashil avtomobil",
                         "is_correct": false
                     }
                 ]
@@ -2282,17 +2346,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Қизил автомобил",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Кўк автомобил",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Яшил автомобил",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Қизил автомобил",
+                        "text": "Яшил автомобил",
                         "is_correct": false
                     }
                 ]
@@ -2307,12 +2371,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Зеленый автомобиль",
+                        "text": "Красный автомобиль",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Красный автомобиль",
+                        "text": "Зеленый автомобиль",
                         "is_correct": false
                     }
                 ]
@@ -2326,9 +2390,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_31_q_4",
-            "ticket_num": 31,
-            "order": 33
+            "global_id": "t_52_q_17",
+            "global_id2": "t_52_q_17",
+            "ticket_num": 52,
+            "order": 33,
+            "remapped_from": "t_31_q_4"
         },
         "media_url": "u602uz.webp",
         "content": {
@@ -2337,13 +2403,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Qizil, ko'k, yashil",
-                        "is_correct": false
+                        "text": "Yashil, ko'k, qizil",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Yashil, ko'k, qizil",
-                        "is_correct": true
+                        "text": "Qizil, ko'k, yashil",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -2357,13 +2423,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Қизил, кўк, яшил",
-                        "is_correct": false
+                        "text": "Яшил, кўк, қизил",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Яшил, кўк, қизил",
-                        "is_correct": true
+                        "text": "Қизил, кўк, яшил",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -2377,17 +2443,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Красный, синий, зеленый",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Зеленый, синий, красный",
+                        "text": "Зелёный, синий, красный",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "Красный, синий, зелёный",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Зеленый одновременно с красным, синий",
+                        "text": "Зелёный одновременно с красным; синий",
                         "is_correct": false
                     }
                 ]
@@ -2401,9 +2467,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_33_q_14",
-            "ticket_num": 33,
-            "order": 34
+            "global_id": "t_29_q_16",
+            "global_id2": "t_29_q_16",
+            "ticket_num": 29,
+            "order": 34,
+            "remapped_from": "t_33_q_13"
         },
         "media_url": "u332uz.webp",
         "content": {
@@ -2471,14 +2539,16 @@
         "izoh": {
             "uz_lat": "YHQ 15-bobi 100-bandiga asosan, svetoforning taqiqlovchi qizil yoki sariq ishorasi bilan bir vaqtda yongan qo'shimcha tarmoqning ko'rsatkichli yashil ishorasi yo'nalishida harakatlanayotgan haydovchi boshqa yo'nalishlardan harakatlanayotgan transport vositalariga yo'l berishi kerak.",
             "uz_cyr": "YHQ 15-боби 100-бандига асосан, светофорнинг тақиқловчи қизил ёки сариқ ишораси билан бир вақтда ёнган қўшимча тармоқнинг кўрсаткичли яшил ишораси йўналишида ҳаракатланаётган ҳайдовчи бошқа йўналишлардан ҳаракатланаётган транспорт воситаларига йўл бериши керак.",
-            "ru": "Согласно главе 15, пункту 100 ПДД, водитель, движущийся в направлении зеленого сигнала дополнительной сети, горящего одновременно с запрещающим красным или желтым сигналом светофора, обязан уступить дорогу транспортным средствам, движущимся с других направлений."
+            "ru": "Согласно главе 15, пункту 100 ПДД, водитель, движущийся в направлении зеленого сигнала дополнительной секции, горящего одновременно с запрещающим красным или желтым сигналом светофора, обязан уступить дорогу транспортным средствам, движущимся с других направлений."
         }
     },
     {
         "task_info": {
-            "global_id": "t_34_q_4",
-            "ticket_num": 34,
-            "order": 35
+            "global_id": "t_26_q_5",
+            "global_id2": "t_26_q_5",
+            "ticket_num": 26,
+            "order": 35,
+            "remapped_from": "t_20_q_13"
         },
         "media_url": "u283uz.webp",
         "content": {
@@ -2487,13 +2557,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ikkinchi bo'lib, ayni vaqtda ko'k bilan birga",
-                        "is_correct": true
+                        "text": "Ikkinchi bo'lib, sariqdan keyin",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Ikkinchi bo'lib, sariqdan keyin",
-                        "is_correct": false
+                        "text": "Ikkinchi bo'lib, ayni vaqtda ko'k bilan birga",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -2507,13 +2577,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Иккинчи бўлиб, айни вақтда кўк билан бирга",
-                        "is_correct": true
+                        "text": "Иккинчи бўлиб, сариқдан кейин",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Иккинчи бўлиб, сариқдан кейин",
-                        "is_correct": false
+                        "text": "Иккинчи бўлиб, айни вақтда кўк билан бирга",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -2532,12 +2602,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Вторым, после желтого",
+                        "text": "Третьим, после зеленого и желтого",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Третьим, после зеленого и желтого",
+                        "text": "Вторым, после желтого",
                         "is_correct": false
                     }
                 ]
@@ -2551,9 +2621,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_34_q_14",
-            "ticket_num": 34,
-            "order": 36
+            "global_id": "t_57_q_15",
+            "global_id2": "t_57_q_15",
+            "ticket_num": 57,
+            "order": 36,
+            "remapped_from": "t_31_q_14"
         },
         "media_url": "u660uz.webp",
         "content": {
@@ -2562,13 +2634,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Qizil chorrahaga chiqadi va ko'kni o'tkazib yuborish uchun to'xtaydi; yashil; ko'k va qizil burilishni tugallaydi",
-                        "is_correct": true
+                        "text": "Yashil, ko'k, qizil",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Yashil, ko'k, qizil",
-                        "is_correct": false
+                        "text": "Qizil chorrahaga chiqadi va ko'kni o'tkazib yuborish uchun to'xtaydi; yashil; ko'k va qizil burilishni tugallaydi",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -2582,13 +2654,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Қизил чорраҳага чиқади ва кўкни ўтказиб юбориш учун тўхтайди; яшил; кўк ва қизил бурилишни тугаллайди",
-                        "is_correct": true
+                        "text": "Яшил, кўк, қизил",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Яшил, кўк, қизил",
-                        "is_correct": false
+                        "text": "Қизил чорраҳага чиқади ва кўкни ўтказиб юбориш учун тўхтайди; яшил; кўк ва қизил бурилишни тугаллайди",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -2602,17 +2674,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Красный въедет на перекрёсток и остановится чтобы пропустить синий, зеленый, синий и красный заканчивают поворот",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Зеленый, синий, красный",
+                        "text": "Зелёный, синий, красный",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Красный выезжает на перекрёсток и останавливается, чтобы пропустить синий; зелёный; синий и красный завершают поворот",
+                        "is_correct": true
+                    },
+                    {
                         "id": 3,
-                        "text": "Красный, синий, зеленый",
+                        "text": "Красный, синий, зелёный",
                         "is_correct": false
                     }
                 ]
@@ -2626,9 +2698,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_34_q_15",
-            "ticket_num": 34,
-            "order": 37
+            "global_id": "t_33_q_4",
+            "global_id2": "t_33_q_4",
+            "ticket_num": 33,
+            "order": 37,
+            "remapped_from": "t_34_q_15"
         },
         "media_url": "u373uz.webp",
         "content": {
@@ -2637,13 +2711,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Motosikl, avtobus, yuk avtomobili",
-                        "is_correct": true
+                        "text": "Avtobus, motosikl, yuk avtomobili",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Avtobus, motosikl, yuk avtomobili",
-                        "is_correct": false
+                        "text": "Motosikl, avtobus, yuk avtomobili",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -2657,13 +2731,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Мотоцикл, автобус, юк автомобили",
-                        "is_correct": true
+                        "text": "Автобус, мотоцикл, юк автомобили",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Автобус, мотоцикл, юк автомобили",
-                        "is_correct": false
+                        "text": "Мотоцикл, автобус, юк автомобили",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -2677,13 +2751,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Мотоцикл, автобус, грузовой автомобиль",
-                        "is_correct": true
+                        "text": "Автобус, мотоцикл, грузовой автомобиль",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Автобус, мотоцикл, грузовой автомобиль",
-                        "is_correct": false
+                        "text": "Мотоцикл, автобус, грузовой автомобиль",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -2701,9 +2775,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_35_q_5",
-            "ticket_num": 35,
-            "order": 38
+            "global_id": "t_12_q_15",
+            "global_id2": "t_12_q_15",
+            "ticket_num": 12,
+            "order": 38,
+            "remapped_from": "t_21_q_4"
         },
         "media_url": "u133uz.webp",
         "content": {
@@ -2717,12 +2793,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Tramvay, avtobus, yengil avtomobil",
+                        "text": "Tramvay, avtobus, Yengil avtomobil",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Tramvay, yengil avtomobil, avtobus",
+                        "text": "Tramvay, Yengil avtomobil, avtobus",
                         "is_correct": true
                     }
                 ]
@@ -2776,9 +2852,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_35_q_14",
-            "ticket_num": 35,
-            "order": 39
+            "global_id": "t_53_q_13",
+            "global_id2": "t_53_q_13",
+            "ticket_num": 53,
+            "order": 39,
+            "remapped_from": "t_35_q_14"
         },
         "media_url": "u279uz.webp",
         "content": {
@@ -2787,13 +2865,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yashil avtomobil",
-                        "is_correct": true
+                        "text": "Qizil avtomobil",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Qizil avtomobil",
-                        "is_correct": false
+                        "text": "Yashil avtomobil",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -2807,13 +2885,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Яшил автомобил",
-                        "is_correct": true
+                        "text": "Қизил автомобил",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Қизил автомобил",
-                        "is_correct": false
+                        "text": "Яшил автомобил",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -2827,8 +2905,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Зеленый автомобиль",
-                        "is_correct": true
+                        "text": "Синий автомобиль",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -2837,8 +2915,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Синий автомобиль",
-                        "is_correct": false
+                        "text": "Зеленый автомобиль",
+                        "is_correct": true
                     }
                 ]
             }
@@ -2846,14 +2924,16 @@
         "izoh": {
             "uz_lat": "YHQ 15-bobi 100-bandiga asosan, svetoforning taqiqlovchi qizil yoki sariq ishorasi bilan bir vaqtda yongan qo'shimcha tarmoqning ko'rsatkichli yashil ishorasi yo'nalishida harakatlanayotgan haydovchi boshqa yo'nalishlardan harakatlanayotgan transport vositalariga yo'l berishi kerak.",
             "uz_cyr": "YHQ 15-боби 100-бандига асосан, светофорнинг тақиқловчи қизил ёки сариқ ишораси билан бир вақтда ёнган қўшимча тармоқнинг кўрсаткичли яшил ишораси йўналишида ҳаракатланаётган ҳайдовчи бошқа йўналишлардан ҳаракатланаётган транспорт воситаларига йўл бериши керак.",
-            "ru": "Согласно главе 15, пункту 100 ПДД, водитель, движущийся в направлении зеленого сигнала дополнительной сети, горящего одновременно с запрещающим красным или желтым сигналом светофора, обязан уступить дорогу транспортным средствам, движущимся с других направлений."
+            "ru": "Согласно главе 15, пункту 100 ПДД, водитель, движущийся в направлении зеленого сигнала дополнительной секции, горящего одновременно с запрещающим красным или желтым сигналом светофора, обязан уступить дорогу транспортным средствам, движущимся с других направлений."
         }
     },
     {
         "task_info": {
-            "global_id": "t_35_q_15",
-            "ticket_num": 35,
-            "order": 40
+            "global_id": "t_56_q_15",
+            "global_id2": "t_56_q_15",
+            "ticket_num": 56,
+            "order": 40,
+            "remapped_from": "t_24_q_6"
         },
         "media_url": "u649uz.webp",
         "content": {
@@ -2862,13 +2942,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Motosikl haydovchisi",
-                        "is_correct": false
+                        "text": "Yuk avtomobili haydovchisi",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Yuk avtomobili haydovchisi",
-                        "is_correct": true
+                        "text": "Motosikl haydovchisi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2877,13 +2957,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Мотоцикл ҳайдовчиси",
-                        "is_correct": false
+                        "text": "Юк автомобили ҳайдовчиси",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Юк автомобили ҳайдовчиси",
-                        "is_correct": true
+                        "text": "Мотоцикл ҳайдовчиси",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2892,13 +2972,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Водитель мотоцикла",
-                        "is_correct": false
+                        "text": "Водитель грузового автомобиля",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Водитель грузового автомобиля",
-                        "is_correct": true
+                        "text": "Водитель мотоцикла",
+                        "is_correct": false
                     }
                 ]
             }
@@ -2911,9 +2991,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_36_q_3",
-            "ticket_num": 36,
-            "order": 41
+            "global_id": "t_3_q_13",
+            "global_id2": "t_3_q_13",
+            "ticket_num": 3,
+            "order": 41,
+            "remapped_from": "t_36_q_3"
         },
         "media_url": "u25uz.webp",
         "content": {
@@ -2922,13 +3004,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Chorrahaga birinchi kirgan qizil avtomobilga yo'l berish",
-                        "is_correct": false
+                        "text": "Qizil avtomobil yo'l berayotganiga ishonch xosil qilib chorrahadan birinchi o'tish",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Qizil avtomobil yo'l berayotganiga ishonch xosil qilib chorrahadan birinchi o'tish",
-                        "is_correct": true
+                        "text": "Chorrahaga birinchi kirgan qizil avtomobilga yo'l berish",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2937,13 +3019,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Чорраҳага биринчи кирган қизил автомобилга йўл бериш",
-                        "is_correct": false
+                        "text": "Қизил автомобиль йўл бераётганига ишонч хосил қилиб чорраҳадан биринчи ўтиш",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Қизил автомобиль йўл бераётганига ишонч хосил қилиб чорраҳадан биринчи ўтиш",
-                        "is_correct": true
+                        "text": "Чорраҳага биринчи кирган қизил автомобилга йўл бериш",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2952,13 +3034,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Уступите дорогу легковому автомобилю, поскольку онпервым въехал на перекрёсток",
-                        "is_correct": false
+                        "text": "Убедитесь, что легковой автомобиль уступает дорогу, и проедете перекрёсток первым",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Убедитесь, что легковой автомобиль уступает дорогу, и проедете перекрёсток первым",
-                        "is_correct": true
+                        "text": "Уступите дорогу легковому автомобилю, поскольку онпервым въехал на перекрёсток",
+                        "is_correct": false
                     }
                 ]
             }
@@ -2971,9 +3053,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_43_q_16",
-            "ticket_num": 43,
-            "order": 42
+            "global_id": "t_56_q_19",
+            "global_id2": "t_56_q_19",
+            "ticket_num": 56,
+            "order": 42,
+            "remapped_from": "t_43_q_16"
         },
         "media_url": "u652uz.webp",
         "content": {
@@ -3026,14 +3110,16 @@
         "izoh": {
             "uz_lat": "YHQ 16-bobi 107-bandi: Chapga burilishda yoki qayrilib olishda relssiz transport vositasining haydovchisi teng ahamiyatli yo‘ldan qarama-qarshi yo‘nalishdan to‘g‘riga yoki o‘ngga harakatlanayotgan transport vositalariga yo‘l berishi shart. Bu qoidaga tramvay haydovchilari ham o‘zaro amal qilishlari kerak.",
             "uz_cyr": "YHQ 16-боби 107-банди: Чапга бурилишда ёки қайрилиб олишда релссиз транспорт воситасининг ҳайдовчиси тенг аҳамиятли йўлдан қарама-қарши йўналишдан тўғрига ёки ўнгга ҳаракатланаётган транспорт воситаларига йўл бериши шарт. Бу қоидага трамвай ҳайдовчилари ҳам ўзаро амал қилишлари керак.",
-            "ru": "Глава 16 ГК, статья 107: При повороте налево или развороте водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, движущимся прямо или вправо с встречного направления на дороге равного значения. Водители трамваев также должны соблюдать это правило."
+            "ru": "Глава 16 ПДД, статья 107: При повороте налево или развороте водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, движущимся прямо или вправо с встречного направления на дороге равного значения. Водители трамваев также должны соблюдать это правило."
         }
     },
     {
         "task_info": {
-            "global_id": "t_46_q_6",
-            "ticket_num": 46,
-            "order": 43
+            "global_id": "t_26_q_14",
+            "global_id2": "t_26_q_14",
+            "ticket_num": 26,
+            "order": 43,
+            "remapped_from": "t_46_q_6"
         },
         "media_url": "u289uz.webp",
         "content": {
@@ -3042,8 +3128,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Oxirgi bo'lib",
-                        "is_correct": true
+                        "text": "Birinchi bo'lib",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -3052,8 +3138,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Birinchi bo'lib",
-                        "is_correct": false
+                        "text": "Oxirgi bo'lib",
+                        "is_correct": true
                     }
                 ]
             },
@@ -3062,8 +3148,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Охирги бўлиб",
-                        "is_correct": true
+                        "text": "Биринчи бўлиб",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -3072,8 +3158,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Биринчи бўлиб",
-                        "is_correct": false
+                        "text": "Охирги бўлиб",
+                        "is_correct": true
                     }
                 ]
             },
@@ -3082,8 +3168,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Последним",
-                        "is_correct": true
+                        "text": "Первым",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -3092,8 +3178,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Первым",
-                        "is_correct": false
+                        "text": "Последним",
+                        "is_correct": true
                     }
                 ]
             }
@@ -3106,9 +3192,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_48_q_17",
-            "ticket_num": 48,
-            "order": 44
+            "global_id": "t_11_q_10",
+            "global_id2": "t_11_q_10",
+            "ticket_num": 11,
+            "order": 44,
+            "remapped_from": "t_48_q_17"
         },
         "media_url": "u120uz.webp",
         "content": {
@@ -3117,17 +3205,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ko'k avtomobil",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Qizil avtomobil",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Yashil avtomobil",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ko'k avtomobil",
                         "is_correct": false
                     }
                 ]
@@ -3137,17 +3225,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Кўк автомобил",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Қизил автомобил",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Яшил автомобил",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Кўк автомобил",
                         "is_correct": false
                     }
                 ]
@@ -3181,9 +3269,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_49_q_15",
-            "ticket_num": 49,
-            "order": 45
+            "global_id": "t_52_q_15",
+            "global_id2": "t_52_q_15",
+            "ticket_num": 52,
+            "order": 45,
+            "remapped_from": "t_49_q_13"
         },
         "media_url": "u600uz.webp",
         "content": {
@@ -3197,13 +3287,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Avtobus",
-                        "is_correct": false
+                        "text": "Avtomobil",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Avtomobil",
-                        "is_correct": true
+                        "text": "Avtobus",
+                        "is_correct": false
                     }
                 ]
             },
@@ -3217,13 +3307,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Автобус",
-                        "is_correct": false
+                        "text": "Автомобиль",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Автомобиль",
-                        "is_correct": true
+                        "text": "Автобус",
+                        "is_correct": false
                     }
                 ]
             },
@@ -3237,13 +3327,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Автобус",
-                        "is_correct": false
+                        "text": "Автомобиль",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Автомобиль",
-                        "is_correct": true
+                        "text": "Автобус",
+                        "is_correct": false
                     }
                 ]
             }
@@ -3256,24 +3346,26 @@
     },
     {
         "task_info": {
-            "global_id": "t_50_q_6",
-            "ticket_num": 50,
-            "order": 46
+            "global_id": "t_5_q_19",
+            "global_id2": "t_5_q_19",
+            "ticket_num": 5,
+            "order": 46,
+            "remapped_from": "t_50_q_5"
         },
         "media_url": "u50uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Chorraxadan birinchi bo'lib qaysi avtomobil kesib o'tadi",
+                "text": "Chorrahadan birinchi bo'lib qaysi avtomobil kesib o'tadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yashil avtomobil",
-                        "is_correct": true
+                        "text": "Qizil avtomobil",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Qizil avtomobil",
-                        "is_correct": false
+                        "text": "Yashil avtomobil",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -3287,13 +3379,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Яшил автомобил",
-                        "is_correct": true
+                        "text": "Қизил автомобил",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Қизил автомобил",
-                        "is_correct": false
+                        "text": "Яшил автомобил",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -3307,8 +3399,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Зеленый автомобиль",
-                        "is_correct": true
+                        "text": "Синий автомобиль",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -3317,8 +3409,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Синий автомобиль",
-                        "is_correct": false
+                        "text": "Зеленый автомобиль",
+                        "is_correct": true
                     }
                 ]
             }
@@ -3331,9 +3423,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_50_q_16",
-            "ticket_num": 50,
-            "order": 47
+            "global_id": "t_54_q_5",
+            "global_id2": "t_54_q_5",
+            "ticket_num": 54,
+            "order": 47,
+            "remapped_from": "t_50_q_14"
         },
         "media_url": "u619uz.webp",
         "content": {
@@ -3347,13 +3441,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Ko'k avtomobil",
-                        "is_correct": false
+                        "text": "Yashil avtomobil",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Yashil avtomobil",
-                        "is_correct": true
+                        "text": "Ko'k avtomobil",
+                        "is_correct": false
                     }
                 ]
             },
@@ -3367,13 +3461,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Кўк автомобил",
-                        "is_correct": false
+                        "text": "Яшил автомобил",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Яшил автомобил",
-                        "is_correct": true
+                        "text": "Кўк автомобил",
+                        "is_correct": false
                     }
                 ]
             },
@@ -3382,12 +3476,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Красный автомобиль",
+                        "text": "Синий автомобиль",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Синий автомобиль",
+                        "text": "Красный автомобиль",
                         "is_correct": false
                     },
                     {
@@ -3407,8 +3501,10 @@
     {
         "task_info": {
             "global_id": "t_18_q_1",
+            "global_id2": "t_18_q_1",
             "ticket_num": 18,
-            "order": 48
+            "order": 48,
+            "remapped_from": "t_10_q_15"
         },
         "media_url": "u196uz.webp",
         "content": {
@@ -3457,17 +3553,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Зеленый, красный одновременно с синим",
+                        "text": "Зелёный; красный одновременно с синим",
                         "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Синий одновременно с зеленым, красный",
+                        "text": "Синий одновременно с зелёным; красный",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Синий, зеленый, красный",
+                        "text": "Синий, зелёный, красный",
                         "is_correct": false
                     }
                 ]
@@ -3482,8 +3578,10 @@
     {
         "task_info": {
             "global_id": "t_22_q_12",
+            "global_id2": "t_22_q_12",
             "ticket_num": 22,
-            "order": 49
+            "order": 49,
+            "remapped_from": "t_60_q_11"
         },
         "media_url": "u246uz.webp",
         "content": {

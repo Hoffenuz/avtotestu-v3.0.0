@@ -1,34 +1,36 @@
 [
     {
         "task_info": {
-            "global_id": "t_5_q_19",
-            "ticket_num": 5,
-            "order": 1
+            "global_id": "t_26_q_4",
+            "global_id2": "t_26_q_4",
+            "ticket_num": 26,
+            "order": 1,
+            "remapped_from": "t_5_q_16"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Boshqarishni o'rgatishdagi transport vositasi qanday jihozlangan bo'lishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Qoidalarning talablariga asosan taniqlik belgilari bilan",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Ilashma va ishchi tormozning qo'shimcha tepkilari bilan",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "O'rgatuvchi uchun orqani ko'rsatuvchi ko'zgu bilan",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Sanab o'tilgan barcha jihozlar va belgilar bilan",
                         "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Qoidalarning talablariga asosan taniqlik belgilari bilan",
+                        "is_correct": false
                     }
                 ]
             },
@@ -37,23 +39,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Қоидаларнинг талабларига асосан таниқлик белгилари билан",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Илашма ва ишчи тормознинг қўшимча тепкилари билан",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Ўргатувчи учун орқани кўрсатувчи кўзгу билан",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Санаб ўтилган барча жиҳозлар ва белгилар билан",
                         "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Қоидаларнинг талабларига асосан таниқлик белгилари билан",
+                        "is_correct": false
                     }
                 ]
             },
@@ -67,18 +69,18 @@
                     },
                     {
                         "id": 2,
+                        "text": "Со всеми перечисленными приборами и знаками.",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
                         "text": "Дополнительными педалями тормоза и сцепления",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 4,
                         "text": "Зеркалом заднего вида для обучающего",
                         "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "Семи вышеперечисленными знаками и оборудованием",
-                        "is_correct": true
                     }
                 ]
             }
@@ -91,9 +93,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_1_q_10",
-            "ticket_num": 1,
-            "order": 2
+            "global_id": "t_29_q_19",
+            "global_id2": "t_29_q_19",
+            "ticket_num": 29,
+            "order": 2,
+            "remapped_from": "t_1_q_10"
         },
         "media_url": "u335uz.webp",
         "content": {
@@ -102,7 +106,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Og'ir vaznli va yirik o'lchamli yuklarni tashuvchi",
+                        "text": "Furgon yukxonasida odamlarni tashuvchi",
                         "is_correct": false
                     },
                     {
@@ -112,7 +116,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Furgon yukxonasida odamlarni tashuvchi",
+                        "text": "Og'ir vaznli va yirik o'lchamli yuklarni tashuvchi",
                         "is_correct": false
                     }
                 ]
@@ -122,7 +126,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Оғир вазнли ва йирик ўлчамли юкларни ташувчи",
+                        "text": "Фургон юкхонасида одамларни ташувчи",
                         "is_correct": false
                     },
                     {
@@ -132,7 +136,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Фургон юкхонасида одамларни ташувчи",
+                        "text": "Оғир вазнли ва йирик ўлчамли юкларни ташувчи",
                         "is_correct": false
                     }
                 ]
@@ -142,17 +146,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Перевозящее тяжеловесные и крупногабаритные грузы",
+                        "text": "Возбуждение подобное опьянению, головокружение, головная боль, тошнота, рвота. Судороги скелетных мышц",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Транспортное средство длина которого с грузом или без груза более 20м",
+                        "text": "Потемнение в глазах, головокружение, потеря равновесия, падение. Заторможенность. Падение кровяного давления. Холодные конечности",
                         "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Перевозящее людей в кузове-фургоне",
+                        "text": "Перевозящее тяжеловесные и крупногабаритные грузы",
                         "is_correct": false
                     }
                 ]
@@ -166,38 +170,40 @@
     },
     {
         "task_info": {
-            "global_id": "t_16_q_10",
-            "ticket_num": 16,
-            "order": 3
+            "global_id": "t_5_q_10",
+            "global_id2": "t_5_q_10",
+            "ticket_num": 5,
+            "order": 3,
+            "remapped_from": "t_16_q_10"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Mexanik transport vositalari va uning tirkamalarining egalari texnik holatidan qat'iy nazar; xarid qilgan (olgan) paytdan boshlab shu muddat mobaynida DYHX xizmatida ro'yxatdan o'tkazishlari kerak:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "2 kun",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "10 kun",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
-                        "text": "5 kun",
+                        "id": 2,
+                        "text": "30 kun",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "15 kun",
                         "is_correct": false
                     },
                     {
+                        "id": 4,
+                        "text": "2 kun",
+                        "is_correct": false
+                    },
+                    {
                         "id": 5,
-                        "text": "30 kun",
+                        "text": "5 kun",
                         "is_correct": false
                     }
                 ]
@@ -207,27 +213,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "2 кун",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "10 кун",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
-                        "text": "5 кун",
+                        "id": 2,
+                        "text": "30 кун",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "15 кун",
                         "is_correct": false
                     },
                     {
+                        "id": 4,
+                        "text": "2 кун",
+                        "is_correct": false
+                    },
+                    {
                         "id": 5,
-                        "text": "30 кун",
+                        "text": "5 кун",
                         "is_correct": false
                     }
                 ]
@@ -237,27 +243,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "2 суток",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "10 суток",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
-                        "text": "5 суток",
+                        "id": 2,
+                        "text": "30 суток",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "15 суток",
                         "is_correct": false
                     },
                     {
+                        "id": 4,
+                        "text": "2 суток",
+                        "is_correct": false
+                    },
+                    {
                         "id": 5,
-                        "text": "30 суток",
+                        "text": "5 суток",
                         "is_correct": false
                     }
                 ]
@@ -271,34 +277,36 @@
     },
     {
         "task_info": {
-            "global_id": "t_18_q_1",
-            "ticket_num": 18,
-            "order": 4
+            "global_id": "t_35_q_8",
+            "global_id2": "t_35_q_8",
+            "ticket_num": 35,
+            "order": 4,
+            "remapped_from": "t_18_q_1"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Transport vositalaridan foydalanish va texnik holatiga javobgar mansabdor shaxslar majbur:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Belgilangan muddatda tibbiyot ko'rigidan o'tmagan shaxslarning transport vositalarini boshqarishiga yo'l qo'ymaslikka",
-                        "is_correct": false
+                        "text": "Barcha sanab o'tilganlarni bajarishga",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Texnik holati va jihozlari qoidalarning talablariga mos kelmaydigan transport vositalarini yo'lga chiqarmaslikka",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Belgilangan tartibda ro'yxatdan o'tkazilmagan transport vositalarini yo'lga chiqarmaslikka",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Texnik holati va jihozlari qoidalarning talablariga mos kelmaydigan transport vositalarini yo'lga chiqarmaslikka",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Barcha sanab o'tilganlarni bajarishga",
-                        "is_correct": true
+                        "text": "Belgilangan muddatda tibbiyot ko'rigidan o'tmagan shaxslarning transport vositalarini boshqarishiga yo'l qo'ymaslikka",
+                        "is_correct": false
                     }
                 ]
             },
@@ -307,23 +315,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Белгиланган муддатда тиббиёт кўригидан ўтмаган шахсларнинг транспорт воситаларини бошқаришига йўл қўймасликка",
-                        "is_correct": false
+                        "text": "Барча санаб ўтилганларни бажаришга",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Техник ҳолати ва жиҳозлари қоидаларнинг талабларига мос келмайдиган транспорт воситаларини йўлга чиқармасликка",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Белгиланган тартибда рўйхатдан ўтказилмаган транспорт воситаларини йўлга чиқармасликка",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Техник ҳолати ва жиҳозлари қоидаларнинг талабларига мос келмайдиган транспорт воситаларини йўлга чиқармасликка",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Барча санаб ўтилганларни бажаришга",
-                        "is_correct": true
+                        "text": "Белгиланган муддатда тиббиёт кўригидан ўтмаган шахсларнинг транспорт воситаларини бошқаришига йўл қўймасликка",
+                        "is_correct": false
                     }
                 ]
             },
@@ -332,23 +340,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Не допускать к управлению транспортными средствами лиц, не прошедших в установленный срок медицинского освидетельствования",
-                        "is_correct": false
+                        "text": "Выполнить все перечисленные действия",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Не выпускать на линию транспортные средства, техническое состояние и оборудование которых не соответствуют требованиям Правил",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Не выпускать на линию транспортные средства, не зарегистрированные в установленном порядке",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Не выпускать на линию транспортные средства, техническое состояние и оборудование которых не соответствуют требованиям Правил",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Выполнить все перечисленные действия",
-                        "is_correct": true
+                        "text": "Не допускать к управлению транспортными средствами лиц, не прошедших в установленный срок медицинского освидетельствования",
+                        "is_correct": false
                     }
                 ]
             }
@@ -361,9 +369,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_19_q_20",
-            "ticket_num": 19,
-            "order": 5
+            "global_id": "t_56_q_11",
+            "global_id2": "t_56_q_11",
+            "ticket_num": 56,
+            "order": 5,
+            "remapped_from": "t_19_q_20"
         },
         "media_url": "u648uz.webp",
         "content": {
@@ -377,18 +387,18 @@
                     },
                     {
                         "id": 2,
-                        "text": "Nogironlar boshqarayotgan",
+                        "text": "Ikki yilgacha haydovchilik ish davriga ega bo'lgan haydovchilar boshqarayotgan",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Kar-soqov yoki kar haydovchilar boshqarayotganda",
-                        "is_correct": true
+                        "text": "Nogironlar boshqarayotgan",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Ikki yilgacha haydovchilik ish davriga ega bo'lgan haydovchilar boshqarayotgan",
-                        "is_correct": false
+                        "text": "Kar-soqov yoki kar haydovchilar boshqarayotganda",
+                        "is_correct": true
                     }
                 ]
             },
@@ -402,18 +412,18 @@
                     },
                     {
                         "id": 2,
-                        "text": "Ногиронлар бошқараётган",
+                        "text": "Икки йилгача ҳайдовчилик иш даврига эга бўлган ҳайдовчилар бошқараётган",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Кар-соқов ёки кар ҳайдовчилар бошқараётганда",
-                        "is_correct": true
+                        "text": "Ногиронлар бошқараётган",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Икки йилгача ҳайдовчилик иш даврига эга бўлган ҳайдовчилар бошқараётган",
-                        "is_correct": false
+                        "text": "Кар-соқов ёки кар ҳайдовчилар бошқараётганда",
+                        "is_correct": true
                     }
                 ]
             },
@@ -422,23 +432,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Перевозящими опасные грузы",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Управляемые инвалидами",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Управляемые водителями имеющими водительский стаж до 2-х лет",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Управляемые глухонемыми и глухими водителями",
-                        "is_correct": true
+                        "text": "Перевозящими опасные грузы",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Управляемые водителями имеющими водительский стаж до 2-х лет",
-                        "is_correct": false
+                        "text": "Управляемые глухонемыми и глухими водителями",
+                        "is_correct": true
                     }
                 ]
             }
@@ -446,14 +456,16 @@
         "izoh": {
             "uz_lat": "YHQ 29-bobi 176-bandida keltirilgan 4-izohga asosan, \"Kar haydovchi\" — kar-soqov yoki kar haydovchi boshqarayotgan transport vositasining old va orqa tomonlarida — ichiga uchi pastga yo'nalgan hayoliy teng tomonli uchburchakning burchaklari bo'yicha diametri 40 millimetr bo'lgan uchta qora doira tushirilgan, diametri 160 millimetrni tashkil etadigan sariq rangli doira ko'rinishida.",
             "uz_cyr": "YHQ 29-боби 176-бандида келтирилган 4-изоҳга асосан, \"Кар ҳайдовчи\" — кар-соқов ёки кар ҳайдовчи бошқараётган транспорт воситасининг олд ва орқа томонларида — ичига учи пастга йўналган ҳаёлий тенг томонли учбурчакнинг бурчаклари бўйича диаметри 40 миллиметр бўлган учта қора доира туширилган, диаметри 160 миллиметрни ташкил этадиган сариқ рангли доира кўринишида.",
-            "ru": "Согласно примечанию 4 главы 29 статьи 176 ГК «Глухой водитель» - на передней и задней сторонах транспортного средства, управляемого глухонемым или глухим водителем, - в виде желтого круга диаметром 160 миллиметров, с тремя черными кругами диаметром 40 миллиметров, нарисованными на углах воображаемого равностороннего треугольника вершиной вниз."
+            "ru": "Согласно примечанию 4 главы 29 статьи 176 ПДД «Глухой водитель» - на передней и задней сторонах транспортного средства, управляемого глухонемым или глухим водителем, - в виде желтого круга диаметром 160 миллиметров, с тремя черными кругами диаметром 40 миллиметров, нарисованными на углах воображаемого равностороннего треугольника вершиной вниз."
         }
     },
     {
         "task_info": {
-            "global_id": "t_20_q_10",
-            "ticket_num": 20,
-            "order": 6
+            "global_id": "t_56_q_5",
+            "global_id2": "t_56_q_5",
+            "ticket_num": 56,
+            "order": 6,
+            "remapped_from": "t_20_q_9"
         },
         "media_url": "u645uz.webp",
         "content": {
@@ -462,18 +474,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Kar yoki kar-soqov haydovchilar boshqarayotgan",
+                        "text": "Xavfli yuklar tashiyotgan",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Nogiron boshqarayotgan",
-                        "is_correct": true
+                        "text": "Kar yoki kar-soqov haydovchilar boshqarayotgan",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Xavfli yuklar tashiyotgan",
-                        "is_correct": false
+                        "text": "Nogiron boshqarayotgan",
+                        "is_correct": true
                     }
                 ]
             },
@@ -482,18 +494,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Кар ёки кар-соқов ҳайдовчилар бошқараётган",
+                        "text": "Хавфли юклар ташиётган",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Ногирон бошқараётган",
-                        "is_correct": true
+                        "text": "Кар ёки кар-соқов ҳайдовчилар бошқараётган",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Хавфли юклар ташиётган",
-                        "is_correct": false
+                        "text": "Ногирон бошқараётган",
+                        "is_correct": true
                     }
                 ]
             },
@@ -502,13 +514,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Управляемые глухими или глухонемыми водителями",
-                        "is_correct": false
+                        "text": "Управляемые инвалидами",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Управляемые инвалидами",
-                        "is_correct": true
+                        "text": "Управляемые глухими или глухонемыми водителями",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -526,9 +538,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_20_q_20",
-            "ticket_num": 20,
-            "order": 7
+            "global_id": "t_33_q_2",
+            "global_id2": "t_33_q_2",
+            "ticket_num": 33,
+            "order": 7,
+            "remapped_from": "t_20_q_18"
         },
         "media_url": "u372uz.webp",
         "content": {
@@ -537,7 +551,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Nogiron boshqarayotgan",
+                        "text": "Kar-soqov yoki kar haydovchilar boshqarayotgan",
                         "is_correct": false
                     },
                     {
@@ -552,7 +566,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Kar-soqov yoki kar haydovchilar boshqarayotgan",
+                        "text": "Nogiron boshqarayotgan",
                         "is_correct": false
                     }
                 ]
@@ -562,7 +576,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ногирон бошқараётган",
+                        "text": "Кар-соқов ёки кар ҳайдовчилар бошқараётган",
                         "is_correct": false
                     },
                     {
@@ -577,7 +591,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Кар-соқов ёки кар ҳайдовчилар бошқараётган",
+                        "text": "Ногирон бошқараётган",
                         "is_correct": false
                     }
                 ]
@@ -587,23 +601,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Управляемые инвалидами",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Перевозящее тяжеловесные и крупногабаритные грузы",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Управляемые глухонемыми и глухими водителями",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Перевозящими опасные грузы",
-                        "is_correct": true
+                        "text": "Управляемые инвалидами",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Управляемые глухонемыми и глухими водителями",
-                        "is_correct": false
+                        "text": "Перевозящими опасные грузы",
+                        "is_correct": true
                     }
                 ]
             }
@@ -611,39 +625,41 @@
         "izoh": {
             "uz_lat": "YHQ 29-bobi 176-bandi 7-izohiga asosan, \"Xavfli yuk\" — xavfli yukni tashiyotgan transport vositasining old va orqa tomoniga o'rnatilgan o'lchami 690 x 300 millimetr, o'ng qismi 400 x 300 millimetr bo'lgan zarg'aldoq rangli, chap qismi esa yukning xavfli xususiyatini bildirib turgan belgilar tushirilgan qora hoshiyali (kengligi 15 millimetr) oq rangdagi to'rtburchak shaklidagi belgi.",
             "uz_cyr": "YHQ 29-боби 176-банди 7-изоҳига асосан, \"Хавфли юк\" — хавфли юкни ташиётган транспорт воситасининг олд ва орқа томонига ўрнатилган ўлчами 690 х 300 миллиметр, ўнг қисми 400 х 300 миллиметр бўлган зарғалдоқ рангли, чап қисми эса юкнинг хавфли хусусиятини билдириб турган белгилар туширилган қора ҳошияли (кенглиги 15 миллиметр) оқ рангдаги тўртбурчак шаклидаги белги.",
-            "ru": "Согласно примечанию 7 статьи 176 главы 29 УК \"Опасный груз\" представляет собой прямоугольный знак размером 690 х 300 миллиметров, правая часть - 400 х 300 миллиметров, левая часть - белый прямоугольный знак с черной окантовкой (шириной 15 миллиметров), размещаемый спереди и сзади транспортного средства, перевозящего опасные грузы."
+            "ru": "Согласно примечанию 7 статьи 176 главы 29 ПДД \"Опасный груз\" представляет собой прямоугольный знак размером 690 х 300 миллиметров, правая часть - 400 х 300 миллиметров, левая часть - белый прямоугольный знак с черной окантовкой (шириной 15 миллиметров), размещаемый спереди и сзади транспортного средства, перевозящего опасные грузы."
         }
     },
     {
         "task_info": {
-            "global_id": "t_21_q_11",
-            "ticket_num": 21,
-            "order": 8
+            "global_id": "t_40_q_8",
+            "global_id2": "t_40_q_8",
+            "ticket_num": 40,
+            "order": 8,
+            "remapped_from": "t_21_q_11"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Kunning qorong'i vaqtida va etarlicha ko'rinmaydigan sharoitlarda yo'lda qoldirilgan yo'l mashinalari, qurilish materiallari, qurilmalar va hokazolar belgilanishi kerak:",
+                "text": "Kunning qorong'i vaqtida va yetarlicha ko'rinmaydigan sharoitlarda yo'lda qoldirilgan yo'l mashinalari, qurilish materiallari, qurilmalar va hokazolar belgilanishi kerak:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Tegishli yo'l belgilari bilan",
-                        "is_correct": false
+                        "text": "Barcha sanab o'tilgan hollar bajarilishi kerak",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Yo'naltiruvchi va tevaragini o'rovchi moslamalar bilan",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Qizil yoki sariq yoritkich chiroqlari bilan",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Yo'naltiruvchi va tevaragini o'rovchi moslamalar bilan",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Barcha sanab o'tilgan hollar bajarilishi kerak",
-                        "is_correct": true
+                        "text": "Tegishli yo'l belgilari bilan",
+                        "is_correct": false
                     }
                 ]
             },
@@ -652,23 +668,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тегишли йўл белгилари билан",
-                        "is_correct": false
+                        "text": "Барча санаб ўтилган ҳоллар бажарилиши керак",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Йўналтирувчи ва теварагини ўровчи мосламалар билан",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Қизил ёки сариқ ёриткич чироқлари билан",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Йўналтирувчи ва теварагини ўровчи мосламалар билан",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Барча санаб ўтилган ҳоллар бажарилиши керак",
-                        "is_correct": true
+                        "text": "Тегишли йўл белгилари билан",
+                        "is_correct": false
                     }
                 ]
             },
@@ -677,7 +693,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Соответствующими дорожными знаками",
+                        "text": "Красными или желтыми сигнальными огнями",
                         "is_correct": false
                     },
                     {
@@ -687,13 +703,13 @@
                     },
                     {
                         "id": 3,
-                        "text": "Красными или желтыми сигнальными огнями",
-                        "is_correct": false
+                        "text": "Всеми перечисленными обозначениями",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Всеми перечисленными обозначениями",
-                        "is_correct": true
+                        "text": "Соответствующими дорожными знаками",
+                        "is_correct": false
                     }
                 ]
             }
@@ -706,9 +722,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_21_q_20",
-            "ticket_num": 21,
-            "order": 9
+            "global_id": "t_55_q_4",
+            "global_id2": "t_55_q_4",
+            "ticket_num": 55,
+            "order": 9,
+            "remapped_from": "t_21_q_20"
         },
         "media_url": "u635uz.webp",
         "content": {
@@ -717,12 +735,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Chap belgi",
+                        "text": "O'ng belgi",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "O'ng belgi",
+                        "text": "Chap belgi",
                         "is_correct": false
                     },
                     {
@@ -737,12 +755,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Чап белги",
+                        "text": "Ўнг белги",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Ўнг белги",
+                        "text": "Чап белги",
                         "is_correct": false
                     },
                     {
@@ -762,13 +780,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Правый знак",
-                        "is_correct": false
+                        "text": "Оба знака",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Оба знака",
-                        "is_correct": true
+                        "text": "Правый знак",
+                        "is_correct": false
                     }
                 ]
             }
@@ -776,14 +794,16 @@
         "izoh": {
             "uz_lat": "YHQ 29-bobi 176-bandida berilgan 1-izohga asosan, \"Avtopoezd\" — yuk avtomobillari va g'ildirakli traktor (1,4 tonna va undan yuqori)larda tirkama bo'lganda, shuningdek tutashtirilgan avtobus va trolleybus kabinalari tomining old qismi o'rtasiga bir qator qilib 150 dan 300 millimetrgacha oraliqda ko'ndalang joylashgan uchta zarg'aldoq rangli chiroq yoki ichidan yoritiladigan, tomonlarining har biri 250 millimetr bo'lgan sariq rangli uchburchak shaklidagi belgi.",
             "uz_cyr": "YHQ 29-боби 176-бандида берилган 1-изоҳга асосан, \"Автопоэзд\" — юк автомобиллари ва ғилдиракли трактор (1,4 тонна ва ундан юқори)ларда тиркама бўлганда, шунингдек туташтирилган автобус ва троллейбус кабиналари томининг олд қисми ўртасига бир қатор қилиб 150 дан 300 миллиметргача оралиқда кўндаланг жойлашган учта зарғалдоқ рангли чироқ ёки ичидан ёритиладиган, томонларининг ҳар бири 250 миллиметр бўлган сариқ рангли учбурчак шаклидаги белги.",
-            "ru": "Согласно примечанию 1 главы 29 статьи 176 ГК \"Автопоезд\" - это три фонаря золотистого цвета, расположенные поперечно в центре передней части крыши соединенных кабин автобусов и троллейбусов в случае грузовых автомобилей и колесных тягачей (1,4 тонны и выше) с прицепом, или подсвеченные изнутри, с каждой стороны по 250 желтым треугольным символом с миллиметрами."
+            "ru": "Согласно примечанию 1 главы 29 статьи 176 ПДД \"Автопоезд\" - это три фонаря золотистого цвета, расположенные поперечно в центре передней части крыши соединенных кабин автобусов и троллейбусов в случае грузовых автомобилей и колесных тягачей (1,4 тонны и выше) с прицепом, или подсвеченные изнутри, с каждой стороны по 250 желтым треугольным символом с миллиметрами."
         }
     },
     {
         "task_info": {
-            "global_id": "t_22_q_20",
-            "ticket_num": 22,
-            "order": 10
+            "global_id": "t_38_q_4",
+            "global_id2": "t_38_q_4",
+            "ticket_num": 38,
+            "order": 10,
+            "remapped_from": "t_22_q_20"
         },
         "media_url": "u431uz.webp",
         "content": {
@@ -792,18 +812,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Mexanik transport vositasida tishli turumlangan (shiplar) shinalar o'rnatilganini",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Oldinda qatnov qismi notekis bo'lgan yo'l qismini",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Oldinda shu yo'nalishda harakatlanish uchun uch bo'lakli yo'l qismini",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Mexanik transport vositasida tishli turumlangan (shiplar) shinalar o'rnatilganini",
-                        "is_correct": true
                     }
                 ]
             },
@@ -812,18 +832,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Механик транспорт воситасида тишли турумланган (шиплар) шиналар ўрнатилганини",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Олдинда қатнов қисми нотекис бўлган йўл қисмини",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Олдинда шу йўналишда ҳаракатланиш учун уч бўлакли йўл қисмини",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Механик транспорт воситасида тишли турумланган (шиплар) шиналар ўрнатилганини",
-                        "is_correct": true
                     }
                 ]
             },
@@ -832,18 +852,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Впереди участок дороги имеющий неровности на проезжей части",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Впереди участок дороги с тремя полосами для движения в данной направлении",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Транспортное средство оборудованное шипованными шинами",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Впереди участок дороги имеющий неровности на проезжей части",
+                        "is_correct": false
                     }
                 ]
             }
@@ -851,14 +871,16 @@
         "izoh": {
             "uz_lat": "YHQ 29-bobida 176-bandida keltirilgan 2-izohga asosan, \"Turumlangan\" (tishli, shipli) — turumlangan shinali mexanik transport vositalarining orqasida — ichiga qora rangda \"T\" harfi tushirilgan, qizil hoshiyali, oq rangli uchi yuqoriga yo'naltirilgan teng tomonli uchburchak ko'rinishida. Uchburchakning tomonlari 200 millimetrdan kam bo'lmasligi, hoshiyasining kengligi uchburchak tomonining 1/10 qismiga teng bo'lishi kerak.",
             "uz_cyr": "YHQ 29-бобида 176-бандида келтирилган 2-изоҳга асосан, \"Турумланган\" (тишли, шипли) — турумланган шинали механик транспорт воситаларининг орқасида — ичига қора рангда \"Т\" ҳарфи туширилган, қизил ҳошияли, оқ рангли учи юқорига йўналтирилган тенг томонли учбурчак кўринишида. Учбурчакнинг томонлари 200 миллиметрдан кам бўлмаслиги, ҳошиясининг кенглиги учбурчак томонининг 1/10 қисмига тенг бўлиши керак.",
-            "ru": "Согласно примечанию 2 главы 29 ст. 176 ГК \"Турумланган\" (шестеренчатый, крытый) - на кузове механических транспортных средств с уложенными шинами - в виде равностороннего треугольника с буквой \"Т\" черного цвета, с красной каймой и белым кончиком, направленным вверх. Стороны треугольника не должны быть меньше 200 миллиметров, ширина границы должна быть равна 1/10 стороны треугольника."
+            "ru": "Согласно примечанию 2 главы 29 ст. 176 ПДД \"Турумланган\" (шестеренчатый, крытый) - на кузове механических транспортных средств с уложенными шинами - в виде равностороннего треугольника с буквой \"Т\" черного цвета, с красной каймой и белым кончиком, направленным вверх. Стороны треугольника не должны быть меньше 200 миллиметров, ширина границы должна быть равна 1/10 стороны треугольника."
         }
     },
     {
         "task_info": {
-            "global_id": "t_24_q_20",
-            "ticket_num": 24,
-            "order": 11
+            "global_id": "t_23_q_4",
+            "global_id2": "t_23_q_4",
+            "ticket_num": 23,
+            "order": 11,
+            "remapped_from": "t_24_q_20"
         },
         "media_url": "u252uz.webp",
         "content": {
@@ -872,12 +894,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Avtomobil haydovchi nogironga tegishli ekanini",
+                        "text": "Avtomobil uyda tibbiy yordami ko'rsatish uchun mo'ljallanganini",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Avtomobil uyda tibbiy yordami ko'rsatish uchun mo'ljallanganini",
+                        "text": "Avtomobil haydovchi nogironga tegishli ekanini",
                         "is_correct": false
                     }
                 ]
@@ -892,12 +914,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Автомобил ҳайдовчи ногиронга тегишли эканини",
+                        "text": "Автомобил уйда тиббий ёрдами кўрсатиш учун мўлжалланганини",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Автомобил уйда тиббий ёрдами кўрсатиш учун мўлжалланганини",
+                        "text": "Автомобил ҳайдовчи ногиронга тегишли эканини",
                         "is_correct": false
                     }
                 ]
@@ -907,8 +929,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Автомобиль принадлежит водителю врачу",
-                        "is_correct": true
+                        "text": "Автомобиль предназначен для оказания медпомощи на дому",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -917,8 +939,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Автомобиль предназначен для оказания медпомощи на дому",
-                        "is_correct": false
+                        "text": "Автомобиль принадлежит водителю врачу",
+                        "is_correct": true
                     }
                 ]
             }
@@ -931,24 +953,26 @@
     },
     {
         "task_info": {
-            "global_id": "t_33_q_10",
-            "ticket_num": 33,
-            "order": 12
+            "global_id": "t_27_q_7",
+            "global_id2": "t_27_q_7",
+            "ticket_num": 27,
+            "order": 12,
+            "remapped_from": "t_33_q_9"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "N2; N3; O3; O4; M2; M3 toifadagi avtotransport vositalarining orqa devoriga yozilishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Transport vositasining tegishligi haqida taniqlik belgisi",
-                        "is_correct": false
+                        "text": "Yaxshi ko'rinadigan raqam belgisi",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Yaxshi ko'rinadigan raqam belgisi",
-                        "is_correct": true
+                        "text": "Transport vositasining tegishligi haqida taniqlik belgisi",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -962,13 +986,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Транспорт воситасининг тегишлиги ҳақида таниқлик белгиси",
-                        "is_correct": false
+                        "text": "Яхши кўринадиган рақам белгиси",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Яхши кўринадиган рақам белгиси",
-                        "is_correct": true
+                        "text": "Транспорт воситасининг тегишлиги ҳақида таниқлик белгиси",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -982,13 +1006,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Опознавательный знак о принадлежности транспортного средства",
-                        "is_correct": false
+                        "text": "Хорошо видимый номерной знак",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Хорошо видимый номерной знак",
-                        "is_correct": true
+                        "text": "Опознавательный знак о принадлежности транспортного средства",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1001,14 +1025,16 @@
         "izoh": {
             "uz_lat": "YHQ 29-bobi 175-bandining ikkinchi xatboshisiga asosan: Yuk avtomobillari, tirkamalar (yengil avtomobillar tirkamalaridan tashqari) va avtobuslar (mikroavtobuslardan tashqari) kuzovining orqa devoriga uning davlat raqam belgisi va harflari yozilishi kerak. Raqamning balandligi 300 millimetr, kengligi 120 millimetr, chizig‘ining yo‘g‘onligi 30 millimetrdan kam bo‘lmasligi, harflar balandligi esa raqam o‘lchamlarining 2/3 qismiga teng bo‘lishi kerak.",
             "uz_cyr": "YHQ 29-боби 175-бандининг иккинчи хатбошисига асосан: Юк автомобиллари, тиркамалар (енгил автомобиллар тиркамаларидан ташқари) ва автобуслар (микроавтобуслардан ташқари) кузовининг орқа деворига унинг давлат рақам белгиси ва ҳарфлари ёзилиши керак. Рақамнинг баландлиги 300 миллиметр, кенглиги 120 миллиметр, чизиғининг йўғонлиги 30 миллиметрдан кам бўлмаслиги, ҳарфлар баландлиги эса рақам ўлчамларининг 2/3 қисмига тенг бўлиши керак.",
-            "ru": "Согласно второму абзацу статьи 175 главы 29 ГК: Грузовые автомобили, прицепы (кроме легковых прицепов) и автобусы (кроме микроавтобусов) должны иметь номерной знак и буквы, написанные на задней стенке кузова. Высота цифры должна составлять 300 миллиметров, ширина 120 миллиметров, толщина линии не должна быть меньше 30 миллиметров, а высота букв должна быть равна 2/3 размера цифры."
+            "ru": "Согласно второму абзацу статьи 175 главы 29 ПДД: Грузовые автомобили, прицепы (кроме легковых прицепов) и автобусы (кроме микроавтобусов) должны иметь номерной знак и буквы, написанные на задней стенке кузова. Высота цифры должна составлять 300 миллиметров, ширина 120 миллиметров, толщина линии не должна быть меньше 30 миллиметров, а высота букв должна быть равна 2/3 размера цифры."
         }
     },
     {
         "task_info": {
-            "global_id": "t_34_q_20",
-            "ticket_num": 34,
-            "order": 13
+            "global_id": "t_47_q_13",
+            "global_id2": "t_47_q_13",
+            "ticket_num": 47,
+            "order": 13,
+            "remapped_from": "t_34_q_20"
         },
         "media_url": "u543uz.webp",
         "content": {
@@ -1017,18 +1043,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "3",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "1",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "2",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "3",
-                        "is_correct": true
                     }
                 ]
             },
@@ -1037,18 +1063,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "3",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "1",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "2",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "3",
-                        "is_correct": true
                     }
                 ]
             },
@@ -1057,18 +1083,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "3",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "1",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "2",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "3",
-                        "is_correct": true
                     }
                 ]
             }
@@ -1081,23 +1107,25 @@
     },
     {
         "task_info": {
-            "global_id": "t_6_q_10",
-            "ticket_num": 6,
-            "order": 14
+            "global_id": "t_52_q_5",
+            "global_id2": "t_52_q_5",
+            "ticket_num": 52,
+            "order": 14,
+            "remapped_from": "t_6_q_10"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qoida bo'yicha necha yoshdan boshlab yengil avtomobilni boshqarishga ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "14 yoshdan",
+                        "text": "16 yoshdan",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "16 yoshdan",
+                        "text": "14 yoshdan",
                         "is_correct": false
                     },
                     {
@@ -1112,12 +1140,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "14 ёшдан",
+                        "text": "16 ёшдан",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "16 ёшдан",
+                        "text": "14 ёшдан",
                         "is_correct": false
                     },
                     {
@@ -1132,12 +1160,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "С 14 лет",
+                        "text": "С 16 лет",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "С 16 лет",
+                        "text": "С 14 лет",
                         "is_correct": false
                     },
                     {
@@ -1156,11 +1184,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_26_q_19",
-            "ticket_num": 26,
-            "order": 15
+            "global_id": "t_40_q_9",
+            "global_id2": "t_40_q_9",
+            "ticket_num": 40,
+            "order": 15,
+            "remapped_from": "t_26_q_18"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Kim o'quv tashkilotlarida avtomototransport vositalarini boshqarishni o'rgatish huquqiga ega?",
@@ -1172,17 +1202,17 @@
                     },
                     {
                         "id": 2,
-                        "text": "Tajribali haydovchi",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "3 yillik ishlagan davri bo'lgan haydovchi",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "5 yil haydovchilik ishlagan davriga ega bo'lgan 1 - va 2 - toifa haydovchilar",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Tajribali haydovchi",
                         "is_correct": false
                     }
                 ]
@@ -1197,17 +1227,17 @@
                     },
                     {
                         "id": 2,
-                        "text": "Тажрибали ҳайдовчи",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "3 йиллик ишлаган даври бўлган ҳайдовчи",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "5 йил ҳайдовчилик ишлаган даврига эга бўлган 1 - ва 2 - тоифа ҳайдовчилар",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Тажрибали ҳайдовчи",
                         "is_correct": false
                     }
                 ]
@@ -1222,17 +1252,17 @@
                     },
                     {
                         "id": 2,
-                        "text": "Опытный водител",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Водитель со стажем 3 года",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Водитель 1 -го и 2-го класса, имеющий водительский стаж 5 лет",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Опытный водител",
                         "is_correct": false
                     }
                 ]
@@ -1246,14 +1276,16 @@
     },
     {
         "task_info": {
-            "global_id": "t_28_q_10",
-            "ticket_num": 28,
-            "order": 16
+            "global_id": "t_18_q_2",
+            "global_id2": "t_18_q_2",
+            "ticket_num": 18,
+            "order": 16,
+            "remapped_from": "t_28_q_9"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Transport vositasini boshqarishni o'rgatyotgan shaxs haydovchi hisoplanadimi?",
+                "text": "Transport vositasini boshqarishni o'rgatayotgan shaxs haydovchi hisoplanadimi?",
                 "options": [
                     {
                         "id": 1,
@@ -1268,7 +1300,7 @@
                 ]
             },
             "uz_cyr": {
-                "text": "Транспорт воситасини бошқаришни ўргатётган шахс ҳайдовчи ҳисопланадими?",
+                "text": "Транспорт воситасини бошқаришни ўргатаётган шахс ҳайдовчи ҳисобланадими?",
                 "options": [
                     {
                         "id": 1,
@@ -1306,18 +1338,20 @@
     },
     {
         "task_info": {
-            "global_id": "t_54_q_8",
-            "ticket_num": 54,
-            "order": 17
+            "global_id": "t_11_q_1",
+            "global_id2": "t_11_q_1",
+            "ticket_num": 11,
+            "order": 17,
+            "remapped_from": "t_54_q_8"
         },
-        "media_url": "v556uz.webp",
+        "media_url": "u113uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Bu taniklik belgisi urnatiladi:",
+                "text": "Bu taniqlilik belgisi o'rnatiladi:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Vaktinchalik tamirlash ishlari olib borilayotgan yo'l kismlariga",
+                        "text": "Vaqtinchalik ta'mirlash ishlari olib borilayotgan yo'l qismlariga",
                         "is_correct": false
                     },
                     {
@@ -1333,11 +1367,11 @@
                 ]
             },
             "uz_cyr": {
-                "text": "Бу таниклик белгиси урнатилади:",
+                "text": "Бу таниқлилик белгиси ўрнатилади:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Вақтинча таъмирлаш ишлари олиб борилаётган йўл қисмларига",
+                        "text": "Вақтинчалик таъмирлаш ишлари олиб борилаётган йўл қисмларига",
                         "is_correct": false
                     },
                     {
@@ -1374,25 +1408,27 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 29-bobi 176-bandi 9-izohiga asosan, \"Uzun o'lchamli transport vositasi\" — yukli va yuksiz uzunligi 20 metrdan oshadigan transport vositasining, ikki yoki undan ko'proq tirkamali avtopoezdlarning orqasida — kengligi 40 millimetr bo'lgan qizil hoshiyali, o'lchami 1200x200 millimetr bo'lgan, sariq rangli, nur qaytaruvchi to'rtburchak shaklidagi belgi.",
-            "uz_cyr": "YHQ 29-боби 176-банди 9-изоҳига асосан, \"Узун ўлчамли транспорт воситаси\" — юкли ва юксиз узунлиги 20 метрдан ошадиган транспорт воситасининг, икки ёки ундан кўпроқ тиркамали автопоэздларнинг орқасида — кенглиги 40 миллиметр бўлган қизил ҳошияли, ўлчами 1200х200 миллиметр бўлган, сариқ рангли, нур қайтарувчи тўртбурчак шаклидаги белги.",
-            "ru": "Согласно примечанию 9 статьи 176 главы 29 ПДД \"Длинногабаритное транспортное средство\" - транспортное средство длиной более 20 метров с грузом и без груза, на кузове автопоезда с двумя и более прицепами - желтый светоотражающий прямоугольный знак шириной 40 миллиметров и размером 1200х200 миллиметров."
+            "uz_lat": "YHQ 29-bobi 176-bandiga asosan, «Yangi haydovchi» (haydovchilik staji 2 yildan kam bo‘lgan haydovchilar boshqarayotgan mexanik transport vositalari) taniqlik belgisi o‘rnatiladi.",
+            "uz_cyr": "YHQ 29-боби 176-бандига асосан, «Янги ҳайдовчи» (ҳайдовчилик стажи 2 йилдан кам бўлган ҳайдовчилар бошқараётган механик транспорт воситалари) таниқлик белгиси ўрнатилади.",
+            "ru": "Согласно статье 176 главы 29 ПДД опознавательный знак «Начинающий водитель» устанавливается на механических транспортных средствах, которыми управляют водители со стажем менее 2 лет."
         }
     },
     {
         "task_info": {
-            "global_id": "t_56_q_7",
+            "global_id": "t_56_q_6",
+            "global_id2": "t_56_q_6",
             "ticket_num": 56,
-            "order": 18
+            "order": 18,
+            "remapped_from": "t_56_q_7"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Transport vositalarini boshqarishni dastlabki o'rgatish (boshiang'ich mashg'ulot) qayerda amalga oshiriladi?",
+                "text": "Transport vositalarini boshqarishni dastlabki o'rgatish (boshlang'ich mashg'ulot) qayerda amalga oshiriladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Avtomagistralda",
+                        "text": "Turar joy dahalarida",
                         "is_correct": false
                     },
                     {
@@ -1402,22 +1438,22 @@
                     },
                     {
                         "id": 3,
-                        "text": "Turar joy dahalarida",
+                        "text": "Avtomagistralda",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Yopiq maydonchalarda yoki avtodromiarda",
+                        "text": "Yopiq maydonchalarda yoki avtodromlarda",
                         "is_correct": true
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Транспорт воситаларини бошқаришни дастлабки ўргатиш (бошианғич машғулот) қаерда амалга оширилади?",
+                "text": "Транспорт воситаларини бошқаришни дастлабки ўргатиш (бошланғич машғулот) қаерда амалга оширилади?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Автомагистралда",
+                        "text": "Турар жой даҳаларида",
                         "is_correct": false
                     },
                     {
@@ -1427,12 +1463,12 @@
                     },
                     {
                         "id": 3,
-                        "text": "Турар жой даҳаларида",
+                        "text": "Автомагистралда",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Ёпиқ майдончаларда ёки автодромиарда",
+                        "text": "Ёпиқ майдончаларда ёки автодромларда",
                         "is_correct": true
                     }
                 ]
@@ -1442,7 +1478,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "На шоссе",
+                        "text": "Размещение в более",
                         "is_correct": false
                     },
                     {
@@ -1452,7 +1488,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Размещение в более",
+                        "text": "На шоссе",
                         "is_correct": false
                     },
                     {
@@ -1464,46 +1500,46 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQning 25-bob. 146-bandga asosan: 146. Transport vositalarini boshqarishni dastlabki o‘rgatishga yopiq maydonchalarda yoki avtodromlarda o‘tkazilishi kerak.",
-            "uz_cyr": "YHQнинг 25-боб. 146-бандга асосан: 146. Транспорт воситаларини бошқаришни дастлабки ўргатишга ёпиқ майдончаларда ёки автодромларда ўтказилиши керак.",
-            "ru": "Согласно пункту 146 главы 25 ПДД: 146. Первоначальное обучение управлению транспортными средствами должно проводиться на закрытых площадках или автодромах."
+            "uz_lat": "YHQning 25-bob. 146-bandga asosan: 146. Transport vositalarini boshqarishni dastlabki o‘rgatishga yopiq maydonchalarda yoki avtodromlarda o‘tkazilishi kerak."
         }
     },
     {
         "task_info": {
-            "global_id": "t_57_q_14",
-            "ticket_num": 57,
-            "order": 19
+            "global_id": "t_20_q_13",
+            "global_id2": "t_20_q_13",
+            "ticket_num": 20,
+            "order": 19,
+            "remapped_from": "t_57_q_14"
         },
         "media_url": "u225uz.webp",
         "content": {
             "uz_lat": {
-                "text": "O‘quv muddati yakunida “A” toifadagi mototransport vositasini boshqarish huquqiga ega bo‘lish uchun necha yoshga to‘lgan shaxslarga imtihonlar topshirishga ruxsat etiladi?",
+                "text": "O'quv muddati yakunida “A” toifadagi mototransport vositasini boshqarish huquqiga ega bo'lish uchun necha yoshga to'lgan shaxslarga imtihonlar topshirishga ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "17 yoshga",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "16 yoshga",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "14 yoshga",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
                         "text": "18 yoshga",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 2,
+                        "text": "14 yoshga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
                         "text": "15 yoshga",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "17 yoshga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "16 yoshga",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1512,28 +1548,28 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "17 ёшга",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "16 ёшга",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "14 ёшга",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
                         "text": "18 ёшга",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 2,
+                        "text": "14 ёшга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
                         "text": "15 ёшга",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "17 ёшга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "16 ёшга",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1542,28 +1578,28 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "17 лет",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "16 лет",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "14 лет",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
                         "text": "18 лет",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 2,
+                        "text": "14 лет",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
                         "text": "15 лет",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "17 лет",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "16 лет",
+                        "is_correct": true
                     }
                 ]
             }
@@ -1576,9 +1612,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_35a_q_9",
-            "ticket_num": "35a",
-            "order": 20
+            "global_id": "t_9_q_14",
+            "global_id2": "t_9_q_14",
+            "ticket_num": 9,
+            "order": 20,
+            "remapped_from": "t_59_q_9"
         },
         "media_url": "u97uz.webp",
         "content": {
@@ -1644,9 +1682,9 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 20-bobi 124- bandi 1-xatboshiga asosan, turar joy dahalarida mexanik transport vositasini boshqarishni o'rganish taqiqlanadi.",
-            "uz_cyr": "YHQ 20-боби 124- банди 1-хатбошига асосан, турар жой даҳаларида механик транспорт воситасини бошқаришни ўрганиш тақиқланади.",
-            "ru": "Согласно пункту 1 пункта 124 главы 20 УК РФ запрещается обучаться управлению механическим транспортным средством в жилых помещениях."
+            "uz_lat": "YHQ 7-bobi 38-bandi (tartibga soluvchi ishorasi) yoki savol rasmidagi ruxsat etuvchi belgi bo‘yicha rulda o‘rganuvchi bo‘lgan transport vositasiga o‘ngga, chapga va qayrilishga ruxsat etiladi. 124-band (turar joyda o‘qitish taqiqi) bu savolga tegishli emas.",
+            "uz_cyr": "YHQ 7-боби 38-банди (тартибга солувчи ишораси) ёки савол расмидаги рухсат этувчи белги бўйича рулда ўрганувчи бўлган транспорт воситасига ўнгга, чапга ва қайрилишга рухсат этилади. 124-банд (турар жойда ўқитиш тақиқи) бу саволга тегишли эмас.",
+            "ru": "Согласно пункту 38 главы 7 ПДД (сигнал регулировщика) или разрешающему знаку на рисунке транспортному средству с обучаемым за рулём разрешены поворот направо, налево и разворот. Пункт 124 (запрет обучения в жилой зоне) к этому вопросу не относится."
         }
     }
 ]

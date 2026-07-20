@@ -1,9 +1,11 @@
 [
     {
         "task_info": {
-            "global_id": "t_3_q_4",
-            "ticket_num": 3,
-            "order": 1
+            "global_id": "t_24_q_18",
+            "global_id2": "t_24_q_18",
+            "ticket_num": 24,
+            "order": 1,
+            "remapped_from": "t_3_q_4"
         },
         "media_url": "u268uz.webp",
         "content": {
@@ -12,7 +14,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ruxsat etiladi",
+                        "text": "Agar avtobus belgilangan yo'nalish bo'yicha harakatlanayotgan bo'lsa ruxsat etiladi",
                         "is_correct": false
                     },
                     {
@@ -22,7 +24,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Agar avtobus belgilangan yo'nalish bo'yicha harakatlanayotgan bo'lsa ruxsat etiladi",
+                        "text": "Ruxsat etiladi",
                         "is_correct": false
                     }
                 ]
@@ -32,7 +34,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Рухсат этилади",
+                        "text": "Агар автобус белгиланган йўналиш бўйича ҳаракатланаётган бўлса рухсат этилади",
                         "is_correct": false
                     },
                     {
@@ -42,7 +44,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Агар автобус белгиланган йўналиш бўйича ҳаракатланаётган бўлса рухсат этилади",
+                        "text": "Рухсат этилади",
                         "is_correct": false
                     }
                 ]
@@ -52,7 +54,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается",
+                        "text": "Разрешается: если автобус движется по установленному маршруту",
                         "is_correct": false
                     },
                     {
@@ -62,7 +64,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Разрешается, если автобус движется по установленному маршруту",
+                        "text": "Разрешается",
                         "is_correct": false
                     }
                 ]
@@ -71,14 +73,16 @@
         "izoh": {
             "uz_lat": "Agar chorrahadan keyin majburiy to'xtashga majbur qiladigan tirbandlik yuzaga kelgan bo'lsa va bu boshqa yo'nalishdagi transport vositalarining harakatlanishiga xalaqit bersa, haydovchiga chorrahaga chiqish taqiqlanadi (YHQ 103-bandi).",
             "uz_cyr": "Агар чорраҳадан кейин мажбурий тўхташга мажбур қиладиган тирбандлик юзага келган бўлса ва бу бошқа йўналишдаги транспорт воситаларининг ҳаракатланишига халақит берса, ҳайдовчига чорраҳага чиқиш тақиқланади (YHQ 103-банди).",
-            "ru": "Если после перекрестка образовалась пробка, вызвавшая обязательную остановку и препятствующая движению транспортных средств в другом направлении, въезд на перекресток водителю запрещается (пункт 103 ГПК)."
+            "ru": "Если после перекрестка образовалась пробка, вызвавшая обязательную остановку и препятствующая движению транспортных средств в другом направлении, въезд на перекресток водителю запрещается (пункт 103 ПДД)."
         }
     },
     {
         "task_info": {
-            "global_id": "t_6_q_5",
-            "ticket_num": 6,
-            "order": 2
+            "global_id": "t_17_q_15",
+            "global_id2": "t_17_q_15",
+            "ticket_num": 17,
+            "order": 2,
+            "remapped_from": "t_6_q_5"
         },
         "media_url": "u192uz.webp",
         "content": {
@@ -87,7 +91,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ko'k avtomobilga nisbatan ustunlikka ega, chunki asosiy yo'ldan ketyapti",
+                        "text": "Chorrahaga o'ng tomondan yaqinlashib kelgan ko'k avtomobilga yo'l berishi kerak",
                         "is_correct": false
                     },
                     {
@@ -97,7 +101,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Chorrahaga o'ng tomondan yaqinlashib kelgan ko'k avtomobilga yo'l berishi kerak",
+                        "text": "Ko'k avtomobilga nisbatan ustunlikka ega, chunki asosiy yo'ldan ketyapti",
                         "is_correct": false
                     }
                 ]
@@ -107,7 +111,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Кўк автомобилга нисбатан устунликка эга, чунки асосий йўлдан кетяпти",
+                        "text": "Чорраҳага ўнг томондан яқинлашиб келган кўк автомобилга йўл бериши керак",
                         "is_correct": false
                     },
                     {
@@ -117,7 +121,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Чорраҳага ўнг томондан яқинлашиб келган кўк автомобилга йўл бериши керак",
+                        "text": "Кўк автомобилга нисбатан устунликка эга, чунки асосий йўлдан кетяпти",
                         "is_correct": false
                     }
                 ]
@@ -127,17 +131,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Имеет преимущество перед синим, так как едет по главной дороге",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Имеет преимущество перед синим, так как едет по дороге с круговым движением",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Должен уступить дорогу синему, приблизившемуся к перекрёстку справа",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Имеет преимущество перед синим, так как едет по главной дороге",
                         "is_correct": false
                     }
                 ]
@@ -152,83 +156,87 @@
     {
         "task_info": {
             "global_id": "t_11_q_11",
+            "global_id2": "t_11_q_11",
             "ticket_num": 11,
-            "order": 3
+            "order": 3,
+            "remapped_from": "t_59_q_14"
         },
-        "media_url": "u261uz.webp",
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Sariq avtobusning haydovchisiga chorrahaga chiqishga ruxsat etiladimi?",
+                "text": "Velosipedchilarda trotuarda harakatlanishga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "Piyodalar bo'lmaganda ruxsat etiladi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Ruxsat etiladi",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Taqiqlanadi",
                         "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "Agar avtobus belgilangan yo'nalish bo'yicha yursa ruxsat etiladi",
-                        "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Сариқ автобуснинг ҳайдовчисига чорраҳага чиқишга рухсат этиладими?",
+                "text": "Велосипедчиларда тротуарда ҳаракатланишга рухсат этиладими?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "Пиёдалар бўлмаганда рухсат этилади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Рухсат этилади",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Тақиқланади",
                         "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "Агар автобус белгиланган йўналиш бўйича юрса рухсат этилади",
-                        "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Разрешается ли выезд на перекрёсток водителю желтого автобуса?",
+                "text": "Разрешается ли велосипедистам ездить по тротуарам?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается",
+                        "text": "Разрешается при отсутствии пешеходов",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Запрещается",
-                        "is_correct": true
+                        "text": "Разрешается",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Если автобус движется по установленному маршруту",
-                        "is_correct": false
+                        "text": "Запрещается",
+                        "is_correct": true
                     }
                 ]
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 14-bobi 97-bandiga asosan, haydovchi tirbandlik tufayli majburiy to'xtab, ko'ndalang yo'nalishdagi transport vositalarining harakatlanishiga to'sqinlik tug'diradigan bo'lsa, chorrahaga kirishi, agar to'xtash chizig'i yoki 5.33 yo'l belgisidan o'tib bo'lgan haydovchiga esa qatnov qismlari kesishmasiga kirishi taqiqlanadi.",
-            "uz_cyr": "YHQ 14-боби 97-бандига асосан, ҳайдовчи тирбандлик туфайли мажбурий тўхтаб, кўндаланг йўналишдаги транспорт воситаларининг ҳаракатланишига тўсқинлик туғдирадиган бўлса, чорраҳага кириши, агар тўхташ чизиғи ёки 5.33 йўл белгисидан ўтиб бўлган ҳайдовчига эса қатнов қисмлари кесишмасига кириши тақиқланади.",
-            "ru": "Согласно главе 14 статьи 97 ГПК, если водитель вынужден остановиться из-за дорожного движения и препятствует движению транспортных средств в поперечном направлении, ему запрещается выезд на перекресток, а если водитель проехал стоп-линию или дорожный знак 5.33, ему запрещается выезд на пересечение участков движения."
+            "uz_lat": "YHQ 28-bobi 166-bandiga asosan, velosipedlar, mopedlar, aravalar, miniladigan yoki yuk ortiladigan hayvonlarning yo'lning chetki o'ng bo'lagida imkoni boricha o'ng tomonidan bir qator bo'lib harakatlanishiga yo'l qo'yiladi. Agar piyodalarga xalaqit bermasa, yo'l yoqasidan harakatlanishga ham ruxsat etiladi.",
+            "uz_cyr": "YHQ 28-боби 166-бандига асосан, велосипедлар, мопедлар, аравалар, миниладиган ёки юк ортиладиган ҳайвонларнинг йўлнинг четки ўнг бўлагида имкони борича ўнг томонидан бир қатор бўлиб ҳаракатланишига йўл қўйилади. Агар пиёдаларга халақит бермаса, йўл ёқасидан ҳаракатланишга ҳам рухсат этилади.",
+            "ru": "Согласно статье 166 главы 28 ПДД велосипедам, мопедам, телегам, ездовым или нагруженным животным разрешается двигаться в один ряд по правой стороне дороги, насколько это возможно. Также разрешено двигаться с обочины, если это не мешает пешеходам."
         }
     },
     {
         "task_info": {
-            "global_id": "t_20_q_14",
-            "ticket_num": 20,
-            "order": 4
+            "global_id": "t_1_q_6",
+            "global_id2": "t_1_q_6",
+            "ticket_num": 1,
+            "order": 4,
+            "remapped_from": "t_20_q_12"
         },
         "media_url": "u2uz.webp",
         "content": {
@@ -267,13 +275,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Дать возможность пешеходам закончить переход проезжей части данного направления",
-                        "is_correct": true
+                        "text": "Подать звуковой сигнал для предотвращения дорожно-транспортного происшествия и не уступая дорогу пешеходам проехать переход так как он находится на главной дороге",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Подать звуковой сигнал для предотвращения дорожно-транспортного происшествия и не уступая дорогу пешеходам проехать переход так как он находится на главной дороге",
-                        "is_correct": false
+                        "text": "Дать возможность пешеходам закончить переход проезжей части данного направления",
+                        "is_correct": true
                     }
                 ]
             }
@@ -281,14 +289,16 @@
         "izoh": {
             "uz_lat": "YHQ 14-bobi 96-bandiga asosan, chapga yoki o'ngga burilayotgan haydovchi kesishayotgan yo'lning qatnov qismidan o'tayotgan piyoda(lar)ga, shuningdek velosiped yo'lkasidan yo'lni kesib o'tayotgan velosipedchi(lar)ga yo'l berishi kerak.",
             "uz_cyr": "YHQ 14-боби 96-бандига асосан, чапга ёки ўнгга бурилаётган ҳайдовчи кесишаётган йўлнинг қатнов қисмидан ўтаётган пиёда(лар)га, шунингдек велосипед йўлкасидан йўлни кесиб ўтаётган велосипедчи(лар)га йўл бериши керак.",
-            "ru": "В соответствии со статьей 96 главы 14 Закона о дорожном движении водитель, поворачивающий налево или направо, должен уступить дорогу пешеходу(ам), пересекающему проезжую часть, а также велосипедисту(ам), перебегающему дорогу с велосипедной полосы."
+            "ru": "В соответствии со статьей 96 главы 14 ПДД водитель, поворачивающий налево или направо, должен уступить дорогу пешеходу(ам), пересекающему проезжую часть, а также велосипедисту(ам), перебегающему дорогу с велосипедной полосы."
         }
     },
     {
         "task_info": {
-            "global_id": "t_22_q_4",
-            "ticket_num": 22,
-            "order": 5
+            "global_id": "t_44_q_2",
+            "global_id2": "t_44_q_2",
+            "ticket_num": 44,
+            "order": 5,
+            "remapped_from": "t_22_q_16"
         },
         "media_url": "u502uz.webp",
         "content": {
@@ -346,9 +356,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_32_q_5",
-            "ticket_num": 32,
-            "order": 6
+            "global_id": "t_29_q_8",
+            "global_id2": "t_29_q_8",
+            "ticket_num": 29,
+            "order": 6,
+            "remapped_from": "t_32_q_4"
         },
         "media_url": "u328uz.webp",
         "content": {
@@ -357,18 +369,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ustunlik huquqidan foydalanib, tovushli xabar berishi va belgilangan yo'nalishda harakatni davom ettirishi",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Harakat tezligini pasaytirishi va alohida ehtiyotkorlik bilan yo'lda davom etishi",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Qatnov qismidan o'tuvchi piyodalarga yo'l berishi",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ustunlik huquqidan foydalanib, tovushli xabar berishi va belgilangan yo'nalishda harakatni davom ettirishi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -377,38 +389,38 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Устунлик ҳуқуқидан фойдаланиб, товушли хабар бериши ва белгиланган йўналишда ҳаракатни давом эттириши",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Ҳаракат тезлигини пасайтириши ва алоҳида эҳтиёткорлик билан йўлда давом этиши",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Қатнов қисмидан ўтувчи пиёдаларга йўл бериши",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Устунлик ҳуқуқидан фойдаланиб, товушли хабар бериши ва белгиланган йўналишда ҳаракатни давом эттириши",
+                        "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Как должен поступить водитель, поворачивая направо в показанной ситуации?",
+                "text": "С какой максимальной скоростью разрешается движение междугородным автобусам на участках дорог обозначенных таким дорожным знаком?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Используя преимущественное право, подать звуковой сигнал и продолжать движение в намеченном направлении",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Снизить скорость движения и следовать с особой осторожностью",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Пропустить пешеходов, переходящих проезжую часть",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Используя преимущественное право, подать звуковой сигнал и продолжать движение в намеченном направлении",
+                        "is_correct": false
                     }
                 ]
             }
@@ -416,29 +428,31 @@
         "izoh": {
             "uz_lat": "YHQ 14-bobi 96-bandiga asosan, chapga yoki o'ngga burilayotgan haydovchi kesishayotgan yo'lning qatnov qismidan o'tayotgan piyoda(lar)ga, shuningdek velosiped yo'lkasidan yo'lni kesib o'tayotgan velosipedchi(lar)ga yo'l berishi kerak.",
             "uz_cyr": "YHQ 14-боби 96-бандига асосан, чапга ёки ўнгга бурилаётган ҳайдовчи кесишаётган йўлнинг қатнов қисмидан ўтаётган пиёда(лар)га, шунингдек велосипед йўлкасидан йўлни кесиб ўтаётган велосипедчи(лар)га йўл бериши керак.",
-            "ru": "В соответствии со статьей 96 главы 14 Закона о дорожном движении водитель, поворачивающий налево или направо, должен уступить дорогу пешеходу(ам), пересекающему проезжую часть, а также велосипедисту(ам), перебегающему дорогу с велосипедной полосы."
+            "ru": "В соответствии со статьей 96 главы 14 ПДД водитель, поворачивающий налево или направо, должен уступить дорогу пешеходу(ам), пересекающему проезжую часть, а также велосипедисту(ам), перебегающему дорогу с велосипедной полосы."
         }
     },
     {
         "task_info": {
-            "global_id": "t_39_q_2",
-            "ticket_num": 39,
-            "order": 7
+            "global_id": "t_4_q_2",
+            "global_id2": "t_4_q_2",
+            "ticket_num": 4,
+            "order": 7,
+            "remapped_from": "t_39_q_2"
         },
-        "media_url": "v368uz.webp",
+        "media_url": "u30uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Chorrahaga kirishda Siz:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Motosiklga yo'l berishingiz kerak",
-                        "is_correct": false
+                        "text": "Har ikkisiga ham yo'l berishingiz kerak",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Har ikkisiga ham yo'l berishingiz kerak",
-                        "is_correct": true
+                        "text": "Motosiklga yo'l berishingiz kerak",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -452,13 +466,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Мотоциклга йўл беришингиз керак",
-                        "is_correct": false
+                        "text": "Ҳар иккисига ҳам йўл беришингиз керак",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Ҳар иккисига ҳам йўл беришингиз керак",
-                        "is_correct": true
+                        "text": "Мотоциклга йўл беришингиз керак",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -472,17 +486,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Должны уступить дорогу только мотоциклу",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Должны уступить дорогу обоим транспортным средствам",
+                        "text": "Должны уступить дорогу обоим",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "Должны уступить дорогу мотоциклу",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Имеете преимущественное право на движение",
+                        "text": "Имеете преимущественное право проезда",
                         "is_correct": false
                     }
                 ]
@@ -496,9 +510,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_42_q_19",
-            "ticket_num": 42,
-            "order": 8
+            "global_id": "t_26_q_20",
+            "global_id2": "t_26_q_20",
+            "ticket_num": 26,
+            "order": 8,
+            "remapped_from": "t_42_q_17"
         },
         "media_url": "u293uz.webp",
         "content": {
@@ -556,11 +572,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_45_q_5",
+            "global_id": "t_45_q_6",
+            "global_id2": "t_45_q_6",
             "ticket_num": 45,
-            "order": 9
+            "order": 9,
+            "remapped_from": "t_45_q_4"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Chapga burilayotgan haydovchi kesishayotgan yo'lning qatnov qismidan o'tayotgan piyodalarga yo'l berishi kerakmi?",
@@ -616,146 +634,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_45_q_7",
-            "ticket_num": 45,
-            "order": 10
+            "global_id": "t_12_q_10",
+            "global_id2": "t_12_q_10",
+            "ticket_num": 12,
+            "order": 10,
+            "remapped_from": "t_45_q_6"
         },
-        "media_url": null,
-        "content": {
-            "uz_lat": {
-                "text": "Aylanma harakatlanish chorrahasida...",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Harakatlanayotgan transport vositalari aylanaga kirib kelayotgan transport vositalariga nisbatan ustunlikka (imtiyozga) ega",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Harakatlanayotgan transport vositalariga nisbatan aylanaga kirib kelayotgan transport vositalari ustunlikka (imtiyozga) ega",
-                        "is_correct": false
-                    }
-                ]
-            },
-            "uz_cyr": {
-                "text": "Айланма ҳаракатланиш чорраҳасида...",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Ҳаракатланаётган транспорт воситалари айланага кириб келаётган транспорт воситаларига нисбатан устунликка (имтиёзга) эга",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Ҳаракатланаётган транспорт воситаларига нисбатан айланага кириб келаётган транспорт воситалари устунликка (имтиёзга) эга",
-                        "is_correct": false
-                    }
-                ]
-            },
-            "ru": {
-                "text": "На кольцевой развязке:",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Движущиеся транспортные средства имеют приоритет (преимущество) перед транспортными средствами, въезжающими на круговое движение",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Транспортные средства, въезжающие на круговое движение, имеют приоритет по отношению к движущимися транспортными средствами по круговому движению",
-                        "is_correct": false
-                    }
-                ]
-            }
-        },
-        "izoh": {
-            "uz_lat": "Yo‘l harakati qoidalarining 98 bandi 3 xatboshiga asosan, aylanma harakatlanish chorrahasida harakatlanayotgan transport vositalari aylanaga kirib kelayotgan transport vositalariga nisbatan ustunlikka (imtiyozga) ega.",
-            "uz_cyr": "Йўл ҳаракати қоидаларининг 98 банди 3 хатбошига асосан, айланма ҳаракатланиш чорраҳасида ҳаракатланаётган транспорт воситалари айланага кириб келаётган транспорт воситаларига нисбатан устунликка (имтиёзга) эга.",
-            "ru": "Согласно пункту 3 статьи 98 Правил дорожного движения транспортные средства, движущиеся по кольцевой развязке, имеют приоритет (привилегию) перед транспортными средствами, въезжающими на кольцевую развязку."
-        }
-    },
-    {
-        "task_info": {
-            "global_id": "t_46_q_14",
-            "ticket_num": 46,
-            "order": 11
-        },
-        "media_url": "u439uz.webp",
-        "content": {
-            "uz_lat": {
-                "text": "Bu vaziyatda siz o'ngga burilayotib, Siz:",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Faqat transport vositalarga yo'l berasiz",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Barcha qatnov qismidagi piyodalarga yo'l berasiz",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Harakat yo'nalishi bo'yicha va burilayotgan ko'chani kesib o'tayotgan piyodalarga hamda borshqa transport vositlariga yo'l berasiz",
-                        "is_correct": true
-                    }
-                ]
-            },
-            "uz_cyr": {
-                "text": "Бу вазиятда сиз ўнгга бурилаётиб, Сиз:",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Фақат транспорт воситаларга йўл берасиз",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Барча қатнов қисмидаги пиёдаларга йўл берасиз",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Ҳаракат йўналиши бўйича ва бурилаётган кўчани кесиб ўтаётган пиёдаларга ҳамда боршқа транспорт воситларига йўл берасиз",
-                        "is_correct": true
-                    }
-                ]
-            },
-            "ru": {
-                "text": "Когда вы поворачиваете направо в этой ситуации, вы:",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Вы уступаете дорогу только транспортным средсвам",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "F2. Вы уступите дорогу пешеходам на всей проезжей части",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Вы уступите дорогу пешеходам и другим транспортным средствам, пересекающим улицу в направлении движения и при повороте",
-                        "is_correct": true
-                    }
-                ]
-            }
-        },
-        "izoh": {
-            "uz_lat": "YHQ 1-ilovasining 5-bo‘limidagi 5.42 belgiga asosan, «Qizil chiroqda o‘ngga harakatlanish». Transport svetofori qizil chirog‘ining o‘ng yoniga 5.42 yo‘l belgisi o‘rnatilgan bo‘lsa, transport vositalarining haydovchilari svetoforning taqiqlovchi ishorasi yonib turganda, barcha xavfsizlik choralarini ko‘rgan holda o‘ngga burilishlari mumkin. Bunda ular harakat yo‘nalishi bo‘yicha va burilayotgan ko‘chani kesib o‘tayotgan piyodalarga hamda boshqa transport vositalariga yo‘l berishlari shart.",
-            "uz_cyr": "YHQ 1-иловасининг 5-бўлимидаги 5.42 белгига асосан, «Қизил чироқда ўнгга ҳаракатланиш». Транспорт светофори қизил чироғининг ўнг ёнига 5.42 йўл белгиси ўрнатилган бўлса, транспорт воситаларининг ҳайдовчилари светофорнинг тақиқловчи ишораси ёниб турганда, барча хавфсизлик чораларини кўрган ҳолда ўнгга бурилишлари мумкин. Бунда улар ҳаракат йўналиши бўйича ва бурилаётган кўчани кесиб ўтаётган пиёдаларга ҳамда бошқа транспорт воситаларига йўл беришлари шарт.",
-            "ru": "По знаку 5.42 Приложения 1, раздел 5 «Движение вправо на красный свет». Если дорожный знак 5.42 установлен справа от красного света светофора, водители транспортных средств могут повернуть направо при горящем запрещающем знаке светофора, соблюдая все меры безопасности. При этом они должны уступать дорогу пешеходам и другим транспортным средствам, пересекающим поворачивающую улицу по направлению движения транспорта."
-        }
-    },
-    {
-        "task_info": {
-            "global_id": "t_47_q_8",
-            "ticket_num": 47,
-            "order": 12
-        },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Aylanma harakatlanish chorrahasida:",
@@ -792,12 +677,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Транспортные средства, движущиеся на перекрёстке с круговым движением, имеют приоритет (преимущество) по отношению к транспортным средствам, въезжающим на перекрёсток",
+                        "text": "Транспортные средства, движущиеся по кругу, имеют преимущество перед въезжающими",
                         "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Транспортные средства, въезжающие на перекрёсток, имеют приоритет (преимущество) по отношению к транспортным средствам, движущимся на перекрёстке",
+                        "text": "Въезжающие на круг транспортные средства имеют преимущество перед движущимися по кругу",
                         "is_correct": false
                     }
                 ]
@@ -811,9 +696,150 @@
     },
     {
         "task_info": {
-            "global_id": "t_47_q_9",
-            "ticket_num": 47,
-            "order": 13
+            "global_id": "t_38_q_18",
+            "global_id2": "t_38_q_18",
+            "ticket_num": 38,
+            "order": 11,
+            "remapped_from": "t_46_q_14"
+        },
+        "media_url": "u439uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Bu vaziyatda siz o'ngga burilayotib, Siz:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Harakat yo'nalishi bo'yicha va burilayotgan ko'chani kesib o'tayotgan piyodalarga hamda borshqa transport vositlariga yo'l berasiz",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat transport vositalarga yo'l berasiz",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Barcha qatnov qismidagi piyodalarga yo'l berasiz",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Бу вазиятда сиз ўнгга бурилаётиб, Сиз:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ҳаракат йўналиши бўйича ва бурилаётган кўчани кесиб ўтаётган пиёдаларга ҳамда боршқа транспорт воситларига йўл берасиз",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат транспорт воситаларга йўл берасиз",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Барча қатнов қисмидаги пиёдаларга йўл берасиз",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Когда вы поворачиваете направо в этой ситуации, вы:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Вы уступите дорогу пешеходам и другим транспортным средствам, пересекающим улицу в направлении движения и при повороте",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Вы уступаете дорогу только транспортным средсвам",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "F2. Вы уступите дорогу пешеходам на всей проезжей части",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 5-bo‘limidagi 5.42 belgiga asosan, «Qizil chiroqda o‘ngga harakatlanish». Transport svetofori qizil chirog‘ining o‘ng yoniga 5.42 yo‘l belgisi o‘rnatilgan bo‘lsa, transport vositalarining haydovchilari svetoforning taqiqlovchi ishorasi yonib turganda, barcha xavfsizlik choralarini ko‘rgan holda o‘ngga burilishlari mumkin. Bunda ular harakat yo‘nalishi bo‘yicha va burilayotgan ko‘chani kesib o‘tayotgan piyodalarga hamda boshqa transport vositalariga yo‘l berishlari shart.",
+            "uz_cyr": "YHQ 1-иловасининг 5-бўлимидаги 5.42 белгига асосан, «Қизил чироқда ўнгга ҳаракатланиш». Транспорт светофори қизил чироғининг ўнг ёнига 5.42 йўл белгиси ўрнатилган бўлса, транспорт воситаларининг ҳайдовчилари светофорнинг тақиқловчи ишораси ёниб турганда, барча хавфсизлик чораларини кўрган ҳолда ўнгга бурилишлари мумкин. Бунда улар ҳаракат йўналиши бўйича ва бурилаётган кўчани кесиб ўтаётган пиёдаларга ҳамда бошқа транспорт воситаларига йўл беришлари шарт.",
+            "ru": "По знаку 5.42 Приложения 1, раздел 5 «Движение вправо на красный свет». Если дорожный знак 5.42 установлен справа от красного света светофора, водители транспортных средств могут повернуть направо при горящем запрещающем знаке светофора, соблюдая все меры безопасности. При этом они должны уступать дорогу пешеходам и другим транспортным средствам, пересекающим поворачивающую улицу по направлению движения транспорта."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_12_q_10",
+            "global_id2": "t_12_q_10",
+            "ticket_num": 12,
+            "order": 12,
+            "remapped_from": "t_45_q_6"
+        },
+        "media_url": "",
+        "content": {
+            "uz_lat": {
+                "text": "Aylanma harakatlanish chorrahasida:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Harakatlanayotgan transport vositalari aylanaga kirib kelayotgan transport vositalariga nisbatan ustunlikka (imtiyozga) ega",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Harakatlanayotgan transport vositalariga nisbatan aylanaga kirib kelayotgan transport vositalari ustunlikka (imtiyozga) ega",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Айланма ҳаракатланиш чорраҳасида:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ҳаракатланаётган транспорт воситалари айланага кириб келаётган транспорт воситаларига нисбатан устунликка (имтиёзга) эга",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ҳаракатланаётган транспорт воситаларига нисбатан айланага кириб келаётган транспорт воситалари устунликка (имтиёзга) эга",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "На перекрёстке кругового движения:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Транспортные средства, движущиеся по кругу, имеют преимущество перед въезжающими",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Въезжающие на круг транспортные средства имеют преимущество перед движущимися по кругу",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 98 bandi 3 xatboshiga asosan, aylanma harakatlanish chorrahasida harakatlanayotgan transport vositalari aylanaga kirib kelayotgan transport vositalariga nisbatan ustunlikka (imtiyozga) ega.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 98 банди 3 хатбошига асосан, айланма ҳаракатланиш чорраҳасида ҳаракатланаётган транспорт воситалари айланага кириб келаётган транспорт воситаларига нисбатан устунликка (имтиёзга) эга.",
+            "ru": "Согласно пункту 3 статьи 98 Правил дорожного движения транспортные средства, движущиеся по кольцевой развязке, имеют приоритет (привилегию) перед транспортными средствами, въезжающими на кольцевую развязку."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_8_q_15",
+            "global_id2": "t_8_q_15",
+            "ticket_num": 8,
+            "order": 13,
+            "remapped_from": "t_47_q_8"
         },
         "media_url": "u86uz.webp",
         "content": {
@@ -822,8 +848,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Tartibga solinmagan, teng ahamiyatga ega bo'lmagan yo'llar kesishgan chorraha",
-                        "is_correct": true
+                        "text": "Tartibga solingan chorraha",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -832,8 +858,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Tartibga solingan chorraha",
-                        "is_correct": false
+                        "text": "Tartibga solinmagan, teng ahamiyatga ega bo'lmagan yo'llar kesishgan chorraha",
+                        "is_correct": true
                     }
                 ]
             },
@@ -842,8 +868,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тартибга солинмаган, тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳа",
-                        "is_correct": true
+                        "text": "Тартибга солинган чорраҳа",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -852,8 +878,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Тартибга солинган чорраҳа",
-                        "is_correct": false
+                        "text": "Тартибга солинмаган, тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳа",
+                        "is_correct": true
                     }
                 ]
             },
@@ -862,8 +888,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Нерегулируемый, перекрёсток неравнозначных дорог",
-                        "is_correct": true
+                        "text": "Регулируемый перекрёсток",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -872,8 +898,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Регулируемый перекрёсток",
-                        "is_correct": false
+                        "text": "Нерегулируемый, перекрёсток неравнозначных дорог",
+                        "is_correct": true
                     }
                 ]
             }
@@ -886,9 +912,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_1_q_6",
-            "ticket_num": 1,
-            "order": 14
+            "global_id": "t_51_q_8",
+            "global_id2": "t_51_q_8",
+            "ticket_num": 51,
+            "order": 14,
+            "remapped_from": "t_1_q_6"
         },
         "media_url": "u579uz.webp",
         "content": {
@@ -897,13 +925,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Avtomobil va avtobus haydovchisi",
-                        "is_correct": true
+                        "text": "Tramvay haydovchisi",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Tramvay haydovchisi",
-                        "is_correct": false
+                        "text": "Avtomobil va avtobus haydovchisi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -912,13 +940,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Автомобил ва автобус ҳайдовчиси",
-                        "is_correct": true
+                        "text": "Трамвай ҳайдовчиси",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Трамвай ҳайдовчиси",
-                        "is_correct": false
+                        "text": "Автомобил ва автобус ҳайдовчиси",
+                        "is_correct": true
                     }
                 ]
             },
@@ -941,14 +969,16 @@
         "izoh": {
             "uz_lat": "YHQ 15-bobi 100 - va 101 - bandlariga asosan, svetoforning taqiqlovchi qizil yoki sariq ishorasi bilan bir vaqtda yongan qo'shimcha tarmoqning ko'rsatkichli yashil ishorasi yo'nalishida harakatlanayotgan haydovchi boshqa yo'nalishlardan harakatlanayotgan transport vositalariga yo'l berishi kerak. Svetoforning qizil yoki sariq ishorasi bilan bir vaqtda yongan qo'shimcha tarmog'ining yo'naltirgichli yashil ishorasi yo'nalishida harakatlanayotgan tramvay boshqa yo'nalishlarda harakatlanayotgan transport vositalariga yo'l berishi kerak.",
             "uz_cyr": "YHQ 15-боби 100 - ва 101 - бандларига асосан, светофорнинг тақиқловчи қизил ёки сариқ ишораси билан бир вақтда ёнган қўшимча тармоқнинг кўрсаткичли яшил ишораси йўналишида ҳаракатланаётган ҳайдовчи бошқа йўналишлардан ҳаракатланаётган транспорт воситаларига йўл бериши керак. Светофорнинг қизил ёки сариқ ишораси билан бир вақтда ёнган қўшимча тармоғининг йўналтиргичли яшил ишораси йўналишида ҳаракатланаётган трамвай бошқа йўналишларда ҳаракатланаётган транспорт воситаларига йўл бериши керак.",
-            "ru": "Согласно главе 15, статьям 100 и 101 ПДД водитель, движущийся в направлении зеленого сигнала дополнительной сети, горящего одновременно с запрещающим красным или желтым сигналом светофора, обязан уступить дорогу транспортным средствам, движущимся с других направлений. Трамвай, движущийся в направлении красного или желтого сигнала светофора с зеленым индикатором, должен уступить дорогу транспортным средствам, движущимся в других направлениях."
+            "ru": "Согласно главе 15, статьям 100 и 101 ПДД водитель, движущийся в направлении зеленого сигнала дополнительной секции, горящего одновременно с запрещающим красным или желтым сигналом светофора, обязан уступить дорогу транспортным средствам, движущимся с других направлений. Трамвай, движущийся в направлении красного или желтого сигнала светофора с зеленым индикатором, должен уступить дорогу транспортным средствам, движущимся в других направлениях."
         }
     },
     {
         "task_info": {
-            "global_id": "t_1_q_16",
-            "ticket_num": 1,
-            "order": 15
+            "global_id": "t_17_q_11",
+            "global_id2": "t_17_q_11",
+            "ticket_num": 17,
+            "order": 15,
+            "remapped_from": "t_10_q_4"
         },
         "media_url": "u188uz.webp",
         "content": {
@@ -1006,9 +1036,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_2_q_6",
-            "ticket_num": 2,
-            "order": 16
+            "global_id": "t_57_q_19",
+            "global_id2": "t_57_q_19",
+            "ticket_num": 57,
+            "order": 16,
+            "remapped_from": "t_64_q_3"
         },
         "media_url": "u662uz.webp",
         "content": {
@@ -1017,18 +1049,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "yengil avtomobil, tramvay va avtobus",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Tramvay va avtobus, yengil avtomobil",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Tramvay, yengil avtomobil, avtobus",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Yengil avtomobil, tramvay va avtobus",
-                        "is_correct": true
                     }
                 ]
             },
@@ -1037,18 +1069,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Енгил автомобил, трамвай ва автобус",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Трамвай ва автобус, енгил автомобил",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Трамвай, енгил автомобил, автобус",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Енгил автомобил, трамвай ва автобус",
-                        "is_correct": true
                     }
                 ]
             },
@@ -1057,18 +1089,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Легковой автомобиль, трамвай и автобус",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Трамвай и автобус, легковой автомобиль",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Трамвай, легковой автомобиль, автобус",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Легковой автомобиль, трамвай и автобус",
-                        "is_correct": true
                     }
                 ]
             }
@@ -1076,14 +1108,16 @@
         "izoh": {
             "uz_lat": "YHQ 15-bobi 100 - va 101 - bandlariga asosan, svetoforning taqiqlovchi qizil yoki sariq ishorasi bilan bir vaqtda yongan qo'shimcha tarmoqning ko'rsatkichli yashil ishorasi yo'nalishida harakatlanayotgan haydovchi boshqa yo'nalishlardan harakatlanayotgan transport vositalariga yo'l berishi kerak. Agar svetoforning ishoralari tramvay va relssiz transport vositalariga bir vaqtda harakatlanishga ruxsat bersa, harakatlanish yo'nalishidan qat'i nazar, tramvay oldin o'tish huquqiga ega bo'ladi. Svetoforning qizil yoki sariq ishorasi bilan bir vaqtda yongan qo'shimcha tarmog'ining yo'naltirgichli yashil ishorasi yo'nalishida harakatlanayotgan tramvay boshqa yo'nalishlarda harakatlanayotgan transport vositalariga yo'l berishi kerak.",
             "uz_cyr": "YHQ 15-боби 100 - ва 101 - бандларига асосан, светофорнинг тақиқловчи қизил ёки сариқ ишораси билан бир вақтда ёнган қўшимча тармоқнинг кўрсаткичли яшил ишораси йўналишида ҳаракатланаётган ҳайдовчи бошқа йўналишлардан ҳаракатланаётган транспорт воситаларига йўл бериши керак. Агар светофорнинг ишоралари трамвай ва релссиз транспорт воситаларига бир вақтда ҳаракатланишга рухсат берса, ҳаракатланиш йўналишидан қати назар, трамвай олдин ўтиш ҳуқуқига эга бўлади. Светофорнинг қизил ёки сариқ ишораси билан бир вақтда ёнган қўшимча тармоғининг йўналтиргичли яшил ишораси йўналишида ҳаракатланаётган трамвай бошқа йўналишларда ҳаракатланаётган транспорт воситаларига йўл бериши керак.",
-            "ru": "Согласно главе 15, статьям 100 и 101 ПДД водитель, движущийся в направлении зеленого сигнала дополнительной сети, горящего одновременно с запрещающим красным или желтым сигналом светофора, обязан уступить дорогу транспортным средствам, движущимся с других направлений. Если сигналы светофора разрешают движение трамвая и нерельсового транспорта одновременно, трамвай будет иметь преимущество независимо от направления движения. Трамвай, движущийся в направлении красного или желтого сигнала светофора с зеленым индикатором, должен уступить дорогу транспортным средствам, движущимся в других направлениях."
+            "ru": "Согласно главе 15, статьям 100 и 101 ПДД водитель, движущийся в направлении зеленого сигнала дополнительной секции, горящего одновременно с запрещающим красным или желтым сигналом светофора, обязан уступить дорогу транспортным средствам, движущимся с других направлений. Если сигналы светофора разрешают движение трамвая и нерельсового транспорта одновременно, трамвай будет иметь преимущество независимо от направления движения. Трамвай, движущийся в направлении красного или желтого сигнала светофора с зеленым индикатором, должен уступить дорогу транспортным средствам, движущимся в других направлениях."
         }
     },
     {
         "task_info": {
-            "global_id": "t_2_q_14",
-            "ticket_num": 2,
-            "order": 17
+            "global_id": "t_52_q_7",
+            "global_id2": "t_52_q_7",
+            "ticket_num": 52,
+            "order": 17,
+            "remapped_from": "t_2_q_14"
         },
         "media_url": "u594uz.webp",
         "content": {
@@ -1092,13 +1126,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ikkinchi",
-                        "is_correct": true
+                        "text": "Birinchi",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Birinchi",
-                        "is_correct": false
+                        "text": "Ikkinchi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1107,13 +1141,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Иккинчи",
-                        "is_correct": true
+                        "text": "Биринчи",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Биринчи",
-                        "is_correct": false
+                        "text": "Иккинчи",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1122,13 +1156,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Вторым",
-                        "is_correct": true
+                        "text": "Первым",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Первым",
-                        "is_correct": false
+                        "text": "Вторым",
+                        "is_correct": true
                     }
                 ]
             }
@@ -1141,24 +1175,26 @@
     },
     {
         "task_info": {
-            "global_id": "t_2_q_16",
-            "ticket_num": 2,
-            "order": 18
+            "global_id": "t_10_q_19",
+            "global_id2": "t_10_q_19",
+            "ticket_num": 10,
+            "order": 18,
+            "remapped_from": "t_2_q_16"
         },
-        "media_url": "u629uz.webp",
+        "media_url": "u111uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi transport vositasining haydovchisi yo'l berishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Motosikl haydovchisi",
-                        "is_correct": false
+                        "text": "Avtomobil haydovchisi",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Avtomobil haydovchisi",
-                        "is_correct": true
+                        "text": "Tramvay haydovchisi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1167,13 +1203,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Мотоцикл ҳайдовчиси",
-                        "is_correct": false
+                        "text": "Автомобил ҳайдовчиси",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Автомобил ҳайдовчиси",
-                        "is_correct": true
+                        "text": "Трамвай ҳайдовчиси",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1182,28 +1218,30 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Водитель мотоцикла",
-                        "is_correct": false
+                        "text": "Водитель автомобиля",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Водитель автомобиля",
-                        "is_correct": true
+                        "text": "Водитель трамвая",
+                        "is_correct": false
                     }
                 ]
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 21-bobi 128-bandiga asosan, agar yo'lning 1.13 va 1.14 yo'l belgilari bilan belgilangan qiyaliklarda, qarama-qarshi yo'nalishlarda harakatlanishni qiyinlashtiradigan to'siq bo'lsa, nishablikka harakatlanayotgan transport vositasining haydovchisi yo'l berishi kerak.",
-            "uz_cyr": "YHQ 21-боби 128-бандига асосан, агар йўлнинг 1.13 ва 1.14 йўл белгилари билан белгиланган қияликларда, қарама-қарши йўналишларда ҳаракатланишни қийинлаштирадиган тўсиқ бўлса, нишабликка ҳаракатланаётган транспорт воситасининг ҳайдовчиси йўл бериши керак.",
-            "ru": "Согласно пункту 128 главы 21 ПДД, если на уклонах дороги, обозначенных знаками 1.13 и 1.14, имеется препятствие, затрудняющее встречное движение, уступить дорогу должен водитель транспортного средства, движущегося на спуск."
+            "uz_lat": "YHQ 16-bobi 105-bandiga muvofiq, teng ahamiyatga ega bo'lgan yo'llar kesishgan chorrahada relssiz transport vositasining haydovchisi o'ngdan yaqinlashayotgan transport vositalariga yo'l berishi shart. Bunday chorrahalarda keyingi harakat yo'nalishidan qat'i nazar, tramvay relssiz transport vositalariga nisbatan oldin o'tish huquqiga ega bo'ladi.",
+            "uz_cyr": "YHQ 16-боби 105-бандига мувофиқ, тенг аҳамиятга эга бўлган йўллар кесишган чорраҳада релссиз транспорт воситасининг ҳайдовчиси ўнгдан яқинлашаётган транспорт воситаларига йўл бериши шарт. Бундай чорраҳаларда кейинги ҳаракат йўналишидан қати назар, трамвай релссиз транспорт воситаларига нисбатан олдин ўтиш ҳуқуқига эга бўлади.",
+            "ru": "Согласно пункту 105 главы 16 ПДД, на перекрёстке равнозначных дорог водитель безрельсового транспортного средства обязан уступить дорогу транспортным средствам, приближающимся справа. На таких перекрёстках трамвай имеет преимущество перед безрельсовыми транспортными средствами независимо от направления его дальнейшего движения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_15_q_15",
-            "ticket_num": 15,
-            "order": 19
+            "global_id": "t_26_q_7",
+            "global_id2": "t_26_q_7",
+            "ticket_num": 26,
+            "order": 19,
+            "remapped_from": "t_15_q_13"
         },
         "media_url": "u285uz.webp",
         "content": {
@@ -1212,18 +1250,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Avtomobil haydovchisiga",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Avtomobil va motosikl haydovchisiga",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Tramvay va avtomobil haydovchisiga",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Avtomobil haydovchisiga",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1232,18 +1270,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Автомобил ҳайдовчисига",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Автомобил ва мотоцикл ҳайдовчисига",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Трамвай ва автомобил ҳайдовчисига",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Автомобил ҳайдовчисига",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1252,18 +1290,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Водителю автомобиля",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Водителям автомобиля и мотоцикла",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Водителям трамвая и автомобиля",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Водителю автомобиля",
+                        "is_correct": false
                     }
                 ]
             }
@@ -1276,9 +1314,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_18_q_5",
-            "ticket_num": 18,
-            "order": 20
+            "global_id": "t_14_q_20",
+            "global_id2": "t_14_q_20",
+            "ticket_num": 14,
+            "order": 20,
+            "remapped_from": "t_18_q_5"
         },
         "media_url": "u160uz.webp",
         "content": {
@@ -1287,13 +1327,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Avtomobil haydovchisi",
-                        "is_correct": false
+                        "text": "Tramvay haydovchisi",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Tramvay haydovchisi",
-                        "is_correct": true
+                        "text": "Avtomobil haydovchisi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1302,13 +1342,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Автомобил ҳайдовчиси",
-                        "is_correct": false
+                        "text": "Трамвай ҳайдовчиси",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Трамвай ҳайдовчиси",
-                        "is_correct": true
+                        "text": "Автомобил ҳайдовчиси",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1331,14 +1371,16 @@
         "izoh": {
             "uz_lat": "YHQ 15-bobi 101-bandiga asosan, agar svetofor yoki tartibga soluvchining ishoralari tramvay va relssiz transport vositalariga bir vaqtda harakatlanishga ruxsat bersa, harakatlanish yo'nalishidan qat'i nazar, tramvay oldin o'tish huquqiga ega bo'ladi.",
             "uz_cyr": "YHQ 15-боби 101-бандига асосан, агар светофор ёки тартибга солувчининг ишоралари трамвай ва релссиз транспорт воситаларига бир вақтда ҳаракатланишга рухсат берса, ҳаракатланиш йўналишидан қати назар, трамвай олдин ўтиш ҳуқуқига эга бўлади.",
-            "ru": "Согласно статье 101 главы 15 Закона о дорожном движении, если светофор или сигнал контролера разрешают одновременное движение трамваев и нерельсовых транспортных средств, трамвай имеет преимущество независимо от направления движения."
+            "ru": "Согласно статье 101 главы 15 ПДД, если светофор или сигнал контролера разрешают одновременное движение трамваев и нерельсовых транспортных средств, трамвай имеет преимущество независимо от направления движения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_19_q_15",
-            "ticket_num": 19,
-            "order": 21
+            "global_id": "t_52_q_16",
+            "global_id2": "t_52_q_16",
+            "ticket_num": 52,
+            "order": 21,
+            "remapped_from": "t_19_q_15"
         },
         "media_url": "u601uz.webp",
         "content": {
@@ -1347,7 +1389,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Svetoforning ruxsat ishorasini kutishi va to'g'riga o'tishi",
+                        "text": "Chapga burilish ishorasini yoqishi va o'ng qatorni bo'shatishi",
                         "is_correct": false
                     },
                     {
@@ -1357,7 +1399,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Chapga burilish ishorasini yoqishi va o'ng qatorni bo'shatishi",
+                        "text": "Svetoforning ruxsat ishorasini kutishi va to'g'riga o'tishi",
                         "is_correct": false
                     }
                 ]
@@ -1367,7 +1409,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Светофорнинг рухсат ишорасини кутиши ва тўғрига ўтиши",
+                        "text": "Чапга бурилиш ишорасини ёқиши ва ўнг қаторни бўшатиши",
                         "is_correct": false
                     },
                     {
@@ -1377,7 +1419,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Чапга бурилиш ишорасини ёқиши ва ўнг қаторни бўшатиши",
+                        "text": "Светофорнинг рухсат ишорасини кутиши ва тўғрига ўтиши",
                         "is_correct": false
                     }
                 ]
@@ -1387,17 +1429,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Дождаться разрешающего сигнала светофора и проехать прямо",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Включить указатель правого поворота и повернуть направо",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Включить указатель левого поворота и освободить правый ряд",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Дождаться разрешающего сигнала светофора и проехать прямо",
                         "is_correct": false
                     }
                 ]
@@ -1406,14 +1448,16 @@
         "izoh": {
             "uz_lat": "Yo‘naltirgich ko‘rinishidagi qizil, sariq va yashil rangli svetofor ishoralari ham doirasimon shaklidagi svetofor ishoralari bilan bir xil ma'noga ega bo‘ladi. Ular faqat ko‘rsatilgan yo‘nalishga ta'sir etadi. Agar tegishli yo‘l belgisi bilan qayrilib olish taqiqlanmagan bo‘lsa, chapga burilishga ruxsat beruvchi yo‘naltirgich qayrilib olishga ham ruxsat beradi. Qo‘shimcha tarmoqdagi yashil yo‘naltirgich ham xuddi shu ma'noni bildiradi. Svetoforning qo‘shimcha tarmoqdagi ishora o‘chirilgan bo‘lsa, shu tarmoq tartibga solayotgan yo‘nalishda harakatlanish taqiqlanganligini bildiradi.",
             "uz_cyr": "Йўналтиргич кўринишидаги қизил, сариқ ва яшил рангли светофор ишоралари ҳам доирасимон шаклидаги светофор ишоралари билан бир хил маънога эга бўлади. Улар фақат кўрсатилган йўналишга таъсир этади. Агар тегишли йўл белгиси билан қайрилиб олиш тақиқланмаган бўлса, чапга бурилишга рухсат берувчи йўналтиргич қайрилиб олишга ҳам рухсат беради. Қўшимча тармоқдаги яшил йўналтиргич ҳам худди шу маънони билдиради. Светофорнинг қўшимча тармоқдаги ишора ўчирилган бўлса, шу тармоқ тартибга солаётган йўналишда ҳаракатланиш тақиқланганлигини билдиради.",
-            "ru": "Красный, желтый и зеленый светофоры в виде указателя имеют то же значение, что и круговые светофоры. Они влияют только на указанное направление. Указатель поворота, разрешающий поворот налево, также разрешает поворот, если соответствующий дорожный знак не запрещает поворот. Зеленый роутер в дополнительной сети означает то же самое. Если сигнал в дополнительной сети светофора выключен, это означает, что движение в направлении, регулируемом этой сетью, запрещено."
+            "ru": "Красный, желтый и зеленый светофоры в виде указателя имеют то же значение, что и круговые светофоры. Они влияют только на указанное направление. Указатель поворота, разрешающий поворот налево, также разрешает поворот, если соответствующий дорожный знак не запрещает поворот. Зелёная стрелка в дополнительной секции означает то же самое. Если сигнал в дополнительной секции светофора выключен, это означает, что движение в направлении, регулируемом этой секцией, запрещено."
         }
     },
     {
         "task_info": {
-            "global_id": "t_20_q_15",
-            "ticket_num": 20,
-            "order": 22
+            "global_id": "t_41_q_4",
+            "global_id2": "t_41_q_4",
+            "ticket_num": 41,
+            "order": 22,
+            "remapped_from": "t_34_q_4"
         },
         "media_url": "u465uz.webp",
         "content": {
@@ -1422,23 +1466,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Birinchi bo'lib",
-                        "is_correct": false
+                        "text": "Oxirgi bo'lib",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Ikkinchi bo'lib",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Uchinchi bo'lib",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Birinchi bo'lib",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Oxirgi bo'lib",
-                        "is_correct": true
+                        "text": "Ikkinchi bo'lib",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1447,23 +1491,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Биринчи бўлиб",
-                        "is_correct": false
+                        "text": "Охирги бўлиб",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Иккинчи бўлиб",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Учинчи бўлиб",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Биринчи бўлиб",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Охирги бўлиб",
-                        "is_correct": true
+                        "text": "Иккинчи бўлиб",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1472,23 +1516,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Первым",
-                        "is_correct": false
+                        "text": "Последним",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Вторым",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Третьим",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Первым",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Последним",
-                        "is_correct": true
+                        "text": "Вторым",
+                        "is_correct": false
                     }
                 ]
             }
@@ -1501,9 +1545,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_23_q_5",
-            "ticket_num": 23,
-            "order": 23
+            "global_id": "t_37_q_17",
+            "global_id2": "t_37_q_17",
+            "ticket_num": 37,
+            "order": 23,
+            "remapped_from": "t_61_q_19"
         },
         "media_url": "u426uz.webp",
         "content": {
@@ -1512,17 +1558,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Tramvay, ayni vaqtda yashil avtomobil, qizil avtomobil",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Qizil avtomobil, tramvay ayni vaqtda yashil avtomobil bilan",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Tramvay, qizil, yashil avtomobillar",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Tramvay, ayni vaqtda yashil avtomobil, qizil avtomobil",
+                        "text": "Tramvay, qizil, yashil avtomobillar",
                         "is_correct": false
                     }
                 ]
@@ -1532,17 +1578,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Трамвай, айни вақтда яшил автомобил, қизил автомобил",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Қизил автомобил, трамвай айни вақтда яшил автомобил билан",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Трамвай, қизил, яшил автомобиллар",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Трамвай, айни вақтда яшил автомобил, қизил автомобил",
+                        "text": "Трамвай, қизил, яшил автомобиллар",
                         "is_correct": false
                     }
                 ]
@@ -1552,17 +1598,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Трамвай одновременно с зеленым автомобилем, красный автомобиль",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Красный автомобиль, трамвай одновременно с зеленым автомобилем",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Трамвай, красный, зеленый автомобили",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Трамвай одновременно с зеленым автомобилем, красный автомобиль",
+                        "text": "Трамвай, красный, зеленый автомобили",
                         "is_correct": false
                     }
                 ]
@@ -1571,14 +1617,16 @@
         "izoh": {
             "uz_lat": "YHQ 15-bobi 100-bandiga asosan, svetoforning taqiqlovchi qizil yoki sariq ishorasi bilan bir vaqtda yongan qo'shimcha tarmoqning ko'rsatkichli yashil ishorasi yo'nalishida harakatlanayotgan haydovchi boshqa yo'nalishlardan harakatlanayotgan transport vositalariga yo'l berishi kerak.",
             "uz_cyr": "YHQ 15-боби 100-бандига асосан, светофорнинг тақиқловчи қизил ёки сариқ ишораси билан бир вақтда ёнган қўшимча тармоқнинг кўрсаткичли яшил ишораси йўналишида ҳаракатланаётган ҳайдовчи бошқа йўналишлардан ҳаракатланаётган транспорт воситаларига йўл бериши керак.",
-            "ru": "Согласно главе 15, пункту 100 ПДД, водитель, движущийся в направлении зеленого сигнала дополнительной сети, горящего одновременно с запрещающим красным или желтым сигналом светофора, обязан уступить дорогу транспортным средствам, движущимся с других направлений."
+            "ru": "Согласно главе 15, пункту 100 ПДД, водитель, движущийся в направлении зеленого сигнала дополнительной секции, горящего одновременно с запрещающим красным или желтым сигналом светофора, обязан уступить дорогу транспортным средствам, движущимся с других направлений."
         }
     },
     {
         "task_info": {
-            "global_id": "t_28_q_15",
-            "ticket_num": 28,
-            "order": 24
+            "global_id": "t_27_q_14",
+            "global_id2": "t_27_q_14",
+            "ticket_num": 27,
+            "order": 24,
+            "remapped_from": "t_28_q_13"
         },
         "media_url": "u303uz.webp",
         "content": {
@@ -1587,13 +1635,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Birinchi bo'lib",
-                        "is_correct": true
+                        "text": "Ikkinchi bo'lib",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Ikkinchi bo'lib",
-                        "is_correct": false
+                        "text": "Birinchi bo'lib",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1602,28 +1650,28 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Биринчи бўлиб",
-                        "is_correct": true
+                        "text": "Иккинчи бўлиб",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Иккинчи бўлиб",
-                        "is_correct": false
+                        "text": "Биринчи бўлиб",
+                        "is_correct": true
                     }
                 ]
             },
             "ru": {
-                "text": "Красный автомобиль проедет перекрёсток",
+                "text": "Автомобили проедут перекрёсток в следующем порядке:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Первым",
-                        "is_correct": true
+                        "text": "Вторым",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Вторым",
-                        "is_correct": false
+                        "text": "Первым",
+                        "is_correct": true
                     }
                 ]
             }
@@ -1636,9 +1684,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_29_q_5",
-            "ticket_num": 29,
-            "order": 25
+            "global_id": "t_61_q_5",
+            "global_id2": "t_61_q_5",
+            "ticket_num": 61,
+            "order": 25,
+            "remapped_from": "t_29_q_5"
         },
         "media_url": "u691uz.webp",
         "content": {
@@ -1647,13 +1697,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yo'l berishi kerak",
-                        "is_correct": true
+                        "text": "Birinchi galda harakatlanishga ustunlikka ega",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Birinchi galda harakatlanishga ustunlikka ega",
-                        "is_correct": false
+                        "text": "Yo'l berishi kerak",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1662,13 +1712,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Йўл бериши керак",
-                        "is_correct": true
+                        "text": "Биринчи галда ҳаракатланишга устунликка эга",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Биринчи галда ҳаракатланишга устунликка эга",
-                        "is_correct": false
+                        "text": "Йўл бериши керак",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1677,13 +1727,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Должен уступить дорогу",
-                        "is_correct": true
+                        "text": "Имеет преимущество на первоочередное движение",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Имеет преимущество на первоочередное движение",
-                        "is_correct": false
+                        "text": "Должен уступить дорогу",
+                        "is_correct": true
                     }
                 ]
             }
@@ -1691,19 +1741,21 @@
         "izoh": {
             "uz_lat": "YHQ 15-bobi 100-bandiga asosan, svetoforning taqiqlovchi qizil yoki sariq ishorasi bilan bir vaqtda yongan qo'shimcha tarmoqning ko'rsatkichli yashil ishorasi yo'nalishida harakatlanayotgan haydovchi boshqa yo'nalishlardan harakatlanayotgan transport vositalariga yo'l berishi kerak.",
             "uz_cyr": "YHQ 15-боби 100-бандига асосан, светофорнинг тақиқловчи қизил ёки сариқ ишораси билан бир вақтда ёнган қўшимча тармоқнинг кўрсаткичли яшил ишораси йўналишида ҳаракатланаётган ҳайдовчи бошқа йўналишлардан ҳаракатланаётган транспорт воситаларига йўл бериши керак.",
-            "ru": "Согласно главе 15, пункту 100 ПДД, водитель, движущийся в направлении зеленого сигнала дополнительной сети, горящего одновременно с запрещающим красным или желтым сигналом светофора, обязан уступить дорогу транспортным средствам, движущимся с других направлений."
+            "ru": "Согласно главе 15, пункту 100 ПДД, водитель, движущийся в направлении зеленого сигнала дополнительной секции, горящего одновременно с запрещающим красным или желтым сигналом светофора, обязан уступить дорогу транспортным средствам, движущимся с других направлений."
         }
     },
     {
         "task_info": {
-            "global_id": "t_29_q_15",
-            "ticket_num": 29,
-            "order": 26
+            "global_id": "t_25_q_18",
+            "global_id2": "t_25_q_18",
+            "ticket_num": 25,
+            "order": 26,
+            "remapped_from": "t_29_q_15"
         },
-        "media_url": "u698uz.webp",
+        "media_url": "u279uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Chorrahani birinchi bo'lib kesib o'tadi",
+                "text": "Chorrahani birinchi bo'lib kesib o'tadi?",
                 "options": [
                     {
                         "id": 1,
@@ -1712,18 +1764,18 @@
                     },
                     {
                         "id": 2,
-                        "text": "Ko'k avtomobil",
-                        "is_correct": false
+                        "text": "Yashil avtomobil",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Yashil avtomobil",
-                        "is_correct": true
+                        "text": "Ko'k avtomobil",
+                        "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Чорраҳани биринчи бўлиб кесиб ўтади",
+                "text": "Чорраҳани биринчи бўлиб кесиб ўтади?",
                 "options": [
                     {
                         "id": 1,
@@ -1732,27 +1784,27 @@
                     },
                     {
                         "id": 2,
-                        "text": "Кўк автомобил",
-                        "is_correct": false
+                        "text": "Яшил автомобил",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Яшил автомобил",
-                        "is_correct": true
+                        "text": "Кўк автомобил",
+                        "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "Первым проедет перекрёсток:",
+                "text": "Кто первым пересекает перекрёсток?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Красный автомобиль",
+                        "text": "Синий автомобиль",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Синий автомобиль",
+                        "text": "Красный автомобиль",
                         "is_correct": false
                     },
                     {
@@ -1766,14 +1818,16 @@
         "izoh": {
             "uz_lat": "YHQ 15-bobi 100-bandiga asosan, svetoforning taqiqlovchi qizil yoki sariq ishorasi bilan bir vaqtda yongan qo'shimcha tarmoqning ko'rsatkichli yashil ishorasi yo'nalishida harakatlanayotgan haydovchi boshqa yo'nalishlardan harakatlanayotgan transport vositalariga yo'l berishi kerak.",
             "uz_cyr": "YHQ 15-боби 100-бандига асосан, светофорнинг тақиқловчи қизил ёки сариқ ишораси билан бир вақтда ёнган қўшимча тармоқнинг кўрсаткичли яшил ишораси йўналишида ҳаракатланаётган ҳайдовчи бошқа йўналишлардан ҳаракатланаётган транспорт воситаларига йўл бериши керак.",
-            "ru": "Согласно главе 15, пункту 100 ПДД, водитель, движущийся в направлении зеленого сигнала дополнительной сети, горящего одновременно с запрещающим красным или желтым сигналом светофора, обязан уступить дорогу транспортным средствам, движущимся с других направлений."
+            "ru": "Согласно главе 15, пункту 100 ПДД, водитель, движущийся в направлении зеленого сигнала дополнительной секции, горящего одновременно с запрещающим красным или желтым сигналом светофора, обязан уступить дорогу транспортным средствам, движущимся с других направлений."
         }
     },
     {
         "task_info": {
-            "global_id": "t_31_q_5",
-            "ticket_num": 31,
-            "order": 27
+            "global_id": "t_3_q_12",
+            "global_id2": "t_3_q_12",
+            "ticket_num": 3,
+            "order": 27,
+            "remapped_from": "t_31_q_5"
         },
         "media_url": "u24uz.webp",
         "content": {
@@ -1782,18 +1836,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Asosiy yo'l bo'yicha chorrahaga chiqayotgan avtobusning haydovchisi",
+                        "text": "Svetoforning ruxsat etuvchi ishorasida chorrahaga chiqqan avtobus haydovchisi",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Chorrahada qayrilishni tugallayotgan yengil avtomobilning haydovchisi",
-                        "is_correct": true
+                        "text": "Asosiy yo'l bo'yicha chorrahaga chiqayotgan avtobusning haydovchisi",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Svetoforning ruxsat etuvchi ishorasida chorrahaga chiqqan avtobus haydovchisi",
-                        "is_correct": false
+                        "text": "Chorrahada qayrilishni tugallayotgan yengil avtomobilning haydovchisi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1802,18 +1856,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Асосий йўл бўйича чорраҳага чиқаётган автобуснинг ҳайдовчиси",
+                        "text": "Светофорнинг рухсат этувчи ишорасида чорраҳага чиққан автобус ҳайдовчиси",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Чорраҳада қайрилишни тугаллаётган енгил автомобилнинг ҳайдовчиси",
-                        "is_correct": true
+                        "text": "Асосий йўл бўйича чорраҳага чиқаётган автобуснинг ҳайдовчиси",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Светофорнинг рухсат этувчи ишорасида чорраҳага чиққан автобус ҳайдовчиси",
-                        "is_correct": false
+                        "text": "Чорраҳада қайрилишни тугаллаётган енгил автомобилнинг ҳайдовчиси",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1822,18 +1876,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Водитель автобуса, выезжающий на перекрёсток по главной дороге",
+                        "text": "Водитель автобуса, выезжающий на перекрёсток при разрешающем сигнале светофора",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Водитель легкого автомобиля, завершающий на перекрёстке разворот",
-                        "is_correct": true
+                        "text": "Водитель автобуса, выезжающий на перекрёсток по главной дороге",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Водитель автобуса, выезжающий на перекрёсток при разрешающем сигнале светофора",
-                        "is_correct": false
+                        "text": "Водитель легкого автомобиля, завершающий на перекрёстке разворот",
+                        "is_correct": true
                     }
                 ]
             }
@@ -1846,9 +1900,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_32_q_15",
-            "ticket_num": 32,
-            "order": 28
+            "global_id": "t_13_q_19",
+            "global_id2": "t_13_q_19",
+            "ticket_num": 13,
+            "order": 28,
+            "remapped_from": "t_32_q_13"
         },
         "media_url": "u149uz.webp",
         "content": {
@@ -1857,13 +1913,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Qizilda",
-                        "is_correct": false
+                        "text": "Yashilda",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Yashilda",
-                        "is_correct": true
+                        "text": "Qizilda",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1877,13 +1933,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Қизилда",
-                        "is_correct": false
+                        "text": "Яшилда",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Яшилда",
-                        "is_correct": true
+                        "text": "Қизилда",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1897,13 +1953,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "При красном",
-                        "is_correct": false
+                        "text": "При зеленом",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "При зеленом",
-                        "is_correct": true
+                        "text": "При красном",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1916,24 +1972,26 @@
         "izoh": {
             "uz_lat": "YHQ 15-bobi 102-bandiga muvofiq, svetoforning ruxsat etuvchi ishorasida chorrahaga kirgan haydovchi undan chiqishda svetofor ishoralaridan qat'i nazar, mo'ljallangan yo'nalishda harakatlanishni davom ettirishi kerak. Biroq chorrahada haydovchining harakatlanish yo'lida joylashgan svetoforlar oldida to'xtash chiziqlari (yoki 5.33 yo'l belgisi) bo'lsa, u har bir svetofor ishoralariga amal qilishi shart.",
             "uz_cyr": "YHQ 15-боби 102-бандига мувофиқ, светофорнинг рухсат этувчи ишорасида чорраҳага кирган ҳайдовчи ундан чиқишда светофор ишораларидан қати назар, мўлжалланган йўналишда ҳаракатланишни давом эттириши керак. Бироқ чорраҳада ҳайдовчининг ҳаракатланиш йўлида жойлашган светофорлар олдида тўхташ чизиқлари (ёки 5.33 йўл белгиси) бўлса, у ҳар бир светофор ишораларига амал қилиши шарт.",
-            "ru": "В соответствии с главой 15, пунктом 102 ГПК водитель, выехавший на перекресток с разрешительным сигналом светофора, обязан продолжать движение в заданном направлении независимо от сигналов светофора при выезде с него. Однако при наличии стоп-линий (или дорожных знаков 5.33) перед светофором, расположенным на пути движения водителя на перекрестке, он должен следовать знакам каждого светофора."
+            "ru": "В соответствии с главой 15, пунктом 102 ПДД водитель, выехавший на перекресток с разрешительным сигналом светофора, обязан продолжать движение в заданном направлении независимо от сигналов светофора при выезде с него. Однако при наличии стоп-линий (или дорожных знаков 5.33) перед светофором, расположенным на пути движения водителя на перекрестке, он должен следовать знакам каждого светофора."
         }
     },
     {
         "task_info": {
-            "global_id": "t_41_q_5",
-            "ticket_num": 41,
-            "order": 29
+            "global_id": "t_34_q_15",
+            "global_id2": "t_34_q_15",
+            "ticket_num": 34,
+            "order": 29,
+            "remapped_from": "t_41_q_5"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Svetaforning qizil yoki sariq ishorasi bilan bir vaqtda yongan qo'shimcha tarmoqning yo'naltirgichi yashil ishorasi yo'nalishida harakatlanayotgan transport vositasining haydovchisi kimga yo'l berishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Boshqa yo'nalishlarda harakatlanayotgan transport vositalariga",
-                        "is_correct": true
+                        "text": "Qarama qarshi yo'nalishda to'g'riga yoki o'ngga harakatlanayotgan transport vositalariga",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -1942,8 +2000,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Qarama qarshi yo'nalishda to'g'riga yoki o'ngga harakatlanayotgan transport vositalariga",
-                        "is_correct": false
+                        "text": "Boshqa yo'nalishlarda harakatlanayotgan transport vositalariga",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1952,8 +2010,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Бошқа йўналишларда ҳаракатланаётган транспорт воситаларига",
-                        "is_correct": true
+                        "text": "Қарама қарши йўналишда тўғрига ёки ўнгга ҳаракатланаётган транспорт воситаларига",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -1962,8 +2020,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Қарама қарши йўналишда тўғрига ёки ўнгга ҳаракатланаётган транспорт воситаларига",
-                        "is_correct": false
+                        "text": "Бошқа йўналишларда ҳаракатланаётган транспорт воситаларига",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1972,8 +2030,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Должен уступать дорогу транспортным средствам, движущимся с других направлений.",
-                        "is_correct": true
+                        "text": "Транспортным средствам, движущимся во встречном направлении направо или прямо.",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -1982,8 +2040,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Транспортным средствам, движущимся во встречном направлении направо или прямо.",
-                        "is_correct": false
+                        "text": "Должен уступать дорогу транспортным средствам, движущимся с других направлений.",
+                        "is_correct": true
                     }
                 ]
             }
@@ -1991,14 +2049,16 @@
         "izoh": {
             "uz_lat": "Yo‘l harakati qoidalarining 100 bandiga asosan, Svetoforning taqiqlovchi qizil yoki sariq ishorasi bilan bir vaqtda yongan qo‘shimcha tarmoqning ko‘rsatkichli yashil ishorasi yo‘nalishida harakatlanayotgan haydovchi boshqa yo‘nalishlardan harakatlanayotgan transport vositalariga yo‘l berishi kerak.",
             "uz_cyr": "Йўл ҳаракати қоидаларининг 100 бандига асосан, Светофорнинг тақиқловчи қизил ёки сариқ ишораси билан бир вақтда ёнган қўшимча тармоқнинг кўрсаткичли яшил ишораси йўналишида ҳаракатланаётган ҳайдовчи бошқа йўналишлардан ҳаракатланаётган транспорт воситаларига йўл бериши керак.",
-            "ru": "Согласно статье 100 Правил дорожного движения водитель, движущийся в направлении зеленого сигнала дополнительной сети, горящего одновременно с запрещающим красным или желтым сигналом светофора, обязан уступить дорогу транспортным средствам, движущимся с других направлений."
+            "ru": "Согласно статье 100 Правил дорожного движения водитель, движущийся в направлении зеленого сигнала дополнительной секции, горящего одновременно с запрещающим красным или желтым сигналом светофора, обязан уступить дорогу транспортным средствам, движущимся с других направлений."
         }
     },
     {
         "task_info": {
-            "global_id": "t_46_q_5",
-            "ticket_num": 46,
-            "order": 30
+            "global_id": "t_19_q_2",
+            "global_id2": "t_19_q_2",
+            "ticket_num": 19,
+            "order": 30,
+            "remapped_from": "t_46_q_5"
         },
         "media_url": "u208uz.webp",
         "content": {
@@ -2037,13 +2097,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Вы можете продолжать движение, не останавливаясь",
-                        "is_correct": false
+                        "text": "Вы должны остановиться перед знаком и дождаться разрешающего сигнала светофора",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Вы должны остановиться перед знаком и дождаться разрешающего сигнала светофора",
-                        "is_correct": true
+                        "text": "Вы можете продолжать движение, не останавливаясь",
+                        "is_correct": false
                     }
                 ]
             }
@@ -2051,14 +2111,16 @@
         "izoh": {
             "uz_lat": "YHQ 15-bobi 102-bandiga muvofiq, svetoforning ruxsat etuvchi ishorasida chorrahaga kirgan haydovchi undan chiqishda svetofor ishoralaridan qat'i nazar, mo'ljallangan yo'nalishda harakatlanishni davom ettirishi kerak. Biroq chorrahada haydovchining harakatlanish yo'lida joylashgan svetoforlar oldida to'xtash chiziqlari (yoki 5.33 yo'l belgisi) bo'lsa, u har bir svetofor ishoralariga amal qilishi shart.",
             "uz_cyr": "YHQ 15-боби 102-бандига мувофиқ, светофорнинг рухсат этувчи ишорасида чорраҳага кирган ҳайдовчи ундан чиқишда светофор ишораларидан қати назар, мўлжалланган йўналишда ҳаракатланишни давом эттириши керак. Бироқ чорраҳада ҳайдовчининг ҳаракатланиш йўлида жойлашган светофорлар олдида тўхташ чизиқлари (ёки 5.33 йўл белгиси) бўлса, у ҳар бир светофор ишораларига амал қилиши шарт.",
-            "ru": "В соответствии с главой 15, пунктом 102 ГПК водитель, выехавший на перекресток с разрешительным сигналом светофора, обязан продолжать движение в заданном направлении независимо от сигналов светофора при выезде с него. Однако при наличии стоп-линий (или дорожных знаков 5.33) перед светофором, расположенным на пути движения водителя на перекрестке, он должен следовать знакам каждого светофора."
+            "ru": "В соответствии с главой 15, пунктом 102 ПДД водитель, выехавший на перекресток с разрешительным сигналом светофора, обязан продолжать движение в заданном направлении независимо от сигналов светофора при выезде с него. Однако при наличии стоп-линий (или дорожных знаков 5.33) перед светофором, расположенным на пути движения водителя на перекрестке, он должен следовать знакам каждого светофора."
         }
     },
     {
         "task_info": {
-            "global_id": "t_50_q_15",
-            "ticket_num": 50,
-            "order": 31
+            "global_id": "t_51_q_20",
+            "global_id2": "t_51_q_20",
+            "ticket_num": 51,
+            "order": 31,
+            "remapped_from": "t_50_q_13"
         },
         "media_url": "u589uz.webp",
         "content": {
@@ -2072,13 +2134,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Yashil avtomobil",
-                        "is_correct": false
+                        "text": "Yashil avtomobil tramvay bilan bir vaqtda",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Yashil avtomobil tramvay bilan bir vaqtda",
-                        "is_correct": true
+                        "text": "Yashil avtomobil",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2092,13 +2154,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Яшил автомобил",
-                        "is_correct": false
+                        "text": "Яшил автомобил трамвай билан бир вақтда",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Яшил автомобил трамвай билан бир вақтда",
-                        "is_correct": true
+                        "text": "Яшил автомобил",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2107,18 +2169,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Красный автомобил",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Зеленый автомобиль",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Зеленый автомобиль одновременно с трамваем",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Красный автомобил",
+                        "is_correct": false
                     }
                 ]
             }
@@ -2126,14 +2188,16 @@
         "izoh": {
             "uz_lat": "Yo‘l harakati qoidalarining 100 bandiga asosan, svetoforning taqiqlovchi qizil yoki sariq ishorasi bilan bir vaqtda yongan qo‘shimcha tarmoqning ko‘rsatkichli yashil ishorasi yo‘nalishida harakatlanayotgan haydovchi boshqa yo‘nalishlardan harakatlanayotgan transport vositalariga yo‘l berishi kerak.\r\nYo‘l harakati qoidalarining 101 bandiga asosan, agar svetofor yoki tartibga soluvchining ishoralari tramvay va relssiz transport vositalariga bir vaqtda harakatlanishga ruxsat bersa, harakatlanish yo‘nalishidan qat’i nazar, tramvay oldin o‘tish huquqiga ega bo‘ladi.\r\nSvetoforning qizil yoki sariq ishorasi bilan bir vaqtda yongan qo‘shimcha tarmog‘ining yo‘naltirgichli yashil ishorasi yo‘nalishida harakatlanayotgan tramvay boshqa yo‘nalishlarda harakatlanayotgan transport vositalariga yo‘l berishi kerak.",
             "uz_cyr": "Йўл ҳаракати қоидаларининг 100 бандига асосан, светофорнинг тақиқловчи қизил ёки сариқ ишораси билан бир вақтда ёнган қўшимча тармоқнинг кўрсаткичли яшил ишораси йўналишида ҳаракатланаётган ҳайдовчи бошқа йўналишлардан ҳаракатланаётган транспорт воситаларига йўл бериши керак.\r\nЙўл ҳаракати қоидаларининг 101 бандига асосан, агар светофор ёки тартибга солувчининг ишоралари трамвай ва релссиз транспорт воситаларига бир вақтда ҳаракатланишга рухсат берса, ҳаракатланиш йўналишидан қати назар, трамвай олдин ўтиш ҳуқуқига эга бўлади.\r\nСветофорнинг қизил ёки сариқ ишораси билан бир вақтда ёнган қўшимча тармоғининг йўналтиргичли яшил ишораси йўналишида ҳаракатланаётган трамвай бошқа йўналишларда ҳаракатланаётган транспорт воситаларига йўл бериши керак.",
-            "ru": "Согласно статье 100 Правил дорожного движения водитель, движущийся в направлении зеленого сигнала дополнительной сети, горящего одновременно с запрещающим красным или желтым сигналом светофора, обязан уступить дорогу транспортным средствам, движущимся с других направлений. \r\nСогласно статье 101 Правил дорожного движения, если светофор или сигнал регулятора разрешают одновременное движение трамвая и безрельсового транспорта, трамвай имеет преимущество независимо от направления движения. \r\nТрамвай, движущийся в направлении красного или желтого сигнала дополнительной сети с направляющим светом, должен уступить дорогу транспортным средствам, движущимся в других направлениях."
+            "ru": "Согласно статье 100 Правил дорожного движения водитель, движущийся в направлении зеленого сигнала дополнительной секции, горящего одновременно с запрещающим красным или желтым сигналом светофора, обязан уступить дорогу транспортным средствам, движущимся с других направлений. \r\nСогласно статье 101 Правил дорожного движения, если светофор или сигнал регулятора разрешают одновременное движение трамвая и безрельсового транспорта, трамвай имеет преимущество независимо от направления движения. \r\nТрамвай, движущийся в направлении красного или желтого сигнала дополнительной секции с направляющим светом, должен уступить дорогу транспортным средствам, движущимся в других направлениях."
         }
     },
     {
         "task_info": {
-            "global_id": "t_52_q_12",
-            "ticket_num": 52,
-            "order": 32
+            "global_id": "t_16_q_16",
+            "global_id2": "t_16_q_16",
+            "ticket_num": 16,
+            "order": 32,
+            "remapped_from": "t_52_q_11"
         },
         "media_url": "u179uz.webp",
         "content": {
@@ -2206,14 +2270,16 @@
     },
     {
         "task_info": {
-            "global_id": "t_58_q_2",
-            "ticket_num": 58,
-            "order": 33
+            "global_id": "t_3_q_17",
+            "global_id2": "t_3_q_17",
+            "ticket_num": 3,
+            "order": 33,
+            "remapped_from": "t_58_q_2"
         },
         "media_url": "u27uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Qizil avtomobil kimga yo‘l berishi kerak?",
+                "text": "Qizil avtomobil kimga yo'l berishi kerak?",
                 "options": [
                     {
                         "id": 1,
@@ -2276,14 +2342,16 @@
         "izoh": {
             "uz_lat": "\"YHQning 16-bob. 104-band 1-xatboshi hamda YHQga 1-ILOVA 2.3.1 bandiga asosan: 104. Teng ahamiyatga ega bo‘lmagan yo‘llar kesishgan chorrahada ikkinchi darajali yo‘ldan harakatlanayotgan transport vositasining haydovchisi asosiy yo‘ldan yaqinlashayotgan transport vositalariga ularning keyingi harakatlanish yo‘nalishidan qat’iy nazar, yo‘l berishi kerak.\r\n2.3.1. «Ikkinchi darajali yo‘l bilan kesishuv».\"",
             "uz_cyr": "\"YHQнинг 16-боб. 104-банд 1-хатбоши ҳамда YHQга 1-ИЛОВА 2.3.1 бандига асосан: 104. Тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада иккинчи даражали йўлдан ҳаракатланаётган транспорт воситасининг ҳайдовчиси асосий йўлдан яқинлашаётган транспорт воситаларига уларнинг кейинги ҳаракатланиш йўналишидан қатий назар, йўл бериши керак.\r\n2.3.1. «Иккинчи даражали йўл билан кесишув».\"",
-            "ru": "Согласно «Глава 16. Статья 104, пункт 1, и ПРИЛОЖЕНИЕ 1 к Конституции, пункт 2.3.1: 104. Водитель транспортного средства, движущегося по второстепенной дороге, на пересечении дорог неравнозначного значения обязан уступить дорогу транспортным средствам, приближающимся с главной дороги, независимо от направления их дальнейшего движения.\r\n2.3.1. «Пересечение с второстепенной дорогой»."
+            "ru": "Согласно «Глава 16. Статья 104, пункт 1, и ПРИЛОЖЕНИЕ 1 к ПДД, пункт 2.3.1: 104. Водитель транспортного средства, движущегося по второстепенной дороге, на пересечении дорог неравнозначного значения обязан уступить дорогу транспортным средствам, приближающимся с главной дороги, независимо от направления их дальнейшего движения.\r\n2.3.1. «Пересечение с второстепенной дорогой»."
         }
     },
     {
         "task_info": {
-            "global_id": "t_8_q_5",
-            "ticket_num": 8,
-            "order": 34
+            "global_id": "t_59_q_5",
+            "global_id2": "t_59_q_5",
+            "ticket_num": 59,
+            "order": 34,
+            "remapped_from": "t_8_q_5"
         },
         "media_url": "u674uz.webp",
         "content": {
@@ -2292,17 +2360,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Qizil; yashil; ko'k sariq bilan bir vaqtda",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Qizil; ko'k sariq bilan bir vaqtda; yashil",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Sariq yashil bilan bir vaqtda; qizil; ko'k",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Qizil; yashil; ko'k sariq bilan bir vaqtda",
+                        "text": "Sariq yashil bilan bir vaqtda; qizil; ko'k",
                         "is_correct": false
                     }
                 ]
@@ -2312,17 +2380,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Қизил; яшил; кўк сариқ билан бир вақтда",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Қизил; кўк сариқ билан бир вақтда; яшил",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Сариқ яшил билан бир вақтда; қизил; кўк",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "Қизил; яшил; кўк сариқ билан бир вақтда",
+                        "text": "Сариқ яшил билан бир вақтда; қизил; кўк",
                         "is_correct": false
                     }
                 ]
@@ -2332,17 +2400,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Красный, синий одновременно с желтым, зеленый",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Желтый одновременно с зеленым, красный, синий",
+                        "text": "Красный; зелёный; синий одновременно с жёлтым",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Красный; синий одновременно с жёлтым; зелёный",
+                        "is_correct": true
+                    },
+                    {
                         "id": 3,
-                        "text": "Красный, зеленый, синий одновременно с желтым",
+                        "text": "Жёлтый одновременно с зелёным; красный; синий",
                         "is_correct": false
                     }
                 ]
@@ -2356,9 +2424,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_8_q_15",
-            "ticket_num": 8,
-            "order": 35
+            "global_id": "t_12_q_18",
+            "global_id2": "t_12_q_18",
+            "ticket_num": 12,
+            "order": 35,
+            "remapped_from": "t_8_q_15"
         },
         "media_url": "u134uz.webp",
         "content": {
@@ -2407,8 +2477,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Зеленый автомобиль одновременно с желтым",
-                        "is_correct": false
+                        "text": "Синий автомобиль одновременно с желтым",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -2417,8 +2487,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Синий автомобиль одновременно с желтым",
-                        "is_correct": true
+                        "text": "Зеленый автомобиль одновременно с желтым",
+                        "is_correct": false
                     }
                 ]
             }
@@ -2431,9 +2501,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_9_q_5",
-            "ticket_num": 9,
-            "order": 36
+            "global_id": "t_43_q_14",
+            "global_id2": "t_43_q_14",
+            "ticket_num": 43,
+            "order": 36,
+            "remapped_from": "t_9_q_5"
         },
         "media_url": "u498uz.webp",
         "content": {
@@ -2442,17 +2514,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Oq avtomobil sariq bilan bir vaqtda",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Qizil avtomobil",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Yashil avtomobil",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Oq avtomobil sariq bilan bir vaqtda",
                         "is_correct": false
                     }
                 ]
@@ -2462,17 +2534,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Оқ автомобил сариқ билан бир вақтда",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Қизил автомобил",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Яшил автомобил",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Оқ автомобил сариқ билан бир вақтда",
                         "is_correct": false
                     }
                 ]
@@ -2482,7 +2554,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Белый автомобиль одновременно с желтым",
+                        "text": "Зеленый автомобиль",
                         "is_correct": false
                     },
                     {
@@ -2492,7 +2564,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Зеленый автомобиль",
+                        "text": "Белый автомобиль одновременно с желтым",
                         "is_correct": false
                     }
                 ]
@@ -2506,9 +2578,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_9_q_15",
-            "ticket_num": 9,
-            "order": 37
+            "global_id": "t_21_q_6",
+            "global_id2": "t_21_q_6",
+            "ticket_num": 21,
+            "order": 37,
+            "remapped_from": "t_9_q_15"
         },
         "media_url": "u231uz.webp",
         "content": {
@@ -2517,8 +2591,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ko'k avtomobil",
-                        "is_correct": false
+                        "text": "Yashil avtomobil",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -2527,8 +2601,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Yashil avtomobil",
-                        "is_correct": true
+                        "text": "Ko'k avtomobil",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
@@ -2542,8 +2616,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Кўк автомобил",
-                        "is_correct": false
+                        "text": "Яшил автомобил",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -2552,8 +2626,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Яшил автомобил",
-                        "is_correct": true
+                        "text": "Кўк автомобил",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
@@ -2572,18 +2646,18 @@
                     },
                     {
                         "id": 2,
-                        "text": "Желтый автомобиль",
+                        "text": "Красный автомобиль",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Зеленый автомобиль",
-                        "is_correct": true
+                        "text": "Желтый автомобиль",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Красный автомобиль",
-                        "is_correct": false
+                        "text": "Зеленый автомобиль",
+                        "is_correct": true
                     }
                 ]
             }
@@ -2596,9 +2670,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_10_q_5",
-            "ticket_num": 10,
-            "order": 38
+            "global_id": "t_41_q_15",
+            "global_id2": "t_41_q_15",
+            "ticket_num": 41,
+            "order": 38,
+            "remapped_from": "t_10_q_5"
         },
         "media_url": "u471uz.webp",
         "content": {
@@ -2607,12 +2683,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yashil avtomobil",
+                        "text": "Sariq avtomobil",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Ko'k avtomobil",
+                        "text": "Yashil avtomobil",
                         "is_correct": false
                     },
                     {
@@ -2622,7 +2698,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Sariq avtomobil",
+                        "text": "Ko'k avtomobil",
                         "is_correct": false
                     }
                 ]
@@ -2632,12 +2708,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Яшил автомобил",
+                        "text": "Сариқ автомобил",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Кўк автомобил",
+                        "text": "Яшил автомобил",
                         "is_correct": false
                     },
                     {
@@ -2647,7 +2723,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Сариқ автомобил",
+                        "text": "Кўк автомобил",
                         "is_correct": false
                     }
                 ]
@@ -2657,23 +2733,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Зеленый автомобиль",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Синий автомобиль",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Желтый автомобиль",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Красный автомобиль",
-                        "is_correct": true
+                        "text": "Зеленый автомобиль",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Желтый автомобиль",
-                        "is_correct": false
+                        "text": "Красный автомобиль",
+                        "is_correct": true
                     }
                 ]
             }
@@ -2686,9 +2762,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_15_q_14",
-            "ticket_num": 15,
-            "order": 39
+            "global_id": "t_34_q_14",
+            "global_id2": "t_34_q_14",
+            "ticket_num": 34,
+            "order": 39,
+            "remapped_from": "t_15_q_12"
         },
         "media_url": "u393uz.webp",
         "content": {
@@ -2697,12 +2775,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ko'k avtomobil",
+                        "text": "Sariq avtomobil",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Sariq avtomobil",
+                        "text": "Ko'k avtomobil",
                         "is_correct": false
                     },
                     {
@@ -2717,12 +2795,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Кўк автомобил",
+                        "text": "Сариқ автомобил",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Сариқ автомобил",
+                        "text": "Кўк автомобил",
                         "is_correct": false
                     },
                     {
@@ -2761,9 +2839,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_19_q_14",
-            "ticket_num": 19,
-            "order": 40
+            "global_id": "t_57_q_17",
+            "global_id2": "t_57_q_17",
+            "ticket_num": 57,
+            "order": 40,
+            "remapped_from": "t_35_q_5"
         },
         "media_url": "u661uz.webp",
         "content": {
@@ -2772,12 +2852,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yengil avtomobil, avtobus, velosiped",
+                        "text": "Avtobus, velosiped, yengil avtomobil",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Avtobus, velosiped, yengil avtomobil",
+                        "text": "yengil avtomobil, avtobus, velosiped",
                         "is_correct": false
                     },
                     {
@@ -2797,12 +2877,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Енгил автомобил, автобус, велосипед",
+                        "text": "Автобус, велосипед, енгил автомобил",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Автобус, велосипед, енгил автомобил",
+                        "text": "Енгил автомобил, автобус, велосипед",
                         "is_correct": false
                     },
                     {
@@ -2822,12 +2902,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Легковой автомобиль, автобус, велосипед",
+                        "text": "Автобус, велосипед, легковой автомобиль",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Автобус, велосипед, легковой автомобиль",
+                        "text": "Легковой автомобиль, автобус, велосипед",
                         "is_correct": false
                     },
                     {
@@ -2851,9 +2931,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_21_q_4",
-            "ticket_num": 21,
-            "order": 41
+            "global_id": "t_35_q_6",
+            "global_id2": "t_35_q_6",
+            "ticket_num": 35,
+            "order": 41,
+            "remapped_from": "t_27_q_4"
         },
         "media_url": "u399uz.webp",
         "content": {
@@ -2862,18 +2944,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Tramvay, avtomobil va avtobus bir vaqtda",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Tramvay, avtobus, avtomobil",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Avtobus, tramvay, avtomobil",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Tramvay, avtomobil va avtobus bir vaqtda",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2882,18 +2964,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Трамвай, автомобил ва автобус бир вақтда",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Трамвай, автобус, автомобил",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Автобус, трамвай, автомобил",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Трамвай, автомобил ва автобус бир вақтда",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2902,18 +2984,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Трамвай, автомобиль и автобус одновременно",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Трамвай, автобус, автомобиль",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Автобус, трамвай, автомобиль",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Трамвай, автомобиль и автобус одновременно",
+                        "is_correct": true
                     }
                 ]
             }
@@ -2926,9 +3008,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_22_q_17",
-            "ticket_num": 22,
-            "order": 42
+            "global_id": "t_29_q_18",
+            "global_id2": "t_29_q_18",
+            "ticket_num": 29,
+            "order": 42,
+            "remapped_from": "t_22_q_17"
         },
         "media_url": "u334uz.webp",
         "content": {
@@ -3001,9 +3085,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_27_q_4",
-            "ticket_num": 27,
-            "order": 43
+            "global_id": "t_60_q_4",
+            "global_id2": "t_60_q_4",
+            "ticket_num": 60,
+            "order": 43,
+            "remapped_from": "t_64_q_15"
         },
         "media_url": "u679uz.webp",
         "content": {
@@ -3012,13 +3098,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yashil avtomobil ayni vaqtda 2-tramvay bilan; 1-tramvay, ko'k, sariq, qizil avtomobillar",
-                        "is_correct": false
+                        "text": "1- va 2-tramvaylar ayni vaqtda sariq avtomobil bilan, yashil, ko'k, qizil avtomobillar",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "1- va 2-tramvaylar ayni vaqtda sariq avtomobil bilan, yashil, ko'k, qizil avtomobillar",
-                        "is_correct": true
+                        "text": "Yashil avtomobil ayni vaqtda 2-tramvay bilan; 1-tramvay, ko'k, sariq, qizil avtomobillar",
+                        "is_correct": false
                     }
                 ]
             },
@@ -3027,13 +3113,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Яшил автомобил айни вақтда 2-трамвай билан; 1-трамвай, кўк, сариқ, қизил автомобиллар",
-                        "is_correct": false
+                        "text": "1- ва 2-трамвайлар айни вақтда сариқ автомобил билан, яшил, кўк, қизил автомобиллар",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "1- ва 2-трамвайлар айни вақтда сариқ автомобил билан, яшил, кўк, қизил автомобиллар",
-                        "is_correct": true
+                        "text": "Яшил автомобил айни вақтда 2-трамвай билан; 1-трамвай, кўк, сариқ, қизил автомобиллар",
+                        "is_correct": false
                     }
                 ]
             },
@@ -3061,9 +3147,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_28_q_6",
-            "ticket_num": 28,
-            "order": 44
+            "global_id": "t_24_q_9",
+            "global_id2": "t_24_q_9",
+            "ticket_num": 24,
+            "order": 44,
+            "remapped_from": "t_28_q_6"
         },
         "media_url": "u262uz.webp",
         "content": {
@@ -3112,12 +3200,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Красный автомобиль",
+                        "text": "Синий автомобиль",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Синий автомобиль",
+                        "text": "Красный автомобиль",
                         "is_correct": false
                     },
                     {
@@ -3136,9 +3224,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_30_q_11",
-            "ticket_num": 30,
-            "order": 45
+            "global_id": "t_53_q_11",
+            "global_id2": "t_53_q_11",
+            "ticket_num": 53,
+            "order": 45,
+            "remapped_from": "t_30_q_11"
         },
         "media_url": "u611uz.webp",
         "content": {
@@ -3152,12 +3242,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Ikkinchi",
+                        "text": "Oxirgi",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Oxirgi",
+                        "text": "Ikkinchi",
                         "is_correct": false
                     }
                 ]
@@ -3172,12 +3262,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Иккинчи",
+                        "text": "Охирги",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Охирги",
+                        "text": "Иккинчи",
                         "is_correct": false
                     }
                 ]
@@ -3192,12 +3282,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Вторым",
+                        "text": "Последним",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Последним",
+                        "text": "Вторым",
                         "is_correct": false
                     }
                 ]
@@ -3206,14 +3296,16 @@
         "izoh": {
             "uz_lat": "YHQ 7-bobi 43-bandiga asosan, svetofor ishoralari imtiyoz belgilari talablariga zid bo'lgan hollarda haydovchilar svetofor ishoralariga amal qilishlari kerak. YHQ 15-bobi 99-bandiga asosan, svetoforning ruxsat etuvchi ishorasida chapga burilayotgan yoki qayrilib olayotgan relssiz transport vositasining haydovchisi qarama-qarshi tomondan to'g'riga harakatlanayotgan va o'ngga burilayotgan transport vositalariga yo'l berishi shart.",
             "uz_cyr": "YHQ 7-боби 43-бандига асосан, светофор ишоралари имтиёз белгилари талабларига зид бўлган ҳолларда ҳайдовчилар светофор ишораларига амал қилишлари керак. YHQ 15-боби 99-бандига асосан, светофорнинг рухсат этувчи ишорасида чапга бурилаётган ёки қайрилиб олаётган релссиз транспорт воситасининг ҳайдовчиси қарама-қарши томондан тўғрига ҳаракатланаётган ва ўнгга бурилаётган транспорт воситаларига йўл бериши шарт.",
-            "ru": "Согласно статье 43 главы 7 Закона о дорожном движении водители обязаны подчиняться знакам светофора в случаях, когда знаки светофора противоречат требованиям знаков полосы движения. В соответствии с главой 15 статьи 99 ПДД водитель нерельсового транспортного средства, совершающего поворот налево или поворот по разрешающему сигналу светофора, обязан уступить дорогу транспортным средствам, движущимся прямо и поворачивающим направо с противоположной стороны."
+            "ru": "Согласно статье 43 главы 7 ПДД водители обязаны подчиняться знакам светофора в случаях, когда знаки светофора противоречат требованиям знаков полосы движения. В соответствии с главой 15 статьи 99 ПДД водитель нерельсового транспортного средства, совершающего поворот налево или поворот по разрешающему сигналу светофора, обязан уступить дорогу транспортным средствам, движущимся прямо и поворачивающим направо с противоположной стороны."
         }
     },
     {
         "task_info": {
-            "global_id": "t_31_q_14",
-            "ticket_num": 31,
-            "order": 46
+            "global_id": "t_35_q_20",
+            "global_id2": "t_35_q_20",
+            "ticket_num": 35,
+            "order": 46,
+            "remapped_from": "t_16_q_14"
         },
         "media_url": "u406uz.webp",
         "content": {
@@ -3262,17 +3354,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Синий, зеленый, красный",
+                        "text": "Синий, зелёный, красный",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Красный, синий, зеленый",
+                        "text": "Красный, синий, зелёный",
                         "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Зеленый, красный, синий",
+                        "text": "Зелёный, красный, синий",
                         "is_correct": false
                     }
                 ]
@@ -3286,9 +3378,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_33_q_1",
-            "ticket_num": 33,
-            "order": 47
+            "global_id": "t_56_q_8",
+            "global_id2": "t_56_q_8",
+            "ticket_num": 56,
+            "order": 47,
+            "remapped_from": "t_64_q_2"
         },
         "media_url": "u646uz.webp",
         "content": {
@@ -3297,27 +3391,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Birinchi bo'lib",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Ikkinchi bo'lib",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "Uchinchi bo'lib",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
+                        "id": 2,
                         "text": "To'rtinchi bo'lib",
                         "is_correct": true
                     },
                     {
-                        "id": 5,
+                        "id": 3,
                         "text": "Oxirgi bo'lib",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Birinchi bo'lib",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Uchinchi bo'lib",
                         "is_correct": false
                     }
                 ]
@@ -3327,27 +3421,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Биринчи бўлиб",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Иккинчи бўлиб",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "Учинчи бўлиб",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
+                        "id": 2,
                         "text": "Тўртинчи бўлиб",
                         "is_correct": true
                     },
                     {
-                        "id": 5,
+                        "id": 3,
                         "text": "Охирги бўлиб",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Биринчи бўлиб",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Учинчи бўлиб",
                         "is_correct": false
                     }
                 ]
@@ -3357,27 +3451,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Первым",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Вторым",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "Третьим",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
+                        "id": 2,
                         "text": "Четвертым",
                         "is_correct": true
                     },
                     {
-                        "id": 5,
+                        "id": 3,
                         "text": "Последним",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Первым",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Третьим",
                         "is_correct": false
                     }
                 ]
@@ -3391,9 +3485,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_35_q_4",
-            "ticket_num": 35,
-            "order": 48
+            "global_id": "t_51_q_15",
+            "global_id2": "t_51_q_15",
+            "ticket_num": 51,
+            "order": 48,
+            "remapped_from": "t_35_q_4"
         },
         "media_url": "u584uz.webp",
         "content": {
@@ -3402,8 +3498,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yashil avtomobil",
-                        "is_correct": false
+                        "text": "Ko'k avtomobil ayni vaqtda sariq bilan birga",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -3412,8 +3508,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Ko'k avtomobil ayni vaqtda sariq bilan birga",
-                        "is_correct": true
+                        "text": "Yashil avtomobil",
+                        "is_correct": false
                     }
                 ]
             },
@@ -3422,8 +3518,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Яшил автомобил",
-                        "is_correct": false
+                        "text": "Кўк автомобил айни вақтда сариқ билан бирга",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -3432,8 +3528,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Кўк автомобил айни вақтда сариқ билан бирга",
-                        "is_correct": true
+                        "text": "Яшил автомобил",
+                        "is_correct": false
                     }
                 ]
             },
@@ -3442,18 +3538,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Синий автомобиль одновременно с желтым",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Зеленый автомобиль",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Красный автомобиль",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Синий автомобиль одновременно с желтым",
-                        "is_correct": true
                     }
                 ]
             }
@@ -3466,23 +3562,25 @@
     },
     {
         "task_info": {
-            "global_id": "t_39_q_19",
-            "ticket_num": 39,
-            "order": 49
+            "global_id": "t_28_q_15",
+            "global_id2": "t_28_q_15",
+            "ticket_num": 28,
+            "order": 49,
+            "remapped_from": "t_39_q_19"
         },
         "media_url": "u318uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Siz chapga burilmoqchisiz, kimga yo‘l berishingiz kerak?",
+                "text": "Siz chapga burilmoqchisiz, kimga yo'l berishingiz kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat avtobusga",
+                        "text": "Faqat yuk avtomobiliga",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Faqat yuk avtomobiliga",
+                        "text": "Faqat avtobusga",
                         "is_correct": false
                     },
                     {
@@ -3497,12 +3595,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат автобусга",
+                        "text": "Фақат юк автомобилига",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Фақат юк автомобилига",
+                        "text": "Фақат автобусга",
                         "is_correct": false
                     },
                     {
@@ -3517,12 +3615,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только автобусу",
+                        "text": "Только грузовому автомобилю",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Только грузовому автомобилю",
+                        "text": "Только автобусу",
                         "is_correct": false
                     },
                     {
@@ -3541,9 +3639,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_48_q_6",
-            "ticket_num": 48,
-            "order": 50
+            "global_id": "t_27_q_15",
+            "global_id2": "t_27_q_15",
+            "ticket_num": 27,
+            "order": 50,
+            "remapped_from": "t_48_q_6"
         },
         "media_url": "u304uz.webp",
         "content": {
@@ -3552,17 +3652,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Qizil avtomobil",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Oq avtomobil, sariq bilan bir vaqtda",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Sariq avtomobil",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Qizil avtomobil",
                         "is_correct": false
                     }
                 ]
@@ -3572,17 +3672,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Қизил автомобил",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Оқ автомобил, сариқ билан бир вақтда",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Сариқ автомобил",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Қизил автомобил",
                         "is_correct": false
                     }
                 ]
@@ -3592,17 +3692,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Красный автомобиль",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Белый одновременно с жёлтым",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Желтый автомобиль",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Красный автомобиль",
                         "is_correct": false
                     }
                 ]
@@ -3616,29 +3716,31 @@
     },
     {
         "task_info": {
-            "global_id": "t_56_q_9",
-            "ticket_num": 56,
-            "order": 51
+            "global_id": "t_47_q_3",
+            "global_id2": "t_47_q_3",
+            "ticket_num": 47,
+            "order": 51,
+            "remapped_from": "t_56_q_9"
         },
         "media_url": "u537uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Chorrahadan to‘g‘riga harakatlanmochisiz – sizning harakatingiz:",
+                "text": "Chorrahadan to'g'riga harakatlanmochisiz - sizning harakatingiz:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Birinchi o‘taman",
+                        "text": "Birinchi o'taman",
                         "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Avtobusga yo‘l beraman",
+                        "text": "Avtobusga yo'l beraman",
                         "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Чорраҳадан тўғрига ҳаракатланмочисиз – сизнинг ҳаракатингиз:",
+                "text": "Чорраҳадан тўғрига ҳаракатланмочисиз - сизнинг ҳаракатингиз:",
                 "options": [
                     {
                         "id": 1,
@@ -3671,24 +3773,26 @@
         "izoh": {
             "uz_lat": "YHQ 1 ilova: 2.1. “Asosiy yo‘l”. Harakat tartibga solinmagan chorrahalarda oldin o‘tish huquqini beradi. Belgi asosiy yo‘l boshiga va chorrahalarning bevosita oldiga o‘rnatiladi. YHQ 16-bobi 104-bandi: Teng ahamiyatga ega bo‘lmagan yo‘llar kesishgan chorrahada ikkinchi darajali yo‘ldan harakatlanayotgan transport vositasining haydovchisi asosiy yo‘ldan yaqinlashayotgan transport vositalariga ularning keyingi harakatlanish yo‘nalishidan qat’iy nazar, yo‘l berishi kerak.",
             "uz_cyr": "YHQ 1 илова: 2.1. “Асосий йўл”. Ҳаракат тартибга солинмаган чорраҳаларда олдин ўтиш ҳуқуқини беради. Белги асосий йўл бошига ва чорраҳаларнинг бевосита олдига ўрнатилади. YHQ 16-боби 104-банди: Тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада иккинчи даражали йўлдан ҳаракатланаётган транспорт воситасининг ҳайдовчиси асосий йўлдан яқинлашаётган транспорт воситаларига уларнинг кейинги ҳаракатланиш йўналишидан қатий назар, йўл бериши керак.",
-            "ru": "Приложение 1: 2.1. «Главная дорога». Движение дает преимущество на нерегулируемых перекрестках. Знак размещается в начале главной дороги и непосредственно перед перекрестками. Статья 104 главы 16 ГК: Водитель транспортного средства, движущегося по второстепенной дороге, на перекрестке неравнозначной важности обязан уступить дорогу транспортным средствам, приближающимся с главной дороги, независимо от дальнейшего направления их движения."
+            "ru": "Приложение 1: 2.1. «Главная дорога». Движение дает преимущество на нерегулируемых перекрестках. Знак размещается в начале главной дороги и непосредственно перед перекрестками. Статья 104 главы 16 ПДД: Водитель транспортного средства, движущегося по второстепенной дороге, на перекрестке неравнозначной важности обязан уступить дорогу транспортным средствам, приближающимся с главной дороги, независимо от дальнейшего направления их движения."
         }
     },
     {
         "task_info": {
-            "global_id": "t_57_q_6",
-            "ticket_num": 57,
-            "order": 52
+            "global_id": "t_20_q_9",
+            "global_id2": "t_20_q_9",
+            "ticket_num": 20,
+            "order": 52,
+            "remapped_from": "t_57_q_6"
         },
         "media_url": "u222uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Chorrahadan o‘tish navbatini ko‘rsating:",
+                "text": "Chorrahadan o'tish navbatini ko'rsating:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Velosiped, qizil avtomobil, oq avtomobil",
-                        "is_correct": false
+                        "text": "Velosiped, oq avtomobil, qizil avtomobil",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -3697,8 +3801,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Velosiped, oq avtomobil, qizil avtomobil",
-                        "is_correct": true
+                        "text": "Velosiped, qizil avtomobil, oq avtomobil",
+                        "is_correct": false
                     }
                 ]
             },
@@ -3707,8 +3811,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Велосипед, қизил автомобил, оқ автомобил",
-                        "is_correct": false
+                        "text": "Велосипед, оқ автомобил, қизил автомобил",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -3717,8 +3821,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Велосипед, оқ автомобил, қизил автомобил",
-                        "is_correct": true
+                        "text": "Велосипед, қизил автомобил, оқ автомобил",
+                        "is_correct": false
                     }
                 ]
             },
@@ -3727,8 +3831,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Велосипед, красный автомобиль, белый автомобиль",
-                        "is_correct": false
+                        "text": "Велосипед, белый автомобиль, красный автомобиль",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -3737,8 +3841,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Велосипед, белый автомобиль, красный автомобиль",
-                        "is_correct": true
+                        "text": "Велосипед, красный автомобиль, белый автомобиль",
+                        "is_correct": false
                     }
                 ]
             }
@@ -3751,9 +3855,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_47_q_16",
-            "ticket_num": 47,
-            "order": 53
+            "global_id": "t_51_q_2",
+            "global_id2": "t_51_q_2",
+            "ticket_num": 51,
+            "order": 53,
+            "remapped_from": "t_47_q_15"
         },
         "media_url": "u576uz.webp",
         "content": {
@@ -3762,8 +3868,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Tartibga solinmagan, teng ahamiyatga ega bo'lmagan yo'llar kesishgan chorraha",
-                        "is_correct": false
+                        "text": "Tartibga solingan chorraha",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -3772,8 +3878,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Tartibga solingan chorraha",
-                        "is_correct": true
+                        "text": "Tartibga solinmagan, teng ahamiyatga ega bo'lmagan yo'llar kesishgan chorraha",
+                        "is_correct": false
                     }
                 ]
             },
@@ -3782,8 +3888,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тартибга солинмаган, тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳа",
-                        "is_correct": false
+                        "text": "Тартибга солинган чорраҳа",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -3792,8 +3898,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Тартибга солинган чорраҳа",
-                        "is_correct": true
+                        "text": "Тартибга солинмаган, тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳа",
+                        "is_correct": false
                     }
                 ]
             },
@@ -3802,8 +3908,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Нерегулируемый перекрёсток неравнозначных дорог",
-                        "is_correct": false
+                        "text": "Регулируемый перекрёсток",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -3812,8 +3918,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Регулируемый перекрёсток",
-                        "is_correct": true
+                        "text": "Нерегулируемый перекрёсток неравнозначных дорог",
+                        "is_correct": false
                     }
                 ]
             }
@@ -3826,18 +3932,20 @@
     },
     {
         "task_info": {
-            "global_id": "t_35b_q_2",
-            "ticket_num": "35b",
-            "order": 54
+            "global_id": "t_34_q_12",
+            "global_id2": "t_34_q_12",
+            "ticket_num": 34,
+            "order": 54,
+            "remapped_from": "t_61_q_9"
         },
         "media_url": "u391uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Qaysi haydovchi birinchi bo‘lib harakatni davom ettiradi?",
+                "text": "Qaysi haydovchi birinchi bo'lib harakatni davom ettiradi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ko‘k avtomobil haydovchisi",
+                        "text": "Ko'k avtomobil haydovchisi",
                         "is_correct": true
                     },
                     {
@@ -3867,13 +3975,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Водитель синего автомобиля",
-                        "is_correct": true
+                        "text": "Водитель жёлтой автомобиля",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Водитель жёлтой автомобиля",
-                        "is_correct": false
+                        "text": "Водитель синего автомобиля",
+                        "is_correct": true
                     }
                 ]
             }
@@ -3881,19 +3989,21 @@
         "izoh": {
             "uz_lat": "YHQning 15-bob. 99-band hamda 7-bob. 43-band 2-xatboshiga asosan: 99. Svetoforning ruxsat etuvchi ishorasida chapga burilayotgan yoki qayrilib olayotgan relssiz transport vositasining haydovchisi qarama-qarshi tomondan to‘g‘riga harakatlanayotgan va o‘ngga burilayotgan transport vositalariga yo‘l berishi shart. Tramvay haydovchilari ham ushbu Qoidaga amal qilishlari kerak. \r\nSvetofor ishoralari imtiyoz belgilari talablariga zid bo‘lgan hollarda haydovchilar svetofor ishoralariga amal qilishlari kerak.",
             "uz_cyr": "YHQнинг 15-боб. 99-банд ҳамда 7-боб. 43-банд 2-хатбошига асосан: 99. Светофорнинг рухсат этувчи ишорасида чапга бурилаётган ёки қайрилиб олаётган релссиз транспорт воситасининг ҳайдовчиси қарама-қарши томондан тўғрига ҳаракатланаётган ва ўнгга бурилаётган транспорт воситаларига йўл бериши шарт. Трамвай ҳайдовчилари ҳам ушбу Қоидага амал қилишлари керак. \r\nСветофор ишоралари имтиёз белгилари талабларига зид бўлган ҳолларда ҳайдовчилар светофор ишораларига амал қилишлари керак.",
-            "ru": "Глава 15 ПДД. Статья 99 и глава 7. В соответствии с абзацем 2 статьи 43: 99. Водитель нерельсового транспортного средства, совершающего поворот налево или поворот по сигналу светофора, обязан уступить дорогу транспортным средствам, движущимся прямо и поворачивающим направо с противоположной стороны. Водители трамваев также должны соблюдать это Правило. \r\nВ случаях, когда знаки светофора противоречат требованиям знаков концессии, водители обязаны следовать знакам светофора."
+            "ru": "Глава 15 ПДД. Статья 99 и глава 7. В соответствии с абзацем 2 статьи 43: 99. Водитель нерельсового транспортного средства, совершающего поворот налево или поворот по сигналу светофора, обязан уступить дорогу транспортным средствам, движущимся прямо и поворачивающим направо с противоположной стороны. Водители трамваев также должны соблюдать это Правило. \r\nВ случаях, когда знаки светофора противоречат требованиям знаков приоритета, водители обязаны следовать знакам светофора."
         }
     },
     {
         "task_info": {
-            "global_id": "t_35b_q_3",
-            "ticket_num": "35b",
-            "order": 55
+            "global_id": "t_34_q_13",
+            "global_id2": "t_34_q_13",
+            "ticket_num": 34,
+            "order": 55,
+            "remapped_from": "t_61_q_10"
         },
         "media_url": "u392uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Yuk avtomobiliga qaysi yo‘nalishlar bo‘yicha harakatlanishga ruxsat etiladi?",
+                "text": "Yuk avtomobiliga qaysi yo'nalishlar bo'yicha harakatlanishga ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
@@ -3902,7 +4012,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "To‘g‘riga va chapga",
+                        "text": "To'g'riga va chapga",
                         "is_correct": false
                     },
                     {
@@ -3956,19 +4066,21 @@
         "izoh": {
             "uz_lat": "\"YHQning 10-bob. 67-band 3, 4 va 5-xatboshilariga asosan: Aholi punktlarida ushbu bandning birinchi xatboshi va ushbu Qoidalarning 69, 123 va 161-bandlaridagi talablarni hisobga olgan holda, haydovchilar o‘zlariga qulay bo‘lgan harakatlanish bo‘lagidan foydalanishlari mumkin. Harakatlanish serqatnovligi sababli boshqa tasmalar band bo‘lganda harakatlanish qatorini faqat o‘ngga yoki chapga burilish, qayrilib olish, to‘xtash yoki to‘siqni aylanib o‘tish uchun o‘zgartirishga ruxsat etiladi.\r\nBiroq, bir yo‘nalishdagi uch va undan ortiq tasmali har qanday yo‘lda chetki chap qatorni harakat serqatnovligi sababli boshqa bo‘laklar band bo‘lgan hollarda, shuningdek, quvib o‘tish, chapga burilish yoki qayrilib olishga, yuk avtomobillariga faqat chapga burilish yoki qayrilib olish uchun chetki chap qatorni egallashga ruxsat etiladi.\r\nBoshqa hollarda yuk avtomobillariga yo‘lning chetki chap qatorida harakatlanish taqiqlanadi.\"",
             "uz_cyr": "\"YHQнинг 10-боб. 67-банд 3, 4 ва 5-хатбошиларига асосан: Аҳоли пунктларида ушбу банднинг биринчи хатбоши ва ушбу Қоидаларнинг 69, 123 ва 161-бандларидаги талабларни ҳисобга олган ҳолда, ҳайдовчилар ўзларига қулай бўлган ҳаракатланиш бўлагидан фойдаланишлари мумкин. Ҳаракатланиш серқатновлиги сабабли бошқа тасмалар банд бўлганда ҳаракатланиш қаторини фақат ўнгга ёки чапга бурилиш, қайрилиб олиш, тўхташ ёки тўсиқни айланиб ўтиш учун ўзгартиришга рухсат этилади.\r\nБироқ, бир йўналишдаги уч ва ундан ортиқ тасмали ҳар қандай йўлда четки чап қаторни ҳаракат серқатновлиги сабабли бошқа бўлаклар банд бўлган ҳолларда, шунингдек, қувиб ўтиш, чапга бурилиш ёки қайрилиб олишга, юк автомобилларига фақат чапга бурилиш ёки қайрилиб олиш учун четки чап қаторни эгаллашга рухсат этилади.\r\nБошқа ҳолларда юк автомобилларига йўлнинг четки чап қаторида ҳаракатланиш тақиқланади.\"",
-            "ru": "\"Глава 10. Статья 67, пункты 3, 4 и 5 ПДД: В жилых помещениях с учетом требований абзаца первого настоящего пункта и пунктов 69, 123 и 161 настоящих Правил водители могут пользоваться той полосой движения, которая им удобна. При занятости других полос движения из-за заторов на дорогах полосу движения можно только повернуть направо или налево, повернуть, перестроиться, остановиться или объехать дорогу. препятствие.\r\nОднако на любой дороге с тремя или более полосами движения в одном направлении крайняя левая полоса разрешена, когда другие полосы заняты из-за интенсивного движения, а также для обгона, левых поворотов или разворотов, а грузовым автомобилям разрешается занимать крайнюю левую полосу только для левых поворотов или разворотов.\r\nВ остальных случаях грузовым автомобилям запрещено движение по крайней левой полосе дороги."
+            "ru": "\"Глава 10. Статья 67, пункты 3, 4 и 5 ПДД: В жилой зоне с учетом требований абзаца первого настоящего пункта и пунктов 69, 123 и 161 настоящих Правил водители могут пользоваться той полосой движения, которая им удобна. При занятости других полос движения из-за заторов на дорогах полосу движения можно только повернуть направо или налево, повернуть, перестроиться, остановиться или объехать дорогу. препятствие.\r\nОднако на любой дороге с тремя или более полосами движения в одном направлении крайняя левая полоса разрешена, когда другие полосы заняты из-за интенсивного движения, а также для обгона, левых поворотов или разворотов, а грузовым автомобилям разрешается занимать крайнюю левую полосу только для левых поворотов или разворотов.\r\nВ остальных случаях грузовым автомобилям запрещено движение по крайней левой полосе дороги."
         }
     },
     {
         "task_info": {
-            "global_id": "t_35b_q_26",
-            "ticket_num": "35b",
-            "order": 56
+            "global_id": "t_47_q_2",
+            "global_id2": "t_47_q_2",
+            "ticket_num": 47,
+            "order": 56,
+            "remapped_from": "t_62_q_18"
         },
         "media_url": "u536uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Harakatlanish tartibini ko‘rsating:",
+                "text": "Harakatlanish tartibini ko'rsating:",
                 "options": [
                     {
                         "id": 1,
@@ -4012,17 +4124,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Трамвай 1, трамвай 2, жёлтый автомобиль, чёрный автомобиль",
+                        "text": "1-й трамвай, 2-й трамвай, жёлтый автомобиль, чёрный автомобиль",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Трамвай 1 одновременно с жёлтым автомобилем, трамвай 2 одновременно с чёрным автомобилем",
+                        "text": "1-й трамвай одновременно с жёлтым автомобилем, 2-й трамвай одновременно с чёрным автомобилем",
                         "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Трамвай 1 одновременно с жёлтым автомобилем, затем чёрный автомобиль, затем трамвай 2",
+                        "text": "1-й трамвай одновременно с жёлтым автомобилем, чёрный автомобиль, 2-й трамвай",
                         "is_correct": false
                     }
                 ]
@@ -4031,14 +4143,16 @@
         "izoh": {
             "uz_lat": "\"YHQning 16-bob. 105-bandiga asosan: 105. Teng ahamiyatga ega bo‘lgan yo‘llar kesishgan chorrahada relssiz transport vositasining haydovchisi o‘ngdan yaqinlashayotgan transport vositalariga yo‘l berishi shart. Bu qoidaga tramvay haydovchilari ham o‘zaro amal qilishlari kerak.\r\nBunday chorrahalarda keyingi harakat yo‘nalishidan qat’iy nazar, tramvay relssiz transport vositalariga nisbatan oldin o‘tish huquqiga ega bo‘ladi.\"",
             "uz_cyr": "\"YHQнинг 16-боб. 105-бандига асосан: 105. Тенг аҳамиятга эга бўлган йўллар кесишган чорраҳада релссиз транспорт воситасининг ҳайдовчиси ўнгдан яқинлашаётган транспорт воситаларига йўл бериши шарт. Бу қоидага трамвай ҳайдовчилари ҳам ўзаро амал қилишлари керак.\r\nБундай чорраҳаларда кейинги ҳаракат йўналишидан қатий назар, трамвай релссиз транспорт воситаларига нисбатан олдин ўтиш ҳуқуқига эга бўлади.\"",
-            "ru": "Согласно главе 16. ст. 105 ГК: 105. На перекрестке, где пересекаются дороги равной важности, водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, приближающимся справа. Этого правила должны придерживаться и водители трамваев.\r\nНа таких перекрестках, независимо от направления дальнейшего движения, трамвай будет иметь преимущество перед нерельсовым транспортом»."
+            "ru": "Согласно главе 16. ст. 105 ПДД: 105. На перекрестке, где пересекаются дороги равной важности, водитель нерельсового транспортного средства обязан уступить дорогу транспортным средствам, приближающимся справа. Этого правила должны придерживаться и водители трамваев.\r\nНа таких перекрестках, независимо от направления дальнейшего движения, трамвай будет иметь преимущество перед нерельсовым транспортом»."
         }
     },
     {
         "task_info": {
-            "global_id": "t_35a_q_4",
-            "ticket_num": "35a",
-            "order": 57
+            "global_id": "t_7_q_7",
+            "global_id2": "t_7_q_7",
+            "ticket_num": 7,
+            "order": 57,
+            "remapped_from": "t_59_q_4"
         },
         "media_url": "u66uz.webp",
         "content": {
@@ -4096,14 +4210,16 @@
     },
     {
         "task_info": {
-            "global_id": "t_35a_q_5",
-            "ticket_num": "35a",
-            "order": 58
+            "global_id": "t_8_q_11",
+            "global_id2": "t_8_q_11",
+            "ticket_num": 8,
+            "order": 58,
+            "remapped_from": "t_59_q_5"
         },
         "media_url": "u82uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Chorraxadan uchinchi bo'lib qaysi avtomobil kesib o'tadi:",
+                "text": "Chorrahadan uchinchi bo'lib qaysi avtomobil kesib o'tadi?",
                 "options": [
                     {
                         "id": 1,
@@ -4147,13 +4263,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Красный автомобиль",
-                        "is_correct": true
+                        "text": "Синий автомобиль",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Синий автомобиль",
-                        "is_correct": false
+                        "text": "Красный автомобиль",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -4171,14 +4287,16 @@
     },
     {
         "task_info": {
-            "global_id": "t_35a_q_13",
-            "ticket_num": "35a",
-            "order": 59
+            "global_id": "t_10_q_15",
+            "global_id2": "t_10_q_15",
+            "ticket_num": 10,
+            "order": 59,
+            "remapped_from": "t_59_q_13"
         },
         "media_url": "u109uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Bunday holatda qaysi haydovchi yo‘l berishi kerak?",
+                "text": "Bunday holatda qaysi haydovchi yo'l berishi kerak?",
                 "options": [
                     {
                         "id": 1,
@@ -4212,13 +4330,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Водитель трамвая",
-                        "is_correct": false
+                        "text": "Водитель автомобиля",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Водитель автомобиля",
-                        "is_correct": true
+                        "text": "Водитель трамвая",
+                        "is_correct": false
                     }
                 ]
             }
@@ -4231,18 +4349,20 @@
     },
     {
         "task_info": {
-            "global_id": "t_35a_q_16",
-            "ticket_num": "35a",
-            "order": 60
+            "global_id": "t_11_q_14",
+            "global_id2": "t_11_q_14",
+            "ticket_num": 11,
+            "order": 60,
+            "remapped_from": "t_59_q_15"
         },
         "media_url": "u123uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Qaysi avtomobil haydovchisi yo‘l berishi kerak?",
+                "text": "Qaysi avtomobil haydovchisi yo'l berishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ko‘k avtomobil",
+                        "text": "Ko'k avtomobil",
                         "is_correct": false
                     },
                     {
@@ -4291,14 +4411,16 @@
     },
     {
         "task_info": {
-            "global_id": "t_35a_q_17",
-            "ticket_num": "35a",
-            "order": 61
+            "global_id": "t_13_q_4",
+            "global_id2": "t_13_q_4",
+            "ticket_num": 13,
+            "order": 61,
+            "remapped_from": "t_59_q_16"
         },
         "media_url": "u139uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Qaysi rasmda sariq avtomobil haydovchisi qizil avtomobilga yo‘l berishi kerak?",
+                "text": "Qaysi rasmda sariq avtomobil haydovchisi qizil avtomobilga yo'l berishi kerak?",
                 "options": [
                     {
                         "id": 1,
@@ -4366,9 +4488,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_35a_q_32",
-            "ticket_num": "35a",
-            "order": 62
+            "global_id": "t_25_q_7",
+            "global_id2": "t_25_q_7",
+            "ticket_num": 25,
+            "order": 62,
+            "remapped_from": "t_60_q_15"
         },
         "media_url": "u273uz.webp",
         "content": {
@@ -4427,22 +4551,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Желтый автомобиль",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Синий автомобиль",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "Желтый автомобиль",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Красный автомобиль",
+                        "text": "Зеленый автомобиль",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Зеленый автомобиль",
+                        "text": "Красный автомобиль",
                         "is_correct": false
                     }
                 ]
@@ -4456,18 +4580,20 @@
     },
     {
         "task_info": {
-            "global_id": "t_35a_q_33",
-            "ticket_num": "35a",
-            "order": 63
+            "global_id": "t_25_q_17",
+            "global_id2": "t_25_q_17",
+            "ticket_num": 25,
+            "order": 63,
+            "remapped_from": "t_60_q_16"
         },
         "media_url": "u278uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Ushbu vaziyatda oxirgi bo‘lib kim o‘tadi?",
+                "text": "Ushbu vaziyatda oxirgi bo'lib kim o'tadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "O‘zaro kelishib o‘tadilar",
+                        "text": "O'zaro kelishib o'tadilar",
                         "is_correct": false
                     },
                     {
@@ -4482,7 +4608,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Ko‘k avtomobil",
+                        "text": "Ko'k avtomobil",
                         "is_correct": false
                     }
                 ]
@@ -4522,18 +4648,18 @@
                     },
                     {
                         "id": 2,
-                        "text": "Красный автомобиль",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Белый автомобиль",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Синий автомобиль",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Красный автомобиль",
+                        "is_correct": true
                     }
                 ]
             }
@@ -4541,19 +4667,21 @@
         "izoh": {
             "uz_lat": "\"YHQning 16-bob. 104-band 1-xatboshi va YHQga 1-ILOVA 2.7 bandiga asosan: 104. Teng ahamiyatga ega bo‘lmagan yo‘llar kesishgan chorrahada ikkinchi darajali yo‘ldan harakatlanayotgan transport vositasining haydovchisi asosiy yo‘ldan yaqinlashayotgan transport vositalariga ularning keyingi harakatlanish yo‘nalishidan qat’iy nazar, yo‘l berishi kerak. \r\n2.7. «Ro‘paradagi harakatlanishga nisbatan imtiyoz». Yo‘lning tor qismida harakatlanishda haydovchi ro‘paradan kelayotgan transport vositasiga nisbatan imtiyozga egaligini bildiradi.\"",
             "uz_cyr": "\"YHQнинг 16-боб. 104-банд 1-хатбоши ва YHQга 1-ИЛОВА 2.7 бандига асосан: 104. Тенг аҳамиятга эга бўлмаган йўллар кесишган чорраҳада иккинчи даражали йўлдан ҳаракатланаётган транспорт воситасининг ҳайдовчиси асосий йўлдан яқинлашаётган транспорт воситаларига уларнинг кейинги ҳаракатланиш йўналишидан қатий назар, йўл бериши керак. \r\n2.7. «Рўпарадаги ҳаракатланишга нисбатан имтиёз». Йўлнинг тор қисмида ҳаракатланишда ҳайдовчи рўпарадан келаётган транспорт воситасига нисбатан имтиёзга эгалигини билдиради.\"",
-            "ru": "\"Глава 16. Статья 104 пункта 1 Закона Украины и приложение 1 к Закону Украины пункт 2.7: 104. На пересечении дорог неравнозначного значения водитель транспортного средства, движущегося по второстепенной дороге, обязан уступить дорогу транспортным средствам, приближающимся с главной дороги, независимо от направления их дальнейшего движения. \r\n2.7. «Предпочтение встречному движению». При движении по узкому участку дороги водитель указывает, что имеет преимущество перед встречным транспортным средством»."
+            "ru": "\"Глава 16. Статья 104 пункта 1 ПДД и приложение 1 к ПДД пункт 2.7: 104. На пересечении дорог неравнозначного значения водитель транспортного средства, движущегося по второстепенной дороге, обязан уступить дорогу транспортным средствам, приближающимся с главной дороги, независимо от направления их дальнейшего движения. \r\n2.7. «Предпочтение встречному движению». При движении по узкому участку дороги водитель указывает, что имеет преимущество перед встречным транспортным средством»."
         }
     },
     {
         "task_info": {
             "global_id": "t_59_q_13",
+            "global_id2": "t_59_q_13",
             "ticket_num": 59,
-            "order": 64
+            "order": 64,
+            "remapped_from": "t_64_q_8"
         },
         "media_url": "u1003uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Qaysi avtomobil haydovchisi yo‘l berishi kerak?",
+                "text": "Qaysi avtomobil haydovchisi yo'l berishi kerak?",
                 "options": [
                     {
                         "id": 1,
@@ -4607,13 +4735,15 @@
     {
         "task_info": {
             "global_id": "t_59_q_20",
+            "global_id2": "t_59_q_20",
             "ticket_num": 59,
-            "order": 65
+            "order": 65,
+            "remapped_from": "t_64_q_14"
         },
         "media_url": "u1007uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Qizil avtomobil chorrahadan nechanchi bo‘lib kesib o‘tadi?",
+                "text": "Qizil avtomobil chorrahadan nechanchi bo'lib kesib o'tadi?",
                 "options": [
                     {
                         "id": 1,
@@ -4697,8 +4827,10 @@
     {
         "task_info": {
             "global_id": "t_49_q_2",
+            "global_id2": "t_49_q_2",
             "ticket_num": 49,
-            "order": 66
+            "order": 66,
+            "remapped_from": "t_63_q_3"
         },
         "media_url": "u557uz.webp",
         "content": {

@@ -1,0 +1,314 @@
+{
+  "fixed": [
+    "t_20_q_4",
+    "t_52_q_3"
+  ],
+  "suspects": [
+    {
+      "id": "t_2_q_19",
+      "media": "u18uz.webp",
+      "reasons": [
+        "cross_lang_alphabet"
+      ],
+      "lat": "B | B va C | A | *C",
+      "cyr": "B | B ва C | A | *C",
+      "ru": "В | В и С | А | *С",
+      "knownCyr": false,
+      "knownLat": false,
+      "fixed": false
+    },
+    {
+      "id": "t_4_q_11",
+      "media": "u35uz.webp",
+      "reasons": [
+        "mixed_in_uz_lat"
+      ],
+      "lat": "Б va В | В | A va В | *Б va Г",
+      "cyr": "Б ва В | В | А ва В | *Б ва Г",
+      "ru": "В | Б и В | А и В | *Б и Г",
+      "knownCyr": true,
+      "knownLat": false,
+      "fixed": false
+    },
+    {
+      "id": "t_9_q_19",
+      "media": "u101uz.webp",
+      "reasons": [
+        "cross_lang_alphabet",
+        "mixed_in_ru"
+      ],
+      "lat": "Xammasi | Faqat B | *A va B",
+      "cyr": "Хаммаси | Фақат B | *А ва B",
+      "ru": "Все | Только B | *А и В",
+      "knownCyr": false,
+      "knownLat": false,
+      "fixed": false
+    },
+    {
+      "id": "t_13_q_12",
+      "media": "u143uz.webp",
+      "reasons": [
+        "cross_lang_alphabet",
+        "mixed_in_uz_cyr",
+        "mixed_in_ru"
+      ],
+      "lat": "Faqat B | A va B | *Faqat D | Faqat C",
+      "cyr": "Фақат Б | А ва Б | *Фақат Д | Фақат C",
+      "ru": "Только B | А и B | *Только Д | Только C",
+      "knownCyr": false,
+      "knownLat": false,
+      "fixed": false
+    },
+    {
+      "id": "t_16_q_6",
+      "media": "u176uz.webp",
+      "reasons": [
+        "mixed_in_ru"
+      ],
+      "lat": "B | A | *A va B",
+      "cyr": "B | A | *A ва В",
+      "ru": "B | A | *А и В",
+      "knownCyr": true,
+      "knownLat": false,
+      "fixed": false
+    },
+    {
+      "id": "t_24_q_16",
+      "media": "u267uz.webp",
+      "reasons": [
+        "mixed_in_uz_lat",
+        "mixed_in_uz_cyr",
+        "mixed_in_ru"
+      ],
+      "lat": "*«A» | «Б» | «В»",
+      "cyr": "*«A» | «Б» | «В»",
+      "ru": "*«A» | «Б» | «В»",
+      "knownCyr": true,
+      "knownLat": false,
+      "fixed": false
+    },
+    {
+      "id": "t_26_q_15",
+      "media": "u290uz.webp",
+      "reasons": [
+        "cross_lang_alphabet",
+        "mixed_in_uz_cyr"
+      ],
+      "lat": "A va B | *Faqat A i C | Faqat C",
+      "cyr": "А ва Б | *Фақат А и C | Фақат C",
+      "ru": "a и b | *Только a и c | Только c",
+      "knownCyr": false,
+      "knownLat": false,
+      "fixed": false
+    },
+    {
+      "id": "t_38_q_19",
+      "media": "u440uz.webp",
+      "reasons": [
+        "cross_lang_alphabet",
+        "mixed_in_uz_cyr",
+        "mixed_in_ru"
+      ],
+      "lat": "Har ikki yo'nalishda taqiqlanadi | Faqat \"A\" | *Faqat \"B\" | Har ikki yo'nalishda mumkin",
+      "cyr": "Ҳар икки йўналишда тақиқланади | Фақат «А» | *Фақат «B» | Ҳар икки йўналишда мумкин",
+      "ru": "Запрещено в обоих направлениях | Только «А» | *Только «B» | Возможно в обоих направлениях",
+      "knownCyr": false,
+      "knownLat": false,
+      "fixed": false
+    },
+    {
+      "id": "t_44_q_20",
+      "media": "u515uz.webp",
+      "reasons": [
+        "cross_lang_alphabet"
+      ],
+      "lat": "A va B | Xammasi | *A va C | Faqat A",
+      "cyr": "А ва Б | Хаммаси | *А ва C | Фақат А",
+      "ru": "А и Б | Все | *А и С | Только А",
+      "knownCyr": false,
+      "knownLat": false,
+      "fixed": false
+    },
+    {
+      "id": "t_46_q_4",
+      "media": "u527uz.webp",
+      "reasons": [
+        "cross_lang_alphabet",
+        "mixed_in_ru"
+      ],
+      "lat": "C | A va D | *B",
+      "cyr": "С | А ва Д | *В",
+      "ru": "С | А и D | *В",
+      "knownCyr": false,
+      "knownLat": false,
+      "fixed": false
+    },
+    {
+      "id": "t_52_q_20",
+      "media": "u604uz.webp",
+      "reasons": [
+        "mixed_in_uz_lat"
+      ],
+      "lat": "A | *Hech qaysida | Б | A va Б",
+      "cyr": "А | *Ҳеч қайсида | Б | А ва Б",
+      "ru": "А | *Ни на одном рисунке | Б | А и Б",
+      "knownCyr": true,
+      "knownLat": false,
+      "fixed": false
+    }
+  ],
+  "real": [
+    {
+      "id": "t_2_q_19",
+      "media": "u18uz.webp",
+      "reasons": [
+        "cross_lang_alphabet"
+      ],
+      "lat": "B | B va C | A | *C",
+      "cyr": "B | B ва C | A | *C",
+      "ru": "В | В и С | А | *С",
+      "knownCyr": false,
+      "knownLat": false,
+      "fixed": false
+    },
+    {
+      "id": "t_4_q_11",
+      "media": "u35uz.webp",
+      "reasons": [
+        "mixed_in_uz_lat"
+      ],
+      "lat": "Б va В | В | A va В | *Б va Г",
+      "cyr": "Б ва В | В | А ва В | *Б ва Г",
+      "ru": "В | Б и В | А и В | *Б и Г",
+      "knownCyr": true,
+      "knownLat": false,
+      "fixed": false
+    },
+    {
+      "id": "t_9_q_19",
+      "media": "u101uz.webp",
+      "reasons": [
+        "cross_lang_alphabet",
+        "mixed_in_ru"
+      ],
+      "lat": "Xammasi | Faqat B | *A va B",
+      "cyr": "Хаммаси | Фақат B | *А ва B",
+      "ru": "Все | Только B | *А и В",
+      "knownCyr": false,
+      "knownLat": false,
+      "fixed": false
+    },
+    {
+      "id": "t_13_q_12",
+      "media": "u143uz.webp",
+      "reasons": [
+        "cross_lang_alphabet",
+        "mixed_in_uz_cyr",
+        "mixed_in_ru"
+      ],
+      "lat": "Faqat B | A va B | *Faqat D | Faqat C",
+      "cyr": "Фақат Б | А ва Б | *Фақат Д | Фақат C",
+      "ru": "Только B | А и B | *Только Д | Только C",
+      "knownCyr": false,
+      "knownLat": false,
+      "fixed": false
+    },
+    {
+      "id": "t_16_q_6",
+      "media": "u176uz.webp",
+      "reasons": [
+        "mixed_in_ru"
+      ],
+      "lat": "B | A | *A va B",
+      "cyr": "B | A | *A ва В",
+      "ru": "B | A | *А и В",
+      "knownCyr": true,
+      "knownLat": false,
+      "fixed": false
+    },
+    {
+      "id": "t_24_q_16",
+      "media": "u267uz.webp",
+      "reasons": [
+        "mixed_in_uz_lat",
+        "mixed_in_uz_cyr",
+        "mixed_in_ru"
+      ],
+      "lat": "*«A» | «Б» | «В»",
+      "cyr": "*«A» | «Б» | «В»",
+      "ru": "*«A» | «Б» | «В»",
+      "knownCyr": true,
+      "knownLat": false,
+      "fixed": false
+    },
+    {
+      "id": "t_26_q_15",
+      "media": "u290uz.webp",
+      "reasons": [
+        "cross_lang_alphabet",
+        "mixed_in_uz_cyr"
+      ],
+      "lat": "A va B | *Faqat A i C | Faqat C",
+      "cyr": "А ва Б | *Фақат А и C | Фақат C",
+      "ru": "a и b | *Только a и c | Только c",
+      "knownCyr": false,
+      "knownLat": false,
+      "fixed": false
+    },
+    {
+      "id": "t_38_q_19",
+      "media": "u440uz.webp",
+      "reasons": [
+        "cross_lang_alphabet",
+        "mixed_in_uz_cyr",
+        "mixed_in_ru"
+      ],
+      "lat": "Har ikki yo'nalishda taqiqlanadi | Faqat \"A\" | *Faqat \"B\" | Har ikki yo'nalishda mumkin",
+      "cyr": "Ҳар икки йўналишда тақиқланади | Фақат «А» | *Фақат «B» | Ҳар икки йўналишда мумкин",
+      "ru": "Запрещено в обоих направлениях | Только «А» | *Только «B» | Возможно в обоих направлениях",
+      "knownCyr": false,
+      "knownLat": false,
+      "fixed": false
+    },
+    {
+      "id": "t_44_q_20",
+      "media": "u515uz.webp",
+      "reasons": [
+        "cross_lang_alphabet"
+      ],
+      "lat": "A va B | Xammasi | *A va C | Faqat A",
+      "cyr": "А ва Б | Хаммаси | *А ва C | Фақат А",
+      "ru": "А и Б | Все | *А и С | Только А",
+      "knownCyr": false,
+      "knownLat": false,
+      "fixed": false
+    },
+    {
+      "id": "t_46_q_4",
+      "media": "u527uz.webp",
+      "reasons": [
+        "cross_lang_alphabet",
+        "mixed_in_ru"
+      ],
+      "lat": "C | A va D | *B",
+      "cyr": "С | А ва Д | *В",
+      "ru": "С | А и D | *В",
+      "knownCyr": false,
+      "knownLat": false,
+      "fixed": false
+    },
+    {
+      "id": "t_52_q_20",
+      "media": "u604uz.webp",
+      "reasons": [
+        "mixed_in_uz_lat"
+      ],
+      "lat": "A | *Hech qaysida | Б | A va Б",
+      "cyr": "А | *Ҳеч қайсида | Б | А ва Б",
+      "ru": "А | *Ни на одном рисунке | Б | А и Б",
+      "knownCyr": true,
+      "knownLat": false,
+      "fixed": false
+    }
+  ]
+}

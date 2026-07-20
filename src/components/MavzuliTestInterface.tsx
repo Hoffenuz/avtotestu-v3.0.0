@@ -515,22 +515,22 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
   }
 
   return (
-    <div className={`h-screen bg-background text-foreground flex flex-col overflow-hidden${isDark ? ' dark' : ''}`}>
+    <div className={`h-dvh max-h-dvh bg-background text-foreground flex flex-col overflow-hidden${isDark ? ' dark' : ''}`}>
       {/* Header */}
-      <header className="bg-card border-b border-border px-3 py-2 md:px-4 md:py-2.5 shrink-0">
-        <div className="max-w-5xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-3 md:gap-4">
-            <span className="text-xs md:text-sm font-medium text-muted-foreground line-clamp-1">{topicName}</span>
-            <div className="flex items-center gap-1.5 text-muted-foreground">
+      <header className="bg-card border-b border-border px-2 py-2 md:px-4 md:py-2.5 shrink-0">
+        <div className="max-w-5xl mx-auto flex items-center justify-between gap-1.5">
+          <div className="flex items-center gap-2 md:gap-4 min-w-0">
+            <span className="hidden md:inline text-sm font-medium text-muted-foreground line-clamp-1 min-w-0">{topicName}</span>
+            <div className="flex items-center gap-1 text-muted-foreground shrink-0">
               <Clock className="w-3.5 h-3.5 md:w-4 md:h-4" />
-              <span className="text-sm md:text-base font-medium">{formatTime(timeRemaining)}</span>
+              <span className="text-sm md:text-base font-medium tabular-nums">{formatTime(timeRemaining)}</span>
             </div>
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-1 md:gap-2 shrink-0">
             <Button 
               variant="outline" 
               size="sm" 
-              className={`h-7 px-2 md:h-8 md:px-3 text-xs ${autoAdvance ? 'bg-primary/10 text-primary border-primary/30' : 'text-muted-foreground'}`}
+              className={`h-7 w-7 p-0 md:h-8 md:w-auto md:px-3 text-xs ${autoAdvance ? 'bg-primary/10 text-primary border-primary/30' : 'text-muted-foreground'}`}
               onClick={() => setAutoAdvance(prev => {
                 const next = !prev;
                 try { localStorage.setItem('autoAdvance', String(next)); } catch { /* storage error ignored */ }
@@ -543,7 +543,7 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
             <Button
               variant="outline"
               size="sm"
-              className={`h-7 px-2 md:h-8 md:px-3 text-xs ${isDark ? 'bg-yellow-400/10 text-yellow-400 border-yellow-400/30' : 'text-muted-foreground'}`}
+              className={`h-7 w-7 p-0 md:h-8 md:w-auto md:px-3 text-xs ${isDark ? 'bg-yellow-400/10 text-yellow-400 border-yellow-400/30' : 'text-muted-foreground'}`}
               onClick={toggleDark}
               title={isDark ? "Yorug' rejim" : "Qorong'u rejim"}
             >
@@ -552,7 +552,7 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
             <Button 
               variant="outline" 
               size="sm" 
-              className="h-7 px-2 md:h-8 md:px-3 text-xs"
+              className="hidden md:inline-flex h-8 px-3 text-xs"
               onClick={toggleFullscreen}
               title={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
             >
@@ -561,7 +561,7 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
             <Button 
               variant="outline" 
               size="sm" 
-              className="h-7 px-2 md:h-8 md:px-3 text-xs bg-green-500/10 text-green-600 border-green-500/30 hover:bg-green-500/20"
+              className="h-7 px-1.5 md:h-8 md:px-3 text-[11px] md:text-xs bg-green-500/10 text-green-600 border-green-500/30 hover:bg-green-500/20"
               onClick={handleFinishTest}
             >
               {t("test.finish")}
@@ -569,7 +569,7 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
             <Button 
               variant="outline" 
               size="sm" 
-              className="h-7 px-2 md:h-8 md:px-3 text-xs text-destructive border-destructive/30 hover:bg-destructive/10"
+              className="h-7 px-1.5 md:h-8 md:px-3 text-[11px] md:text-xs text-destructive border-destructive/30 hover:bg-destructive/10"
               onClick={onExit}
             >
               {t("test.exit")}
@@ -593,7 +593,7 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
       />
 
       <main 
-        className="flex-1 px-4 py-4 md:px-8 md:py-5 w-full overflow-y-auto"
+        className="flex-1 min-h-0 px-4 py-4 md:px-8 md:py-5 w-full overflow-y-auto overscroll-contain"
         onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; isSwiping.current = false; }}
         onTouchMove={(e) => { if (Math.abs(e.touches[0].clientX - touchStartX.current) > 30) isSwiping.current = true; }}
         onTouchEnd={(e) => { touchEndX.current = e.changedTouches[0].clientX; if (isSwiping.current) { e.preventDefault(); handleSwipe(); } }}
@@ -689,7 +689,7 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
       </main>
 
       {/* Bottom Navigation */}
-      <footer className="bg-card border-t border-border px-3 py-2.5 md:px-4 md:py-3 shrink-0">
+      <footer className="bg-card border-t border-border px-3 py-2.5 md:px-4 md:py-3 shrink-0 sticky bottom-0 z-30 pb-[max(0.625rem,env(safe-area-inset-bottom))]">
         <div className="max-w-5xl mx-auto flex items-center justify-between gap-1.5 sm:gap-2">
           <IzohNavButton
             key={`izoh-${currentQuestion}`}

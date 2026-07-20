@@ -278,9 +278,9 @@ t_5_q_1–3, q_6, q_9–10, q_13, q_15–16, q_19 — mos; yozilmadi.
 - **muammo:** RU izohda «Закона о дорожном движении» / «Закона».
 - **tavsiya:** → ПДД.
 
-### t_6_q_18 ⚠️ CRITICAL (LAT↔RU is_correct ziddiyat)
-- **muammo:** LAT to‘g‘ri: «Har ikkisi buzmadi». RU to‘g‘ri: «Водитель синего автомобиля». **Turli javoblar.** RU izohda yana **ГК**.
-- **tavsiya:** Media (`u2001uz.webp`) bilan LAT ni asos qilib RU `is_correct` ni tuzatish; ГК → ПДД.
+### t_6_q_18 ✅ Tuzatildi (LAT↔RU is_correct ziddiyat)
+- **muammo (eski):** LAT to‘g‘ri: «Har ikkisi buzmadi». RU to‘g‘ri: «Водитель синего автомобиля». **Turli javoblar.**
+- **tuzatish:** LAT ma’nosi asos — RU/CYR `is_correct` → id **3** («Оба не нарушили» / «Ҳар иккиси бузмади»). Sync: variants + barcha* + 600.
 
 ### v6 — OK
 t_6_q_1, q_3, q_5, q_7–8, q_10–11, q_14, q_16, q_19–20 — asosan mos; yozilmadi.
@@ -490,9 +490,9 @@ q_1–9, q_11, q_13–14, q_16–18, q_20 asosan; yozilmadi.
 - **muammo:** Savol: qaysi belgi «Xavfli yuk… taqiqlangan». **Izoh 81-band tezlik taniqlik belgisi** — boshqa mavzu. RU **УК**.
 - **tavsiya:** 3.32 belgi izohi + media (`u156uz.webp`).
 
-### t_14_q_11 ⚠️ CRITICAL (LAT↔RU is_correct ziddiyat)
-- **muammo:** LAT to‘g‘ri: **dvigatel bilan tormozlash**. RU to‘g‘ri deb belgilangan: **«резко нажав на педаль тормоза»** — bu LAT dagi noto‘g‘ri variant.
-- **tavsiya:** RU `is_correct` ni «затормозив двигателем» ga o‘tkazish.
+### t_14_q_11 ✅ Tuzatildi (LAT↔RU is_correct ziddiyat)
+- **muammo (eski):** LAT to‘g‘ri: **dvigatel bilan tormozlash**. RU id1 matni **«резко нажав на педаль тормоза»** edi.
+- **tuzatish:** RU id1↔id2 matn almashtirildi; `is_correct` id **1** = «затормозив двигателем». Sync: variants + barcha* + 600.
 
 ### t_14_q_11 (RU izoh)
 - **muammo:** «водяной пруд», «тротуаром».
@@ -655,11 +655,9 @@ Inventar + qo‘shimcha: `t_22_q_4` ГКАП, `t_25_q_17` Украина, `t_27_
 | v1–v20 | Savol + javob + izoh chuqur o‘qildi |
 | v21–v63 | CRITICAL noto‘g‘ri-izoh mavzulari skan + qo‘lda tasdiq; har bir “OK” chorraha/media savoli 100% kafolat emas |
 | RU huquqiy nomlar | 104+ inventar (alohida tuzatish partiyasi) |
-| LAT↔RU javob ziddiyati | Kamida: `t_6_q_18`, `t_14_q_11`, `t_6_q_9` (matn) |
+| LAT↔RU javob ziddiyati | `t_6_q_18`, `t_14_q_11` — **✅ tuzatildi** (LAT asos); `t_6_q_9` — matn sifati (alohida) |
 
-**Hali tuzatilmagan** — faqat jurnalga yozildi (so‘rov: avval aniqlash).
-
-**Keyingi qadam (siz aytganda):** jurnal bo‘yicha CRITICAL larni JSON da tuzatish → barcha/mavzuli sync.
+**Javob kalitlari:** ikkala CRITICAL LAT↔RU `is_correct` ziddiyati tuzatildi. Rasmli savollar alohida (media kafolati yo‘q).
 
 ---
 

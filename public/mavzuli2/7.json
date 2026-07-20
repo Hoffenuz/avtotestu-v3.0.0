@@ -1,28 +1,30 @@
 [
     {
         "task_info": {
-            "global_id": "t_2_q_4",
-            "ticket_num": 2,
-            "order": 1
+            "global_id": "t_7_q_2",
+            "global_id2": "t_7_q_2",
+            "ticket_num": 7,
+            "order": 1,
+            "remapped_from": "t_2_q_4"
         },
-        "media_url": "v135uz.webp",
+        "media_url": "u63uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi belgi Qoidalarning aholi punktlarida harakatlanish tartibini belgilaydigan talablarning bekor qilinishini ko'rsatadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "2",
+                        "text": "1",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "3",
+                        "text": "2",
                         "is_correct": false
                     },
                     {
@@ -32,7 +34,7 @@
                     },
                     {
                         "id": 5,
-                        "text": "5",
+                        "text": "3",
                         "is_correct": false
                     }
                 ]
@@ -42,17 +44,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "2",
+                        "text": "1",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "3",
+                        "text": "2",
                         "is_correct": false
                     },
                     {
@@ -62,7 +64,7 @@
                     },
                     {
                         "id": 5,
-                        "text": "5",
+                        "text": "3",
                         "is_correct": false
                     }
                 ]
@@ -72,17 +74,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "2",
+                        "text": "1",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "3",
+                        "text": "2",
                         "is_correct": false
                     },
                     {
@@ -92,7 +94,7 @@
                     },
                     {
                         "id": 5,
-                        "text": "5",
+                        "text": "3",
                         "is_correct": false
                     }
                 ]
@@ -101,14 +103,16 @@
         "izoh": {
             "uz_lat": "YHQ 1-ilovasining 5-bo'limi 5.23 \"Aholi punktining oxiri\" belgisiga muvofiq, ushbu Qoidalarning aholi punktlarida harakatlanish tartib-talablari bekor qilingan joyni bildiradi.",
             "uz_cyr": "YHQ 1-иловасининг 5-бўлими 5.23 \"Аҳоли пунктининг охири\" белгисига мувофиқ, ушбу Қоидаларнинг аҳоли пунктларида ҳаракатланиш тартиб-талаблари бекор қилинган жойни билдиради.",
-            "ru": "В соответствии с разделом 5.23 «Окончание расчетов» Приложения 1 РУ - место отмены требований к трафику в расчетах настоящих Правил."
+            "ru": "В соответствии со знаком 5.23 «Конец населённого пункта» раздела 5 приложения 1 к ПДД обозначает место, с которого требования настоящих Правил о порядке движения в населённых пунктах утрачивают силу."
         }
     },
     {
         "task_info": {
-            "global_id": "t_8_q_12",
-            "ticket_num": 8,
-            "order": 2
+            "global_id": "t_55_q_5",
+            "global_id2": "t_55_q_5",
+            "ticket_num": 55,
+            "order": 2,
+            "remapped_from": "t_8_q_12"
         },
         "media_url": "u636uz.webp",
         "content": {
@@ -122,13 +126,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "To'g'riga va orqaga burilish",
-                        "is_correct": false
+                        "text": "Faqat to'g'riga",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Faqat to'g'riga",
-                        "is_correct": true
+                        "text": "To'g'riga va orqaga burilish",
+                        "is_correct": false
                     }
                 ]
             },
@@ -142,13 +146,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Тўғрига ва орқага бурилиш",
-                        "is_correct": false
+                        "text": "Фақат тўғрига",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Фақат тўғрига",
-                        "is_correct": true
+                        "text": "Тўғрига ва орқага бурилиш",
+                        "is_correct": false
                     }
                 ]
             },
@@ -162,13 +166,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Тўғрига ва орқага бурилиш",
-                        "is_correct": false
+                        "text": "Только прямо",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Только прямо",
-                        "is_correct": true
+                        "text": "Тўғрига ва орқага бурилиш",
+                        "is_correct": false
                     }
                 ]
             }
@@ -176,14 +180,16 @@
         "izoh": {
             "uz_lat": "YHQ 1-ilovasining 7-bo'limi 3-xatboshiga asosan, vaqtinchalik (ko'chma tirgakdagi) va doimiy belgilar ma'no jihatidan bir-biriga zid kelgan hollarda, haydovchilar vaqtincha o'rnatilgan belgilarga amal qilishlari kerak.",
             "uz_cyr": "YHQ 1-иловасининг 7-бўлими 3-хатбошига асосан, вақтинчалик (кўчма тиргакдаги) ва доимий белгилар маъно жиҳатидан бир-бирига зид келган ҳолларда, ҳайдовчилар вақтинча ўрнатилган белгиларга амал қилишлари керак.",
-            "ru": "Согласно пункту 3 статьи 7 приложения 1 Закона о дорожном движении, в случаях, когда временные (на передвижном столбе) и постоянные знаки противоречат друг другу по смыслу, водители обязаны следовать временно установленным знакам."
+            "ru": "Согласно пункту 3 статьи 7 приложения 1 ПДД, в случаях, когда временные (на передвижном столбе) и постоянные знаки противоречат друг другу по смыслу, водители обязаны следовать временно установленным знакам."
         }
     },
     {
         "task_info": {
-            "global_id": "t_9_q_1",
-            "ticket_num": 9,
-            "order": 3
+            "global_id": "t_29_q_11",
+            "global_id2": "t_29_q_11",
+            "ticket_num": 29,
+            "order": 3,
+            "remapped_from": "t_9_q_1"
         },
         "media_url": "u331uz.webp",
         "content": {
@@ -192,23 +198,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "4",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "3",
-                        "is_correct": true
+                        "text": "1",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "4",
-                        "is_correct": false
+                        "text": "3",
+                        "is_correct": true
                     }
                 ]
             },
@@ -217,23 +223,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "4",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "3",
-                        "is_correct": true
+                        "text": "1",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "4",
-                        "is_correct": false
+                        "text": "3",
+                        "is_correct": true
                     }
                 ]
             },
@@ -242,23 +248,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "4",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "3",
-                        "is_correct": true
+                        "text": "1",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "4",
-                        "is_correct": false
+                        "text": "3",
+                        "is_correct": true
                     }
                 ]
             }
@@ -266,14 +272,16 @@
         "izoh": {
             "uz_lat": "YHQ 1 – ilovasi 5 – bo‘limining 5.41 belgisi talabiga asosan: 5.41. “Foto – va video qayd etish” belgisi, maxsus avtomatlashtirilgan foto va video qayd etish texnika vositalari o‘rnatilgani haqida axborot beradi.",
             "uz_cyr": "YHQ 1 – иловаси 5 – бўлимининг 5.41 белгиси талабига асосан: 5.41. “Фото – ва видео қайд этиш” белгиси, махсус автоматлаштирилган фото ва видео қайд этиш техника воситалари ўрнатилгани ҳақида ахборот беради.",
-            "ru": "Согласно требованию знака 5.41 раздела 5.41 Приложения 1 Общего регламента: 5.41. Знак «Фото- и видеосъемка» информирует о том, что установлено специальное автоматизированное оборудование для фото- и видеосъемки."
+            "ru": "Согласно требованию знака 5.41 раздела 5.41 Приложения 1 ПДД: 5.41. Знак «Фото- и видеосъемка» информирует о том, что установлено специальное автоматизированное оборудование для фото- и видеосъемки."
         }
     },
     {
         "task_info": {
-            "global_id": "t_10_q_12",
-            "ticket_num": 10,
-            "order": 4
+            "global_id": "t_42_q_6",
+            "global_id2": "t_42_q_6",
+            "ticket_num": 42,
+            "order": 4,
+            "remapped_from": "t_10_q_12"
         },
         "media_url": "u478uz.webp",
         "content": {
@@ -287,12 +295,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Uchinchi va beshinchi",
+                        "text": "Ikkinchi va to'rtinchi",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Ikkinchi va to'rtinchi",
+                        "text": "Uchinchi va beshinchi",
                         "is_correct": false
                     }
                 ]
@@ -307,12 +315,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Учинчи ва бешинчи",
+                        "text": "Иккинчи ва тўртинчи",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Иккинчи ва тўртинчи",
+                        "text": "Учинчи ва бешинчи",
                         "is_correct": false
                     }
                 ]
@@ -322,8 +330,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Первый и пятый",
-                        "is_correct": true
+                        "text": "Второй и четвертый",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -332,8 +340,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Второй и четвертый",
-                        "is_correct": false
+                        "text": "Первый и пятый",
+                        "is_correct": true
                     }
                 ]
             }
@@ -341,14 +349,16 @@
         "izoh": {
             "uz_lat": "YHQ 1 – ilovasi 5 – bo‘limining  sakkizinchi xatboshisiga asosan: 5.7.1, 5.7.2. “Bir tomonlama harakatli yo‘lga chiqish”. Harakatlanish bir tomonlama bo‘lgan yo‘lga yoki qatnov qismiga chiqishni bildiradi.\r\nBunday holda, birinchi va beshinchi belgilar “Bir tomonlama harakatli yo‘lga chiqish” deb nomlanadi.",
             "uz_cyr": "YHQ 1 – иловаси 5 – бўлимининг  саккизинчи хатбошисига асосан: 5.7.1, 5.7.2. “Бир томонлама ҳаракатли йўлга чиқиш”. Ҳаракатланиш бир томонлама бўлган йўлга ёки қатнов қисмига чиқишни билдиради.\r\nБундай ҳолда, биринчи ва бешинчи белгилар “Бир томонлама ҳаракатли йўлга чиқиш” деб номланади.",
-            "ru": "Согласно абзацу восьмому раздела 5 Приложения 1 Общего регламента: 5.7.1, 5.7.2. «Выход на улицу с односторонним движением». Ездить означает выехать на дорогу с односторонним движением или проезжую часть. \r\nВ этом случае первый и пятый знаки называются «Выход в одну сторону»."
+            "ru": "Согласно абзацу восьмому раздела 5 Приложения 1 ПДД: 5.7.1, 5.7.2. «Выход на улицу с односторонним движением». Ездить означает выехать на дорогу с односторонним движением или проезжую часть. \r\nВ этом случае первый и пятый знаки называются «Выход в одну сторону»."
         }
     },
     {
         "task_info": {
-            "global_id": "t_12_q_12",
-            "ticket_num": 12,
-            "order": 5
+            "global_id": "t_27_q_9",
+            "global_id2": "t_27_q_9",
+            "ticket_num": 27,
+            "order": 5,
+            "remapped_from": "t_12_q_11"
         },
         "media_url": "u298uz.webp",
         "content": {
@@ -357,7 +367,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "To'siqlarni aylanib o'tishning dastlabki ko'rsatkichi",
+                        "text": "Qarama-qarshi yo'nalish bo'lagiga chiqishning boshlang'ich ko'rsatkichi",
                         "is_correct": false
                     },
                     {
@@ -367,7 +377,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Qarama-qarshi yo'nalish bo'lagiga chiqishning boshlang'ich ko'rsatkichi",
+                        "text": "To'siqlarni aylanib o'tishning dastlabki ko'rsatkichi",
                         "is_correct": false
                     }
                 ]
@@ -377,7 +387,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тўсиқларни айланиб ўтишнинг дастлабки кўрсаткичи",
+                        "text": "Қарама-қарши йўналиш бўлагига чиқишнинг бошланғич кўрсаткичи",
                         "is_correct": false
                     },
                     {
@@ -387,7 +397,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Қарама-қарши йўналиш бўлагига чиқишнинг бошланғич кўрсаткичи",
+                        "text": "Тўсиқларни айланиб ўтишнинг дастлабки кўрсаткичи",
                         "is_correct": false
                     }
                 ]
@@ -397,17 +407,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Предварительный указатель объезда препятствий",
+                        "text": "Предварительный указатель выезда на полосу встречного движения",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Предварительный указатель перестроения на другую проезжую часть",
+                        "text": "Занос с возможным опрокидыванием автомобиля",
                         "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Предварительный указатель выезда на полосу встречного движения",
+                        "text": "Предварительный указатель объезда препятствий",
                         "is_correct": false
                     }
                 ]
@@ -421,23 +431,25 @@
     },
     {
         "task_info": {
-            "global_id": "t_13_q_2",
-            "ticket_num": 13,
-            "order": 6
+            "global_id": "t_1_q_12",
+            "global_id2": "t_1_q_12",
+            "ticket_num": 1,
+            "order": 6,
+            "remapped_from": "t_13_q_2"
         },
-        "media_url": "v51uz.webp",
+        "media_url": "u7uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Avtomobilga qaysi yo'nalishlarda harakatlanishga rusat etiladi?",
+                "text": "Avtomobilga qaysi yo'nalishlarda harakatlanishga ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Barcha yo'nalishlarga",
+                        "text": "«Б» va «В»",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "«Б» va «В»",
+                        "text": "Barcha yo'nalishlarga",
                         "is_correct": false
                     },
                     {
@@ -448,16 +460,16 @@
                 ]
             },
             "uz_cyr": {
-                "text": "Автомобилга қайси йўналишларда ҳаракатланишга русат этилади?",
+                "text": "Автомобилга қайси йўналишларда ҳаракатланишга рухсат этилади?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Барча йўналишларга",
+                        "text": "«Б» ва «В»",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "«Б» ва «В»",
+                        "text": "Барча йўналишларга",
                         "is_correct": false
                     },
                     {
@@ -472,12 +484,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Во всех направлениях",
+                        "text": "«Б» и «В»",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "«Б» и «В»",
+                        "text": "Во всех направлениях",
                         "is_correct": false
                     },
                     {
@@ -491,14 +503,16 @@
         "izoh": {
             "uz_lat": "\"YHQga 1-ILOVA 5.8.2 bandi va 5. Axborot-ko‘rsatgich belgilarining 11-xatboshi hamda YHQga 1-ILOVA 3.18.2 bandi va 3.Taqiqlovchi belgilarning 47-xatboshiga asosan: 5.8.2. «Tasma bo‘yicha harakatlanish yo‘nalishi». Tasma bo‘yicha ruxsat etilgan harakatlanish yo‘nalishi. Boshqa yo‘nalishlar bo‘yicha harakatlanish taqiqlanadi.\r\nYo‘lning chetki chap bo‘lagidan chapga burilishga ruxsat beruvchi 5.8.1 va 5.8.2 belgilari shu tasmadan qayrilishga ham ruxsat beradi. \r\n3.18.2. «Chapga burilish taqiqlanadi». 3.18.1 va 3.18.2 belgilari qatnov qismlarining qaysi kesishmasi oldiga o‘rnatilsa, shu kesishmaga tatbiq etiladi.\"",
             "uz_cyr": "\"YHQга 1-ИЛОВА 5.8.2 банди ва 5. Ахборот-кўрсатгич белгиларининг 11-хатбоши ҳамда YHQга 1-ИЛОВА 3.18.2 банди ва 3.Тақиқловчи белгиларнинг 47-хатбошига асосан: 5.8.2. «Тасма бўйича ҳаракатланиш йўналиши». Тасма бўйича рухсат этилган ҳаракатланиш йўналиши. Бошқа йўналишлар бўйича ҳаракатланиш тақиқланади.\r\nЙўлнинг четки чап бўлагидан чапга бурилишга рухсат берувчи 5.8.1 ва 5.8.2 белгилари шу тасмадан қайрилишга ҳам рухсат беради. \r\n3.18.2. «Чапга бурилиш тақиқланади». 3.18.1 ва 3.18.2 белгилари қатнов қисмларининг қайси кесишмаси олдига ўрнатилса, шу кесишмага татбиқ этилади.\"",
-            "ru": "Согласно «Приложению 1 к НПЦ, п. 5.8.2 и 5. Информационно-указательные знаки, п. 11, и ПРИЛОЖЕНИЮ 1 к НПЦ, п. 3.18.2 и 3. Запрещающие знаки, п. 47: 5.8.2. «Направление движения по полосе». Направление движения по полосе запрещено. Движение в других направлениях запрещено.\r\nЗнаки 5.8.1 и 5.8.2, разрешающие поворот налево из крайней левой полосы дороги, разрешают и поворот с этой полосы. \r\n3.18.2. «Поворот налево запрещен». Знаки 3.18.1 и 3.18.2 наносятся на перекресток, перед которым установлено пересечение участков движения»."
+            "ru": "Согласно «Приложению 1 к ПДД, п. 5.8.2 и 5. Информационно-указательные знаки, п. 11, и ПРИЛОЖЕНИЮ 1 к ПДД, п. 3.18.2 и 3. Запрещающие знаки, п. 47: 5.8.2. «Направление движения по полосе». Направление движения по полосе запрещено. Движение в других направлениях запрещено.\r\nЗнаки 5.8.1 и 5.8.2, разрешающие поворот налево из крайней левой полосы дороги, разрешают и поворот с этой полосы. \r\n3.18.2. «Поворот налево запрещен». Знаки 3.18.1 и 3.18.2 наносятся на перекресток, перед которым установлено пересечение участков движения»."
         }
     },
     {
         "task_info": {
-            "global_id": "t_16_q_12",
-            "ticket_num": 16,
-            "order": 7
+            "global_id": "t_23_q_1",
+            "global_id2": "t_23_q_1",
+            "ticket_num": 23,
+            "order": 7,
+            "remapped_from": "t_6_q_2"
         },
         "media_url": "u251uz.webp",
         "content": {
@@ -507,18 +521,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Yuk avtomobillari, traktorlar, o'ziyurar mashinalar uchun, agar chorrahada ularning harakati yo'nalishlardan biriga taqiqlangan bo'lsa, tavsiya etiladigan harakat yo'nalishini",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "To'la vazni 3,5 t dan ortiq bo'lgan yuk avtomobilining majburiy harakat yo'nalishini",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Faqat yuk avtomobillari uchun harakat yo'nalishini",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Yuk avtomobillari, traktorlar, o'ziyurar mashinalar uchun, agar chorrahada ularning harakati yo'nalishlardan biriga taqiqlangan bo'lsa, tavsiya etiladigan harakat yo'nalishini",
-                        "is_correct": true
                     },
                     {
                         "id": 4,
@@ -532,18 +546,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Юк автомобиллари, тракторлар, ўзиюрар машиналар учун, агар чорраҳада уларнинг ҳаракати йўналишлардан бирига тақиқланган бўлса, тавсия этиладиган ҳаракат йўналишини",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Тўла вазни 3,5 т дан ортиқ бўлган юк автомобилининг мажбурий ҳаракат йўналишини",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Фақат юк автомобиллари учун ҳаракат йўналишини",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Юк автомобиллари, тракторлар, ўзиюрар машиналар учун, агар чорраҳада уларнинг ҳаракати йўналишлардан бирига тақиқланган бўлса, тавсия этиладиган ҳаракат йўналишини",
-                        "is_correct": true
                     },
                     {
                         "id": 4,
@@ -557,18 +571,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Рекомендуемое направление движения для грузовых автомобилей, тракторов и самоходных машин, если на перекрёстке их движение в одном из направлений запрещено",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": ". Обязательное направление движения грузовых автомобилей, полная масса которых более 3,5т",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Направление движения только для грузовых автомобилей",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Рекомендуемое направление движения для грузовых автомобилей, тракторов и самоходных машин, если на перекрёстке их движение в одном из направлений запрещено",
-                        "is_correct": true
                     },
                     {
                         "id": 4,
@@ -581,14 +595,16 @@
         "izoh": {
             "uz_lat": "YHQ 1 – ilovasining 5 – bo‘limidagi 5.30.2 “Yuk avtomobillari uchun harakatlanish yo‘nalishi” belgisiga asosan, yuk avtomobillari haydovchilariga eng qulay yo‘lni ko‘rsatadi vas hu yo‘l bo‘yicha harakatlanishni tavsiya etadi.",
             "uz_cyr": "YHQ 1 – иловасининг 5 – бўлимидаги 5.30.2 “Юк автомобиллари учун ҳаракатланиш йўналиши” белгисига асосан, юк автомобиллари ҳайдовчиларига энг қулай йўлни кўрсатади вас ҳу йўл бўйича ҳаракатланишни тавсия этади.",
-            "ru": "Согласно знаку 5.30.2 «Направление движения грузовых автомобилей» раздела 5 Приложения 1 YHQ, он показывает водителям грузовых автомобилей наиболее удобный маршрут и рекомендует двигаться по дороге."
+            "ru": "Согласно знаку 5.30.2 «Направление движения грузовых автомобилей» раздела 5 Приложения 1 ПДД, он показывает водителям грузовых автомобилей наиболее удобный маршрут и рекомендует двигаться по дороге."
         }
     },
     {
         "task_info": {
-            "global_id": "t_17_q_12",
-            "ticket_num": 17,
-            "order": 8
+            "global_id": "t_7_q_19",
+            "global_id2": "t_7_q_19",
+            "ticket_num": 7,
+            "order": 8,
+            "remapped_from": "t_17_q_12"
         },
         "media_url": "u76uz.webp",
         "content": {
@@ -597,17 +613,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "«Б», «В», «Г», «Д»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Faqat «Г» va «Е»",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "«А», «Б», «Г», «Д»",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "«Б», «В», «Г», «Д»",
+                        "text": "«А», «Б», «Г», «Д»",
                         "is_correct": false
                     }
                 ]
@@ -617,17 +633,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "«Б», «В», «Г», «Д»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Фақат «Г» ва «Е»",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "«А», «Б», «Г», «Д»",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "«Б», «В», «Г», «Д»",
+                        "text": "«А», «Б», «Г», «Д»",
                         "is_correct": false
                     }
                 ]
@@ -637,17 +653,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "«Б», «В», «Г», «Д»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Только «Г» и «Е»",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "«А», «Б», «Г», «Д»",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "«Б», «В», «Г», «Д»",
+                        "text": "«А», «Б», «Г», «Д»",
                         "is_correct": false
                     }
                 ]
@@ -661,9 +677,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_19_q_12",
-            "ticket_num": 19,
-            "order": 9
+            "global_id": "t_7_q_8",
+            "global_id2": "t_7_q_8",
+            "ticket_num": 7,
+            "order": 9,
+            "remapped_from": "t_19_q_12"
         },
         "media_url": "u67uz.webp",
         "content": {
@@ -672,7 +690,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat o'ngga",
+                        "text": "Faqat chapga",
                         "is_correct": false
                     },
                     {
@@ -682,7 +700,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Faqat chapga",
+                        "text": "Faqat o'ngga",
                         "is_correct": false
                     }
                 ]
@@ -692,7 +710,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат ўнгга",
+                        "text": "Фақат чапга",
                         "is_correct": false
                     },
                     {
@@ -702,7 +720,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Фақат чапга",
+                        "text": "Фақат ўнгга",
                         "is_correct": false
                     }
                 ]
@@ -712,7 +730,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только направо",
+                        "text": "3.Только налево",
                         "is_correct": false
                     },
                     {
@@ -722,7 +740,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "3.Только налево",
+                        "text": "Только направо",
                         "is_correct": false
                     }
                 ]
@@ -736,9 +754,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_21_q_3",
-            "ticket_num": 21,
-            "order": 10
+            "global_id": "t_43_q_17",
+            "global_id2": "t_43_q_17",
+            "ticket_num": 43,
+            "order": 10,
+            "remapped_from": "t_21_q_3"
         },
         "media_url": "u499uz.webp",
         "content": {
@@ -812,8 +832,10 @@
     {
         "task_info": {
             "global_id": "t_50_q_16",
+            "global_id2": "t_50_q_16",
             "ticket_num": 50,
-            "order": 11
+            "order": 11,
+            "remapped_from": "t_33_q_3"
         },
         "media_url": "u573uz.webp",
         "content": {
@@ -872,7 +894,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Дублирует «Километровый знак»",
+                        "text": "Указывает расстояние до ближайшего отделения ДАН",
                         "is_correct": false
                     },
                     {
@@ -887,7 +909,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Указывает расстояние до ближайшего отделения ДАН",
+                        "text": "Дублирует «Километровый знак»",
                         "is_correct": false
                     }
                 ]
@@ -896,14 +918,16 @@
         "izoh": {
             "uz_lat": "YHQ 1-ilovasining 5-bo'limi 5.29.1 \"Yo'l raqami\" belgisiga muvofiq, — yo'lga berilgan raqam, belgilangan tartibda tasdiqlangan yo'l(marshrut) raqamini ko'rsatish uchun qo'llaniladi. 5.29.1 belgisi yo'lning boshlanishida o'rnatiladi va har 15-20 km qaytariladi. Yashil rangdagi belgilar avtomagistrallarga o'rnatish uchun mo'ljallangan.",
             "uz_cyr": "YHQ 1-иловасининг 5-бўлими 5.29.1 \"Йўл рақами\" белгисига мувофиқ, — йўлга берилган рақам, белгиланган тартибда тасдиқланган йўл(маршрут) рақамини кўрсатиш учун қўлланилади. 5.29.1 белгиси йўлнинг бошланишида ўрнатилади ва ҳар 15-20 км қайтарилади. Яшил рангдаги белгилар автомагистралларга ўрнатиш учун мўлжалланган.",
-            "ru": "Согласно разделу 5.29.1 приложения 1 Национального кодекса безопасности дорожного движения знак «Номер дороги» — номер, присвоенный дороге, служит для обозначения номера дороги (маршрута), утвержденного в установленном порядке. Знак 5.29.1 устанавливается в начале дороги и возвращается каждые 15-20 км. Зеленые знаки предназначены для установки на автомобильных дорогах."
+            "ru": "Согласно разделу 5.29.1 приложения 1 Национального кодекса безопасности дорожного движения знак «Номер дороги» — номер, присвоенный дороге, служит для обозначения номера дороги (маршрута), утвержденного в установленном порядке. Знак 5.29.1 устанавливается в начале дороги и возвращается каждые 15-20 км. Зеленые знаки предназначены для установки на автомагистралях."
         }
     },
     {
         "task_info": {
-            "global_id": "t_23_q_12",
-            "ticket_num": 23,
-            "order": 12
+            "global_id": "t_43_q_9",
+            "global_id2": "t_43_q_9",
+            "ticket_num": 43,
+            "order": 12,
+            "remapped_from": "t_56_q_17"
         },
         "media_url": "u496uz.webp",
         "content": {
@@ -912,13 +936,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "«А»",
-                        "is_correct": true
+                        "text": "«Б»",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "«Б»",
-                        "is_correct": false
+                        "text": "«А»",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -932,13 +956,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "«А»",
-                        "is_correct": true
+                        "text": "«Б»",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "«Б»",
-                        "is_correct": false
+                        "text": "«А»",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -952,13 +976,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "«А»",
-                        "is_correct": true
+                        "text": "«Б»",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "«Б»",
-                        "is_correct": false
+                        "text": "«А»",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -971,14 +995,16 @@
         "izoh": {
             "uz_lat": "YHQ 1- ilovasining 5-bo'limidagi 5.11.1 belgi \"Qayrilish joyi\" belgisi bo'lib chapga burilish taqiqlanadi.",
             "uz_cyr": "YHQ 1- иловасининг 5-бўлимидаги 5.11.1 белги \"Қайрилиш жойи\" белгиси бўлиб чапга бурилиш тақиқланади.",
-            "ru": "Знак 5.11.1 в разделе 5 приложения 1 Закона о дорожном движении является знаком «Место поворота» и поворот налево запрещен."
+            "ru": "Знак 5.11.1 в разделе 5 приложения 1 ПДД является знаком «Место поворота» и поворот налево запрещен."
         }
     },
     {
         "task_info": {
-            "global_id": "t_25_q_7",
+            "global_id": "t_25_q_15",
+            "global_id2": "t_25_q_15",
             "ticket_num": 25,
-            "order": 13
+            "order": 13,
+            "remapped_from": "t_25_q_7"
         },
         "media_url": "u277uz.webp",
         "content": {
@@ -987,8 +1013,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
+                        "text": "3",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -997,17 +1023,17 @@
                     },
                     {
                         "id": 3,
-                        "text": "3",
-                        "is_correct": true
+                        "text": "1",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "4",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "5",
+                        "text": "4",
                         "is_correct": false
                     }
                 ]
@@ -1017,8 +1043,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
+                        "text": "3",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -1027,17 +1053,17 @@
                     },
                     {
                         "id": 3,
-                        "text": "3",
-                        "is_correct": true
+                        "text": "1",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "4",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "5",
+                        "text": "4",
                         "is_correct": false
                     }
                 ]
@@ -1047,8 +1073,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": false
+                        "text": "3",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -1057,17 +1083,17 @@
                     },
                     {
                         "id": 3,
-                        "text": "3",
-                        "is_correct": true
+                        "text": "1",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "4",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "5",
+                        "text": "4",
                         "is_correct": false
                     }
                 ]
@@ -1076,14 +1102,16 @@
         "izoh": {
             "uz_lat": "YHQ 1-ilovasining 6-bo'limi 6.9 \"Mehmonxona yoki motel\" belgisiga muvofiq, yo'l harakat qatnashchilariga mehmonxona yoki motel haqida ma'lumot berish uchun qo'llaniladi.",
             "uz_cyr": "YHQ 1-иловасининг 6-бўлими 6.9 \"Меҳмонхона ёки мотел\" белгисига мувофиқ, йўл ҳаракат қатнашчиларига меҳмонхона ёки мотел ҳақида маълумот бериш учун қўлланилади.",
-            "ru": "Раздел 6.9 приложения 1 Закона о дорожном движении 6.9 Знак «Гостиница или мотель» служит для информирования участников дорожного движения о гостинице или мотеле."
+            "ru": "Раздел 6.9 приложения 1 ПДД 6.9 Знак «Гостиница или мотель» служит для информирования участников дорожного движения о гостинице или мотеле."
         }
     },
     {
         "task_info": {
-            "global_id": "t_25_q_12",
-            "ticket_num": 25,
-            "order": 14
+            "global_id": "t_39_q_3",
+            "global_id2": "t_39_q_3",
+            "ticket_num": 39,
+            "order": 14,
+            "remapped_from": "t_25_q_12"
         },
         "media_url": "u442uz.webp",
         "content": {
@@ -1092,22 +1120,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "4",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "2",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "3",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "4",
+                        "text": "2",
                         "is_correct": false
                     },
                     {
@@ -1122,22 +1150,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "4",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "2",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "3",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "4",
+                        "text": "2",
                         "is_correct": false
                     },
                     {
@@ -1152,22 +1180,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "4",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "2",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "3",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "1",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "4",
+                        "text": "2",
                         "is_correct": false
                     },
                     {
@@ -1186,9 +1214,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_26_q_3",
-            "ticket_num": 26,
-            "order": 15
+            "global_id": "t_53_q_7",
+            "global_id2": "t_53_q_7",
+            "ticket_num": 53,
+            "order": 15,
+            "remapped_from": "t_26_q_3"
         },
         "media_url": "u609uz.webp",
         "content": {
@@ -1197,12 +1227,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat ruxsat etilgan to'la vazni 3,5 t dan ortiq bo'lmagan avtomobillarga ruxsat etiladi",
+                        "text": "Taqiqlanadi",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Taqiqlanadi",
+                        "text": "Faqat ruxsat etilgan to'la vazni 3,5 t dan ortiq bo'lmagan avtomobillarga ruxsat etiladi",
                         "is_correct": false
                     },
                     {
@@ -1217,12 +1247,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат рухсат этилган тўла вазни 3,5 т дан ортиқ бўлмаган автомобилларга рухсат этилади",
+                        "text": "Тақиқланади",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Тақиқланади",
+                        "text": "Фақат рухсат этилган тўла вазни 3,5 т дан ортиқ бўлмаган автомобилларга рухсат этилади",
                         "is_correct": false
                     },
                     {
@@ -1237,12 +1267,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается только автомобилю, разрешенная максимальная масса которого не более 3,5т",
+                        "text": "Запрещается",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Запрещается",
+                        "text": "Разрешается только автомобилю, разрешенная максимальная масса которого не более 3,5т",
                         "is_correct": false
                     },
                     {
@@ -1261,9 +1291,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_27_q_12",
-            "ticket_num": 27,
-            "order": 16
+            "global_id": "t_60_q_12",
+            "global_id2": "t_60_q_12",
+            "ticket_num": 60,
+            "order": 16,
+            "remapped_from": "t_27_q_12"
         },
         "media_url": "u683uz.webp",
         "content": {
@@ -1272,12 +1304,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "4",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "2",
+                        "text": "1",
                         "is_correct": false
                     },
                     {
@@ -1287,12 +1319,12 @@
                     },
                     {
                         "id": 4,
-                        "text": "4",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "5",
+                        "text": "2",
                         "is_correct": false
                     }
                 ]
@@ -1302,12 +1334,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "4",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "2",
+                        "text": "1",
                         "is_correct": false
                     },
                     {
@@ -1317,12 +1349,12 @@
                     },
                     {
                         "id": 4,
-                        "text": "4",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "5",
+                        "text": "2",
                         "is_correct": false
                     }
                 ]
@@ -1332,12 +1364,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "4",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "2",
+                        "text": "1",
                         "is_correct": false
                     },
                     {
@@ -1347,12 +1379,12 @@
                     },
                     {
                         "id": 4,
-                        "text": "4",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "5",
+                        "text": "2",
                         "is_correct": false
                     }
                 ]
@@ -1366,24 +1398,26 @@
     },
     {
         "task_info": {
-            "global_id": "t_27_q_13",
-            "ticket_num": 27,
-            "order": 17
+            "global_id": "t_60_q_13",
+            "global_id2": "t_60_q_13",
+            "ticket_num": 60,
+            "order": 17,
+            "remapped_from": "t_27_q_13"
         },
-        "media_url": "v228uz.webp",
+        "media_url": "u684uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Haydovchi, agar uning transport vositasi 40 km/s ga teng yoki undan ortiq tezlik bilan balandlikka chiqa olmasa, nima chora ko'rishi kerak?",
+                "text": "Haydovchi, agar uning transport vositasi 40 km/soatga teng yoki undan ortiq tezlik bilan balandlikka chiqa olmasa, nima chora ko'rishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Asosiy bo'lak bo'yicha, agar unda boshqa transport vositalari yo'q bo'lsa, harakatlanishni davom ettirishi",
-                        "is_correct": false
+                        "text": "Qo'shimcha bo'lakka qayta tizilishi",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Qo'shimcha bo'lakka qayta tizilishi",
-                        "is_correct": true
+                        "text": "Asosiy bo'lak bo'yicha, agar unda boshqa transport vositalari yo'q bo'lsa, harakatlanishni davom ettirishi",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1393,17 +1427,17 @@
                 ]
             },
             "uz_cyr": {
-                "text": "Ҳайдовчи, агар унинг транспорт воситаси 40 км/с га тенг ёки ундан ортиқ тезлик билан баландликка чиқа олмаса, нима чора кўриши керак?",
+                "text": "Ҳайдовчи, агар унинг транспорт воситаси 40 км/соатга тенг ёки ундан ортиқ тезлик билан баландликка чиқа олмаса, нима чора кўриши керак?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Асосий бўлак бўйича, агар унда бошқа транспорт воситалари йўқ бўлса, ҳаракатланишни давом эттириши",
-                        "is_correct": false
+                        "text": "Қўшимча бўлакка қайта тизилиши",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Қўшимча бўлакка қайта тизилиши",
-                        "is_correct": true
+                        "text": "Асосий бўлак бўйича, агар унда бошқа транспорт воситалари йўқ бўлса, ҳаракатланишни давом эттириши",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1417,13 +1451,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Продолжать движение по основной полосе, если за ним нет других транспортных средств",
-                        "is_correct": false
+                        "text": "Перестроиться на дополнительную полосу",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Перестроиться на дополнительную полосу",
-                        "is_correct": true
+                        "text": "Продолжать движение по основной полосе, если за ним нет других транспортных средств",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1441,9 +1475,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_28_q_1",
-            "ticket_num": 28,
-            "order": 18
+            "global_id": "t_53_q_17",
+            "global_id2": "t_53_q_17",
+            "ticket_num": 53,
+            "order": 18,
+            "remapped_from": "t_28_q_1"
         },
         "media_url": "u615uz.webp",
         "content": {
@@ -1482,13 +1518,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "О месте остановки автобуса и троллейбуса",
-                        "is_correct": true
+                        "text": "О запрете движения по правой полосе всем транспортным средствам кроме маршрутных",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "О запрете движения по правой полосе всем транспортным средствам кроме маршрутных",
-                        "is_correct": false
+                        "text": "О месте остановки автобуса и троллейбуса",
+                        "is_correct": true
                     }
                 ]
             }
@@ -1501,9 +1537,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_29_q_10",
-            "ticket_num": 29,
-            "order": 19
+            "global_id": "t_61_q_10",
+            "global_id2": "t_61_q_10",
+            "ticket_num": 61,
+            "order": 19,
+            "remapped_from": "t_29_q_10"
         },
         "media_url": "u694uz.webp",
         "content": {
@@ -1512,13 +1550,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Oxiri berk ko'chaga olib boradigan yo'lni",
-                        "is_correct": true
+                        "text": "Aholi yashaydigan joydagi manzilga tomon harakatlanish yo'nalishini",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Aholi yashaydigan joydagi manzilga tomon harakatlanish yo'nalishini",
-                        "is_correct": false
+                        "text": "Oxiri berk ko'chaga olib boradigan yo'lni",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1532,13 +1570,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Охири берк кўчага олиб борадиган йўлни",
-                        "is_correct": true
+                        "text": "Аҳоли яшайдиган жойдаги манзилга томон ҳаракатланиш йўналишини",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Аҳоли яшайдиган жойдаги манзилга томон ҳаракатланиш йўналишини",
-                        "is_correct": false
+                        "text": "Охири берк кўчага олиб борадиган йўлни",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1552,13 +1590,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Дорога ведет в тупик",
-                        "is_correct": true
+                        "text": "Направление движения к объекту в населённом пункте",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Направление движения к объекту в населённом пункте",
-                        "is_correct": false
+                        "text": "Дорога ведет в тупик",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1576,9 +1614,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_30_q_12",
-            "ticket_num": 30,
-            "order": 20
+            "global_id": "t_56_q_3",
+            "global_id2": "t_56_q_3",
+            "ticket_num": 56,
+            "order": 20,
+            "remapped_from": "t_30_q_12"
         },
         "media_url": "u644uz.webp",
         "content": {
@@ -1587,7 +1627,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat to'g'riga",
+                        "text": "Barcha yo'nalishlarga",
                         "is_correct": false
                     },
                     {
@@ -1597,13 +1637,13 @@
                     },
                     {
                         "id": 3,
-                        "text": "To'g'riga, o'ngga va chapga",
-                        "is_correct": true
+                        "text": "Faqat to'g'riga",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Barcha yo'nalishlarga",
-                        "is_correct": false
+                        "text": "To'g'riga, o'ngga va chapga",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1612,7 +1652,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат тўғрига",
+                        "text": "Барча йўналишларга",
                         "is_correct": false
                     },
                     {
@@ -1622,13 +1662,13 @@
                     },
                     {
                         "id": 3,
-                        "text": "Тўғрига, ўнгга ва чапга",
-                        "is_correct": true
+                        "text": "Фақат тўғрига",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Барча йўналишларга",
-                        "is_correct": false
+                        "text": "Тўғрига, ўнгга ва чапга",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1637,8 +1677,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только прямо",
-                        "is_correct": false
+                        "text": "Прямо, направо и налево",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -1647,8 +1687,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Прямо, направо и налево",
-                        "is_correct": true
+                        "text": "Только прямо",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
@@ -1661,14 +1701,16 @@
         "izoh": {
             "uz_lat": "YHQ 1-ilovasining 5-bo'lim 5.5 \"Bir tomonlama harakatli yo'l\" belgisi transport vositalari butun kenglik bo'yicha bir yo'nalishda harakatlanadigan yo'l yoki qatnov qismi bildiradi.",
             "uz_cyr": "YHQ 1-иловасининг 5-бўлим 5.5 \"Бир томонлама ҳаракатли йўл\" белгиси транспорт воситалари бутун кенглик бўйича бир йўналишда ҳаракатланадиган йўл ёки қатнов қисми билдиради.",
-            "ru": "Раздел 5 приложения 1 Закона о дорожном движении 5.5 Знак \"дорога с односторонним движением\" означает дорогу или проезжую часть, по которой транспортные средства движутся в одном направлении по всей ширине."
+            "ru": "Раздел 5 приложения 1 ПДД 5.5 Знак \"дорога с односторонним движением\" означает дорогу или проезжую часть, по которой транспортные средства движутся в одном направлении по всей ширине."
         }
     },
     {
         "task_info": {
-            "global_id": "t_31_q_10",
-            "ticket_num": 31,
-            "order": 21
+            "global_id": "t_17_q_4",
+            "global_id2": "t_17_q_4",
+            "ticket_num": 17,
+            "order": 21,
+            "remapped_from": "t_31_q_10"
         },
         "media_url": "u183uz.webp",
         "content": {
@@ -1677,28 +1719,28 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "3",
+                        "id": 2,
+                        "text": "5",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "4",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
-                        "text": "5",
+                        "id": 4,
+                        "text": "3",
                         "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "1",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1707,28 +1749,28 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "3",
+                        "id": 2,
+                        "text": "5",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "4",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
-                        "text": "5",
+                        "id": 4,
+                        "text": "3",
                         "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "1",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1737,28 +1779,28 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "3",
+                        "id": 2,
+                        "text": "5",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "4",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
-                        "text": "5",
+                        "id": 4,
+                        "text": "3",
                         "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "1",
+                        "is_correct": true
                     }
                 ]
             }
@@ -1771,9 +1813,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_32_q_2",
-            "ticket_num": 32,
-            "order": 22
+            "global_id": "t_47_q_9",
+            "global_id2": "t_47_q_9",
+            "ticket_num": 47,
+            "order": 22,
+            "remapped_from": "t_32_q_2"
         },
         "media_url": "u541uz.webp",
         "content": {
@@ -1787,12 +1831,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Ko'rsatilgan aholi manziliga harakatlanish avtomagistral bo'ylab amalga oshiriladi",
+                        "text": "Ko'rsatilgan manzil mazkur aholi yashaydigan joyda joylashgan",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Ko'rsatilgan manzil mazkur aholi yashaydigan joyda joylashgan",
+                        "text": "Ko'rsatilgan aholi manziliga harakatlanish avtomagistral bo'ylab amalga oshiriladi",
                         "is_correct": false
                     }
                 ]
@@ -1807,12 +1851,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Кўрсатилган аҳоли манзилига ҳаракатланиш автомагистрал бўйлаб амалга оширилади",
+                        "text": "Кўрсатилган манзил мазкур аҳоли яшайдиган жойда жойлашган",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Кўрсатилган манзил мазкур аҳоли яшайдиган жойда жойлашган",
+                        "text": "Кўрсатилган аҳоли манзилига ҳаракатланиш автомагистрал бўйлаб амалга оширилади",
                         "is_correct": false
                     }
                 ]
@@ -1846,9 +1890,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_33_q_2",
-            "ticket_num": 33,
-            "order": 23
+            "global_id": "t_45_q_7",
+            "global_id2": "t_45_q_7",
+            "ticket_num": 45,
+            "order": 23,
+            "remapped_from": "t_33_q_2"
         },
         "media_url": "u520uz.webp",
         "content": {
@@ -1862,22 +1908,22 @@
                     },
                     {
                         "id": 2,
-                        "text": "2",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "3",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
                         "text": "4",
                         "is_correct": true
                     },
                     {
-                        "id": 5,
+                        "id": 3,
+                        "text": "2",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
                         "text": "5",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "3",
                         "is_correct": false
                     }
                 ]
@@ -1892,22 +1938,22 @@
                     },
                     {
                         "id": 2,
-                        "text": "2",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "3",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
                         "text": "4",
                         "is_correct": true
                     },
                     {
-                        "id": 5,
+                        "id": 3,
+                        "text": "2",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
                         "text": "5",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "3",
                         "is_correct": false
                     }
                 ]
@@ -1922,22 +1968,22 @@
                     },
                     {
                         "id": 2,
-                        "text": "2",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "3",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
                         "text": "4",
                         "is_correct": true
                     },
                     {
-                        "id": 5,
+                        "id": 3,
+                        "text": "2",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
                         "text": "5",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "3",
                         "is_correct": false
                     }
                 ]
@@ -1951,33 +1997,35 @@
     },
     {
         "task_info": {
-            "global_id": "t_33_q_13",
-            "ticket_num": 33,
-            "order": 24
+            "global_id": "t_31_q_6",
+            "global_id2": "t_31_q_6",
+            "ticket_num": 31,
+            "order": 24,
+            "remapped_from": "t_33_q_12"
         },
-        "media_url": "v303uz.webp",
+        "media_url": "u354uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi transport vositalariga bu belgi o'rnatilgan yo'l bo'ylab harakatlanishga ruxsat etilgan?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Mexanik transport vositalariga",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Barcha transport vositalariga",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Avtomobillarga, avtobuslarga va motosikllarga",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "Yuqori tezligi 40 km/soat dan kam bo'lmagan transport vositalariga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Barcha transport vositalariga",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Yuqori tezligi 40 km/s dan kam bo'lmagan transport vositalariga",
+                        "text": "Mexanik transport vositalariga",
                         "is_correct": false
                     }
                 ]
@@ -1987,22 +2035,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Механик транспорт воситаларига",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Барча транспорт воситаларига",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Автомобилларга, автобусларга ва мотоциклларга",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "Юқори тезлиги 40 км/соат дан кам бўлмаган транспорт воситаларига",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Барча транспорт воситаларига",
+                        "is_correct": false
+                    },
+                    {
                         "id": 4,
-                        "text": "Юқори тезлиги 40 км/с дан кам бўлмаган транспорт воситаларига",
+                        "text": "Механик транспорт воситаларига",
                         "is_correct": false
                     }
                 ]
@@ -2012,22 +2060,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Механическим транспортным средствам",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Всем транспортным средствам",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Автомобилям, автобусам и мотоциклам",
                         "is_correct": true
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Транспортным средствам, максимальная скорость которых не менее 40 км/ч",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Всем транспортным средствам",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Механическим транспортным средствам",
                         "is_correct": false
                     }
                 ]
@@ -2041,11 +2089,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_36_q_8",
-            "ticket_num": 36,
-            "order": 25
+            "global_id": "t_28_q_20",
+            "global_id2": "t_28_q_20",
+            "ticket_num": 28,
+            "order": 25,
+            "remapped_from": "t_36_q_7"
         },
-        "media_url": "v342uz.webp",
+        "media_url": "u321uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Ushbu belgilardan qaysi biri bir tomonlama harakat tashkil qilingan yo'lning boshida o'rnatiladi?",
@@ -2062,12 +2112,12 @@
                     },
                     {
                         "id": 3,
-                        "text": "«Б» va «Г»",
+                        "text": "«Б» yoki «В»",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "«Б» yoki «В»",
+                        "text": "«Б» va «Г»",
                         "is_correct": false
                     }
                 ]
@@ -2087,12 +2137,12 @@
                     },
                     {
                         "id": 3,
-                        "text": "«Б» ва «Г»",
+                        "text": "«Б» ёки «В»",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "«Б» ёки «В»",
+                        "text": "«Б» ва «Г»",
                         "is_correct": false
                     }
                 ]
@@ -2112,12 +2162,12 @@
                     },
                     {
                         "id": 3,
-                        "text": "«Б» и «Г»",
+                        "text": "«Б» или «В»",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "«Б» или «В»",
+                        "text": "«Б» и «Г»",
                         "is_correct": false
                     }
                 ]
@@ -2131,9 +2181,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_37_q_10",
-            "ticket_num": 37,
-            "order": 26
+            "global_id": "t_16_q_17",
+            "global_id2": "t_16_q_17",
+            "ticket_num": 16,
+            "order": 26,
+            "remapped_from": "t_37_q_10"
         },
         "media_url": "u180uz.webp",
         "content": {
@@ -2142,8 +2194,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "«А»",
-                        "is_correct": false
+                        "text": "«В»",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -2152,8 +2204,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "«В»",
-                        "is_correct": true
+                        "text": "«А»",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2162,8 +2214,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "«А»",
-                        "is_correct": false
+                        "text": "«В»",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -2172,8 +2224,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "«В»",
-                        "is_correct": true
+                        "text": "«А»",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2182,8 +2234,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "«А»",
-                        "is_correct": false
+                        "text": "«В»",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
@@ -2192,8 +2244,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "«В»",
-                        "is_correct": true
+                        "text": "«А»",
+                        "is_correct": false
                     }
                 ]
             }
@@ -2201,14 +2253,16 @@
         "izoh": {
             "uz_lat": "YHQ 1-ilovasining 5-bo'limi 5.35 \"Reversiv harakatlanish\" belgisiga muvofiq, bir yoki bir necha tasmalarda harakatlanish yo'nalishi qarama-qarshi tomonga o'zgarishi mumkin bo'lgan yo'l qismining boshlanishini bildiradi.",
             "uz_cyr": "YHQ 1-иловасининг 5-бўлими 5.35 \"Реверсив ҳаракатланиш\" белгисига мувофиқ, бир ёки бир неча тасмаларда ҳаракатланиш йўналиши қарама-қарши томонга ўзгариши мумкин бўлган йўл қисмининг бошланишини билдиради.",
-            "ru": "В соответствии с разделом 5.35 «Реверсивное движение» приложения 1 Закона о дорожном движении под ним понимается начало участка дороги, на котором направление движения по одной или нескольким полосам может измениться на противоположное."
+            "ru": "В соответствии с разделом 5.35 «Реверсивное движение» приложения 1 ПДД под ним понимается начало участка дороги, на котором направление движения по одной или нескольким полосам может измениться на противоположное."
         }
     },
     {
         "task_info": {
-            "global_id": "t_37_q_14",
-            "ticket_num": 37,
-            "order": 27
+            "global_id": "t_43_q_4",
+            "global_id2": "t_43_q_4",
+            "ticket_num": 43,
+            "order": 27,
+            "remapped_from": "t_37_q_14"
         },
         "media_url": "u491uz.webp",
         "content": {
@@ -2217,7 +2271,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Siz o'ngga yoki chapga burilishingiz kerakligini ko'rsatadi",
+                        "text": "Chorrahadan o'ngga va chapga bir tomonlama harakat tashkil qilingan",
                         "is_correct": false
                     },
                     {
@@ -2227,7 +2281,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Chorrahadan o'ngga va chapga bir tomonlama harakat tashkil qilingan",
+                        "text": "Siz o'ngga yoki chapga burilishingiz kerakligini ko'rsatadi",
                         "is_correct": false
                     }
                 ]
@@ -2237,7 +2291,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Сиз ўнгга ёки чапга бурилишингиз кераклигини кўрсатади",
+                        "text": "Чорраҳадан ўнгга ва чапга бир томонлама ҳаракат ташкил қилинган",
                         "is_correct": false
                     },
                     {
@@ -2247,7 +2301,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Чорраҳадан ўнгга ва чапга бир томонлама ҳаракат ташкил қилинган",
+                        "text": "Сиз ўнгга ёки чапга бурилишингиз кераклигини кўрсатади",
                         "is_correct": false
                     }
                 ]
@@ -2257,7 +2311,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Вы должны повернуть направо или налево",
+                        "text": "Вправо и влево от перекрёстка организовано одностороннее движение",
                         "is_correct": false
                     },
                     {
@@ -2267,7 +2321,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Вправо и влево от перекрёстка организовано одностороннее движение",
+                        "text": "Вы должны повернуть направо или налево",
                         "is_correct": false
                     }
                 ]
@@ -2281,9 +2335,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_38_q_8",
-            "ticket_num": 38,
-            "order": 28
+            "global_id": "t_22_q_9",
+            "global_id2": "t_22_q_9",
+            "ticket_num": 22,
+            "order": 28,
+            "remapped_from": "t_38_q_7"
         },
         "media_url": "u245uz.webp",
         "content": {
@@ -2292,12 +2348,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat «А»",
+                        "text": "Faqat «А» va «Б»",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Faqat «А» va «Б»",
+                        "text": "Barchasi",
                         "is_correct": false
                     },
                     {
@@ -2307,7 +2363,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Barchasi",
+                        "text": "Faqat «А»",
                         "is_correct": false
                     }
                 ]
@@ -2317,12 +2373,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат «А»",
+                        "text": "Фақат «А» ва «Б»",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Фақат «А» ва «Б»",
+                        "text": "Барчаси",
                         "is_correct": false
                     },
                     {
@@ -2332,7 +2388,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Барчаси",
+                        "text": "Фақат «А»",
                         "is_correct": false
                     }
                 ]
@@ -2342,12 +2398,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только «А»",
+                        "text": "Только «А» и «Б»",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Только «А» и «Б»",
+                        "text": "Все",
                         "is_correct": false
                     },
                     {
@@ -2357,7 +2413,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Все",
+                        "text": "Только «А»",
                         "is_correct": false
                     }
                 ]
@@ -2371,9 +2427,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_40_q_17",
-            "ticket_num": 40,
-            "order": 29
+            "global_id": "t_17_q_6",
+            "global_id2": "t_17_q_6",
+            "ticket_num": 17,
+            "order": 29,
+            "remapped_from": "t_40_q_17"
         },
         "media_url": "u184uz.webp",
         "content": {
@@ -2382,23 +2440,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat «Б»",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Faqat «Б» va «Г»",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "Faqat «А» , «Б» va «В»",
+                        "id": 2,
+                        "text": "Faqat «Б»",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Barchasi",
                         "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Faqat «А» , «Б» va «В»",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2407,23 +2465,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат «Б»",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Фақат «Б» ва «Г»",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "Фақат «А» , «Б» ва «В»",
+                        "id": 2,
+                        "text": "Фақат «Б»",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Барчаси",
                         "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Фақат «А» , «Б» ва «В»",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2432,23 +2490,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только «Б»",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Только «Б» и «Г»",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "Только «А», «Б» и «В»",
+                        "id": 2,
+                        "text": "Только «Б»",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Все",
                         "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Только «А», «Б» и «В»",
+                        "is_correct": false
                     }
                 ]
             }
@@ -2456,24 +2514,26 @@
         "izoh": {
             "uz_lat": "YHQ 1-ilovasining 5-bo‘limidagi 5.7.1 belgiga asosan, «Bir tomonlama harakatli yo‘lga chiqish». Harakatlanish bir tomonlama bo‘lgan yo‘lga yoki qatnov qismiga chiqish. Chapga burilishni taqiqlaydi.\r\nYHQ 1-ilovasining 5-bo‘limidagi 5.10.2 belgiga asosan, «Yo‘nalishli transport vositalari uchun alohida ajratilgan tasmasi bor yo‘lga chiqish». Chapga burilishni taqiqlaydi. Ko‘rsatilgan barcha belgilar ta’sir oralig‘ida qayrilib olishga ruxsat etiladi.",
             "uz_cyr": "YHQ 1-иловасининг 5-бўлимидаги 5.7.1 белгига асосан, «Бир томонлама ҳаракатли йўлга чиқиш». Ҳаракатланиш бир томонлама бўлган йўлга ёки қатнов қисмига чиқиш. Чапга бурилишни тақиқлайди.\r\nYHQ 1-иловасининг 5-бўлимидаги 5.10.2 белгига асосан, «Йўналишли транспорт воситалари учун алоҳида ажратилган тасмаси бор йўлга чиқиш». Чапга бурилишни тақиқлайди. Кўрсатилган барча белгилар таъсир оралиғида қайрилиб олишга рухсат этилади.",
-            "ru": "По знаку 5.7.1 приложения 1 раздела 5 «Выход на дорогу с односторонним движением». Выезд на улицу с односторонним движением или проезжую часть. Запрещает поворот налево. \r\nСогласно знаку 5.10.2 раздела 5 приложения 1 Закона о дорожном движении \"Выход на дорогу с отдельной полосой для направленных транспортных средств\". Запрещает поворот налево. Всем показанным персонажам разрешено вращаться в пределах диапазона эффекта."
+            "ru": "По знаку 5.7.1 приложения 1 раздела 5 «Выход на дорогу с односторонним движением». Выезд на улицу с односторонним движением или проезжую часть. Запрещает поворот налево. \r\nСогласно знаку 5.10.2 раздела 5 приложения 1 ПДД \"Выход на дорогу с отдельной полосой для направленных транспортных средств\". Запрещает поворот налево. Всем показанным персонажам разрешено вращаться в пределах диапазона эффекта."
         }
     },
     {
         "task_info": {
-            "global_id": "t_40_q_19",
-            "ticket_num": 40,
-            "order": 30
+            "global_id": "t_20_q_3",
+            "global_id2": "t_20_q_3",
+            "ticket_num": 20,
+            "order": 30,
+            "remapped_from": "t_40_q_19"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Aholi punktlariga tegishli yo'l harakati qoidalari qayerdan boshlanadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Aholi punkti nomini ko'rsatuvchi oq rangli 5.22 yo'l belgisidan boshlab",
-                        "is_correct": true
+                        "text": "Yo'l yuzidagi qurilma va inshootlardan boshlab",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -2482,8 +2542,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Yo'l yuzidagi qurilma va inshootlardan boshlab",
-                        "is_correct": false
+                        "text": "Aholi punkti nomini ko'rsatuvchi oq rangli 5.22 yo'l belgisidan boshlab",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2492,8 +2552,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Аҳоли пункти номини кўрсатувчи оқ рангли 5.22 йўл белгисидан бошлаб",
-                        "is_correct": true
+                        "text": "Йўл юзидаги қурилма ва иншоотлардан бошлаб",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -2502,8 +2562,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Йўл юзидаги қурилма ва иншоотлардан бошлаб",
-                        "is_correct": false
+                        "text": "Аҳоли пункти номини кўрсатувчи оқ рангли 5.22 йўл белгисидан бошлаб",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2512,8 +2572,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только с места установки дорожного знака с названием населённого пункта на белом фоне 5.22",
-                        "is_correct": true
+                        "text": "В начале застроенной территории, непосредственно прилегающей к дороге",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -2522,8 +2582,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "В начале застроенной территории, непосредственно прилегающей к дороге",
-                        "is_correct": false
+                        "text": "Только с места установки дорожного знака с названием населённого пункта на белом фоне 5.22",
+                        "is_correct": true
                     }
                 ]
             }
@@ -2536,29 +2596,31 @@
     },
     {
         "task_info": {
-            "global_id": "t_43_q_3",
-            "ticket_num": 43,
-            "order": 31
+            "global_id": "t_46_q_4",
+            "global_id2": "t_46_q_4",
+            "ticket_num": 46,
+            "order": 31,
+            "remapped_from": "t_43_q_3"
         },
-        "media_url": "v411uz.webp",
+        "media_url": "u527uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi belgi falokatli holatlar uchun kirish yo'lini bildiradi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "A va D",
+                        "text": "C",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "V",
-                        "is_correct": true
+                        "text": "A va D",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "S",
-                        "is_correct": false
+                        "text": "B",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2567,18 +2629,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "А ва Д",
+                        "text": "C",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "В",
-                        "is_correct": true
+                        "text": "A ва D",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "С",
-                        "is_correct": false
+                        "text": "B",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2587,18 +2649,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "А и D",
+                        "text": "C",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "В",
-                        "is_correct": true
+                        "text": "A и D",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "С",
-                        "is_correct": false
+                        "text": "B",
+                        "is_correct": true
                     }
                 ]
             }
@@ -2611,9 +2673,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_43_q_5",
-            "ticket_num": 43,
-            "order": 32
+            "global_id": "t_44_q_9",
+            "global_id2": "t_44_q_9",
+            "ticket_num": 44,
+            "order": 32,
+            "remapped_from": "t_43_q_5"
         },
         "media_url": "u506uz.webp",
         "content": {
@@ -2622,7 +2686,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "A",
+                        "text": "G",
                         "is_correct": false
                     },
                     {
@@ -2632,13 +2696,13 @@
                     },
                     {
                         "id": 3,
-                        "text": "V",
-                        "is_correct": true
+                        "text": "A",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "G",
-                        "is_correct": false
+                        "text": "V",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2647,7 +2711,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "А",
+                        "text": "Г",
                         "is_correct": false
                     },
                     {
@@ -2657,13 +2721,13 @@
                     },
                     {
                         "id": 3,
-                        "text": "В",
-                        "is_correct": true
+                        "text": "А",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Г",
-                        "is_correct": false
+                        "text": "В",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2672,7 +2736,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "А",
+                        "text": "Г",
                         "is_correct": false
                     },
                     {
@@ -2682,13 +2746,13 @@
                     },
                     {
                         "id": 3,
-                        "text": "В",
-                        "is_correct": true
+                        "text": "А",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Г",
-                        "is_correct": false
+                        "text": "В",
+                        "is_correct": true
                     }
                 ]
             }
@@ -2701,9 +2765,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_43_q_17",
-            "ticket_num": 43,
-            "order": 33
+            "global_id": "t_15_q_16",
+            "global_id2": "t_15_q_16",
+            "ticket_num": 15,
+            "order": 33,
+            "remapped_from": "t_43_q_17"
         },
         "media_url": "u170uz.webp",
         "content": {
@@ -2712,18 +2778,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "A",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "B",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "V",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "A",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2732,18 +2798,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "А",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Б",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "В",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "А",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2752,18 +2818,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "А",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Б",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "В",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "А",
+                        "is_correct": false
                     }
                 ]
             }
@@ -2776,9 +2842,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_46_q_15",
-            "ticket_num": 46,
-            "order": 34
+            "global_id": "t_21_q_18",
+            "global_id2": "t_21_q_18",
+            "ticket_num": 21,
+            "order": 34,
+            "remapped_from": "t_46_q_15"
         },
         "media_url": "u239uz.webp",
         "content": {
@@ -2787,23 +2855,23 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "4",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "1",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "2",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 4,
                         "text": "3",
                         "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "4",
-                        "is_correct": true
                     },
                     {
                         "id": 5,
@@ -2817,23 +2885,23 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "4",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "1",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "2",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 4,
                         "text": "3",
                         "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "4",
-                        "is_correct": true
                     },
                     {
                         "id": 5,
@@ -2847,23 +2915,23 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "4",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "1",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "2",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 4,
                         "text": "3",
                         "is_correct": false
-                    },
-                    {
-                        "id": 4,
-                        "text": "4",
-                        "is_correct": true
                     },
                     {
                         "id": 5,
@@ -2881,9 +2949,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_47_q_12",
-            "ticket_num": 47,
-            "order": 35
+            "global_id": "t_13_q_18",
+            "global_id2": "t_13_q_18",
+            "ticket_num": 13,
+            "order": 35,
+            "remapped_from": "t_47_q_11"
         },
         "media_url": "u148uz.webp",
         "content": {
@@ -2892,23 +2962,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1 va 2",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "3 va 4",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "1 va 2",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "2 va 3",
-                        "is_correct": true
+                        "text": "1 va 4",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "1 va 4",
-                        "is_correct": false
+                        "text": "2 va 3",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2917,48 +2987,48 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1 ва 2",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "3 ва 4",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "1 ва 2",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "2 ва 3",
-                        "is_correct": true
+                        "text": "1 ва 4",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "1 ва 4",
-                        "is_correct": false
+                        "text": "2 ва 3",
+                        "is_correct": true
                     }
                 ]
             },
             "ru": {
-                "text": "Какиезнаки являются информационно-указательным?",
+                "text": "Какие знаки являются информационно-указательными?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "1 и 2",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "3 и 4",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "1 и 2",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "2 и 3",
-                        "is_correct": true
+                        "text": "1 и 4",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "1 и 4",
-                        "is_correct": false
+                        "text": "2 и 3",
+                        "is_correct": true
                     }
                 ]
             }
@@ -2971,9 +3041,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_48_q_14",
-            "ticket_num": 48,
-            "order": 36
+            "global_id": "t_44_q_20",
+            "global_id2": "t_44_q_20",
+            "ticket_num": 44,
+            "order": 36,
+            "remapped_from": "t_48_q_14"
         },
         "media_url": "u515uz.webp",
         "content": {
@@ -2982,12 +3054,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat A",
+                        "text": "A va B",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "A va B",
+                        "text": "Xammasi",
                         "is_correct": false
                     },
                     {
@@ -2997,7 +3069,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Xammasi",
+                        "text": "Faqat A",
                         "is_correct": false
                     }
                 ]
@@ -3007,22 +3079,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат А",
+                        "text": "A ва B",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "А ва Б",
+                        "text": "Хаммаси",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "А ва C",
+                        "text": "A ва C",
                         "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Хаммаси",
+                        "text": "Фақат A",
                         "is_correct": false
                     }
                 ]
@@ -3032,22 +3104,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только А",
+                        "text": "A и B",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "А и Б",
+                        "text": "Все",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "А и С",
+                        "text": "A и C",
                         "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Все",
+                        "text": "Только A",
                         "is_correct": false
                     }
                 ]
@@ -3061,9 +3133,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_50_q_3",
-            "ticket_num": 50,
-            "order": 37
+            "global_id": "t_18_q_18",
+            "global_id2": "t_18_q_18",
+            "ticket_num": 18,
+            "order": 37,
+            "remapped_from": "t_50_q_2"
         },
         "media_url": "u205uz.webp",
         "content": {
@@ -3072,13 +3146,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat A",
-                        "is_correct": true
+                        "text": "Faqat C",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Faqat C",
-                        "is_correct": false
+                        "text": "Faqat A",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -3092,13 +3166,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат A",
-                        "is_correct": true
+                        "text": "Фақат C",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Фақат C",
-                        "is_correct": false
+                        "text": "Фақат A",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -3112,13 +3186,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только A",
-                        "is_correct": true
+                        "text": "Только C",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Только C",
-                        "is_correct": false
+                        "text": "Только A",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -3131,14 +3205,16 @@
         "izoh": {
             "uz_lat": "YHQ 1-ilovasining 5-bo'limi 5.1 \"Avtomagistral\" belgisiga muvofiq, yo'l harakati qoidalarining avtomagistrallarda harakatlanish tartibi o'rnatilgan yo'lni bildiradi. Avtomagistrallarda texnik tavsifnomasiga yoki holatiga ko'ra tezligi soatiga 40 kilometrdan kam bo'lgan transport vositalarining harakatlanishi taqiqlanadi.",
             "uz_cyr": "YHQ 1-иловасининг 5-бўлими 5.1 \"Автомагистрал\" белгисига мувофиқ, йўл ҳаракати қоидаларининг автомагистралларда ҳаракатланиш тартиби ўрнатилган йўлни билдиради. Автомагистралларда техник тавсифномасига ёки ҳолатига кўра тезлиги соатига 40 километрдан кам бўлган транспорт воситаларининг ҳаракатланиши тақиқланади.",
-            "ru": "Раздел 5.1 приложения 1 Закона о дорожном движении 5.1 «Шоссе» означает дорогу, на которой установлены правила движения по автомобильным дорогам. На автомобильных дорогах запрещено движение транспортных средств, скорость которых по техническому описанию или состоянию составляет менее 40 километров в час."
+            "ru": "Раздел 5.1 приложения 1 ПДД 5.1 «Шоссе» означает дорогу, на которой установлены правила движения по автомобильным дорогам. на автомагистралях запрещено движение транспортных средств, скорость которых по техническому описанию или состоянию составляет менее 40 километров в час."
         }
     },
     {
         "task_info": {
-            "global_id": "t_50_q_4",
-            "ticket_num": 50,
-            "order": 38
+            "global_id": "t_26_q_15",
+            "global_id2": "t_26_q_15",
+            "ticket_num": 26,
+            "order": 38,
+            "remapped_from": "t_50_q_3"
         },
         "media_url": "u290uz.webp",
         "content": {
@@ -3147,17 +3223,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "A va B",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Faqat A i C",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "Faqat C",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "A va B",
+                        "text": "Faqat C",
                         "is_correct": false
                     }
                 ]
@@ -3167,17 +3243,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат А и C",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Фақат C",
+                        "text": "A ва B",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Фақат A и C",
+                        "is_correct": true
+                    },
+                    {
                         "id": 3,
-                        "text": "А ва Б",
+                        "text": "Фақат C",
                         "is_correct": false
                     }
                 ]
@@ -3187,17 +3263,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только a и c",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Только c",
+                        "text": "A и B",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Только A и C",
+                        "is_correct": true
+                    },
+                    {
                         "id": 3,
-                        "text": "a и b",
+                        "text": "Только C",
                         "is_correct": false
                     }
                 ]
@@ -3206,53 +3282,55 @@
         "izoh": {
             "uz_lat": "YHQ 1-ilovasining 5-bo‘limidagi 5.3 belgiga asosan, «Avtomobillar uchun mo‘ljallangan yo‘l». Faqat avtomobillar, avtobus va mototsikllarning harakatlanishi uchun mo‘ljallangan yo‘lni bildiradi.\r\nYHQ 1-ilovasining 3-bo‘limidagi 3.4 belgiga asosan, «Yuk avtomobillarining harakatlanishi taqiqlangan». Ruxsat etilgan to‘liq vazni 3,5 tonnadan (agar vazni belgida ko‘rsatilmagan bo‘lsa) yoki ruxsat etilgan to‘liq vazni belgida ko‘rsatilgandan ortiq bo‘lgan yuk avtomobillari va transport vositalari tarkiblarining, shuningdek traktorlar, o‘ziyurar uskunalarning harakatlanishi taqiqlanadi.\r\n3.4. yo‘l belgisi bortlariga qiya oq chiziq tortilgan yoki odamlarni tashish uchun mo‘ljallangan yuk avtomobillarining harakatlanishini taqiqlamaydi.",
             "uz_cyr": "YHQ 1-иловасининг 5-бўлимидаги 5.3 белгига асосан, «Автомобиллар учун мўлжалланган йўл». Фақат автомобиллар, автобус ва мототсиклларнинг ҳаракатланиши учун мўлжалланган йўлни билдиради.\r\nYHQ 1-иловасининг 3-бўлимидаги 3.4 белгига асосан, «Юк автомобилларининг ҳаракатланиши тақиқланган». Рухсат этилган тўлиқ вазни 3,5 тоннадан (агар вазни белгида кўрсатилмаган бўлса) ёки рухсат этилган тўлиқ вазни белгида кўрсатилгандан ортиқ бўлган юк автомобиллари ва транспорт воситалари таркибларининг, шунингдек тракторлар, ўзиюрар ускуналарнинг ҳаракатланиши тақиқланади.\r\n3.4. йўл белгиси бортларига қия оқ чизиқ тортилган ёки одамларни ташиш учун мўлжалланган юк автомобилларининг ҳаракатланишини тақиқламайди.",
-            "ru": "По знаку 5.3 Приложения 1, раздел 5 «Дорога, предназначенная для транспортных средств». Означает дорогу, предназначенную только для движения автомобилей, автобусов и мотоциклов. \r\nСогласно знаку 3.4 раздела 3 Приложения 1 Общих правил «Движение грузовых автомобилей запрещено». Запрещается движение грузовых автомобилей и комплектующих транспортных средств, а также тракторов и самоходной техники, разрешенная полная масса которых превышает 3,5 тонны (если масса не указана на знаке) или более разрешенной полной массы, указанной на знаке. \r\n3.4. дорожный знак не запрещает движение грузовых автомобилей, имеющих по бокам косую белую линию или предназначенных для перевозки людей."
+            "ru": "По знаку 5.3 Приложения 1, раздел 5 «Дорога, предназначенная для транспортных средств». Означает дорогу, предназначенную только для движения автомобилей, автобусов и мотоциклов. \r\nСогласно знаку 3.4 раздела 3 приложения 1 ПДД «Движение грузовых автомобилей запрещено». Запрещается движение грузовых автомобилей и комплектующих транспортных средств, а также тракторов и самоходной техники, разрешенная полная масса которых превышает 3,5 тонны (если масса не указана на знаке) или более разрешенной полной массы, указанной на знаке. \r\n3.4. дорожный знак не запрещает движение грузовых автомобилей, имеющих по бокам косую белую линию или предназначенных для перевозки людей."
         }
     },
     {
         "task_info": {
-            "global_id": "t_52_q_3",
-            "ticket_num": 52,
-            "order": 39
+            "global_id": "t_33_q_15",
+            "global_id2": "t_33_q_15",
+            "ticket_num": 33,
+            "order": 39,
+            "remapped_from": "t_52_q_3"
         },
         "media_url": "u380uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Ushbu belgilaridan qaysilari vaqtinchalik yo'l belgilari xisoblanadi:",
+                "text": "Ushbu belgilaridan qaysilari vaqtinchalik yo'l belgilari hisoblanadi:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "«1»va«4»",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "«2»va«3»",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "«З»va«4»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "«1»va«4»",
                         "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Ушбу белгиларидан қайсилари вақтинчалик йўл белгилари хисобланади:",
+                "text": "Ушбу белгиларидан қайсилари вақтинчалик йўл белгилари ҳисобланади:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "«1» ва «4»",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "«2»ва«3»",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "«З»ва«4»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "«1» ва «4»",
                         "is_correct": false
                     }
                 ]
@@ -3262,17 +3340,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "«1»и«4»",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "«2»и«3»",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "«3»и«4»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "«1»и«4»",
                         "is_correct": false
                     }
                 ]
@@ -3286,9 +3364,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_53_q_1",
-            "ticket_num": 53,
-            "order": 40
+            "global_id": "t_15_q_12",
+            "global_id2": "t_15_q_12",
+            "ticket_num": 15,
+            "order": 40,
+            "remapped_from": "t_53_q_1"
         },
         "media_url": "u167uz.webp",
         "content": {
@@ -3297,28 +3377,28 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "2",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "3",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "4",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
-                        "text": "5",
+                        "id": 4,
+                        "text": "1",
                         "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "2",
+                        "is_correct": true
                     }
                 ]
             },
@@ -3327,28 +3407,28 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "2",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "3",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "4",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
-                        "text": "5",
+                        "id": 4,
+                        "text": "1",
                         "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "2",
+                        "is_correct": true
                     }
                 ]
             },
@@ -3357,28 +3437,28 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
+                        "text": "5",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "2",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "3",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "4",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
-                        "text": "5",
+                        "id": 4,
+                        "text": "1",
                         "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "2",
+                        "is_correct": true
                     }
                 ]
             }
@@ -3391,9 +3471,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_53_q_7",
-            "ticket_num": 53,
-            "order": 41
+            "global_id": "t_11_q_8",
+            "global_id2": "t_11_q_8",
+            "ticket_num": 11,
+            "order": 41,
+            "remapped_from": "t_53_q_7"
         },
         "media_url": "u119uz.webp",
         "content": {
@@ -3402,18 +3484,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "3",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "1",
+                        "is_correct": true
                     }
                 ]
             },
@@ -3422,18 +3504,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "3",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "1",
+                        "is_correct": true
                     }
                 ]
             },
@@ -3442,18 +3524,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "3",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "1",
+                        "is_correct": true
                     }
                 ]
             }
@@ -3466,29 +3548,31 @@
     },
     {
         "task_info": {
-            "global_id": "t_53_q_17",
-            "ticket_num": 53,
-            "order": 42
+            "global_id": "t_42_q_17",
+            "global_id2": "t_42_q_17",
+            "ticket_num": 42,
+            "order": 42,
+            "remapped_from": "t_53_q_17"
         },
-        "media_url": "v531uz.webp",
+        "media_url": "u486uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Bu belgi nimani bildiradi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Oldinda tirbandlik xakida borligidan",
+                        "text": "To'xtab turish joyiga borishni",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Navbat bilan utishni",
-                        "is_correct": true
+                        "text": "Oldinda tirbandlik haqida",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "To'xtab turish joyiga borishni",
-                        "is_correct": false
+                        "text": "Navbat bilan utishni",
+                        "is_correct": true
                     }
                 ]
             },
@@ -3497,18 +3581,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Олдинда тирбандлик хакида борлигидан",
+                        "text": "Тўхтаб туриш жойига боришни",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Навбат билан утишни",
-                        "is_correct": true
+                        "text": "Олдинда тирбандлик хакида борлигидан",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Тўхтаб туриш жойига боришни",
-                        "is_correct": false
+                        "text": "Навбат билан утишни",
+                        "is_correct": true
                     }
                 ]
             },
@@ -3517,18 +3601,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "От наличия пробок впереди",
+                        "text": "Едем на парковку",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Садимся в очередь",
-                        "is_correct": true
+                        "text": "От наличия пробок впереди",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Едем на парковку",
-                        "is_correct": false
+                        "text": "Садимся в очередь",
+                        "is_correct": true
                     }
                 ]
             }
@@ -3536,44 +3620,46 @@
         "izoh": {
             "uz_lat": "YHQ 1 ilova: 7.23. “Navbat bilan o‘tish”.",
             "uz_cyr": "YHQ 1 илова: 7.23. “Навбат билан ўтиш”.",
-            "ru": "Приложение YHQ 1: 7.23. «Пройти через очередь»."
+            "ru": "Приложение к ПДД 1: 7.23. «Пройти через очередь»."
         }
     },
     {
         "task_info": {
-            "global_id": "t_54_q_10",
-            "ticket_num": 54,
-            "order": 43
+            "global_id": "t_1_q_16",
+            "global_id2": "t_1_q_16",
+            "ticket_num": 1,
+            "order": 43,
+            "remapped_from": "t_54_q_10"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Doimiy va vaktinchalik yo'l belgilari marno jixatidan bir birini inkor etganda qaysi biriga amal kilasiz?",
+                "text": "Doimiy va vaqtinchalik yo'l belgilari ma'nosi jihatidan bir-birini inkor etganda qaysi biriga amal qilasiz?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Doimiy iul belgisiga",
-                        "is_correct": false
+                        "text": "Vaqtinchalik yo'l belgisiga",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Vaktinchalik iul belgisiga",
-                        "is_correct": true
+                        "text": "Doimiy yo'l belgisiga",
+                        "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Доимий ва вақтинча йўл белгилари мано жиҳатида бир-бирига зид келганда қайси бирига амал қиласиз?",
+                "text": "Доимий ва вақтинчалик йўл белгилари маъно жиҳатидан бир-бирини инкор этганда қайси бирига амал қиласиз?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Доимий иул белгисига",
-                        "is_correct": false
+                        "text": "Вақтинчалик йўл белгисига",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Вақтинча иул белгисига",
-                        "is_correct": true
+                        "text": "Доимий йўл белгисига",
+                        "is_correct": false
                     }
                 ]
             },
@@ -3582,13 +3668,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Постоянному дорожному знаку",
-                        "is_correct": false
+                        "text": "Временному дорожному знаку",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Временному дорожному знаку",
-                        "is_correct": true
+                        "text": "Постоянному дорожному знаку",
+                        "is_correct": false
                     }
                 ]
             }
@@ -3601,29 +3687,31 @@
     },
     {
         "task_info": {
-            "global_id": "t_54_q_15",
-            "ticket_num": 54,
-            "order": 44
+            "global_id": "t_27_q_2",
+            "global_id2": "t_27_q_2",
+            "ticket_num": 27,
+            "order": 44,
+            "remapped_from": "t_54_q_14"
         },
-        "media_url": "v546uz.webp",
+        "media_url": "u294uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Ushbu belgi qanday nomlanadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Suniy notekislik",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Majburiy sekinlanish",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Baland piyodalar o'tish joyi",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Sun'iy notekislik",
+                        "is_correct": false
                     }
                 ]
             },
@@ -3632,18 +3720,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Суний нотекислик",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Мажбурий секинланиш",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Баланд пиёдалар ўтиш жойи",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Суний нотекислик",
+                        "is_correct": false
                     }
                 ]
             },
@@ -3652,18 +3740,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Искусственная неровность",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Обязательное снижение скорости",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Приподнятый пешеходный переход",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Искусственная неровность",
+                        "is_correct": false
                     }
                 ]
             }
@@ -3671,16 +3759,18 @@
         "izoh": {
             "uz_lat": "YHQ 1 ilova: 5.48. “Baland piyodalar o‘tish joyi”. 5.16.1-5.16.2 yo‘l belgilari bilan birga qo‘llaniladi.",
             "uz_cyr": "YHQ 1 илова: 5.48. “Баланд пиёдалар ўтиш жойи”. 5.16.1-5.16.2 йўл белгилари билан бирга қўлланилади.",
-            "ru": "Приложение YHQ 1: 5.48. «Наземный пешеходный переход». 5.16.1-5.16.2 используются вместе с дорожными знаками."
+            "ru": "Приложение к ПДД 1: 5.48. «Наземный пешеходный переход». 5.16.1-5.16.2 используются вместе с дорожными знаками."
         }
     },
     {
         "task_info": {
-            "global_id": "t_54_q_20",
-            "ticket_num": 54,
-            "order": 45
+            "global_id": "t_26_q_8",
+            "global_id2": "t_26_q_8",
+            "ticket_num": 26,
+            "order": 45,
+            "remapped_from": "t_54_q_19"
         },
-        "media_url": "v551uz.webp",
+        "media_url": "u286uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi yo'nalish bo'yicha burilish mumkin?",
@@ -3692,12 +3782,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Faqat «Б»",
+                        "text": "Ikkala sanab o'tilgan hollarda",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Ikkala sanab o'tilgan hollarda",
+                        "text": "Faqat «Б»",
                         "is_correct": false
                     }
                 ]
@@ -3712,12 +3802,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Фақат «Б»",
+                        "text": "Иккала санаб ўтилган ҳолларда",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Иккала санаб ўтилган ҳолларда",
+                        "text": "Фақат «Б»",
                         "is_correct": false
                     }
                 ]
@@ -3732,12 +3822,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Только «Б»",
+                        "text": "В обоих перечисленных случаях",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "В обоих перечисленных случаях",
+                        "text": "Только «Б»",
                         "is_correct": false
                     }
                 ]
@@ -3746,34 +3836,36 @@
         "izoh": {
             "uz_lat": "YHQ 1 ilova: 5.37. “Reversiv harakatlanish yo‘liga chiqish”. YHQ 2 ilova: 1.9 — reversiv harakat tashkil etilgan bo‘laklarning chegarasini belgilaydi; reversiv harakatlanish amalga oshirilgan yo‘llarda (reversiv svetofori o‘chirigan holatda) qarama-qarshi yo‘nalishdagi transport oqimini ajratadi.\nYHQ 10-bobi 71-bandi: Reversiv harakatlanishli yo‘lga burilishda haydovchi transport vositasini shunday boshqarishi kerakki, bunda transport vositasi qatnov qismlari kesishmasidan chiqishda chetki o‘ng qatorni egallashi kerak. Shu yo‘nalishdagi boshqa tasmalardan ham harakatlanish ruxsat etilganiga ishonch hosil qilingandan keyingina haydovchiga qayta tizilishga ruxsat etiladi.",
             "uz_cyr": "YHQ 1 илова: 5.37. “Реверсив ҳаракатланиш йўлига чиқиш”. YHQ 2 илова: 1.9 — реверсив ҳаракат ташкил этилган бўлакларнинг чегарасини белгилайди; реверсив ҳаракатланиш амалга оширилган йўлларда (реверсив светофори ўчириган ҳолатда) қарама-қарши йўналишдаги транспорт оқимини ажратади.\nYHQ 10-боби 71-банди: Реверсив ҳаракатланишли йўлга бурилишда ҳайдовчи транспорт воситасини шундай бошқариши керакки, бунда транспорт воситаси қатнов қисмлари кесишмасидан чиқишда четки ўнг қаторни эгаллаши керак. Шу йўналишдаги бошқа тасмалардан ҳам ҳаракатланиш рухсат этилганига ишонч ҳосил қилингандан кейингина ҳайдовчига қайта тизилишга рухсат этилади.",
-            "ru": "Приложение YHQ 1: 5.37. «Вступаем на путь обратимости». Приложение YHQ 2: 1.9 — определяет границу участков, на которых организовано реверсивное движение; разделяет потоки встречного транспорта на дорогах, где осуществляется реверсивное движение (при выключении реверсивного светофора). \nСтатья 71 главы 10 ГПК: При повороте на дорогу с реверсивным движением водитель обязан управлять транспортным средством таким образом, чтобы транспортное средство при выезде с перекрестка занимало крайнюю правую полосу движения. Водителю разрешается снова выстроиться в очередь только после того, как он убедится, что движение с других полос в том же направлении разрешено."
+            "ru": "Приложение к ПДД 1: 5.37. «Вступаем на путь обратимости». Приложение к ПДД 2: 1.9 — определяет границу участков, на которых организовано реверсивное движение; разделяет потоки встречного транспорта на дорогах, где осуществляется реверсивное движение (при выключении реверсивного светофора). \nСтатья 71 главы 10 ПДД: При повороте на дорогу с реверсивным движением водитель обязан управлять транспортным средством таким образом, чтобы транспортное средство при выезде с перекрестка занимало крайнюю правую полосу движения. Водителю разрешается снова выстроиться в очередь только после того, как он убедится, что движение с других полос в том же направлении разрешено."
         }
     },
     {
         "task_info": {
-            "global_id": "t_55_q_8",
-            "ticket_num": 55,
-            "order": 46
+            "global_id": "t_7_q_9",
+            "global_id2": "t_7_q_9",
+            "ticket_num": 7,
+            "order": 46,
+            "remapped_from": "t_55_q_8"
         },
-        "media_url": "v574uz.webp",
+        "media_url": "u68uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Qaysi belgi piyodalar o'tish joyini bildiradi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "«А»",
+                        "text": "«В»",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "«Б»",
-                        "is_correct": true
+                        "text": "«А»",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "«В»",
-                        "is_correct": false
+                        "text": "«Б»",
+                        "is_correct": true
                     }
                 ]
             },
@@ -3782,18 +3874,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "«А»",
+                        "text": "«В»",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "«Б»",
-                        "is_correct": true
+                        "text": "«А»",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "«В»",
-                        "is_correct": false
+                        "text": "«Б»",
+                        "is_correct": true
                     }
                 ]
             },
@@ -3802,18 +3894,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "«А»",
+                        "text": "«В»",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "«Б»",
-                        "is_correct": true
+                        "text": "«А»",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "«В»",
-                        "is_correct": false
+                        "text": "«Б»",
+                        "is_correct": true
                     }
                 ]
             }
@@ -3826,59 +3918,61 @@
     },
     {
         "task_info": {
-            "global_id": "t_55_q_12",
-            "ticket_num": 55,
-            "order": 47
+            "global_id": "t_42_q_12",
+            "global_id2": "t_42_q_12",
+            "ticket_num": 42,
+            "order": 47,
+            "remapped_from": "t_55_q_12"
         },
-        "media_url": "v560uz.webp",
+        "media_url": "u481uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Ushbu belgi qanday nomlanadi?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "Er usti avtomobil qo'yish joyi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "To'xtab turish joyi",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
-                        "text": "Pullik to'xtab turish joyi",
-                        "is_correct": true
-                    },
-                    {
                         "id": 3,
-                        "text": "Er usti avtomobil kuyish joyi",
+                        "text": "Er osti avtomobil qo'yish joyi",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Er osti avtomobil kuyish joyi",
-                        "is_correct": false
+                        "text": "Pullik to'xtab turish joyi",
+                        "is_correct": true
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Ушбу белги кандай номланади?",
+                "text": "Ушбу белги қандай номланади?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тўхтаб туриш жойи",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Пуллик тўхтаб туриш жойи",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Ер усти автомобил куйиш жойи",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
+                        "text": "Тўхтаб туриш жойи",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
                         "text": "Ер ости автомобил куйиш жойи",
                         "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Пуллик тўхтаб туриш жойи",
+                        "is_correct": true
                     }
                 ]
             },
@@ -3887,7 +3981,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Место стоянки",
+                        "text": "Надземная автомобильная стоянка",
                         "is_correct": false
                     },
                     {
@@ -3897,12 +3991,12 @@
                     },
                     {
                         "id": 3,
-                        "text": "Надземная автомобильная стоянка",
+                        "text": "Подземная автомобильная стоянка",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Подземная автомобильная стоянка",
+                        "text": "Место стоянки",
                         "is_correct": false
                     }
                 ]
@@ -3916,9 +4010,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_55_q_15",
-            "ticket_num": 55,
-            "order": 48
+            "global_id": "t_40_q_19",
+            "global_id2": "t_40_q_19",
+            "ticket_num": 40,
+            "order": 48,
+            "remapped_from": "t_55_q_15"
         },
         "media_url": "u463uz.webp",
         "content": {
@@ -3932,18 +4028,18 @@
                     },
                     {
                         "id": 2,
-                        "text": "Faqat yukori ungdagi rasmda",
+                        "text": "Barcha rasmlarda",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Yukoridagi ikkala rasmda",
-                        "is_correct": true
+                        "text": "Faqat yukori ungdagi rasmda",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Barcha rasmlarda",
-                        "is_correct": false
+                        "text": "Yukoridagi ikkala rasmda",
+                        "is_correct": true
                     }
                 ]
             },
@@ -3957,18 +4053,18 @@
                     },
                     {
                         "id": 2,
-                        "text": "Фақат юкори унгдаги расмда",
+                        "text": "Барча расмларда",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Юқоридаги иккала расмда",
-                        "is_correct": true
+                        "text": "Фақат юкори унгдаги расмда",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Барча расмларда",
-                        "is_correct": false
+                        "text": "Юқоридаги иккала расмда",
+                        "is_correct": true
                     }
                 ]
             },
@@ -3977,23 +4073,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только на левом верхнем рисунке",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Только на правом верхнем рисунке",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "На всех рисунках",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "На обоих верхних рисунках",
-                        "is_correct": true
+                        "text": "Только на левом верхнем рисунке",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "На всех рисунках",
-                        "is_correct": false
+                        "text": "На обоих верхних рисунках",
+                        "is_correct": true
                     }
                 ]
             }
@@ -4001,44 +4097,46 @@
         "izoh": {
             "uz_lat": "YHQ 1-ilova 1-bob. Umumiy qoidalar: asosiy yo‘l — tuproqli yoki shag‘alli yo‘lga nisbatan qattiq qoplamali (asfalt, sement-betonli va shunga o‘xshashlar yotqizilgan), kesishayotgan yoki tutashgan yo‘lga nisbatan 2.1, 2.3.1 — 2.3.3 yoki 5.1 yo‘l belgilari bilan belgilangan yoxud yondosh hududdan chiqadigan yo‘lga nisbatan har qanday yo‘l. Ikkinchi darajali yo‘lning bevosita chorrahaga tutash qismning qoplamali bo‘lishi uni asosiy yo‘l bilan teng huquqli qilmaydi.",
             "uz_cyr": "YHQ 1-илова 1-боб. Умумий қоидалар: асосий йўл — тупроқли ёки шағалли йўлга нисбатан қаттиқ қопламали (асфалт, семент-бетонли ва шунга ўхшашлар ётқизилган), кесишаётган ёки туташган йўлга нисбатан 2.1, 2.3.1 — 2.3.3 ёки 5.1 йўл белгилари билан белгиланган ёхуд ёндош ҳудуддан чиқадиган йўлга нисбатан ҳар қандай йўл. Иккинчи даражали йўлнинг бевосита чорраҳага туташ қисмнинг қопламали бўлиши уни асосий йўл билан тенг ҳуқуқли қилмайди.",
-            "ru": "Приложение 1 YHQ Глава 1. Общие правила: основной дорогой является грунтовая или гравийная дорога с твердым покрытием (уложенным асфальтом, цементобетоном и т.п.), пересекающая или соединяющая дорога, обозначенная дорожными знаками 2.1, 2.3.1 - 2.3.3 или 5.1, либо любая дорога, выходящая из прилегающей территории. Тот факт, что часть второстепенной дороги, непосредственно примыкающая к перекрестку, заасфальтирована, не приравнивает ее к главной дороге."
+            "ru": "Приложение 1 ПДД Глава 1. Общие правила: основной дорогой является грунтовая или гравийная дорога с твердым покрытием (уложенным асфальтом, цементобетоном и т.п.), пересекающая или соединяющая дорога, обозначенная дорожными знаками 2.1, 2.3.1 - 2.3.3 или 5.1, либо любая дорога, выходящая из прилегающей территории. Тот факт, что часть второстепенной дороги, непосредственно примыкающая к перекрестку, заасфальтирована, не приравнивает ее к главной дороге."
         }
     },
     {
         "task_info": {
-            "global_id": "t_55_q_19",
-            "ticket_num": 55,
-            "order": 49
+            "global_id": "t_46_q_9",
+            "global_id2": "t_46_q_9",
+            "ticket_num": 46,
+            "order": 49,
+            "remapped_from": "t_55_q_19"
         },
-        "media_url": "v567uz.webp",
+        "media_url": "u530uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Quyidagi 3.24. \"Yukori tezlik cheklangan\" yo'l belgisining tasirini qaysi belgilar bekor kiladi?",
+                "text": "Quyidagi 3.24. \"Yuqori tezlik cheklangan\" yo'l belgisining ta'sirini qaysi belgilar bekor qiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat birinchisi",
+                        "text": "Faqat to'rtinchisi",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Faqat ikkinchisi",
-                        "is_correct": false
+                        "text": "Barcha javoblar to'g'ri",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Faqat uchinchisi",
+                        "text": "Faqat birinchisi",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Faqat turtinchisi",
+                        "text": "Faqat uchinchisi",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "Barcha javoblar tugri",
-                        "is_correct": true
+                        "text": "Faqat ikkinchisi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -4047,28 +4145,28 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат биринчиси",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Фақат иккинчиси",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Фақат учинчиси",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
                         "text": "Фақат туртинчиси",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 2,
                         "text": "Барча жавоблар тугри",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақат биринчиси",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Фақат учинчиси",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Фақат иккинчиси",
+                        "is_correct": false
                     }
                 ]
             },
@@ -4077,28 +4175,28 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только первый",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Только второй",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Только третий",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
                         "text": "Только четвёртый",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 2,
                         "text": "Все ответы верны",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только первый",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Только третий",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "Только второй",
+                        "is_correct": false
                     }
                 ]
             }
@@ -4106,29 +4204,31 @@
         "izoh": {
             "uz_lat": "\"YHQga 1-ILOVA 3.24 va 3.31 band va 3.Taqiqlovchi belgilarning 46, 48, 51 va 52-xatboshiga asosan: 3.24. «Yuqori tezlik cheklangan». Belgida ko‘rsatilganidan ortiq tezlikda (km/s) harakatlanish taqiqlanishini bildiradi.\r\n3.31. «Barcha cheklovlarning oxiri». 3.16, 3.20, 3.22, 3.24, 3.26 — 3.30 belgilaridan bir nechtasiga bir vaqtda amal qiladigan hududlarning oxiri.\r\n3.16, 3.20, 3.22, 3.24, 3.26 — 3.30 belgilarining ta’siri belgi o‘rnatilgan joydan keyingi eng yaqin chorrahagacha, ular bo‘lmaganda — aholi punktining oxirigacha ta’siri qiladi.\r\nAholi punktlariga yetmasdan o‘rnatilgan 3.24 belgisining ta’siri 5.22 belgisigacha kuchini saqlaydi.\r\nBelgilarning ta’sir doirasi aniqlashtirilishi mumkin: 3.20, 3.22, 3.24 belgilari 3.21, 3.23, 3.25 belgilari va 7.2.1 qo‘shimcha axborot belgisi orqali;\r\n3.24 belgisining ta’sir oralig‘i undan keyin boshqa eng yuqori harakatlanish tezligi ko‘rsatilgan 3.24 belgisini o‘rnatish bilan.\"",
             "uz_cyr": "\"YHQга 1-ИЛОВА 3.24 ва 3.31 банд ва 3.Тақиқловчи белгиларнинг 46, 48, 51 ва 52-хатбошига асосан: 3.24. «Юқори тезлик чекланган». Белгида кўрсатилганидан ортиқ тезликда (км/с) ҳаракатланиш тақиқланишини билдиради.\r\n3.31. «Барча чекловларнинг охири». 3.16, 3.20, 3.22, 3.24, 3.26 — 3.30 белгиларидан бир нечтасига бир вақтда амал қиладиган ҳудудларнинг охири.\r\n3.16, 3.20, 3.22, 3.24, 3.26 — 3.30 белгиларининг таъсири белги ўрнатилган жойдан кейинги энг яқин чорраҳагача, улар бўлмаганда — аҳоли пунктининг охиригача таъсири қилади.\r\nАҳоли пунктларига етмасдан ўрнатилган 3.24 белгисининг таъсири 5.22 белгисигача кучини сақлайди.\r\nБелгиларнинг таъсир доираси аниқлаштирилиши мумкин: 3.20, 3.22, 3.24 белгилари 3.21, 3.23, 3.25 белгилари ва 7.2.1 қўшимча ахборот белгиси орқали;\r\n3.24 белгисининг таъсир оралиғи ундан кейин бошқа энг юқори ҳаракатланиш тезлиги кўрсатилган 3.24 белгисини ўрнатиш билан.\"",
-            "ru": "\"Приложение 1 к НХК, пункты 3.24 и 3.31 и 3. Согласно пунктам 46, 48, 51 и 52 запрещающих знаков: 3.24. \"Большая скорость ограничена\". Это значит, что запрещено двигаться со скоростью (км/с), превышающей указанную на знаке.\r\n3.31. «Конец всем ограничениям». 3.16, 3.20, 3.22, 3.24, 3.26 — Конец регионов, где одновременно применяется более одного из 3.30.\r\nДействие знаков 3.16, 3.20, 3.22, 3.24, 3.26 — 3.30 будет от места установки знака до ближайшего перекрестка, при их отсутствии — до конца населенного пункта.\r\nДействие отметки 3.24, установленной до достижения населенных пунктов, действует до отметки 5.22.\r\nОбъем знаков можно уточнить: 3.20, 3.22, 3.24 знаки, 3.21, 3.23, 3.25 знаки и 7.2.1 знак дополнительной информации;\r\nЗа диапазоном действия символа 3.24 следует установка символа 3.24 с указанием другой наивысшей скорости»."
+            "ru": "\"Приложение 1 к НХК, пункты 3.24 и 3.31 и 3. Согласно пунктам 46, 48, 51 и 52 запрещающих знаков: 3.24. \"Большая скорость ограничена\". Это значит, что запрещено двигаться со скоростью (км/ч), превышающей указанную на знаке.\r\n3.31. «Конец всем ограничениям». 3.16, 3.20, 3.22, 3.24, 3.26 — Конец регионов, где одновременно применяется более одного из 3.30.\r\nДействие знаков 3.16, 3.20, 3.22, 3.24, 3.26 — 3.30 будет от места установки знака до ближайшего перекрестка, при их отсутствии — до конца населенного пункта.\r\nДействие отметки 3.24, установленной до достижения населенных пунктов, действует до отметки 5.22.\r\nОбъем знаков можно уточнить: 3.20, 3.22, 3.24 знаки, 3.21, 3.23, 3.25 знаки и 7.2.1 знак дополнительной информации;\r\nЗа диапазоном действия символа 3.24 следует установка символа 3.24 с указанием другой наивысшей скорости»."
         }
     },
     {
         "task_info": {
-            "global_id": "t_56_q_8",
-            "ticket_num": 56,
-            "order": 50
+            "global_id": "t_23_q_20",
+            "global_id2": "t_23_q_20",
+            "ticket_num": 23,
+            "order": 50,
+            "remapped_from": "t_56_q_8"
         },
         "media_url": "u259uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Ushbu kesishmadan o‘ngga burilishga ruxsat beriladimi?",
+                "text": "Ushbu kesishmadan o'ngga burilishga ruxsat beriladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Taqiqlanadi",
-                        "is_correct": false
+                        "text": "Ruxsat beriladi",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Ruxsat beriladi",
-                        "is_correct": true
+                        "text": "Taqiqlanadi",
+                        "is_correct": false
                     }
                 ]
             },
@@ -4137,13 +4237,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тақиқланади",
-                        "is_correct": false
+                        "text": "Рухсат берилади",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Рухсат берилади",
-                        "is_correct": true
+                        "text": "Тақиқланади",
+                        "is_correct": false
                     }
                 ]
             },
@@ -4152,13 +4252,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Запрещается",
-                        "is_correct": false
+                        "text": "Разрешается",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Разрешается",
-                        "is_correct": true
+                        "text": "Запрещается",
+                        "is_correct": false
                     }
                 ]
             }
@@ -4171,28 +4271,30 @@
     },
     {
         "task_info": {
-            "global_id": "t_58_q_4",
-            "ticket_num": 58,
-            "order": 51
+            "global_id": "t_14_q_17",
+            "global_id2": "t_14_q_17",
+            "ticket_num": 14,
+            "order": 51,
+            "remapped_from": "t_58_q_4"
         },
         "media_url": "u159uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Chapga burilish sizga qaysi trayektoriya bo‘yicha amalga oshirishga ruxsat etiladi?",
+                "text": "Chapga burilish sizga qaysi trayektoriya bo'yicha amalga oshirishga ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat A trayektoriya bo‘yicha",
+                        "text": "Ko'rsatilgan trayektoriyalardan istalgan biri bo'yicha",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Ko‘rsatilgan trayektoriyalardan istalgan biri bo‘yicha",
+                        "text": "Faqat A trayektoriya bo'yicha",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Faqat B trayektoriya bo‘yicha",
+                        "text": "Faqat B trayektoriya bo'yicha",
                         "is_correct": true
                     }
                 ]
@@ -4202,12 +4304,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат А траектория бўйича",
+                        "text": "Кўрсатилган траекториялардан исталган бири бўйича",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Кўрсатилган траекториялардан исталган бири бўйича",
+                        "text": "Фақат А траектория бўйича",
                         "is_correct": false
                     },
                     {
@@ -4222,17 +4324,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только по траектории А",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "По любой из указанных траекторий",
                         "is_correct": false
                     },
                     {
+                        "id": 2,
+                        "text": "Только по траектории А",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Только по траектории B",
+                        "text": "Только по траектории Б",
                         "is_correct": true
                     }
                 ]
@@ -4246,9 +4348,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_35b_q_15",
-            "ticket_num": "35b",
-            "order": 52
+            "global_id": "t_40_q_3",
+            "global_id2": "t_40_q_3",
+            "ticket_num": 40,
+            "order": 52,
+            "remapped_from": "t_62_q_4"
         },
         "media_url": "u453uz.webp",
         "content": {
@@ -4346,14 +4450,16 @@
         "izoh": {
             "uz_lat": "YHQ 1-ilovasining 6-bo'limi 6.9 \"Mehmonxona yoki motel\" belgisiga muvofiq, yo'l harakat qatnashchilariga mehmonxona yoki motel haqida ma'lumot berish uchun qo'llaniladi.",
             "uz_cyr": "YHQ 1-иловасининг 6-бўлими 6.9 \"Меҳмонхона ёки мотел\" белгисига мувофиқ, йўл ҳаракат қатнашчиларига меҳмонхона ёки мотел ҳақида маълумот бериш учун қўлланилади.",
-            "ru": "Раздел 6.9 приложения 1 Закона о дорожном движении 6.9 Знак «Гостиница или мотель» служит для информирования участников дорожного движения о гостинице или мотеле."
+            "ru": "Раздел 6.9 приложения 1 ПДД 6.9 Знак «Гостиница или мотель» служит для информирования участников дорожного движения о гостинице или мотеле."
         }
     },
     {
         "task_info": {
-            "global_id": "t_35b_q_43",
-            "ticket_num": "35b",
-            "order": 53
+            "global_id": "t_58_q_2",
+            "global_id2": "t_58_q_2",
+            "ticket_num": 58,
+            "order": 53,
+            "remapped_from": "t_64_q_4"
         },
         "media_url": "u664uz.webp",
         "content": {

@@ -126,9 +126,9 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Mavzuli testlar — faqat desktop + kirgan userlar (mobilda hero band qilmasin) */}
+              {/* Mavzuli testlar — kirgan userlar (mobile + desktop) */}
               {user && (
-                <div className="relative hidden md:block md:w-auto">
+                <div className="relative w-full md:w-auto">
                   <span className="absolute -top-2 -right-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full z-10 shadow-sm">
                     {t("common.pro")}
                   </span>

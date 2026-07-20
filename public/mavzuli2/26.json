@@ -1,33 +1,35 @@
 [
     {
         "task_info": {
-            "global_id": "t_10_q_20",
-            "ticket_num": 10,
-            "order": 1
+            "global_id": "t_50_q_19",
+            "global_id2": "t_50_q_19",
+            "ticket_num": 50,
+            "order": 1,
+            "remapped_from": "t_10_q_20"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Yuk avtomobilining yukxonasida qancha miqdorda odamlarni tashishga ruxsat beriladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "20 kishidan ortiq emas",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Tashilayotgan odamlar soni o'tirish uchun jihozlangan o'rinlar miqdoridan ortiq bo'lmasligi kerak",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "20 kishidan ortiq emas",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Haydovchining xohishiga ko'ra",
+                        "text": "Mamuriyatning ko'rsatmasiga ko'ra",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Mamuriyatning ko'rsatmasiga ko'ra",
+                        "text": "Haydovchining xohishiga ko'ra",
                         "is_correct": false
                     }
                 ]
@@ -37,22 +39,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "20 кишидан ортиқ эмас",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Ташилаётган одамлар сони ўтириш учун жиҳозланган ўринлар миқдоридан ортиқ бўлмаслиги керак",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "20 кишидан ортиқ эмас",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "Ҳайдовчининг хоҳишига кўра",
+                        "text": "Маъмуриятнинг кўрсатмасига кўра",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Маъмуриятнинг кўрсатмасига кўра",
+                        "text": "Ҳайдовчининг хоҳишига кўра",
                         "is_correct": false
                     }
                 ]
@@ -62,22 +64,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Не более 20 человек",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Число перевозимых людей не должно превышать количество оборудованных для сидения мест",
                         "is_correct": true
                     },
                     {
+                        "id": 2,
+                        "text": "Не более 20 человек",
+                        "is_correct": false
+                    },
+                    {
                         "id": 3,
-                        "text": "По усмотрению водителя",
+                        "text": "По указанию администрации",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "По указанию администрации",
+                        "text": "По усмотрению водителя",
                         "is_correct": false
                     }
                 ]
@@ -91,11 +93,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_11_q_20",
-            "ticket_num": 11,
-            "order": 2
+            "global_id": "t_2_q_2",
+            "global_id2": "t_2_q_2",
+            "ticket_num": 2,
+            "order": 2,
+            "remapped_from": "t_11_q_19"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Yuk tirkamasida odam tashishga ruxsat etiladimi?",
@@ -107,12 +111,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Ruxsat beriladi",
+                        "text": "Faqat yukni kuzatib boruvchi shaxsga ruxsat etiladi",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Faqat yukni kuzatib boruvchi shaxsga ruxsat etiladi",
+                        "text": "Ruxsat beriladi",
                         "is_correct": false
                     }
                 ]
@@ -127,12 +131,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Рухсат берилади",
+                        "text": "Фақат юкни кузатиб борувчи шахсга рухсат этилади",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Фақат юкни кузатиб борувчи шахсга рухсат этилади",
+                        "text": "Рухсат берилади",
                         "is_correct": false
                     }
                 ]
@@ -147,12 +151,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Разрешается",
+                        "text": "Разрешается только лицам, сопровождающим груз",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Разрешается только лицам, сопровождающим груз",
+                        "text": "Разрешается",
                         "is_correct": false
                     }
                 ]
@@ -166,29 +170,31 @@
     },
     {
         "task_info": {
-            "global_id": "t_12_q_10",
-            "ticket_num": 12,
-            "order": 3
+            "global_id": "t_6_q_9",
+            "global_id2": "t_6_q_9",
+            "ticket_num": 6,
+            "order": 3,
+            "remapped_from": "t_12_q_9"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "12 yoshga etmagan bolalarni transport vositasining oldingi o'rindig'ida tashishga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Bolalarni ushlab turuvchi maxsus qurilma o'rnatilgan bo'lsa ruxsat etiladi",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Faqat katta yoshdagi yo'lovchi hamroh bo'lganida ruxsat etiladi",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Taqiqlanadi",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Bolalarni ushlab turuvchi maxsus qurilma o'rnatilgan bo'lsa ruxsat etiladi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -197,18 +203,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Болаларни ушлаб турувчи махсус қурилма ўрнатилган бўлса рухсат этилади",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Фақат катта ёшдаги йўловчи ҳамроҳ бўлганида рухсат этилади",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Тақиқланади",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Болаларни ушлаб турувчи махсус қурилма ўрнатилган бўлса рухсат этилади",
+                        "is_correct": true
                     }
                 ]
             },
@@ -217,18 +223,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Разрешается только в сопровождении взрослого пассажира",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Запрещается",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Разрешается",
+                        "is_correct": true
                     }
                 ]
             }
@@ -241,18 +247,20 @@
     },
     {
         "task_info": {
-            "global_id": "t_14_q_10",
-            "ticket_num": 14,
-            "order": 4
+            "global_id": "t_38_q_6",
+            "global_id2": "t_38_q_6",
+            "ticket_num": 38,
+            "order": 4,
+            "remapped_from": "t_14_q_10"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Bolalarni tashkiliy tashishda qanday talablar qo'yiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Bolalar guruhini tashkiliy tashishda transport vositasida katta yoshli kuzatib boruvchi bo'lishi shart",
+                        "text": "Belgilangan yo'nalishdagi transport vositalariga daxli bo'lmagan avtobuslarda sakkiz va undan ortiq bolalarning tashkiliy tashilishi",
                         "is_correct": false
                     },
                     {
@@ -262,13 +270,13 @@
                     },
                     {
                         "id": 3,
-                        "text": "Belgilangan yo'nalishdagi transport vositalariga daxli bo'lmagan avtobuslarda sakkiz va undan ortiq bolalarning tashkiliy tashilishi",
-                        "is_correct": false
+                        "text": "Barcha sanab o'tilgan talablar",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Barcha sanab o'tilgan talablar",
-                        "is_correct": true
+                        "text": "Bolalar guruhini tashkiliy tashishda transport vositasida katta yoshli kuzatib boruvchi bo'lishi shart",
+                        "is_correct": false
                     }
                 ]
             },
@@ -277,7 +285,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Болалар гуруҳини ташкилий ташишда транспорт воситасида катта ёшли кузатиб борувчи бўлиши шарт",
+                        "text": "Белгиланган йўналишдаги транспорт воситаларига дахли бўлмаган автобусларда саккиз ва ундан ортиқ болаларнинг ташкилий ташилиши",
                         "is_correct": false
                     },
                     {
@@ -287,13 +295,13 @@
                     },
                     {
                         "id": 3,
-                        "text": "Белгиланган йўналишдаги транспорт воситаларига дахли бўлмаган автобусларда саккиз ва ундан ортиқ болаларнинг ташкилий ташилиши",
-                        "is_correct": false
+                        "text": "Барча санаб ўтилган талаблар",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Барча санаб ўтилган талаблар",
-                        "is_correct": true
+                        "text": "Болалар гуруҳини ташкилий ташишда транспорт воситасида катта ёшли кузатиб борувчи бўлиши шарт",
+                        "is_correct": false
                     }
                 ]
             },
@@ -302,7 +310,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "При организации группы детей в автомобиле должен присутствовать наблюдатель",
+                        "text": "Организованная перевозка восьми и более детей на автобусах, не вписывающихся в установленный маршрут",
                         "is_correct": false
                     },
                     {
@@ -312,13 +320,13 @@
                     },
                     {
                         "id": 3,
-                        "text": "Организованная перевозка восьми и более детей на автобусах, не вписывающихся в установленный маршрут",
-                        "is_correct": false
+                        "text": "Во всех перечисленных случаях",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Во всех перечисленных случаях",
-                        "is_correct": true
+                        "text": "При организации группы детей в автомобиле должен присутствовать наблюдатель",
+                        "is_correct": false
                     }
                 ]
             }
@@ -331,29 +339,31 @@
     },
     {
         "task_info": {
-            "global_id": "t_15_q_10",
-            "ticket_num": 15,
-            "order": 5
+            "global_id": "t_5_q_20",
+            "global_id2": "t_5_q_20",
+            "ticket_num": 5,
+            "order": 5,
+            "remapped_from": "t_15_q_8"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Odamlarni tashishga moslashtirilmagan yuk avtomobili yukxonasida odam tashishga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "Faqat yukni kuzatib boruvchi shaxslarga shu shart bilanki, ular bortlaridan pastda joylashgan o'tiradigan joy bilan ta'minlangan bo'lsalar ruxsat etiladi",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Taqiqlanadi",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Avtomagistrallarga tegishli bo'lmagan yo'llarda ruxsat etiladi",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Faqat yukni kuzatib boruvchi shaxslarga shu shart bilanki, ular bortlaridan pastda joylashgan o'tiradigan joy bilan taminlangan bo'lsalar ruxsat etiladi",
-                        "is_correct": true
                     }
                 ]
             },
@@ -362,18 +372,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Фақат юкни кузатиб борувчи шахсларга шу шарт биланки, улар бортларидан пастда жойлашган ўтирадиган жой билан таъминланган бўлсалар рухсат этилади",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Тақиқланади",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Автомагистралларга тегишли бўлмаган йўлларда рухсат этилади",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Фақат юкни кузатиб борувчи шахсларга шу шарт биланки, улар бортларидан пастда жойлашган ўтирадиган жой билан таъминланган бўлсалар рухсат этилади",
-                        "is_correct": true
                     }
                 ]
             },
@@ -382,18 +392,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Разрешается только лицам, сопровождающим груз или следующим за его получением, при условии обеспечения их местом для сидения, расположенным ниже уровня бортов",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Запрещается",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Разрешается на дорогах, не относящихся к автомагистралям",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Разрешается только лицам, сопровождающим груз или следующим за его получением, при условии обеспечения их местом для сидения, расположенным ниже уровня бортов",
-                        "is_correct": true
                     }
                 ]
             }
@@ -406,29 +416,31 @@
     },
     {
         "task_info": {
-            "global_id": "t_16_q_20",
-            "ticket_num": 16,
-            "order": 6
+            "global_id": "t_46_q_19",
+            "global_id2": "t_46_q_19",
+            "ticket_num": 46,
+            "order": 6,
+            "remapped_from": "t_16_q_20"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Yengil avtomobillarning oldingi o'rindig'ida bolalarni tashishga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "7 yoshdan kichik bo'lmagan bolalarni tashishga ruxsat etiladi",
+                        "text": "Katta yoshli yo'lovchi bo'lganda yoshidan qat'iy nazar ruxsat etiladi",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "12 yosh va undan katta bo'lgan bolalarni tashishga ruxsat etiladi",
-                        "is_correct": true
+                        "text": "7 yoshdan kichik bo'lmagan bolalarni tashishga ruxsat etiladi",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Katta yoshli yo'lovchi bo'lganda yoshidan qat'iy nazar ruxsat etiladi",
-                        "is_correct": false
+                        "text": "12 yosh va undan katta bo'lgan bolalarni tashishga ruxsat etiladi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -437,18 +449,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "7 ёшдан кичик бўлмаган болаларни ташишга рухсат этилади",
+                        "text": "Катта ёшли йўловчи бўлганда ёшидан қатъий назар рухсат этилади",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "12 ёш ва ундан катта бўлган болаларни ташишга рухсат этилади",
-                        "is_correct": true
+                        "text": "7 ёшдан кичик бўлмаган болаларни ташишга рухсат этилади",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Катта ёшли йўловчи бўлганда ёшидан қатъий назар рухсат этилади",
-                        "is_correct": false
+                        "text": "12 ёш ва ундан катта бўлган болаларни ташишга рухсат этилади",
+                        "is_correct": true
                     }
                 ]
             },
@@ -457,17 +469,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается перевозка детей в возрасте не моложе 7 лет",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Разрешается перевозка детей достигших 12-летнего возраста и старше",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Разрешается независимо от возраста при наличии взрослого пассажира",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Разрешается перевозка детей в возрасте не моложе 7 лет",
                         "is_correct": false
                     }
                 ]
@@ -481,11 +493,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_17_q_10",
-            "ticket_num": 17,
-            "order": 7
+            "global_id": "t_56_q_10",
+            "global_id2": "t_56_q_10",
+            "ticket_num": 56,
+            "order": 7,
+            "remapped_from": "t_17_q_10"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Yon kajavasi bo'lmagan motosiklda bolalarni tashishga ruxsat etiladimi?",
@@ -497,8 +511,8 @@
                     },
                     {
                         "id": 2,
-                        "text": "12 yoshga to'lgan va undan katta bolalarga ruxsat etiladi",
-                        "is_correct": true
+                        "text": "Taqiqlanadi",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -507,8 +521,8 @@
                     },
                     {
                         "id": 4,
-                        "text": "Taqiqlanadi",
-                        "is_correct": false
+                        "text": "12 yoshga to'lgan va undan katta bolalarga ruxsat etiladi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -522,8 +536,8 @@
                     },
                     {
                         "id": 2,
-                        "text": "12 ёшга тўлган ва ундан катта болаларга рухсат этилади",
-                        "is_correct": true
+                        "text": "Тақиқланади",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -532,8 +546,8 @@
                     },
                     {
                         "id": 4,
-                        "text": "Тақиқланади",
-                        "is_correct": false
+                        "text": "12 ёшга тўлган ва ундан катта болаларга рухсат этилади",
+                        "is_correct": true
                     }
                 ]
             },
@@ -547,8 +561,8 @@
                     },
                     {
                         "id": 2,
-                        "text": "Разрешается детей старше 12-летнего возраста",
-                        "is_correct": true
+                        "text": "Запрещается",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -557,8 +571,8 @@
                     },
                     {
                         "id": 4,
-                        "text": "Запрещается",
-                        "is_correct": false
+                        "text": "Разрешается детей старше 12-летнего возраста",
+                        "is_correct": true
                     }
                 ]
             }
@@ -571,11 +585,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_23_q_20",
-            "ticket_num": 23,
-            "order": 8
+            "global_id": "t_35_q_4",
+            "global_id2": "t_35_q_4",
+            "ticket_num": 35,
+            "order": 8,
+            "remapped_from": "t_23_q_19"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Furgon yukxonada odamlarni tashishga ruxsat etiladimi?",
@@ -646,24 +662,26 @@
     },
     {
         "task_info": {
-            "global_id": "t_24_q_1",
-            "ticket_num": 24,
-            "order": 9
+            "global_id": "t_45_q_17",
+            "global_id2": "t_45_q_17",
+            "ticket_num": 45,
+            "order": 9,
+            "remapped_from": "t_24_q_1"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Harakatni boshlashdan avval shaharlararo avtobus haydovchilari nima qilishlari kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yo'lovchilarga halokat bo'lganda chiqish joylaridan foydalanish haqida tushuntirish",
-                        "is_correct": true
+                        "text": "Yo'lovchilarga chiqish, undan tushish va unga joylashish tartibi haqida tushuntirish",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Yo'lovchilarga chiqish, undan tushish va unga joylashish tartibi haqida tushuntirish",
-                        "is_correct": false
+                        "text": "Yo'lovchilarga halokat bo'lganda chiqish joylaridan foydalanish haqida tushuntirish",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -677,13 +695,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Йўловчиларга ҳалокат бўлганда чиқиш жойларидан фойдаланиш ҳақида тушунтириш",
-                        "is_correct": true
+                        "text": "Йўловчиларга чиқиш, ундан тушиш ва унга жойлашиш тартиби ҳақида тушунтириш",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Йўловчиларга чиқиш, ундан тушиш ва унга жойлашиш тартиби ҳақида тушунтириш",
-                        "is_correct": false
+                        "text": "Йўловчиларга ҳалокат бўлганда чиқиш жойларидан фойдаланиш ҳақида тушунтириш",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -697,8 +715,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Объяснить пассажирам об использовании аварийные выходы",
-                        "is_correct": true
+                        "text": "Объяснить пассажирам, что во время движения нельзя ходить в салоне автобуса",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -707,38 +725,40 @@
                     },
                     {
                         "id": 3,
-                        "text": "Объяснить пассажирам, что во время движения нельзя ходить в салоне автобуса",
-                        "is_correct": false
+                        "text": "Объяснить пассажирам об использовании аварийные выходы",
+                        "is_correct": true
                     }
                 ]
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 17-bobi 115-bandiga asosan, \"Bolalar guruhini tashish\" taniqlik belgisi o'rnatilgan, avariya ishorasi yoqilgan transport vositasi to'xtaganda, unga yaqinlashayotgan haydovchi harakat tezligini kamaytirishi, zarur bo'lsa, to'xtashi va bolalarni o'tkazib yuborishi shart.",
-            "uz_cyr": "YHQ 17-боби 115-бандига асосан, \"Болалар гуруҳини ташиш\" таниқлик белгиси ўрнатилган, авария ишораси ёқилган транспорт воситаси тўхтаганда, унга яқинлашаётган ҳайдовчи ҳаракат тезлигини камайтириши, зарур бўлса, тўхташи ва болаларни ўтказиб юбориши шарт.",
-            "ru": "Согласно статье 115 главы 17 ПДД, при остановке транспортного средства с предупреждающим знаком «Перевозка группы детей» приближающийся к нему водитель обязан снизить скорость, при необходимости остановиться и пропустить детей."
+            "uz_lat": "YHQ talablariga asosan, harakatni boshlashdan avval shaharlararo avtobus haydovchilari yo‘lovchilarga halokat (favqulodda) holatida chiqish joylaridan foydalanish tartibi haqida tushuntirish berishlari kerak.",
+            "uz_cyr": "YHQ талабларига асосан, ҳаракатни бошлашдан аввал шаҳарлараро автобус ҳайдовчилари йўловчиларга ҳалокат (фавқулодда) ҳолатида чиқиш жойларидан фойдаланиш тартиби ҳақида тушунтириш беришлари керак.",
+            "ru": "Согласно требованиям ПДД, перед началом движения водители междугородных автобусов должны разъяснить пассажирам порядок пользования аварийными выходами в случае происшествия (чрезвычайной ситуации)."
         }
     },
     {
         "task_info": {
-            "global_id": "t_27_q_10",
-            "ticket_num": 27,
-            "order": 10
+            "global_id": "t_60_q_10",
+            "global_id2": "t_60_q_10",
+            "ticket_num": 60,
+            "order": 10,
+            "remapped_from": "t_27_q_10"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Yo'lovchi tashishga mo'ljallanmagan yuk avtomobilida yukni kuzatib boruvchi yoki qabul qilib oluvchi shaxslarning tashilishiga ruxsat beriladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Agar bort balandligidan pastda joylashgan qulay o'rindiq bo'lsa ruxsat beriladi",
-                        "is_correct": true
+                        "text": "Taqiqlanadi",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Taqiqlanadi",
-                        "is_correct": false
+                        "text": "Agar bort balandligidan pastda joylashgan qulay o'rindiq bo'lsa ruxsat beriladi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -747,13 +767,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Агар борт баландлигидан пастда жойлашган қулай ўриндиқ бўлса рухсат берилади",
-                        "is_correct": true
+                        "text": "Тақиқланади",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Тақиқланади",
-                        "is_correct": false
+                        "text": "Агар борт баландлигидан пастда жойлашган қулай ўриндиқ бўлса рухсат берилади",
+                        "is_correct": true
                     }
                 ]
             },
@@ -762,13 +782,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешаете если они обеспеченны удобными местами для сидения расположенными ниже уровня бортов",
-                        "is_correct": true
+                        "text": "Запрещается",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Запрещается",
-                        "is_correct": false
+                        "text": "Разрешаете если они обеспеченны удобными местами для сидения расположенными ниже уровня бортов",
+                        "is_correct": true
                     }
                 ]
             }
@@ -781,24 +801,26 @@
     },
     {
         "task_info": {
-            "global_id": "t_29_q_11",
-            "ticket_num": 29,
-            "order": 11
+            "global_id": "t_61_q_11",
+            "global_id2": "t_61_q_11",
+            "ticket_num": 61,
+            "order": 11,
+            "remapped_from": "t_29_q_11"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Shatakka olingan yengil avtomobilda yo'lovchilarni tashish mumkinmi?",
+                "text": "Shatakka olingan Yengil avtomobilda yo'lovchilarni tashish mumkinmi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Egiluvchi va qattiq ulagichda ruxsat etiladi",
-                        "is_correct": true
+                        "text": "Taqiqlanadi",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Taqiqlanadi",
-                        "is_correct": false
+                        "text": "Egiluvchi va qattiq ulagichda ruxsat etiladi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -807,13 +829,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Эгилувчи ва қаттиқ улагичда рухсат этилади",
-                        "is_correct": true
+                        "text": "Тақиқланади",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Тақиқланади",
-                        "is_correct": false
+                        "text": "Эгилувчи ва қаттиқ улагичда рухсат этилади",
+                        "is_correct": true
                     }
                 ]
             },
@@ -822,13 +844,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается при буксировке на гибкой или жесткой сцепке",
-                        "is_correct": true
+                        "text": "Запрещается",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Запрещается",
-                        "is_correct": false
+                        "text": "Разрешается при буксировке на гибкой или жесткой сцепке",
+                        "is_correct": true
                     }
                 ]
             }
@@ -841,24 +863,26 @@
     },
     {
         "task_info": {
-            "global_id": "t_29_q_20",
-            "ticket_num": 29,
-            "order": 12
+            "global_id": "t_61_q_20",
+            "global_id2": "t_61_q_20",
+            "ticket_num": 61,
+            "order": 12,
+            "remapped_from": "t_29_q_20"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Yuk avtomobilining yukxonasida 8 nafardan ko'p odamlarni tashish qaysi haydovchilarga ruxsat beriladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "«С» toifadagi transport vositasini boshqarish huquqi guvohnomasi bo'lib, shu avtomobilda uch yillik ish davriga ega bo'lgan haydovchilarga",
-                        "is_correct": false
+                        "text": "«D» va «С» toifadagi transport vositalarini boshqarish huquqiga ega bo'lgan va shu toifadagi transport vositalaridan birini 3 yildan ortiq boshqargan haydovchilarga",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "«D» va «С» toifadagi transport vositalarini boshqarish huquqiga ega bo'lgan va shu toifadagi transport vositalaridan birini 3 yildan ortiq boshqargan haydovchilarga",
-                        "is_correct": true
+                        "text": "«С» toifadagi transport vositasini boshqarish huquqi guvohnomasi bo'lib, shu avtomobilda uch yillik ish davriga ega bo'lgan haydovchilarga",
+                        "is_correct": false
                     }
                 ]
             },
@@ -867,13 +891,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "«С» тоифадаги транспорт воситасини бошқариш ҳуқуқи гувоҳномаси бўлиб, шу автомобилда уч йиллик иш даврига эга бўлган ҳайдовчиларга",
-                        "is_correct": false
+                        "text": "«D» ва «С» тоифадаги транспорт воситаларини бошқариш ҳуқуқига эга бўлган ва шу тоифадаги транспорт воситаларидан бирини 3 йилдан ортиқ бошқарган ҳайдовчиларга",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "«D» ва «С» тоифадаги транспорт воситаларини бошқариш ҳуқуқига эга бўлган ва шу тоифадаги транспорт воситаларидан бирини 3 йилдан ортиқ бошқарган ҳайдовчиларга",
-                        "is_correct": true
+                        "text": "«С» тоифадаги транспорт воситасини бошқариш ҳуқуқи гувоҳномаси бўлиб, шу автомобилда уч йиллик иш даврига эга бўлган ҳайдовчиларга",
+                        "is_correct": false
                     }
                 ]
             },
@@ -882,13 +906,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Водителям, имеющим удостоверение на право управления транспортным средством категории «С» с трехлетним стажем работы на данном автомобиле",
-                        "is_correct": false
+                        "text": "Водителям имеющим удостоверение на право управления транспортными средствами категории «D» и «С» и стаж управления транспортными средствами одной из этих категорий более 3-х лет",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Водителям имеющим удостоверение на право управления транспортными средствами категории «D» и «С» и стаж управления транспортными средствами одной из этих категорий более 3-х лет",
-                        "is_correct": true
+                        "text": "Водителям, имеющим удостоверение на право управления транспортным средством категории «С» с трехлетним стажем работы на данном автомобиле",
+                        "is_correct": false
                     }
                 ]
             }
@@ -901,29 +925,31 @@
     },
     {
         "task_info": {
-            "global_id": "t_30_q_16",
-            "ticket_num": 30,
-            "order": 13
+            "global_id": "t_21_q_19",
+            "global_id2": "t_21_q_19",
+            "ticket_num": 21,
+            "order": 13,
+            "remapped_from": "t_30_q_16"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Yuk avtomobili kuzovida yo'lovchilar tashishda, ularning soni nima bilan belgilanadi?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "Jihozlangan o'rindiqlarning soni bilan",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Mamuriyatning ko'rsatmasi bilan",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Tashishning zarurligi bilan",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Jihozlangan o'rindiqlarning soni bilan",
-                        "is_correct": true
                     },
                     {
                         "id": 4,
@@ -937,18 +963,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Жиҳозланган ўриндиқларнинг сони билан",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Маъмуриятнинг кўрсатмаси билан",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Ташишнинг зарурлиги билан",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Жиҳозланган ўриндиқларнинг сони билан",
-                        "is_correct": true
                     },
                     {
                         "id": 4,
@@ -962,18 +988,18 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Числом оборудованных для сиденья мест",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
                         "text": "Указанием администрации",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "Срочностью перевозки",
                         "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Числом оборудованных для сиденья мест",
-                        "is_correct": true
                     },
                     {
                         "id": 4,
@@ -991,39 +1017,41 @@
     },
     {
         "task_info": {
-            "global_id": "t_34_q_16",
-            "ticket_num": 34,
-            "order": 14
+            "global_id": "t_15_q_6",
+            "global_id2": "t_15_q_6",
+            "ticket_num": 15,
+            "order": 14,
+            "remapped_from": "t_34_q_16"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Yengil avtomobilning oldingi o'rindig'ida bolalarni ushlab turuvchi maxsus qurilma o'rnatilmagan bo'lsa, ularni tashish qaysi yoshdan ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "5 yosh",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "6 yosh",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "8 yosh",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "10 yosh",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 3,
                         "text": "12 yosh",
                         "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "5 yosh",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "6 yosh",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1032,28 +1060,28 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "5 ёш",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "6 ёш",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "8 ёш",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "10 ёш",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 3,
                         "text": "12 ёш",
                         "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "5 ёш",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "6 ёш",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1062,28 +1090,28 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "5 лет",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "6 лет",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "8 лет",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "10 лет",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
+                        "id": 3,
                         "text": "12 лет",
                         "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "5 лет",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 5,
+                        "text": "6 лет",
+                        "is_correct": false
                     }
                 ]
             }
@@ -1096,24 +1124,26 @@
     },
     {
         "task_info": {
-            "global_id": "t_39_q_3",
-            "ticket_num": 39,
-            "order": 15
+            "global_id": "t_16_q_1",
+            "global_id2": "t_16_q_1",
+            "ticket_num": 16,
+            "order": 15,
+            "remapped_from": "t_39_q_3"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qattiq yoki egiluvchan ulagichda shatakka olgan yuk avtomobilining kuzovida odam tashishga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ruxsat etiladi",
-                        "is_correct": true
+                        "text": "Taqiqlanadi",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Taqiqlanadi",
-                        "is_correct": false
+                        "text": "Ruxsat etiladi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1122,13 +1152,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Рухсат этилади",
-                        "is_correct": true
+                        "text": "Тақиқланади",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Тақиқланади",
-                        "is_correct": false
+                        "text": "Рухсат этилади",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1137,13 +1167,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешено",
-                        "is_correct": true
+                        "text": "Запрещено",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Запрещено",
-                        "is_correct": false
+                        "text": "Разрешено",
+                        "is_correct": true
                     }
                 ]
             }
@@ -1156,11 +1186,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_51_q_4",
-            "ticket_num": 51,
-            "order": 16
+            "global_id": "t_45_q_4",
+            "global_id2": "t_45_q_4",
+            "ticket_num": 45,
+            "order": 16,
+            "remapped_from": "t_51_q_4"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Odam tashish uchun mo'ljallangan yuk avtomobiliyukhonasiga o'rnatilgan o'rindiqlar, yukhonapastki qismidan qancha balandlikdamahkamlangan bo'lishi kerak?",
@@ -1172,12 +1204,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "0.6 - 0.7 metr",
+                        "text": "0.8 - 0.9 metr",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "0.8 - 0.9 metr",
+                        "text": "0.6 - 0.7 metr",
                         "is_correct": false
                     }
                 ]
@@ -1192,12 +1224,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "0.6 - 0.7 метр",
+                        "text": "0.8 - 0.9 метр",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "0.8 - 0.9 метр",
+                        "text": "0.6 - 0.7 метр",
                         "is_correct": false
                     }
                 ]
@@ -1212,12 +1244,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "0.6 - 0.7 метр",
+                        "text": "0.8 - 0.9 метр",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "0.8 - 0.9 метр",
+                        "text": "0.6 - 0.7 метр",
                         "is_correct": false
                     }
                 ]
@@ -1231,34 +1263,36 @@
     },
     {
         "task_info": {
-            "global_id": "t_51_q_9",
-            "ticket_num": 51,
-            "order": 17
+            "global_id": "t_38_q_1",
+            "global_id2": "t_38_q_1",
+            "ticket_num": 38,
+            "order": 17,
+            "remapped_from": "t_51_q_9"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Odam tashish uchun mo'ljallangan yuk avtomobilining yuk xonasi bortining balandligi:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "0.7 metrdan kam bo'lmasligi kerak",
+                        "text": "1.5 metrdan kam bo'lmasligi kerak",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "1 metrdan kam bo'lmasligi kerak",
+                        "text": "0.7 metrdan kam bo'lmasligi kerak",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "1.3 metrdan kam bo'lmasligi kerak",
-                        "is_correct": true
+                        "text": "1 metrdan kam bo'lmasligi kerak",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "1.5 metrdan kam bo'lmasligi kerak",
-                        "is_correct": false
+                        "text": "1.3 metrdan kam bo'lmasligi kerak",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1267,23 +1301,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "0.7 метрдан кам бўлмаслиги керак",
+                        "text": "1.5 метрдан кам бўлмаслиги керак",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "1 метрдан кам бўлмаслиги керак",
+                        "text": "0.7 метрдан кам бўлмаслиги керак",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "1.3 метрдан кам бўлмаслиги керак",
-                        "is_correct": true
+                        "text": "1 метрдан кам бўлмаслиги керак",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "1.5 метрдан кам бўлмаслиги керак",
-                        "is_correct": false
+                        "text": "1.3 метрдан кам бўлмаслиги керак",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1292,23 +1326,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Не менее 0.7 метра",
+                        "text": "Не менее 1.5 метра",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Не менее 1.0 метра",
+                        "text": "Не менее 0.7 метра",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Не менее 1.3 метра",
-                        "is_correct": true
+                        "text": "Не менее 1.0 метра",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Не менее 1.5 метра",
-                        "is_correct": false
+                        "text": "Не менее 1.3 метра",
+                        "is_correct": true
                     }
                 ]
             }
@@ -1321,11 +1355,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_51_q_20",
-            "ticket_num": 51,
-            "order": 18
+            "global_id": "t_29_q_14",
+            "global_id2": "t_29_q_14",
+            "ticket_num": 29,
+            "order": 18,
+            "remapped_from": "t_51_q_20"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Odam tashish uchun mo'ljallangan yuk avtomobili yuk xonasi bordlari balanligi :",
@@ -1342,13 +1378,13 @@
                     },
                     {
                         "id": 3,
-                        "text": "1,3 metrdan kam bo'lmasligi kerak",
-                        "is_correct": true
+                        "text": "1,5 metrdan kam bo'lmasligi kerak",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "1,5 metrdan kam bo'lmasligi kerak",
-                        "is_correct": false
+                        "text": "1,3 metrdan kam bo'lmasligi kerak",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1367,13 +1403,13 @@
                     },
                     {
                         "id": 3,
-                        "text": "1,3 метрдан кам бўлмаслиги керак",
-                        "is_correct": true
+                        "text": "1,5 метрдан кам бўлмаслиги керак",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "1,5 метрдан кам бўлмаслиги керак",
-                        "is_correct": false
+                        "text": "1,3 метрдан кам бўлмаслиги керак",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1392,13 +1428,13 @@
                     },
                     {
                         "id": 3,
-                        "text": "Не менее 1,3 метра",
-                        "is_correct": true
+                        "text": "Не менее 1,5 метра",
+                        "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Не менее 1,5 метра",
-                        "is_correct": false
+                        "text": "Не менее 1,3 метра",
+                        "is_correct": true
                     }
                 ]
             }
@@ -1411,28 +1447,30 @@
     },
     {
         "task_info": {
-            "global_id": "t_52_q_4",
-            "ticket_num": 52,
-            "order": 19
+            "global_id": "t_58_q_18",
+            "global_id2": "t_58_q_18",
+            "ticket_num": 58,
+            "order": 19,
+            "remapped_from": "t_52_q_4"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Odam tashish uchun mo'ljallangan yuk avtomobili yukxonasiga o'rnatilgan o'rindiqlar, yukxona pastgi qismidan qancha balandlikda maxkamlangan bo'lishi kerak?",
                 "options": [
                     {
                         "id": 1,
+                        "text": "0,8-0,9 metr",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "0,3-0,5 metr",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "0,6-0,7 metr",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "0,8-0,9 metr",
+                        "text": "0,6-0,7 metr",
                         "is_correct": false
                     }
                 ]
@@ -1442,17 +1480,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "0,8-0,9 метр",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "0,3-0,5 метр",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "0,6-0,7 метр",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "0,8-0,9 метр",
+                        "text": "0,6-0,7 метр",
                         "is_correct": false
                     }
                 ]
@@ -1462,17 +1500,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "0,8-0,9 метра",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "0,3-0,5 метра",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "0,6-0,7 метра",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "0,8-0,9 метра",
+                        "text": "0,6-0,7 метра",
                         "is_correct": false
                     }
                 ]
@@ -1486,39 +1524,41 @@
     },
     {
         "task_info": {
-            "global_id": "t_56_q_4",
-            "ticket_num": 56,
-            "order": 20
+            "global_id": "t_50_q_12",
+            "global_id2": "t_50_q_12",
+            "ticket_num": 50,
+            "order": 20,
+            "remapped_from": "t_56_q_4"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Odamlarni quyidagi hollarda tashishga ruxsat etiladi:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Tirkama-uychada",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Yuk tashiladigan tirkamalarda",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "Taraktoriarda",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
+                        "id": 2,
                         "text": "Bolalarni yuk avtomobilining yukxonasida",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
-                        "text": "Barcha hollarda tashish taqialanadi",
+                        "id": 3,
+                        "text": "Traktorlarda",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Barcha hollarda tashish taqiqlanadi",
                         "is_correct": true
+                    },
+                    {
+                        "id": 5,
+                        "text": "Tirkama-uychada",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1527,28 +1567,28 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тиркама-уйчада",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Юк ташиладиган тиркамаларда",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "Таракториарда",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
+                        "id": 2,
                         "text": "Болаларни юк автомобилининг юкхонасида",
                         "is_correct": false
                     },
                     {
-                        "id": 5,
-                        "text": "Барча ҳолларда ташиш тақиаланади",
+                        "id": 3,
+                        "text": "Тракторларда",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Барча ҳолларда ташиш тақиқланади",
                         "is_correct": true
+                    },
+                    {
+                        "id": 5,
+                        "text": "Тиркама-уйчада",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1557,12 +1597,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Трейлер-в улье",
+                        "text": "В грузовых прицепах",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "В грузовых прицепах",
+                        "text": "Дети в багажнике грузовика",
                         "is_correct": false
                     },
                     {
@@ -1572,13 +1612,13 @@
                     },
                     {
                         "id": 4,
-                        "text": "Дети в багажнике грузовика",
-                        "is_correct": false
+                        "text": "Во всех случаях перевозка запрещена",
+                        "is_correct": true
                     },
                     {
                         "id": 5,
-                        "text": "Во всех случаях перевозка запрещена",
-                        "is_correct": true
+                        "text": "Трейлер-в улье",
+                        "is_correct": false
                     }
                 ]
             }
@@ -1591,29 +1631,31 @@
     },
     {
         "task_info": {
-            "global_id": "t_2_q_10",
-            "ticket_num": 2,
-            "order": 21
+            "global_id": "t_12_q_7",
+            "global_id2": "t_12_q_7",
+            "ticket_num": 12,
+            "order": 21,
+            "remapped_from": "t_2_q_10"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Yuk transport vositasiga shunday joylashtirilishi kerakki, u:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yukxona devorlaridan baland chiqmasligi kerak",
+                        "text": "Transport vositasining orqa o'lchamidan 0,8 m. dan ortiq chiqib turmasligi kerak",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Shovqin hosil qilmasligi, chang ko'tarmasligi va atrof-muxitni iflos qilmasligi kerak",
-                        "is_correct": true
+                        "text": "Yukxona devorlaridan baland chiqmasligi kerak",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Transport vositasining orqa o'lchamidan 0,8 m. dan ortiq chiqib turmasligi kerak",
-                        "is_correct": false
+                        "text": "Shovqin hosil qilmasligi, chang ko'tarmasligi va atrof-muxitni iflos qilmasligi kerak",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1622,18 +1664,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Юкхона деворларидан баланд чиқмаслиги керак",
+                        "text": "Транспорт воситасининг орқа ўлчамидан 0,8 м. дан ортиқ чиқиб турмаслиги керак",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Шовқин ҳосил қилмаслиги, чанг кўтармаслиги ва атроф-мухитни ифлос қилмаслиги керак",
-                        "is_correct": true
+                        "text": "Юкхона деворларидан баланд чиқмаслиги керак",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Транспорт воситасининг орқа ўлчамидан 0,8 м. дан ортиқ чиқиб турмаслиги керак",
-                        "is_correct": false
+                        "text": "Шовқин ҳосил қилмаслиги, чанг кўтармаслиги ва атроф-мухитни ифлос қилмаслиги керак",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1642,7 +1684,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Не располагался выше уровня бортов",
+                        "text": "Не выступал за габариты транспортного средства сзади более, чем на 0,8 м от крайнего заднего размера транспортного средства",
                         "is_correct": false
                     },
                     {
@@ -1652,7 +1694,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Не выступал за габариты транспортного средства сзади более, чем на 0,8 м от крайнего заднего размера транспортного средства",
+                        "text": "Не располагался выше уровня бортов",
                         "is_correct": false
                     }
                 ]
@@ -1666,33 +1708,35 @@
     },
     {
         "task_info": {
-            "global_id": "t_5_q_10",
-            "ticket_num": 5,
-            "order": 22
+            "global_id": "t_20_q_6",
+            "global_id2": "t_20_q_6",
+            "ticket_num": 20,
+            "order": 22,
+            "remapped_from": "t_5_q_9"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Bir tirkamali avtopoezdning qanday eng katta uzunligida DYHXX ruxsatisiz harakatlanishga yo'l qo'yiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "16 m",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "18 m",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "20 m",
                         "is_correct": true
                     },
                     {
-                        "id": 4,
+                        "id": 2,
+                        "text": "16 m",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
                         "text": "22 m",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "18 m",
                         "is_correct": false
                     },
                     {
@@ -1707,22 +1751,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "16 м",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "18 м",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "20 м",
                         "is_correct": true
                     },
                     {
-                        "id": 4,
+                        "id": 2,
+                        "text": "16 м",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
                         "text": "22 м",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "18 м",
                         "is_correct": false
                     },
                     {
@@ -1737,22 +1781,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "16 м",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "18 м",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "20 м",
                         "is_correct": true
                     },
                     {
-                        "id": 4,
+                        "id": 2,
+                        "text": "16 м",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
                         "text": "22 м",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "18 м",
                         "is_correct": false
                     },
                     {
@@ -1771,33 +1815,35 @@
     },
     {
         "task_info": {
-            "global_id": "t_6_q_18",
-            "ticket_num": 6,
-            "order": 23
+            "global_id": "t_47_q_19",
+            "global_id2": "t_47_q_19",
+            "ticket_num": 47,
+            "order": 23,
+            "remapped_from": "t_6_q_17"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Yuk tashish taqiqlanadi, agar:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yuk enining chekka nuqtasi oldingi yoki orqa gabarit chiroqning tashqi chekkasidan 0,4 m. dan ortiq chiqib tursa",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Yuk transport vositasining gabaritlaridan 1 m. ortiq chiqib tursa",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Tashilayotgan yuk vazni shu transport vositasi uchun ishlab chiqargan korxona belgilagan kattalikdan ortiq bo'lsa",
                         "is_correct": true
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Barcha aytilgan hollarda",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Yuk enining chekka nuqtasi oldingi yoki orqa gabarit chiroqning tashqi chekkasidan 0,4 m. dan ortiq chiqib tursa",
                         "is_correct": false
                     }
                 ]
@@ -1807,22 +1853,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Юк энининг чекка нуқтаси олдинги ёки орқа габарит чироқнинг ташқи чеккасидан 0,4 м. дан ортиқ чиқиб турса",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Юк транспорт воситасининг габаритларидан 1 м. ортиқ чиқиб турса",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Ташилаётган юк вазни шу транспорт воситаси учун ишлаб чиқарган корхона белгилаган катталикдан ортиқ бўлса",
                         "is_correct": true
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Барча айтилган ҳолларда",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Юк энининг чекка нуқтаси олдинги ёки орқа габарит чироқнинг ташқи чеккасидан 0,4 м. дан ортиқ чиқиб турса",
                         "is_correct": false
                     }
                 ]
@@ -1832,22 +1878,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Крайняя точка груза по ширине находится на расстоянии (выступает) более 0,4м от внешнего края переднего или заднего габаритного огня",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Груз выступает за габариты автомобиля более чем на 1 м",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Если вес груза больше, чем установленная норма для данного грузового автомобиля",
                         "is_correct": true
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Все перечисленные случаи",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Крайняя точка груза по ширине находится на расстоянии (выступает) более 0,4м от внешнего края переднего или заднего габаритного огня",
                         "is_correct": false
                     }
                 ]
@@ -1856,24 +1902,26 @@
         "izoh": {
             "uz_lat": "YHQ 27-bobi 160-bandiga asosan: Tashilayotgan yukning vazni va o‘qlarga tushadigan og‘irlik miqdorining taqsimlanishi ishlab chiqargan korxona tomonidan ushbu transport vositasi uchun belgilangan miqdordan oshmasligi kerak.",
             "uz_cyr": "YHQ 27-боби 160-бандига асосан: Ташилаётган юкнинг вазни ва ўқларга тушадиган оғирлик миқдорининг тақсимланиши ишлаб чиқарган корхона томонидан ушбу транспорт воситаси учун белгиланган миқдордан ошмаслиги керак.",
-            "ru": "Согласно главе 27 ст. 160 ГК: Вес перевозимого груза и распределение количества веса, приходящегося на оси, не должны превышать величину, указанную изготовителем для данного транспортного средства."
+            "ru": "Согласно главе 27 ст. 160 ПДД: Вес перевозимого груза и распределение количества веса, приходящегося на оси, не должны превышать величину, указанную изготовителем для данного транспортного средства."
         }
     },
     {
         "task_info": {
-            "global_id": "t_10_q_17",
-            "ticket_num": 10,
-            "order": 24
+            "global_id": "t_57_q_12",
+            "global_id2": "t_57_q_12",
+            "ticket_num": 57,
+            "order": 24,
+            "remapped_from": "t_10_q_17"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Kunduzgi vaqtda transportning old yoki orqa tomoniga 1 metrdan ortiq chiqib turgan yuk qanday belgilanadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "«Катта ўлчамли юк» diagonali bo'yicha qizil va oq chiziqlari bo'lgan taxtacha yoki bayroqchalar bilan",
-                        "is_correct": true
+                        "text": "Oq bayroqchalar bilan",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -1882,8 +1930,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Oq bayroqchalar bilan",
-                        "is_correct": false
+                        "text": "«Катта ўлчамли юк» diagonali bo'yicha qizil va oq chiziqlari bo'lgan taxtacha yoki bayroqchalar bilan",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1892,8 +1940,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "«Катта ўлчамли юк» диагонали бўйича қизил ва оқ чизиқлари бўлган тахтача ёки байроқчалар билан",
-                        "is_correct": true
+                        "text": "Оқ байроқчалар билан",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -1902,8 +1950,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Оқ байроқчалар билан",
-                        "is_correct": false
+                        "text": "«Катта ўлчамли юк» диагонали бўйича қизил ва оқ чизиқлари бўлган тахтача ёки байроқчалар билан",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1912,8 +1960,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Флажками или щитками с красно-белыми линиями по диагонали",
-                        "is_correct": true
+                        "text": "Белыми флажками",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -1922,8 +1970,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Белыми флажками",
-                        "is_correct": false
+                        "text": "Флажками или щитками с красно-белыми линиями по диагонали",
+                        "is_correct": true
                     }
                 ]
             }
@@ -1936,11 +1984,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_17_q_20",
-            "ticket_num": 17,
-            "order": 25
+            "global_id": "t_39_q_4",
+            "global_id2": "t_39_q_4",
+            "ticket_num": 39,
+            "order": 25,
+            "remapped_from": "t_17_q_19"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Tashilayotgan yuk DYHX xizmatining puxsatisiz transport vositasi o'lchamlarining orqa nuqtasidan eng katta miqdorda qanday chiqib turishi mumkin?",
@@ -1952,22 +2002,22 @@
                     },
                     {
                         "id": 2,
-                        "text": "1,5 m",
+                        "text": "4,0 m",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "2,0 m",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 4,
                         "text": "2,5 m",
                         "is_correct": false
                     },
                     {
+                        "id": 4,
+                        "text": "2,0 m",
+                        "is_correct": true
+                    },
+                    {
                         "id": 5,
-                        "text": "4,0 m",
+                        "text": "1,5 m",
                         "is_correct": false
                     }
                 ]
@@ -1982,22 +2032,22 @@
                     },
                     {
                         "id": 2,
-                        "text": "1,5 м",
+                        "text": "4,0 м",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "2,0 м",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 4,
                         "text": "2,5 м",
                         "is_correct": false
                     },
                     {
+                        "id": 4,
+                        "text": "2,0 м",
+                        "is_correct": true
+                    },
+                    {
                         "id": 5,
-                        "text": "4,0 м",
+                        "text": "1,5 м",
                         "is_correct": false
                     }
                 ]
@@ -2012,22 +2062,22 @@
                     },
                     {
                         "id": 2,
-                        "text": "1,5 м",
+                        "text": "4,0 м",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "2,0 м",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 4,
                         "text": "2,5 м",
                         "is_correct": false
                     },
                     {
+                        "id": 4,
+                        "text": "2,0 м",
+                        "is_correct": true
+                    },
+                    {
                         "id": 5,
-                        "text": "4,0 м",
+                        "text": "1,5 м",
                         "is_correct": false
                     }
                 ]
@@ -2041,11 +2091,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_18_q_10",
-            "ticket_num": 18,
-            "order": 26
+            "global_id": "t_33_q_19",
+            "global_id2": "t_33_q_19",
+            "ticket_num": 33,
+            "order": 26,
+            "remapped_from": "t_18_q_10"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Davlat YHX xizmatining ruxsatisiz transport vositasining yuk bilan yoki yuksiz qanday yuqori o'lchamdagi balandlik bilan harakatlanishiga yo'l qo'yiladi?",
@@ -2146,24 +2198,26 @@
     },
     {
         "task_info": {
-            "global_id": "t_19_q_10",
-            "ticket_num": 19,
-            "order": 27
+            "global_id": "t_31_q_18",
+            "global_id2": "t_31_q_18",
+            "ticket_num": 31,
+            "order": 27,
+            "remapped_from": "t_19_q_10"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Qanday holatlarda tashilayotgan yuk ishora taxtachalari yoki bayroqchalar bilan, kunning qorong'i vaqtida, etarli ko'rinmaydigan sharoitlarda esa yorug'lik qaytargich yoki chiroqlar bilan belgilanadi?",
+                "text": "Qanday holatlarda tashilayotgan yuk ishora taxtachalari yoki bayroqchalar bilan, kunning qorong'i vaqtida, yetarli ko'rinmaydigan sharoitlarda esa yorug'lik qaytargich yoki chiroqlar bilan belgilanadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yuk transport vositasining o'lchamidan oldinda yoki orqada 1 m dan ko'p chiqib qolganda",
-                        "is_correct": true
+                        "text": "Yuk transport vositasining o'lchamidan orqada 0,8 m chiqib qolganda",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Yuk transport vositasining o'lchamidan orqada 0,8 m chiqib qolganda",
-                        "is_correct": false
+                        "text": "Yuk transport vositasining o'lchamidan oldinda yoki orqada 1 m dan ko'p chiqib qolganda",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2172,13 +2226,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Юк транспорт воситасининг ўлчамидан олдинда ёки орқада 1 м дан кўп чиқиб қолганда",
-                        "is_correct": true
+                        "text": "Юк транспорт воситасининг ўлчамидан орқада 0,8 м чиқиб қолганда",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Юк транспорт воситасининг ўлчамидан орқада 0,8 м чиқиб қолганда",
-                        "is_correct": false
+                        "text": "Юк транспорт воситасининг ўлчамидан олдинда ёки орқада 1 м дан кўп чиқиб қолганда",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2187,13 +2241,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Если груз выступает за габариты транспортного средства спереди или сзади более чем на 1 м",
-                        "is_correct": true
+                        "text": "Если груз выступает за габариты транспортного средства сзади на 0,8 м",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Если груз выступает за габариты транспортного средства сзади на 0,8 м",
-                        "is_correct": false
+                        "text": "Если груз выступает за габариты транспортного средства спереди или сзади более чем на 1 м",
+                        "is_correct": true
                     }
                 ]
             }
@@ -2206,38 +2260,40 @@
     },
     {
         "task_info": {
-            "global_id": "t_24_q_10",
-            "ticket_num": 24,
-            "order": 28
+            "global_id": "t_25_q_4",
+            "global_id2": "t_25_q_4",
+            "ticket_num": 25,
+            "order": 28,
+            "remapped_from": "t_24_q_10"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Davlat YHX xizmati ruxsatisiz transport vositasining yuk bilan yoki yuksiz harakatlanishiga qanday yuqori maksimal kenglikda yo'l qo'yiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "2,0 m",
+                        "text": "5,0 m",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "2,55 m",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "3,8 m",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
                         "text": "4,0 m",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "2,0 m",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "2,55 m",
+                        "is_correct": true
+                    },
+                    {
                         "id": 5,
-                        "text": "5,0 m",
+                        "text": "3,8 m",
                         "is_correct": false
                     }
                 ]
@@ -2247,27 +2303,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "2,0 м",
+                        "text": "5,0 м",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "2,55 м",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "3,8 м",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
                         "text": "4,0 м",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "2,0 м",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "2,55 м",
+                        "is_correct": true
+                    },
+                    {
                         "id": 5,
-                        "text": "5,0 м",
+                        "text": "3,8 м",
                         "is_correct": false
                     }
                 ]
@@ -2277,27 +2333,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "2,0 м",
+                        "text": "5,0 м",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "2,55 м",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "3,8 м",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 4,
                         "text": "4,0 м",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "2,0 м",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "2,55 м",
+                        "is_correct": true
+                    },
+                    {
                         "id": 5,
-                        "text": "5,0 м",
+                        "text": "3,8 м",
                         "is_correct": false
                     }
                 ]
@@ -2311,11 +2367,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_25_q_20",
-            "ticket_num": 25,
-            "order": 29
+            "global_id": "t_23_q_7",
+            "global_id2": "t_23_q_7",
+            "ticket_num": 23,
+            "order": 29,
+            "remapped_from": "t_25_q_20"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Tashiladigan yuk vaznini va o'qlar bo'yicha tushadigan og'irlikni taqsimlashni kim tartibga solib turadi?",
@@ -2327,13 +2385,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Avtoxo'jalik mamuriyati",
-                        "is_correct": false
+                        "text": "Mazkur transport vositasini tayyorlovchi-korxona",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Mazkur transport vositasini tayyorlovchi-korxona",
-                        "is_correct": true
+                        "text": "Avtoxo'jalik mamuriyati",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2347,13 +2405,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Автохўжалик маъмурияти",
-                        "is_correct": false
+                        "text": "Мазкур транспорт воситасини тайёрловчи-корхона",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Мазкур транспорт воситасини тайёрловчи-корхона",
-                        "is_correct": true
+                        "text": "Автохўжалик маъмурияти",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2367,13 +2425,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Администрация автохозяйства",
-                        "is_correct": false
+                        "text": "Предприятие- изготовитель данного транспортного средства",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Предприятие- изготовитель данного транспортного средства",
-                        "is_correct": true
+                        "text": "Администрация автохозяйства",
+                        "is_correct": false
                     }
                 ]
             }
@@ -2381,34 +2439,36 @@
         "izoh": {
             "uz_lat": "YHQ 27-bobi 160-bandiga asosan: Tashilayotgan yukning vazni va o‘qlarga tushadigan og‘irlik miqdorining taqsimlanishi ishlab chiqargan korxona tomonidan ushbu transport vositasi uchun belgilangan miqdordan oshmasligi kerak.",
             "uz_cyr": "YHQ 27-боби 160-бандига асосан: Ташилаётган юкнинг вазни ва ўқларга тушадиган оғирлик миқдорининг тақсимланиши ишлаб чиқарган корхона томонидан ушбу транспорт воситаси учун белгиланган миқдордан ошмаслиги керак.",
-            "ru": "Согласно главе 27 ст. 160 ГК: Вес перевозимого груза и распределение количества веса, приходящегося на оси, не должны превышать величину, указанную изготовителем для данного транспортного средства."
+            "ru": "Согласно главе 27 ст. 160 ПДД: Вес перевозимого груза и распределение количества веса, приходящегося на оси, не должны превышать величину, указанную изготовителем для данного транспортного средства."
         }
     },
     {
         "task_info": {
-            "global_id": "t_26_q_9",
-            "ticket_num": 26,
-            "order": 30
+            "global_id": "t_32_q_4",
+            "global_id2": "t_32_q_4",
+            "ticket_num": 32,
+            "order": 30,
+            "remapped_from": "t_26_q_9"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "«Gazel» yuk avtomobilining yuk bilan balandligi yo'l ustidan 3,8 m bo'lsa, uni tashish mumkinmi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ruxsat beriladi",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Ruxsat berilmaydi",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Ruxsat beriladi, faqat yo'nalishlarda osma ko'priklar, osma yo'l (estakada) bo'lmasa",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ruxsat beriladi",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2417,18 +2477,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Рухсат берилади",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Рухсат берилмайди",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Рухсат берилади, фақат йўналишларда осма кўприклар, осма йўл (эстакада) бўлмаса",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Рухсат берилади",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2437,18 +2497,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "Запрещается",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Только по дорогам, на которых отсутствует необходимость двигаться под мостами или путепроводами",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Разрешается",
+                        "is_correct": true
                     }
                 ]
             }
@@ -2456,19 +2516,21 @@
         "izoh": {
             "uz_lat": "YHQ 27-bobi 164-bandining birinchi xatboshisiga asosan: O‘ta og‘ir, katta o‘lchamli va xavfli yuklarni tashishda gabarit oʻlchamlari yukli yoki yuksiz holda eni bo‘yicha 2,55 (refrijeratorlar va izotermik kuzovlar uchun - 2,6) metrdan va balandligi bo‘yicha yo‘l sathidan 4 metrdan, uzunligi bo‘yicha yakka avtotransport vositasi uchun - 12 metrdan, tirkama uchun - 12 metrdan, yarimtirkamali avtopoyezd uchun - 20 metrdan, tirkamali avtopoyezd uchun - 20 metrdan ortiq bo‘lgan yoki yuki transport vositasining oldi va orqa nuqtasidan 2 metrdan ortiq chiqib turgan transport vositalarining harakatlanishi belgilangan tartibda DYHXX bilan kelishilgan bo‘lishi kerak.",
             "uz_cyr": "YHQ 27-боби 164-бандининг биринчи хатбошисига асосан: Ўта оғир, катта ўлчамли ва хавфли юкларни ташишда габарит ўлчамлари юкли ёки юксиз ҳолда эни бўйича 2,55 (рефрижераторлар ва изотермик кузовлар учун - 2,6) метрдан ва баландлиги бўйича йўл сатҳидан 4 метрдан, узунлиги бўйича якка автотранспорт воситаси учун - 12 метрдан, тиркама учун - 12 метрдан, яримтиркамали автопоезд учун - 20 метрдан, тиркамали автопоезд учун - 20 метрдан ортиқ бўлган ёки юки транспорт воситасининг олди ва орқа нуқтасидан 2 метрдан ортиқ чиқиб турган транспорт воситаларининг ҳаракатланиши белгиланган тартибда ДЙҲХХ билан келишилган бўлиши керак.",
-            "ru": "Согласно пункту первому статьи 164 главы 27 ГК: При перевозке особо тяжелых, крупногабаритных и опасных грузов габаритные размеры с грузом или без него составляют 2,55 (для рефрижераторов и изотермических кузовов - 2,6) метра в ширину и 4 метра в высоту от уровня дороги, для одиночного автомобиля - 12 метров в длину, для прицепа - Движение транспортных средств длиной более 12 метров, для для полуприцепа - 20 метров, для автопоезда - 20 метров, либо груз которого выступает более чем на 2 метра из передней и задней точек автомобиля, необходимо согласовать с ДЮХХХ в установленном порядке."
+            "ru": "Согласно пункту первому статьи 164 главы 27 ПДД: При перевозке особо тяжелых, крупногабаритных и опасных грузов габаритные размеры с грузом или без него составляют 2,55 (для рефрижераторов и изотермических кузовов - 2,6) метра в ширину и 4 метра в высоту от уровня дороги, для одиночного автомобиля - 12 метров в длину, для прицепа - Движение транспортных средств длиной более 12 метров, для для полуприцепа - 20 метров, для автопоезда - 20 метров, либо груз которого выступает более чем на 2 метра из передней и задней точек автомобиля, необходимо согласовать с ДЮХХХ в установленном порядке."
         }
     },
     {
         "task_info": {
-            "global_id": "t_26_q_20",
-            "ticket_num": 26,
-            "order": 31
+            "global_id": "t_21_q_4",
+            "global_id2": "t_21_q_4",
+            "ticket_num": 21,
+            "order": 31,
+            "remapped_from": "t_26_q_19"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Yuk transport vositasining o'lchamlaridan chiqib tursa, kunning qorong'i vaqtida va etarli ko'rinmaydigan sharoitda qanday belgilanadi?",
+                "text": "Yuk transport vositasining o'lchamlaridan chiqib tursa, kunning qorong'i vaqtida va yetarli ko'rinmaydigan sharoitda qanday belgilanadi?",
                 "options": [
                     {
                         "id": 1,
@@ -2477,13 +2539,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "«Катта ўлчамли юк» taniqlik belgisi bilan belgilanishi, qo'shimcha ravishda oldiga oq, orqasiga esa qizil chiroqlar yoki yorug'lik qaytargich bilan",
-                        "is_correct": true
+                        "text": "Orqasiga qizil, oldiga oq bayroqchalar bilan",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Orqasiga qizil, oldiga oq bayroqchalar bilan",
-                        "is_correct": false
+                        "text": "«Катта ўлчамли юк» taniqlik belgisi bilan belgilanishi, qo'shimcha ravishda oldiga oq, orqasiga esa qizil chiroqlar yoki yorug'lik qaytargich bilan",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2497,13 +2559,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "«Катта ўлчамли юк» таниқлик белгиси билан белгиланиши, қўшимча равишда олдига оқ, орқасига эса қизил чироқлар ёки ёруғлик қайтаргич билан",
-                        "is_correct": true
+                        "text": "Орқасига қизил, олдига оқ байроқчалар билан",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Орқасига қизил, олдига оқ байроқчалар билан",
-                        "is_correct": false
+                        "text": "«Катта ўлчамли юк» таниқлик белгиси билан белгиланиши, қўшимча равишда олдига оқ, орқасига эса қизил чироқлар ёки ёруғлик қайтаргич билан",
+                        "is_correct": true
                     }
                 ]
             },
@@ -2517,28 +2579,30 @@
                     },
                     {
                         "id": 2,
-                        "text": "«Негабаритного груза» опознавательным знаком, кроме того Светоотражающими приспособлениями или фонарями спереди белого, сзади красного",
-                        "is_correct": true
+                        "text": "Флажками - сзади красными, спереди белыми",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Флажками – сзади красными, спереди белыми",
-                        "is_correct": false
+                        "text": "«Негабаритного груза» опознавательным знаком, кроме того Светоотражающими приспособлениями или фонарями спереди белого, сзади красного",
+                        "is_correct": true
                     }
                 ]
             }
         },
         "izoh": {
-            "uz_lat": "Kechasi harakatlanganda tezlikni tanlash juda muhim holat hisoblanadi. Bunday holda, asosiy shartni hisobga olish kerak – haydovchiga yetarli darajada yo'lning ko'rinish masofasi to'xtash yo'li masofasidan ortiq bo'lishi shart.",
-            "uz_cyr": "Кечаси ҳаракатланганда тезликни танлаш жуда муҳим ҳолат ҳисобланади. Бундай ҳолда, асосий шартни ҳисобга олиш керак – ҳайдовчига етарли даражада йўлнинг кўриниш масофаси тўхташ йўли масофасидан ортиқ бўлиши шарт.",
-            "ru": "При движении в ночное время очень важен выбор скорости. При этом необходимо учитывать главное условие – водитель должен иметь достаточную дальность видимости дороги больше дистанции парковки."
+            "uz_lat": "YHQ 26-bobi (yuk tashish) va taniqlik belgilari talablariga asosan, transport vositasi gabaritlaridan chiqib turgan yuk kunning qorong‘i vaqtida va yetarli ko‘rinmaydigan sharoitda «Katta o‘lchamli yuk» taniqlik belgisi bilan, qo‘shimcha ravishda oldinga oq, orqasiga qizil chiroqlar yoki yorug‘lik qaytargichlar bilan belgilanadi.",
+            "uz_cyr": "YHQ 26-боби (юк ташиш) ва таниқлик белгилари талабларига асосан, транспорт воситаси габаритларидан чиқиб турган юк куннинг қоронғи вақтида ва етарли кўринмайдиган шароитда «Катта ўлчамли юк» таниқлик белгиси билан, қўшимча равишда олдинга оқ, орқасига қизил чироқлар ёки ёруғлик қайтаргичлар билан белгиланади.",
+            "ru": "Согласно требованиям ПДД к перевозке грузов и опознавательным знакам, груз, выступающий за габариты транспортного средства, в тёмное время суток и в условиях недостаточной видимости обозначается опознавательным знаком «Крупногабаритный груз», а также спереди белыми, сзади красными фонарями или световозвращателями."
         }
     },
     {
         "task_info": {
-            "global_id": "t_48_q_19",
-            "ticket_num": 48,
-            "order": 32
+            "global_id": "t_28_q_11",
+            "global_id2": "t_28_q_11",
+            "ticket_num": 28,
+            "order": 32,
+            "remapped_from": "t_50_q_7"
         },
         "media_url": "u314uz.webp",
         "content": {
@@ -2552,12 +2616,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "B",
+                        "text": "A va b",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "A va b",
+                        "text": "B",
                         "is_correct": false
                     }
                 ]
@@ -2572,12 +2636,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Б",
+                        "text": "А ва б",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "А ва б",
+                        "text": "Б",
                         "is_correct": false
                     }
                 ]
@@ -2611,29 +2675,31 @@
     },
     {
         "task_info": {
-            "global_id": "t_49_q_18",
-            "ticket_num": 49,
-            "order": 33
+            "global_id": "t_17_q_7",
+            "global_id2": "t_17_q_7",
+            "ticket_num": 17,
+            "order": 33,
+            "remapped_from": "t_49_q_15"
         },
-        "media_url": "v479uz.webp",
+        "media_url": "u185uz.webp",
         "content": {
             "uz_lat": {
                 "text": "Kunning yorug' vaqtida harakatlanayotgan qaysi rasmdagi avtomobil haydovchisi yuk tashish qoidasini buzayapti?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "A",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Har ikki rasmda",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
-                        "text": "Xech kim buzmayapti",
+                        "id": 2,
+                        "text": "Hech kim buzmayapti",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "A",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2642,18 +2708,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "А",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Ҳар икки расмда",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Ҳеч ким бузмаяпти",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "А",
+                        "is_correct": false
                     }
                 ]
             },
@@ -2686,9 +2752,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_50_q_9",
-            "ticket_num": 50,
-            "order": 34
+            "global_id": "t_16_q_6",
+            "global_id2": "t_16_q_6",
+            "ticket_num": 16,
+            "order": 34,
+            "remapped_from": "t_48_q_19"
         },
         "media_url": "u176uz.webp",
         "content": {
@@ -2697,12 +2765,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "A",
+                        "text": "B",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "B",
+                        "text": "A",
                         "is_correct": false
                     },
                     {
@@ -2717,12 +2785,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "A",
+                        "text": "B",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "B",
+                        "text": "A",
                         "is_correct": false
                     },
                     {
@@ -2737,12 +2805,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "A",
+                        "text": "B",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "B",
+                        "text": "A",
                         "is_correct": false
                     },
                     {
@@ -2761,11 +2829,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_51_q_1",
-            "ticket_num": 51,
-            "order": 35
+            "global_id": "t_15_q_8",
+            "global_id2": "t_15_q_8",
+            "ticket_num": 15,
+            "order": 35,
+            "remapped_from": "t_51_q_1"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Yengil avtomobilning tom qismiga o'rnatilganyukhonasida yukning balandligi(maxsusmoslamalar bilan mustahkamlangan holdavelosipedlarni tashish bundan mustasno) nechametrdan oshmasligi kerak?",
@@ -2851,23 +2921,25 @@
     },
     {
         "task_info": {
-            "global_id": "t_51_q_15",
-            "ticket_num": 51,
-            "order": 36
+            "global_id": "t_14_q_6",
+            "global_id2": "t_14_q_6",
+            "ticket_num": 14,
+            "order": 36,
+            "remapped_from": "t_51_q_15"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Yengil avtomobilning tom qismiga o'rnatilgan yukxonasida yuk tashishdan, yukning uzunligi avtomobilning gabaritidan necha metrdan oshmasa tashishga yo'l qo'yiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "2 metr",
+                        "text": "1 metr",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "1 metr",
+                        "text": "2 metr",
                         "is_correct": false
                     },
                     {
@@ -2887,12 +2959,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "2 метр",
+                        "text": "1 метр",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "1 метр",
+                        "text": "2 метр",
                         "is_correct": false
                     },
                     {
@@ -2912,12 +2984,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "2 метр",
+                        "text": "1 метр",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "1 метр",
+                        "text": "2 метр",
                         "is_correct": false
                     },
                     {
@@ -2941,9 +3013,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_35a_q_7",
-            "ticket_num": "35a",
-            "order": 37
+            "global_id": "t_8_q_14",
+            "global_id2": "t_8_q_14",
+            "ticket_num": 8,
+            "order": 37,
+            "remapped_from": "t_59_q_7"
         },
         "media_url": "u85uz.webp",
         "content": {
@@ -3016,9 +3090,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_35a_q_21",
-            "ticket_num": "35a",
-            "order": 38
+            "global_id": "t_14_q_14",
+            "global_id2": "t_14_q_14",
+            "ticket_num": 14,
+            "order": 38,
+            "remapped_from": "t_59_q_20"
         },
         "media_url": "",
         "content": {

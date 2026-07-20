@@ -1,29 +1,31 @@
 [
     {
         "task_info": {
-            "global_id": "t_3_q_18",
-            "ticket_num": 3,
-            "order": 1
+            "global_id": "t_36_q_15",
+            "global_id2": "t_36_q_15",
+            "ticket_num": 36,
+            "order": 1,
+            "remapped_from": "t_3_q_17"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qaysi holda qoidalar ogohlantirish ishorasini berishni talab kilmaydi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Qatnov qismining chekkasida to'xtash oldidan",
+                        "text": "Qo'shni harakat bo'lagiga o'tish oldidan.",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "«Ҳавфли бурилиш» belgisi bilan belgilangan yo'lning egri burilish joyi oldidan.",
-                        "is_correct": true
+                        "text": "Qatnov qismining chekkasida to'xtash oldidan",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Qo'shni harakat bo'lagiga o'tish oldidan.",
-                        "is_correct": false
+                        "text": "«Ҳавфли бурилиш» belgisi bilan belgilangan yo'lning egri burilish joyi oldidan.",
+                        "is_correct": true
                     }
                 ]
             },
@@ -32,37 +34,37 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "Қўшни ҳаракат бўлагига ўтиш олдидан.",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "Қатнов қисмининг чеккасида тўхташ олдидан",
                         "is_correct": false
                     },
                     {
-                        "id": 2,
+                        "id": 3,
                         "text": "«Ҳавфли бурилиш» белгиси билан белгиланган йўлнинг эгри бурилиш жойи олдидан.",
                         "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "Қўшни ҳаракат бўлагига ўтиш олдидан.",
-                        "is_correct": false
                     }
                 ]
             },
             "ru": {
-                "text": "В каком случае Правила не требуют подачи предупре­дительного сигнала?",
+                "text": "В каком случае правила не требуют подачи предупре­дительного сигнала?",
                 "options": [
                     {
                         "id": 1,
-                        "text": ". Перед остановкой у края проезжей части",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Перед закруглением дороги, обозначенным знаком \"Опасный поворот\"",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Перед перестроением на соседнюю полосу движения",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Перед остановкой у края проезжей части",
                         "is_correct": false
                     }
                 ]
@@ -76,11 +78,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_4_q_18",
-            "ticket_num": 4,
-            "order": 2
+            "global_id": "t_40_q_7",
+            "global_id2": "t_40_q_7",
+            "ticket_num": 40,
+            "order": 2,
+            "remapped_from": "t_4_q_16"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Kunduzgi vaqtda yaqinni yorituvchi fara chirog'ini yoqish ogohlantirish ishorasi bo'ladimi?",
@@ -136,28 +140,30 @@
     },
     {
         "task_info": {
-            "global_id": "t_5_q_18",
-            "ticket_num": 5,
-            "order": 3
+            "global_id": "t_19_q_18",
+            "global_id2": "t_19_q_18",
+            "ticket_num": 19,
+            "order": 3,
+            "remapped_from": "t_5_q_15"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qaysi ishoralar ogohlantiruvchi hisoblanadi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Burilishni ko'rsatadigan miltillovchi chiroq yoki qo'l bilan beriladigan ishoralar",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Tovushli ishoralar",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Fara chiroqlarini o'chib-yoqilishi va kunduzgi vaqtda yaqinni yorituvchi fara chirog'ining yoqilishi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Burilishni ko'rsatadigan miltillovchi chiroq yoki qo'l bilan beriladigan ishoralar",
                         "is_correct": false
                     },
                     {
@@ -172,17 +178,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Бурилишни кўрсатадиган милтилловчи чироқ ёки қўл билан бериладиган ишоралар",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Товушли ишоралар",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "Фара чироқларини ўчиб-ёқилиши ва кундузги вақтда яқинни ёритувчи фара чироғининг ёқилиши",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Бурилишни кўрсатадиган милтилловчи чироқ ёки қўл билан бериладиган ишоралар",
                         "is_correct": false
                     },
                     {
@@ -202,18 +208,18 @@
                     },
                     {
                         "id": 2,
-                        "text": "Звуковые сигналы",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Переключение света фар и включение ближнего света фар дневное время",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "Все вышеперечисленные сигналы",
                         "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Звуковые сигналы",
+                        "is_correct": false
                     }
                 ]
             }
@@ -226,19 +232,21 @@
     },
     {
         "task_info": {
-            "global_id": "t_6_q_8",
-            "ticket_num": 6,
-            "order": 4
+            "global_id": "t_7_q_5",
+            "global_id2": "t_7_q_5",
+            "ticket_num": 7,
+            "order": 4,
+            "remapped_from": "t_6_q_8"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Ogohlantirish ishorasini berish haydovchiga birinchi harakatlanish xuquqini beradimi?",
+                "text": "Ogohlantirish ishorasini berish haydovchiga birinchi harakatlanish huquqini beradimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Bermaydi",
-                        "is_correct": true
+                        "text": "Hamma hollarda beradi",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -247,12 +255,12 @@
                     },
                     {
                         "id": 3,
-                        "text": "Manevrni boshlash vaqtida beradi",
-                        "is_correct": false
+                        "text": "Bermaydi",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Hamma hollarda beradi",
+                        "text": "Manevrni boshlash vaqtida beradi",
                         "is_correct": false
                     }
                 ]
@@ -262,8 +270,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Бермайди",
-                        "is_correct": true
+                        "text": "Ҳамма ҳолларда беради",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -272,12 +280,12 @@
                     },
                     {
                         "id": 3,
-                        "text": "Манёврни бошлаш вақтида беради",
-                        "is_correct": false
+                        "text": "Бермайди",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "Ҳамма ҳолларда беради",
+                        "text": "Манёврни бошлаш вақтида беради",
                         "is_correct": false
                     }
                 ]
@@ -287,8 +295,8 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Не дает",
-                        "is_correct": true
+                        "text": "Дает при начале маневра",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
@@ -297,8 +305,8 @@
                     },
                     {
                         "id": 3,
-                        "text": "Дает при начале маневра",
-                        "is_correct": false
+                        "text": "Не дает",
+                        "is_correct": true
                     },
                     {
                         "id": 4,
@@ -311,29 +319,31 @@
         "izoh": {
             "uz_lat": "YHQ 8-bobi 46-bandiga muvofiq, burilish ko'rsatgichlari bilan berilayotgan ogohlantiruvchi ishora berish haydovchiga oldin o'tish huquqini bermaydi va uni zaruriy ehtiyot choralarini ko'rish mas'uliyatidan ozod etmaydi.",
             "uz_cyr": "YHQ 8-боби 46-бандига мувофиқ, бурилиш кўрсатгичлари билан берилаётган огоҳлантирувчи ишора бериш ҳайдовчига олдин ўтиш ҳуқуқини бермайди ва уни зарурий эҳтиёт чораларини кўриш масулиятидан озод этмайди.",
-            "ru": "В соответствии с главой 8, пунктом 46 ПДД, предупредительный сигнал поворотников не дает водителю права на обгон и не освобождает его от ответственности за соблюдение необходимых мер предосторожности."
+            "ru": "В соответствии с главой 8, пунктом 46 ПДД, предупредительный сигнал поворотников не дает водителю права преимущественного проезда и не освобождает его от ответственности за соблюдение необходимых мер предосторожности."
         }
     },
     {
         "task_info": {
-            "global_id": "t_7_q_8",
-            "ticket_num": 7,
-            "order": 5
+            "global_id": "t_36_q_20",
+            "global_id2": "t_36_q_20",
+            "ticket_num": 36,
+            "order": 5,
+            "remapped_from": "t_7_q_8"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Haydovchi aholi punktlaridan tashqaridagi yo'lda quvib o'tilayotgan haydovchining e'tiborini jalb etish uchun faralar chiroqlarini o'chirib yoqish va tovush ishorasi berishni qo'llab to'g'ri qildimi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Noto'g'ri",
-                        "is_correct": false
+                        "text": "To'g'ri",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "To'g'ri",
-                        "is_correct": true
+                        "text": "Noto'g'ri",
+                        "is_correct": false
                     }
                 ]
             },
@@ -342,13 +352,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Нотўғри",
-                        "is_correct": false
+                        "text": "Тўғри",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Тўғри",
-                        "is_correct": true
+                        "text": "Нотўғри",
+                        "is_correct": false
                     }
                 ]
             },
@@ -357,13 +367,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Неправильно",
-                        "is_correct": false
+                        "text": "Правильно",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Правильно",
-                        "is_correct": true
+                        "text": "Неправильно",
+                        "is_correct": false
                     }
                 ]
             }
@@ -376,33 +386,35 @@
     },
     {
         "task_info": {
-            "global_id": "t_7_q_18",
-            "ticket_num": 7,
-            "order": 6
+            "global_id": "t_17_q_19",
+            "global_id2": "t_17_q_19",
+            "ticket_num": 17,
+            "order": 6,
+            "remapped_from": "t_7_q_17"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Quvib o'tishda faralarning uzoqni yorituvchi chiroqlaridan ogohlantiruvchi ishora sifatida foydalanish mumkinmi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Hamma holda mumkin",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Mumkin, agar bu boshqa haydovchilarning ko'zini qamashtirmasa, shu jumladan, orqani ko'rish ko'zgusi orqali ham",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Mumkin emas",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Aholi punktlaridan tashqaridagi yo'llarda mumkin",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Mumkin, agar bu boshqa haydovchilarning ko'zini qamashtirmasa, shu jumladan, orqani ko'rish ko'zgusi orqali ham",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Hamma holda mumkin",
                         "is_correct": false
                     },
                     {
@@ -417,22 +429,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ҳамма ҳолда мумкин",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Мумкин, агар бу бошқа ҳайдовчиларнинг кўзини қамаштирмаса, шу жумладан, орқани кўриш кўзгуси орқали ҳам",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Мумкин эмас",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Аҳоли пунктларидан ташқаридаги йўлларда мумкин",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Мумкин, агар бу бошқа ҳайдовчиларнинг кўзини қамаштирмаса, шу жумладан, орқани кўриш кўзгуси орқали ҳам",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Ҳамма ҳолда мумкин",
                         "is_correct": false
                     },
                     {
@@ -447,22 +459,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Можно в любом случае",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Можно, когда это не может вызвать ослепление других водителей, в том числе и через зеркало заднего вида",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Нельзя",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Можно на дорогах вне населённых пунктов",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Можно, когда это не может вызвать ослепление других водителей, в том числе и через зеркало заднего вида",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 4,
+                        "text": "Можно в любом случае",
                         "is_correct": false
                     },
                     {
@@ -481,11 +493,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_8_q_6",
-            "ticket_num": 8,
-            "order": 7
+            "global_id": "t_28_q_7",
+            "global_id2": "t_28_q_7",
+            "ticket_num": 28,
+            "order": 7,
+            "remapped_from": "t_8_q_6"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Haydovchi manevrni bajarishda burilish ko'rsatkichlari bilan yorug'lik ishorasini har doim berishi kerakmi?",
@@ -556,9 +570,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_14_q_11",
-            "ticket_num": 14,
-            "order": 8
+            "global_id": "t_34_q_20",
+            "global_id2": "t_34_q_20",
+            "ticket_num": 34,
+            "order": 8,
+            "remapped_from": "t_14_q_11"
         },
         "media_url": "u396uz.webp",
         "content": {
@@ -567,22 +583,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Birinchi bo'lib",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Ikkinchi bo'lib",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Uchinchi bo'lib",
                         "is_correct": true
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Oxirgi bo'lib",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ikkinchi bo'lib",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Birinchi bo'lib",
                         "is_correct": false
                     }
                 ]
@@ -592,22 +608,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Биринчи бўлиб",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Иккинчи бўлиб",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Учинчи бўлиб",
                         "is_correct": true
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Охирги бўлиб",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Иккинчи бўлиб",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Биринчи бўлиб",
                         "is_correct": false
                     }
                 ]
@@ -617,22 +633,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Первым",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Вторым",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Третьим",
                         "is_correct": true
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Последним",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Вторым",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Первым",
                         "is_correct": false
                     }
                 ]
@@ -646,11 +662,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_21_q_18",
-            "ticket_num": 21,
-            "order": 9
+            "global_id": "t_30_q_5",
+            "global_id2": "t_30_q_5",
+            "ticket_num": 30,
+            "order": 9,
+            "remapped_from": "t_21_q_18"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qo'l bilan beriladigan ogohlantiruvchi ishora qoidalarga muvofiq qachon tugallanishi mumkin?",
@@ -697,13 +715,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Непосредственно перед выполнением маневра",
-                        "is_correct": true
+                        "text": "Немедленно после завершения маневра",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Немедленно после завершения маневра",
-                        "is_correct": false
+                        "text": "Непосредственно перед выполнением маневра",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -721,11 +739,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_22_q_9",
-            "ticket_num": 22,
-            "order": 10
+            "global_id": "t_50_q_10",
+            "global_id2": "t_50_q_10",
+            "ticket_num": 50,
+            "order": 10,
+            "remapped_from": "t_22_q_9"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Manevr vaqtida haydovchi har doim ogohlantiruvchi ishorasi berishi kerakmi?",
@@ -737,8 +757,8 @@
                     },
                     {
                         "id": 2,
-                        "text": "Faqat agar uning transport vositasi burilishini ko'rsatuvchi chiroqlar bilan jihozlangan holda",
-                        "is_correct": false
+                        "text": "Faqat u harakatning boshqa ishtirokchilarini chalg'itmagan hollarda",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -747,13 +767,13 @@
                     },
                     {
                         "id": 4,
-                        "text": "Faqat u harakatning boshqa ishtirokchilarini chalg'itmagan hollarda",
-                        "is_correct": true
+                        "text": "Faqat agar uning transport vositasi burilishini ko'rsatuvchi chiroqlar bilan jihozlangan holda",
+                        "is_correct": false
                     }
                 ]
             },
             "uz_cyr": {
-                "text": "Манёвр вақтида ҳайдовчи ҳар доим огохлантирувчи ишораси бериши керакми?",
+                "text": "Манёвр вақтида ҳайдовчи ҳар доим огоҳлантирувчи ишораси бериши керакми?",
                 "options": [
                     {
                         "id": 1,
@@ -762,8 +782,8 @@
                     },
                     {
                         "id": 2,
-                        "text": "Фақат агар унинг транспорт воситаси бурилишини кўрсатувчи чироқлар билан жиҳозланган ҳолда",
-                        "is_correct": false
+                        "text": "Фақат у ҳаракатнинг бошқа иштирокчиларини чалғитмаган ҳолларда",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -772,8 +792,8 @@
                     },
                     {
                         "id": 4,
-                        "text": "Фақат у ҳаракатнинг бошқа иштирокчиларини чалғитмаган ҳолларда",
-                        "is_correct": true
+                        "text": "Фақат агар унинг транспорт воситаси бурилишини кўрсатувчи чироқлар билан жиҳозланган ҳолда",
+                        "is_correct": false
                     }
                 ]
             },
@@ -782,12 +802,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только в случае если за ним движется другое транспортное средство",
-                        "is_correct": false
+                        "text": "Сигнал не подается в случаях когда он может ввести в заблуждение других участников движения",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Только в случае если его транспортное средство имеет указатели поворотов",
+                        "text": "Только в случае если за ним движется другое транспортное средство",
                         "is_correct": false
                     },
                     {
@@ -797,8 +817,8 @@
                     },
                     {
                         "id": 4,
-                        "text": "Сигнал не подается в случаях когда он может ввести в заблуждение других участников движения",
-                        "is_correct": true
+                        "text": "Только в случае если его транспортное средство имеет указатели поворотов",
+                        "is_correct": false
                     }
                 ]
             }
@@ -811,23 +831,25 @@
     },
     {
         "task_info": {
-            "global_id": "t_23_q_8",
-            "ticket_num": 23,
-            "order": 11
+            "global_id": "t_1_q_5",
+            "global_id2": "t_1_q_5",
+            "ticket_num": 1,
+            "order": 11,
+            "remapped_from": "t_23_q_8"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Haydovchi to'xtash oldidan ogohlatiruvchi ishora berishga qachon majbur?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat shu holdaki, agar uning orqasidan boshqa transport vositasi harakat qilsa",
+                        "text": "Faqat aholi punktlarida",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Faqat aholi punktlarida",
+                        "text": "Faqat shu holdaki, agar uning orqasidan boshqa transport vositasi harakat qilsa",
                         "is_correct": false
                     },
                     {
@@ -842,12 +864,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат шу ҳолдаки, агар унинг орқасидан бошқа транспорт воситаси ҳаракат қилса",
+                        "text": "Фақат аҳоли пунктларида",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Фақат аҳоли пунктларида",
+                        "text": "Фақат шу ҳолдаки, агар унинг орқасидан бошқа транспорт воситаси ҳаракат қилса",
                         "is_correct": false
                     },
                     {
@@ -862,12 +884,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только в случае, если сзади него движется другое транспортное средство",
+                        "text": "Только в населённых пунктах",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Только в населённых пунктах",
+                        "text": "Только в случае, если сзади него движется другое транспортное средство",
                         "is_correct": false
                     },
                     {
@@ -886,23 +908,25 @@
     },
     {
         "task_info": {
-            "global_id": "t_23_q_17",
-            "ticket_num": 23,
-            "order": 12
+            "global_id": "t_35_q_12",
+            "global_id2": "t_35_q_12",
+            "ticket_num": 35,
+            "order": 12,
+            "remapped_from": "t_23_q_16"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qayta tizilish oldidan ogohlantiruvchi ishora qachon berilishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Bevosita manevrni bajarishni boshlash oldidan",
+                        "text": "Manevrni bajarishni boshlagandan so'ng zudlik bilan",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Manevrni bajarishni boshlagandan so'ng zudlik bilan",
+                        "text": "Bevosita manevrni bajarishni boshlash oldidan",
                         "is_correct": false
                     },
                     {
@@ -917,12 +941,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Бевосита манёврни бажаришни бошлаш олдидан",
+                        "text": "Манёврни бажаришни бошлагандан сўнг зудлик билан",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Манёврни бажаришни бошлагандан сўнг зудлик билан",
+                        "text": "Бевосита манёврни бажаришни бошлаш олдидан",
                         "is_correct": false
                     },
                     {
@@ -942,13 +966,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Сразу после начала выполнения маневра",
-                        "is_correct": false
+                        "text": "Заблаговременно до начала выполнения маневра",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Заблаговременно до начала выполнения маневра",
-                        "is_correct": true
+                        "text": "Сразу после начала выполнения маневра",
+                        "is_correct": false
                     }
                 ]
             }
@@ -961,33 +985,35 @@
     },
     {
         "task_info": {
-            "global_id": "t_32_q_7",
-            "ticket_num": 32,
-            "order": 13
+            "global_id": "t_20_q_14",
+            "global_id2": "t_20_q_14",
+            "ticket_num": 20,
+            "order": 13,
+            "remapped_from": "t_32_q_6"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Aholi punktlarida «Falokat» to'xtash belgisi yoki miltillovchi qizil chiroq mexanik transport vositasidan kamida qanday masofada qo'yilishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "10 m",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "15 m",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "30 m",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "40 m",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "10 m",
                         "is_correct": false
                     }
                 ]
@@ -997,22 +1023,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "10 м",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "15 м",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "30 м",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "40 м",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "10 м",
                         "is_correct": false
                     }
                 ]
@@ -1022,22 +1048,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "10 м",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "15 м",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "30 м",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 3,
                         "text": "40 м",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "10 м",
                         "is_correct": false
                     }
                 ]
@@ -1046,39 +1072,41 @@
         "izoh": {
             "uz_lat": "YHQ 8-bobi 51-bandiga asosan: Transport vositasi to‘satdan to‘xtab qolganda, zudlik bilan avariya yorug‘lik ishorasini yoqish, agar u ishlamasa, avariya sababli to‘xtash belgisini darhol o‘rnatish kerak. Avariya sababli to‘xtash belgisi quyidagi hollarda qo‘llaniladi: Yo‘l-transport hodisasi sodir bo‘lganda; to‘xtash taqiqlangan joylarda va ko‘rinishi cheklangan joylarda majburiy to‘xtaganda; Ushbu belgi boshqa haydovchilarni xavfli vaziyat haqida o‘z vaqtida ogohlantirish imkoni beradigan masofada o‘rnatilishi kerak. Bu masofa aholi punktlarida transport vositasidan 15 metr, aholi punktlaridan tashqaridagi joylarda esa 30 metrdan kam bo‘lmasligi kerak.",
             "uz_cyr": "YHQ 8-боби 51-бандига асосан: Транспорт воситаси тўсатдан тўхтаб қолганда, зудлик билан авария ёруғлик ишорасини ёқиш, агар у ишламаса, авария сабабли тўхташ белгисини дарҳол ўрнатиш керак. Авария сабабли тўхташ белгиси қуйидаги ҳолларда қўлланилади: Йўл-транспорт ҳодисаси содир бўлганда; тўхташ тақиқланган жойларда ва кўриниши чекланган жойларда мажбурий тўхтаганда; Ушбу белги бошқа ҳайдовчиларни хавфли вазият ҳақида ўз вақтида огоҳлантириш имкони берадиган масофада ўрнатилиши керак. Бу масофа аҳоли пунктларида транспорт воситасидан 15 метр, аҳоли пунктларидан ташқаридаги жойларда эса 30 метрдан кам бўлмаслиги керак.",
-            "ru": "Согласно статье 51 главы 8 Закона о дорожном движении: При внезапной остановке транспортного средства необходимо немедленно включить сигнал аварийной остановки, а если он не сработал, немедленно установить знак аварийной остановки. Знак остановки из-за аварии используется в следующих случаях: при возникновении дорожно-транспортного происшествия; при остановке в местах, где парковка запрещена, и местах с ограниченной видимостью; Этот знак должен быть установлен на расстоянии, позволяющем вовремя предупредить других водителей об опасной ситуации. Это расстояние не должно быть менее 15 метров от автомобиля в населенных пунктах и ​​30 метров за пределами населенных пунктов."
+            "ru": "Согласно статье 51 главы 8 ПДД: При внезапной остановке транспортного средства необходимо немедленно включить сигнал аварийной остановки, а если он не сработал, немедленно установить знак аварийной остановки. Знак остановки из-за аварии используется в следующих случаях: при возникновении дорожно-транспортного происшествия; при остановке в местах, где парковка запрещена, и местах с ограниченной видимостью; Этот знак должен быть установлен на расстоянии, позволяющем вовремя предупредить других водителей об опасной ситуации. Это расстояние не должно быть менее 15 метров от автомобиля в населенных пунктах и ​​30 метров за пределами населенных пунктов."
         }
     },
     {
         "task_info": {
-            "global_id": "t_33_q_8",
-            "ticket_num": 33,
-            "order": 14
+            "global_id": "t_25_q_3",
+            "global_id2": "t_25_q_3",
+            "ticket_num": 25,
+            "order": 14,
+            "remapped_from": "t_33_q_7"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "«Falokat» yorug'lik ishoralari yoqilishi kerak:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "To'xtash taqiqlangan joylarda majburiy to'xtaganda",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Yo'l-trancport hodisasi ro'y berganda",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Yo'lning yoritilmagan qismlarida to'xtaganda va to'xtab turganda yoki ko'rinish etarli bo'lmagan sharoitda gabarit yoki to'xtab turish chiroqlari nosoz bo'lganda",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Sanab o'tilgan barcha hollarda",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "To'xtash taqiqlangan joylarda majburiy to'xtaganda",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Yo'l-transport hodisasi ro'y berganda",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1087,23 +1115,23 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Тўхташ тақиқланган жойларда мажбурий тўхтаганда",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Йўл-транспорт ҳодисаси рўй берганда",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
                         "text": "Йўлнинг ёритилмаган қисмларида тўхтаганда ва тўхтаб турганда ёки кўриниш етарли бўлмаган шароитда габарит ёки тўхтаб туриш чироқлари носоз бўлганда",
                         "is_correct": false
                     },
                     {
-                        "id": 4,
+                        "id": 2,
                         "text": "Санаб ўтилган барча ҳолларда",
                         "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Тўхташ тақиқланган жойларда мажбурий тўхтаганда",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Йўл-транспорт ҳодисаси рўй берганда",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1112,7 +1140,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "При вынужденной остановке в местах, где остановка запрещена",
+                        "text": "При остановке и стоянке на неосвещенных участках дорог или в условиях недостаточной видимости при неисправных габаритных или стояночных огнях",
                         "is_correct": false
                     },
                     {
@@ -1122,7 +1150,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "При остановке и стоянке на неосвещенных участках дорог или в условиях недостаточной видимости при неисправных габаритных или стояночных огнях",
+                        "text": "При вынужденной остановке в местах, где остановка запрещена",
                         "is_correct": false
                     },
                     {
@@ -1141,9 +1169,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_35_q_7",
-            "ticket_num": 35,
-            "order": 15
+            "global_id": "t_1_q_7",
+            "global_id2": "t_1_q_7",
+            "ticket_num": 1,
+            "order": 15,
+            "remapped_from": "t_35_q_7"
         },
         "media_url": "u3uz.webp",
         "content": {
@@ -1152,18 +1182,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "3",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "1",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1172,18 +1202,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "3",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "1",
+                        "is_correct": true
                     }
                 ]
             },
@@ -1192,18 +1222,18 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
                         "text": "2",
                         "is_correct": false
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "3",
                         "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "1",
+                        "is_correct": true
                     }
                 ]
             }
@@ -1211,29 +1241,31 @@
         "izoh": {
             "uz_lat": "YHQ 8-bobi 45-bandining ikkinchi xatboshisiga asosan: Chapga burilish (qayrilib olish)ni bildiruvchi ishoraga chap qo‘lni yonga uzatish yoki o‘ng qo‘lni tirsakdan to‘g‘ri burchak ostida bukib, yuqoriga ko‘tarish mos keladi.",
             "uz_cyr": "YHQ 8-боби 45-бандининг иккинчи хатбошисига асосан: Чапга бурилиш (қайрилиб олиш)ни билдирувчи ишорага чап қўлни ёнга узатиш ёки ўнг қўлни тирсакдан тўғри бурчак остида букиб, юқорига кўтариш мос келади.",
-            "ru": "Согласно абзацу второму главы 8 статьи 45 ГК: Левая рука отведена в сторону или правая рука согнута под прямым углом в локте и поднята вверх в знак поворота влево."
+            "ru": "Согласно абзацу второму главы 8 статьи 45 ПДД: Левая рука отведена в сторону или правая рука согнута под прямым углом в локте и поднята вверх в знак поворота влево."
         }
     },
     {
         "task_info": {
-            "global_id": "t_36_q_18",
-            "ticket_num": 36,
-            "order": 16
+            "global_id": "t_42_q_7",
+            "global_id2": "t_42_q_7",
+            "ticket_num": 42,
+            "order": 16,
+            "remapped_from": "t_36_q_16"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qanday hollarda aholi punktlarida tovush moslamalaridan foydalanishga ruxsat etiladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Quvib o'tishda ogohlantirish uchun",
-                        "is_correct": false
+                        "text": "Yo'l-transport hodisasining oldini olish uchun",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Yo'l-transport hodisasining oldini olish uchun",
-                        "is_correct": true
+                        "text": "Quvib o'tishda ogohlantirish uchun",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1247,13 +1279,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Қувиб ўтишда огоҳлантириш учун",
-                        "is_correct": false
+                        "text": "Йўл-транспорт ҳодисасининг олдини олиш учун",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Йўл-транспорт ҳодисасининг олдини олиш учун",
-                        "is_correct": true
+                        "text": "Қувиб ўтишда огоҳлантириш учун",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1267,17 +1299,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только для предупреждения о намерение произвести обгон",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
                         "text": "Только для предотвращения дорожно-транспортного происшествия",
                         "is_correct": true
                     },
                     {
-                        "id": 3,
+                        "id": 2,
                         "text": "В обоих перечисленных случаях",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только для предупреждения о намерение произвести обгон",
                         "is_correct": false
                     }
                 ]
@@ -1291,9 +1323,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_37_q_1",
-            "ticket_num": 37,
-            "order": 17
+            "global_id": "t_30_q_16",
+            "global_id2": "t_30_q_16",
+            "ticket_num": 30,
+            "order": 17,
+            "remapped_from": "t_37_q_1"
         },
         "media_url": "u348uz.webp",
         "content": {
@@ -1302,17 +1336,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "«В»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "«А»",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "«Б»",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "«В»",
+                        "text": "«Б»",
                         "is_correct": false
                     }
                 ]
@@ -1322,17 +1356,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "«В»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "«А»",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "«Б»",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "«В»",
+                        "text": "«Б»",
                         "is_correct": false
                     }
                 ]
@@ -1342,17 +1376,17 @@
                 "options": [
                     {
                         "id": 1,
+                        "text": "«В»",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
                         "text": "«А»",
                         "is_correct": true
                     },
                     {
-                        "id": 2,
-                        "text": "«Б»",
-                        "is_correct": false
-                    },
-                    {
                         "id": 3,
-                        "text": "«В»",
+                        "text": "«Б»",
                         "is_correct": false
                     }
                 ]
@@ -1361,38 +1395,40 @@
         "izoh": {
             "uz_lat": "YHQ 8-bobi 51-bandi: Transport vositasi to‘satdan to‘xtab qolganda, zudlik bilan avariya yorug‘lik ishorasini yoqish, agar u ishlamasa, avariya sababli to‘xtash belgisini darhol o‘rnatish kerak. Avariya sababli to‘xtash belgisi quyidagi hollarda qo‘llaniladi: yo‘l-transport hodisasi sodir bo‘lganda; to‘xtash taqiqlangan joylarda va ko‘rinishi cheklangan joylarda majburiy to‘xtaganda; Ushbu belgi boshqa haydovchilarni xavfli vaziyat haqida o‘z vaqtida ogohlantirish imkonini beradigan masofada o‘rnatilishi kerak. Bu masofa aholi punktlarida transport vositasidan 15 metr, aholi punktlaridan tashqaridagi joylarda esa 30 metrdan kam bo‘lmasligi kerak.",
             "uz_cyr": "YHQ 8-боби 51-банди: Транспорт воситаси тўсатдан тўхтаб қолганда, зудлик билан авария ёруғлик ишорасини ёқиш, агар у ишламаса, авария сабабли тўхташ белгисини дарҳол ўрнатиш керак. Авария сабабли тўхташ белгиси қуйидаги ҳолларда қўлланилади: йўл-транспорт ҳодисаси содир бўлганда; тўхташ тақиқланган жойларда ва кўриниши чекланган жойларда мажбурий тўхтаганда; Ушбу белги бошқа ҳайдовчиларни хавфли вазият ҳақида ўз вақтида огоҳлантириш имконини берадиган масофада ўрнатилиши керак. Бу масофа аҳоли пунктларида транспорт воситасидан 15 метр, аҳоли пунктларидан ташқаридаги жойларда эса 30 метрдан кам бўлмаслиги керак.",
-            "ru": "Глава 8 пункт 51 Закона о дорожном движении: При внезапной остановке транспортного средства необходимо немедленно включить аварийный световой сигнал, а если он не сработал, немедленно установить знак аварийной остановки. Знак аварийной остановки используется в следующих случаях: при возникновении дорожно-транспортного происшествия; при остановке в местах, где парковка запрещена, и местах с ограниченной видимостью; Этот знак должен быть установлен на расстоянии, позволяющем вовремя предупредить других водителей об опасной ситуации. Это расстояние не должно быть менее 15 метров от автомобиля в населенных пунктах и ​​30 метров за пределами населенных пунктов."
+            "ru": "Глава 8 пункт 51 ПДД: При внезапной остановке транспортного средства необходимо немедленно включить аварийный световой сигнал, а если он не сработал, немедленно установить знак аварийной остановки. Знак аварийной остановки используется в следующих случаях: при возникновении дорожно-транспортного происшествия; при остановке в местах, где парковка запрещена, и местах с ограниченной видимостью; Этот знак должен быть установлен на расстоянии, позволяющем вовремя предупредить других водителей об опасной ситуации. Это расстояние не должно быть менее 15 метров от автомобиля в населенных пунктах и ​​30 метров за пределами населенных пунктов."
         }
     },
     {
         "task_info": {
-            "global_id": "t_37_q_17",
-            "ticket_num": 37,
-            "order": 18
+            "global_id": "t_41_q_6",
+            "global_id2": "t_41_q_6",
+            "ticket_num": 41,
+            "order": 18,
+            "remapped_from": "t_37_q_17"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Kunning yorug' vaqtida aholi punktlarida quvib o'tilayotgan transport vositasi haydovchisining e'tiborini jalb qilish uchun mumkin:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Tovush signalidan foydalanish",
+                        "text": "Sanab o'tilganlarning barchasidan foydalanish",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Faqat yaqinni yorituvchi chiroqni uzoqni yorituvchi chiroqqa qisqa muddat orasida o'tkazish bilan ishora berish",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Faqat birgalikda yorug'lik ishoralari bilan birga tovush signallarini qo'llash",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Faqat yaqinni yorituvchi chiroqni uzoqni yorituvchi chiroqqa qisqa muddat orasida o'tkazish bilan ishora berish",
+                        "is_correct": true
+                    },
+                    {
                         "id": 4,
-                        "text": "Sanab o'tilganlarning barchasidan foydalanish",
+                        "text": "Tovush signalidan foydalanish",
                         "is_correct": false
                     }
                 ]
@@ -1402,22 +1438,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Товуш сигналидан фойдаланиш",
+                        "text": "Санаб ўтилганларнинг барчасидан фойдаланиш",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Фақат яқинни ёритувчи чироқни узоқни ёритувчи чироққа қисқа муддат орасида ўтказиш билан ишора бериш",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Фақат биргаликда ёруғлик ишоралари билан бирга товуш сигналларини қўллаш",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Фақат яқинни ёритувчи чироқни узоқни ёритувчи чироққа қисқа муддат орасида ўтказиш билан ишора бериш",
+                        "is_correct": true
+                    },
+                    {
                         "id": 4,
-                        "text": "Санаб ўтилганларнинг барчасидан фойдаланиш",
+                        "text": "Товуш сигналидан фойдаланиш",
                         "is_correct": false
                     }
                 ]
@@ -1427,22 +1463,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только звуковым сигналом",
+                        "text": "Любые из перечисленных способов",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Только кратковременным переключением фар ближнего света на дальний",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
                         "text": "Только совместной подачей звукового и светового сигнала",
                         "is_correct": false
                     },
                     {
+                        "id": 3,
+                        "text": "Только кратковременным переключением фар ближнего света на дальний",
+                        "is_correct": true
+                    },
+                    {
                         "id": 4,
-                        "text": "Любые из перечисленных способов",
+                        "text": "Только звуковым сигналом",
                         "is_correct": false
                     }
                 ]
@@ -1456,24 +1492,26 @@
     },
     {
         "task_info": {
-            "global_id": "t_38_q_15",
-            "ticket_num": 38,
-            "order": 19
+            "global_id": "t_28_q_1",
+            "global_id2": "t_28_q_1",
+            "ticket_num": 28,
+            "order": 19,
+            "remapped_from": "t_38_q_14"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qaysi holatda siz majburiy to'xtashni amalga oshirasiz?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Piyodalar o'tish joyi oldida piyodalarga yo'l berish uchun to'xtab",
-                        "is_correct": false
+                        "text": "Texnik nosozlik tufayli yo'lning harakat qismida.",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Texnik nosozlik tufayli yo'lning harakat qismida.",
-                        "is_correct": true
+                        "text": "Piyodalar o'tish joyi oldida piyodalarga yo'l berish uchun to'xtab",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1487,13 +1525,13 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Пиёдалар ўтиш жойи олдида пиёдаларга йўл бериш учун тўхтаб",
-                        "is_correct": false
+                        "text": "Техник носозлик туфайли йўлнинг ҳаракат қисмида.",
+                        "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Техник носозлик туфайли йўлнинг ҳаракат қисмида.",
-                        "is_correct": true
+                        "text": "Пиёдалар ўтиш жойи олдида пиёдаларга йўл бериш учун тўхтаб",
+                        "is_correct": false
                     },
                     {
                         "id": 3,
@@ -1531,11 +1569,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_38_q_19",
-            "ticket_num": 38,
-            "order": 20
+            "global_id": "t_46_q_1",
+            "global_id2": "t_46_q_1",
+            "ticket_num": 46,
+            "order": 20,
+            "remapped_from": "t_38_q_18"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Kunning yorug' vaqtida aholi punktlaridan tashqarida Siz quvib o'tayotgan transport vositasi haydovchisining e'tiborini qanday jalb qilasiz?",
@@ -1547,13 +1587,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Faqat yorug'lik faralarini qisqa-qisqa yoqib o'chirish bilan",
-                        "is_correct": false
+                        "text": "Sanab o'tilgan barcha usul bilan va ularni birga qo'llash bilan",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Sanab o'tilgan barcha usul bilan va ularni birga qo'llash bilan",
-                        "is_correct": true
+                        "text": "Faqat yorug'lik faralarini qisqa-qisqa yoqib o'chirish bilan",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1567,13 +1607,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Фақат ёруғлик фараларини қисқа-қисқа ёқиб ўчириш билан",
-                        "is_correct": false
+                        "text": "Санаб ўтилган барча усул билан ва уларни бирга қўллаш билан",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Санаб ўтилган барча усул билан ва уларни бирга қўллаш билан",
-                        "is_correct": true
+                        "text": "Фақат ёруғлик фараларини қисқа-қисқа ёқиб ўчириш билан",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1587,13 +1627,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Только кратковременным переключением фар с ближнего света на дальний",
-                        "is_correct": false
+                        "text": "Любым из перечисленных способов, включая совместную подачу этих сигналов",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Любым из перечисленных способов, включая совместную подачу этих сигналов",
-                        "is_correct": true
+                        "text": "Только кратковременным переключением фар с ближнего света на дальний",
+                        "is_correct": false
                     }
                 ]
             }
@@ -1606,11 +1646,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_40_q_4",
-            "ticket_num": 40,
-            "order": 21
+            "global_id": "t_48_q_6",
+            "global_id2": "t_48_q_6",
+            "ticket_num": 48,
+            "order": 21,
+            "remapped_from": "t_40_q_4"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Kunning yorug' vaqtida aholi punktlaridan tashqarida Siz quvib o'tayotgan transport vositasi haydovchisining e'tiborini qanday jalb qilasiz?",
@@ -1681,18 +1723,20 @@
     },
     {
         "task_info": {
-            "global_id": "t_40_q_18",
-            "ticket_num": 40,
-            "order": 22
+            "global_id": "t_4_q_18",
+            "global_id2": "t_4_q_18",
+            "ticket_num": 4,
+            "order": 22,
+            "remapped_from": "t_40_q_18"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Burilish ko'rsatkichi bilan berilayotgan ogohlantiruvchi ishora qachon to'xtatilishi kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Manevr bajarishdan oldin",
+                        "text": "Manevr bajarayotganda",
                         "is_correct": false
                     },
                     {
@@ -1702,7 +1746,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Manevr bajarayotganda",
+                        "text": "Manevr bajarishdan oldin",
                         "is_correct": false
                     }
                 ]
@@ -1712,7 +1756,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Маневр бажаришдан олдин",
+                        "text": "Маневр бажараётганда",
                         "is_correct": false
                     },
                     {
@@ -1722,7 +1766,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Маневр бажараётганда",
+                        "text": "Маневр бажаришдан олдин",
                         "is_correct": false
                     }
                 ]
@@ -1756,11 +1800,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_43_q_7",
-            "ticket_num": 43,
-            "order": 23
+            "global_id": "t_15_q_1",
+            "global_id2": "t_15_q_1",
+            "ticket_num": 15,
+            "order": 23,
+            "remapped_from": "t_43_q_7"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Chap qo'lni yonga cho'zish yoki o'ng qo'lni tirsakdan to'g'ri burchak ostida bukib, yuqoriga ko'tarish ishorasi nimani bildiradi?",
@@ -1803,17 +1849,17 @@
                 ]
             },
             "ru": {
-                "text": "В чем смысл того, что Чаплин-это тот, кто не знает, что происходит с ним, а что с ним происходит?",
+                "text": "Что означает жест вытягивания левой руки в сторону или поднятия правой руки вверх, согнутой в локте под прямым углом?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Повернуть налево или развернуться.",
-                        "is_correct": true
+                        "text": "Повернуть направо или развернуться.",
+                        "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Повернуть направо или развернуться.",
-                        "is_correct": false
+                        "text": "Повернуть налево или развернуться.",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
@@ -1831,9 +1877,11 @@
     },
     {
         "task_info": {
-            "global_id": "t_47_q_14",
-            "ticket_num": 47,
-            "order": 24
+            "global_id": "t_14_q_1",
+            "global_id2": "t_14_q_1",
+            "ticket_num": 14,
+            "order": 24,
+            "remapped_from": "t_47_q_13"
         },
         "media_url": "u151uz.webp",
         "content": {
@@ -1847,13 +1895,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "O'nga burilmoqchi ekanligi haqida",
-                        "is_correct": false
+                        "text": "To'xtash haqida",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "To'xtash haqida",
-                        "is_correct": true
+                        "text": "O'nga burilmoqchi ekanligi haqida",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1867,13 +1915,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Ўнга бурилмоқчи эканлиги ҳақида",
-                        "is_correct": false
+                        "text": "Тўхташ ҳақида",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Тўхташ ҳақида",
-                        "is_correct": true
+                        "text": "Ўнга бурилмоқчи эканлиги ҳақида",
+                        "is_correct": false
                     }
                 ]
             },
@@ -1887,13 +1935,13 @@
                     },
                     {
                         "id": 2,
-                        "text": "Повернуть направо",
-                        "is_correct": false
+                        "text": "Об остановке",
+                        "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Об остановке",
-                        "is_correct": true
+                        "text": "Повернуть направо",
+                        "is_correct": false
                     }
                 ]
             }
@@ -1906,11 +1954,13 @@
     },
     {
         "task_info": {
-            "global_id": "t_50_q_8",
-            "ticket_num": 50,
-            "order": 25
+            "global_id": "t_29_q_5",
+            "global_id2": "t_29_q_5",
+            "ticket_num": 29,
+            "order": 25,
+            "remapped_from": "t_50_q_6"
         },
-        "media_url": null,
+        "media_url": "",
         "content": {
             "uz_lat": {
                 "text": "Qaysi holatlarda aholi punktlarida tovushli ishoralardan foydalanish mumkin?",
@@ -1967,7 +2017,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "В обоих перечисленных случаях",
+                        "text": "Имеет преимущество на первоочередное движение",
                         "is_correct": false
                     }
                 ]
@@ -1976,19 +2026,21 @@
         "izoh": {
             "uz_lat": "YHQ 8-bobi 48-bandi: Tovushli ishoralar faqat quyidagi hollarda qo‘llanilishi mumkin: aholi punktlaridan tashqarida boshqa haydovchilarni quvib o‘tish haqida ogohlantirish uchun; zarur bo‘lgan hollarda yo‘l-transport hodisasining oldini olish uchun. Yuqorida ko‘rsatilgan hollardan tashqari tovushli ishoralardan foydalanish taqiqlanadi.",
             "uz_cyr": "YHQ 8-боби 48-банди: Товушли ишоралар фақат қуйидаги ҳолларда қўлланилиши мумкин: аҳоли пунктларидан ташқарида бошқа ҳайдовчиларни қувиб ўтиш ҳақида огоҳлантириш учун; зарур бўлган ҳолларда йўл-транспорт ҳодисасининг олдини олиш учун. Юқорида кўрсатилган ҳоллардан ташқари товушли ишоралардан фойдаланиш тақиқланади.",
-            "ru": "Глава 8, статья 48 ГК: Звуковые сигналы могут использоваться только в следующих случаях: для предупреждения других водителей об обгоне за пределами населенных пунктов; для предотвращения дорожно-транспортного происшествия в необходимых случаях. Использование звуковых сигналов запрещено, за исключением случаев, указанных выше."
+            "ru": "Глава 8, статья 48 ПДД: Звуковые сигналы могут использоваться только в следующих случаях: для предупреждения других водителей об обгоне за пределами населенных пунктов; для предотвращения дорожно-транспортного происшествия в необходимых случаях. Использование звуковых сигналов запрещено, за исключением случаев, указанных выше."
         }
     },
     {
         "task_info": {
-            "global_id": "t_35b_q_12",
-            "ticket_num": "35b",
-            "order": 26
+            "global_id": "t_38_q_16",
+            "global_id2": "t_38_q_16",
+            "ticket_num": 38,
+            "order": 26,
+            "remapped_from": "t_62_q_1"
         },
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Aholi punktlaridan tashqarida quvib o‘tishda qanday ogohlantirish ishoralaridan foydalanish mumkin?",
+                "text": "Aholi punktlaridan tashqarida quvib o'tishda qanday ogohlantirish ishoralaridan foydalanish mumkin?",
                 "options": [
                     {
                         "id": 1,
@@ -2032,7 +2084,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Звуковые сигналы",
+                        "text": "A)Звуковые сигналы",
                         "is_correct": false
                     },
                     {
@@ -2042,7 +2094,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Фары дальнего света",
+                        "text": "B) Фары дальнего света",
                         "is_correct": false
                     }
                 ]
@@ -2056,14 +2108,16 @@
     },
     {
         "task_info": {
-            "global_id": "t_35b_q_32",
-            "ticket_num": "35b",
-            "order": 27
+            "global_id": "t_49_q_20",
+            "global_id2": "t_49_q_20",
+            "ticket_num": 49,
+            "order": 27,
+            "remapped_from": "t_63_q_6"
         },
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Aholi punktlarida quvib o‘tishda qanday ogohlantirish ishoralaridan foydalanish mumkin?",
+                "text": "Aholi punktlarida quvib o'tishda qanday ogohlantirish ishoralaridan foydalanish mumkin?",
                 "options": [
                     {
                         "id": 1,
@@ -2112,12 +2166,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Звуковые сигналы",
+                        "text": "A) Звуковые сигналы",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Фары дальнего света",
+                        "text": "B) Фары дальнего света",
                         "is_correct": true
                     }
                 ]
