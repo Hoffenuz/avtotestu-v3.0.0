@@ -81,7 +81,19 @@ export const useTestResults = () => {
       if (!import.meta.env.PROD) console.error('Invalid variant:', variant);
       return { success: false, error: 'Invalid variant' };
     }
-    if (!Number.isInteger(correctAnswers) || correctAnswers < 0 || correctAnswers > 20) {
+    if (
+      !Number.isInteger(totalQuestions) ||
+      totalQuestions < 1 ||
+      totalQuestions > 2000
+    ) {
+      if (!import.meta.env.PROD) console.error('Invalid total_questions:', totalQuestions);
+      return { success: false, error: 'Invalid total' };
+    }
+    if (
+      !Number.isInteger(correctAnswers) ||
+      correctAnswers < 0 ||
+      correctAnswers > totalQuestions
+    ) {
       if (!import.meta.env.PROD) console.error('Invalid correct_answers:', correctAnswers);
       return { success: false, error: 'Invalid score' };
     }

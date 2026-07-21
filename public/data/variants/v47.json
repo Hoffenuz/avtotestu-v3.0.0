@@ -343,12 +343,12 @@
                     {
                         "id": 2,
                         "text": "Faqat «Б»",
-                        "is_correct": true
+                        "is_correct": false
                     },
                     {
                         "id": 3,
                         "text": "Faqat «А»",
-                        "is_correct": false
+                        "is_correct": true
                     }
                 ]
             },
@@ -363,12 +363,12 @@
                     {
                         "id": 2,
                         "text": "Фақат «Б»",
-                        "is_correct": true
+                        "is_correct": false
                     },
                     {
                         "id": 3,
                         "text": "Фақат «А»",
-                        "is_correct": false
+                        "is_correct": true
                     }
                 ]
             },
@@ -383,20 +383,20 @@
                     {
                         "id": 2,
                         "text": "Только «Б»",
-                        "is_correct": true
+                        "is_correct": false
                     },
                     {
                         "id": 3,
                         "text": "Только «А»",
-                        "is_correct": false
+                        "is_correct": true
                     }
                 ]
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 1-ilovasining 7-bo‘limidagi 7.6.1 belgiga asosan, «Transport vositasini to‘xtab turish joyiga qo‘yish usuli». 7.6.1 barcha turdagi transport vositalarini to‘xtab turishi uchun yo‘lning qatnov qismida, trotuar yoniga qo‘yish usulini bildiradi.",
-            "uz_cyr": "YHQ 1-иловасининг 7-бўлимидаги 7.6.1 белгига асосан, «Транспорт воситасини тўхтаб туриш жойига қўйиш усули». 7.6.1 барча турдаги транспорт воситаларини тўхтаб туриши учун йўлнинг қатнов қисмида, тротуар ёнига қўйиш усулини билдиради.",
-            "ru": "Согласно знаку 7.6.1 в 7-м разделе приложения 1 ПДД «Способ постановки транспортного средства на место стоянки». 7.6.1 относится к способу парковки всех видов транспортных средств на проезжей части, рядом с тротуаром."
+            "uz_lat": "P belgisi ostidagi 7.6 qo'shimcha axborot belgilari trotuarga qisman chiqib to'xtab turish usulini ko'rsatadi; bunday usul faqat yengil avtomobillar va mototsikllarga ruxsat etiladi. «Б» yengil avtomobil belgidagi usulga mos qo'yilgan. «А» yuk avtomobili (3T) esa bu usuldan foydalana olmaydi va qoidani buzgan.",
+            "uz_cyr": "P белгиси остидаги 7.6 қўшимча ахборот белгилари тротуарга қисман чиқиб тўхтаб туриш усулини кўрсатади; бундай усул фақат енгил автомобиллар ва мотоциклларга рухсат этилади. «Б» енгил автомобил белгидаги усулга мос қўйилган. «А» юк автомобили (3Т) эса бу усулдан фойдалана олмайди ва қоидани бузган.",
+            "ru": "Дополнительная табличка группы 7.6 под знаком «P» указывает способ стоянки с частичным заездом на тротуар; такой способ разрешён только легковым автомобилям и мотоциклам. Легковой автомобиль «Б» стоит в соответствии с табличкой. Грузовик «А» (3Т) таким способом пользоваться не может и нарушает правила."
         }
     },
     {
@@ -1087,7 +1087,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Sanab o'tilgan barcha hollarda, 12 yoshgacha bo'lgan bolalar xavfsizligi 25.8 bandiga asoslan ta'minlangan holatda",
+                        "text": "Homilador ayollarga va avtomobilning orqa o'rindiqidagi 12 yoshgacha bo'lgan bolalarga",
                         "is_correct": true
                     },
                     {
@@ -1112,7 +1112,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Санаб ўтилган барча ҳолларда, 12 ёшгача бўлган болалар хавфсизлиги 25.8 бандига асосан таъминланган ҳолатда",
+                        "text": "Ҳомиладор аёлларга ва автомобилнинг орқа ўриндиғидаги 12 ёшгача бўлган болаларга",
                         "is_correct": true
                     },
                     {
@@ -1137,7 +1137,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Во всех перечисленных случаях при условии обеспечения безопасности детей до 12 лет в соответствии с пунктом 25.8 Правил дорожного движения",
+                        "text": "Беременным женщинам и детям до 12 лет на заднем сиденье автомобиля",
                         "is_correct": true
                     },
                     {

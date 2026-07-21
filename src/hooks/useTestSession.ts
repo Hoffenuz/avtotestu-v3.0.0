@@ -10,6 +10,7 @@
 import { useState, useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { isNetworkError } from '@/lib/networkError';
+import { TEST_SESSION_TIMEOUT_MS, withTimeout } from '@/lib/withTimeout';
 
 export interface TestSession {
   sessionId: string | null;
@@ -42,11 +43,14 @@ export const useTestSession = () => {
   ): Promise<{ ok: boolean; error?: string; session?: TestSession }> => {
     setStarting(true);
     try {
-      const { data, error } = await supabase.rpc('start_test_session', {
-        p_variant: params.variant,
-        p_question_source: params.questionSource,
-        p_is_premium: params.isPremium,
-      });
+      const { data, error } = await withTimeout(
+        supabase.rpc('start_test_session', {
+          p_variant: params.variant,
+          p_question_source: params.questionSource,
+          p_is_premium: params.isPremium,
+        }),
+        TEST_SESSION_TIMEOUT_MS,
+      );
 
       if (error) {
         if (!params.isPremium) {

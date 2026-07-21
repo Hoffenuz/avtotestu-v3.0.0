@@ -4,6 +4,7 @@ import { User, Session } from '@supabase/supabase-js';
 import { clearAllUserData } from '@/hooks/useUserValidation';
 import { toast } from '@/hooks/use-toast';
 import { isNetworkError } from '@/lib/networkError';
+import { AUTH_RPC_TIMEOUT_MS, withTimeout } from '@/lib/withTimeout';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -120,8 +121,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const blockUi = !accessConfirmedRef.current;
     if (blockUi) setAccessStateLoading(true);
     try {
-      const { data: rpcRows, error: rpcErr } = await supabase
-        .rpc('get_user_access_state', { user_id: userId });
+      const { data: rpcRows, error: rpcErr } = await withTimeout(
+        supabase.rpc('get_user_access_state', { user_id: userId }),
+        AUTH_RPC_TIMEOUT_MS,
+      );
 
       if (isStale()) return; // a newer fetch (or logout) superseded this one
 
@@ -182,7 +185,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     const initializeAuth = async () => {
       try {
-        const { data: { session: currentSession } } = await supabase.auth.getSession();
+        const { data: { session: currentSession } } = await withTimeout(
+          supabase.auth.getSession(),
+          AUTH_RPC_TIMEOUT_MS,
+        );
         if (!isMounted) return;
 
         if (currentSession?.user) {
@@ -194,7 +200,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         setIsLoading(false);
       } catch (err) {
         if (!import.meta.env.PROD) console.error('Auth Error - Initialization:', err);
-        if (isMounted) setIsLoading(false);
+        // Timeout / hung getSession — fail-closed so UI is not stuck on "Yuklanmoqda"
+        if (isMounted) {
+          setSession(null);
+          setUser(null);
+          setIsLoading(false);
+        }
       }
     };
 
@@ -225,7 +236,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             // Another tab may have just rotated tokens and written a fresh
             // session to shared localStorage. Confirm before wiping — otherwise
             // a failed refresh in tab B deletes tab A's valid session.
-            const { data: { session: stillThere } } = await supabase.auth.getSession();
+            let stillThere: Session | null = null;
+            try {
+              const res = await withTimeout(supabase.auth.getSession(), AUTH_RPC_TIMEOUT_MS);
+              stillThere = res.data.session;
+            } catch {
+              // Timeout — treat as no session (fail-closed)
+            }
             if (!isMounted) return;
             if (stillThere?.user) {
               setSession(stillThere);
@@ -246,7 +263,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             if (!currentSession) {
               // Concurrent multi-tab refresh: the losing tab gets null here while
               // the winning tab already stored new tokens. Re-read storage first.
-              const { data: { session: recovered } } = await supabase.auth.getSession();
+              let recovered: Session | null = null;
+              try {
+                const res = await withTimeout(supabase.auth.getSession(), AUTH_RPC_TIMEOUT_MS);
+                recovered = res.data.session;
+              } catch {
+                // Timeout — treat as no recoverable session
+              }
               if (!isMounted) return;
               if (recovered?.user) {
                 setSession(recovered);

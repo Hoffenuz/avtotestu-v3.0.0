@@ -39,6 +39,18 @@ interface TestResult {
   total_questions: number;
   time_taken_seconds: number | null;
   completed_at: string;
+  question_source?: string | null;
+}
+
+/** Exam ticket results only (v1–v63). Excludes practice (99), mavzuli (t*.json), free banks. */
+function isExamTicketResult(r: TestResult): boolean {
+  if (r.variant < 1 || r.variant > 63) return false;
+  const src = (r.question_source || '').trim();
+  if (/^v\d+\.json$/i.test(src)) return true;
+  if (!src && r.total_questions === 20) return true; // legacy rows
+  if (src.startsWith('t') || /mavzuli/i.test(src)) return false;
+  if (src === '600.json' || src.startsWith('barcha') || src === 'free') return false;
+  return false;
 }
 
 const Profile = () => {
@@ -169,7 +181,7 @@ useEffect(() => {
       try {
         const { data, error } = await supabase
           .from('test_results')
-          .select('id, variant, correct_answers, total_questions, time_taken_seconds, completed_at')
+          .select('id, variant, correct_answers, total_questions, time_taken_seconds, completed_at, question_source')
           .eq('user_id', user.id)
           .order('completed_at', { ascending: false })
           .limit(100);
@@ -235,12 +247,15 @@ useEffect(() => {
   };
 
   const formatTime = (seconds: number | null) => {
-    if (!seconds) return '--:--';
+    if (seconds == null) return '--:--';
     return formatTestTime(seconds);
   };
 
+  // Exam tickets only — mavzuli/practice must not collide with "Variant N"
+  const examResults = results.filter(isExamTicketResult);
+
   // Group results by variant and get best score for each
-  const bestResultsByVariant = results.reduce((acc, result) => {
+  const bestResultsByVariant = examResults.reduce((acc, result) => {
     const existing = acc[result.variant];
     if (!existing || result.correct_answers > existing.correct_answers) {
       acc[result.variant] = result;
@@ -434,7 +449,7 @@ useEffect(() => {
             <div className="grid grid-cols-2 gap-3">
               <div className="p-4 rounded-xl bg-muted/40 border border-border text-center">
                 <Trophy className="w-5 h-5 text-primary mx-auto mb-1.5" />
-                <div className="text-2xl font-bold text-foreground">{results.length}</div>
+                <div className="text-2xl font-bold text-foreground">{examResults.length}</div>
                 <p className="text-xs text-muted-foreground mt-0.5">Jami testlar</p>
               </div>
               <div className="p-4 rounded-xl bg-muted/40 border border-border text-center">
@@ -445,14 +460,14 @@ useEffect(() => {
               <div className="p-4 rounded-xl bg-muted/40 border border-border text-center">
                 <CheckCircle className="w-5 h-5 text-green-500 mx-auto mb-1.5" />
                 <div className="text-2xl font-bold text-foreground">
-                  {results.reduce((sum, r) => sum + r.correct_answers, 0)}
+                  {examResults.reduce((sum, r) => sum + r.correct_answers, 0)}
                 </div>
                 <p className="text-xs text-muted-foreground mt-0.5">To'g'ri javoblar</p>
               </div>
               <div className="p-4 rounded-xl bg-muted/40 border border-border text-center">
                 <XCircle className="w-5 h-5 text-red-500 mx-auto mb-1.5" />
                 <div className="text-2xl font-bold text-foreground">
-                  {results.reduce((sum, r) => sum + (r.total_questions - r.correct_answers), 0)}
+                  {examResults.reduce((sum, r) => sum + (r.total_questions - r.correct_answers), 0)}
                 </div>
                 <p className="text-xs text-muted-foreground mt-0.5">Noto'g'ri javoblar</p>
               </div>
@@ -598,7 +613,7 @@ useEffect(() => {
               {sortedVariants.map((variant) => {
                 const result = bestResultsByVariant[variant];
                 const score = Math.round((result.correct_answers / result.total_questions) * 100);
-                const passed = score >= 80;
+                const passed = score >= 90;
 
                 return (
                   <div

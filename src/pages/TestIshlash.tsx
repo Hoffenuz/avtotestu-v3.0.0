@@ -36,13 +36,10 @@ export default function TestIshlash() {
   const { language, setLanguage, t } = useLanguage();
 
   // Storage key is user-specific to prevent test state leaking across users on the same device.
-  const testIshlashStorageKey = user ? `testIshlash_activeTest_${user.id}` : null;
+  const testIshlashStorageKey = `testIshlash_activeTest_${user?.id ?? 'guest'}`;
 
   // Restore active test from localStorage
   const getInitialState = () => {
-    if (!testIshlashStorageKey) {
-      return { testStarted: false, activeSession: null, questionCount: 20 as 20 | 50 };
-    }
     try {
       const saved = localStorage.getItem(testIshlashStorageKey);
       if (saved) {
@@ -73,7 +70,6 @@ export default function TestIshlash() {
 
   // Persist active test state
   useEffect(() => {
-    if (!testIshlashStorageKey) return;
     try {
       if (testStarted && activeSession) {
         localStorage.setItem(testIshlashStorageKey, JSON.stringify({ testStarted, activeSession, questionCount }));
@@ -101,7 +97,7 @@ export default function TestIshlash() {
     // Compute the localStorage key that the test component will use
     // so we can validate it on restore after a page refresh.
     // Must match the user-specific keys used in TestInterfaceCombined / TestInterfaceBase.
-    const userId = user?.id ?? 'anon';
+    const userId = user?.id ?? 'guest';
     const testStateKey = questionCount === 50
       ? `testState_combined_${questionCount}_${userId}`
       : `testState_base_/${dataFile}_${questionCount}_${userId}`;

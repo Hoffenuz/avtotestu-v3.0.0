@@ -38,6 +38,7 @@ import { QuestionImageBlock } from "./QuestionImageBlock";
 import { IzohNavButton } from "./IzohBox";
 import { useDarkMode } from "@/hooks/useDarkMode";
 import { useFullscreen } from "@/hooks/useFullscreen";
+import { toast } from "sonner";
 
 type Question = AppQuestion;
 
@@ -81,7 +82,7 @@ export const TestInterfaceBase = ({
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
   const [correctAnswers, setCorrectAnswers] = useState<Record<number, boolean>>({});
   const [revealedQuestions, setRevealedQuestions] = useState<Record<number, boolean>>({});
-  const storageKey = `testState_base_${dataSource}_${questionCount}_${user?.id ?? 'anon'}`;
+  const storageKey = `testState_base_${dataSource}_${questionCount}_${user?.id ?? 'guest'}`;
   // Init from endsAt so refresh doesn't reset the timer
   const [timeRemaining, setTimeRemaining] = useState(() =>
     getInitialTimeRemaining(storageKey, timeLimit)
@@ -91,15 +92,21 @@ export const TestInterfaceBase = ({
   // Restored from localStorage so timeTaken stays accurate after refresh
   const [testStartTime] = useState(() => getInitialStartedAt(storageKey));
   const [resultSaved, setResultSaved] = useState(false);
+  const [activeSessionId, setActiveSessionId] = useState<string | null>(sessionId);
   const [zoomImage, setZoomImage] = useState<string | null>(null);
   // Increment to restart the timer interval (used by onTryAgain)
   const [timerKey, setTimerKey] = useState(0);
 
   const autoAdvanceTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const saveAttemptedRef = useRef(false);
   // Mirror of timeRemaining for the persistence effect — keeps the heavy
   // localStorage write OFF the 1-second timer tick (perf fix)
   const timeRemainingRef = useRef(timeRemaining);
+  const endsAtRef = useRef<number>(
+    getSavedTestState(storageKey)?.endsAt ??
+      Date.now() + getInitialTimeRemaining(storageKey, timeLimit) * 1000
+  );
   // Persist autoAdvance like language setting – survives page refresh
   const [autoAdvance, setAutoAdvance] = useState(() => {
     try { return localStorage.getItem('autoAdvance') === 'true'; } catch { return false; }
@@ -213,16 +220,17 @@ export const TestInterfaceBase = ({
     );
   }, [questionLang, imagePrefix]);
 
-  // Timer – stops when showResults becomes true (added to deps so cleanup fires)
+  // Timer – wall-clock from endsAt; paused while loading / no questions
   useEffect(() => {
-    if (showResults) return;
+    if (showResults || loading || questions.length === 0) return;
     timerRef.current = setInterval(() => {
-      setTimeRemaining(prev => (prev <= 1 ? 0 : prev - 1));
+      const remaining = Math.max(0, Math.floor((endsAtRef.current - Date.now()) / 1000));
+      setTimeRemaining(remaining);
     }, 1000);
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [timerKey, showResults]);
+  }, [timerKey, showResults, loading, questions.length]);
 
   // Keep the ref in sync without triggering the persistence effect each tick
   useEffect(() => {
@@ -262,7 +270,7 @@ export const TestInterfaceBase = ({
         selectedAnswers,
         correctAnswers,
         revealedQuestions,
-        endsAt: Date.now() + timeRemainingRef.current * 1000,
+        endsAt: endsAtRef.current,
         startedAt: testStartTime,
       }));
     } catch { /* ignore quota errors */ }
@@ -379,21 +387,31 @@ export const TestInterfaceBase = ({
 
   // Save result when showing results — uses backend RPC which re-validates access
   useEffect(() => {
-    if (showResults && user && !resultSaved && variant > 0) {
+    if (showResults && user && !resultSaved && variant > 0 && !saveAttemptedRef.current) {
+      saveAttemptedRef.current = true;
       const stats = getTestStats();
       const timeTaken = getElapsedTestSeconds(testStartTime, timeLimit);
-      // Pass sessionId + isPremiumSession so backend enforces access at submit time
-      saveTestResult(variant, stats.correct, totalQuestions, timeTaken, sessionId, isPremiumSession);
-      setResultSaved(true);
+      void saveTestResult(variant, stats.correct, totalQuestions, timeTaken, activeSessionId, isPremiumSession)
+        .then((res) => {
+          if (res.success) {
+            setResultSaved(true);
+          } else {
+            toast.error("Natijani saqlab bo‘lmadi. Qayta urinib ko‘ring.");
+            if (!import.meta.env.PROD) console.error('Base save failed:', res.error);
+          }
+        });
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps -- intentional: only fire once when showResults becomes true; other deps are stable at that point
   }, [showResults, user, resultSaved, variant]);
+
+  useEffect(() => {
+    if (showResults) exitFullscreen();
+  }, [showResults, exitFullscreen]);
 
   // Show results screen
   if (showResults) {
     const stats = getTestStats();
     const timeTaken = getElapsedTestSeconds(testStartTime, timeLimit);
-    exitFullscreen();
     
     return (
       <TestResults
@@ -410,9 +428,12 @@ export const TestInterfaceBase = ({
           setCorrectAnswers({});
           setRevealedQuestions({});
           setCurrentQuestion(1);
+          endsAtRef.current = Date.now() + timeLimit * 1000;
           setTimeRemaining(timeLimit);
           setShowResults(false);
           setResultSaved(false);
+          saveAttemptedRef.current = false;
+          setActiveSessionId(null);
           setTimerKey((k) => k + 1);
           setLoading(true);
           setError(null);

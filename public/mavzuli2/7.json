@@ -501,9 +501,9 @@
             }
         },
         "izoh": {
-            "uz_lat": "\"YHQga 1-ILOVA 5.8.2 bandi va 5. Axborot-ko‘rsatgich belgilarining 11-xatboshi hamda YHQga 1-ILOVA 3.18.2 bandi va 3.Taqiqlovchi belgilarning 47-xatboshiga asosan: 5.8.2. «Tasma bo‘yicha harakatlanish yo‘nalishi». Tasma bo‘yicha ruxsat etilgan harakatlanish yo‘nalishi. Boshqa yo‘nalishlar bo‘yicha harakatlanish taqiqlanadi.\r\nYo‘lning chetki chap bo‘lagidan chapga burilishga ruxsat beruvchi 5.8.1 va 5.8.2 belgilari shu tasmadan qayrilishga ham ruxsat beradi. \r\n3.18.2. «Chapga burilish taqiqlanadi». 3.18.1 va 3.18.2 belgilari qatnov qismlarining qaysi kesishmasi oldiga o‘rnatilsa, shu kesishmaga tatbiq etiladi.\"",
-            "uz_cyr": "\"YHQга 1-ИЛОВА 5.8.2 банди ва 5. Ахборот-кўрсатгич белгиларининг 11-хатбоши ҳамда YHQга 1-ИЛОВА 3.18.2 банди ва 3.Тақиқловчи белгиларнинг 47-хатбошига асосан: 5.8.2. «Тасма бўйича ҳаракатланиш йўналиши». Тасма бўйича рухсат этилган ҳаракатланиш йўналиши. Бошқа йўналишлар бўйича ҳаракатланиш тақиқланади.\r\nЙўлнинг четки чап бўлагидан чапга бурилишга рухсат берувчи 5.8.1 ва 5.8.2 белгилари шу тасмадан қайрилишга ҳам рухсат беради. \r\n3.18.2. «Чапга бурилиш тақиқланади». 3.18.1 ва 3.18.2 белгилари қатнов қисмларининг қайси кесишмаси олдига ўрнатилса, шу кесишмага татбиқ этилади.\"",
-            "ru": "Согласно «Приложению 1 к ПДД, п. 5.8.2 и 5. Информационно-указательные знаки, п. 11, и ПРИЛОЖЕНИЮ 1 к ПДД, п. 3.18.2 и 3. Запрещающие знаки, п. 47: 5.8.2. «Направление движения по полосе». Направление движения по полосе запрещено. Движение в других направлениях запрещено.\r\nЗнаки 5.8.1 и 5.8.2, разрешающие поворот налево из крайней левой полосы дороги, разрешают и поворот с этой полосы. \r\n3.18.2. «Поворот налево запрещен». Знаки 3.18.1 и 3.18.2 наносятся на перекресток, перед которым установлено пересечение участков движения»."
+            "uz_lat": "YHQ 1-ilovasining 5-bo'limi 5.11.1 «Qayrilib olish joyi» belgisi: qayrilishga ruxsat etiladi, chapga burilish taqiqlanadi. Shuning uchun «А» (qayrilish) va «В» (to'g'ri) yo'nalishlariga ruxsat etiladi, «Б» (chapga burilish) taqiqlanadi.",
+            "uz_cyr": "YHQ 1-иловасининг 5-бўлими 5.11.1 «Қайрилиб олиш жойи» белгиси: қайрилишга рухсат этилади, чапга бурилиш тақиқланади. Шунинг учун «А» (қайрилиш) ва «В» (тўғри) йўналишларига рухсат этилади, «Б» (чапга бурилиш) тақиқланади.",
+            "ru": "Согласно приложению 1 к ПДД, разделу 5, знаку 5.11.1 «Место для разворота»: разворот разрешён, поворот налево запрещён. Поэтому разрешены направления «А» (разворот) и «В» (прямо), «Б» (налево) запрещено."
         }
     },
     {
@@ -1806,8 +1806,8 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 1-ilovasi 5-bo\"limining qirq oltinchi xatboshisiga asosan: 5.28. «Kilometr belgisi». Yo‘Ining boshi yoki oxirigacha bo‘lgan masofai bildiradi. (km).",
-            "uz_cyr": "YHQ 1-иловаси 5-бо\"лимининг қирқ олтинчи хатбошисига асосан: 5.28. «Километр белгиси». ЙўИнинг боши ёки охиригача бўлган масофани билдиради. (км).",
+            "uz_lat": "YHQ 1-ilovasi 5-bo‘limining qirq oltinchi xatboshisiga asosan: 5.28. «Kilometr belgisi». Yo‘lning boshi yoki oxirigacha bo‘lgan masofai bildiradi. (km).",
+            "uz_cyr": "YHQ 1-иловаси 5-бўлимининг қирқ олтинчи хатбошисига асосан: 5.28. «Километр белгиси». Йўлнинг боши ёки охиригача бўлган масофани билдиради. (км).",
             "ru": "Согласно абзацу сорок шестому раздела 5 приложения 1 ПДД: 5.28. «Километровый знак». Означает расстояние до начала или конца дороги. (км)."
         }
     },
@@ -3300,17 +3300,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "«2»va«3»",
+                        "text": "«2» va «3»",
                         "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "«З»va«4»",
+                        "text": "«3» va «4»",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "«1»va«4»",
+                        "text": "«1» va «4»",
                         "is_correct": false
                     }
                 ]
@@ -3320,12 +3320,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "«2»ва«3»",
+                        "text": "«2» ва «3»",
                         "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "«З»ва«4»",
+                        "text": "«3» ва «4»",
                         "is_correct": false
                     },
                     {
@@ -3357,9 +3357,9 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 1-ilovasi 3-bo‘limining yigirma sakkizinchi xatboshisiga asosan: 3.24. «Yuqori tezlik cheklangan». Belgida ko‘rsatilganidan ortiq tezlikda (km/s) harakatlanish taqiqlanishini bildiradi. YHQ 11-bobi 79-bandiga uchinchi xatboshisiga asosan, aholi punktlaridan tashqarida: boshqa avtobuslar, tirkamali yengil avtomobillar, mototsikllar, elektromototsikllar ruxsat etilgan to‘la vazni 3,5 tonnadan ortig bo‘lgan yuk avtomobillariga tezlikni soatiga 80 kilometrdan oshirmasdan; YHQ 11-bobi 80-bandiga uchinchi xatboshisiga asosan, har qanday yo‘llarda: mexanik transport vositalarini shatakka olgan transport vositalariga tezlikni soatiga 50 kilometrdan oshirmasdan harakatlanishi taqiqlanadi.",
-            "uz_cyr": "YHQ 1-иловаси 3-бўлимининг йигирма саккизинчи хатбошисига асосан: 3.24. «Юқори тезлик чекланган». Белгида кўрсатилганидан ортиқ тезликда (км/с) ҳаракатланиш тақиқланишини билдиради. YHQ 11-боби 79-бандига учинчи хатбошисига асосан, аҳоли пунктларидан ташқарида: бошқа автобуслар, тиркамали енгил автомобиллар, мототсикллар, электромототсикллар рухсат этилган тўла вазни 3,5 тоннадан ортиг бўлган юк автомобилларига тезликни соатига 80 километрдан оширмасдан; YHQ 11-боби 80-бандига учинчи хатбошисига асосан, ҳар қандай йўлларда: механик транспорт воситаларини шатакка олган транспорт воситаларига тезликни соатига 50 километрдан оширмасдан ҳаракатланиши тақиқланади.",
-            "ru": "Согласно абзацу двадцать восьмому Приложения 1 раздела 3 ПДД: 3.24. «Высокая скорость ограничена». Это означает, что запрещено двигаться со скоростью (км/ч), превышающей указанную на знаке. В соответствии с абзацем третьим главы 11 статьи 79 ПДД, за пределами населенных пунктов: на других автобусах, автомобилях с прицепами, мотоциклах, электромотоциклах допускается движение грузовых автомобилей полной массой более 3,5 тонн без превышения скорости 80 километров в час; Согласно абзацу третьему главы 11 статьи 80 ПДД на любых дорогах запрещается движение транспортных средств с ограничением скорости 50 километров в час: автотранспортных средств."
+            "uz_lat": "YHQ 1-ilovasi izohiga asosan, ayrim yo'l belgilari vaqtinchalik sifatida sariq fonda qo'llanilishi mumkin. Rasmda 2 (kirish taqiqlangan) va 3 (svetofor) belgilari vaqtinchalik (sariq) ko'rinishda berilgan; 4-belgi (asosiy yo'l) doimiy belgi hisoblanadi.",
+            "uz_cyr": "YHQ 1-иловаси изоҳига асосан, айрим йўл белгилари вақтинчалик сифатида сариқ фонда қўлланилиши мумкин. Расмда 2 (кириш тақиқланган) ва 3 (светофор) белгилари вақтинчалик (сариқ) кўринишда берилган; 4-белги (асосий йўл) доимий белги ҳисобланади.",
+            "ru": "Согласно пояснениям к приложению 1 ПДД отдельные знаки могут применяться как временные на жёлтом фоне. На рисунке временными (жёлтыми) являются знаки 2 (въезд запрещён) и 3 (светофор); знак 4 (главная дорога) — постоянный."
         }
     },
     {

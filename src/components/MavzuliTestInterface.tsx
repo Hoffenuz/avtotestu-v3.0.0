@@ -9,6 +9,7 @@ import {
   getElapsedTestSeconds,
   getInitialTimeRemaining,
   getInitialStartedAt,
+  getSavedTestState,
   clearTestState,
   formatTestTime,
   MAX_TEST_TIME_SECONDS,
@@ -32,6 +33,7 @@ import { ImageLightbox } from "./ImageLightbox";
 import { QuestionImageBlock } from "./QuestionImageBlock";
 import { IzohNavButton } from "./IzohBox";
 import { useDarkMode } from "@/hooks/useDarkMode";
+import { toast } from "sonner";
 
 interface QuestionData {
   id?: number;
@@ -103,7 +105,7 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   // storageKey must be defined first – used in lazy state initialisers below
-  const storageKey = `testState_mavzuli_${topicId}_${user?.id ?? 'anon'}`;
+  const storageKey = `testState_mavzuli_${topicId}_${user?.id ?? 'guest'}`;
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
   const [correctAnswers, setCorrectAnswers] = useState<Record<number, boolean>>({});
@@ -116,14 +118,21 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
   const [showResults, setShowResults] = useState(false);
   // Restored from localStorage so timeTaken stays accurate after refresh
   const [testStartTime] = useState(() => getInitialStartedAt(storageKey));
+  const [resultSaved, setResultSaved] = useState(false);
+  const [activeSessionId, setActiveSessionId] = useState<string | null>(sessionId);
   const [zoomImage, setZoomImage] = useState<string | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   const autoAdvanceTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const saveAttemptedRef = useRef(false);
   // Mirror of timeRemaining for the persistence effect — keeps the heavy
   // localStorage write OFF the 1-second timer tick (perf fix)
   const timeRemainingRef = useRef(timeRemaining);
+  const endsAtRef = useRef<number>(
+    getSavedTestState(storageKey)?.endsAt ??
+      Date.now() + getInitialTimeRemaining(storageKey, 60 * 60) * 1000
+  );
   // Persist autoAdvance like language setting – survives page refresh
   const [autoAdvance, setAutoAdvance] = useState(() => {
     try { return localStorage.getItem('autoAdvance') === 'true'; } catch { return false; }
@@ -284,16 +293,17 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
     };
   }, [topicId, questionLang, t, storageKey]);
 
-  // Timer – stops when showResults becomes true (added to deps so cleanup fires)
+  // Timer – wall-clock from endsAt; paused while loading / no questions
   useEffect(() => {
-    if (showResults) return;
+    if (showResults || loading || questions.length === 0) return;
     timerRef.current = setInterval(() => {
-      setTimeRemaining(prev => (prev <= 1 ? 0 : prev - 1));
+      const remaining = Math.max(0, Math.floor((endsAtRef.current - Date.now()) / 1000));
+      setTimeRemaining(remaining);
     }, 1000);
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [timerKey, showResults]);
+  }, [timerKey, showResults, loading, questions.length]);
 
   // Keep the ref in sync without triggering the persistence effect each tick
   useEffect(() => {
@@ -331,7 +341,7 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
         selectedAnswers,
         correctAnswers,
         revealedQuestions,
-        endsAt: Date.now() + timeRemainingRef.current * 1000,
+        endsAt: endsAtRef.current,
         startedAt: testStartTime,
       }));
     } catch {
@@ -412,20 +422,6 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
     if (timerRef.current) clearInterval(timerRef.current);
     clearTestState(storageKey);
     exitFullscreen();
-
-    // Save result before showing results screen
-    let correct = 0;
-    Object.values(correctAnswers).forEach(isCorrect => { if (isCorrect) correct++; });
-    const timeTaken = getElapsedTestSeconds(testStartTime, MAX_TEST_TIME_SECONDS);
-    saveTestResult(
-      parseInt(topicId, 10) || 0,
-      correct,
-      questions.length,
-      timeTaken,
-      sessionId,
-      isPremiumSession,
-    );
-
     setShowResults(true);
   };
 
@@ -441,11 +437,44 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
     return { correct, incorrect };
   };
 
+  const saveVariant = (() => {
+    const n = parseInt(topicId, 10);
+    return Number.isFinite(n) && n >= 1 && n <= 100 ? n : 0;
+  })();
+
+  // Save on finish or timer expiry (same path as TestInterface)
+  useEffect(() => {
+    if (showResults && user && !resultSaved && saveVariant > 0 && !saveAttemptedRef.current) {
+      saveAttemptedRef.current = true;
+      const stats = getTestStats();
+      const timeTaken = getElapsedTestSeconds(testStartTime, MAX_TEST_TIME_SECONDS);
+      void saveTestResult(
+        saveVariant,
+        stats.correct,
+        questions.length,
+        timeTaken,
+        activeSessionId,
+        isPremiumSession,
+      ).then((res) => {
+        if (res.success) {
+          setResultSaved(true);
+        } else {
+          toast.error("Natijani saqlab bo‘lmadi. Qayta urinib ko‘ring.");
+          if (!import.meta.env.PROD) console.error('Mavzuli save failed:', res.error);
+        }
+      });
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- intentional: only fire once when showResults becomes true
+  }, [showResults, user, resultSaved, saveVariant]);
+
+  useEffect(() => {
+    if (showResults) exitFullscreen();
+  }, [showResults]);
+
   // Show results screen
   if (showResults) {
     const stats = getTestStats();
     const timeTaken = getElapsedTestSeconds(testStartTime, MAX_TEST_TIME_SECONDS);
-    exitFullscreen();
     
     return (
       <TestResults
@@ -462,8 +491,12 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
           setCorrectAnswers({});
           setRevealedQuestions({});
           setCurrentQuestion(1);
+          endsAtRef.current = Date.now() + 60 * 60 * 1000;
           setTimeRemaining(60 * 60);
           setShowResults(false);
+          setResultSaved(false);
+          saveAttemptedRef.current = false;
+          setActiveSessionId(null);
           setTimerKey(k => k + 1); // restart timer interval
         }}
       />

@@ -121,19 +121,17 @@ export default function MavzuliTestlar() {
   const navigate = useNavigate();
 
   // Storage keys are user-specific to prevent test state leaking across users on the same device.
-  const mavzuliStorageKey = user ? `mavzuli_activeTest_${user.id}` : null;
+  const mavzuliStorageKey = `mavzuli_activeTest_${user?.id ?? 'guest'}`;
 
   const getInitialState = () => {
-    if (!mavzuliStorageKey) {
-      return { selectedTopic: null as string | null, testStarted: false, sessionId: null as string | null };
-    }
     try {
       const saved = localStorage.getItem(mavzuliStorageKey);
       if (saved) {
         const parsed = JSON.parse(saved);
         if (parsed.testStarted && parsed.selectedTopic) {
           // Only restore if the in-progress test state still exists
-          const testKey = `testState_mavzuli_${parsed.selectedTopic}_${user!.id}`;
+          const userId = user?.id ?? 'guest';
+          const testKey = `testState_mavzuli_${parsed.selectedTopic}_${userId}`;
           if (!localStorage.getItem(testKey)) {
             localStorage.removeItem(mavzuliStorageKey);
             return { selectedTopic: null as string | null, testStarted: false, sessionId: null as string | null };
@@ -167,7 +165,6 @@ export default function MavzuliTestlar() {
 
   // Persist active test state
   useEffect(() => {
-    if (!mavzuliStorageKey) return;
     try {
       if (testStarted && selectedTopic) {
         localStorage.setItem(mavzuliStorageKey, JSON.stringify({ testStarted, selectedTopic, sessionId }));
@@ -279,7 +276,27 @@ export default function MavzuliTestlar() {
   }
 
   if (testStarted && selectedTopic) {
-    const topic = topics.find(t => t.id === selectedTopic)!;
+    const topic = topics.find(t => t.id === selectedTopic);
+    if (!topic) {
+      return (
+        <MainLayout>
+          <div className="min-h-screen bg-background flex items-center justify-center p-4">
+            <div className="text-center space-y-4">
+              <p className="text-muted-foreground">Mavzu topilmadi.</p>
+              <Button
+                onClick={() => {
+                  setTestStarted(false);
+                  setSelectedTopic(null);
+                  setSessionId(null);
+                }}
+              >
+                Orqaga
+              </Button>
+            </div>
+          </div>
+        </MainLayout>
+      );
+    }
     return (
       <MavzuliTestInterface
         onExit={() => {
@@ -363,7 +380,10 @@ export default function MavzuliTestlar() {
             {selectedTopic ? (
               <div className="p-4 bg-primary/5 rounded-lg border border-primary/20 text-center">
                 <div className="text-sm font-semibold text-primary">
-                  {getTopicName(topics.find(t => t.id === selectedTopic)!)}
+                  {(() => {
+                    const topic = topics.find(t => t.id === selectedTopic);
+                    return topic ? getTopicName(topic) : selectedTopic;
+                  })()}
                 </div>
               </div>
             ) : (
@@ -458,7 +478,10 @@ export default function MavzuliTestlar() {
                 <div className="mb-4 p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border-2 border-primary/20 shadow-sm">
                   <div className="text-center">
                     <div className="text-sm font-bold text-primary leading-tight">
-                      {getTopicName(topics.find(t => t.id === selectedTopic)!)}
+                      {(() => {
+                        const topic = topics.find(t => t.id === selectedTopic);
+                        return topic ? getTopicName(topic) : selectedTopic;
+                      })()}
                     </div>
                     <div className="text-[10px] text-muted-foreground mt-1">{language === 'ru' ? 'Выбранная тема' : language === 'uz' ? 'Танланган мавзу' : 'Tanlangan mavzu'}</div>
                   </div>

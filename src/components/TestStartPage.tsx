@@ -258,7 +258,7 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
             <div className="text-[10px] text-muted-foreground">{t("test.questions")}</div>
           </div>
           <div className="text-center p-2 bg-card rounded-lg border border-border">
-            <div className="text-xl font-bold text-foreground">30</div>
+            <div className="text-xl font-bold text-foreground">25</div>
             <div className="text-[10px] text-muted-foreground">{t("test.minutes")}</div>
           </div>
           <div className="text-center p-2 bg-card rounded-lg border border-border">
@@ -392,7 +392,7 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
                 <div className="text-[9px] text-blue-600/70 dark:text-blue-400/70 mt-0.5">{t("test.questions")}</div>
               </div>
               <div className="text-center p-2.5 bg-gradient-to-br from-purple-50 to-purple-100/50 dark:from-purple-950 dark:to-purple-900/50 rounded-lg border border-purple-200 dark:border-purple-800">
-                <div className="text-xl font-bold text-purple-600 dark:text-purple-400">30</div>
+                <div className="text-xl font-bold text-purple-600 dark:text-purple-400">25</div>
                 <div className="text-[9px] text-purple-600/70 dark:text-purple-400/70 mt-0.5">{t("test.minutes")}</div>
               </div>
               <div className="text-center p-2.5 bg-gradient-to-br from-green-50 to-green-100/50 dark:from-green-950 dark:to-green-900/50 rounded-lg border border-green-200 dark:border-green-800">

@@ -16,23 +16,16 @@ export default function Variant() {
   const { isPremium, loading: accessLoading, backendConfirmed } = useAccessState();
   const { starting, startSession } = useTestSession();
 
-  const variantStorageKey = user ? `variant_activeTest_${user.id}` : null;
+  const variantStorageKey = `variant_activeTest_${user?.id ?? 'guest'}`;
 
   const getInitialState = () => {
-    if (!variantStorageKey) {
-      return {
-        testStarted: false,
-        selectedVariant: null as number | null,
-        dataVariant: null as number | null,
-        sessionId: null as string | null,
-      };
-    }
     try {
       const saved = localStorage.getItem(variantStorageKey);
       if (saved) {
         const parsed = JSON.parse(saved);
         if (parsed.testStarted && parsed.selectedVariant != null) {
-          const testKey = `testState_variant_${parsed.selectedVariant}_${user!.id}`;
+          const userId = user?.id ?? 'guest';
+          const testKey = `testState_variant_${parsed.selectedVariant}_${userId}`;
           if (!localStorage.getItem(testKey)) {
             localStorage.removeItem(variantStorageKey);
             return {
@@ -67,7 +60,6 @@ export default function Variant() {
   const [startError, setStartError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!variantStorageKey) return;
     try {
       if (testStarted && selectedVariant !== null) {
         localStorage.setItem(

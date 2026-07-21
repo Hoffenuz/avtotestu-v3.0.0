@@ -71,7 +71,7 @@ export const TestInterfaceCombined = ({
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
   const [correctAnswers, setCorrectAnswers] = useState<Record<number, boolean>>({});
   const [revealedQuestions, setRevealedQuestions] = useState<Record<number, boolean>>({});
-  const storageKey = `testState_combined_${questionCount}_${user?.id ?? 'anon'}`;
+  const storageKey = `testState_combined_${questionCount}_${user?.id ?? 'guest'}`;
   // Init from endsAt so refresh doesn't reset the timer
   const [timeRemaining, setTimeRemaining] = useState(() =>
     getInitialTimeRemaining(storageKey, timeLimit)
@@ -89,6 +89,10 @@ export const TestInterfaceCombined = ({
   // Mirror of timeRemaining for the persistence effect — keeps the heavy
   // localStorage write OFF the 1-second timer tick (perf fix)
   const timeRemainingRef = useRef(timeRemaining);
+  const endsAtRef = useRef<number>(
+    getSavedTestState(storageKey)?.endsAt ??
+      Date.now() + getInitialTimeRemaining(storageKey, timeLimit) * 1000
+  );
   // Persist autoAdvance like language setting – survives page refresh
   const [autoAdvance, setAutoAdvance] = useState(() => {
     try { return localStorage.getItem('autoAdvance') === 'true'; } catch { return false; }
@@ -200,17 +204,17 @@ export const TestInterfaceCombined = ({
     );
   }, [questionLang, imagePrefix]);
 
-  // Timer – restarted whenever timerKey changes (e.g. after onTryAgain),
-  // stops when showResults becomes true (in deps so cleanup fires)
+  // Timer – wall-clock from endsAt; paused while loading / no questions
   useEffect(() => {
-    if (showResults) return;
+    if (showResults || loading || questions.length === 0) return;
     timerRef.current = setInterval(() => {
-      setTimeRemaining(prev => (prev <= 1 ? 0 : prev - 1));
+      const remaining = Math.max(0, Math.floor((endsAtRef.current - Date.now()) / 1000));
+      setTimeRemaining(remaining);
     }, 1000);
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [timerKey, showResults]);
+  }, [timerKey, showResults, loading, questions.length]);
 
   // Keep the ref in sync without triggering the persistence effect each tick
   useEffect(() => {
@@ -249,7 +253,7 @@ export const TestInterfaceCombined = ({
         selectedAnswers,
         correctAnswers,
         revealedQuestions,
-        endsAt: Date.now() + timeRemainingRef.current * 1000,
+        endsAt: endsAtRef.current,
         startedAt: testStartTime,
       }));
     } catch { /* ignore quota errors */ }
@@ -364,10 +368,14 @@ export const TestInterfaceCombined = ({
     return { correct, incorrect };
   };
 
+  // Exit fullscreen when results appear (not during render)
+  useEffect(() => {
+    if (showResults) exitFullscreen();
+  }, [showResults, exitFullscreen]);
+
   if (showResults) {
     const stats = getTestStats();
     const timeTaken = getElapsedTestSeconds(testStartTime, timeLimit);
-    exitFullscreen();
     
     return (
       <TestResults
@@ -384,6 +392,7 @@ export const TestInterfaceCombined = ({
           setCorrectAnswers({});
           setRevealedQuestions({});
           setCurrentQuestion(1);
+          endsAtRef.current = Date.now() + timeLimit * 1000;
           setTimeRemaining(timeLimit);
           setShowResults(false);
           setTimerKey((k) => k + 1);

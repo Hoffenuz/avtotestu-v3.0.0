@@ -28,6 +28,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Clock, ChevronRight, X, Check, Maximize, Minimize, SkipForward, Moon, Sun } from "lucide-react";
 import { useDarkMode } from "@/hooks/useDarkMode";
+import { toast } from "sonner";
 import { ImageLightbox } from "./ImageLightbox";
 import { QuestionImageBlock } from "./QuestionImageBlock";
 import { IzohNavButton } from "./IzohBox";
@@ -169,7 +170,7 @@ export const TestInterface = ({
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   // storageKey is user-specific to prevent test state leaking across users on the same device
-  const storageKey = `testState_variant_${variant}_${user?.id ?? 'anon'}`;
+  const storageKey = `testState_variant_${variant}_${user?.id ?? 'guest'}`;
 
   const [currentQuestion, setCurrentQuestion] = useState(1);
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
@@ -177,13 +178,15 @@ export const TestInterface = ({
   const [revealedQuestions, setRevealedQuestions] = useState<Record<number, boolean>>({});
   // Init from endsAt so refresh doesn't reset the timer
   const [timeRemaining, setTimeRemaining] = useState(() =>
-    getInitialTimeRemaining(storageKey, 30 * 60)
+    getInitialTimeRemaining(storageKey, 25 * 60)
   );
   const [showFinishDialog, setShowFinishDialog] = useState(false);
   const [showResults, setShowResults] = useState(false);
   // Restored from localStorage so timeTaken stays accurate after refresh
   const [testStartTime] = useState(() => getInitialStartedAt(storageKey));
   const [resultSaved, setResultSaved] = useState(false);
+  // After Try Again, drop completed session so re-save uses free insert path
+  const [activeSessionId, setActiveSessionId] = useState<string | null>(sessionId);
   // Increment to restart the timer interval (used by onTryAgain)
   const [timerKey, setTimerKey] = useState(0);
   const [zoomImage, setZoomImage] = useState<string | null>(null);
@@ -196,9 +199,15 @@ export const TestInterface = ({
 
   const autoAdvanceTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const saveAttemptedRef = useRef(false);
   // Mirror of timeRemaining for the persistence effect — keeps the heavy
   // localStorage write OFF the 1-second timer tick (perf fix)
   const timeRemainingRef = useRef(timeRemaining);
+  /** Absolute expiry — timer ticks from wall clock to avoid tab-throttle drift */
+  const endsAtRef = useRef<number>(
+    getSavedTestState(storageKey)?.endsAt ??
+      Date.now() + getInitialTimeRemaining(storageKey, 25 * 60) * 1000
+  );
   const touchStartX = useRef<number>(0);
   const touchEndX = useRef<number>(0);
   const isSwiping = useRef<boolean>(false);
@@ -295,17 +304,17 @@ export const TestInterface = ({
     };
   }, [variant, storageKey, loadVariantFile, t, reloadKey, questionLang]);
 
-  // Timer – restarted whenever timerKey changes (e.g. after onTryAgain),
-  // stops when showResults becomes true (in deps so cleanup fires)
+  // Timer – wall-clock from endsAt; paused while loading / no questions
   useEffect(() => {
-    if (showResults) return; // Don't tick on results screen
+    if (showResults || loading || questions.length === 0) return;
     timerRef.current = setInterval(() => {
-      setTimeRemaining(prev => (prev <= 1 ? 0 : prev - 1));
+      const remaining = Math.max(0, Math.floor((endsAtRef.current - Date.now()) / 1000));
+      setTimeRemaining(remaining);
     }, 1000);
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [timerKey, showResults]);
+  }, [timerKey, showResults, loading, questions.length]);
 
   // Keep the ref in sync without triggering the persistence effect each tick
   useEffect(() => {
@@ -345,7 +354,7 @@ export const TestInterface = ({
         selectedAnswers,
         correctAnswers,
         revealedQuestions,
-        endsAt: Date.now() + timeRemainingRef.current * 1000,
+        endsAt: endsAtRef.current,
         startedAt: testStartTime,
       }));
     } catch {
@@ -463,20 +472,31 @@ export const TestInterface = ({
 
   // Save result when showing results
   useEffect(() => {
-    if (showResults && user && !resultSaved) {
+    if (showResults && user && !resultSaved && !saveAttemptedRef.current) {
+      saveAttemptedRef.current = true;
       const stats = getTestStats();
-      const timeTaken = getElapsedTestSeconds(testStartTime, 30 * 60);
-      saveTestResult(variant, stats.correct, totalQuestions, timeTaken, sessionId, isPremiumSession);
-      setResultSaved(true);
+      const timeTaken = getElapsedTestSeconds(testStartTime, 25 * 60);
+      void saveTestResult(variant, stats.correct, totalQuestions, timeTaken, activeSessionId, isPremiumSession)
+        .then((res) => {
+          if (res.success) {
+            setResultSaved(true);
+          } else {
+            toast.error("Natijani saqlab bo‘lmadi. Qayta urinib ko‘ring.");
+            if (!import.meta.env.PROD) console.error('Variant save failed:', res.error);
+          }
+        });
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps -- intentional: only fire once when showResults becomes true; other deps are stable at that point
   }, [showResults, user, resultSaved]);
 
+  useEffect(() => {
+    if (showResults) exitFullscreen();
+  }, [showResults]);
+
   // Show results screen
   if (showResults) {
     const stats = getTestStats();
-    const timeTaken = getElapsedTestSeconds(testStartTime, 30 * 60);
-    exitFullscreen();
+    const timeTaken = getElapsedTestSeconds(testStartTime, 25 * 60);
     
     return (
       <TestResults
@@ -493,9 +513,12 @@ export const TestInterface = ({
           setCorrectAnswers({});
           setRevealedQuestions({});
           setCurrentQuestion(1);
-          setTimeRemaining(30 * 60);
+          endsAtRef.current = Date.now() + 25 * 60 * 1000;
+          setTimeRemaining(25 * 60);
           setShowResults(false);
           setResultSaved(false);
+          saveAttemptedRef.current = false;
+          setActiveSessionId(null);
           setTimerKey(k => k + 1); // restart timer interval
         }}
       />
