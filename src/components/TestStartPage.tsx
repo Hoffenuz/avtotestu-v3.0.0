@@ -149,9 +149,9 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
       {/* Mobile Layout */}
-      <div className="lg:hidden flex flex-col min-h-screen bg-background">
-        {/* Header */}
-        <div className="bg-card border-b border-border p-4 sticky top-0 z-10">
+      <div className="lg:hidden bg-background pb-4">
+        {/* Header — scroll bilan ketadi */}
+        <div className="bg-card border-b border-border p-4">
           <div className="flex items-center justify-between mb-3">
             <Link to="/">
               <Button variant="outline" size="sm" className="gap-2">
@@ -201,15 +201,30 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
           </div>
         </div>
 
-        {/* Selected Variant & Start Button */}
+        {/* Sticky: faqat boshlash tugmasi — scroll pastga tushganda ham tepada */}
+        <div className="sticky top-0 z-30 bg-card/95 backdrop-blur-sm border-b border-border px-4 py-2.5 shadow-sm">
+          <Button
+            size="lg"
+            className="w-full gap-2 h-12"
+            onClick={handleStartTest}
+            disabled={selectedVariant === null}
+          >
+            <Play className="w-5 h-5" />
+            {selectedVariant
+              ? `${t("test.startTest")} (${selectedVariant})`
+              : t("test.selectVariantFirst")}
+          </Button>
+        </div>
+
+        {/* Selected Variant & alerts */}
         <div className="bg-card border-b border-border p-4">
           {selectedVariant ? (
-            <div className="mb-3 p-4 bg-primary/5 rounded-lg border border-primary/20 text-center">
+            <div className="mb-0 p-4 bg-primary/5 rounded-lg border border-primary/20 text-center">
               <div className="text-5xl font-bold text-primary mb-1">{selectedVariant}</div>
               <div className="text-xs text-muted-foreground">{t("test.variant")} {selectedVariant}</div>
             </div>
           ) : (
-            <div className="mb-3 p-4 bg-muted/30 rounded-lg border border-border text-center">
+            <div className="mb-0 p-4 bg-muted/30 rounded-lg border border-border text-center">
               <div className="text-sm text-muted-foreground">
                 {language === 'ru' ? 'Выберите вариант ниже' : language === 'uz' ? 'Қуйидан вариант танланг' : 'Quyidan variant tanlang'}
               </div>
@@ -217,32 +232,23 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
           )}
 
           {startError && (
-            <div className="mb-2 flex items-center gap-2 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+            <div className="mt-2 flex items-center gap-2 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
               <AlertTriangle className="w-4 h-4 text-red-500 flex-shrink-0" />
               <p className="text-xs text-red-700">{startError}</p>
             </div>
           )}
           {!hasProAccess && (
-            <div className="mb-2 flex items-start gap-2 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2">
+            <div className="mt-2 flex items-start gap-2 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2">
               <Crown className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
               <p className="text-xs text-amber-900">{freeHintMessage}</p>
             </div>
           )}
           {proNotice && (
-            <div className="mb-2 flex items-center gap-2 bg-orange-50 border border-orange-200 rounded-lg px-3 py-2">
+            <div className="mt-2 flex items-center gap-2 bg-orange-50 border border-orange-200 rounded-lg px-3 py-2">
               <Lock className="w-4 h-4 text-orange-600 flex-shrink-0" />
               <p className="text-xs text-orange-900">{proNotice}</p>
             </div>
           )}
-          <Button
-            size="lg"
-            className="w-full gap-2"
-            onClick={handleStartTest}
-            disabled={selectedVariant === null}
-          >
-            <Play className="w-5 h-5" />
-            {selectedVariant ? t("test.startTest") : t("test.selectVariantFirst")}
-          </Button>
         </div>
 
         {/* Stats */}
@@ -261,8 +267,8 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
           </div>
         </div>
 
-        {/* Variant Selection */}
-        <div className="flex-1 p-4 overflow-y-auto">
+        {/* Variant Selection — sahifa bilan birga scroll */}
+        <div className="p-4">
           <h2 className="text-lg font-bold text-foreground mb-3">{t("test.selectVariant")}</h2>
           
           <div className="grid grid-cols-5 gap-2 mb-4">

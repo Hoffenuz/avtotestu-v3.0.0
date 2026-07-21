@@ -80,6 +80,8 @@ export const useProAccess = (
 
   return {
     hasAccess: !loading && backendConfirmed && !!user && state === 'active_pro',
-    loading: loading || (!!user && !backendConfirmed),
+    // Do NOT keep loading forever when RPC fails (!backendConfirmed).
+    // Pages must show a backend/error gate instead of an infinite "Yuklanmoqda".
+    loading,
   };
 };

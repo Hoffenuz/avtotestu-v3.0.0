@@ -542,42 +542,46 @@ export const TestInterfaceCombined = ({
                 </Card>
               )}
 
+              {/* Answer Options — 20 talik TestInterfaceBase bilan bir xil */}
               <div className="space-y-3">
                 {question.answers.map((answer) => {
                   const state = getAnswerState(answer.id);
                   const isSelected = selectedAnswer === answer.id;
-                  
+
                   return (
                     <button
                       key={answer.id}
                       onClick={() => { if (!isSwiping.current) handleAnswerSelect(answer.id); }}
                       disabled={isRevealed}
-                      className={`w-full p-3 md:p-4 rounded-xl border-2 text-left transition-all duration-200 flex items-start gap-3 ${
-                        state === "correct"
-                          ? "border-green-500 bg-green-500/10 text-green-700 dark:text-green-400"
+                      className={`
+                        w-full p-4 md:p-4 rounded-lg border text-left transition-all duration-200
+                        flex items-center gap-4
+                        ${state === "correct"
+                          ? "border-transparent bg-green-500 text-white"
                           : state === "incorrect"
-                          ? "border-destructive bg-destructive/10 text-destructive"
+                          ? "border-transparent bg-red-400 text-white"
                           : isSelected
-                          ? "border-primary bg-primary/10"
-                          : "border-border hover:border-primary/50 hover:bg-primary/5"
-                      } ${isRevealed ? "cursor-default" : "cursor-pointer"}`}
+                          ? "border-primary bg-primary/10 text-primary"
+                          : "border-border bg-card hover:bg-muted/50 text-foreground"
+                        }
+                      `}
                     >
-                      <span className={`w-6 h-6 md:w-7 md:h-7 rounded-full border-2 flex items-center justify-center text-xs md:text-sm font-medium shrink-0 mt-0.5 ${
-                        state === "correct"
-                          ? "border-green-500 bg-green-500 text-white"
+                      <div className={`
+                        w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center flex-shrink-0
+                        ${state === "correct"
+                          ? "bg-white/20"
                           : state === "incorrect"
-                          ? "border-destructive bg-destructive text-white"
-                          : "border-current"
-                      }`}>
+                          ? "bg-white/20"
+                          : "border-2 border-muted-foreground/50"
+                        }
+                      `}>
                         {state === "correct" ? (
-                          <Check className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                          <Check className="w-4 h-4 md:w-5 md:h-5 text-white" />
                         ) : state === "incorrect" ? (
-                          <X className="w-3.5 h-3.5 md:w-4 md:h-4" />
-                        ) : (
-                          String.fromCharCode(64 + answer.id)
-                        )}
-                      </span>
-                      <span className="text-sm md:text-sm">{answer.text}</span>
+                          <X className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                        ) : null}
+                      </div>
+                      <span className="text-base md:text-sm font-medium">{answer.text}</span>
                     </button>
                   );
                 })}

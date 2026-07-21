@@ -93,7 +93,8 @@ export default function Variant() {
     }
   }, [isLoading, accessLoading, backendConfirmed, testStarted, selectedVariant, isPremium]);
 
-  if (isLoading || accessLoading) {
+  // Auth init OR first PRO check only. Do not blank the page on later refreshes.
+  if (isLoading || (accessLoading && !backendConfirmed)) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">

@@ -332,7 +332,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 1-ilova 3-bo'lim 3.22. \"Yuk avtomobillarida quvib o'tish taqiqlangan\" yo'l belgisi, to'liq vazni 3,5 tonnadan ortiq bo'lgan yuk avtomobillarida barcha transport vositalarini quvib o'tish taqiqlanishini bildiradi (soatiga 40 km dan kam tezlikda harakatlanayotgan transport vositasi, traktor, ot-arava, velosiped bundan mustasno), belgisi ostidagi 7.1.1. \"Obyektgacha bo'lgan masofa\" qo'shimcha axborot belgisi 3.22 belgisi ta'sir hududi boshlanadigan joygacha bo'lgan masofani ko'rsatadi.",
+            "uz_lat": "YHQ 1-ilova 3-bo'lim 3.22. \"Yuk avtomobillarida quvib o'tish taqiqlangan\" yo'l belgisi, to'liq vazni 3,5 tonnadan ortiq bo'lgan yuk avtomobillarida barcha transport vositalarini quvib o'tish taqiqlanishini bildiradi (soatiga 40 km dan kam tezlikda harakatlanayotgan transport vositasi, traktor, ot-arava, velosiped bundan mustasno), belgisi ostidagi 7.1.1. \"Obyektgacha bo'lgan masofa\" qo'shimcha axborot belgisi 3.22 belgisi ta'sir hududi boshlanadigan joygacha bo'lgan masofai ko'rsatadi.",
             "uz_cyr": "YHQ 1-илова 3-бўлим 3.22. \"Юк автомобилларида қувиб ўтиш тақиқланган\" йўл белгиси, тўлиқ вазни 3,5 тоннадан ортиқ бўлган юк автомобилларида барча транспорт воситаларини қувиб ўтиш тақиқланишини билдиради (соатига 40 км дан кам тезликда ҳаракатланаётган транспорт воситаси, трактор, от-арава, велосипед бундан мустасно), белгиси остидаги 7.1.1. \"Объектгача бўлган масофа\" қўшимча ахборот белгиси 3.22 белгиси таъсир ҳудуди бошланадиган жойгача бўлган масофани кўрсатади.",
             "ru": "Приложение 1, раздел 3 ПДД 3.22. Дорожный знак «Обгон грузовых автомобилей запрещен» указывает, что запрещается обгон всех транспортных средств общей массой более 3,5 тонн (за исключением транспортных средств, движущихся со скоростью менее 40 км в час, тракторов, телег, велосипедов), под знаком 7.1.1. Символ дополнительной информации «Расстояние до объекта» 3.22 указывает расстояние до начальной точки зоны воздействия."
         }
@@ -444,12 +444,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Birinchi burilishdan ikkinchi burilishning boshlanishigacha bo'lgan masofani",
+                        "text": "Birinchi burilishdan ikkinchi burilishning boshlanishigacha bo'lgan masofai",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Belgidan birinchi burilishning boshlanishigacha bo'lgan masofani",
+                        "text": "Belgidan birinchi burilishning boshlanishigacha bo'lgan masofai",
                         "is_correct": false
                     },
                     {
@@ -625,7 +625,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 1-ilovasining 7-bo'limidagi 7.1.1. \"Ob'ektgacha bo'lgan masofa\" qo'shimcha axborot belgisi 3.20. \"Quvib o'tish taqiqlangan\" belgidan yo'l harakatiga tegishli cheklov kiritiladigan joygacha bo'lgan masofani ko'rsatadi.",
+            "uz_lat": "YHQ 1-ilovasining 7-bo'limidagi 7.1.1. \"Ob'ektgacha bo'lgan masofa\" qo'shimcha axborot belgisi 3.20. \"Quvib o'tish taqiqlangan\" belgidan yo'l harakatiga tegishli cheklov kiritiladigan joygacha bo'lgan masofai ko'rsatadi.",
             "uz_cyr": "YHQ 1-иловасининг 7-бўлимидаги 7.1.1. \"Обектгача бўлган масофа\" қўшимча ахборот белгиси 3.20. \"Қувиб ўтиш тақиқланган\" белгидан йўл ҳаракатига тегишли чеклов киритиладиган жойгача бўлган масофани кўрсатади.",
             "ru": "7.1.1. Символ дополнительной информации «Расстояние до объекта» 3.20. Показывает расстояние от знака «Обгон запрещен» до места, где установлено соответствующее ограничение движения."
         }
@@ -641,7 +641,7 @@
         "media_url": "u78uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Bu belgilar amal qiladigan hududda «Nogiron» taniqli belgisi bilan belgilangan avtomobilga to'xtashga ruxsat etiladimi?",
+                "text": "Bu belgilar amal qiladigan hududda «Nogiron» taniqlik belgisi bilan belgilangan avtomobilga to'xtashga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
@@ -1102,8 +1102,8 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 1-ilovasi 7-bo‘limining o‘n ikkinchi va o‘n uchinchi xatboshlariga asosan: 7.4.3. “Transport vositasining turi”. Belgining ta'siri joriy etilgan transport vositalari turini ko‘rsatadi. 7.4.1 belgi bilan o‘rnatilgan yo‘l belgisining ta'siri yuk tashuvchi, shu jumladan, tirkamali, to‘la vazni 3,5 tonnadan ortiq bo‘lgan transport vositalariga, 7.4.3 belgi bilan o‘rnatilgan yo‘l belgisining ta’siri yengil avtomobillarga, shuningdek to‘la vazni 3,5 tonnagacha bo‘lgan yuk tashuvchi transport vositalariga tatbiq etiladi.",
-            "uz_cyr": "YHQ 1-иловаси 7-бўлимининг ўн иккинчи ва ўн учинчи хатбошларига асосан: 7.4.3. “Транспорт воситасининг тури”. Белгининг таъсири жорий этилган транспорт воситалари турини кўрсатади. 7.4.1 белги билан ўрнатилган йўл белгисининг таъсири юк ташувчи, шу жумладан, тиркамали, тўла вазни 3,5 тоннадан ортиқ бўлган транспорт воситаларига, 7.4.3 белги билан ўрнатилган йўл белгисининг таъсири енгил автомобилларга, шунингдек тўла вазни 3,5 тоннагача бўлган юк ташувчи транспорт воситаларига татбиқ этилади.",
+            "uz_lat": "YHQ 1-ilovasi 7-bo‘limining o‘n ikkinchi va o‘n uchinchi xatboshilariga asosan: 7.4.3. “Transport vositasining turi”. Belgining ta'siri joriy etilgan transport vositalari turini ko‘rsatadi. 7.4.1 belgi bilan o‘rnatilgan yo‘l belgisining ta'siri yuk tashuvchi, shu jumladan, tirkamali, to‘la vazni 3,5 tonnadan ortiq bo‘lgan transport vositalariga, 7.4.3 belgi bilan o‘rnatilgan yo‘l belgisining ta’siri yengil avtomobillarga, shuningdek to‘la vazni 3,5 tonnagacha bo‘lgan yuk tashuvchi transport vositalariga tatbiq etiladi.",
+            "uz_cyr": "YHQ 1-иловаси 7-бўлимининг ўн иккинчи ва ўн учинчи хатбошиларига асосан: 7.4.3. “Транспорт воситасининг тури”. Белгининг таъсири жорий этилган транспорт воситалари турини кўрсатади. 7.4.1 белги билан ўрнатилган йўл белгисининг таъсири юк ташувчи, шу жумладан, тиркамали, тўла вазни 3,5 тоннадан ортиқ бўлган транспорт воситаларига, 7.4.3 белги билан ўрнатилган йўл белгисининг таъсири енгил автомобилларга, шунингдек тўла вазни 3,5 тоннагача бўлган юк ташувчи транспорт воситаларига татбиқ этилади.",
             "ru": "Согласно абзацам двенадцатому и тринадцатому раздела 7 Приложения 1 ПДД: 7.4.3. «Тип транспортного средства». Эффект символа указывает на тип представленных транспортных средств. Действие дорожного знака, обозначенного знаком 7.4.1, распространяется на транспортные средства, перевозящие грузы, включая прицепы, полной массой более 3,5 тонны, действие дорожного знака, обозначенного знаком 7.4.3, распространяется на легковые автомобили, а также на транспортные средства, перевозящие грузы полной массой до 3,5 тонн."
         }
     },
@@ -1505,7 +1505,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "«Ногирон» taniqli belgisi bo'lgan avtomobillar uchun 30 m dan keyin to'xtab turish joyiga kelishini",
+                        "text": "«Nogiron» taniqlik belgisi bo'lgan avtomobillar uchun 30 m dan keyin to'xtab turish joyiga kelishini",
                         "is_correct": false
                     },
                     {
@@ -1515,7 +1515,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "«Ногирон» taniqli belgisi bo'lgan motokajava va avtomobillar uchun 30 m li hududdagi to'xtab turish joyini",
+                        "text": "«Nogiron» taniqlik belgisi bo'lgan motokajava va avtomobillar uchun 30 m li hududdagi to'xtab turish joyini",
                         "is_correct": true
                     }
                 ]
@@ -1562,8 +1562,8 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 1-ilovasi 7-bo‘limining beshinchi va o‘ttizinchi xatboshlariga asosan: 7.2.1. “Ta‘sir oralig‘i”. Ogohlantiruvchi belgilar bilan belgilangan xavfli joyning uzunligini yoki taqiqlovchi va axborot-ko‘rsatkich belgilarining ta‘sir o‘ralig‘ini ko‘rsatadi. 7.17. “Nogironlar”. 5.15 belgisi bilan qo‘llaniladi. To‘xtab turish joyi (yoki uning bir qismi) ushbu Qoidalarning 176-bandiga muvofiq “Nogiron” taniqlik belgisi o‘rnatilgan transport vositalari uchun ajratilganligini ko‘rsatadi.",
-            "uz_cyr": "YHQ 1-иловаси 7-бўлимининг бешинчи ва ўттизинчи хатбошларига асосан: 7.2.1. “Таъсир оралиғи”. Огоҳлантирувчи белгилар билан белгиланган хавфли жойнинг узунлигини ёки тақиқловчи ва ахборот-кўрсаткич белгиларининг таъсир ўралиғини кўрсатади. 7.17. “Ногиронлар”. 5.15 белгиси билан қўлланилади. Тўхтаб туриш жойи (ёки унинг бир қисми) ушбу Қоидаларнинг 176-бандига мувофиқ “Ногирон” таниқлик белгиси ўрнатилган транспорт воситалари учун ажратилганлигини кўрсатади.",
+            "uz_lat": "YHQ 1-ilovasi 7-bo‘limining beshinchi va o‘ttizinchi xatboshilariga asosan: 7.2.1. “Ta‘sir oralig‘i”. Ogohlantiruvchi belgilar bilan belgilangan xavfli joyning uzunligini yoki taqiqlovchi va axborot-ko‘rsatkich belgilarining ta‘sir o‘ralig‘ini ko‘rsatadi. 7.17. “Nogironlar”. 5.15 belgisi bilan qo‘llaniladi. To‘xtab turish joyi (yoki uning bir qismi) ushbu Qoidalarning 176-bandiga muvofiq “Nogiron” taniqlik belgisi o‘rnatilgan transport vositalari uchun ajratilganligini ko‘rsatadi.",
+            "uz_cyr": "YHQ 1-иловаси 7-бўлимининг бешинчи ва ўттизинчи хатбошиларига асосан: 7.2.1. “Таъсир оралиғи”. Огоҳлантирувчи белгилар билан белгиланган хавфли жойнинг узунлигини ёки тақиқловчи ва ахборот-кўрсаткич белгиларининг таъсир ўралиғини кўрсатади. 7.17. “Ногиронлар”. 5.15 белгиси билан қўлланилади. Тўхтаб туриш жойи (ёки унинг бир қисми) ушбу Қоидаларнинг 176-бандига мувофиқ “Ногирон” таниқлик белгиси ўрнатилган транспорт воситалари учун ажратилганлигини кўрсатади.",
             "ru": "Согласно абзацам пятому и тридцатому раздела 7 Приложения 1 ПДД: 7.2.1. «Диапазон влияния». Показывает протяженность опасной зоны, отмеченной предупреждающими знаками, или дальность действия запрещающих и информационно-указательных знаков. 7.17. \"Неполноценный\". Используется с символом 5.15. Указывает, что парковочное место (или его часть) отведено для транспортных средств со знаком «Инвалид» в соответствии со статьей 176 настоящих Правил."
         }
     },
@@ -1674,7 +1674,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Belgidan yo'lning tor qismigacha bo'lgan masofani",
+                        "text": "Belgidan yo'lning tor qismigacha bo'lgan masofai",
                         "is_correct": true
                     },
                     {
@@ -1684,7 +1684,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Tor qismini aylanib o'tish joyigacha masofani",
+                        "text": "Tor qismini aylanib o'tish joyigacha masofai",
                         "is_correct": false
                     }
                 ]
@@ -1731,7 +1731,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 1-ilovasi 7-bo‘limining ikkinchi xatboshisiga asosan: 7.1.1. “Ob‘ektgacha bo‘lgan masofa”. Belgidan yo‘lning xavfli joyi, yo‘l harakatiga tegishli cheklovlar kiritiladigan joyi yoki harakat yo‘nalishi bo‘yicha oldindagi muayyan joygacha bo‘lgan masofani ko‘rsatadi.",
+            "uz_lat": "YHQ 1-ilovasi 7-bo‘limining ikkinchi xatboshisiga asosan: 7.1.1. “Ob‘ektgacha bo‘lgan masofa”. Belgidan yo‘lning xavfli joyi, yo‘l harakatiga tegishli cheklovlar kiritiladigan joyi yoki harakat yo‘nalishi bo‘yicha oldindagi muayyan joygacha bo‘lgan masofai ko‘rsatadi.",
             "uz_cyr": "YHQ 1-иловаси 7-бўлимининг иккинчи хатбошисига асосан: 7.1.1. “Обектгача бўлган масофа”. Белгидан йўлнинг хавфли жойи, йўл ҳаракатига тегишли чекловлар киритиладиган жойи ёки ҳаракат йўналиши бўйича олдиндаги муайян жойгача бўлган масофани кўрсатади.",
             "ru": "Согласно абзацу второму раздела 7 Приложения 1 ПДД: 7.1.1. «Расстояние до объекта». Он показывает расстояние от знака до опасного места на дороге, места, где введены ограничения движения, или конкретного места впереди по направлению движения."
         }
@@ -2280,7 +2280,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Obyektgacha bo'lgan masofani bildiradi",
+                        "text": "Obyektgacha bo'lgan masofai bildiradi",
                         "is_correct": true
                     }
                 ]
@@ -2317,86 +2317,9 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 1-ilovasining 7-bo‘limidagi 7.1.3 va 7.1.4 belgilariga asosan, «Obyektgacha bo‘lgan masofa». Yo‘ldan chetda joylashgan manzilgacha bo‘lgan masofani bildiradi.",
+            "uz_lat": "YHQ 1-ilovasining 7-bo‘limidagi 7.1.3 va 7.1.4 belgilariga asosan, «Obyektgacha bo‘lgan masofa». Yo‘ldan chetda joylashgan manzilgacha bo‘lgan masofai bildiradi.",
             "uz_cyr": "YHQ 1-иловасининг 7-бўлимидаги 7.1.3 ва 7.1.4 белгиларига асосан, «Объектгача бўлган масофа». Йўлдан четда жойлашган манзилгача бўлган масофани билдиради.",
             "ru": "«Расстояние до объекта» по знакам 7.1.3 и 7.1.4 Приложения 1, раздел 7 Указывает расстояние до внедорожного пункта назначения."
-        }
-    },
-    {
-        "task_info": {
-            "global_id": "t_30_q_3",
-            "global_id2": "t_30_q_3",
-            "ticket_num": 30,
-            "order": 30,
-            "remapped_from": "t_45_q_5"
-        },
-        "media_url": "u338uz.webp",
-        "content": {
-            "uz_lat": {
-                "text": "Ushbu qo'shimcha axborot yo'l belgisi bildiradi:",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Yengil avtomobillarning to'xtab turish joyini",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Barcha turdagi transport vositalarining to'xtab turish uchun yo'lning qatnov qismida, trotuar yoniga qo'yish usulini",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "Mexanik transport vositalarining to'xtab turish joyini",
-                        "is_correct": false
-                    }
-                ]
-            },
-            "uz_cyr": {
-                "text": "Ушбу қўшимча аҳборот йўл белгиси билдиради:",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Енгил автомобилларнинг тўхтаб туриш жойини",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Барча турдаги транспорт воситаларининг тўхтаб туриш учун йўлнинг қатнов қисмида, тротуар ёнига қўйиш усулини",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 3,
-                        "text": "Механик транспорт воситаларининг тўхтаб туриш жойини",
-                        "is_correct": false
-                    }
-                ]
-            },
-            "ru": {
-                "text": "Эта табличка указывает:",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Способ стоянки всех видов транспортных средств на проезжей части, рядом с тротуаром.",
-                        "is_correct": true
-                    },
-                    {
-                        "id": 2,
-                        "text": "Стоянка механических транспортных средств.",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Место для стоянки легковых автомобилей",
-                        "is_correct": false
-                    }
-                ]
-            }
-        },
-        "izoh": {
-            "uz_lat": "YHQ 1-ilovasining 7-bo‘limidagi 7.6.1 belgiga asosan, “Transport vositasini to‘xtab turish joyiga qo‘yish usuli”. 7.6.1 barcha turdagi transport vositalarini to‘xtab turishi uchun yo‘lning qatnov qismida, trotuar yoniga qo‘yish usulini bildiradi.",
-            "uz_cyr": "YHQ 1-иловасининг 7-бўлимидаги 7.6.1 белгига асосан, “Транспорт воситасини тўхтаб туриш жойига қўйиш усули”. 7.6.1 барча турдаги транспорт воситаларини тўхтаб туриши учун йўлнинг қатнов қисмида, тротуар ёнига қўйиш усулини билдиради.",
-            "ru": "Согласно знаку 7.6.1 раздела 7 приложения 1 к ПДД — «Способ постановки транспортного средства на стоянку». 7.6.1 обозначает способ постановки транспортных средств всех видов на стоянку на проезжей части у тротуара."
         }
     },
     {
@@ -2404,7 +2327,7 @@
             "global_id": "t_30_q_14",
             "global_id2": "t_30_q_14",
             "ticket_num": 30,
-            "order": 31,
+            "order": 30,
             "remapped_from": "t_49_q_10"
         },
         "media_url": "u346uz.webp",
@@ -2481,7 +2404,7 @@
             "global_id": "t_31_q_11",
             "global_id2": "t_31_q_11",
             "ticket_num": 31,
-            "order": 32,
+            "order": 31,
             "remapped_from": "t_49_q_3"
         },
         "media_url": "u358uz.webp",
@@ -2558,7 +2481,7 @@
             "global_id": "t_41_q_18",
             "global_id2": "t_41_q_18",
             "ticket_num": 41,
-            "order": 33,
+            "order": 32,
             "remapped_from": "t_55_q_16"
         },
         "media_url": "u474uz.webp",
@@ -2650,7 +2573,7 @@
             "global_id": "t_31_q_2",
             "global_id2": "t_31_q_2",
             "ticket_num": 31,
-            "order": 34,
+            "order": 33,
             "remapped_from": "t_57_q_1"
         },
         "media_url": "u351uz.webp",
@@ -2727,7 +2650,7 @@
             "global_id": "t_57_q_7",
             "global_id2": "t_57_q_7",
             "ticket_num": 57,
-            "order": 35,
+            "order": 34,
             "remapped_from": "t_57_q_17"
         },
         "media_url": "u657uz.webp",
@@ -2804,7 +2727,7 @@
             "global_id": "t_6_q_20",
             "global_id2": "t_6_q_20",
             "ticket_num": 6,
-            "order": 36,
+            "order": 35,
             "remapped_from": "t_57_q_20"
         },
         "media_url": "u61uz.webp",
@@ -2886,7 +2809,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "\"YHQga 1-ILOVA 3.20 va 3.21 bandi hamda 7.1.1 va 7.2.1 bandiga asosan: 3.20. «Quvib o‘tish taqiqlangan». Soatiga 40 km dan kam tezlikda harakatlanayotgan yakka transport vositasidan boshqa transport vositalarini quvib o‘tish taqiqlanishini bildiradi.\r\n3.21. «Quvib o‘tish taqiqlangan hududning oxiri».\r\n7.1.1. «Obyektgacha bo‘lgan masofa». Belgidan yo‘lning xavfli joyi, yo‘l harakatiga tegishli cheklovlar kiritiladigan joyi yoki harakat yo‘nalishi bo‘yicha oldindagi muayyan joygacha bo‘lgan masofani ko‘rsatadi.\r\n7.2.1. «Ta’sir oralig‘i». Ogohlantiruvchi belgilar bilan belgilangan xavfli joyning uzunligini yoki taqiqlovchi va axborot-ko‘rsatkich belgilarining ta’sir oralig‘ini ko‘rsatadi.\"",
+            "uz_lat": "\"YHQga 1-ILOVA 3.20 va 3.21 bandi hamda 7.1.1 va 7.2.1 bandiga asosan: 3.20. «Quvib o‘tish taqiqlangan». Soatiga 40 km dan kam tezlikda harakatlanayotgan yakka transport vositasidan boshqa transport vositalarini quvib o‘tish taqiqlanishini bildiradi.\r\n3.21. «Quvib o‘tish taqiqlangan hududning oxiri».\r\n7.1.1. «Obyektgacha bo‘lgan masofa». Belgidan yo‘lning xavfli joyi, yo‘l harakatiga tegishli cheklovlar kiritiladigan joyi yoki harakat yo‘nalishi bo‘yicha oldindagi muayyan joygacha bo‘lgan masofai ko‘rsatadi.\r\n7.2.1. «Ta’sir oralig‘i». Ogohlantiruvchi belgilar bilan belgilangan xavfli joyning uzunligini yoki taqiqlovchi va axborot-ko‘rsatkich belgilarining ta’sir oralig‘ini ko‘rsatadi.\"",
             "uz_cyr": "\"YHQга 1-ИЛОВА 3.20 ва 3.21 банди ҳамда 7.1.1 ва 7.2.1 бандига асосан: 3.20. «Қувиб ўтиш тақиқланган». Соатига 40 км дан кам тезликда ҳаракатланаётган якка транспорт воситасидан бошқа транспорт воситаларини қувиб ўтиш тақиқланишини билдиради.\r\n3.21. «Қувиб ўтиш тақиқланган ҳудуднинг охири».\r\n7.1.1. «Объектгача бўлган масофа». Белгидан йўлнинг хавфли жойи, йўл ҳаракатига тегишли чекловлар киритиладиган жойи ёки ҳаракат йўналиши бўйича олдиндаги муайян жойгача бўлган масофани кўрсатади.\r\n7.2.1. «Таъсир оралиғи». Огоҳлантирувчи белгилар билан белгиланган хавфли жойнинг узунлигини ёки тақиқловчи ва ахборот-кўрсаткич белгиларининг таъсир оралиғини кўрсатади.\"",
             "ru": "Согласно пунктам 3.20 и 3.21 ПРИЛОЖЕНИЯ 1 и пунктам 7.1.1 и 7.2.1: 3.20. «Обгон запрещен».\r\n3.21. «Конец зоны, запрещенной для обгона».\r\n7.1.1. «Расстояние до объекта». Он показывает расстояние от знака до опасного места на дороге, места, где введены ограничения движения, или конкретного места впереди по направлению движения.\r\n7.2.1. «Диапазон влияния». Показывает протяженность опасной зоны, обозначенной предупредительными знаками, или дальность действия запрещающих и информационно-указательных знаков»."
         }
@@ -2896,7 +2819,7 @@
             "global_id": "t_32_q_16",
             "global_id2": "t_32_q_16",
             "ticket_num": 32,
-            "order": 37,
+            "order": 36,
             "remapped_from": "t_61_q_6"
         },
         "media_url": "u369uz.webp",
@@ -2966,6 +2889,237 @@
             "uz_lat": "\"YHQga 1-ILOVA 5.8.2 bandi va 5. Axborot-ko‘rsatgich belgilarining 11-xatboshi hamda YHQga 1-ILOVA 3.18.2 bandi va 3.Taqiqlovchi belgilarning 47-xatboshiga asosan: 5.8.2. «Tasma bo‘yicha harakatlanish yo‘nalishi». Tasma bo‘yicha ruxsat etilgan harakatlanish yo‘nalishi. Boshqa yo‘nalishlar bo‘yicha harakatlanish taqiqlanadi.\r\nYo‘lning chetki chap bo‘lagidan chapga burilishga ruxsat beruvchi 5.8.1 va 5.8.2 belgilari shu tasmadan qayrilishga ham ruxsat beradi. \r\n3.18.2. «Chapga burilish taqiqlanadi». 3.18.1 va 3.18.2 belgilari qatnov qismlarining qaysi kesishmasi oldiga o‘rnatilsa, shu kesishmaga tatbiq etiladi.\"",
             "uz_cyr": "\"YHQга 1-ИЛОВА 5.8.2 банди ва 5. Ахборот-кўрсатгич белгиларининг 11-хатбоши ҳамда YHQга 1-ИЛОВА 3.18.2 банди ва 3.Тақиқловчи белгиларнинг 47-хатбошига асосан: 5.8.2. «Тасма бўйича ҳаракатланиш йўналиши». Тасма бўйича рухсат этилган ҳаракатланиш йўналиши. Бошқа йўналишлар бўйича ҳаракатланиш тақиқланади.\r\nЙўлнинг четки чап бўлагидан чапга бурилишга рухсат берувчи 5.8.1 ва 5.8.2 белгилари шу тасмадан қайрилишга ҳам рухсат беради. \r\n3.18.2. «Чапга бурилиш тақиқланади». 3.18.1 ва 3.18.2 белгилари қатнов қисмларининг қайси кесишмаси олдига ўрнатилса, шу кесишмага татбиқ этилади.\"",
             "ru": "Согласно «Приложению 1 к ПДД, п. 5.8.2 и 5. Информационно-указательные знаки, п. 11, и ПРИЛОЖЕНИЮ 1 к ПДД, п. 3.18.2 и 3. Запрещающие знаки, п. 47: 5.8.2. «Направление движения по полосе». Направление движения по полосе запрещено. Движение в других направлениях запрещено.\r\nЗнаки 5.8.1 и 5.8.2, разрешающие поворот налево из крайней левой полосы дороги, разрешают и поворот с этой полосы. \r\n3.18.2. «Поворот налево запрещен». Знаки 3.18.1 и 3.18.2 наносятся на перекресток, перед которым установлено пересечение участков движения»."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_15_q_13",
+            "global_id2": "t_15_q_13",
+            "ticket_num": 15,
+            "order": 37,
+            "remapped_from": "t_52_q_1"
+        },
+        "media_url": "u168uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Mazkur yo'l belgisi:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Mavsumiy belgi hisoblanadi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Doimiy belgi hisoblanadi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Vaqtinchalik belgi hisoblanadi",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Мазкур йўл белгиси:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Мавсумий белги ҳисобланади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Доимий белги ҳисобланади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Вақтинчалик белги ҳисобланади",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Этот дорожный знак:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Сезонный знак",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Постоянный знак",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Временный знак",
+                        "is_correct": true
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalari 1 – ilovasi, izoh qismiga asosan, 1,8 1.15, 1.16, 1.31, 1.17, 1.18.1 — 1.18.3, 1.21, 1.30, 2.6, 2.7, 3.1, 3.2, 3.11 — 3.16, 3.18.1 — 3.18.25 yo‘l belgilari vaqtincha yo‘l belgilari sifatida belgilanishi mumkin. Vaqtincha yo‘l belgilari sariq rangda bo‘ladi.",
+            "uz_cyr": "Йўл ҳаракати қоидалари 1 – иловаси, изоҳ қисмига асосан, 1,8 1.15, 1.16, 1.31, 1.17, 1.18.1 — 1.18.3, 1.21, 1.30, 2.6, 2.7, 3.1, 3.2, 3.11 — 3.16, 3.18.1 — 3.18.25 йўл белгилари вақтинча йўл белгилари сифатида белгиланиши мумкин. Вақтинча йўл белгилари сариқ рангда бўлади.",
+            "ru": "ПДД 1 - приложение, на основе комментариев, 1.8 1.15, 1.16, 1.31, 1.17, 1.18.1 — 1.18.3, 1.21, 1.30, 2.6, 2.7, 3.1, 3.2, 3.11 — 3.16, 3.18.1 — 3.18.25 дорожные знаки могут обозначаться как временные дорожные знаки. Временные дорожные знаки будут желтыми."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_44_q_3",
+            "global_id2": "t_44_q_3",
+            "ticket_num": 44,
+            "order": 38,
+            "remapped_from": "t_47_q_6"
+        },
+        "media_url": "u503uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ushbu qo'shimcha axborot yo'l belgisi bildiradi:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Belgi ta'sir oralig'ida to'xtagan transport vositalarini evakuatsiya qilish ruxsat etilganligini bildiradi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Belgi ta'sir oralig'ida to'xtagan transport vositalarini evakuatsiya qilish taqiqlanganligini bildiradi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Belgi ta'siri oralig'ida to'xtagan transport vositalari majburiy evakuatsiya qilinishini ko'rsatadi",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ушбу қўшимча ахборот йўл белгиси билдиради:",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Белги таъсир оралиғида тўхтаган транспорт воситаларини эвакуация қилиш рухсат этилганлигини билдиради",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Белги таъсир оралиғида тўхтаган транспорт воситаларини эвакуация қилиш тақиқланганлигини билдиради",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Белги таъсири оралиғида тўхтаган транспорт воситалари мажбурий эвакуация қилинишини кўрсатади",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Эта табличка означает",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "В зоне действия знака эвакуация остановившихся транспортных средств разрешена",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "В зоне действия знака эвакуация остановившихся транспортных средств запрещена",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "В зоне действия знака остановившиеся транспортные средства подлежат обязательной эвакуации",
+                        "is_correct": true
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQ 1-ilovasining 7-bo‘limidagi 7.21 belgiga asosan, «Evakuator ishlamoqda». 3.27 — 3.30 yo‘l belgilari ta’sir oralig‘ida to‘xtagan transport vositalari majburiy evakuatsiya qilinishini ko‘rsatadi.",
+            "uz_cyr": "YHQ 1-иловасининг 7-бўлимидаги 7.21 белгига асосан, «Эвакуатор ишламоқда». 3.27 — 3.30 йўл белгилари таъсир оралиғида тўхтаган транспорт воситалари мажбурий эвакуация қилинишини кўрсатади.",
+            "ru": "По условному обозначению 7.21 Приложения 1, раздел 7 «Эвакуатор работает». Дорожные знаки 3.27 – 3.30 указывают на то, что транспортные средства, остановившиеся в зоне поражения, подлежат эвакуации."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_6_q_10",
+            "global_id2": "t_6_q_10",
+            "ticket_num": 6,
+            "order": 39,
+            "remapped_from": "t_48_q_13"
+        },
+        "media_url": "u54uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ushbu yo'l belgisi qanday nomlanadi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Shanba, yakshanba va bayram kunlari",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Hafta kunlari",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ish kunlari",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ушбу йўл белгиси қандай номланади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Шанба, якшанба ва байрам кунлари",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ҳафта кунлари",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Иш кунлари",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Как называется данный дорожный знак?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Суббота, воскресенье и праздничные дни",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Дни недели",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Рабочие дни",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 1-ILOVA 7.5.1 bandiga asosan: 7.5.1. «Shanba, yakshanba va bayram kunlari».",
+            "uz_cyr": "YHQга 1-ИЛОВА 7.5.1 бандига асосан: 7.5.1. «Шанба, якшанба ва байрам кунлари».",
+            "ru": "Согласно пункту 7.5.1 приложения 1 к ПДД: 7.5.1 «Суббота, воскресенье и праздничные дни»."
         }
     }
 ]

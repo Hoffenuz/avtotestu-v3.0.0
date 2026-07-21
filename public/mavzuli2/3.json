@@ -2667,7 +2667,7 @@
         "media_url": "u150uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Kursatilgan belgilardan qaysi biri bolalar deb nomlanadi?",
+                "text": "Ko'rsatilgan belgilardan qaysi biri bolalar deb nomlanadi?",
                 "options": [
                     {
                         "id": 1,
@@ -3245,6 +3245,83 @@
                         "id": 3,
                         "text": "Первый знак",
                         "is_correct": true
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQga 1-ILOVA 1.31 bandiga asosan: 1.31. “Sunʼiy yoʻl notekisligi”. Yoʻlning sunʼiy notekislik oʻrnatilgan qismiga yaqinlashayotganligi toʻgʻrisida ogohlantiradi. Transport vositasining harakatlanish tezligini majburiy tarzda kamaytirish uchun qoʻllaniladi.",
+            "uz_cyr": "YHQга 1-ИЛОВА 1.31 бандига асосан: 1.31. “Суний йўл нотекислиги”. Йўлнинг суний нотекислик ўрнатилган қисмига яқинлашаётганлиги тўғрисида огоҳлантиради. Транспорт воситасининг ҳаракатланиш тезлигини мажбурий тарзда камайтириш учун қўлланилади.",
+            "ru": "Согласно пункту 1.31 приложения 1 к ПДД: 1.31. «Искусственные неровности дороги». Предупреждает о приближении к участку дороги, где установлена ​​искусственная неровность. Он используется для принудительного снижения скорости автомобиля."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_43_q_19",
+            "global_id2": "t_43_q_19",
+            "ticket_num": 43,
+            "order": 39,
+            "remapped_from": "t_62_q_10"
+        },
+        "media_url": "u501uz.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ushbu belgi nimani bildiradi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Oldinda ko'tarma ko'prik borligini",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Oldinda tik balandlik borligini",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Sun'iy yo'l notekisligini",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ушбу белги нимани билдиради?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Олдинда кўтарма кўприк борлигини",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Олдинда тик баландлик борлигини",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Сунъий йўл нотекслигини",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "О чём предупреждает этот знак?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Искусственная неровность дороги",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Что впереди разводной мост",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Впереди крутой подъём",
+                        "is_correct": false
                     }
                 ]
             }

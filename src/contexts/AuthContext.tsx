@@ -115,7 +115,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const seq = ++accessFetchSeqRef.current;
     const isStale = () => seq !== accessFetchSeqRef.current;
 
-    setAccessStateLoading(true);
+    // Only block UI on the first check this session. Background refreshes
+    // (tab focus / token refresh) must not flip the whole page to "Yuklanmoqda".
+    const blockUi = !accessConfirmedRef.current;
+    if (blockUi) setAccessStateLoading(true);
     try {
       const { data: rpcRows, error: rpcErr } = await supabase
         .rpc('get_user_access_state', { user_id: userId });
@@ -151,7 +154,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         setBackendConfirmed(false);
       }
     } finally {
-      if (!isStale()) setAccessStateLoading(false);
+      if (!isStale() && blockUi) setAccessStateLoading(false);
     }
   }, []);
 

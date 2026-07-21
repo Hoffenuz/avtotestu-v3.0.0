@@ -15,7 +15,7 @@ export default function Darslik() {
     redirectGuestsToAuth: false,
     redirectWithoutAccess: false,
   });
-  const { backendConfirmed, loading: rpcLoading, refresh } = useAccessState();
+  const { backendConfirmed, refresh } = useAccessState();
   const chapters = getOrderedChapters();
 
   if (isLoading || accessLoading) {
@@ -42,7 +42,7 @@ export default function Darslik() {
     );
   }
 
-  if (!rpcLoading && !backendConfirmed) {
+  if (!backendConfirmed) {
     return (
       <MainLayout>
         <SEO

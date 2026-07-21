@@ -209,13 +209,15 @@ export default function TestIshlash() {
                 <Home className="w-4 h-4" /> Bosh sahifa
               </Button>
             </Link>
-            <div className="flex bg-slate-100 rounded-lg p-1">
+            <div className="flex bg-muted rounded-lg p-1 border border-border">
               {languages.map((lang) => (
                 <button
                   key={lang.id}
                   onClick={() => setLanguage(lang.id)}
                   className={`px-4 py-1.5 rounded-md text-xs font-bold transition-all ${
-                    language === lang.id ? "bg-[#1E2350] text-white shadow-sm" : "text-slate-500 hover:text-slate-700"
+                    language === lang.id
+                      ? "bg-primary text-primary-foreground shadow-sm"
+                      : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   {lang.label}

@@ -470,7 +470,7 @@
         "media_url": "u645uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Transport vositalari ushbu taniqli belgilari bilan belgilanadi:",
+                "text": "Transport vositalari ushbu taniqlik belgilari bilan belgilanadi:",
                 "options": [
                     {
                         "id": 1,
@@ -894,7 +894,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Avtomobil uyda tibbiy yordami ko'rsatish uchun mo'ljallanganini",
+                        "text": "Avtomobil uyda tibbiy yordam ko'rsatish uchun mo'ljallanganini",
                         "is_correct": false
                     },
                     {
@@ -1039,7 +1039,7 @@
         "media_url": "u543uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Bolalarni tashishda transport vositasi qaysi taniqli belgisi bilan belgilanadi?",
+                "text": "Bolalarni tashishda transport vositasi qaysi taniqlik belgisi bilan belgilanadi?",
                 "options": [
                     {
                         "id": 1,
@@ -1685,6 +1685,83 @@
             "uz_lat": "YHQ 7-bobi 38-bandi (tartibga soluvchi ishorasi) yoki savol rasmidagi ruxsat etuvchi belgi bo‘yicha rulda o‘rganuvchi bo‘lgan transport vositasiga o‘ngga, chapga va qayrilishga ruxsat etiladi. 124-band (turar joyda o‘qitish taqiqi) bu savolga tegishli emas.",
             "uz_cyr": "YHQ 7-боби 38-банди (тартибга солувчи ишораси) ёки савол расмидаги рухсат этувчи белги бўйича рулда ўрганувчи бўлган транспорт воситасига ўнгга, чапга ва қайрилишга рухсат этилади. 124-банд (турар жойда ўқитиш тақиқи) бу саволга тегишли эмас.",
             "ru": "Согласно пункту 38 главы 7 ПДД (сигнал регулировщика) или разрешающему знаку на рисунке транспортному средству с обучаемым за рулём разрешены поворот направо, налево и разворот. Пункт 124 (запрет обучения в жилой зоне) к этому вопросу не относится."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_46_q_13",
+            "global_id2": "t_46_q_13",
+            "ticket_num": 46,
+            "order": 21,
+            "remapped_from": "t_45_q_13"
+        },
+        "media_url": "",
+        "content": {
+            "uz_lat": {
+                "text": "Yo'l harakati xavfsizligini ta'minlash",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Yo'llarda harakatni boshqarish bo'yicha huquqiy, tashkiliy-texnikaviy tadbirlar va boshqaruv harakatlari majmui",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Yo'l transport hodisalarining kelib chiqish sabablarini oldini olishga, ularning og'ir oqibatlarini kamaytirishga qaratilgan faoliyat",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Yo'l harakati qatnashchilarining yo'l-transport hodisalari va ularning oqibatlaridan himoyalanganlik darajasini aks ettiruvchi yo'l harakati holati",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Йўл ҳаракати ҳавфсизлигини таъминлаш",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Йўлларда ҳаракатни бошқариш бўйича ҳуқуқий, ташкилий-техникавий тадбирлар ва бошқарув ҳаракатлари мажмуи",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Йўл транспорт ҳодисаларининг келиб чиқиш сабабларини олдини олишга, уларнинг оғир оқибатларини камайтиришга қаратилган фаолият",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Йўл ҳаракати қатнашчиларининг йўл-транспорт ҳодисалари ва уларнинг оқибатларидан ҳимояланганлик даражасини акс эттирувчи йўл ҳаракати ҳолати",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Обеспечение безопасности дорожного движения -",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Дорожная ситуация, отражающая уровень защищенности участников дорожного движения от дорожно-транспортных происшествий и их последствий",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Комплекс правовых, конструктивных и технических мероприятий и управленческих мероприятий по организации дорожного движения",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Мероприятия, направленные на предупреждение причин дорожно-транспортных происшествий и уменьшение их тяжких последствий",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "Yo‘l harakati qoidalarining 6 bandiga asosan, yo‘l harakati xavfsizligini ta’minlash — yo‘l-transport hodisalarining kelib chiqish sabablarining oldini olishga, ularning og‘ir oqibatlarini kamaytirishga qaratilgan faoliyat.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 6 бандига асосан, йўл ҳаракати хавфсизлигини таъминлаш — йўл-транспорт ҳодисаларининг келиб чиқиш сабабларининг олдини олишга, уларнинг оғир оқибатларини камайтиришга қаратилган фаолият.",
+            "ru": "Согласно статье 6 Правил дорожного движения обеспечение безопасности дорожного движения – это деятельность, направленная на предупреждение причин дорожно-транспортных происшествий и уменьшение их тяжких последствий."
         }
     }
 ]

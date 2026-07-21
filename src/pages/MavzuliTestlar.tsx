@@ -161,7 +161,7 @@ export default function MavzuliTestlar() {
     redirectGuestsToAuth: false,
     redirectWithoutAccess: false,
   });
-  const { backendConfirmed, loading: rpcLoading, refresh } = useAccessState();
+  const { backendConfirmed, refresh } = useAccessState();
   const { starting, startSession } = useTestSession();
   const { isDark } = useDarkMode();
 
@@ -223,6 +223,7 @@ export default function MavzuliTestlar() {
       : 'bg-background text-foreground border-border hover:border-primary/50';
   };
 
+  // Auth / first access check only — never infinite spin when RPC fails.
   if (isLoading || accessLoading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
@@ -248,7 +249,8 @@ export default function MavzuliTestlar() {
     );
   }
 
-  if (!rpcLoading && !backendConfirmed) {
+  // RPC finished but backend unavailable — show gate (was unreachable while loading stayed true forever)
+  if (!backendConfirmed) {
     return (
       <MainLayout>
         <SEO
@@ -304,8 +306,8 @@ export default function MavzuliTestlar() {
       />
       <div className="min-h-screen bg-background">
         {/* Mobile Layout */}
-        <div className="lg:hidden flex flex-col min-h-screen">
-          <div className="bg-card border-b border-border p-4 sticky top-0 z-10">
+        <div className="lg:hidden bg-background pb-4">
+          <div className="bg-card border-b border-border p-4">
             <div className="flex items-center justify-between mb-3">
               <Link to="/">
                 <Button variant="outline" size="sm" className="gap-2">
@@ -339,32 +341,46 @@ export default function MavzuliTestlar() {
               ))}
             </div>
           </div>
+
+          {/* Sticky: faqat boshlash tugmasi */}
+          <div className="sticky top-0 z-30 bg-card/95 backdrop-blur-sm border-b border-border px-4 py-2.5 shadow-sm">
+            <Button
+              size="lg"
+              className="w-full gap-2 h-12"
+              onClick={handleStartTest}
+              disabled={selectedTopic === null || starting}
+            >
+              {starting ? (
+                <div className="w-5 h-5 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+              ) : (
+                <Play className="w-5 h-5" />
+              )}
+              {selectedTopic ? "Testni boshlash" : "Mavzuni tanlang"}
+            </Button>
+          </div>
+
           <div className="bg-card border-b border-border p-4">
             {selectedTopic ? (
-              <div className="mb-3 p-4 bg-primary/5 rounded-lg border border-primary/20 text-center">
+              <div className="p-4 bg-primary/5 rounded-lg border border-primary/20 text-center">
                 <div className="text-sm font-semibold text-primary">
                   {getTopicName(topics.find(t => t.id === selectedTopic)!)}
                 </div>
               </div>
             ) : (
-              <div className="mb-3 p-4 bg-muted/30 rounded-lg border border-border text-center">
+              <div className="p-4 bg-muted/30 rounded-lg border border-border text-center">
                 <div className="text-sm text-muted-foreground">
                   {language === 'ru' ? 'Выберите тему ниже' : language === 'uz' ? 'Қуйидан мавзу танланг' : 'Quyidan mavzu tanlang'}
                 </div>
               </div>
             )}
             {startError && (
-              <div className="mb-2 flex items-center gap-2 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+              <div className="mt-2 flex items-center gap-2 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
                 <AlertTriangle className="w-4 h-4 text-red-500 flex-shrink-0" />
                 <p className="text-xs text-red-700">{startError}</p>
               </div>
             )}
-            <Button size="lg" className="w-full gap-2" onClick={handleStartTest} disabled={selectedTopic === null || starting}>
-              {starting ? <div className="w-5 h-5 border-2 border-white/40 border-t-white rounded-full animate-spin" /> : <Play className="w-5 h-5" />}
-              {selectedTopic ? "Testni boshlash" : "Mavzuni tanlang"}
-            </Button>
           </div>
-          <div className="flex-1 p-4 overflow-y-auto">
+          <div className="p-4">
             <h2 className="text-lg font-bold text-foreground mb-3">{language === 'ru' ? 'Темы' : language === 'uz' ? 'Мавзулар' : 'Mavzular'}</h2>
             <div className="space-y-5">
               {topicCategories.map((cat) => (
