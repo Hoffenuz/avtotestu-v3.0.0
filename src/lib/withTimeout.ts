@@ -19,8 +19,8 @@ export function withTimeout<T>(promise: PromiseLike<T>, ms: number): Promise<T> 
   });
 }
 
-/** Access RPC — avoid infinite "Yuklanmoqda" on hung network */
-export const AUTH_RPC_TIMEOUT_MS = 12_000;
+/** Access RPC — keep short on mobile; AuthContext retries once */
+export const AUTH_RPC_TIMEOUT_MS = 8_000;
 
 /** start_test_session — premium must fail closed; free falls back offline */
 export const TEST_SESSION_TIMEOUT_MS = 10_000;

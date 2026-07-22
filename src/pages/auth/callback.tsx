@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { SEO } from '@/components/SEO';
 
-/** How long to wait for the OAuth code exchange before giving up (ms) */
-const OAUTH_GRACE_PERIOD_MS = 8000;
+/** Slow mobile / CF — detectSessionInUrl exchange tugaguncha kutamiz */
+const OAUTH_GRACE_PERIOD_MS = 45_000;
 
 const AuthCallback = () => {
   const navigate = useNavigate();
@@ -15,13 +15,14 @@ const AuthCallback = () => {
     if (isLoading) return;
 
     if (user) {
-      // User successfully authenticated via OAuth
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+        timeoutRef.current = null;
+      }
       navigate('/', { replace: true });
       return;
     }
 
-    // OAuth provider reported an explicit error — no point waiting
     const params = new URLSearchParams(window.location.search);
     const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ''));
     if (params.get('error') || hashParams.get('error')) {
@@ -29,22 +30,22 @@ const AuthCallback = () => {
       return;
     }
 
-    // No user YET — the URL code exchange (detectSessionInUrl) may still be
-    // in flight even though getSession() already resolved. Wait a grace
-    // period for the SIGNED_IN event instead of bouncing to /auth too early.
+    // Code exchange still in flight — do not bounce early
     if (!timeoutRef.current) {
       timeoutRef.current = setTimeout(() => {
         navigate('/auth', { replace: true });
       }, OAUTH_GRACE_PERIOD_MS);
     }
+  }, [isLoading, user, navigate]);
 
+  useEffect(() => {
     return () => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
         timeoutRef.current = null;
       }
     };
-  }, [isLoading, user, navigate]);
+  }, []);
 
   return (
     <>

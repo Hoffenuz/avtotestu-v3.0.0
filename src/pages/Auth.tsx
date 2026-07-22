@@ -140,15 +140,7 @@ const Auth = () => {
     // If successful, user will be redirected to Google, then back
   };
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="w-10 h-10 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
-      </div>
-    );
-  }
-
-  // Don't render the form if user is already logged in (will redirect)
+  // Already logged in → short redirect spinner (do not block form on session init)
   if (user) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
@@ -156,6 +148,8 @@ const Auth = () => {
       </div>
     );
   }
+
+  // isLoading: still show the form — waiting on getSession must not freeze /auth on mobile
 
   return (
     <>

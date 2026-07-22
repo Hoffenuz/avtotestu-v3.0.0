@@ -42,14 +42,15 @@ interface TestResult {
   question_source?: string | null;
 }
 
-/** Exam ticket results only (v1–v63). Excludes practice (99), mavzuli (t*.json), free banks. */
+/** Exam tickets (v1–v63). Mavzuli/practice banklarini "Variant N" deb ko'rsatmaymiz. */
 function isExamTicketResult(r: TestResult): boolean {
   if (r.variant < 1 || r.variant > 63) return false;
   const src = (r.question_source || '').trim();
   if (/^v\d+\.json$/i.test(src)) return true;
-  if (!src && r.total_questions === 20) return true; // legacy rows
+  // Legacy + session-siz saqlangan 20 savollik variantlar
+  if ((!src || src === 'free') && r.total_questions === 20) return true;
   if (src.startsWith('t') || /mavzuli/i.test(src)) return false;
-  if (src === '600.json' || src.startsWith('barcha') || src === 'free') return false;
+  if (src === '600.json' || src.startsWith('barcha')) return false;
   return false;
 }
 

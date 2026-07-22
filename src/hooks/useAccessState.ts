@@ -1,12 +1,9 @@
 /**
  * useAccessState — thin wrapper around AuthContext.
  *
- * Security contract:
- * - get_user_access_state() RPC is called ONCE in AuthContext on login/session restore.
- * - This hook reads from context — it makes NO direct RPC calls.
- * - All components calling this hook share the same cached result.
- * - backendConfirmed=false → isPremium is always false (fail-closed).
- * - Call refresh() after a purchase/upgrade to force a re-check.
+ * - get_user_access_state() RPC is called in AuthContext on login/session restore.
+ * - isPremium is true only for active_pro (trial disabled).
+ * - backendConfirmed=false → treat as non-premium until RPC succeeds (with retries).
  */
 import { useAuth, AccessState } from '@/contexts/AuthContext';
 
