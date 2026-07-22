@@ -1,6 +1,11 @@
 /**
- * Asosiy sahifalar uchun statik HTML (Google botlari uchun).
- * public/static/*.html → public/{route}/index.html
+ * Asosiy sahifalar uchun SEO snapshot (faqat botlar uchun).
+ * public/static/*.html → public/_seo/{route}/index.html
+ *
+ * MUHIM: public/{route}/index.html ga YOZILMAYDI — aks holda CF Pages
+ * refreshda React SPA o'rniga statik HTML beradi (middleware ishlamasa ham).
+ * Botlar functions/_middleware.ts orqali /_seo/... ni oladi.
+ *
  * Ishga tushirish: node scripts/generate-main-pages.cjs
  */
 
@@ -51,10 +56,17 @@ function copyRoutePages() {
       continue;
     }
     let html = applyContentFixes(fs.readFileSync(src, "utf-8"));
-    const outDir = path.join(PUBLIC, route);
+    const outDir = path.join(PUBLIC, "_seo", route);
     fs.mkdirSync(outDir, { recursive: true });
     fs.writeFileSync(path.join(outDir, "index.html"), html, "utf-8");
-    console.log(`✅ /${route}/index.html`);
+    console.log(`✅ /_seo/${route}/index.html`);
+
+    // Eski joydagi shadow faylni olib tashlash (SPA ni bloklaydi)
+    const legacy = path.join(PUBLIC, route, "index.html");
+    if (fs.existsSync(legacy)) {
+      fs.unlinkSync(legacy);
+      console.log(`🗑️  removed /${route}/index.html (SPA shadow)`);
+    }
   }
 }
 
@@ -96,10 +108,16 @@ function writeDesktopPage() {
   </div>
 </body>
 </html>`;
-  const outDir = path.join(PUBLIC, "desktop");
+  const outDir = path.join(PUBLIC, "_seo", "desktop");
   fs.mkdirSync(outDir, { recursive: true });
   fs.writeFileSync(path.join(outDir, "index.html"), html, "utf-8");
-  console.log("✅ /desktop/index.html");
+  console.log("✅ /_seo/desktop/index.html");
+
+  const legacy = path.join(PUBLIC, "desktop", "index.html");
+  if (fs.existsSync(legacy)) {
+    fs.unlinkSync(legacy);
+    console.log("🗑️  removed /desktop/index.html (SPA shadow)");
+  }
 }
 
 function patchHomeNoscript() {

@@ -2,24 +2,18 @@
  * Cloudflare Pages Functions — Global Edge Middleware
  *
  * Muammo: CF Pages statik fayllarni (_redirects qoidalaridan OLDIN) yuboradi.
- * Shuning uchun public/test-ishlash/index.html mavjud bo'lsa, hamma —
- * bot ham, oddiy user ham — o'sha statik faylni oladi.
+ * Agar public/mavzuli/index.html bo'lsa, hamma (bot + user) o'sha faylni oladi —
+ * React SPA o'rniga eski SEO HTML ochiladi (refreshda "xatolik"/noto'g'ri UI).
  *
- * Yechim (Dynamic Rendering at Edge):
- *   Bot/crawler  → next() → CF Pages statik HTML yuboradi  → SEO uchun ideal
- *   Oddiy user   → next('/index.html') → React SPA yuboradi → app to'g'ri ishlaydi
- *   Asset (.js,.css,.webp,...) → next() → CF Pages fayl yuboradi
+ * Yechim:
+ *   Bot/crawler  → /_seo/{route}/index.html (SEO snapshot)
+ *   Oddiy user   → /index.html (React SPA); URL brauzerda o'zgarmaydi
+ *   Asset (.js,.css,...) → next()
  */
 
-// ---------------------------------------------------------------------------
-// Bot pattern — keng ro'yxat: Google, Bing, Yandex, social, SEO toollar
-// ---------------------------------------------------------------------------
 const BOT_UA =
   /googlebot|adsbot-google|google-inspectiontool|bingbot|msnbot|yandexbot|yandex|baiduspider|duckduckbot|slurp|teoma|ia_archiver|archive\.org_bot|facebookexternalhit|facebot|meta-externalagent|twitterbot|telegrambot|slackbot|linkedinbot|whatsapp|applebot|semrushbot|ahrefsbot|mj12bot|dotbot|petalbot|bytespider|360spider|sogou|exabot|netcraft|gptbot|oai-searchbot|claudebot|cohere-ai|anthropic-ai|perplexitybot|youbot|diffbot/i;
 
-// ---------------------------------------------------------------------------
-// SPA route prefikslari — React Router boshqaradigan yo'llar
-// ---------------------------------------------------------------------------
 const SPA_PREFIXES: string[] = [
   '/test-ishlash',
   '/belgilar',
@@ -36,95 +30,121 @@ const SPA_PREFIXES: string[] = [
   '/desktop',
 ];
 
-// ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
+/** SEO snapshot bor asosiy route'lar (public/_seo/{route}/index.html) */
+const SEO_ROUTE_PREFIXES: string[] = [
+  '/test-ishlash',
+  '/belgilar',
+  '/variant',
+  '/mavzuli',
+  '/darslik',
+  '/qoshimcha',
+  '/pro',
+  '/contact',
+  '/desktop',
+];
 
-/** Fayl kengaytmasi bor yo'l → statik asset (JS, CSS, rasm, font, JSON...) */
 function isStaticAsset(pathname: string): boolean {
   return /\.\w{1,8}$/.test(pathname);
 }
 
-/** Berilgan yo'l SPA route'iga tegishlimi */
-function isSpaRoute(pathname: string): boolean {
-  const clean =
-    pathname.length > 1 && pathname.endsWith('/')
-      ? pathname.slice(0, -1)
-      : pathname;
-  if (clean === '' || clean === '/') return true;
-  return SPA_PREFIXES.some(
-    (p) => clean === p || clean.startsWith(p + '/'),
-  );
+function cleanPath(pathname: string): string {
+  return pathname.length > 1 && pathname.endsWith('/')
+    ? pathname.slice(0, -1)
+    : pathname;
 }
 
-// ---------------------------------------------------------------------------
-// Types (without needing @cloudflare/workers-types package)
-// ---------------------------------------------------------------------------
+function isSpaRoute(pathname: string): boolean {
+  const clean = cleanPath(pathname);
+  if (clean === '' || clean === '/') return true;
+  return SPA_PREFIXES.some((p) => clean === p || clean.startsWith(p + '/'));
+}
+
+/** Bot uchun SEO snapshot yo'li — faqat aniq asosiy sahifalar */
+function seoSnapshotPath(pathname: string): string | null {
+  const clean = cleanPath(pathname);
+  for (const p of SEO_ROUTE_PREFIXES) {
+    if (clean === p) return `/_seo${p}/index.html`;
+  }
+  return null;
+}
+
+interface PagesFetcher {
+  fetch: (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>;
+}
+
 interface PagesContext {
   request: Request;
-  /** next() → davomiy handler (statik fayl yoki keyingi middleware) */
   next: (input?: RequestInfo | URL, init?: RequestInit) => Promise<Response>;
-  env: Record<string, unknown>;
+  env: { ASSETS?: PagesFetcher } & Record<string, unknown>;
   params: Record<string, string | string[]>;
   data: Record<string, unknown>;
 }
 
-// ---------------------------------------------------------------------------
-// Middleware entry point
-// ---------------------------------------------------------------------------
+/** URL o'zgartirib asset olish — next(Request) ba'zan original pathni saqlab qoladi */
+async function fetchPath(
+  ctx: PagesContext,
+  absolutePath: string,
+): Promise<Response> {
+  const url = new URL(absolutePath, ctx.request.url);
+  const rewritten = new Request(url.toString(), {
+    method: 'GET',
+    headers: ctx.request.headers,
+    redirect: 'manual',
+  });
+
+  if (ctx.env.ASSETS?.fetch) {
+    return ctx.env.ASSETS.fetch(rewritten);
+  }
+  // Fallback: string path (CF Pages next rewrite)
+  return ctx.next(absolutePath);
+}
+
+function withHtmlHeaders(res: Response, extra?: Record<string, string>): Response {
+  const headers = new Headers(res.headers);
+  headers.set('Content-Type', 'text/html; charset=utf-8');
+  if (extra) {
+    for (const [k, v] of Object.entries(extra)) headers.set(k, v);
+  }
+  return new Response(res.body, { status: res.status, headers });
+}
+
 export async function onRequest(ctx: PagesContext): Promise<Response> {
   const { request, next } = ctx;
   const url = new URL(request.url);
   const path = url.pathname;
 
-  // ── 1. Statik assetlar: to'g'ridan-to'g'ri o'tkazib yubor ────────────────
-  //    (JS, CSS, webp, json, woff2, ico, pdf, ...)
   if (isStaticAsset(path)) {
     return next();
   }
 
-  // ── 2. /index.html ning o'zi: next() bilan xizmat qil ──────────────────
-  //    (ichki fetch() dan kelgan so'rovlar uchun cheksiz loop oldini olish)
-  if (path === '/index.html') {
+  if (path === '/index.html' || path.startsWith('/_seo/')) {
     return next();
   }
 
   const ua = request.headers.get('user-agent') ?? '';
   const isBot = BOT_UA.test(ua);
 
-  // ── 3. Botlar / crawlerlar ──────────────────────────────────────────────
-  //    next() → CF Pages statik HTML faylini topib beradi (agar mavjud bo'lsa).
-  //    Mavjud bo'lmasa → _redirects qoidalari ishga tushadi.
-  //    Vary: User-Agent qo'shiladi — CF edge bot uchun alohida kesh saqlashi uchun.
+  // Botlar: SEO snapshot (agar bor) — aks holda oddiy static / SPA fallback
   if (isBot) {
+    const seo = seoSnapshotPath(path);
+    if (seo) {
+      const res = await fetchPath(ctx, seo);
+      if (res.ok) {
+        return withHtmlHeaders(res, { Vary: 'User-Agent' });
+      }
+    }
     const res = await next();
-    const headers = new Headers(res.headers);
-    headers.set('Vary', 'User-Agent');
-    return new Response(res.body, { status: res.status, headers });
+    return withHtmlHeaders(res, { Vary: 'User-Agent' });
   }
 
-  // ── 4. Oddiy foydalanuvchilar (SPA route'lari) ─────────────────────────
-  //    URL o'zgarmasdan (redirect yo'q), lekin React SPA yetkaziladi.
-  //    React Router client-side routing bilan to'g'ri route'ni render qiladi.
+  // Oddiy foydalanuvchi: SPA route → har doim React index.html
   if (isSpaRoute(path)) {
-    // CF Pages next() ga yangi URL bilan so'rov yuboramiz — statik /index.html
-    // URL brauzerda o'zgarmaydi, faqat xizmat qilinadigan kontent o'zgaradi.
-    const spaRequest = new Request(
-      new URL('/index.html', url.origin).toString(),
-      {
-        method: request.method,
-        headers: request.headers,
-      },
-    );
-    const res = await next(spaRequest);
-    const headers = new Headers(res.headers);
-    // Brauzer ham, CF edge ham keshlamasin — har so'rovda yangi SPA beriladi
-    headers.set('Content-Type', 'text/html; charset=utf-8');
-    headers.set('Cache-Control', 'no-store');
-    // s-maxage ni olib tashlaymiz (agar _headers dan kelgan bo'lsa)
-    return new Response(res.body, { status: res.status, headers });
+    const res = await fetchPath(ctx, '/index.html');
+    return withHtmlHeaders(res, {
+      'Cache-Control': 'no-store',
+      Vary: 'User-Agent',
+    });
   }
 
-  // ── 5. Boshqa barcha so'rovlar (404, /favicon.ico, ...) ───────────────
   return next();
 }
