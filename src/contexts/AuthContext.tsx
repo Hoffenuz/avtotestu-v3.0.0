@@ -382,15 +382,18 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     email: string,
     password: string
   ): Promise<{ error: Error | null }> => {
-    // Retry transient network failures ("Failed to fetch") — common on unstable
-    // connections / ISPs with flaky access to supabase.co. Auth errors
-    // (wrong password, etc.) are returned immediately without retrying.
+    // Each attempt capped at AUTH_RPC_TIMEOUT_MS so a hung fetch cannot
+    // leave the UI on "Kirish…" forever. Retry only transient network/timeouts;
+    // wrong-password and other auth errors return immediately.
     const MAX_ATTEMPTS = 3;
     let lastError: Error | null = null;
 
     for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
       try {
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
+        const { error } = await withTimeout(
+          supabase.auth.signInWithPassword({ email, password }),
+          AUTH_RPC_TIMEOUT_MS,
+        );
         if (!error) return { error: null };
         lastError = error;
         if (!isNetworkError(error)) return { error };
