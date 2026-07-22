@@ -1,7 +1,9 @@
 # ---------------------------------------------------------------------------
 # Cloudflare Pages — redirect qoidalari
-# ESLATMA: Middleware (_middleware.ts) bot/user ajratishni amalga oshiradi.
-#          Bu faylda faqat domen canonicalization va legacy URLlar.
+# ESLATMA:
+#   - SEO snapshot: public/_seo/... (botlar middleware orqali)
+#   - SPA route papkalarida index.html BO'LMASLIGI shart (assert-no-spa-shadow)
+#   - Middleware: user → /index.html; bot → /_seo/...
 # ---------------------------------------------------------------------------
 
 # 1. non-www → www (SEO canonical)
@@ -11,6 +13,5 @@ https://avtotestu.uz/* https://www.avtotestu.uz/:splat 301
 /tests /test-ishlash 301
 /test  /test-ishlash 301
 
-# 3. SPA fallback — middleware o'tkazib yuborgan barcha so'rovlar uchun
-#    (404, mavjud bo'lmagan route va hokazo)
+# 3. SPA fallback — shadow HTML yo'q bo'lganda /mavzuli va hokazo shu yerga tushadi
 /* /index.html 200

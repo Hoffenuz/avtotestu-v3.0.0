@@ -2,17 +2,20 @@
  * Cloudflare Pages Functions — Global Edge Middleware
  *
  * Muammo: CF Pages statik fayllarni (_redirects qoidalaridan OLDIN) yuboradi.
- * Agar public/mavzuli/index.html bo'lsa, hamma (bot + user) o'sha faylni oladi —
- * React SPA o'rniga eski SEO HTML ochiladi (refreshda "xatolik"/noto'g'ri UI).
+ * Agar public/mavzuli/index.html yoki public/savol/.../index.html bo'lsa,
+ * oddiy user ham React SPA o'rniga SEO HTML oladi (refreshda "noto'g'ri sahifa").
+ *
+ * Qoida (assert-no-spa-shadow.cjs bilan himoyalangan):
+ *   SEO snapshot faqat /_seo/... da yotadi.
  *
  * Yechim:
- *   Bot/crawler  → /_seo/{route}/index.html (SEO snapshot)
- *   Oddiy user   → /index.html (React SPA); URL brauzerda o'zgarmaydi
- *   Asset (.js,.css,...) → next()
+ *   Bot/crawler  → /_seo/{path}/index.html (agar bor)
+ *   Oddiy user   → /index.html (React SPA); brauzer URL o'zgarmaydi
+ *   Asset (.js,.css,.webp,...) → next()
  */
 
 const BOT_UA =
-  /googlebot|adsbot-google|google-inspectiontool|bingbot|msnbot|yandexbot|yandex|baiduspider|duckduckbot|slurp|teoma|ia_archiver|archive\.org_bot|facebookexternalhit|facebot|meta-externalagent|twitterbot|telegrambot|slackbot|linkedinbot|whatsapp|applebot|semrushbot|ahrefsbot|mj12bot|dotbot|petalbot|bytespider|360spider|sogou|exabot|netcraft|gptbot|oai-searchbot|claudebot|cohere-ai|anthropic-ai|perplexitybot|youbot|diffbot/i;
+  /googlebot|adsbot-google|google-inspectiontool|bingbot|msnbot|yandexbot|baiduspider|duckduckbot|slurp|teoma|ia_archiver|archive\.org_bot|facebookexternalhit|facebot|meta-externalagent|twitterbot|telegrambot|slackbot|linkedinbot|whatsapp|applebot|semrushbot|ahrefsbot|mj12bot|dotbot|petalbot|bytespider|360spider|sogou|exabot|netcraft|gptbot|oai-searchbot|claudebot|cohere-ai|anthropic-ai|perplexitybot|youbot|diffbot/i;
 
 const SPA_PREFIXES: string[] = [
   '/test-ishlash',
@@ -30,8 +33,8 @@ const SPA_PREFIXES: string[] = [
   '/desktop',
 ];
 
-/** SEO snapshot bor asosiy route'lar (public/_seo/{route}/index.html) */
-const SEO_ROUTE_PREFIXES: string[] = [
+/** Aniq asosiy sahifalar uchun SEO snapshot */
+const SEO_EXACT: string[] = [
   '/test-ishlash',
   '/belgilar',
   '/variant',
@@ -44,6 +47,7 @@ const SEO_ROUTE_PREFIXES: string[] = [
 ];
 
 function isStaticAsset(pathname: string): boolean {
+  // faqat haqiqiy fayl kengaytmasi; /mavzuli kabi pathlar emas
   return /\.\w{1,8}$/.test(pathname);
 }
 
@@ -59,11 +63,15 @@ function isSpaRoute(pathname: string): boolean {
   return SPA_PREFIXES.some((p) => clean === p || clean.startsWith(p + '/'));
 }
 
-/** Bot uchun SEO snapshot yo'li — faqat aniq asosiy sahifalar */
+/** Bot uchun SEO snapshot yo'li */
 function seoSnapshotPath(pathname: string): string | null {
   const clean = cleanPath(pathname);
-  for (const p of SEO_ROUTE_PREFIXES) {
-    if (clean === p) return `/_seo${p}/index.html`;
+  if (SEO_EXACT.includes(clean)) {
+    return `/_seo${clean}/index.html`;
+  }
+  // /savol/slug → /_seo/savol/slug/index.html
+  if (clean.startsWith('/savol/')) {
+    return `/_seo${clean}/index.html`;
   }
   return null;
 }
@@ -80,7 +88,6 @@ interface PagesContext {
   data: Record<string, unknown>;
 }
 
-/** URL o'zgartirib asset olish — next(Request) ba'zan original pathni saqlab qoladi */
 async function fetchPath(
   ctx: PagesContext,
   absolutePath: string,
@@ -95,7 +102,6 @@ async function fetchPath(
   if (ctx.env.ASSETS?.fetch) {
     return ctx.env.ASSETS.fetch(rewritten);
   }
-  // Fallback: string path (CF Pages next rewrite)
   return ctx.next(absolutePath);
 }
 
@@ -117,6 +123,7 @@ export async function onRequest(ctx: PagesContext): Promise<Response> {
     return next();
   }
 
+  // SEO snapshot va SPA shell — to'g'ridan-to'g'ri
   if (path === '/index.html' || path.startsWith('/_seo/')) {
     return next();
   }
@@ -124,7 +131,6 @@ export async function onRequest(ctx: PagesContext): Promise<Response> {
   const ua = request.headers.get('user-agent') ?? '';
   const isBot = BOT_UA.test(ua);
 
-  // Botlar: SEO snapshot (agar bor) — aks holda oddiy static / SPA fallback
   if (isBot) {
     const seo = seoSnapshotPath(path);
     if (seo) {
@@ -137,7 +143,8 @@ export async function onRequest(ctx: PagesContext): Promise<Response> {
     return withHtmlHeaders(res, { Vary: 'User-Agent' });
   }
 
-  // Oddiy foydalanuvchi: SPA route → har doim React index.html
+  // Oddiy foydalanuvchi: har qanday SPA route → React
+  // Middleware ishlamasa ham shadow fayl yo'qligi (assert) SPA fallbackni saqlaydi.
   if (isSpaRoute(path)) {
     const res = await fetchPath(ctx, '/index.html');
     return withHtmlHeaders(res, {

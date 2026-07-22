@@ -1,10 +1,13 @@
 /**
- * Static HTML Generator for SEO
- * 
- * This script generates static HTML snapshots for each route
- * to ensure search engine bots can see content without JavaScript.
- * 
- * Run after build: node scripts/generate-static-html.js
+ * Static HTML Generator for SEO (LEGACY / optional).
+ *
+ * DIQQAT: Bu skript faqat dist/static/ ostiga yozadi — SPA route'larni
+ * shadow qilMAYDI. Asosiy SEO oqimi:
+ *   scripts/generate-main-pages.cjs  → public/_seo/{route}/
+ *   scripts/generate-savol-pages.cjs → public/_seo/savol/
+ *   functions/_middleware.ts         → botlarga /_seo, userlarga SPA
+ *
+ * Run after build (ixtiyoriy): node scripts/generate-static-html.js
  */
 
 import { writeFileSync, readFileSync, mkdirSync, existsSync } from 'fs';

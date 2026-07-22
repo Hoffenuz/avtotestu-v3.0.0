@@ -1,5 +1,10 @@
 /**
- * v59.json savollaridan Google uchun statik SEO sahifalar yaratadi.
+ * v59.json savollaridan Google uchun SEO snapshot yaratadi.
+ * Chiqish: public/_seo/savol/{slug}/index.html
+ *
+ * MUHIM: public/savol/ ga YOZILMAYDI — aks holda CF Pages refreshda
+ * React SPA o'rniga statik HTML beradi.
+ *
  * Ishga tushirish: node scripts/generate-savol-pages.cjs
  */
 
@@ -8,7 +13,8 @@ const path = require("path");
 
 const ROOT = path.join(__dirname, "..");
 const V59_PATH = path.join(ROOT, "public/data/variants/v59.json");
-const SAVOL_DIR = path.join(ROOT, "public/savol");
+const SEO_SAVOL_DIR = path.join(ROOT, "public/_seo/savol");
+const LEGACY_SAVOL_DIR = path.join(ROOT, "public/savol");
 const INDEX_PATH = path.join(ROOT, "src/data/savol-v59-index.json");
 const SITEMAP_PATH = path.join(ROOT, "public/sitemap.xml");
 const BASE_URL = "https://www.avtotestu.uz";
@@ -244,9 +250,26 @@ function renderStaticPage(q, all) {
 }
 
 function writePage(subpath, html) {
-  const dir = path.join(SAVOL_DIR, subpath);
+  const dir = path.join(SEO_SAVOL_DIR, subpath);
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, "index.html"), html, "utf-8");
+}
+
+/** Eski shadow papkani tozalash — SPA route ni bloklamasligi uchun */
+function removeLegacySavolShadows() {
+  if (!fs.existsSync(LEGACY_SAVOL_DIR)) return;
+  const rm = (p) => {
+    if (!fs.existsSync(p)) return;
+    for (const name of fs.readdirSync(p)) {
+      const full = path.join(p, name);
+      const st = fs.statSync(full);
+      if (st.isDirectory()) rm(full);
+      else fs.unlinkSync(full);
+    }
+    fs.rmdirSync(p);
+  };
+  rm(LEGACY_SAVOL_DIR);
+  console.log("🗑️  removed public/savol/ (SPA shadow)");
 }
 
 function buildIndex(questions) {
@@ -339,8 +362,9 @@ for (const q of questions) {
 
 writePage(`variant-${questions[0].ticketNum}`, renderHubPage(questions));
 updateSitemap(questions);
+removeLegacySavolShadows();
 
-console.log(`✅ ${questions.length} ta savol sahifasi yaratildi (slug + global_id)`);
+console.log(`✅ ${questions.length} ta savol SEO sahifasi: /_seo/savol/ (slug + global_id)`);
 console.log(`✅ Index: src/data/savol-v59-index.json`);
-console.log(`✅ Hub: /savol/variant-${questions[0].ticketNum}`);
+console.log(`✅ Hub snapshot: /_seo/savol/variant-${questions[0].ticketNum}`);
 console.log(`✅ sitemap.xml yangilandi`);
