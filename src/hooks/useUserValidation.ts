@@ -59,22 +59,16 @@ export const clearAllUserData = () => {
  * Force logout and clear all data - returns a Promise that resolves when complete
  */
 export const forceLogoutAndClear = async (showNotification = true): Promise<void> => {
-  // Clear all user data FIRST to prevent any race conditions
-  clearAllUserData();
-  
   try {
-    // scope: 'local' logs out this device only.
-    // 'global' would revoke the refresh token on ALL devices which can silently
-    // kick users off their own computers when validation runs on any other device
-    // (e.g. admin testing the account, or a transient DB error on another session).
+    // scope: 'local' — only this device. Clear storage AFTER signOut so we don't
+    // race autoRefreshToken into "Invalid Refresh Token".
     await supabase.auth.signOut({ scope: 'local' });
   } catch (err) {
     if (!import.meta.env.PROD) console.error('Error during sign out:', err);
   }
-  
-  // Double-clear after sign out to catch any new tokens
+
   clearAllUserData();
-  
+
   if (showNotification) {
     toast({
       title: "Sessiya tugatildi",
@@ -139,24 +133,31 @@ export const useUserValidation = (redirectPath = '/auth') => {
           return;
         }
 
-        // Use getUser() for server-side validation (catches deleted users)
-        const { data: { user }, error } = await supabase.auth.getUser();
-        
-        if (error) {
-          if (isDefinitiveAuthFailure(error)) {
-            if (!import.meta.env.PROD) console.log('User validation failed - forcing logout:', error.message);
-            await forceLogoutAndClear(true);
-            navigate(redirectPath, { replace: true });
-          } else if (!import.meta.env.PROD) {
-            console.log('User validation skipped (transient auth error):', error.message); // dev only
+        // getUser() hits the network — never treat timeout/network as logout.
+        // Only definitive JWT/session errors force sign-out.
+        let user: Awaited<ReturnType<typeof supabase.auth.getUser>>['data']['user'] = null;
+        try {
+          const result = await supabase.auth.getUser();
+          if (result.error) {
+            if (isDefinitiveAuthFailure(result.error)) {
+              if (!import.meta.env.PROD) console.log('User validation failed - forcing logout:', result.error.message);
+              await forceLogoutAndClear(true);
+              navigate(redirectPath, { replace: true });
+            } else if (!import.meta.env.PROD) {
+              console.log('User validation skipped (transient auth error):', result.error.message);
+            }
+            return;
           }
+          user = result.data.user;
+        } catch (err) {
+          if (!import.meta.env.PROD) console.log('User validation skipped (getUser threw):', err);
           return;
         }
 
         if (!user) {
-          if (!import.meta.env.PROD) console.log('User validation failed - no user from getUser()');
-          await forceLogoutAndClear(false);
-          navigate(redirectPath, { replace: true });
+          // Context still has sessionUser but Auth API returned no user —
+          // could be a race during token rotation. Do not wipe storage.
+          if (!import.meta.env.PROD) console.log('User validation: getUser empty — skip force logout');
           return;
         }
 

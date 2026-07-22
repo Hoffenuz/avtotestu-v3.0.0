@@ -2,8 +2,6 @@ import React, { createContext, useContext, useState, useEffect, useCallback, use
 import { supabase } from '@/integrations/supabase/client';
 import { User, Session } from '@supabase/supabase-js';
 import { clearAllUserData } from '@/hooks/useUserValidation';
-import { toast } from '@/hooks/use-toast';
-import { isNetworkError } from '@/lib/networkError';
 import { AUTH_RPC_TIMEOUT_MS, withTimeout } from '@/lib/withTimeout';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -54,6 +52,33 @@ const VALID_ACCESS_STATES: AccessState[] = [
   'guest', 'free_logged_in', 'active_trial', 'expired_trial', 'active_pro', 'expired_pro',
 ];
 
+/** Local getSession can wait on auth lock during refresh — allow headroom, never wipe on timeout. */
+const SESSION_READ_TIMEOUT_MS = 25_000;
+/** Password login: no client abort — aborting while GoTrue finishes causes refresh-token races. */
+const SIGN_IN_TIMEOUT_MS = 45_000;
+
+/**
+ * Re-read session a few times (multi-tab token rotation).
+ * Returns null only when storage definitively has no session.
+ * On timeout/error returns 'unknown' so callers MUST NOT wipe tokens.
+ */
+async function readSessionSafe(): Promise<Session | null | 'unknown'> {
+  for (let i = 0; i < 3; i++) {
+    try {
+      const { data: { session } } = await withTimeout(
+        supabase.auth.getSession(),
+        SESSION_READ_TIMEOUT_MS,
+      );
+      if (session?.user) return session;
+      // Empty — sibling tab may still be writing; brief pause then retry
+      if (i < 2) await new Promise((r) => setTimeout(r, 350 * (i + 1)));
+    } catch {
+      return 'unknown';
+    }
+  }
+  return null;
+}
+
 // ── Provider ──────────────────────────────────────────────────────────────────
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
@@ -63,26 +88,21 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [profileLoading, setProfileLoading] = useState(false);
 
-  // Access state — single source of truth from backend RPC
   const [accessStateLoading, setAccessStateLoading] = useState(false);
   const [accessState, setAccessState]   = useState<AccessState>('guest');
   const [isPremium, setIsPremium]       = useState(false);
   const [expiresAt, setExpiresAt]       = useState<Date | null>(null);
   const [backendConfirmed, setBackendConfirmed] = useState(false);
 
-  // ── Internal helpers ───────────────────────────────────────────────────────
-
-  // Monotonic sequence for access-state fetches. Only the LATEST request may
-  // apply its result — a slow stale RPC response can never overwrite a newer
-  // state (e.g. premium re-granted after logout/expiry).
   const accessFetchSeqRef = useRef(0);
-  /** Last successful RPC confirmation — used so flaky network doesn't strip PRO mid-session. */
   const accessConfirmedRef = useRef(false);
-  /** User clicked Chiqish — ignore SIGNED_OUT "session still there" recovery. */
+  /** User clicked Chiqish — ignore SIGNED_OUT recovery / late SIGNED_IN. */
   const signingOutRef = useRef(false);
+  /** Prevent overlapping password logins (retry storms revoke refresh tokens). */
+  const signInInFlightRef = useRef(false);
 
   const clearAccessState = useCallback(() => {
-    accessFetchSeqRef.current++; // invalidate any in-flight fetch
+    accessFetchSeqRef.current++;
     accessConfirmedRef.current = false;
     setAccessState('guest');
     setIsPremium(false);
@@ -91,7 +111,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setAccessStateLoading(false);
   }, []);
 
-  /** Fetch profile display data — only non-sensitive display columns */
+  const applySession = useCallback((next: Session | null) => {
+    setSession(next);
+    setUser(next?.user ?? null);
+  }, []);
+
   const fetchProfileData = useCallback(async (userId: string): Promise<Profile | null> => {
     try {
       const { data, error } = await supabase
@@ -111,13 +135,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
-  /** Fetch premium access state from backend RPC — called ONCE per session, never per component */
   const fetchAccessState = useCallback(async (userId: string): Promise<void> => {
     const seq = ++accessFetchSeqRef.current;
     const isStale = () => seq !== accessFetchSeqRef.current;
 
-    // Only block UI on the first check this session. Background refreshes
-    // (tab focus / token refresh) must not flip the whole page to "Yuklanmoqda".
     const blockUi = !accessConfirmedRef.current;
     if (blockUi) setAccessStateLoading(true);
     try {
@@ -126,7 +147,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         AUTH_RPC_TIMEOUT_MS,
       );
 
-      if (isStale()) return; // a newer fetch (or logout) superseded this one
+      if (isStale()) return;
 
       if (!rpcErr && rpcRows && rpcRows.length > 0) {
         const row = rpcRows[0];
@@ -140,13 +161,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         setExpiresAt(row.expires_at ? new Date(row.expires_at) : null);
         setBackendConfirmed(true);
       } else if (!accessConfirmedRef.current) {
-        // Never confirmed this session — fail-closed
         setAccessState('free_logged_in');
         setIsPremium(false);
         setExpiresAt(null);
         setBackendConfirmed(false);
       }
-      // else: keep last confirmed PRO/state on transient RPC failure
     } catch (err) {
       if (isStale()) return;
       if (!import.meta.env.PROD) console.error('Auth Error - Access state fetch:', err);
@@ -161,16 +180,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
-  /**
-   * Load profile + access state in PARALLEL — called ONCE per login/session restore.
-   * Components must NOT call get_user_access_state directly; use useAccessState() instead.
-   */
   const loadUserState = useCallback(async (userId: string): Promise<void> => {
     setProfileLoading(true);
     try {
       const [profileData] = await Promise.all([
         fetchProfileData(userId),
-        fetchAccessState(userId),   // sets its own accessStateLoading
+        fetchAccessState(userId),
       ]);
       setProfile(profileData);
     } finally {
@@ -185,27 +200,24 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     const initializeAuth = async () => {
       try {
+        // Prefer longer wait over fail-closed logout — wiping on timeout caused
+        // mass "kicked out" when auth lock was held by token refresh.
         const { data: { session: currentSession } } = await withTimeout(
           supabase.auth.getSession(),
-          AUTH_RPC_TIMEOUT_MS,
+          SESSION_READ_TIMEOUT_MS,
         );
-        if (!isMounted) return;
+        if (!isMounted || signingOutRef.current) return;
 
         if (currentSession?.user) {
-          setSession(currentSession);
-          setUser(currentSession.user);
-          // Fire without await so isLoading can be set immediately
+          applySession(currentSession);
           loadUserState(currentSession.user.id);
         }
-        setIsLoading(false);
       } catch (err) {
         if (!import.meta.env.PROD) console.error('Auth Error - Initialization:', err);
-        // Timeout / hung getSession — fail-closed so UI is not stuck on "Yuklanmoqda"
-        if (isMounted) {
-          setSession(null);
-          setUser(null);
-          setIsLoading(false);
-        }
+        // Timeout/hang: do NOT clear user/session — storage may still be valid.
+        // onAuthStateChange (TOKEN_REFRESHED / SIGNED_IN) will hydrate when ready.
+      } finally {
+        if (isMounted) setIsLoading(false);
       }
     };
 
@@ -214,99 +226,77 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         if (!isMounted) return;
 
         try {
-          // INITIAL_SESSION is handled exclusively by initializeAuth() below.
-          // Handling it here too creates a race condition: on slow devices the
-          // token may still be refreshing when INITIAL_SESSION fires, so
-          // currentSession is null — causing a false logout while initializeAuth
-          // is still awaiting getSession() which will eventually return the
-          // refreshed (valid) session.
           if (event === 'INITIAL_SESSION') return;
 
           if (event === 'SIGNED_OUT') {
-            // Intentional logout: never re-hydrate session (that made Chiqish feel stuck).
             if (signingOutRef.current) {
-              setSession(null);
-              setUser(null);
+              applySession(null);
               setProfile(null);
               clearAccessState();
-              clearAllUserData();
               setIsLoading(false);
               return;
             }
-            // Another tab may have just rotated tokens and written a fresh
-            // session to shared localStorage. Confirm before wiping — otherwise
-            // a failed refresh in tab B deletes tab A's valid session.
-            let stillThere: Session | null = null;
-            try {
-              const res = await withTimeout(supabase.auth.getSession(), AUTH_RPC_TIMEOUT_MS);
-              stillThere = res.data.session;
-            } catch {
-              // Timeout — treat as no session (fail-closed)
+
+            // Multi-tab refresh often emits SIGNED_OUT in the losing tab while
+            // the winning tab writes a new refresh token. Confirm before wipe.
+            // NEVER clearAllUserData here — that deletes the sibling tab's tokens
+            // and produces "Invalid Refresh Token: Refresh Token Not Found".
+            const stillThere = await readSessionSafe();
+            if (!isMounted || signingOutRef.current) return;
+
+            if (stillThere === 'unknown') {
+              // Uncertain (timeout) — keep current React session if any
+              return;
             }
-            if (!isMounted) return;
             if (stillThere?.user) {
-              setSession(stillThere);
-              setUser(stillThere.user);
+              applySession(stillThere);
               fetchAccessState(stillThere.user.id);
               return;
             }
-            setSession(null);
-            setUser(null);
+
+            applySession(null);
             setProfile(null);
             clearAccessState();
-            clearAllUserData();
             setIsLoading(false);
             return;
           }
 
           if (event === 'TOKEN_REFRESHED') {
             if (!currentSession) {
-              // Concurrent multi-tab refresh: the losing tab gets null here while
-              // the winning tab already stored new tokens. Re-read storage first.
-              let recovered: Session | null = null;
-              try {
-                const res = await withTimeout(supabase.auth.getSession(), AUTH_RPC_TIMEOUT_MS);
-                recovered = res.data.session;
-              } catch {
-                // Timeout — treat as no recoverable session
-              }
-              if (!isMounted) return;
+              const recovered = await readSessionSafe();
+              if (!isMounted || signingOutRef.current) return;
+
+              if (recovered === 'unknown') return;
               if (recovered?.user) {
-                setSession(recovered);
-                setUser(recovered.user);
+                applySession(recovered);
                 fetchAccessState(recovered.user.id);
                 return;
               }
+
               if (!import.meta.env.PROD) console.log('Token refresh failed — no recoverable session');
-              setSession(null);
-              setUser(null);
+              applySession(null);
               setProfile(null);
               clearAccessState();
-              // Do not clearAllUserData() here: a sibling tab may still be writing
-              // a valid rotation. Storage is already empty if refresh truly failed.
               setIsLoading(false);
               return;
             }
-            // Session still valid — re-check PRO (e.g. after admin upgrade)
-            setSession(currentSession);
-            setUser(currentSession.user);
+            applySession(currentSession);
             fetchAccessState(currentSession.user.id);
             return;
           }
 
-          setSession(currentSession);
-          setUser(currentSession?.user ?? null);
+          if (signingOutRef.current && event !== 'SIGNED_IN') {
+            return;
+          }
 
-          // Only reload full user state on explicit sign-in (not on token refresh)
+          applySession(currentSession);
+
           if (currentSession?.user && event === 'SIGNED_IN') {
+            if (signingOutRef.current) return;
             loadUserState(currentSession.user.id);
           } else if (!currentSession?.user) {
             setProfile(null);
             clearAccessState();
-            // NOTE: do NOT call setIsLoading(false) here.
-            // initializeAuth() is the sole authority for the initial loading flag.
-            // Calling it here while initializeAuth is still in-flight would flip
-            // loading=false while user=null, triggering a false redirect to /auth.
           }
         } catch (err) {
           if (!import.meta.env.PROD) console.error('Auth Error - State change:', err);
@@ -320,10 +310,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       isMounted = false;
       subscription.unsubscribe();
     };
-  }, [loadUserState, clearAccessState, fetchAccessState]);
+  }, [loadUserState, clearAccessState, fetchAccessState, applySession]);
 
-  // Re-fetch PRO when user returns to the tab (e.g. after admin activates subscription).
-  // Debounce: rapid tab switches + slow network used to flip isPremium=false mid-test.
   useEffect(() => {
     if (!user?.id) return;
 
@@ -382,33 +370,41 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     email: string,
     password: string
   ): Promise<{ error: Error | null }> => {
-    // Each attempt capped at AUTH_RPC_TIMEOUT_MS so a hung fetch cannot
-    // leave the UI on "Kirish…" forever. Retry only transient network/timeouts;
-    // wrong-password and other auth errors return immediately.
-    const MAX_ATTEMPTS = 3;
-    let lastError: Error | null = null;
-
-    for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
-      try {
-        const { error } = await withTimeout(
-          supabase.auth.signInWithPassword({ email, password }),
-          AUTH_RPC_TIMEOUT_MS,
-        );
-        if (!error) return { error: null };
-        lastError = error;
-        if (!isNetworkError(error)) return { error };
-      } catch (err) {
-        lastError = err as Error;
-        if (!isNetworkError(err)) return { error: lastError };
-      }
-
-      if (attempt < MAX_ATTEMPTS) {
-        await new Promise((r) => setTimeout(r, 800 * attempt));
-      }
+    if (signInInFlightRef.current) {
+      return { error: new Error('Kirish jarayoni davom etmoqda. Biroz kuting.') };
     }
+    signInInFlightRef.current = true;
+    signingOutRef.current = false;
 
-    return { error: lastError };
-  }, []);
+    try {
+      // Single attempt — concurrent retries were rotating/revoking refresh tokens
+      // (Supabase logs: "Invalid Refresh Token: Refresh Token Not Found").
+      const { data, error } = await withTimeout(
+        supabase.auth.signInWithPassword({ email, password }),
+        SIGN_IN_TIMEOUT_MS,
+      );
+
+      if (error) return { error };
+
+      // Hydrate immediately so /auth does not wait on a raced onAuthStateChange.
+      if (data.session?.user) {
+        applySession(data.session);
+        void loadUserState(data.session.user.id);
+      }
+      return { error: null };
+    } catch (err) {
+      // If the request finished after our client timeout, session may already exist.
+      const maybe = await readSessionSafe();
+      if (maybe !== 'unknown' && maybe?.user) {
+        applySession(maybe);
+        void loadUserState(maybe.user.id);
+        return { error: null };
+      }
+      return { error: err as Error };
+    } finally {
+      signInInFlightRef.current = false;
+    }
+  }, [applySession, loadUserState]);
 
   const signInWithGoogle = useCallback(async (): Promise<{ error: Error | null }> => {
     try {
@@ -425,18 +421,17 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signOut = useCallback(async () => {
     signingOutRef.current = true;
-    // UI darhol chiqsin — tarmoq kutishiga bog'lanmasin
-    clearAllUserData();
-    setUser(null);
-    setSession(null);
+    applySession(null);
     setProfile(null);
     clearAccessState();
     setIsLoading(false);
+
     try {
-      // local: faqat shu qurilma. Timeout: sekin tarmoqda tugma "qotib" qolmasin.
+      // Sign out first (clears auth storage via supabase), then wipe leftovers.
+      // Clearing sb-* BEFORE signOut raced with autoRefresh and revoked tokens.
       await Promise.race([
         supabase.auth.signOut({ scope: 'local' }),
-        new Promise<void>((resolve) => setTimeout(resolve, 1500)),
+        new Promise<void>((resolve) => setTimeout(resolve, 2000)),
       ]);
     } catch (err) {
       if (!import.meta.env.PROD) console.error('Sign out error:', err);
@@ -444,11 +439,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       clearAllUserData();
       window.setTimeout(() => {
         signingOutRef.current = false;
-      }, 800);
+      }, 1200);
     }
-  }, [clearAccessState]);
-
-  // ── Context value ──────────────────────────────────────────────────────────
+  }, [clearAccessState, applySession]);
 
   const value = useMemo(() => ({
     user,

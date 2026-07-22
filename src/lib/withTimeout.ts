@@ -19,8 +19,8 @@ export function withTimeout<T>(promise: PromiseLike<T>, ms: number): Promise<T> 
   });
 }
 
-/** Auth session / access RPC — avoid infinite "Yuklanmoqda" on hung network */
-export const AUTH_RPC_TIMEOUT_MS = 10_000;
+/** Access RPC — avoid infinite "Yuklanmoqda" on hung network */
+export const AUTH_RPC_TIMEOUT_MS = 12_000;
 
 /** start_test_session — premium must fail closed; free falls back offline */
 export const TEST_SESSION_TIMEOUT_MS = 10_000;

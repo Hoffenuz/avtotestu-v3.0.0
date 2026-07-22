@@ -91,7 +91,7 @@ const Auth = () => {
 
     if (signInError) {
       if (isNetworkError(signInError)) {
-        // Network failure — not the user's fault, don't count toward cooldown
+        // Network/timeout — not wrong password; don't count toward cooldown
         setError(NETWORK_ERROR_MESSAGE_UZ);
         setIsSubmitting(false);
         return;
@@ -100,15 +100,17 @@ const Auth = () => {
       const newFailCount = failCount + 1;
       setFailCount(newFailCount);
 
-      if (signInError.message.includes('Invalid login credentials')) {
+      const msg = signInError.message || '';
+      if (msg.includes('Invalid login credentials')) {
         setError('Email yoki parol noto\'g\'ri');
-      } else if (signInError.message.includes('Email not confirmed')) {
+      } else if (msg.includes('Email not confirmed')) {
         setError('Email tasdiqlanmagan. Emailingizni tekshiring');
+      } else if (msg.includes('Kirish jarayoni davom etmoqda')) {
+        setError(msg);
       } else {
-        setError(signInError.message);
+        setError(msg);
       }
 
-      // After 3 failures: 30-second cooldown
       if (newFailCount >= 3 && !isLoginBlocked) {
         startCooldown(30);
       }
@@ -117,12 +119,12 @@ const Auth = () => {
       return;
     }
 
-    // Success: reset counters and navigate
     setFailCount(0);
     setCooldownSecs(0);
     if (cooldownRef.current) clearInterval(cooldownRef.current);
     setIsSubmitting(false);
-    // Navigation happens via useEffect when user state updates
+    // signIn already set user — navigate immediately (don't wait for effect race)
+    navigate(returnTo, { replace: true });
   };
 
   const handleGoogleLogin = async () => {
