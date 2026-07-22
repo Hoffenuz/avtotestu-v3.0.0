@@ -173,7 +173,6 @@ export default function MavzuliTestlar() {
       }
     } catch (e) { /* ignore */ }
   }, [mavzuliStorageKey, testStarted, selectedTopic, sessionId]);
-
   const getTopicName = (topic: Topic) => {
     const langKey = language === 'uz-lat' ? 'uz_lat' : language === 'uz' ? 'uz_cyr' : 'ru';
     return topic.name[langKey];
@@ -363,7 +362,7 @@ export default function MavzuliTestlar() {
           <div className="sticky top-0 z-30 bg-card/95 backdrop-blur-sm border-b border-border px-4 py-2.5 shadow-sm">
             <Button
               size="lg"
-              className="w-full gap-2 h-12"
+              className="w-full gap-2.5 h-14 text-[15px] font-semibold rounded-xl"
               onClick={handleStartTest}
               disabled={selectedTopic === null || starting}
             >
@@ -459,14 +458,14 @@ export default function MavzuliTestlar() {
                 )}
               </div>
               <div className="mb-4">
-                <h3 className="text-[10px] font-medium text-muted-foreground mb-1.5">Til tanlash</h3>
-                <div className="flex gap-1.5">
+                <h3 className="text-xs font-medium text-muted-foreground mb-2">Til tanlash</h3>
+                <div className="flex gap-2">
                   {languages.map((lang) => (
                     <Button
                       key={lang.id}
                       variant="outline"
                       size="sm"
-                      className={`flex-1 text-[11px] h-8 ${language === lang.id ? "bg-primary text-primary-foreground border-primary" : ""}`}
+                      className={`flex-1 text-sm h-11 rounded-lg font-medium ${language === lang.id ? "bg-primary text-primary-foreground border-primary shadow-sm" : "hover:border-primary/40"}`}
                       onClick={() => setLanguage(lang.id)}
                     >
                       {lang.label}
@@ -475,7 +474,7 @@ export default function MavzuliTestlar() {
                 </div>
               </div>
               {selectedTopic ? (
-                <div className="mb-4 p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border-2 border-primary/20 shadow-sm">
+                <div className="mb-5 p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border-2 border-primary/20 shadow-sm">
                   <div className="text-center">
                     <div className="text-sm font-bold text-primary leading-tight">
                       {(() => {
@@ -487,42 +486,37 @@ export default function MavzuliTestlar() {
                   </div>
                 </div>
               ) : (
-                <div className="mb-4 p-4 bg-muted/20 rounded-xl border-2 border-dashed border-border">
+                <div className="mb-5 p-4 bg-muted/20 rounded-xl border-2 border-dashed border-border">
                   <div className="text-center text-muted-foreground text-xs">
                     {language === 'ru' ? 'Выберите тему справа' : language === 'uz' ? 'Ўнг томондан мавзу танланг' : 'O\'ng tomondan mavzu tanlang'}
                   </div>
                 </div>
               )}
-              <div className="grid grid-cols-3 gap-2 mb-4">
-                <div className="text-center p-2.5 bg-gradient-to-br from-blue-50 to-blue-100/50 dark:from-blue-950 dark:to-blue-900/50 rounded-lg border border-blue-200 dark:border-blue-800">
-                  <div className="text-xl font-bold text-blue-600 dark:text-blue-400">∞</div>
-                  <div className="text-[9px] text-blue-600/70 dark:text-blue-400/70 mt-0.5">Savollar</div>
-                </div>
-                <div className="text-center p-2.5 bg-gradient-to-br from-purple-50 to-purple-100/50 dark:from-purple-950 dark:to-purple-900/50 rounded-lg border border-purple-200 dark:border-purple-800">
-                  <div className="text-xl font-bold text-purple-600 dark:text-purple-400">60</div>
-                  <div className="text-[9px] text-purple-600/70 dark:text-purple-400/70 mt-0.5">daqiqa</div>
-                </div>
-                <div className="text-center p-2.5 bg-gradient-to-br from-green-50 to-green-100/50 dark:from-green-950 dark:to-green-900/50 rounded-lg border border-green-200 dark:border-green-800">
-                  <div className="text-xl font-bold text-green-600 dark:text-green-400">90%</div>
-                  <div className="text-[9px] text-green-600/70 dark:text-green-400/70 mt-0.5">O'tish balli</div>
-                </div>
-              </div>
               {startError && (
-                <div className="mb-2 flex items-center gap-2 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+                <div className="mb-3 flex items-center gap-2 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
                   <AlertTriangle className="w-4 h-4 text-red-500 flex-shrink-0" />
                   <p className="text-xs text-red-700">{startError}</p>
                 </div>
               )}
-              <Button size="lg" className="w-full mb-3 gap-2 h-12 text-sm font-semibold shadow-lg hover:shadow-xl transition-all" onClick={handleStartTest} disabled={selectedTopic === null || starting}>
-                {starting ? <div className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" /> : <Play className="w-4 h-4" />}
+              <Button
+                size="lg"
+                className="w-full mb-4 gap-2.5 h-14 text-base font-semibold rounded-xl shadow-md hover:shadow-lg transition-all"
+                onClick={handleStartTest}
+                disabled={selectedTopic === null || starting}
+              >
+                {starting ? (
+                  <div className="w-5 h-5 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+                ) : (
+                  <Play className="w-5 h-5" />
+                )}
                 {selectedTopic ? "Testni boshlash" : "Mavzuni tanlang"}
               </Button>
-              <div className="p-3 bg-gradient-to-br from-muted/50 to-muted/30 rounded-lg border border-border">
-                <h3 className="text-[10px] font-semibold text-foreground mb-1.5 flex items-center gap-1.5">
-                  <div className="w-1 h-1 rounded-full bg-primary" />
+              <div className="p-3.5 bg-gradient-to-br from-muted/50 to-muted/30 rounded-xl border border-border">
+                <h3 className="text-xs font-semibold text-foreground mb-2 flex items-center gap-1.5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
                   Ko'rsatmalar
                 </h3>
-                <div className="text-[10px] text-muted-foreground space-y-1">
+                <div className="text-xs text-muted-foreground space-y-1.5">
                   <div className="flex items-start gap-1.5">
                     <span className="text-primary mt-0.5">•</span>
                     <span>Mavzu bo'yicha barcha savollar beriladi</span>
@@ -558,10 +552,10 @@ export default function MavzuliTestlar() {
                         <Button
                           key={topic.id}
                           variant="outline"
-                          className={`h-auto py-4 px-4 text-left justify-start transition-all ${getTopicButtonClass(topic.id)}`}
+                          className={`h-auto min-h-[3.25rem] py-4 px-5 text-left justify-start rounded-xl transition-all ${getTopicButtonClass(topic.id)}`}
                           onClick={() => setSelectedTopic(topic.id)}
                         >
-                          <span className="text-sm font-medium leading-snug">{getTopicName(topic)}</span>
+                          <span className="text-[15px] font-medium leading-snug">{getTopicName(topic)}</span>
                         </Button>
                       ))}
                     </div>

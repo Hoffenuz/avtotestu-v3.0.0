@@ -7,11 +7,10 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useTestResults } from "@/hooks/useTestResults";
 import {
   getElapsedTestSeconds,
-  getInitialTimeRemaining,
+  getWallElapsedSeconds,
   getInitialStartedAt,
-  getSavedTestState,
   clearTestState,
-  formatTestTime,
+  formatDurationSeconds,
   MAX_TEST_TIME_SECONDS,
 } from "@/lib/testPersistence";
 import { pickIzohText, pickLangContent } from "@/lib/pickLangContent";
@@ -95,7 +94,13 @@ interface MavzuliTestInterfaceProps {
   isPremiumSession?: boolean;
 }
 
-export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = null, isPremiumSession = false }: MavzuliTestInterfaceProps) => {
+export const MavzuliTestInterface = ({
+  onExit,
+  topicId,
+  topicName,
+  sessionId = null,
+  isPremiumSession = false,
+}: MavzuliTestInterfaceProps) => {
   const { t, questionLang } = useLanguage();
   const { user } = useAuth();
   const { saveTestResult } = useTestResults();
@@ -110,14 +115,15 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
   const [correctAnswers, setCorrectAnswers] = useState<Record<number, boolean>>({});
   const [revealedQuestions, setRevealedQuestions] = useState<Record<number, boolean>>({});
-  // Init from endsAt so refresh doesn't reset the timer
-  const [timeRemaining, setTimeRemaining] = useState(() =>
-    getInitialTimeRemaining(storageKey, 60 * 60)
+  const [testStartTime, setTestStartTime] = useState(() =>
+    getInitialStartedAt(storageKey, { maxElapsedSec: null }),
+  );
+  // Elapsed seconds (counts up) — no time limit
+  const [elapsedSeconds, setElapsedSeconds] = useState(() =>
+    getWallElapsedSeconds(getInitialStartedAt(storageKey, { maxElapsedSec: null })),
   );
   const [showFinishDialog, setShowFinishDialog] = useState(false);
   const [showResults, setShowResults] = useState(false);
-  // Restored from localStorage so timeTaken stays accurate after refresh
-  const [testStartTime] = useState(() => getInitialStartedAt(storageKey));
   const [resultSaved, setResultSaved] = useState(false);
   const [activeSessionId, setActiveSessionId] = useState<string | null>(sessionId);
   const [zoomImage, setZoomImage] = useState<string | null>(null);
@@ -126,13 +132,6 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
   const autoAdvanceTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const saveAttemptedRef = useRef(false);
-  // Mirror of timeRemaining for the persistence effect — keeps the heavy
-  // localStorage write OFF the 1-second timer tick (perf fix)
-  const timeRemainingRef = useRef(timeRemaining);
-  const endsAtRef = useRef<number>(
-    getSavedTestState(storageKey)?.endsAt ??
-      Date.now() + getInitialTimeRemaining(storageKey, 60 * 60) * 1000
-  );
   // Persist autoAdvance like language setting – survives page refresh
   const [autoAdvance, setAutoAdvance] = useState(() => {
     try { return localStorage.getItem('autoAdvance') === 'true'; } catch { return false; }
@@ -271,7 +270,7 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
               setSelectedAnswers(parsed.selectedAnswers || {});
               setCorrectAnswers(parsed.correctAnswers || {});
               setRevealedQuestions(parsed.revealedQuestions || {});
-              // timeRemaining already initialised from endsAt via useState lazy init
+              // elapsedSeconds already initialised from startedAt via useState lazy init
               // Do NOT restore showResults here – finished tests are cleared from storage
             }
           }
@@ -293,32 +292,16 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
     };
   }, [topicId, questionLang, t, storageKey]);
 
-  // Timer – wall-clock from endsAt; paused while loading / no questions
+  // Elapsed timer — counts up; no auto-finish
   useEffect(() => {
     if (showResults || loading || questions.length === 0) return;
     timerRef.current = setInterval(() => {
-      const remaining = Math.max(0, Math.floor((endsAtRef.current - Date.now()) / 1000));
-      setTimeRemaining(remaining);
+      setElapsedSeconds(getWallElapsedSeconds(testStartTime));
     }, 1000);
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [timerKey, showResults, loading, questions.length]);
-
-  // Keep the ref in sync without triggering the persistence effect each tick
-  useEffect(() => {
-    timeRemainingRef.current = timeRemaining;
-  }, [timeRemaining]);
-
-  // Auto-finish when timer reaches 0
-  useEffect(() => {
-    if (timeRemaining === 0 && !showResults && !loading && questions.length > 0) {
-      if (timerRef.current) clearInterval(timerRef.current);
-      clearTestState(storageKey);
-      exitFullscreen();
-      setShowResults(true);
-    }
-  }, [timeRemaining, showResults, loading, questions.length, storageKey]);
+  }, [timerKey, showResults, loading, questions.length, testStartTime]);
 
   // Cleanup auto-advance timeout on unmount
   useEffect(() => {
@@ -330,8 +313,6 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
   }, []);
 
   // Persist test state – skip when finished so cleared state isn't restored on refresh.
-  // timeRemaining is read from a ref (not in deps) so the full questions array
-  // (potentially hundreds of questions) is NOT re-serialized every second.
   useEffect(() => {
     if (questions.length === 0 || showResults) return;
     try {
@@ -341,15 +322,12 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
         selectedAnswers,
         correctAnswers,
         revealedQuestions,
-        endsAt: endsAtRef.current,
         startedAt: testStartTime,
       }));
     } catch {
       // ignore quota errors
     }
   }, [questions, currentQuestion, selectedAnswers, correctAnswers, revealedQuestions, showResults, storageKey, testStartTime]);
-
-  const formatTime = (seconds: number) => formatTestTime(seconds);
 
   const totalQuestions = questions.length;
   const question = questions[currentQuestion - 1];
@@ -442,11 +420,12 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
     return Number.isFinite(n) && n >= 1 && n <= 100 ? n : 0;
   })();
 
-  // Save on finish or timer expiry (same path as TestInterface)
+  // Save on finish
   useEffect(() => {
     if (showResults && user && !resultSaved && saveVariant > 0 && !saveAttemptedRef.current) {
       saveAttemptedRef.current = true;
       const stats = getTestStats();
+      // DB still caps at 60:59; UI shows full wall elapsed
       const timeTaken = getElapsedTestSeconds(testStartTime, MAX_TEST_TIME_SECONDS);
       void saveTestResult(
         saveVariant,
@@ -474,7 +453,7 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
   // Show results screen
   if (showResults) {
     const stats = getTestStats();
-    const timeTaken = getElapsedTestSeconds(testStartTime, MAX_TEST_TIME_SECONDS);
+    const timeTaken = getWallElapsedSeconds(testStartTime);
     
     return (
       <TestResults
@@ -491,13 +470,14 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
           setCorrectAnswers({});
           setRevealedQuestions({});
           setCurrentQuestion(1);
-          endsAtRef.current = Date.now() + 60 * 60 * 1000;
-          setTimeRemaining(60 * 60);
+          const now = Date.now();
+          setTestStartTime(now);
+          setElapsedSeconds(0);
           setShowResults(false);
           setResultSaved(false);
           saveAttemptedRef.current = false;
           setActiveSessionId(null);
-          setTimerKey(k => k + 1); // restart timer interval
+          setTimerKey(k => k + 1);
         }}
       />
     );
@@ -545,7 +525,9 @@ export const MavzuliTestInterface = ({ onExit, topicId, topicName, sessionId = n
             <span className="hidden md:inline text-sm font-medium text-muted-foreground line-clamp-1 min-w-0">{topicName}</span>
             <div className="flex items-center gap-1 text-muted-foreground shrink-0">
               <Clock className="w-3.5 h-3.5 md:w-4 md:h-4" />
-              <span className="text-sm md:text-base font-medium tabular-nums">{formatTime(timeRemaining)}</span>
+              <span className="text-sm md:text-base font-medium tabular-nums">
+                {formatDurationSeconds(elapsedSeconds)}
+              </span>
             </div>
           </div>
           <div className="flex gap-1 md:gap-2 shrink-0">

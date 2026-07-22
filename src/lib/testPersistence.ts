@@ -74,24 +74,50 @@ export function getInitialTimeRemaining(storageKey: string, defaultTime: number)
  * Stale sessions (older than MAX_TEST_TIME_SECONDS) are capped so elapsed
  * time never balloons to hundreds of minutes.
  */
-export function getInitialStartedAt(storageKey: string): number {
+export function getInitialStartedAt(
+  storageKey: string,
+  options?: { /** null = never rewind long sessions (mavzuli elapsed timer) */ maxElapsedSec?: number | null },
+): number {
   const saved = getSavedTestState(storageKey);
   const now = Date.now();
   const startedAt = saved?.startedAt;
+  const maxElapsed =
+    options && "maxElapsedSec" in options
+      ? options.maxElapsedSec
+      : MAX_TEST_TIME_SECONDS;
+
   if (typeof startedAt === "number" && startedAt > 0 && startedAt <= now) {
+    if (maxElapsed == null) return startedAt;
     const elapsedSec = Math.floor((now - startedAt) / 1000);
-    if (elapsedSec <= MAX_TEST_TIME_SECONDS) return startedAt;
+    if (elapsedSec <= maxElapsed) return startedAt;
     // Abandoned tab / stale localStorage — pretend started just within max window
-    return now - MAX_TEST_TIME_SECONDS * 1000;
+    return now - maxElapsed * 1000;
   }
   return now;
+}
+
+/** Wall-clock elapsed seconds since startedAt (no display clamp). */
+export function getWallElapsedSeconds(startedAt: number): number {
+  if (!Number.isFinite(startedAt) || startedAt <= 0) return 0;
+  return Math.max(0, Math.floor((Date.now() - startedAt) / 1000));
 }
 
 /** Elapsed seconds since startedAt, never above MAX_TEST_TIME_SECONDS */
 export function getElapsedTestSeconds(startedAt: number, maxSeconds = MAX_TEST_TIME_SECONDS): number {
   return clampTestTimeSeconds(
-    Math.min(Math.floor((Date.now() - startedAt) / 1000), maxSeconds),
+    Math.min(getWallElapsedSeconds(startedAt), maxSeconds),
   );
+}
+
+/** Format duration for results / elapsed UI (supports hours; no 60:59 clamp). */
+export function formatDurationSeconds(seconds: number): string {
+  const s = Math.max(0, Math.round(Number.isFinite(seconds) ? seconds : 0));
+  const h = Math.floor(s / 3600);
+  const m = Math.floor((s % 3600) / 60);
+  const sec = s % 60;
+  const pad = (n: number) => n.toString().padStart(2, "0");
+  if (h > 0) return `${h}:${pad(m)}:${pad(sec)}`;
+  return `${pad(m)}:${pad(sec)}`;
 }
 
 /** Remove test state from localStorage. Silent – never throws. */
