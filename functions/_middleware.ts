@@ -105,6 +105,10 @@ async function fetchPath(
   return ctx.next(absolutePath);
 }
 
+/** Bot SEO HTML — edge kesh (Googlebot 100k+ so'rovni origin ga yubormaslik uchun) */
+const SEO_EDGE_CACHE =
+  'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800';
+
 function withHtmlHeaders(res: Response, extra?: Record<string, string>): Response {
   const headers = new Headers(res.headers);
   headers.set('Content-Type', 'text/html; charset=utf-8');
@@ -136,7 +140,10 @@ export async function onRequest(ctx: PagesContext): Promise<Response> {
     if (seo) {
       const res = await fetchPath(ctx, seo);
       if (res.ok) {
-        return withHtmlHeaders(res, { Vary: 'User-Agent' });
+        return withHtmlHeaders(res, {
+          'Cache-Control': SEO_EDGE_CACHE,
+          Vary: 'User-Agent',
+        });
       }
     }
     const res = await next();
