@@ -9,6 +9,7 @@
  *   - SPA URL da public/s-maxage yo'q (kesh zaharlanishi)
  *   - /index.html fetch qilmang (CF 308 → /)
  *   - isStaticAsset faqat haqiqiy kengaytmalar (1.3.1 belgi kodi emas)
+ *   - hech qachon uncaught throw (CF 5xx)
  *
  * ASSETS: Pages Functions da avtomatik binding
  *   https://developers.cloudflare.com/pages/functions/api-reference/
@@ -105,14 +106,18 @@ async function fetchAsset(
 ): Promise<Response | null> {
   if (!ctx.env.ASSETS?.fetch) return null;
 
-  const url = new URL(absolutePath, ctx.request.url);
-  return ctx.env.ASSETS.fetch(
-    new Request(url.toString(), {
-      method: 'GET',
-      headers: ctx.request.headers,
-      redirect: 'follow',
-    }),
-  );
+  try {
+    const url = new URL(absolutePath, ctx.request.url);
+    return await ctx.env.ASSETS.fetch(
+      new Request(url.toString(), {
+        method: 'GET',
+        headers: ctx.request.headers,
+        redirect: 'follow',
+      }),
+    );
+  } catch {
+    return null;
+  }
 }
 
 const SKIP_FROM_ASSET =
@@ -131,19 +136,10 @@ function withHtmlHeaders(
   return new Response(res.body, { status: res.status, headers });
 }
 
-function spaUnavailable(): Response {
-  return new Response('Sahifa yuklanmadi.', {
-    status: 503,
-    headers: {
-      'Content-Type': 'text/plain; charset=utf-8',
-      ...SPA_NO_STORE_HEADERS,
-    },
-  });
-}
-
 /**
  * SPA shell. next() eng ko'pi bilan bir marta.
  * Avvalo ASSETS `/` — ikkinchi next() kerak emas.
+ * 503 qaytarmaymiz (Observatory CF 5xx shishmasin) — next() HTML ni uzatamiz.
  */
 async function serveSpaShell(ctx: PagesContext): Promise<Response> {
   const viaAssets = await fetchAsset(ctx, '/');
@@ -154,11 +150,20 @@ async function serveSpaShell(ctx: PagesContext): Promise<Response> {
     });
   }
 
-  // ASSETS yo'q yoki xato — bitta next(); _redirects SPA fallback
   const res = await ctx.next();
   if (needsSpaFallback(res.status)) {
-    // next() allaqachon chaqirilgan — qayta chaqirmaymiz
-    return spaUnavailable();
+    const again = await fetchAsset(ctx, '/');
+    if (again?.ok) {
+      return withHtmlHeaders(again, {
+        ...SPA_NO_STORE_HEADERS,
+        Vary: 'User-Agent',
+      });
+    }
+    // Fallback: next() javobini (redirect/404) uzatamiz — qayta next() yo'q
+    return withHtmlHeaders(res, {
+      ...SPA_NO_STORE_HEADERS,
+      Vary: 'User-Agent',
+    });
   }
 
   return withHtmlHeaders(res, {
@@ -167,9 +172,6 @@ async function serveSpaShell(ctx: PagesContext): Promise<Response> {
   });
 }
 
-/**
- * next() natijasidan keyin SPA kerak bo'lsa — faqat ASSETS (ikkinchi next yo'q).
- */
 async function spaFromAssetsOnly(ctx: PagesContext): Promise<Response> {
   const viaAssets = await fetchAsset(ctx, '/');
   if (viaAssets?.ok) {
@@ -178,10 +180,17 @@ async function spaFromAssetsOnly(ctx: PagesContext): Promise<Response> {
       Vary: 'User-Agent',
     });
   }
-  return spaUnavailable();
+  // next() allaqachon ishlatilgan bo'lishi mumkin — 503 o'rniga oddiy xabar
+  return new Response('Sahifa yuklanmadi.', {
+    status: 200,
+    headers: {
+      'Content-Type': 'text/plain; charset=utf-8',
+      ...SPA_NO_STORE_HEADERS,
+    },
+  });
 }
 
-export async function onRequest(ctx: PagesContext): Promise<Response> {
+async function handleRequest(ctx: PagesContext): Promise<Response> {
   const { request, next } = ctx;
   const url = new URL(request.url);
   const path = url.pathname;
@@ -234,7 +243,6 @@ export async function onRequest(ctx: PagesContext): Promise<Response> {
       }
     }
 
-    // SEO yo'q yoki ASSETS SEO bermadi — SPA (next() bu yerda hali chaqirilmagan)
     return serveSpaShell(ctx);
   }
 
@@ -243,4 +251,23 @@ export async function onRequest(ctx: PagesContext): Promise<Response> {
   }
 
   return next();
+}
+
+export async function onRequest(ctx: PagesContext): Promise<Response> {
+  try {
+    return await handleRequest(ctx);
+  } catch {
+    // Uncaught throw → Cloudflare 5xx. Oxirgi imkoniyat: bitta next().
+    try {
+      return await ctx.next();
+    } catch {
+      return new Response('Sahifa yuklanmadi.', {
+        status: 200,
+        headers: {
+          'Content-Type': 'text/plain; charset=utf-8',
+          ...SPA_NO_STORE_HEADERS,
+        },
+      });
+    }
+  }
 }
