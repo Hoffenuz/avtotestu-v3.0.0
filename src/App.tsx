@@ -23,7 +23,12 @@ class ErrorBoundary extends Component<{ children: ReactNode }, EBState> {
     try {
       // Buzilgan test holati ErrorBoundary ga olib kelishi mumkin
       Object.keys(localStorage)
-        .filter((k) => k.startsWith('testIshlash_') || k.startsWith('testState_'))
+        .filter(
+          (k) =>
+            k.startsWith('testIshlash_') ||
+            k.startsWith('testState_') ||
+            k.startsWith('variant_activeTest_'),
+        )
         .forEach((k) => localStorage.removeItem(k));
     } catch { /* ignore */ }
   }
@@ -38,11 +43,16 @@ class ErrorBoundary extends Component<{ children: ReactNode }, EBState> {
             onClick={() => {
               try {
                 Object.keys(localStorage)
-                  .filter((k) => k.startsWith('testIshlash_') || k.startsWith('testState_'))
+                  .filter(
+                    (k) =>
+                      k.startsWith('testIshlash_') ||
+                      k.startsWith('testState_') ||
+                      k.startsWith('variant_activeTest_'),
+                  )
                   .forEach((k) => localStorage.removeItem(k));
               } catch { /* ignore */ }
               this.setState({ hasError: false });
-              window.location.assign('/test-ishlash');
+              window.location.assign('/');
             }}
             style={{ padding: '10px 24px', background: '#1E2350', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer', fontWeight: 600 }}
           >
