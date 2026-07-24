@@ -1,17 +1,15 @@
 /**
  * Cloudflare Pages Functions — Global Edge Middleware
  *
- * Muammo: CF Pages statik fayllarni (_redirects qoidalaridan OLDIN) yuboradi.
- * Agar public/mavzuli/index.html yoki public/savol/.../index.html bo'lsa,
- * oddiy user ham React SPA o'rniga SEO HTML oladi (refreshda "noto'g'ri sahifa").
+ * Qoida:
+ *   Bot/crawler  → /_seo/{path}/ (SEO snapshot)
+ *   Oddiy user   → SPA shell (/* → /index.html 200 rewrite)
+ *   Asset (.js,.css,...) → next()
  *
- * Qoida (assert-no-spa-shadow.cjs bilan himoyalangan):
- *   SEO snapshot faqat /_seo/... da yotadi.
- *
- * Yechim:
- *   Bot/crawler  → /_seo/{path}/index.html (agar bor)
- *   Oddiy user   → /index.html (React SPA); brauzer URL o'zgarmaydi
- *   Asset (.js,.css,.webp,...) → next()
+ * MUHIM (redirect loop oldini olish):
+ *   - Brauzerga hech qachon 3xx uzatilmasin
+ *   - /index.html ga ichki fetch qilmang: CF Pages 308 → / qiladi
+ *   - SEO uchun /_seo/.../index.html emas, /_seo/.../ ishlating
  */
 
 const BOT_UA =
@@ -33,7 +31,6 @@ const SPA_PREFIXES: string[] = [
   '/desktop',
 ];
 
-/** Aniq asosiy sahifalar uchun SEO snapshot */
 const SEO_EXACT: string[] = [
   '/test-ishlash',
   '/belgilar',
@@ -46,8 +43,15 @@ const SEO_EXACT: string[] = [
   '/desktop',
 ];
 
+/**
+ * SPA URL (/mavzuli va hokazo) uchun HECH QACHON public/s-maxage qo'ymang.
+ * Aks holda CF bot SEO HTML ni /mavzuli kaliti ostida keshlaydi va
+ * oddiy userga ham shu HTML ni beradi (React o'rniga statik SEO — HIT).
+ * Edge kesh faqat /_seo/* da (_headers + Cache Rule 2).
+ */
+const SPA_NO_STORE = 'private, no-store';
+
 function isStaticAsset(pathname: string): boolean {
-  // faqat haqiqiy fayl kengaytmasi; /mavzuli kabi pathlar emas
   return /\.\w{1,8}$/.test(pathname);
 }
 
@@ -63,15 +67,14 @@ function isSpaRoute(pathname: string): boolean {
   return SPA_PREFIXES.some((p) => clean === p || clean.startsWith(p + '/'));
 }
 
-/** Bot uchun SEO snapshot yo'li */
+/** Bot SEO yo'li — trailing slash (CF /index.html → / 308 beradi) */
 function seoSnapshotPath(pathname: string): string | null {
   const clean = cleanPath(pathname);
   if (SEO_EXACT.includes(clean)) {
-    return `/_seo${clean}/index.html`;
+    return `/_seo${clean}/`;
   }
-  // /savol/slug → /_seo/savol/slug/index.html
   if (clean.startsWith('/savol/')) {
-    return `/_seo${clean}/index.html`;
+    return `/_seo${clean}/`;
   }
   return null;
 }
@@ -88,16 +91,15 @@ interface PagesContext {
   data: Record<string, unknown>;
 }
 
-async function fetchPath(
+async function fetchAsset(
   ctx: PagesContext,
   absolutePath: string,
-  followRedirects = true,
 ): Promise<Response> {
   const url = new URL(absolutePath, ctx.request.url);
   const rewritten = new Request(url.toString(), {
     method: 'GET',
     headers: ctx.request.headers,
-    redirect: followRedirects ? 'follow' : 'manual',
+    redirect: 'follow',
   });
 
   if (ctx.env.ASSETS?.fetch) {
@@ -105,25 +107,6 @@ async function fetchPath(
   }
   return ctx.next(absolutePath);
 }
-
-/** SPA shell — 308 /index.html→/ loop oldini olish (brauzerga redirect uzatilmaydi) */
-async function serveSpaShell(ctx: PagesContext): Promise<Response> {
-  let res = await fetchPath(ctx, '/index.html');
-
-  // ASSETS ba'zan 308 → / qaytaradi; _redirects /* → /index.html 200 rewrite
-  if (res.status >= 300 && res.status < 400) {
-    res = await ctx.next();
-  }
-
-  return withHtmlHeaders(res, {
-    'Cache-Control': 'no-store',
-    Vary: 'User-Agent',
-  });
-}
-
-/** Bot SEO HTML — edge kesh (Googlebot 100k+ so'rovni origin ga yubormaslik uchun) */
-const SEO_EDGE_CACHE =
-  'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800';
 
 function withHtmlHeaders(res: Response, extra?: Record<string, string>): Response {
   const headers = new Headers(res.headers);
@@ -134,25 +117,61 @@ function withHtmlHeaders(res: Response, extra?: Record<string, string>): Respons
   return new Response(res.body, { status: res.status, headers });
 }
 
+/**
+ * SPA shell: _redirects /* → /index.html 200.
+ * Ichki /index.html fetch qilinmaydi (308 loop sababi).
+ */
+async function serveSpaShell(ctx: PagesContext): Promise<Response> {
+  const res = await ctx.next();
+
+  if (res.status >= 300 && res.status < 400) {
+    // Fallback: faqat ASSETS + follow (brauzerga 308 ketmasin)
+    const viaAssets = await fetchAsset(ctx, '/');
+    if (viaAssets.ok) {
+      return withHtmlHeaders(viaAssets, {
+        'Cache-Control': SPA_NO_STORE,
+        'CDN-Cache-Control': 'no-store',
+        Vary: 'User-Agent',
+      });
+    }
+    return new Response('Sahifa yuklanmadi.', {
+      status: 503,
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Cache-Control': SPA_NO_STORE,
+        'CDN-Cache-Control': 'no-store',
+      },
+    });
+  }
+
+  return withHtmlHeaders(res, {
+    'Cache-Control': SPA_NO_STORE,
+    'CDN-Cache-Control': 'no-store',
+    Vary: 'User-Agent',
+  });
+}
+
 export async function onRequest(ctx: PagesContext): Promise<Response> {
   const { request, next } = ctx;
   const url = new URL(request.url);
   const path = url.pathname;
 
-  if (isStaticAsset(path)) {
+  // Statik fayllar (js/css/json/webp...)
+  if (isStaticAsset(path) && !path.endsWith('.html')) {
     return next();
   }
 
-  // Bosh sahifa — statik index.html (middleware orqali fetch 308 loop beradi)
+  // Bosh sahifa — to'g'ridan-to'g'ri; rewrite qilmang
   if (path === '/') {
     return next();
   }
 
-  // /index.html — CF 308→/ qiladi; ichki fetch bilan 200 qaytaramiz
+  // /index.html — CF o'zi 308→/ qiladi; SPA uchun ham 200 kerak emas brauzerga
   if (path === '/index.html') {
-    return serveSpaShell(ctx);
+    return Response.redirect(new URL('/', request.url), 308);
   }
 
+  // SEO snapshot to'g'ridan-to'g'ri
   if (path.startsWith('/_seo/')) {
     return next();
   }
@@ -163,20 +182,27 @@ export async function onRequest(ctx: PagesContext): Promise<Response> {
   if (isBot) {
     const seo = seoSnapshotPath(path);
     if (seo) {
-      const res = await fetchPath(ctx, seo);
+      const res = await fetchAsset(ctx, seo);
       if (res.ok) {
+        // URL brauzerda /mavzuli — kesh kaliti ham shu. no-store majburiy.
         return withHtmlHeaders(res, {
-          'Cache-Control': SEO_EDGE_CACHE,
+          'Cache-Control': SPA_NO_STORE,
+          'CDN-Cache-Control': 'no-store',
           Vary: 'User-Agent',
         });
       }
     }
     const res = await next();
-    return withHtmlHeaders(res, { Vary: 'User-Agent' });
+    if (res.status >= 300 && res.status < 400) {
+      return serveSpaShell(ctx);
+    }
+    return withHtmlHeaders(res, {
+      'Cache-Control': SPA_NO_STORE,
+      'CDN-Cache-Control': 'no-store',
+      Vary: 'User-Agent',
+    });
   }
 
-  // Oddiy foydalanuvchi: har qanday SPA route → React
-  // Middleware ishlamasa ham shadow fayl yo'qligi (assert) SPA fallbackni saqlaydi.
   if (isSpaRoute(path)) {
     return serveSpaShell(ctx);
   }

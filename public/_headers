@@ -1,25 +1,17 @@
 /*
-  # React SPA shell — brauzer keshlamasin (login holati o'zgarmasligi uchun).
-  # Edge (s-maxage) ham yo'q: middleware har safar /index.html beradi.
-  Cache-Control: no-store
-
-  # HSTS — 1 yil HTTPS majburiyati; subdomenlar + preload
+  # FAQAT xavfsizlik headerlari.
+  # Cache-Control bu yerda BO'LMASIN — /* no-store /_seo va JSON s-maxage ni
+  # "no-store, public, ..." qilib aralashtirib CF Bypass qilardi.
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-
-  # MIME-type sniffing himoyasi
   X-Content-Type-Options: nosniff
-
-  # Clickjacking blok
   X-Frame-Options: DENY
-
-  # Referrer cheklovi
   Referrer-Policy: strict-origin-when-cross-origin
-
-  # Brauzer imkoniyatlarini cheklash
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
-
-  # Content Security Policy
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' https://pub-ad116decdc154b0f90a4b452c72fa433.r2.dev blob:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://pub-ad116decdc154b0f90a4b452c72fa433.r2.dev; font-src 'self'; frame-ancestors 'none'; object-src 'none'; base-uri 'self'
+
+# SPA shell — brauzer/edge keshlamasin (login holati)
+/
+  Cache-Control: no-store
 
 /index.html
   Cache-Control: no-store
