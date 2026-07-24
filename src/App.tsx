@@ -20,6 +20,12 @@ class ErrorBoundary extends Component<{ children: ReactNode }, EBState> {
   static getDerivedStateFromError() { return { hasError: true }; }
   componentDidCatch(err: Error, info: { componentStack: string }) {
     if (!import.meta.env.PROD) console.error('[ErrorBoundary]', err, info.componentStack);
+    try {
+      // Buzilgan test holati ErrorBoundary ga olib kelishi mumkin
+      Object.keys(localStorage)
+        .filter((k) => k.startsWith('testIshlash_') || k.startsWith('testState_'))
+        .forEach((k) => localStorage.removeItem(k));
+    } catch { /* ignore */ }
   }
   render() {
     if (this.state.hasError) {
@@ -29,7 +35,15 @@ class ErrorBoundary extends Component<{ children: ReactNode }, EBState> {
           <h2 style={{ margin: 0, fontSize: 20, fontWeight: 700 }}>Xatolik yuz berdi</h2>
           <p style={{ margin: 0, color: '#64748b', textAlign: 'center' }}>Sahifa yuklanishida muammo bo'ldi. Iltimos, sahifani yangilang.</p>
           <button
-            onClick={() => { this.setState({ hasError: false }); window.location.reload(); }}
+            onClick={() => {
+              try {
+                Object.keys(localStorage)
+                  .filter((k) => k.startsWith('testIshlash_') || k.startsWith('testState_'))
+                  .forEach((k) => localStorage.removeItem(k));
+              } catch { /* ignore */ }
+              this.setState({ hasError: false });
+              window.location.assign('/test-ishlash');
+            }}
             style={{ padding: '10px 24px', background: '#1E2350', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer', fontWeight: 600 }}
           >
             Qayta yuklash

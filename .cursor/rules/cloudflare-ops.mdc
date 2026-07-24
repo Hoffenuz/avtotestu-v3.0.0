@@ -9,6 +9,8 @@ alwaysApply: true
 
 - Production = **Cloudflare Pages** only. Do not add a duplicate Worker custom domain/route on `www.avtotestu.uz`.
 - Caching Level: Standard. Browser Cache TTL: Respect Existing Headers.
+- **Rocket Loader = OFF** (Speed → Optimization). U yoqilsa `type="module"` buziladi → `/test-ishlash` lazy chunk ErrorBoundary.
+- Auto Minify JS = OFF (ixtiyoriy, lekin xavfsizroq).
 
 ## Cache Rules (required order)
 
