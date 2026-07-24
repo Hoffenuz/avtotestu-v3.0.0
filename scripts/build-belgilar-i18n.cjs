@@ -1,12 +1,22 @@
 /**
  * Builds public/data/belgilar.json with uz_lat / uz_cyr / ru titles
- * from public/belgilar/belgilar.html + official RU names (lex.uz PDD dump).
+ * from scripts/data-sources/belgilar-uzavtoyolbelgi-mirror.html (an offline
+ * HTTrack mirror used only as a one-off data source) + official RU names
+ * (lex.uz PDD dump).
+ *
+ * NOTE: this mirror must NEVER live under public/ — it used to sit at
+ * public/belgilar/belgilar.html and was being served live to real users at
+ * /belgilar/belgilar.html (a scraped copy of a third-party site, bypassing
+ * the SPA entirely). Keep it here instead.
  */
 const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.join(__dirname, "..");
-const HTML_PATH = path.join(ROOT, "public/belgilar/belgilar.html");
+const HTML_PATH = path.join(
+  ROOT,
+  "scripts/data-sources/belgilar-uzavtoyolbelgi-mirror.html"
+);
 const LEX_PATH =
   process.env.LEX_DUMP ||
   path.join(

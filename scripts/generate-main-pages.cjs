@@ -1,8 +1,12 @@
 /**
  * Asosiy sahifalar uchun SEO snapshot (faqat botlar uchun).
- * public/static/*.html → public/_seo/{route}/index.html
+ * scripts/seo-templates/*.html → public/_seo/{route}/index.html
  *
- * MUHIM: public/{route}/index.html ga YOZILMAYDI — aks holda CF Pages
+ * MUHIM: shablonlar public/ ICHIDA emas (scripts/seo-templates/) — aks holda
+ * Vite ularni dist/static/*.html sifatida chiqarib, Cloudflare Pages haqiqiy
+ * foydalanuvchilarga ham xom/eskirgan statik HTML'ni to'g'ridan-to'g'ri
+ * (SPA'siz) berib qo'yadi (masalan /static/test-ishlash.html).
+ * public/{route}/index.html ga ham YOZILMAYDI — aks holda CF Pages
  * refreshda React SPA o'rniga statik HTML beradi (middleware ishlamasa ham).
  * Botlar functions/_middleware.ts orqali /_seo/... ni oladi.
  *
@@ -13,7 +17,7 @@ const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.join(__dirname, "..");
-const STATIC_SRC = path.join(ROOT, "public/static");
+const STATIC_SRC = path.join(ROOT, "scripts/seo-templates");
 const PUBLIC = path.join(ROOT, "public");
 const INDEX_HTML = path.join(ROOT, "index.html");
 const BASE_URL = "https://www.avtotestu.uz";

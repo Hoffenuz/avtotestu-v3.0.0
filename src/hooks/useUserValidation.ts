@@ -92,7 +92,16 @@ export const useUserValidation = (redirectPath = '/auth') => {
           return;
         }
 
-        const exists = await checkUserExists(sessionUser.id);
+        let exists = await checkUserExists(sessionUser.id);
+
+        // Guard against false positives: a brief network blip, or a profile
+        // row not yet written by the on_auth_user_created trigger right
+        // after signup, must NOT force-logout a valid user. Re-check once
+        // after a short delay before concluding the account is gone.
+        if (!exists) {
+          await new Promise((r) => setTimeout(r, 1200));
+          exists = await checkUserExists(sessionUser.id);
+        }
 
         if (exists === null) {
           if (!import.meta.env.PROD) console.log('User existence check inconclusive — skipping logout');

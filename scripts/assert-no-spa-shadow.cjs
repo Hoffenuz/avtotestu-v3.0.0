@@ -86,11 +86,91 @@ function cleanDistShadows() {
     }
   }
 
+  // Eski build qoldig'i: shablon papkasi endi scripts/seo-templates/ da —
+  // dist/static/ bo'lsa, real userlar SPA'siz xom HTML ochadi.
+  const staticDir = path.join(DIST, "static");
+  if (exists(staticDir)) {
+    try {
+      fs.rmSync(staticDir, { recursive: true, force: true });
+      console.log("🗑️  removed dist/static/ (eski shablon qoldig'i)");
+      n++;
+    } catch {
+      /* ignore */
+    }
+  }
+
+  // Eski build qoldig'i: HTTrack ko'chirma endi scripts/data-sources/ da.
+  const belgilarStray = path.join(DIST, "belgilar", "belgilar.html");
+  if (exists(belgilarStray) && rmFile(belgilarStray)) {
+    console.log("🗑️  removed dist/belgilar/belgilar.html (eski ko'chirma qoldig'i)");
+    n++;
+  }
+
   return n;
 }
 
-function collectErrors(baseDir, label) {
+/**
+ * public/static/ eski shablon joyi — endi scripts/seo-templates/ da.
+ * Agar qayta paydo bo'lsa, dist ga xom HTML tarqaladi va real
+ * userlar /static/*.html ni to'g'ridan-to'g'ri (SPA'siz) ochib qoladi.
+ */
+function collectStaticTemplateLeak(baseDir, label) {
   const errors = [];
+  const staticDir = path.join(baseDir, "static");
+  if (!exists(staticDir)) return errors;
+  errors.push(
+    `${label}/static/ topildi — bu shablon papka public/ ichida bo'lmasligi kerak ` +
+      `(real userlar /static/*.html ni SPA'siz ochadi). scripts/seo-templates/ ga ko'chiring.`,
+  );
+  return errors;
+}
+
+/**
+ * Google/Yandex saytga tasdiqlash fayllari kabi bitta-fayl root
+ * verifikatsiyalarga ruxsat — qolgan har qanday .html public/ ichida
+ * (public/_seo/ dan tashqari) xato hisoblanadi. Masalan
+ * public/belgilar/belgilar.html — HTTrack orqali ko'chirilgan boshqa
+ * saytning ko'chirmasi edi va /belgilar/belgilar.html da SPA'siz
+ * to'g'ridan-to'g'ri userlarga xizmat qilib turgan edi.
+ */
+const ROOT_VERIFICATION_HTML = /^(google|yandex_|baidu_verify_)[a-z0-9]+\.html$/i;
+
+function collectStrayHtmlLeak(baseDir, label) {
+  const errors = [];
+  if (!exists(baseDir)) return errors;
+
+  const walk = (dir, rel) => {
+    for (const name of fs.readdirSync(dir)) {
+      if (name === "_seo") continue;
+      const full = path.join(dir, name);
+      const r = rel ? `${rel}/${name}` : name;
+      let st;
+      try {
+        st = fs.statSync(full);
+      } catch {
+        continue;
+      }
+      if (st.isDirectory()) {
+        walk(full, r);
+      } else if (name.toLowerCase().endsWith(".html")) {
+        if (!rel && name === "index.html") continue; // SPA entry (dist/index.html)
+        if (!rel && ROOT_VERIFICATION_HTML.test(name)) continue; // root-level site verification file
+        errors.push(
+          `${label}/${r} — public/ ichida chetdagi .html (faqat public/_seo/ ruxsat; ` +
+            `bu fayl real foydalanuvchilarga SPA'siz to'g'ridan-to'g'ri ochiladi)`,
+        );
+      }
+    }
+  };
+  walk(baseDir, "");
+  return errors;
+}
+
+function collectErrors(baseDir, label) {
+  const errors = [
+    ...collectStaticTemplateLeak(baseDir, label),
+    ...collectStrayHtmlLeak(baseDir, label),
+  ];
   if (!exists(baseDir)) return errors;
 
   for (const route of SPA_ROOTS) {
