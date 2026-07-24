@@ -91,18 +91,34 @@ interface PagesContext {
 async function fetchPath(
   ctx: PagesContext,
   absolutePath: string,
+  followRedirects = true,
 ): Promise<Response> {
   const url = new URL(absolutePath, ctx.request.url);
   const rewritten = new Request(url.toString(), {
     method: 'GET',
     headers: ctx.request.headers,
-    redirect: 'manual',
+    redirect: followRedirects ? 'follow' : 'manual',
   });
 
   if (ctx.env.ASSETS?.fetch) {
     return ctx.env.ASSETS.fetch(rewritten);
   }
   return ctx.next(absolutePath);
+}
+
+/** SPA shell — 308 /index.html→/ loop oldini olish (brauzerga redirect uzatilmaydi) */
+async function serveSpaShell(ctx: PagesContext): Promise<Response> {
+  let res = await fetchPath(ctx, '/index.html');
+
+  // ASSETS ba'zan 308 → / qaytaradi; _redirects /* → /index.html 200 rewrite
+  if (res.status >= 300 && res.status < 400) {
+    res = await ctx.next();
+  }
+
+  return withHtmlHeaders(res, {
+    'Cache-Control': 'no-store',
+    Vary: 'User-Agent',
+  });
 }
 
 /** Bot SEO HTML — edge kesh (Googlebot 100k+ so'rovni origin ga yubormaslik uchun) */
@@ -127,8 +143,17 @@ export async function onRequest(ctx: PagesContext): Promise<Response> {
     return next();
   }
 
-  // SEO snapshot va SPA shell — to'g'ridan-to'g'ri
-  if (path === '/index.html' || path.startsWith('/_seo/')) {
+  // Bosh sahifa — statik index.html (middleware orqali fetch 308 loop beradi)
+  if (path === '/') {
+    return next();
+  }
+
+  // /index.html — CF 308→/ qiladi; ichki fetch bilan 200 qaytaramiz
+  if (path === '/index.html') {
+    return serveSpaShell(ctx);
+  }
+
+  if (path.startsWith('/_seo/')) {
     return next();
   }
 
@@ -153,11 +178,7 @@ export async function onRequest(ctx: PagesContext): Promise<Response> {
   // Oddiy foydalanuvchi: har qanday SPA route → React
   // Middleware ishlamasa ham shadow fayl yo'qligi (assert) SPA fallbackni saqlaydi.
   if (isSpaRoute(path)) {
-    const res = await fetchPath(ctx, '/index.html');
-    return withHtmlHeaders(res, {
-      'Cache-Control': 'no-store',
-      Vary: 'User-Agent',
-    });
+    return serveSpaShell(ctx);
   }
 
   return next();
