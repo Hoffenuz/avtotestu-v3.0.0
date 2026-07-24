@@ -123,35 +123,45 @@ export default function MavzuliTestlar() {
   // Storage keys are user-specific to prevent test state leaking across users on the same device.
   const mavzuliStorageKey = `mavzuli_activeTest_${user?.id ?? 'guest'}`;
 
-  const getInitialState = () => {
+  const [selectedTopic, setSelectedTopic] = useState<string | null>(null);
+  const [testStarted, setTestStarted] = useState(false);
+  const [sessionId, setSessionId] = useState<string | null>(null);
+  const [startError, setStartError] = useState<string | null>(null);
+
+  useEffect(() => {
     try {
       const saved = localStorage.getItem(mavzuliStorageKey);
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (parsed.testStarted && parsed.selectedTopic) {
-          // Only restore if the in-progress test state still exists
-          const userId = user?.id ?? 'guest';
-          const testKey = `testState_mavzuli_${parsed.selectedTopic}_${userId}`;
-          if (!localStorage.getItem(testKey)) {
-            localStorage.removeItem(mavzuliStorageKey);
-            return { selectedTopic: null as string | null, testStarted: false, sessionId: null as string | null };
-          }
-          return {
-            selectedTopic: parsed.selectedTopic as string,
-            testStarted: true,
-            sessionId: (parsed.sessionId ?? null) as string | null,
-          };
-        }
+      if (!saved) {
+        setTestStarted(false);
+        setSelectedTopic(null);
+        setSessionId(null);
+        return;
       }
-    } catch (e) { /* ignore */ }
-    return { selectedTopic: null as string | null, testStarted: false, sessionId: null as string | null };
-  };
-
-  const initial = getInitialState();
-  const [selectedTopic, setSelectedTopic] = useState<string | null>(initial.selectedTopic);
-  const [testStarted, setTestStarted] = useState(initial.testStarted);
-  const [sessionId, setSessionId] = useState<string | null>(initial.sessionId);
-  const [startError, setStartError] = useState<string | null>(null);
+      const parsed = JSON.parse(saved);
+      if (parsed.testStarted && parsed.selectedTopic) {
+        const userId = user?.id ?? 'guest';
+        const testKey = `testState_mavzuli_${parsed.selectedTopic}_${userId}`;
+        if (!localStorage.getItem(testKey)) {
+          localStorage.removeItem(mavzuliStorageKey);
+          setTestStarted(false);
+          setSelectedTopic(null);
+          setSessionId(null);
+          return;
+        }
+        setTestStarted(true);
+        setSelectedTopic(parsed.selectedTopic as string);
+        setSessionId((parsed.sessionId ?? null) as string | null);
+        return;
+      }
+      setTestStarted(false);
+      setSelectedTopic(null);
+      setSessionId(null);
+    } catch {
+      setTestStarted(false);
+      setSelectedTopic(null);
+      setSessionId(null);
+    }
+  }, [mavzuliStorageKey, user?.id]);
 
   // PRO users can enter mavzuli; guests see PRO gate (no auth redirect)
   const { hasAccess, loading: accessLoading } = useProAccess({

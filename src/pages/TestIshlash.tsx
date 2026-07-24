@@ -38,35 +38,48 @@ export default function TestIshlash() {
   // Storage key is user-specific to prevent test state leaking across users on the same device.
   const testIshlashStorageKey = `testIshlash_activeTest_${user?.id ?? 'guest'}`;
 
-  // Restore active test from localStorage
-  const getInitialState = () => {
+  const [testStarted, setTestStarted] = useState(false);
+  const [sessionError, setSessionError] = useState<string | null>(null);
+  const [activeSession, setActiveSession] = useState<{
+    sessionId: string | null;
+    isPremium: boolean;
+    testStateKey?: string;
+    dataFile?: string;
+  } | null>(null);
+  const [questionCount, setQuestionCount] = useState<20 | 50>(20);
+
+  // Auth guest → user o'tganda yoki akkaunt almashganda to'g'ri storage'dan restore qilish.
+  // useState(getInitialState()) faqat birinchi mount'da ishlaydi — shu payt user hali null bo'lishi mumkin.
+  useEffect(() => {
     try {
       const saved = localStorage.getItem(testIshlashStorageKey);
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (parsed.testStarted && parsed.activeSession) {
-          // Only restore if the in-progress test state still exists
-          const testStateKey: string | undefined = parsed.activeSession.testStateKey;
-          if (testStateKey && !localStorage.getItem(testStateKey)) {
-            localStorage.removeItem(testIshlashStorageKey);
-            return { testStarted: false, activeSession: null, questionCount: 20 as 20 | 50 };
-          }
-          return {
-            testStarted: true,
-            activeSession: parsed.activeSession,
-            questionCount: (parsed.questionCount || 20) as 20 | 50,
-          };
-        }
+      if (!saved) {
+        setTestStarted(false);
+        setActiveSession(null);
+        return;
       }
-    } catch (e) { /* ignore */ }
-    return { testStarted: false, activeSession: null, questionCount: 20 as 20 | 50 };
-  };
-
-  const initial = getInitialState();
-  const [testStarted, setTestStarted] = useState(initial.testStarted);
-  const [sessionError, setSessionError] = useState<string | null>(null);
-  const [activeSession, setActiveSession] = useState<{ sessionId: string | null; isPremium: boolean; testStateKey?: string; dataFile?: string } | null>(initial.activeSession);
-  const [questionCount, setQuestionCount] = useState<20 | 50>(initial.questionCount as 20 | 50);
+      const parsed = JSON.parse(saved);
+      if (parsed.testStarted && parsed.activeSession) {
+        const testStateKey: string | undefined = parsed.activeSession.testStateKey;
+        if (testStateKey && !localStorage.getItem(testStateKey)) {
+          localStorage.removeItem(testIshlashStorageKey);
+          setTestStarted(false);
+          setActiveSession(null);
+          setQuestionCount(20);
+          return;
+        }
+        setTestStarted(true);
+        setActiveSession(parsed.activeSession);
+        setQuestionCount((parsed.questionCount || 20) as 20 | 50);
+        return;
+      }
+      setTestStarted(false);
+      setActiveSession(null);
+    } catch {
+      setTestStarted(false);
+      setActiveSession(null);
+    }
+  }, [testIshlashStorageKey]);
 
   // Persist active test state
   useEffect(() => {

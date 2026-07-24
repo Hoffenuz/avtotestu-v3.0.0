@@ -33,14 +33,15 @@ export function MainLayout({ children }: MainLayoutProps) {
     setMobileMenuOpen(false);
   }, [location.pathname]);
 
+  // Faqat menu ochiq bo'lganda scroll bloklaymiz; yopilganda oldingi qiymatni qaytaramiz.
+  // Eski kod menu yopilganda body.style.overflow ni 'hidden' deb o'qib qayta yozardi → scroll qotib qolardi.
   useEffect(() => {
-    const originalOverflow = document.body.style.overflow;
-    if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = originalOverflow;
-    }
-    return () => { document.body.style.overflow = originalOverflow; };
+    if (!mobileMenuOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
   }, [mobileMenuOpen]);
 
   const navLinks = useMemo(() => [
@@ -117,8 +118,14 @@ export function MainLayout({ children }: MainLayoutProps) {
   );
 
   const getInitials = useCallback((name: string | null | undefined) => {
-    if (!name) return "U";
-    return name.split(" ").map(n => n[0]).join("").toUpperCase().slice(0, 2);
+    if (!name?.trim()) return "U";
+    return name
+      .trim()
+      .split(/\s+/)
+      .map((part) => part[0])
+      .join("")
+      .toUpperCase()
+      .slice(0, 2) || "U";
   }, []);
 
   if (isMavzuliSection) {

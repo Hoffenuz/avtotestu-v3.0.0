@@ -18,46 +18,51 @@ export default function Variant() {
 
   const variantStorageKey = `variant_activeTest_${user?.id ?? 'guest'}`;
 
-  const getInitialState = () => {
+  const [testStarted, setTestStarted] = useState(false);
+  const [selectedVariant, setSelectedVariant] = useState<number | null>(null);
+  const [dataVariant, setDataVariant] = useState<number | null>(null);
+  const [sessionId, setSessionId] = useState<string | null>(null);
+  const [startError, setStartError] = useState<string | null>(null);
+
+  useEffect(() => {
     try {
       const saved = localStorage.getItem(variantStorageKey);
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (parsed.testStarted && parsed.selectedVariant != null) {
-          const userId = user?.id ?? 'guest';
-          const testKey = `testState_variant_${parsed.selectedVariant}_${userId}`;
-          if (!localStorage.getItem(testKey)) {
-            localStorage.removeItem(variantStorageKey);
-            return {
-              testStarted: false,
-              selectedVariant: null as number | null,
-              dataVariant: null as number | null,
-              sessionId: null as string | null,
-            };
-          }
-          return {
-            testStarted: true,
-            selectedVariant: parsed.selectedVariant as number,
-            dataVariant: (parsed.dataVariant ?? parsed.selectedVariant) as number,
-            sessionId: (parsed.sessionId ?? null) as string | null,
-          };
-        }
+      if (!saved) {
+        setTestStarted(false);
+        setSelectedVariant(null);
+        setDataVariant(null);
+        setSessionId(null);
+        return;
       }
-    } catch (e) { /* ignore */ }
-    return {
-      testStarted: false,
-      selectedVariant: null as number | null,
-      dataVariant: null as number | null,
-      sessionId: null as string | null,
-    };
-  };
-
-  const initial = getInitialState();
-  const [testStarted, setTestStarted] = useState(initial.testStarted);
-  const [selectedVariant, setSelectedVariant] = useState<number | null>(initial.selectedVariant);
-  const [dataVariant, setDataVariant] = useState<number | null>(initial.dataVariant);
-  const [sessionId, setSessionId] = useState<string | null>(initial.sessionId);
-  const [startError, setStartError] = useState<string | null>(null);
+      const parsed = JSON.parse(saved);
+      if (parsed.testStarted && parsed.selectedVariant != null) {
+        const userId = user?.id ?? 'guest';
+        const testKey = `testState_variant_${parsed.selectedVariant}_${userId}`;
+        if (!localStorage.getItem(testKey)) {
+          localStorage.removeItem(variantStorageKey);
+          setTestStarted(false);
+          setSelectedVariant(null);
+          setDataVariant(null);
+          setSessionId(null);
+          return;
+        }
+        setTestStarted(true);
+        setSelectedVariant(parsed.selectedVariant as number);
+        setDataVariant((parsed.dataVariant ?? parsed.selectedVariant) as number);
+        setSessionId((parsed.sessionId ?? null) as string | null);
+        return;
+      }
+      setTestStarted(false);
+      setSelectedVariant(null);
+      setDataVariant(null);
+      setSessionId(null);
+    } catch {
+      setTestStarted(false);
+      setSelectedVariant(null);
+      setDataVariant(null);
+      setSessionId(null);
+    }
+  }, [variantStorageKey, user?.id]);
 
   useEffect(() => {
     try {
