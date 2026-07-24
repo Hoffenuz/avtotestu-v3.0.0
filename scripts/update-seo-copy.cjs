@@ -6,10 +6,12 @@ const DIR = path.join(__dirname, "..", "src", "locales");
 const updates = {
   "uz-lat.json": {
     home: {
-      heroTitle: "Avtotestlar — YHQ onlayn testlari",
+      heroTitle: "Avtotestlar.uz — Haydovchilik imtihoni 2026",
       badge: "2026 YHQ savollari",
       btnMavzuli: "Mavzular bo'yicha",
-      seoTitle: "Avtotestlar.uz — prava / YHQ onlayn test",
+      seoTitle: "Avtotestlar.uz — Haydovchilik imtihoni 2026",
+      seoDescription:
+        "Haydovchilik guvohnomasi imtihoniga tayyorlaning. 2026 yil O'zbekiston YHQ testlari, yo'l belgilari va 63 variant — bepul onlayn Avtotestlar.uz.",
       proSectionDesc:
         "To'liq savollar bazasi, qo'shimcha videodarslar va imtihonbop savollar bir joyda.",
     },
@@ -23,10 +25,12 @@ const updates = {
   },
   "uz.json": {
     home: {
-      heroTitle: "Avtotestlar — ЙҲҚ онлайн тестлари",
+      heroTitle: "Avtotestlar.uz — Ҳайдовчилик имтиҳони 2026",
       badge: "2026 ЙҲҚ саволлари",
       btnMavzuli: "Мавзулар бўйича",
-      seoTitle: "Avtotestlar.uz — права / ЙҲҚ онлайн тест",
+      seoTitle: "Avtotestlar.uz — Haydovchilik imtihoni 2026",
+      seoDescription:
+        "Haydovchilik guvohnomasi imtihoniga tayyorlaning. 2026 yil O'zbekiston YHQ testlari, yo'l belgilari va 63 variant — bepul onlayn Avtotestlar.uz.",
       proSectionDesc:
         "Тўлиқ саволлар базаси, қўшимча видеодарслар ва имтиҳонбоп саволлар бир жойда.",
     },
@@ -40,10 +44,12 @@ const updates = {
   },
   "ru.json": {
     home: {
-      heroTitle: "Avtotestlar — ПДД онлайн тесты",
+      heroTitle: "Avtotestlar.uz — Экзамен на права 2026",
       badge: "Вопросы ПДД 2026",
       btnMavzuli: "По темам",
-      seoTitle: "Avtotestlar.uz — права / ПДД онлайн тест",
+      seoTitle: "Avtotestlar.uz — Экзамен на права 2026",
+      seoDescription:
+        "Готовьтесь к экзамену на водительские права. Тесты ПДД Узбекистана 2026, дорожные знаки и 63 варианта — бесплатно онлайн на Avtotestlar.uz.",
       proSectionDesc:
         "Полная база вопросов, дополнительные видеоуроки и экзаменационные задания в одном месте.",
     },
