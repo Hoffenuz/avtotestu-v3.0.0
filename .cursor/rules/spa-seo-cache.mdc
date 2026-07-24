@@ -1,0 +1,49 @@
+---
+description: SPA + bot SEO + Cloudflare kesh — redirect/loop va kesh zaharlanishini oldini olish
+alwaysApply: true
+---
+
+# avtotestu.uz — SPA / SEO / Cache qoidalari
+
+## Arxitektura (buzilmasin)
+
+- **User** → React SPA (`index.html` + `#root`). Brauzer URL o‘zgarmaydi.
+- **Bot** → `public/_seo/.../` statik HTML (middleware orqali body).
+- SEO fayllar **faqat** `public/_seo/` da. SPA route papkasida `index.html` **BO‘LMASIN** (`assert-no-spa-shadow`).
+- Canonical domen: `https://www.avtotestu.uz` (apex → www 301).
+
+## QAT’IY TAQIQLAR
+
+1. SPA URL (`/mavzuli`, `/belgilar`, `/savol/...` va hokazo) javobiga **HECH QACHON** `Cache-Control: public` yoki `s-maxage` qo‘ymang.
+2. Middleware ichida `/index.html` ni fetch qilib brauzerga **3xx uzatmang** (CF `308 → /` loop).
+3. Cloudflare Cache Rule da botlar uchun SPA pathlarni **Eligible for cache** qilmang (kesh zaharlanadi: user SEO HTML oladi).
+4. `public/_headers` da `/*` ga global `Cache-Control: no-store` qo‘ymang — `/_seo` va JSON `s-maxage` bilan aralashib Bypass/chaos beradi.
+
+## To‘g‘ri kesh
+
+| Path | Kesh |
+|------|------|
+| `/`, SPA routes, `/auth`, `/profile` | `private, no-store` (+ `CDN-Cache-Control: no-store`) |
+| `/_seo/*`, `/assets/*`, JSON, rasmlar | `public` + `s-maxage` |
+| Cache Rules | Bypass: auth + **barcha SPA HTML pathlar**; Eligible: faqat `/_seo/`, `/assets/`, JSON |
+
+Dashboard expression: `scripts/cloudflare-spa-bypass.expression.txt`  
+Qo‘llanma: `npm run cf:ops` (Purge: `npm run cf:purge` + `CLOUDFLARE_API_TOKEN` / `ZONE_ID`)
+
+## Bot SEO saqlansin, lekin xavfsiz
+
+- Botga SEO body berish **mumkin** (SEO o‘sishi muhim).
+- Lekin SPA URL da javob **keshlanmasin**. Edge kesh faqat `/_seo/*` da.
+- `Vary: User-Agent` yetarli himoya emas — Cache Rule **Bypass SPA** majburiy.
+
+## O‘zgartirishdan oldin tekshir
+
+```bash
+curl.exe -sI -A "Mozilla/5.0" "https://www.avtotestu.uz/mavzuli"
+# kutiladi: no-store, BYPASS/DYNAMIC, body da id="root"
+
+curl.exe -s -A "Googlebot" "https://www.avtotestu.uz/mavzuli" | findstr "id=.root <h1>"
+# user: root bor; bot: SEO H1 (root yo'q) — lekin user hech qachon SEO HIT olmasin
+```
+
+Kesh zaharlanganda: **Purge Everything**, keyin SPA Bypass rule ni tekshir.

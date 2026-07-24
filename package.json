@@ -11,6 +11,8 @@
     "postbuild": "node scripts/assert-no-spa-shadow.cjs --fix",
     "seo:main": "node scripts/generate-main-pages.cjs",
     "seo:check": "node scripts/assert-no-spa-shadow.cjs",
+    "cf:ops": "node scripts/cloudflare-cache-ops.cjs",
+    "cf:purge": "node scripts/cloudflare-cache-ops.cjs purge",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",

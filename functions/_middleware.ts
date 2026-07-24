@@ -1,15 +1,17 @@
 /**
  * Cloudflare Pages Functions — Global Edge Middleware
  *
- * Qoida:
- *   Bot/crawler  → /_seo/{path}/ (SEO snapshot)
- *   Oddiy user   → SPA shell (/* → /index.html 200 rewrite)
- *   Asset (.js,.css,...) → next()
+ * User  → React SPA (/* → /index.html 200)
+ * Bot   → /_seo/.../ snapshot (faqat HTML body; SPA URL HECH QACHON keshlanmaydi)
  *
- * MUHIM (redirect loop oldini olish):
- *   - Brauzerga hech qachon 3xx uzatilmasin
- *   - /index.html ga ichki fetch qilmang: CF Pages 308 → / qiladi
- *   - SEO uchun /_seo/.../index.html emas, /_seo/.../ ishlating
+ * REDIRECT LOOP:
+ *   /index.html fetch qilmang (CF 308 → /)
+ *
+ * KESH ZAHARLANISH:
+ *   Bot SEO ni /mavzuli URL da public/s-maxage bilan bermang —
+ *   CF edge HIT qilib oddiy userga ham SEO HTML beradi.
+ *   SPA pathlarda faqat: private, no-store + CDN-Cache-Control: no-store
+ *   Dashboard: SPA pathlar uchun Cache Rule = Bypass (majburiy)
  */
 
 const BOT_UA =
@@ -43,13 +45,14 @@ const SEO_EXACT: string[] = [
   '/desktop',
 ];
 
-/**
- * SPA URL (/mavzuli va hokazo) uchun HECH QACHON public/s-maxage qo'ymang.
- * Aks holda CF bot SEO HTML ni /mavzuli kaliti ostida keshlaydi va
- * oddiy userga ham shu HTML ni beradi (React o'rniga statik SEO — HIT).
- * Edge kesh faqat /_seo/* da (_headers + Cache Rule 2).
- */
-const SPA_NO_STORE = 'private, no-store';
+/** SPA URL javoblari — edge ham, brauzer ham keshlamasin */
+const SPA_NO_STORE_HEADERS: Record<string, string> = {
+  'Cache-Control': 'private, no-store, max-age=0, must-revalidate',
+  'CDN-Cache-Control': 'no-store',
+  'Cloudflare-CDN-Cache-Control': 'no-store',
+  Pragma: 'no-cache',
+  Expires: '0',
+};
 
 function isStaticAsset(pathname: string): boolean {
   return /\.\w{1,8}$/.test(pathname);
@@ -67,15 +70,10 @@ function isSpaRoute(pathname: string): boolean {
   return SPA_PREFIXES.some((p) => clean === p || clean.startsWith(p + '/'));
 }
 
-/** Bot SEO yo'li — trailing slash (CF /index.html → / 308 beradi) */
 function seoSnapshotPath(pathname: string): string | null {
   const clean = cleanPath(pathname);
-  if (SEO_EXACT.includes(clean)) {
-    return `/_seo${clean}/`;
-  }
-  if (clean.startsWith('/savol/')) {
-    return `/_seo${clean}/`;
-  }
+  if (SEO_EXACT.includes(clean)) return `/_seo${clean}/`;
+  if (clean.startsWith('/savol/')) return `/_seo${clean}/`;
   return null;
 }
 
@@ -108,29 +106,30 @@ async function fetchAsset(
   return ctx.next(absolutePath);
 }
 
-function withHtmlHeaders(res: Response, extra?: Record<string, string>): Response {
-  const headers = new Headers(res.headers);
+const SKIP_FROM_ASSET =
+  /^(cache-control|cdn-cache-control|cloudflare-cdn-cache-control|age|expires|etag|last-modified|pragma|vary)$/i;
+
+function withHtmlHeaders(
+  res: Response,
+  extra: Record<string, string>,
+): Response {
+  const headers = new Headers();
+  res.headers.forEach((value, key) => {
+    if (!SKIP_FROM_ASSET.test(key)) headers.set(key, value);
+  });
   headers.set('Content-Type', 'text/html; charset=utf-8');
-  if (extra) {
-    for (const [k, v] of Object.entries(extra)) headers.set(k, v);
-  }
+  for (const [k, v] of Object.entries(extra)) headers.set(k, v);
   return new Response(res.body, { status: res.status, headers });
 }
 
-/**
- * SPA shell: _redirects /* → /index.html 200.
- * Ichki /index.html fetch qilinmaydi (308 loop sababi).
- */
 async function serveSpaShell(ctx: PagesContext): Promise<Response> {
   const res = await ctx.next();
 
   if (res.status >= 300 && res.status < 400) {
-    // Fallback: faqat ASSETS + follow (brauzerga 308 ketmasin)
     const viaAssets = await fetchAsset(ctx, '/');
     if (viaAssets.ok) {
       return withHtmlHeaders(viaAssets, {
-        'Cache-Control': SPA_NO_STORE,
-        'CDN-Cache-Control': 'no-store',
+        ...SPA_NO_STORE_HEADERS,
         Vary: 'User-Agent',
       });
     }
@@ -138,15 +137,13 @@ async function serveSpaShell(ctx: PagesContext): Promise<Response> {
       status: 503,
       headers: {
         'Content-Type': 'text/plain; charset=utf-8',
-        'Cache-Control': SPA_NO_STORE,
-        'CDN-Cache-Control': 'no-store',
+        ...SPA_NO_STORE_HEADERS,
       },
     });
   }
 
   return withHtmlHeaders(res, {
-    'Cache-Control': SPA_NO_STORE,
-    'CDN-Cache-Control': 'no-store',
+    ...SPA_NO_STORE_HEADERS,
     Vary: 'User-Agent',
   });
 }
@@ -156,22 +153,19 @@ export async function onRequest(ctx: PagesContext): Promise<Response> {
   const url = new URL(request.url);
   const path = url.pathname;
 
-  // Statik fayllar (js/css/json/webp...)
   if (isStaticAsset(path) && !path.endsWith('.html')) {
     return next();
   }
 
-  // Bosh sahifa — to'g'ridan-to'g'ri; rewrite qilmang
   if (path === '/') {
     return next();
   }
 
-  // /index.html — CF o'zi 308→/ qiladi; SPA uchun ham 200 kerak emas brauzerga
   if (path === '/index.html') {
     return Response.redirect(new URL('/', request.url), 308);
   }
 
-  // SEO snapshot to'g'ridan-to'g'ri
+  // /_seo/* — faqat shu yerda edge kesh ruxsat (Cache Rule 2)
   if (path.startsWith('/_seo/')) {
     return next();
   }
@@ -184,10 +178,9 @@ export async function onRequest(ctx: PagesContext): Promise<Response> {
     if (seo) {
       const res = await fetchAsset(ctx, seo);
       if (res.ok) {
-        // URL brauzerda /mavzuli — kesh kaliti ham shu. no-store majburiy.
+        // Body SEO, lekin URL /mavzuli — keshlanmasin!
         return withHtmlHeaders(res, {
-          'Cache-Control': SPA_NO_STORE,
-          'CDN-Cache-Control': 'no-store',
+          ...SPA_NO_STORE_HEADERS,
           Vary: 'User-Agent',
         });
       }
@@ -197,8 +190,7 @@ export async function onRequest(ctx: PagesContext): Promise<Response> {
       return serveSpaShell(ctx);
     }
     return withHtmlHeaders(res, {
-      'Cache-Control': SPA_NO_STORE,
-      'CDN-Cache-Control': 'no-store',
+      ...SPA_NO_STORE_HEADERS,
       Vary: 'User-Agent',
     });
   }

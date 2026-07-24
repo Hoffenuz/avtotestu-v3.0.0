@@ -1,0 +1,32 @@
+---
+description: Cloudflare Pages production ops — Pages-only, Cache Rules, purge
+alwaysApply: true
+---
+
+# Production ops (avtotestu.uz)
+
+## Hosting
+
+- Production = **Cloudflare Pages** only. Do not add a duplicate Worker custom domain/route on `www.avtotestu.uz`.
+- Caching Level: Standard. Browser Cache TTL: Respect Existing Headers.
+
+## Cache Rules (required order)
+
+1. Bypass auth/profil (`/auth`, `/profile`)
+2. **Bypass SPA HTML** — expression in `scripts/cloudflare-spa-bypass.expression.txt`
+3. Eligible static — `/_seo/`, `/assets/`, `/images/`, `*.json`, sitemap, robots
+4. Never: “botlar Eligible” on SPA URLs (causes SEO cache poison)
+
+## After deploy / cache poison
+
+```bash
+npm run cf:ops          # print dashboard steps
+npm run cf:purge        # needs CLOUDFLARE_API_TOKEN + CLOUDFLARE_ZONE_ID
+```
+
+Dashboard fallback: Caching → Purge Everything.
+
+## Verify
+
+User `/mavzuli`: `id="root"`, `no-store`, not SEO HIT.  
+Bot `/mavzuli`: SEO snapshot body; must not poison user cache.

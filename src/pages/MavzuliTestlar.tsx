@@ -235,8 +235,8 @@ export default function MavzuliTestlar() {
     return (
       <MainLayout>
         <SEO
-          title="Mavzular — YHQ testlari"
-          description="Mavzular bo'yicha YHQ testlari: yo'l belgilari, svetofor, chorrahalar, tezlik va boshqalar. Haydovchilik guvohnomasi imtihoniga tayyorgarlik."
+          title="Mavzuli testlar 2026 | Avtotestlar.uz"
+          description="YHQ mavzulari bo'yicha testlar: yo'l belgilari, svetofor, ustunlik, to'xtash va to'xtab turish qoidalari. Har bir mavzuni alohida o'rganing."
           path="/mavzuli"
           keywords="mavzuli test, YHQ mavzular, prava test, yo'l belgilari testi"
         />
@@ -250,8 +250,8 @@ export default function MavzuliTestlar() {
     return (
       <MainLayout>
         <SEO
-          title="Mavzular — YHQ testlari"
-          description="Mavzular bo'yicha YHQ testlari: yo'l belgilari, svetofor, chorrahalar, tezlik va boshqalar. Haydovchilik guvohnomasi imtihoniga tayyorgarlik."
+          title="Mavzuli testlar 2026 | Avtotestlar.uz"
+          description="YHQ mavzulari bo'yicha testlar: yo'l belgilari, svetofor, ustunlik, to'xtash va to'xtab turish qoidalari. Har bir mavzuni alohida o'rganing."
           path="/mavzuli"
           keywords="mavzuli test, YHQ mavzular, prava test, yo'l belgilari testi"
         />
@@ -264,8 +264,8 @@ export default function MavzuliTestlar() {
     return (
       <MainLayout>
         <SEO
-          title="Mavzular — YHQ testlari"
-          description="Mavzular bo'yicha YHQ testlari: yo'l belgilari, svetofor, chorrahalar, tezlik va boshqalar. Haydovchilik guvohnomasi imtihoniga tayyorgarlik."
+          title="Mavzuli testlar 2026 | Avtotestlar.uz"
+          description="YHQ mavzulari bo'yicha testlar: yo'l belgilari, svetofor, ustunlik, to'xtash va to'xtab turish qoidalari. Har bir mavzuni alohida o'rganing."
           path="/mavzuli"
           keywords="mavzuli test, YHQ mavzular, prava test, yo'l belgilari testi"
         />
@@ -315,8 +315,8 @@ export default function MavzuliTestlar() {
   return (
     <MainLayout>
       <SEO
-        title="Mavzular — YHQ testlari"
-        description="Mavzular bo'yicha YHQ testlari: yo'l belgilari, svetofor, chorrahalar, tezlik, to'xtash qoidalari va boshqalar. Prava imtihoniga tayyorgarlik."
+        title="Mavzuli testlar 2026 | Avtotestlar.uz"
+        description="YHQ mavzulari bo'yicha testlar: yo'l belgilari, svetofor, ustunlik, to'xtash va to'xtab turish qoidalari. Har bir mavzuni alohida o'rganing. Prava imtihoniga tayyorgarlik."
         path="/mavzuli"
         keywords="mavzuli test, YHQ mavzulari, yo'l qoidalari, chorrahalar, tezlik qoidalari"
       />

@@ -1,0 +1,33 @@
+---
+description: Cloudflare Pages middleware, _headers, _redirects o‘zgartirish qoidalari
+globs: functions/**/*.{ts,js},public/_headers,public/_redirects,public/_seo/**/*
+alwaysApply: false
+---
+
+# Middleware / _headers / _seo
+
+## `functions/_middleware.ts`
+
+- User SPA: `ctx.next()` yoki `_redirects /* → /index.html 200`. `/index.html` fetch qilmang.
+- Bot SEO: `ASSETS.fetch('/_seo/.../')` (trailing slash). `/_seo/.../index.html` dan qoching (308).
+- Asset javobidan `Cache-Control` / `Age` / `ETag` ni SPA javobiga ko‘chirmang.
+- SPA URL javobi: `private, no-store` + `CDN-Cache-Control: no-store`.
+
+## `public/_headers`
+
+- `/*` = faqat security headerlar (HSTS, CSP, …). Cache-Control yo‘q.
+- `no-store`: `/`, `/index.html`, `/auth/*`, `/profile/*`.
+- `s-maxage`: `/_seo/*`, JSON, `/assets/*`, rasmlar, sitemap/robots.
+
+## `public/_redirects`
+
+- apex → www 301
+- legacy `/tests` → `/test-ishlash`
+- `/* /index.html 200` SPA fallback
+- SEO shadow `public/mavzuli/index.html` yaratmang
+
+## SEO kontent
+
+- Generatorlar faqat `public/_seo/` ga yozsin.
+- Build: `assert-no-spa-shadow` o‘tsin.
+- SEO o‘sishi muhim — bot snapshot ni o‘chirmang; faqat keshni to‘g‘ri saqlang.
