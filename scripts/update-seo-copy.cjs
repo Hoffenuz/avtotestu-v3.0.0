@@ -6,12 +6,12 @@ const DIR = path.join(__dirname, "..", "src", "locales");
 const updates = {
   "uz-lat.json": {
     home: {
-      heroTitle: "Avtotestlar.uz — Haydovchilik imtihoni 2026",
+      heroTitle: "Avto test — Prava test va YHQ testlar 2026",
       badge: "2026 YHQ savollari",
       btnMavzuli: "Mavzular bo'yicha",
-      seoTitle: "Avtotestlar.uz — Haydovchilik imtihoni 2026",
+      seoTitle: "Avto test — Prava test va YHQ testlar 2026",
       seoDescription:
-        "Haydovchilik guvohnomasi imtihoniga tayyorlaning. 2026 yil O'zbekiston YHQ testlari, yo'l belgilari va 63 variant — bepul onlayn Avtotestlar.uz.",
+        "Avto test 2026: prava test va YHQ testlar, yo'l belgilari, 63 variant. Bepul onlayn — Avtotestlar.uz.",
       proSectionDesc:
         "To'liq savollar bazasi, qo'shimcha videodarslar va imtihonbop savollar bir joyda.",
     },
@@ -25,12 +25,12 @@ const updates = {
   },
   "uz.json": {
     home: {
-      heroTitle: "Avtotestlar.uz — Ҳайдовчилик имтиҳони 2026",
+      heroTitle: "Avto test — Права тест ва ЙҲҚ тестлар 2026",
       badge: "2026 ЙҲҚ саволлари",
       btnMavzuli: "Мавзулар бўйича",
-      seoTitle: "Avtotestlar.uz — Haydovchilik imtihoni 2026",
+      seoTitle: "Avto test — Prava test va YHQ testlar 2026",
       seoDescription:
-        "Haydovchilik guvohnomasi imtihoniga tayyorlaning. 2026 yil O'zbekiston YHQ testlari, yo'l belgilari va 63 variant — bepul onlayn Avtotestlar.uz.",
+        "Avto test 2026: prava test va YHQ testlar, yo'l belgilari, 63 variant. Bepul onlayn — Avtotestlar.uz.",
       proSectionDesc:
         "Тўлиқ саволлар базаси, қўшимча видеодарслар ва имтиҳонбоп саволлар бир жойда.",
     },
@@ -44,12 +44,12 @@ const updates = {
   },
   "ru.json": {
     home: {
-      heroTitle: "Avtotestlar.uz — Экзамен на права 2026",
+      heroTitle: "Avto test — Права и ПДД тесты 2026",
       badge: "Вопросы ПДД 2026",
       btnMavzuli: "По темам",
-      seoTitle: "Avtotestlar.uz — Экзамен на права 2026",
+      seoTitle: "Avto test — Права и ПДД тесты 2026",
       seoDescription:
-        "Готовьтесь к экзамену на водительские права. Тесты ПДД Узбекистана 2026, дорожные знаки и 63 варианта — бесплатно онлайн на Avtotestlar.uz.",
+        "Avto test 2026: тест на права и ПДД, дорожные знаки, 63 варианта. Бесплатно онлайн — Avtotestlar.uz.",
       proSectionDesc:
         "Полная база вопросов, дополнительные видеоуроки и экзаменационные задания в одном месте.",
     },
