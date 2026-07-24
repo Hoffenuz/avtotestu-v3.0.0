@@ -8,7 +8,7 @@
     "build": "vite build",
     "seo:savol": "node scripts/generate-savol-pages.cjs",
     "prebuild": "node scripts/generate-savol-pages.cjs && node scripts/generate-main-pages.cjs && node scripts/assert-no-spa-shadow.cjs",
-    "postbuild": "node scripts/assert-no-spa-shadow.cjs --fix",
+    "postbuild": "node scripts/assert-no-spa-shadow.cjs --fix && node scripts/assert-dist-spa-entry.cjs",
     "seo:main": "node scripts/generate-main-pages.cjs",
     "seo:check": "node scripts/assert-no-spa-shadow.cjs",
     "cf:ops": "node scripts/cloudflare-cache-ops.cjs",
