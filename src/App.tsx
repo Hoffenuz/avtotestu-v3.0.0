@@ -7,27 +7,29 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { lazy, Suspense, Component, ReactNode } from "react";
 import Home from "./pages/Home";
+// Asosiy test sahifalari — lazy emas (lucide↔index circular dependency oldini olish)
+import TestIshlash from "./pages/TestIshlash";
+import Variant from "./pages/Variant";
+import MavzuliTestlar from "./pages/MavzuliTestlar";
 
-// ── Error Boundary ────────────────────────────────────────────────────────────
-// Catches render-time errors in any child route so one broken page can't take
-// down the entire app.
-interface EBState { hasError: boolean; }
+interface EBState { hasError: boolean; message: string; }
 class ErrorBoundary extends Component<{ children: ReactNode }, EBState> {
   constructor(props: { children: ReactNode }) {
     super(props);
-    this.state = { hasError: false };
+    this.state = { hasError: false, message: "" };
   }
-  static getDerivedStateFromError() { return { hasError: true }; }
+  static getDerivedStateFromError(err: Error) {
+    return { hasError: true, message: err?.message || String(err) };
+  }
   componentDidCatch(err: Error, info: { componentStack: string }) {
-    if (!import.meta.env.PROD) console.error('[ErrorBoundary]', err, info.componentStack);
+    console.error("[ErrorBoundary]", err, info.componentStack);
     try {
-      // Buzilgan test holati ErrorBoundary ga olib kelishi mumkin
       Object.keys(localStorage)
         .filter(
           (k) =>
-            k.startsWith('testIshlash_') ||
-            k.startsWith('testState_') ||
-            k.startsWith('variant_activeTest_'),
+            k.startsWith("testIshlash_") ||
+            k.startsWith("testState_") ||
+            k.startsWith("variant_activeTest_"),
         )
         .forEach((k) => localStorage.removeItem(k));
     } catch { /* ignore */ }
@@ -35,26 +37,31 @@ class ErrorBoundary extends Component<{ children: ReactNode }, EBState> {
   render() {
     if (this.state.hasError) {
       return (
-        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 16, padding: 24, fontFamily: "'Segoe UI', system-ui, -apple-system, sans-serif" }}>
+        <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 16, padding: 24, fontFamily: "'Segoe UI', system-ui, -apple-system, sans-serif" }}>
           <div style={{ fontSize: 48 }}>⚠️</div>
           <h2 style={{ margin: 0, fontSize: 20, fontWeight: 700 }}>Xatolik yuz berdi</h2>
-          <p style={{ margin: 0, color: '#64748b', textAlign: 'center' }}>Sahifa yuklanishida muammo bo'ldi. Iltimos, sahifani yangilang.</p>
+          <p style={{ margin: 0, color: "#64748b", textAlign: "center" }}>Sahifa yuklanishida muammo bo'ldi. Iltimos, sahifani yangilang.</p>
+          {this.state.message ? (
+            <pre style={{ maxWidth: 480, overflow: "auto", fontSize: 11, color: "#94a3b8", background: "#f1f5f9", padding: 12, borderRadius: 8, whiteSpace: "pre-wrap" }}>
+              {this.state.message}
+            </pre>
+          ) : null}
           <button
             onClick={() => {
               try {
                 Object.keys(localStorage)
                   .filter(
                     (k) =>
-                      k.startsWith('testIshlash_') ||
-                      k.startsWith('testState_') ||
-                      k.startsWith('variant_activeTest_'),
+                      k.startsWith("testIshlash_") ||
+                      k.startsWith("testState_") ||
+                      k.startsWith("variant_activeTest_"),
                   )
                   .forEach((k) => localStorage.removeItem(k));
               } catch { /* ignore */ }
-              this.setState({ hasError: false });
-              window.location.assign('/');
+              this.setState({ hasError: false, message: "" });
+              window.location.assign("/");
             }}
-            style={{ padding: '10px 24px', background: '#1E2350', color: '#fff', border: 'none', borderRadius: 8, cursor: 'pointer', fontWeight: 600 }}
+            style={{ padding: "10px 24px", background: "#1E2350", color: "#fff", border: "none", borderRadius: 8, cursor: "pointer", fontWeight: 600 }}
           >
             Qayta yuklash
           </button>
@@ -65,22 +72,18 @@ class ErrorBoundary extends Component<{ children: ReactNode }, EBState> {
   }
 }
 
-// Non-critical routes - lazy loaded
-const TestIshlash = lazy(() => import("./pages/TestIshlash"));
 const Belgilar = lazy(() => import("./pages/Belgilar"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Darslik = lazy(() => import("./pages/Darslik"));
 const Yangiliklar = lazy(() => import("./pages/Yangiliklar"));
 const YangilikDetail = lazy(() => import("./pages/YangilikDetail"));
 const Qoshimcha = lazy(() => import("./pages/Qoshimcha"));
-const Variant = lazy(() => import("./pages/Variant"));
 const Pro = lazy(() => import("./pages/Pro"));
 const Auth = lazy(() => import("./pages/Auth"));
 const AuthCallback = lazy(() => import("./pages/auth/callback"));
 const Profile = lazy(() => import("./pages/Profile"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const DesktopApp = lazy(() => import("./pages/DesktopApp"));
-const MavzuliTestlar = lazy(() => import("./pages/MavzuliTestlar"));
 const Savol = lazy(() => import("./pages/Savol"));
 const SavolVariantList = lazy(() => import("./pages/SavolVariantList"));
 
