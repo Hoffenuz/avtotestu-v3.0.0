@@ -190,7 +190,7 @@ export default function TestIshlash() {
     <div className={isDark ? 'dark' : ''}>
       <SEO
         title="Avto test ishlash 2026 — 20/50 savol"
-        description="Avto test online 2026: 600+ savoldan 20 yoki 50 ta tasodifiy YHQ savoli. 25 daqiqa, 18/20 o'tish bali. Bepul, ro'yxatsiz — haqiqiy imtihon formatida."
+        description="Avto test online 2026: 1250+ YHQ savol. 20 yoki 50 ta tasodifiy savol, 25 daqiqa, 18/20 o'tish bali. Bepul, ro'yxatsiz — haqiqiy imtihon formatida."
         path="/test-ishlash"
         keywords="test ishlash, onlayn test, prava test, YHQ savollari, avtotest, avtomaktab test, avto test ishlash 2026"
       />
