@@ -1,17 +1,17 @@
 /**
  * Cloudflare Pages Functions — Global Edge Middleware
  *
- * User  → React SPA (/* → /index.html 200)
- * Bot   → /_seo/.../ snapshot (faqat HTML body; SPA URL HECH QACHON keshlanmaydi)
+ * User  → React SPA (ASSETS `/` yoki next bir marta)
+ * Bot   → /_seo/.../ snapshot (SPA URL da no-store)
  *
- * REDIRECT LOOP:
- *   /index.html fetch qilmang (CF 308 → /)
+ * QAT'IY:
+ *   - context.next() bir so'rovda faqat BIR marta
+ *   - SPA URL da public/s-maxage yo'q (kesh zaharlanishi)
+ *   - /index.html fetch qilmang (CF 308 → /)
+ *   - isStaticAsset faqat haqiqiy kengaytmalar (1.3.1 belgi kodi emas)
  *
- * KESH ZAHARLANISH:
- *   Bot SEO ni /mavzuli URL da public/s-maxage bilan bermang —
- *   CF edge HIT qilib oddiy userga ham SEO HTML beradi.
- *   SPA pathlarda faqat: private, no-store + CDN-Cache-Control: no-store
- *   Dashboard: SPA pathlar uchun Cache Rule = Bypass (majburiy)
+ * ASSETS: Pages Functions da avtomatik binding
+ *   https://developers.cloudflare.com/pages/functions/api-reference/
  */
 
 const BOT_UA =
@@ -45,7 +45,6 @@ const SEO_EXACT: string[] = [
   '/desktop',
 ];
 
-/** SPA URL javoblari — edge ham, brauzer ham keshlamasin */
 const SPA_NO_STORE_HEADERS: Record<string, string> = {
   'Cache-Control': 'private, no-store, max-age=0, must-revalidate',
   'CDN-Cache-Control': 'no-store',
@@ -54,8 +53,11 @@ const SPA_NO_STORE_HEADERS: Record<string, string> = {
   Expires: '0',
 };
 
+/** Faqat haqiqiy fayl kengaytmalari — /belgilar/1.3.1 kabi belgi kodlari emas */
 function isStaticAsset(pathname: string): boolean {
-  return /\.\w{1,8}$/.test(pathname);
+  return /\.(html?|css|js|mjs|json|png|jpe?g|webp|gif|svg|ico|woff2?|ttf|eot|txt|xml|map|pdf|avif|mp4|webm|wasm)$/i.test(
+    pathname,
+  );
 }
 
 function cleanPath(pathname: string): string {
@@ -77,6 +79,10 @@ function seoSnapshotPath(pathname: string): string | null {
   return null;
 }
 
+function needsSpaFallback(status: number): boolean {
+  return (status >= 300 && status < 400) || status === 404;
+}
+
 interface PagesFetcher {
   fetch: (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>;
 }
@@ -89,21 +95,24 @@ interface PagesContext {
   data: Record<string, unknown>;
 }
 
+/**
+ * Statik asset — faqat ASSETS.fetch (next() chaqirmaydi).
+ * Pretty path: /_seo/mavzuli/ (index.html emas).
+ */
 async function fetchAsset(
   ctx: PagesContext,
   absolutePath: string,
-): Promise<Response> {
-  const url = new URL(absolutePath, ctx.request.url);
-  const rewritten = new Request(url.toString(), {
-    method: 'GET',
-    headers: ctx.request.headers,
-    redirect: 'follow',
-  });
+): Promise<Response | null> {
+  if (!ctx.env.ASSETS?.fetch) return null;
 
-  if (ctx.env.ASSETS?.fetch) {
-    return ctx.env.ASSETS.fetch(rewritten);
-  }
-  return ctx.next(absolutePath);
+  const url = new URL(absolutePath, ctx.request.url);
+  return ctx.env.ASSETS.fetch(
+    new Request(url.toString(), {
+      method: 'GET',
+      headers: ctx.request.headers,
+      redirect: 'follow',
+    }),
+  );
 }
 
 const SKIP_FROM_ASSET =
@@ -122,30 +131,54 @@ function withHtmlHeaders(
   return new Response(res.body, { status: res.status, headers });
 }
 
-async function serveSpaShell(ctx: PagesContext): Promise<Response> {
-  const res = await ctx.next();
+function spaUnavailable(): Response {
+  return new Response('Sahifa yuklanmadi.', {
+    status: 503,
+    headers: {
+      'Content-Type': 'text/plain; charset=utf-8',
+      ...SPA_NO_STORE_HEADERS,
+    },
+  });
+}
 
-  if (res.status >= 300 && res.status < 400) {
-    const viaAssets = await fetchAsset(ctx, '/');
-    if (viaAssets.ok) {
-      return withHtmlHeaders(viaAssets, {
-        ...SPA_NO_STORE_HEADERS,
-        Vary: 'User-Agent',
-      });
-    }
-    return new Response('Sahifa yuklanmadi.', {
-      status: 503,
-      headers: {
-        'Content-Type': 'text/plain; charset=utf-8',
-        ...SPA_NO_STORE_HEADERS,
-      },
+/**
+ * SPA shell. next() eng ko'pi bilan bir marta.
+ * Avvalo ASSETS `/` — ikkinchi next() kerak emas.
+ */
+async function serveSpaShell(ctx: PagesContext): Promise<Response> {
+  const viaAssets = await fetchAsset(ctx, '/');
+  if (viaAssets?.ok) {
+    return withHtmlHeaders(viaAssets, {
+      ...SPA_NO_STORE_HEADERS,
+      Vary: 'User-Agent',
     });
+  }
+
+  // ASSETS yo'q yoki xato — bitta next(); _redirects SPA fallback
+  const res = await ctx.next();
+  if (needsSpaFallback(res.status)) {
+    // next() allaqachon chaqirilgan — qayta chaqirmaymiz
+    return spaUnavailable();
   }
 
   return withHtmlHeaders(res, {
     ...SPA_NO_STORE_HEADERS,
     Vary: 'User-Agent',
   });
+}
+
+/**
+ * next() natijasidan keyin SPA kerak bo'lsa — faqat ASSETS (ikkinchi next yo'q).
+ */
+async function spaFromAssetsOnly(ctx: PagesContext): Promise<Response> {
+  const viaAssets = await fetchAsset(ctx, '/');
+  if (viaAssets?.ok) {
+    return withHtmlHeaders(viaAssets, {
+      ...SPA_NO_STORE_HEADERS,
+      Vary: 'User-Agent',
+    });
+  }
+  return spaUnavailable();
 }
 
 export async function onRequest(ctx: PagesContext): Promise<Response> {
@@ -165,7 +198,6 @@ export async function onRequest(ctx: PagesContext): Promise<Response> {
     return Response.redirect(new URL('/', request.url), 308);
   }
 
-  // /_seo/* — faqat shu yerda edge kesh ruxsat (Cache Rule 2)
   if (path.startsWith('/_seo/')) {
     return next();
   }
@@ -176,23 +208,34 @@ export async function onRequest(ctx: PagesContext): Promise<Response> {
   if (isBot) {
     const seo = seoSnapshotPath(path);
     if (seo) {
-      const res = await fetchAsset(ctx, seo);
-      if (res.ok) {
-        // Body SEO, lekin URL /mavzuli — keshlanmasin!
+      const seoRes = await fetchAsset(ctx, seo);
+      if (seoRes?.ok) {
+        return withHtmlHeaders(seoRes, {
+          ...SPA_NO_STORE_HEADERS,
+          Vary: 'User-Agent',
+        });
+      }
+      // ASSETS yo'q: birinchi (va yagona) next — SEO path
+      if (!ctx.env.ASSETS?.fetch) {
+        const res = await next(seo);
+        if (res.ok) {
+          return withHtmlHeaders(res, {
+            ...SPA_NO_STORE_HEADERS,
+            Vary: 'User-Agent',
+          });
+        }
+        if (needsSpaFallback(res.status)) {
+          return spaFromAssetsOnly(ctx);
+        }
         return withHtmlHeaders(res, {
           ...SPA_NO_STORE_HEADERS,
           Vary: 'User-Agent',
         });
       }
     }
-    const res = await next();
-    if (res.status >= 300 && res.status < 400) {
-      return serveSpaShell(ctx);
-    }
-    return withHtmlHeaders(res, {
-      ...SPA_NO_STORE_HEADERS,
-      Vary: 'User-Agent',
-    });
+
+    // SEO yo'q yoki ASSETS SEO bermadi — SPA (next() bu yerda hali chaqirilmagan)
+    return serveSpaShell(ctx);
   }
 
   if (isSpaRoute(path)) {

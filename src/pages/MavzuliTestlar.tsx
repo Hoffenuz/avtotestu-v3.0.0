@@ -235,7 +235,7 @@ export default function MavzuliTestlar() {
     return (
       <MainLayout>
         <SEO
-          title="Mavzuli testlar 2026 | Avtotestlar.uz"
+          title="Mavzuli testlar 2026"
           description="YHQ mavzulari bo'yicha testlar: yo'l belgilari, svetofor, ustunlik, to'xtash va to'xtab turish qoidalari. Har bir mavzuni alohida o'rganing."
           path="/mavzuli"
           keywords="mavzuli test, YHQ mavzular, prava test, yo'l belgilari testi"
@@ -250,7 +250,7 @@ export default function MavzuliTestlar() {
     return (
       <MainLayout>
         <SEO
-          title="Mavzuli testlar 2026 | Avtotestlar.uz"
+          title="Mavzuli testlar 2026"
           description="YHQ mavzulari bo'yicha testlar: yo'l belgilari, svetofor, ustunlik, to'xtash va to'xtab turish qoidalari. Har bir mavzuni alohida o'rganing."
           path="/mavzuli"
           keywords="mavzuli test, YHQ mavzular, prava test, yo'l belgilari testi"
@@ -264,7 +264,7 @@ export default function MavzuliTestlar() {
     return (
       <MainLayout>
         <SEO
-          title="Mavzuli testlar 2026 | Avtotestlar.uz"
+          title="Mavzuli testlar 2026"
           description="YHQ mavzulari bo'yicha testlar: yo'l belgilari, svetofor, ustunlik, to'xtash va to'xtab turish qoidalari. Har bir mavzuni alohida o'rganing."
           path="/mavzuli"
           keywords="mavzuli test, YHQ mavzular, prava test, yo'l belgilari testi"
@@ -315,7 +315,7 @@ export default function MavzuliTestlar() {
   return (
     <MainLayout>
       <SEO
-        title="Mavzuli testlar 2026 | Avtotestlar.uz"
+        title="Mavzuli testlar 2026"
         description="YHQ mavzulari bo'yicha testlar: yo'l belgilari, svetofor, ustunlik, to'xtash va to'xtab turish qoidalari. Har bir mavzuni alohida o'rganing. Prava imtihoniga tayyorgarlik."
         path="/mavzuli"
         keywords="mavzuli test, YHQ mavzulari, yo'l qoidalari, chorrahalar, tezlik qoidalari"

@@ -8,10 +8,18 @@ alwaysApply: false
 
 ## `functions/_middleware.ts`
 
-- User SPA: `ctx.next()` yoki `_redirects /* → /index.html 200`. `/index.html` fetch qilmang.
+- User SPA: avvalo `env.ASSETS.fetch('/')`, aks holda `next()` **bir marta**.
+- `next()` dan keyin hech qachon yana `next()` / `serveSpaShell` (ichida next) chaqirmang.
 - Bot SEO: `ASSETS.fetch('/_seo/.../')` (trailing slash). `/_seo/.../index.html` dan qoching (308).
 - Asset javobidan `Cache-Control` / `Age` / `ETag` ni SPA javobiga ko‘chirmang.
 - SPA URL javobi: `private, no-store` + `CDN-Cache-Control: no-store`.
+- `isStaticAsset`: faqat haqiqiy kengaytmalar (`.js`, `.webp`…). `/belgilar/1.3.1` static emas.
+- 404 va 3xx: SPA fallback faqat `ASSETS.fetch('/')` orqali (ikkinchi `next` yo‘q).
+
+## Pages dashboard
+
+- Not found behavior = **Single Page Application** (Settings → Builds).
+- `env.ASSETS` Pages Functions da standart binding.
 
 ## `public/_headers`
 
