@@ -52,7 +52,7 @@ export function normalizeQuestionArray(jsonData: unknown): unknown[] {
 }
 
 /** Bump when question JSON structure/langs change — busts long CDN/browser caches */
-export const QUESTION_DATA_CACHE_BUST = "20260720b";
+export const QUESTION_DATA_CACHE_BUST = "20260725a";
 
 function withCacheBust(url: string): string {
   if (/^https?:\/\//i.test(url)) return url;
