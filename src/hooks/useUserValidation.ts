@@ -70,6 +70,22 @@ export const checkUserExists = async (userId: string): Promise<boolean | null> =
 };
 
 /**
+ * A momentary access-token refresh gap can make PostgREST see the request
+ * as `anon` — RLS's `auth.uid() = id` then filters the row out with NO
+ * error, indistinguishable from "row genuinely deleted". getSession() is
+ * local/safe (no network round-trip in the common case, unlike getUser()
+ * which was already ruled out below for the same class of false-positive).
+ */
+async function hasFreshSessionFor(userId: string): Promise<boolean> {
+  try {
+    const { data: { session } } = await supabase.auth.getSession();
+    return !!session?.user && session.user.id === userId;
+  } catch {
+    return false;
+  }
+}
+
+/**
  * Protected-page guard.
  * IMPORTANT: do NOT call auth.getUser() here — network/refresh blips were
  * force-logging users out while the local session was still valid.
@@ -96,11 +112,14 @@ export const useUserValidation = (redirectPath = '/auth') => {
 
         // Guard against false positives: a brief network blip, or a profile
         // row not yet written by the on_auth_user_created trigger right
-        // after signup, must NOT force-logout a valid user. Re-check once
-        // after a short delay before concluding the account is gone.
+        // after signup, must NOT force-logout a valid user. Re-check with
+        // backoff before concluding the account is gone.
         if (!exists) {
-          await new Promise((r) => setTimeout(r, 1200));
-          exists = await checkUserExists(sessionUser.id);
+          for (const delayMs of [1200, 2500]) {
+            await new Promise((r) => setTimeout(r, delayMs));
+            exists = await checkUserExists(sessionUser.id);
+            if (exists) break;
+          }
         }
 
         if (exists === null) {
@@ -109,6 +128,17 @@ export const useUserValidation = (redirectPath = '/auth') => {
         }
 
         if (!exists) {
+          // Last line of defense: a stale/refreshing token can make the
+          // profile row look "gone" (see hasFreshSessionFor above) without
+          // the account actually being deleted. Only force-logout when we
+          // can currently confirm a valid session for this same user —
+          // otherwise skip; the next protected-page visit re-checks fresh.
+          const sessionFresh = await hasFreshSessionFor(sessionUser.id);
+          if (!sessionFresh) {
+            if (!import.meta.env.PROD) console.log('Profile not found but session stale/unconfirmed — skipping logout');
+            return;
+          }
+
           if (!import.meta.env.PROD) console.log('User profile not found — forcing logout');
           await forceLogoutAndClear(true);
           navigate(redirectPath, { replace: true });

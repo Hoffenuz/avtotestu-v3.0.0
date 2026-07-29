@@ -14,7 +14,7 @@ import {
   MAX_TEST_TIME_SECONDS,
 } from "@/lib/testPersistence";
 import { pickIzohText, pickLangContent } from "@/lib/pickLangContent";
-import { fetchQuestionJson } from "@/lib/fetchQuestionJson";
+import { fetchQuestionJson, normalizeQuestionArray } from "@/lib/fetchQuestionJson";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
@@ -223,16 +223,11 @@ export const MavzuliTestInterface = ({
           });
           parsedQuestions = tQuestions;
         } else {
-          // Old format fallback
-          let questionsArray: QuestionData[] = [];
-          if (jsonData.data && Array.isArray(jsonData.data)) {
-            questionsArray = jsonData.data;
-          } else if (Array.isArray(jsonData)) {
-            questionsArray = jsonData;
-          } else if (jsonData.questions && Array.isArray(jsonData.questions)) {
-            questionsArray = jsonData.questions;
-          }
-          
+          // Old format fallback — normalizeQuestionArray aynan shu uchta
+          // shaklni (array / .data / .questions) qo'llab-quvvatlaydi.
+          const questionsArray = normalizeQuestionArray(jsonData) as QuestionData[];
+
+
           if (questionsArray.length === 0) {
             throw new Error(t("test.noQuestionsFound"));
           }

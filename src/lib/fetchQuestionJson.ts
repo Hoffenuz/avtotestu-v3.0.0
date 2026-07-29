@@ -22,7 +22,8 @@ export function getFetchErrorMessage(
     msg.includes('networkerror') ||
     msg.includes('network request failed') ||
     msg.includes('load failed') ||
-    msg.includes('aborted')
+    msg.includes('aborted') ||
+    msg.includes('timeout')
   ) {
     return networkMsg;
   }
@@ -60,6 +61,55 @@ function withCacheBust(url: string): string {
   return `${url}${sep}v=${QUESTION_DATA_CACHE_BUST}`;
 }
 
+/**
+ * Sekin internet uchun "stall" timeout: umumiy vaqt emas, ma'lumot kelmay
+ * qolgan vaqt o'lchanadi. 2 MB ni 60 soniyada yuklayotgan sekin ulanish
+ * muvaffaqiyatli tugaydi; 15 soniya davomida bitta bayt kelmasa — uziladi.
+ * Ilgari umuman timeout yo'q edi va uzilgan ulanish abadiy osilib qolardi.
+ */
+const STALL_TIMEOUT_MS = 15_000;
+
+/** Javob oqimini o'qiydi va har chunk da stall taymerini yangilaydi. */
+async function readWithStallTimeout(
+  response: Response,
+  signal: { cancel: (reason: Error) => void; ping: () => void },
+): Promise<string> {
+  if (!response.body) {
+    // Oqim yo'q (eski brauzer / test muhiti) — oddiy o'qish
+    return response.text();
+  }
+
+  const reader = response.body.getReader();
+  const chunks: Uint8Array[] = [];
+  let total = 0;
+
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    if (value) {
+      chunks.push(value);
+      total += value.length;
+      signal.ping(); // progress bor — taymerni qayta boshlash
+    }
+  }
+
+  const merged = new Uint8Array(total);
+  let offset = 0;
+  for (const c of chunks) {
+    merged.set(c, offset);
+    offset += c.length;
+  }
+  return new TextDecoder("utf-8").decode(merged);
+}
+
+/** 4xx — qayta urinish foydasiz (fayl yo'q / noto'g'ri so'rov) */
+function isPermanentHttpError(err: Error): boolean {
+  const m = /^HTTP (\d{3})$/.exec(err.message);
+  if (!m) return false;
+  const status = Number(m[1]);
+  return status >= 400 && status < 500 && status !== 408 && status !== 429;
+}
+
 export async function fetchQuestionJson(
   url: string,
   retries = 3
@@ -68,19 +118,52 @@ export async function fetchQuestionJson(
   const finalUrl = withCacheBust(url);
 
   for (let attempt = 0; attempt <= retries; attempt++) {
+    const controller = new AbortController();
+    let stallTimer: ReturnType<typeof setTimeout> | null = null;
+    let stalled = false;
+
+    const ping = () => {
+      if (stallTimer) clearTimeout(stallTimer);
+      stallTimer = setTimeout(() => {
+        stalled = true;
+        controller.abort();
+      }, STALL_TIMEOUT_MS);
+    };
+
     try {
-      // no-cache: avoid stale variant JSON (e.g. early v63 Latin-only) after lang updates
-      const response = await fetch(finalUrl, { cache: "no-cache" });
+      ping();
+      /**
+       * `cache: "no-cache"` EMAS: URL da allaqachon `?v=` cache-bust bor, ya'ni
+       * yangi ma'lumot chiqqanda URL o'zgaradi. "no-cache" esa har safar
+       * to'liq revalidatsiya majbur qilib, `_headers` dagi CDN s-maxage ni
+       * behuda qilardi va sekin ulanishda har kirishda qaytadan yuklardi.
+       */
+      const response = await fetch(finalUrl, { signal: controller.signal });
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}`);
       }
-      const text = await response.text();
+
+      const text = await readWithStallTimeout(response, {
+        cancel: (e) => { lastErr = e; controller.abort(); },
+        ping,
+      });
+
+      if (stallTimer) clearTimeout(stallTimer);
       await yieldToMain();
       return JSON.parse(text) as unknown;
     } catch (err) {
-      lastErr = err instanceof Error ? err : new Error(String(err));
+      if (stallTimer) clearTimeout(stallTimer);
+
+      let e = err instanceof Error ? err : new Error(String(err));
+      if (stalled || e.name === "AbortError") {
+        e = new Error("timeout");
+      }
+      lastErr = e;
+
+      if (isPermanentHttpError(e)) break;
       if (attempt < retries) {
-        await sleep(700 * (attempt + 1));
+        // Eksponensial backoff + jitter — tarmoq tiklanishiga vaqt beradi
+        await sleep(700 * 2 ** attempt + Math.random() * 300);
       }
     }
   }

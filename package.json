@@ -24,7 +24,8 @@
     "questions:fix:ru": "node scripts/question-tools/fix_ru_professional.cjs all",
     "questions:audit:sign-order": "node scripts/question-tools/audit-sign-option-order.cjs",
     "questions:fix:sign-order": "node scripts/question-tools/normalize-sign-options.cjs",
-    "questions:sync:mavzuli": "node scripts/question-tools/sync-mavzuli-from-canonical.cjs"
+    "questions:sync:mavzuli": "node scripts/question-tools/sync-mavzuli-from-canonical.cjs",
+    "questions:sync:free-tier": "node scripts/generate-free-tier.cjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

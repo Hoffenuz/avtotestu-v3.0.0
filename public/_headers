@@ -27,11 +27,21 @@
 # ---------------------------------------------------------------------------
 # JSON test ma'lumotlari — brauzer 1 soat + edge 24 soat
 # MUHIM: s-maxage bo'lmasa CF "Bypass" ko'rsatadi (faqat max-age yetarli emas).
+#
+# 600.json / barcha.json bu yerda YO'Q: ular QA tooling uchun manba ma'lumot,
+# deploy ga chiqmaydi (vite.config.ts → excludeSourceDataFromDist).
+# 700baza.json / 700baza2.json / malumotlar.json — mavjud emas, olib tashlandi.
+#
+# free-*.json  — bepul (600 ta savol)
+# barcha-*.json — PRO (1250 ta savol)
 # ---------------------------------------------------------------------------
-/600.json
+/free-uz-lat.json
   Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
 
-/barcha.json
+/free-uz-cyr.json
+  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+
+/free-ru.json
   Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
 
 /barcha-uz-lat.json
@@ -41,15 +51,6 @@
   Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
 
 /barcha-ru.json
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
-
-/700baza.json
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
-
-/700baza2.json
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
-
-/malumotlar.json
   Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
 
 /data/variants/*

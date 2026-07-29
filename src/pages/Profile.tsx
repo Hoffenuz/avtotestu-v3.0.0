@@ -50,7 +50,8 @@ function isExamTicketResult(r: TestResult): boolean {
   // Legacy + session-siz saqlangan 20 savollik variantlar
   if ((!src || src === 'free') && r.total_questions === 20) return true;
   if (src.startsWith('t') || /mavzuli/i.test(src)) return false;
-  if (src === '600.json' || src.startsWith('barcha')) return false;
+  // '600.json'/'barcha*' — legacy nom; 'free-*'/'barcha-*' — joriy erkin test fayllari
+  if (src === '600.json' || src.startsWith('barcha') || src.startsWith('free-')) return false;
   return false;
 }
 

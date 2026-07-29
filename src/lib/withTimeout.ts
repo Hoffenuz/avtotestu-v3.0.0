@@ -24,3 +24,10 @@ export const AUTH_RPC_TIMEOUT_MS = 8_000;
 
 /** start_test_session — premium must fail closed; free falls back offline */
 export const TEST_SESSION_TIMEOUT_MS = 10_000;
+
+/**
+ * signInWithPassword — sekin tarmoqda "Kirish" tugmasi abadiy osilib
+ * qolmasligi uchun. Timeout bo'lsa ham sessiya server tomonda yaratilgan
+ * bo'lishi mumkin, shuning uchun chaqiruvchi readSessionSafe() bilan tiklaydi.
+ */
+export const SIGN_IN_TIMEOUT_MS = 20_000;

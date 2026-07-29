@@ -23,11 +23,27 @@ import {
 import { TestInterfaceBase } from "@/components/TestInterfaceBase";
 import { TestInterfaceCombined } from "@/components/TestInterfaceCombined";
 
+/**
+ * Bitta til = bitta fayl, ham free ham PRO uchun (ilgari free 5.9 MB'lik
+ * uchala tilni birga yuklovchi `600.json` ni olardi — sekin internetda
+ * yuklanmay qolishning asosiy sababi shu edi).
+ *
+ * Free = 600 ta kurashtirilgan savol (`free-*.json`), PRO = 1250 ta to'liq
+ * baza (`barcha-*.json`). 600 talik to'plam `scripts/generate-free-tier.cjs`
+ * orqali generatsiya qilinadi — manba: birinchi commitdagi asl 600.json
+ * (keyinchalik boshqa avtomatlashtirilgan skript uni tasodifan 1250 ga
+ * kengaytirib, paywall'ni buzib qo'ygan edi).
+ */
 const languages = [
-  { id: "uz-lat" as const, label: "Lotin", file: "600.json", proFile: "barcha-uz-lat.json" },
-  { id: "uz" as const, label: "Кирилл", file: "600.json", proFile: "barcha-uz-cyr.json" },
-  { id: "ru" as const, label: "Русский", file: "600.json", proFile: "barcha-ru.json" },
+  { id: "uz-lat" as const, label: "Lotin", file: "free-uz-lat.json", proFile: "barcha-uz-lat.json" },
+  { id: "uz" as const, label: "Кирилл", file: "free-uz-cyr.json", proFile: "barcha-uz-cyr.json" },
+  { id: "ru" as const, label: "Русский", file: "free-ru.json", proFile: "barcha-ru.json" },
 ];
+
+const DEFAULT_DATA_FILE = "free-uz-lat.json";
+
+/** Endi mavjud bo'lmagan monolit fayllar — eski localStorage sessiyalari uchun */
+const RETIRED_DATA_FILES = new Set(["600.json", "barcha.json"]);
 
 const FREE_VARIANT = 99; // sentinel for free/practice test in DB (0..100 constraint)
 
@@ -49,6 +65,14 @@ export default function TestIshlash() {
           const testStateKey: string | undefined = parsed.activeSession.testStateKey;
           if (testStateKey && !localStorage.getItem(testStateKey)) {
             localStorage.removeItem(testIshlashStorageKey);
+            return { testStarted: false, activeSession: null, questionCount: 20 as 20 | 50 };
+          }
+          // Eski sessiya olib tashlangan monolit faylga ishora qilsa (600.json /
+          // barcha.json) — tiklamaymiz, aks holda 404 va bo'sh test bo'ladi.
+          const savedFile: string | undefined = parsed.activeSession.dataFile;
+          if (savedFile && RETIRED_DATA_FILES.has(savedFile)) {
+            localStorage.removeItem(testIshlashStorageKey);
+            if (testStateKey) localStorage.removeItem(testStateKey);
             return { testStarted: false, activeSession: null, questionCount: 20 as 20 | 50 };
           }
           return {
@@ -85,8 +109,8 @@ export default function TestIshlash() {
   const brandColor = "#1E2350";
   const langConfig = languages.find(l => l.id === language);
   const dataFile = isPremium
-    ? (langConfig?.proFile || "barcha.json")
-    : (langConfig?.file || "600.json");
+    ? (langConfig?.proFile || "barcha-uz-lat.json")
+    : (langConfig?.file || DEFAULT_DATA_FILE);
 
   const showProBanner = !isPremium && accessState !== 'active_pro';
 

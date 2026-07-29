@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect, useCallback, use
 import { supabase } from '@/integrations/supabase/client';
 import { User, Session } from '@supabase/supabase-js';
 import { clearAllUserData } from '@/hooks/useUserValidation';
-import { AUTH_RPC_TIMEOUT_MS, withTimeout } from '@/lib/withTimeout';
+import { AUTH_RPC_TIMEOUT_MS, SIGN_IN_TIMEOUT_MS, withTimeout } from '@/lib/withTimeout';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -55,6 +55,16 @@ const SESSION_RECOVER_TIMEOUT_MS = 5_000;
 /** Trial yo'q — faqat haqiqiy PRO */
 function premiumFromState(state: AccessState, rpcPremium: boolean): boolean {
   return state === 'active_pro' && rpcPremium;
+}
+
+/**
+ * onAuthStateChange callback supabase-js ning auth lock i ichida chaqiriladi.
+ * Lock ushlab turilganda .rpc() / .from() / getSession() chaqirilsa, ular
+ * o'sha lock ni kutadi — natijada login dan keyin profil/PRO holati timeout
+ * gacha (8 s) osilib qolardi. Macrotask ga surib, lock bo'shashini ta'minlaymiz.
+ */
+function deferFromAuthCallback(fn: () => void): void {
+  setTimeout(fn, 0);
 }
 
 async function readSessionSafe(): Promise<Session | null | 'unknown'> {
@@ -244,47 +254,52 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             return;
           }
 
-          void (async () => {
-            const stillThere = await readSessionSafe();
-            if (!isMounted || signingOutRef.current) return;
-
-            if (stillThere === 'unknown') return;
-            if (stillThere?.user) {
-              applySession(stillThere);
-              void fetchAccessState(stillThere.user.id);
-              return;
-            }
-            applySession(null);
-            setProfile(null);
-            clearAccessState();
-            setIsLoading(false);
-          })();
-          return;
-        }
-
-        if (event === 'TOKEN_REFRESHED') {
-          if (!currentSession) {
+          deferFromAuthCallback(() => {
             void (async () => {
-              // Give multi-tab rotation time before declaring logout
-              await new Promise((r) => setTimeout(r, 500));
-              const recovered = await readSessionSafe();
+              const stillThere = await readSessionSafe();
               if (!isMounted || signingOutRef.current) return;
-              if (recovered === 'unknown') return;
-              if (recovered?.user) {
-                applySession(recovered);
-                void fetchAccessState(recovered.user.id);
+
+              if (stillThere === 'unknown') return;
+              if (stillThere?.user) {
+                applySession(stillThere);
+                void fetchAccessState(stillThere.user.id);
                 return;
               }
-              // Soft: only clear React state — do not wipe localStorage again
               applySession(null);
               setProfile(null);
               clearAccessState();
               setIsLoading(false);
             })();
+          });
+          return;
+        }
+
+        if (event === 'TOKEN_REFRESHED') {
+          if (!currentSession) {
+            deferFromAuthCallback(() => {
+              void (async () => {
+                // Give multi-tab rotation time before declaring logout
+                await new Promise((r) => setTimeout(r, 500));
+                const recovered = await readSessionSafe();
+                if (!isMounted || signingOutRef.current) return;
+                if (recovered === 'unknown') return;
+                if (recovered?.user) {
+                  applySession(recovered);
+                  void fetchAccessState(recovered.user.id);
+                  return;
+                }
+                // Soft: only clear React state — do not wipe localStorage again
+                applySession(null);
+                setProfile(null);
+                clearAccessState();
+                setIsLoading(false);
+              })();
+            });
             return;
           }
           applySession(currentSession);
-          void fetchAccessState(currentSession.user.id);
+          const refreshedUserId = currentSession.user.id;
+          deferFromAuthCallback(() => { void fetchAccessState(refreshedUserId); });
           return;
         }
 
@@ -294,7 +309,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
         if (currentSession?.user && event === 'SIGNED_IN') {
           if (signingOutRef.current) return;
-          void loadUserState(currentSession.user.id);
+          const signedInUserId = currentSession.user.id;
+          deferFromAuthCallback(() => {
+            if (!isMounted || signingOutRef.current) return;
+            void loadUserState(signedInUserId);
+          });
         } else if (!currentSession?.user) {
           setProfile(null);
           clearAccessState();
@@ -375,7 +394,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     try {
       // Password auth only — profile/PRO RPC runs in background so mobile
       // "Kirish" is not stuck 10–20s waiting on get_user_access_state.
-      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+      // Timeout shart: usul o'zi hech qachon rad etmaydi, sekin/uzilgan
+      // tarmoqda tugma cheksiz "Tekshirilmoqda..." holatida qolardi.
+      const { data, error } = await withTimeout(
+        supabase.auth.signInWithPassword({ email, password }),
+        SIGN_IN_TIMEOUT_MS,
+      );
 
       if (error) return { error };
 

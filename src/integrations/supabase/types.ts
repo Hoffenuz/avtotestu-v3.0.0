@@ -149,7 +149,9 @@ export type Database = {
           expires_at: string
           id: string
           issued_at: string
+          last_refreshed_at: string | null
           license_key: string
+          refresh_count: number
           revoked: boolean
           short_code: string
           updated_at: string
@@ -161,7 +163,9 @@ export type Database = {
           expires_at: string
           id?: string
           issued_at?: string
+          last_refreshed_at?: string | null
           license_key: string
+          refresh_count?: number
           revoked?: boolean
           short_code: string
           updated_at?: string
@@ -173,7 +177,9 @@ export type Database = {
           expires_at?: string
           id?: string
           issued_at?: string
+          last_refreshed_at?: string | null
           license_key?: string
+          refresh_count?: number
           revoked?: boolean
           short_code?: string
           updated_at?: string
