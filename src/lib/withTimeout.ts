@@ -22,6 +22,13 @@ export function withTimeout<T>(promise: PromiseLike<T>, ms: number): Promise<T> 
 /** Access RPC — keep short on mobile; AuthContext retries once */
 export const AUTH_RPC_TIMEOUT_MS = 8_000;
 
+/**
+ * profiles SELECT — ilgari yagona timeout siz tarmoq chaqiruvi edi. Osilib
+ * qolsa loadUserState dagi Promise.all hech qachon tugamas, profileLoading
+ * abadiy true qolar va foydalanuvchi ismi/avatari umuman chiqmasdi.
+ */
+export const PROFILE_TIMEOUT_MS = 8_000;
+
 /** start_test_session — premium must fail closed; free falls back offline */
 export const TEST_SESSION_TIMEOUT_MS = 10_000;
 

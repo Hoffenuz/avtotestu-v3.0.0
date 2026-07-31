@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect, useCallback, use
 import { supabase } from '@/integrations/supabase/client';
 import { User, Session } from '@supabase/supabase-js';
 import { clearAllUserData } from '@/hooks/useUserValidation';
-import { AUTH_RPC_TIMEOUT_MS, SIGN_IN_TIMEOUT_MS, withTimeout } from '@/lib/withTimeout';
+import { AUTH_RPC_TIMEOUT_MS, PROFILE_TIMEOUT_MS, SIGN_IN_TIMEOUT_MS, withTimeout } from '@/lib/withTimeout';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -111,6 +111,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const signingOutRef = useRef(false);
   const signInInFlightRef = useRef(false);
   const userIdRef = useRef<string | null>(null);
+  /** Boshlang'ich sessiya uchun loadUserState bir marta ishlashini kafolatlaydi */
+  const bootstrappedRef = useRef(false);
 
   const clearAccessState = useCallback(() => {
     accessFetchSeqRef.current++;
@@ -130,11 +132,17 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const fetchProfileData = useCallback(async (userId: string): Promise<Profile | null> => {
     try {
-      const { data, error } = await supabase
-        .from('profiles')
-        .select('id, username, full_name, avatar_url, created_at')
-        .eq('id', userId)
-        .single();
+      // Timeout SHART: bu chaqiruv timeout siz qolganda (boshqa hammasida bor edi)
+      // sekin tarmoqda osilib qolib, loadUserState dagi Promise.all ni abadiy
+      // ushlab turardi → profileLoading hech qachon false bo'lmasdi.
+      const { data, error } = await withTimeout(
+        supabase
+          .from('profiles')
+          .select('id, username, full_name, avatar_url, created_at')
+          .eq('id', userId)
+          .single(),
+        PROFILE_TIMEOUT_MS,
+      );
 
       if (error) {
         if (!import.meta.env.PROD) console.error('Auth Error - Profile fetch:', error);
@@ -149,7 +157,19 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const fetchAccessState = useCallback(async (userId: string): Promise<void> => {
     const seq = ++accessFetchSeqRef.current;
+    /** Eskirgan MA'LUMOTNI qo'llamaslik uchun (user almashgan bo'lishi mumkin) */
     const isStale = () => seq !== accessFetchSeqRef.current || userIdRef.current !== userId;
+    /**
+     * Spinner ni o'chirish uchun ALOHIDA shart. Ilgari ikkalasi bitta `isStale()`
+     * edi: agar userIdRef o'zgargan bo'lsa (sessiya almashdi/null bo'ldi), eng
+     * oxirgi chaqiruv ham "stale" hisoblanib, `setAccessStateLoading(false)`
+     * BAJARILMAY qolardi. Keyin uni tozalaydigan hech kim yo'q →
+     * accessStateLoading abadiy true → useAccessState().loading abadiy true →
+     * /variant, /mavzuli, /darslik cheksiz "Yuklanmoqda" spinner da qotib
+     * qolardi. Spinner ni faqat YANGIROQ chaqiruv bor bo'lsa qoldiramiz —
+     * u holda uni o'sha chaqiruv o'chiradi.
+     */
+    const supersededByNewer = () => seq !== accessFetchSeqRef.current;
 
     const blockUi = !accessConfirmedRef.current;
     if (blockUi) setAccessStateLoading(true);
@@ -196,7 +216,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         setBackendConfirmed(false);
       }
     } finally {
-      if (!isStale() && blockUi) setAccessStateLoading(false);
+      if (!supersededByNewer() && blockUi) setAccessStateLoading(false);
     }
   }, []);
 
@@ -225,13 +245,16 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         );
         if (!isMounted || signingOutRef.current) return;
 
-        if (currentSession?.user) {
+        if (currentSession?.user && !bootstrappedRef.current) {
+          bootstrappedRef.current = true;
           applySession(currentSession);
           void loadUserState(currentSession.user.id);
         }
       } catch (err) {
         if (!import.meta.env.PROD) console.error('Auth Error - Initialization:', err);
-        // Timeout: unlock UI immediately; TOKEN_REFRESHED / SIGNED_IN will hydrate
+        // Timeout: UI ni darhol ochamiz. Sessiyani INITIAL_SESSION hodisasi
+        // tiklaydi (pastda) — ilgari u e'tiborsiz qoldirilardi va shu sababli
+        // tizimga kirgan foydalanuvchi "mehmon" bo'lib qolardi.
       } finally {
         if (isMounted) setIsLoading(false);
       }
@@ -243,7 +266,38 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
         // Keep callback sync — never await inside (Supabase deadlock risk).
         // Defer async recovery to microtasks.
-        if (event === 'INITIAL_SESSION') return;
+
+        /**
+         * ILGARIGI BUG: bu hodisa butunlay e'tiborsiz qoldirilardi.
+         *
+         * initializeAuth() dagi getSession() mobil tarmoqda yoki supabase-js
+         * auth lock i band bo'lganda 3.5 s da timeout bo'ladi. O'sha holatda
+         * sessiyani qo'llaydigan YAGONA yo'l — shu INITIAL_SESSION hodisasi.
+         * U tashlab yuborilgani uchun user null qolib, isLoading esa false
+         * bo'lardi — ya'ni HAQIQATDA TIZIMGA KIRGAN (va hatto PRO to'lagan)
+         * foydalanuvchi ilova nazarida "mehmon" bo'lib qolardi:
+         *   /mavzuli, /darslik → "Kirish talab qilinadi" gate
+         *   /pro              → obuna yo'qdek ko'rinardi
+         * Tiklanish faqat TOKEN_REFRESHED / SIGNED_IN ga bog'liq edi, ular esa
+         * yangi sessiyada bir soatlab umuman kelmasligi mumkin.
+         */
+        if (event === 'INITIAL_SESSION') {
+          if (
+            currentSession?.user &&
+            !bootstrappedRef.current &&
+            !signingOutRef.current
+          ) {
+            bootstrappedRef.current = true;
+            applySession(currentSession);
+            const initialUserId = currentSession.user.id;
+            deferFromAuthCallback(() => {
+              if (!isMounted || signingOutRef.current) return;
+              void loadUserState(initialUserId);
+            });
+            setIsLoading(false);
+          }
+          return;
+        }
 
         if (event === 'SIGNED_OUT') {
           if (signingOutRef.current) {
@@ -309,6 +363,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
         if (currentSession?.user && event === 'SIGNED_IN') {
           if (signingOutRef.current) return;
+          // OAuth oqimida INITIAL_SESSION shundan KEYIN kelishi mumkin —
+          // belgilab qo'yamiz, aks holda loadUserState ikki marta ishlaydi.
+          bootstrappedRef.current = true;
           const signedInUserId = currentSession.user.id;
           deferFromAuthCallback(() => {
             if (!isMounted || signingOutRef.current) return;

@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
+import { execSync } from "child_process";
 import fs from "fs";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
@@ -37,6 +38,37 @@ function excludeSourceDataFromDist() {
   };
 }
 
+/**
+ * Har bir build ga o'ziga xos belgi qo'yadi. Ilgari bu qo'lda yozilardi
+ * (`dbe5957-lucide-eager`) va eskirib qolardi — natijada deploy chindan
+ * yangilanganini tekshirib bo'lmasdi. Endi commit SHA + vaqt avtomatik.
+ */
+function buildStamp() {
+  let stamp: string;
+  try {
+    stamp = execSync("git rev-parse --short HEAD", {
+      stdio: ["ignore", "pipe", "ignore"],
+    })
+      .toString()
+      .trim();
+  } catch {
+    stamp = "nogit";
+  }
+  const full = `${stamp}-${new Date().toISOString().slice(0, 16).replace(/[-:T]/g, "")}`;
+  return {
+    name: "build-stamp",
+    apply: "build" as const,
+    transformIndexHtml(html: string) {
+      return html
+        .replace(/<!-- BUILD:[^>]*-->/, `<!-- BUILD: ${full} -->`)
+        .replace(
+          /(<meta name="x-avtotestu-build" content=")[^"]*(")/,
+          `$1${full}$2`,
+        );
+    },
+  };
+}
+
 /** Cloudflare Rocket Loader type="module" ni buzadi — SPA lazy route ErrorBoundary. */
 function cloudflareNoRocketLoader() {
   return {
@@ -63,6 +95,7 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
+    buildStamp(),
     cloudflareNoRocketLoader(),
     excludeSourceDataFromDist(),
     mode === "development" && componentTagger(),

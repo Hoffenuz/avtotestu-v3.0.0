@@ -9,12 +9,22 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' https://pub-ad116decdc154b0f90a4b452c72fa433.r2.dev blob:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://pub-ad116decdc154b0f90a4b452c72fa433.r2.dev; font-src 'self'; frame-ancestors 'none'; object-src 'none'; base-uri 'self'
 
-# SPA shell — brauzer/edge keshlamasin (login holati)
+# SPA shell — HECH QACHON eskisi ishlatilmasin, LEKIN no-store emas.
+#
+#   no-store  = umuman saqlanmaydi → har kirishda to'liq ~11 KB HTML qayta
+#               yuklanadi (sekin tarmoqda seziladigan lag).
+#   no-cache  = saqlanadi, AMMO har safar validatsiya qilinadi → o'zgarmagan
+#               bo'lsa 304 Not Modified (~200 bayt). Yangilik chiqsa darhol
+#               yangi HTML keladi — ya'ni eskirish xavfi bir xil darajada yo'q.
+#
+# Bosh sahifa butun trafikning ~96% ini oladi, shuning uchun bu eng katta
+# tezlik yutug'i. `/` middleware da next() bilan tegilmay o'tadi, demak
+# Cloudflare Pages ning ETag i saqlanadi va 304 haqiqatan ishlaydi.
 /
-  Cache-Control: no-store
+  Cache-Control: no-cache
 
 /index.html
-  Cache-Control: no-store
+  Cache-Control: no-cache
 
 # ---------------------------------------------------------------------------
 # SEO snapshot (botlar) — Cloudflare edge kesh MUHIM.
