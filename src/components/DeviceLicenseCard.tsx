@@ -50,6 +50,12 @@ function truncateLicenseKey(key: string, head = 12, tail = 8): string {
   return `${key.slice(0, head)}...${key.slice(-tail)}`;
 }
 
+/** Faqat raqam, "0000 0000 0007 1365" ko'rinishida (4 tadan guruh, jami 16 ta raqam). */
+function formatDeviceIdInput(raw: string): string {
+  const digits = raw.replace(/\D/g, '').slice(0, 16);
+  return digits.match(/.{1,4}/g)?.join(' ') ?? digits;
+}
+
 interface Props {
   isPremium: boolean;
   subscriptionExpiresAt: Date | null;
@@ -223,9 +229,9 @@ export function DeviceLicenseCard({
     setError('');
     setResult(null);
 
-    const id = deviceId.trim();
-    if (id.length < 4) {
-      setError("Qurilma ID ni to'g'ri kiriting (kamida 4 belgi).");
+    const id = deviceId.replace(/\D/g, '');
+    if (id.length !== 16) {
+      setError("Qurilma ID ni to'g'ri kiriting (16 ta raqam, masalan: 0000 0000 0007 1365).");
       return;
     }
 
@@ -340,12 +346,14 @@ export function DeviceLicenseCard({
             <div className="flex flex-col sm:flex-row gap-2">
               <Input
                 id="deviceId"
-                placeholder="Masalan: 1234567890123456"
+                placeholder="0000 0000 0007 1365"
                 value={deviceId}
-                onChange={(e) => setDeviceId(e.target.value)}
+                onChange={(e) => setDeviceId(formatDeviceIdInput(e.target.value))}
                 disabled={submitting || refreshing}
                 className="font-mono text-sm"
                 autoComplete="off"
+                inputMode="numeric"
+                maxLength={19}
               />
               <Button
                 onClick={handleGetLicense}

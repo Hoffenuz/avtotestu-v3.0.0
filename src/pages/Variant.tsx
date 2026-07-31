@@ -154,8 +154,8 @@ export default function Variant() {
   return (
     <>
       <SEO
-        title="Test variantlari — 63 ta YHQ varianti"
-        description="Haydovchilik guvohnomasi uchun 63 ta YHQ test varianti. Haqiqiy imtihon formatida. Prava imtihoniga to'liq tayyorgarlik — Avtotestlar.uz."
+        title="63 ta Test Varianti 2026 — Bepul YHQ Imtihon Testi"
+        description="63 ta YHQ test varianti, har birida 20 ta savol — xuddi haqiqiy imtihondagidek. Bepul onlayn ishlang va prava olishga to'liq tayyorlaning."
         path="/variant"
         keywords="test varianti, prava test, imtihon savollari, YHQ test, 63 variant"
       />
