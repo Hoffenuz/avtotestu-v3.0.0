@@ -1,0 +1,52 @@
+name: CI
+
+# Buzilgan kod deploy ga yetib bormasligi uchun: har push va PR da lint,
+# tiplar, testlar va to'liq build (barcha assert skriptlari bilan) tekshiriladi.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Bir branch ga ketma-ket push qilinsa, eskisini bekor qilib resursni tejaymiz.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Lint · Types · Test · Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+        # vite.config.ts dagi buildStamp `git rev-parse --short HEAD` chaqiradi,
+        # shuning uchun .git kerak (checkout uni beradi).
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npx tsc --noEmit
+
+      - name: Test
+        run: npm run test:run
+
+      - name: Build
+        # Supabase client import paytida bu ikkisini talab qiladi. CI da haqiqiy
+        # kalit kerak emas — build faqat statik almashtirish qiladi, tarmoqqa
+        # chiqmaydi. Shuning uchun soxta qiymatlar yetarli va hech qanday sir
+        # repo ga tushmaydi.
+        env:
+          VITE_SUPABASE_URL: https://ci-placeholder.supabase.co
+          VITE_SUPABASE_PUBLISHABLE_KEY: ci-placeholder-anon-key
+        run: npm run build
