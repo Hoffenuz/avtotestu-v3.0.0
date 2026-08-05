@@ -89,3 +89,6 @@ supabase/migrations/*.sql
 
 # tsc -b (typecheck) yaratadigan inkremental kesh fayllari
 *.tsbuildinfo
+
+# wrangler pages dev lokal keshi
+.wrangler/
