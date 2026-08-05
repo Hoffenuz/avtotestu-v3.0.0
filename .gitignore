@@ -79,3 +79,10 @@ netlify.toml
 live_test.sh
 test_migrations.sql
 test_review_ratelimit.js
+
+# Supabase migratsiyalari MCP orqali to'g'ridan-to'g'ri bazaga qo'llanadi va
+# to'liq SQL matni bilan birga `supabase_migrations.schema_migrations`
+# jadvalida saqlanadi — ya'ni haqiqiy manba BAZA.
+# Lokal nusxalar to'liq emas (bazada 89 ta, bu yerda 17 ta) va chalg'itadi,
+# shuning uchun yangilari repozitoriyga qo'shilmasin.
+supabase/migrations/*.sql

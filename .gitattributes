@@ -1,0 +1,45 @@
+# Satr oxiri (line endings) normallashtirish.
+#
+# Buning yo'qligi sababli Windows da har `git add` da shunday ogohlantirishlar
+# chiqardi:
+#   "LF will be replaced by CRLF the next time Git touches it"
+# Endi matnli fayllar repozitoriyda doim LF bilan saqlanadi, ish papkasida esa
+# tizimga mos ko'rinishda bo'ladi — ogohlantirish ham, keraksiz diff ham yo'q.
+
+* text=auto eol=lf
+
+# Aniq matnli turlar
+*.ts     text eol=lf
+*.tsx    text eol=lf
+*.js     text eol=lf
+*.cjs    text eol=lf
+*.mjs    text eol=lf
+*.json   text eol=lf
+*.css    text eol=lf
+*.html   text eol=lf
+*.md     text eol=lf
+*.sql    text eol=lf
+*.yml    text eol=lf
+*.yaml   text eol=lf
+*.svg    text eol=lf
+
+# Windows skriptlari CRLF bo'lishi kerak
+*.ps1    text eol=crlf
+*.bat    text eol=crlf
+*.cmd    text eol=crlf
+
+# Ikkilik (binary) fayllar — hech qachon o'zgartirilmasin
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.webp   binary
+*.gif    binary
+*.ico    binary
+*.woff   binary
+*.woff2  binary
+*.ttf    binary
+*.mp3    binary
+*.mp4    binary
+*.pdf    binary
+*.jks    binary
+*.keystore binary
