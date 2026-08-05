@@ -195,6 +195,38 @@ async function handleRequest(ctx: PagesContext): Promise<Response> {
   const url = new URL(request.url);
   const path = url.pathname;
 
+  /**
+   * Eskirgan bundle so'rovi HTML qaytarmasin.
+   *
+   * MUAMMO: `_redirects` dagi `/* /index.html 200` SPA fallback mavjud
+   * bo'lmagan HAR QANDAY yo'lga HTML ni 200 bilan qaytaradi — jumladan
+   * `/assets/index-ESKIHASH.js` ga ham. Brauzerda eski index.html qolgan
+   * foydalanuvchi (har deploy da assetlar hash i o'zgaradi) HTML ni
+   * JavaScript moduli deb bajarishga urinadi; u parse bo'lmaydi va BUTUN
+   * ilova ishga tushmaydi — foydalanuvchi "Sayt yangilandi" ekranida
+   * qolib ketadi.
+   *
+   * YECHIM: bunday holatda haqiqiy 404 qaytaramiz. Shunda <script> da
+   * `error` hodisasi ishonchli chiqadi va index.html dagi deploy guard
+   * bir marta cache-bust reload qilib yangi HTML ni oladi.
+   *
+   * Haqiqiy assetlar (JS/CSS) o'z content-type i bilan tegilmasdan o'tadi.
+   */
+  if (path.startsWith('/assets/')) {
+    const assetRes = await next();
+    const type = assetRes.headers.get('content-type') ?? '';
+    if (type.includes('text/html')) {
+      return new Response('Not found', {
+        status: 404,
+        headers: {
+          'Content-Type': 'text/plain; charset=utf-8',
+          'Cache-Control': 'no-store',
+        },
+      });
+    }
+    return assetRes;
+  }
+
   if (isStaticAsset(path) && !path.endsWith('.html')) {
     return next();
   }
