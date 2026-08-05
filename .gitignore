@@ -86,3 +86,6 @@ test_review_ratelimit.js
 # Lokal nusxalar to'liq emas (bazada 89 ta, bu yerda 17 ta) va chalg'itadi,
 # shuning uchun yangilari repozitoriyga qo'shilmasin.
 supabase/migrations/*.sql
+
+# tsc -b (typecheck) yaratadigan inkremental kesh fayllari
+*.tsbuildinfo
