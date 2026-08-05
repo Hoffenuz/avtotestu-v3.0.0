@@ -18,6 +18,7 @@
     "cf:purge": "node scripts/cloudflare-cache-ops.cjs purge",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
+    "typecheck": "tsc -b --force",
     "preview": "vite preview",
     "questions:verify": "node scripts/question-tools/run-verify.cjs",
     "questions:validate": "node scripts/question-tools/validate_question_json.cjs",

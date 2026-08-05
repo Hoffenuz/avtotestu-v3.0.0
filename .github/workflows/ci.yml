@@ -36,7 +36,11 @@ jobs:
         run: npm run lint
 
       - name: Typecheck
-        run: npx tsc --noEmit
+        # `tsc --noEmit` BO'LMASIN: tsconfig.json da `"files": []` va
+        # `references` bor, shuning uchun u hech qanday faylni tekshirmay
+        # jimgina muvaffaqiyat qaytaradi — tip xatolari o'tib ketardi.
+        # `tsc -b` referenslarni kuzatib, src ni haqiqatan tekshiradi.
+        run: npm run typecheck
 
       - name: Test
         run: npm run test:run
