@@ -87,6 +87,28 @@
 /lovable-uploads/*
   Cache-Control: public, max-age=2592000, s-maxage=2592000, immutable
 
+# Ildizdagi statik rasmlar: hero fon, logo, favicon, OG rasmlari.
+#
+# Ular uchun qoida YO'Q edi va Cloudflare Pages ularga standart
+# `max-age=0, must-revalidate` qo'yardi — ya'ni hero fon (eng katta va
+# eng birinchi yuklanadigan element, preload+fetchpriority=high bilan)
+# HAR sahifa ochilishida qayta tekshirilardi. Bu har bir foydalanuvchida
+# ortiqcha kechikish edi.
+#
+# `immutable` EMAS: bu fayllar nomi hashsiz, kelajakda almashtirilishi
+# mumkin — shuning uchun stale-while-revalidate bilan yumshoqroq kesh.
+/*.webp
+  Cache-Control: public, max-age=604800, s-maxage=2592000, stale-while-revalidate=86400
+
+/*.png
+  Cache-Control: public, max-age=604800, s-maxage=2592000, stale-while-revalidate=86400
+
+/*.jpg
+  Cache-Control: public, max-age=604800, s-maxage=2592000, stale-while-revalidate=86400
+
+/*.ico
+  Cache-Control: public, max-age=604800, s-maxage=2592000, stale-while-revalidate=86400
+
 # ---------------------------------------------------------------------------
 # SEO fayllar — to'g'ri MIME tur, qisqa kesh
 # ---------------------------------------------------------------------------
