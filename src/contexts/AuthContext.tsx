@@ -38,6 +38,13 @@ interface AuthContextType {
   signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
   signInWithGoogle: () => Promise<{ error: Error | null }>;
   signOut: () => Promise<void>;
+  /**
+   * Foydalanuvchida parol bilan kirish allaqachon bormi.
+   * false = faqat Google orqali kirgan (parol hali qo'yilmagan).
+   */
+  hasPasswordLogin: boolean;
+  /** Faqat o'z parolini o'rnatadi/yangilaydi (joriy sessiya egasi uchun). */
+  updatePassword: (newPassword: string, currentPassword?: string) => Promise<{ error: Error | null }>;
   refreshProfile: () => Promise<void>;
   refreshAccessState: () => Promise<void>;
 }
@@ -438,6 +445,57 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
+  /**
+   * Foydalanuvchi qaysi usul(lar) bilan kira oladi. Google orqali kelgan
+   * foydalanuvchida parol yo'q — unga "parol o'rnatish" taklif qilinadi,
+   * paroli borlardan esa eskisi so'raladi.
+   */
+  const hasPasswordLogin = useMemo(() => {
+    const meta = user?.app_metadata as { providers?: unknown; provider?: unknown } | undefined;
+    const list = Array.isArray(meta?.providers) ? (meta.providers as unknown[]) : [];
+    if (list.some((p) => p === 'email')) return true;
+    return meta?.provider === 'email';
+  }, [user]);
+
+  /**
+   * Parolni o'rnatish yoki yangilash.
+   *
+   * Xavfsizlik: `updateUser` HAR DOIM joriy sessiya egasiga tegishli — boshqa
+   * foydalanuvchini ko'rsatish imkoniyati yo'q, shuning uchun foydalanuvchi
+   * faqat o'z parolini o'zgartira oladi. Paroli bor foydalanuvchidan qo'shimcha
+   * ravishda eski parol so'raladi (ochiq qolgan sessiyani himoyalash uchun).
+   */
+  const updatePassword = useCallback(async (
+    newPassword: string,
+    currentPassword?: string,
+  ): Promise<{ error: Error | null }> => {
+    const email = user?.email?.trim();
+    if (!email) return { error: new Error('not_authenticated') };
+
+    try {
+      if (hasPasswordLogin) {
+        if (!currentPassword) return { error: new Error('current_password_required') };
+        // Parolni tekshirishning yagona yo'li — u bilan kirib ko'rish.
+        // Xato parol joriy sessiyani buzmaydi.
+        const { error: verifyError } = await withTimeout(
+          supabase.auth.signInWithPassword({ email, password: currentPassword }),
+          SIGN_IN_TIMEOUT_MS,
+        );
+        if (verifyError) return { error: new Error('wrong_current_password') };
+      }
+
+      const { error } = await withTimeout(
+        supabase.auth.updateUser({ password: newPassword }),
+        SIGN_IN_TIMEOUT_MS,
+      );
+      if (error) return { error };
+
+      return { error: null };
+    } catch (err) {
+      return { error: err as Error };
+    }
+  }, [user, hasPasswordLogin]);
+
   const signIn = useCallback(async (
     email: string,
     password: string
@@ -528,12 +586,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     signIn,
     signInWithGoogle,
     signOut,
+    hasPasswordLogin,
+    updatePassword,
     refreshProfile,
     refreshAccessState,
   }), [
     user, session, profile, isLoading, profileLoading,
     accessStateLoading, accessState, isPremium, expiresAt, backendConfirmed,
-    signUp, signIn, signInWithGoogle, signOut, refreshProfile, refreshAccessState,
+    signUp, signIn, signInWithGoogle, signOut, hasPasswordLogin, updatePassword,
+    refreshProfile, refreshAccessState,
   ]);
 
   return (

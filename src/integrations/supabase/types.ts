@@ -187,6 +187,95 @@ export type Database = {
         }
         Relationships: []
       }
+      payme_plans: {
+        Row: {
+          amount_tiyin: number
+          created_at: string
+          is_active: boolean
+          plan_name: string
+          tariff_days: number
+        }
+        Insert: {
+          amount_tiyin: number
+          created_at?: string
+          is_active?: boolean
+          plan_name: string
+          tariff_days: number
+        }
+        Update: {
+          amount_tiyin?: number
+          created_at?: string
+          is_active?: boolean
+          plan_name?: string
+          tariff_days?: number
+        }
+        Relationships: []
+      }
+      payme_transactions: {
+        Row: {
+          account_email: string
+          amount_tiyin: number
+          cancel_time: number
+          create_time: number
+          created_at: string
+          id: string
+          payme_id: string
+          perform_time: number
+          plan_name: string
+          prev_tariff_days: number | null
+          prev_tariff_end_date: string | null
+          reason: number | null
+          state: number
+          subscription_id: string | null
+          tariff_days: number
+          user_id: string
+        }
+        Insert: {
+          account_email: string
+          amount_tiyin: number
+          cancel_time?: number
+          create_time: number
+          created_at?: string
+          id?: string
+          payme_id: string
+          perform_time?: number
+          plan_name: string
+          prev_tariff_days?: number | null
+          prev_tariff_end_date?: string | null
+          reason?: number | null
+          state?: number
+          subscription_id?: string | null
+          tariff_days: number
+          user_id: string
+        }
+        Update: {
+          account_email?: string
+          amount_tiyin?: number
+          cancel_time?: number
+          create_time?: number
+          created_at?: string
+          id?: string
+          payme_id?: string
+          perform_time?: number
+          plan_name?: string
+          prev_tariff_days?: number | null
+          prev_tariff_end_date?: string | null
+          reason?: number | null
+          state?: number
+          subscription_id?: string | null
+          tariff_days?: number
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "payme_transactions_subscription_id_fkey"
+            columns: ["subscription_id"]
+            isOneToOne: false
+            referencedRelation: "subscriptions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       payment_receipts: {
         Row: {
           amount: number | null

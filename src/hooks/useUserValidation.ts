@@ -3,6 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
+import { withTimeout } from '@/lib/withTimeout';
+
+/** Sessiya bor-yo'qligini tekshirish — lokal o'qish, uzoq kutmaymiz. */
+const SESSION_PROBE_TIMEOUT_MS = 3_000;
 
 /**
  * Clears test + auth storage leftovers.
@@ -76,6 +80,31 @@ export const checkUserExists = async (userId: string): Promise<boolean | null> =
  * local/safe (no network round-trip in the common case, unlike getUser()
  * which was already ruled out below for the same class of false-positive).
  */
+/**
+ * Sessiya UMUMAN bormi (foydalanuvchi ID siga bog'liq emas).
+ *
+ * ILGARIGI XATTI-HARAKAT: `isLoading` false bo'lishi "sessiya yo'q" degani
+ * EMAS. AuthContext dagi getSession() sekin tarmoqda 3.5 s da timeout bo'ladi
+ * va UI ni bloklamaslik uchun `isLoading` ni baribir false qiladi; sessiyani
+ * esa keyinroq kelgan INITIAL_SESSION tiklaydi. O'sha oraliqda `user` hali
+ * null bo'ladi — agar shu payt darhol /auth ga yuborilsa, HAQIQATDA tizimga
+ * kirgan (va hatto PRO to'lagan) foydalanuvchi hisobidan chiqarib yuborilardi.
+ *
+ * Noaniqlik (timeout yoki xato) = `true`: shubha bo'lganda foydalanuvchini
+ * chiqarib yubormaymiz. Ma'lumotni baribir RLS himoya qiladi.
+ */
+async function sessionMightExist(): Promise<boolean> {
+  try {
+    const { data: { session } } = await withTimeout(
+      supabase.auth.getSession(),
+      SESSION_PROBE_TIMEOUT_MS,
+    );
+    return !!session?.user;
+  } catch {
+    return true;
+  }
+}
+
 async function hasFreshSessionFor(userId: string): Promise<boolean> {
   try {
     const { data: { session } } = await supabase.auth.getSession();
@@ -104,6 +133,13 @@ export const useUserValidation = (redirectPath = '/auth') => {
     const validateUser = async () => {
       try {
         if (!sessionUser) {
+          // Sessiya bor, lekin kontekst uni hali qo'llamagan bo'lishi mumkin
+          // (yuqoridagi izohga qarang) — bunday holatda chiqarib yubormaymiz.
+          if (await sessionMightExist()) {
+            // `sessionUser` kelganda effekt qayta ishga tushib tekshirsin
+            hasValidated.current = false;
+            return;
+          }
           navigate(redirectPath, { replace: true });
           return;
         }

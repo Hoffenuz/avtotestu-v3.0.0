@@ -23,13 +23,14 @@ import {
   X,
   Calendar,
   FileText,
-  CreditCard,
   History,
   ExternalLink,
   ChevronDown,
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { DeviceLicenseCard } from '@/components/DeviceLicenseCard';
+import { PasswordSection } from '@/components/PasswordSection';
+import { emailToPhoneDisplay } from '@/lib/phone';
 import { formatTestTime } from '@/lib/testPersistence';
 
 interface TestResult {
@@ -57,6 +58,9 @@ function isExamTicketResult(r: TestResult): boolean {
 
 const Profile = () => {
   const { user, profile, signOut, isLoading, refreshProfile } = useAuth();
+
+  /** Telefon orqali ochilgan hisobda sun'iy email o'rniga raqam ko'rsatiladi. */
+  const phoneFromEmail = emailToPhoneDisplay(user?.email);
   const navigate = useNavigate();
   const registrationDays = useRegistrationAge(user?.id);
   const { isPremium, expiresAt: subscriptionExpiresAt } = useAccessState();
@@ -70,16 +74,6 @@ const Profile = () => {
   
   // Chek linkini saqlash uchun yangi state
   const [checkLink, setCheckLink] = useState<string | null>(null);
-
-  // Payment receipts state (new canonical table)
-  const [paymentReceipts, setPaymentReceipts] = useState<Array<{
-    id: string;
-    receipt_url: string | null;
-    amount: number | null;
-    currency: string;
-    payment_method: string | null;
-    created_at: string;
-  }>>([]);
 
   // Subscriptions history state
   const [subscriptions, setSubscriptions] = useState<Array<{
@@ -101,28 +95,12 @@ const Profile = () => {
       setEditFullName(profile.full_name || '');
     }
   }, [profile]);
-// Chek ma'lumotlarini olish (legacy chek table + new payment_receipts)
+// Eski (legacy) chek havolasini olish.
+// To'lov cheklari ro'yxati ko'rsatilmaydi — chekni foydalanuvchi Payme ilovasidan
+// oladi. Bazada yozuv baribir saqlanadi (audit va admin uchun).
 useEffect(() => {
   const fetchPaymentData = async () => {
     if (!user) return;
-
-    // Fetch from new payment_receipts table
-    try {
-      const { data: receipts, error: receiptsError } = await supabase
-        .from('payment_receipts')
-        .select('id, receipt_url, amount, currency, payment_method, created_at')
-        .eq('user_id', user.id)
-        .order('created_at', { ascending: false })
-        .limit(10);
-
-      if (receiptsError) {
-        if (!import.meta.env.PROD) console.error('Error fetching payment receipts:', receiptsError);
-      } else {
-        setPaymentReceipts(receipts || []);
-      }
-    } catch (err) {
-      if (!import.meta.env.PROD) console.error('Payment receipts fetch error:', err);
-    }
 
     // Fetch from legacy chek table (email-based)
     if (user.email) {
@@ -321,7 +299,9 @@ useEffect(() => {
             </div>
             <div className="flex-1">
               <h1 className="text-2xl md:text-3xl font-bold">{displayName}</h1>
-              <p className="text-primary-foreground/80 text-sm md:text-base">{user.email || user.phone}</p>
+              <p className="text-primary-foreground/80 text-sm md:text-base">
+                {phoneFromEmail ?? user.email ?? user.phone}
+              </p>
               {profile?.username && profile?.full_name && (
                 <p className="text-primary-foreground/60 text-sm">@{profile.username}</p>
               )}
@@ -406,14 +386,22 @@ useEffect(() => {
                   <p className="text-sm text-muted-foreground">Foydalanuvchi nomi</p>
                   <p className="font-medium text-foreground">{profile?.username ? `@${profile.username}` : '-'}</p>
                 </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Email</p>
-                  <p className="font-medium text-foreground break-all">{user.email || '-'}</p>
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Telefon</p>
-                  <p className="font-medium text-foreground">{user.phone || '-'}</p>
-                </div>
+                {/*
+                  Telefon orqali ro'yxatdan o'tganlarda email sun'iy
+                  (998XXXXXXXXX@pro.com) — uni ko'rsatish chalg'itadi,
+                  shuning uchun o'rniga raqamning o'zi chiqadi.
+                */}
+                {phoneFromEmail ? (
+                  <div>
+                    <p className="text-sm text-muted-foreground">Telefon raqam</p>
+                    <p className="font-medium text-foreground">{phoneFromEmail}</p>
+                  </div>
+                ) : (
+                  <div>
+                    <p className="text-sm text-muted-foreground">Email</p>
+                    <p className="font-medium text-foreground break-all">{user.email || '-'}</p>
+                  </div>
+                )}
                 {checkLink && checkLink !== 'yuklanmagan' && (
                   <div>
                     <p className="text-sm text-muted-foreground flex items-center gap-1">
@@ -441,6 +429,9 @@ useEffect(() => {
                 </div>
               </div>
             )}
+
+            {/* Parol — tahrirlash rejimida emas, ma'lumotlar ostida ixcham bo'lim */}
+            {!isEditing && <PasswordSection />}
           </Card>
 
           <Card className="p-6 h-full">
@@ -482,51 +473,6 @@ useEffect(() => {
           subscriptionExpiresAt={subscriptionExpiresAt}
           className="mb-6"
         />
-
-        {/* Payment Receipts */}
-        {paymentReceipts.length > 0 && (
-          <Card className="p-6 mb-6">
-            <h2 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
-              <CreditCard className="w-5 h-5 text-primary" />
-              To'lov cheklari
-            </h2>
-            <div className="space-y-3">
-              {paymentReceipts.map((receipt) => (
-                <div key={receipt.id} className="flex items-center justify-between p-3 rounded-lg bg-muted/30 border border-border">
-                  <div>
-                    <div className="flex items-center gap-2">
-                      {receipt.payment_method ? (
-                        <span className="text-xs font-medium text-foreground">{receipt.payment_method}</span>
-                      ) : (
-                        <span className="text-xs font-medium text-foreground">To'lov cheki</span>
-                      )}
-                    </div>
-                    <p className="text-xs text-muted-foreground mt-1">
-                      {new Date(receipt.created_at).toLocaleDateString('uz-UZ')}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    {receipt.amount && (
-                      <span className="text-sm font-medium">
-                        {receipt.amount.toLocaleString()} {receipt.currency}
-                      </span>
-                    )}
-                    {receipt.receipt_url && (
-                      <a
-                        href={receipt.receipt_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-primary hover:text-primary/80"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </Card>
-        )}
 
         {/* Subscriptions History */}
         {subscriptions.length > 0 && (
