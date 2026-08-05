@@ -80,7 +80,13 @@ export function Turnstile({ onVerify, action = 'signup', language, className }: 
     onVerifyRef.current = onVerify;
   }, [onVerify]);
 
-  const cfLang = language === 'ru' ? 'ru' : language === 'en' ? 'en' : 'uz';
+  /**
+   * Cloudflare o'zbek tilini (`uz`) QO'LLAB-QUVVATLAMAYDI — uni uzatsak
+   * konsolda ogohlantirish chiqadi va baribir inglizchaga tushadi.
+   * Shuning uchun o'zbek uchun `auto`: widget brauzer tilidan kelib
+   * chiqib o'zi eng mosini tanlaydi.
+   */
+  const cfLang = language === 'ru' ? 'ru' : language === 'en' ? 'en' : 'auto';
 
   useEffect(() => {
     if (!isTurnstileConfigured()) {
