@@ -196,23 +196,30 @@ async function handleRequest(ctx: PagesContext): Promise<Response> {
   const path = url.pathname;
 
   /**
-   * Eskirgan bundle so'rovi HTML qaytarmasin.
+   * Statik fayl so'rovi HECH QACHON HTML qaytarmasin.
    *
    * MUAMMO: `_redirects` dagi `/* /index.html 200` SPA fallback mavjud
-   * bo'lmagan HAR QANDAY yo'lga HTML ni 200 bilan qaytaradi — jumladan
-   * `/assets/index-ESKIHASH.js` ga ham. Brauzerda eski index.html qolgan
-   * foydalanuvchi (har deploy da assetlar hash i o'zgaradi) HTML ni
-   * JavaScript moduli deb bajarishga urinadi; u parse bo'lmaydi va BUTUN
-   * ilova ishga tushmaydi — foydalanuvchi "Sayt yangilandi" ekranida
-   * qolib ketadi.
+   * bo'lmagan HAR QANDAY yo'lga index.html ni 200 bilan qaytaradi. Bu ikki
+   * joyda foydalanuvchiga urardi:
    *
-   * YECHIM: bunday holatda haqiqiy 404 qaytaramiz. Shunda <script> da
-   * `error` hodisasi ishonchli chiqadi va index.html dagi deploy guard
-   * bir marta cache-bust reload qilib yangi HTML ni oladi.
+   *   1. `/assets/index-ESKIHASH.js` — brauzerda eski index.html qolgan
+   *      foydalanuvchi (har deploy da hash o'zgaradi) HTML ni JavaScript
+   *      moduli deb bajarishga urinadi → BUTUN ilova ishga tushmaydi.
    *
-   * Haqiqiy assetlar (JS/CSS) o'z content-type i bilan tegilmasdan o'tadi.
+   *   2. `/data/variants/vN.json`, `/free-*.json` va boshqa savol
+   *      fayllari — `fetchQuestionJson` HTML oladi, `JSON.parse` yiqiladi.
+   *      U buni tarmoq xatosi deb hisoblab 4 marta qayta uriniladi
+   *      (eksponensial kutish bilan ~5 soniya) va shundan keyingina xato
+   *      ko'rsatadi. Foydalanuvchi uchun bu "qotib qolish".
+   *
+   * YECHIM: statik fayl so'raldi-yu, javob HTML bo'lsa — haqiqiy 404.
+   * Shunda <script> da `error` hodisasi chiqadi (index.html dagi
+   * ko'rinmas tiklanish ishlaydi) va `fetchQuestionJson` uni doimiy
+   * xato deb bilib bekorga qayta urinmaydi.
+   *
+   * Haqiqiy fayllar o'z content-type i bilan tegilmasdan o'tadi.
    */
-  if (path.startsWith('/assets/')) {
+  if (isStaticAsset(path) && !path.endsWith('.html')) {
     const assetRes = await next();
     const type = assetRes.headers.get('content-type') ?? '';
     if (type.includes('text/html')) {
@@ -225,10 +232,6 @@ async function handleRequest(ctx: PagesContext): Promise<Response> {
       });
     }
     return assetRes;
-  }
-
-  if (isStaticAsset(path) && !path.endsWith('.html')) {
-    return next();
   }
 
   if (path === '/') {
