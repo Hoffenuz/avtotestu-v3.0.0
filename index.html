@@ -5,6 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!--
+      Eskirgan bundle — KO'RINMAS tiklanish.
+
+      Brauzerda eski index.html qolgan bo'lsa (deploy dan keyin asset
+      hash lari o'zgaradi), u endi mavjud bo'lmagan faylni so'raydi va
+      React umuman ishga tushmaydi — oq ekran.
+
+      Bu yerda foydalanuvchiga HECH NARSA ko'rsatilmaydi: na xabar, na
+      tugma. Taymer ham yo'q (u sog'lom, sekin yuklanayotgan saytni
+      "buzilgan" deb yanglishardi). Faqat HAQIQIY yuklanish xatosida
+      sahifa bir marta jimgina qayta yuklanadi.
+    -->
+    <script data-cfasync="false">
+      (function () {
+        var KEY = 'rl';
+        var BUST = '_cb';
+
+        // Tiklanishdan qolgan ?_cb= ni manzildan darhol olib tashlaymiz
+        try {
+          var u = new URL(location.href);
+          if (u.searchParams.has(BUST)) {
+            u.searchParams.delete(BUST);
+            history.replaceState(null, '', u.pathname + (u.search || '') + u.hash);
+          }
+        } catch (e) { /* ignore */ }
+
+        window.addEventListener('error', function (ev) {
+          var el = ev && ev.target;
+          if (!el) return;
+          var src = el.src || el.href || '';
+          if (el.tagName !== 'SCRIPT' && el.tagName !== 'LINK') return;
+          if (src.indexOf('/assets/') === -1) return;
+
+          // Bir martadan ko'p emas — cheksiz reload sikli bo'lmasin
+          try {
+            if (sessionStorage.getItem(KEY) === '1') return;
+            sessionStorage.setItem(KEY, '1');
+          } catch (e) { return; }
+
+          try {
+            var v = new URL(location.href);
+            v.searchParams.set(BUST, Date.now().toString(36));
+            location.replace(v.toString());
+          } catch (e) { location.reload(); }
+        }, true);
+      })();
+    </script>
+
     <!-- BUILD: dbe5957-lucide-eager 2026-07-24 -->
     <!-- Cloudflare Rocket Loader ES module / lazy chunk ni buzadi — o'chirilgan -->
     <meta name="cloudflare-rocket-loader-disable" content="true" />
