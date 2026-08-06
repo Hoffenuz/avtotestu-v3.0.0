@@ -22,6 +22,8 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { SiteNotificationBanner } from "@/components/SiteNotificationBanner";
 import MobileAppBanner from "@/components/MobileAppBanner";
 import DesktopAppBanner from "@/components/DesktopAppBanner";
+import TelegramGroupCard from "@/components/TelegramGroupCard";
+import ProGroupInvite from "@/components/ProGroupInvite";
 
 
 export default function Home() {
@@ -145,6 +147,14 @@ export default function Home() {
               )}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* PRO userlarga bir martalik guruh taklifi + hammaga guruh kartasi */}
+      <section className="py-8 bg-background">
+        <div className="max-w-4xl mx-auto px-4">
+          <ProGroupInvite />
+          <TelegramGroupCard />
         </div>
       </section>
 
