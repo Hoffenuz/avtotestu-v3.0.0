@@ -14,6 +14,7 @@ import { SEO } from '@/components/SEO';
 import { isNetworkError, NETWORK_ERROR_MESSAGE_UZ } from '@/lib/networkError';
 import { Turnstile } from '@/components/Turnstile';
 import { isTurnstileConfigured } from '@/lib/turnstile';
+import { peekPendingPlan } from '@/lib/pendingPlan';
 import {
   formatUzLocalInput,
   loginIdentifierToEmail,
@@ -83,10 +84,13 @@ const Auth = () => {
 
   // Only allow same-origin paths ("/...") — blocks open redirects
   const rawReturnTo = (location.state as { returnTo?: string })?.returnTo;
+  // Tarif tanlab kelgan bo'lsa PRO bo'limiga qaytaramiz — sahifa yangilanib
+  // location.state yo'qolgan bo'lsa ham tanlov saqlanib qoladi.
+  const fallbackReturnTo = peekPendingPlan() ? '/pro' : '/';
   const returnTo =
     rawReturnTo && rawReturnTo.startsWith('/') && !rawReturnTo.startsWith('//')
       ? rawReturnTo
-      : '/';
+      : fallbackReturnTo;
 
   useEffect(() => {
     if (!isLoading && user) navigate(returnTo, { replace: true });

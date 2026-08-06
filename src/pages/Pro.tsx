@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
@@ -9,6 +9,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useAccessState } from "@/hooks/useAccessState";
 import { supabase } from "@/integrations/supabase/client";
 import { buildPaymeCheckoutUrl, formatTiyinAsSum, type PaymePlan } from "@/lib/payme";
+import { clearPendingPlan, peekPendingPlan, setPendingPlan } from "@/lib/pendingPlan";
 import { toast } from "sonner";
 import { Crown, Check, X, Star, Send } from "lucide-react";
 
@@ -16,7 +17,7 @@ export default function Pro() {
   const navigate = useNavigate();
   const { user, isLoading } = useAuth();
   const { t, language } = useLanguage();
-  const { isPremium } = useAccessState();
+  const { isPremium, loading: accessLoading } = useAccessState();
 
   /**
    * Tariflar DB dan olinadi: Payme summani `payme_plans.amount_tiyin` bo'yicha
@@ -102,11 +103,46 @@ export default function Pro() {
    * `payme` Edge Function ni chaqiradi va obuna `payme_perform_transaction`
    * ichida yoziladi. Shuning uchun havolani qo'lda ochib PRO olish mumkin emas.
    */
+  const goToPayme = useCallback(
+    (planName: string): boolean => {
+      const email = user?.email?.trim();
+      if (!email) {
+        // Payme hisobni aynan email bo'yicha topadi (`account.email`)
+        toast.error("Hisobingizda email ko'rsatilmagan. Administrator bilan bog'laning.");
+        return false;
+      }
+
+      const dbPlan = paymePlans[planName];
+      if (!dbPlan) {
+        toast.error("Tarif ma'lumoti yuklanmadi. Sahifani yangilab, qayta urinib ko'ring.");
+        return false;
+      }
+
+      const checkoutUrl = buildPaymeCheckoutUrl({
+        email,
+        amountTiyin: dbPlan.amount_tiyin,
+        callbackUrl: `${window.location.origin}/profile`,
+        language,
+      });
+
+      if (!checkoutUrl) {
+        toast.error("To'lov havolasini yaratib bo'lmadi. Administrator bilan bog'laning.");
+        return false;
+      }
+
+      window.location.href = checkoutUrl;
+      return true;
+    },
+    [user, paymePlans, language],
+  );
+
   const handleBuyPlan = (planName: string) => {
     if (!user) {
       // Mehmonning aksariyati hali ro'yxatdan o'tmagan — uni "Kirish" emas,
       // to'g'ridan-to'g'ri "Ro'yxatdan o'tish" bo'limiga olib boramiz va
-      // tugagach shu sahifaga qaytaramiz.
+      // tugagach shu sahifaga qaytaramiz. Tanlagan tarifi ham saqlanadi —
+      // ro'yxatdan o'tgach uni qaytadan izlashi shart emas.
+      setPendingPlan(planName);
       toast.info("To'lov uchun avval ro'yxatdan o'ting — bir daqiqa vaqt oladi.");
       navigate('/auth', { state: { mode: 'signup', returnTo: '/pro' } });
       return;
@@ -120,33 +156,35 @@ export default function Pro() {
       return;
     }
 
-    const email = user.email?.trim();
-    if (!email) {
-      // Payme hisobni aynan email bo'yicha topadi (`account.email`)
-      toast.error("Hisobingizda email ko'rsatilmagan. Administrator bilan bog'laning.");
-      return;
-    }
-
-    const dbPlan = paymePlans[planName];
-    if (!dbPlan) {
-      toast.error("Tarif ma'lumoti yuklanmadi. Sahifani yangilab, qayta urinib ko'ring.");
-      return;
-    }
-
-    const checkoutUrl = buildPaymeCheckoutUrl({
-      email,
-      amountTiyin: dbPlan.amount_tiyin,
-      callbackUrl: `${window.location.origin}/profile`,
-      language,
-    });
-
-    if (!checkoutUrl) {
-      toast.error("To'lov havolasini yaratib bo'lmadi. Administrator bilan bog'laning.");
-      return;
-    }
-
-    window.location.href = checkoutUrl;
+    goToPayme(planName);
   };
+
+  /**
+   * Ro'yxatdan o'tib qaytgan foydalanuvchini to'g'ridan-to'g'ri to'lovga
+   * o'tkazamiz — u tanlovini qaytadan qilishi shart emas.
+   *
+   * `access.loading` kutiladi: PRO holati aniqlanmasdan turib yo'naltirsak,
+   * obunasi bor odam ham to'lov sahifasiga tushib qolardi.
+   */
+  useEffect(() => {
+    if (isLoading || accessLoading || !user) return;
+    if (Object.keys(paymePlans).length === 0) return; // narxlar hali kelmadi
+
+    const planName = peekPendingPlan();
+    if (!planName) return;
+
+    // Bu nuqtadan keyin tanlov har qanday holatda ham iste'mol qilinadi:
+    // aks holda foydalanuvchi sahifaga har kirganda qayta yo'naltirilaverardi.
+    clearPendingPlan();
+
+    if (isPremium) {
+      toast.info("Sizda allaqachon faol PRO obuna mavjud.");
+      return;
+    }
+
+    toast.info("To'lov sahifasiga o'tkazilmoqda...");
+    goToPayme(planName);
+  }, [isLoading, accessLoading, user, isPremium, paymePlans, goToPayme]);
 
 
   if (isLoading) {
