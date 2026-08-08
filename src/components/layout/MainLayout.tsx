@@ -1,10 +1,11 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect, useMemo, useCallback, useRef } from "react";
-import { Menu, X, User, LogIn, Crown, Globe, ChevronDown, Home, Phone, BookOpen, Info, Car, Monitor, Newspaper, type LucideIcon } from "lucide-react";
+import { Menu, X, User, LogIn, Crown, Globe, ChevronDown, Home, Phone, BookOpen, Info, Car, Monitor, Newspaper, MessageCircle, type LucideIcon } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { TELEGRAM_GROUP_URL } from "@/lib/telegram";
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -545,6 +546,15 @@ export function MainLayout({ children }: MainLayoutProps) {
             <div>
               <h3 className="font-semibold text-lg mb-4">{t("footer.contactTitle")}</h3>
               <div className="space-y-2 text-sm text-primary-foreground/70">
+                <a
+                  href={TELEGRAM_GROUP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:text-primary-foreground transition-colors"
+                >
+                  <MessageCircle className="w-4 h-4 flex-shrink-0" />
+                  {t("tgGroup.join")}
+                </a>
                 <p>{t("footer.telegramLabel")}</p>
                 <p>{t("footer.botLabel")}</p>
               </div>
