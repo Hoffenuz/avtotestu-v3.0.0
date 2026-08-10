@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { SEO } from '@/components/SEO';
@@ -63,7 +63,8 @@ const Profile = () => {
   const phoneFromEmail = emailToPhoneDisplay(user?.email);
   const navigate = useNavigate();
   const registrationDays = useRegistrationAge(user?.id);
-  const { isPremium, expiresAt: subscriptionExpiresAt } = useAccessState();
+  const { isPremium, expiresAt: subscriptionExpiresAt, refresh: refreshAccessState } = useAccessState();
+  const paymePollRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const [results, setResults] = useState<TestResult[]>([]);
   const [loadingResults, setLoadingResults] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
@@ -95,6 +96,52 @@ const Profile = () => {
       setEditFullName(profile.full_name || '');
     }
   }, [profile]);
+
+  /**
+   * Payme'dan qaytgach (?from=payme) PRO holati darhol ko'rinmasligi mumkin:
+   * Payme'ning bizga server-server tasdiq chaqiruvi va foydalanuvchi
+   * brauzerining shu sahifaga qaytishi parallel ketadi — bittasi ikkinchisidan
+   * oldin yetib kelishi mumkin. Shu sabab bir martalik tekshiruv yetarli emas:
+   * PRO tasdiqlanguncha (yoki ~20s tugaguncha) bir necha marta qayta so'raymiz.
+   */
+  useEffect(() => {
+    if (!user) return;
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('from') !== 'payme') return;
+
+    // Sahifa yangilansa/orqaga qaytilsa qayta ishga tushmasin.
+    window.history.replaceState(null, '', window.location.pathname);
+
+    if (isPremium) return;
+
+    toast.info("To'lov tasdiqlanmoqda, biroz kuting...");
+    let attempts = 0;
+    const maxAttempts = 8; // ~20s (2.5s oralig'ida)
+    paymePollRef.current = setInterval(() => {
+      attempts += 1;
+      if (attempts > maxAttempts) {
+        if (paymePollRef.current) clearInterval(paymePollRef.current);
+        paymePollRef.current = null;
+        return;
+      }
+      void refreshAccessState();
+    }, 2500);
+
+    return () => {
+      if (paymePollRef.current) clearInterval(paymePollRef.current);
+      paymePollRef.current = null;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
+
+  /** PRO tasdiqlangan zahoti pollingni to'xtatamiz. */
+  useEffect(() => {
+    if (isPremium && paymePollRef.current) {
+      clearInterval(paymePollRef.current);
+      paymePollRef.current = null;
+      toast.success("PRO tarif faollashtirildi!");
+    }
+  }, [isPremium]);
 // Eski (legacy) chek havolasini olish.
 // To'lov cheklari ro'yxati ko'rsatilmaydi — chekni foydalanuvchi Payme ilovasidan
 // oladi. Bazada yozuv baribir saqlanadi (audit va admin uchun).

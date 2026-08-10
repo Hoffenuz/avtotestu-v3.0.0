@@ -121,7 +121,10 @@ export default function Pro() {
       const checkoutUrl = buildPaymeCheckoutUrl({
         email,
         amountTiyin: dbPlan.amount_tiyin,
-        callbackUrl: `${window.location.origin}/profile`,
+        // "?from=payme" — /profile shu belgini ko'rib, PRO holatini bir necha
+        // marta qayta so'raydi (Payme server callback bilan browser qaytishi
+        // orasida race condition bo'lishi mumkin, pastga qarang: Profile.tsx).
+        callbackUrl: `${window.location.origin}/profile?from=payme`,
         language,
       });
 
