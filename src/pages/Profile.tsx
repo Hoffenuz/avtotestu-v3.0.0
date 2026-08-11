@@ -122,6 +122,18 @@ const Profile = () => {
       if (attempts > maxAttempts) {
         if (paymePollRef.current) clearInterval(paymePollRef.current);
         paymePollRef.current = null;
+
+        /**
+         * Bu yerga yetib kelish = 20 soniyada ham PRO tasdiqlanmadi.
+         * JIMGINA to'xtab qolmaymiz: foydalanuvchi pulini to'lagan va
+         * nima qilishini bilishi shart, aks holda "pulim ketdi" degan
+         * xavotirda qoladi.
+         */
+        toast.error(
+          "To'lov tasdig'i kechikmoqda. Sahifani yangilang — o'zgarmasa " +
+            "Telegram orqali bog'laning: @avtotestu_ad",
+          { duration: 15000 },
+        );
         return;
       }
       void refreshAccessState();

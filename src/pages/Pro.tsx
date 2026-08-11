@@ -13,6 +13,34 @@ import { clearPendingPlan, peekPendingPlan, setPendingPlan } from "@/lib/pending
 import { toast } from "sonner";
 import { Crown, Check, X, Star, Send } from "lucide-react";
 
+/**
+ * Faol tariflarni o'qiydi.
+ * `null` = so'rov muvaffaqiyatsiz yoki bo'sh (qayta urinish mantiqiy).
+ */
+async function fetchActivePaymePlans(
+  signal?: AbortSignal,
+): Promise<Record<string, PaymePlan> | null> {
+  try {
+    // Bitta yo'l: signal berilmasa ham o'zimiznikini yaratamiz, shunda
+    // so'rov qurilishi hamma chaqiruvda bir xil bo'ladi.
+    const activeSignal = signal ?? new AbortController().signal;
+
+    const { data, error } = await supabase
+      .from("payme_plans")
+      .select("plan_name, amount_tiyin, tariff_days")
+      .eq("is_active", true)
+      .abortSignal(activeSignal);
+
+    if (error || !data || data.length === 0) return null;
+
+    const byName: Record<string, PaymePlan> = {};
+    for (const plan of data) byName[plan.plan_name] = plan;
+    return byName;
+  } catch {
+    return null;
+  }
+}
+
 export default function Pro() {
   const navigate = useNavigate();
   const { user, isLoading } = useAuth();
@@ -26,6 +54,13 @@ export default function Pro() {
    * (invalid_amount) qaytarib, to'lov ishlamay qolardi.
    */
   const [paymePlans, setPaymePlans] = useState<Record<string, PaymePlan>>({});
+
+  /**
+   * Tariflarni o'qish TUGADIMI (muvaffaqiyatli yoki urinishlar tugagan).
+   * Avto-davom ettirish oqimi shuni kutadi: aks holda tariflar kelmasa
+   * foydalanuvchi sahifada jimgina osilib qolardi.
+   */
+  const [plansSettled, setPlansSettled] = useState(false);
 
   /**
    * /profile chunkini oldindan (fon rejimida) yuklab qo'yamiz.
@@ -47,25 +82,36 @@ export default function Pro() {
     import("@/pages/Profile").catch(() => { /* faqat qulaylik uchun — muhim emas */ });
   }, []);
 
+  /**
+   * ILGARIGI KAMCHILIK: tariflar bir marta, qayta urinishsiz so'ralardi.
+   * Mobil tarmoqda o'sha yagona so'rov uzilsa, sahifa zaxira narxlar bilan
+   * mutlaqo SOG'LOM ko'rinardi — lekin "Sotib olish" tugmasi ishlamay
+   * qolardi ("Tarif ma'lumoti yuklanmadi"). Foydalanuvchi sababni bilmasdi
+   * va PRO sotib ololmasdi. Endi 3 marta qayta uriniladi.
+   */
   useEffect(() => {
     const controller = new AbortController();
 
     (async () => {
-      try {
-        const { data, error } = await supabase
-          .from("payme_plans")
-          .select("plan_name, amount_tiyin, tariff_days")
-          .eq("is_active", true)
-          .abortSignal(controller.signal);
+      for (let attempt = 0; attempt < 3; attempt++) {
+        if (controller.signal.aborted) return;
 
-        if (error || !data || controller.signal.aborted) return;
+        const byName = await fetchActivePaymePlans(controller.signal);
+        if (controller.signal.aborted) return;
 
-        const byName: Record<string, PaymePlan> = {};
-        for (const plan of data) byName[plan.plan_name] = plan;
-        setPaymePlans(byName);
-      } catch {
-        // Tarmoq xatosi — narxlar sahifadagi zaxira qiymatda ko'rsatiladi
+        if (byName) {
+          setPaymePlans(byName);
+          setPlansSettled(true);
+          return;
+        }
+        if (attempt < 2) {
+          await new Promise((r) => setTimeout(r, 600 * 2 ** attempt));
+        }
       }
+
+      // Uchala urinish ham uzildi. Kutib turmaymiz — `goToPayme` tarifni
+      // tugma bosilgan payt qayta o'qishga uriniadi.
+      if (!controller.signal.aborted) setPlansSettled(true);
     })();
 
     return () => controller.abort();
@@ -124,7 +170,7 @@ export default function Pro() {
    * ichida yoziladi. Shuning uchun havolani qo'lda ochib PRO olish mumkin emas.
    */
   const goToPayme = useCallback(
-    (planName: string): boolean => {
+    async (planName: string): Promise<boolean> => {
       const email = user?.email?.trim();
       if (!email) {
         // Payme hisobni aynan email bo'yicha topadi (`account.email`)
@@ -132,9 +178,22 @@ export default function Pro() {
         return false;
       }
 
-      const dbPlan = paymePlans[planName];
+      /**
+       * Tarif hali yuklanmagan bo'lsa (sahifa ochilganda tarmoq uzilgan edi)
+       * foydalanuvchini "sahifani yangilang" deb qaytarib yubormaymiz —
+       * aynan SHU YERDA o'qib olamiz. Tugma bosilgan payt tarmoq deyarli
+       * har doim tirik bo'ladi, shuning uchun bu xaridni saqlab qoladi.
+       */
+      let dbPlan = paymePlans[planName];
       if (!dbPlan) {
-        toast.error("Tarif ma'lumoti yuklanmadi. Sahifani yangilab, qayta urinib ko'ring.");
+        const fresh = await fetchActivePaymePlans();
+        if (fresh) {
+          setPaymePlans(fresh);
+          dbPlan = fresh[planName];
+        }
+      }
+      if (!dbPlan) {
+        toast.error("Tarif ma'lumoti yuklanmadi. Internetni tekshirib, qayta urinib ko'ring.");
         return false;
       }
 
@@ -186,7 +245,7 @@ export default function Pro() {
       return;
     }
 
-    goToPayme(planName);
+    void goToPayme(planName);
   };
 
   /**
@@ -198,7 +257,18 @@ export default function Pro() {
    */
   useEffect(() => {
     if (isLoading || accessLoading || !user) return;
-    if (Object.keys(paymePlans).length === 0) return; // narxlar hali kelmadi
+
+    /**
+     * ILGARI bu yerda `paymePlans` BO'SH bo'lsa `return` qilinardi — ya'ni
+     * tariflar so'rovi uzilgan bo'lsa, ro'yxatdan endigina o'tgan
+     * foydalanuvchi /pro sahifasida JIMGINA osilib qolardi: na xato, na
+     * yo'naltirish, tanlovi ham iste'mol qilinmasdi.
+     *
+     * Endi bo'sh ro'yxat emas, "o'qish tugadimi" kutiladi: urinishlar
+     * muvaffaqiyatsiz tugasa ham davom etamiz — `goToPayme` tarifni
+     * o'sha payt qayta o'qishga uriniadi.
+     */
+    if (!plansSettled) return;
 
     const planName = peekPendingPlan();
     if (!planName) return;
@@ -213,8 +283,8 @@ export default function Pro() {
     }
 
     toast.info("To'lov sahifasiga o'tkazilmoqda...");
-    goToPayme(planName);
-  }, [isLoading, accessLoading, user, isPremium, paymePlans, goToPayme]);
+    void goToPayme(planName);
+  }, [isLoading, accessLoading, user, isPremium, plansSettled, goToPayme]);
 
 
   if (isLoading) {
