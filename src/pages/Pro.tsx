@@ -27,6 +27,26 @@ export default function Pro() {
    */
   const [paymePlans, setPaymePlans] = useState<Record<string, PaymePlan>>({});
 
+  /**
+   * /profile chunkini oldindan (fon rejimida) yuklab qo'yamiz.
+   *
+   * Payme'dan qaytish har doim TO'LIQ sahifa qayta yuklanishi (hard
+   * navigation) — brauzer /profile uchun JS chunkini yangidan so'raydi.
+   * Agar aynan shu payt tarmoq hali "uyg'onmagan" bo'lsa (ayniqsa mobil
+   * internetda, tashqi Payme sahifasidan qaytgach) — chunk yuklanmay
+   * qoladi, `lazyWithRetry` bir necha marta urinib ko'radi va oxiri
+   * sahifani majburan qayta yuklaydi (`window.location.reload()`),
+   * shu payt foydalanuvchi bir necha soniya "oq ekran" ko'radi.
+   *
+   * Yechim: hali /pro sahifasida turganda (tarmoq yaxshi ishlayotganda)
+   * /profile chunkini oldindan yuklab, brauzer keshiga (immutable,
+   * 1 yillik) tushirib qo'yamiz. Payme'dan qaytilganda u tarmoqdan emas,
+   * keshdan olinadi — tarmoq holatidan qat'i nazar darhol ochiladi.
+   */
+  useEffect(() => {
+    import("@/pages/Profile").catch(() => { /* faqat qulaylik uchun — muhim emas */ });
+  }, []);
+
   useEffect(() => {
     const controller = new AbortController();
 
@@ -132,6 +152,13 @@ export default function Pro() {
         toast.error("To'lov havolasini yaratib bo'lmadi. Administrator bilan bog'laning.");
         return false;
       }
+
+      // Payme'ga aynan shu yerda ketyapmiz — qolgan har qanday eski
+      // pending tanlov endi kerak emas. Buni shu yerda (chaqiruvchidan
+      // qat'i nazar) tozalamasak, keyinroq (masalan to'lovdan qaytgach
+      // sessiya uzilib qayta login qilinganda) /auth foydalanuvchini
+      // allaqachon to'langan bo'lsa ham qayta /pro ga yuborib yuboradi.
+      clearPendingPlan();
 
       window.location.href = checkoutUrl;
       return true;
