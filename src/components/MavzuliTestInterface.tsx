@@ -260,7 +260,15 @@ export const MavzuliTestInterface = ({
           const savedRaw = localStorage.getItem(storageKey);
           if (savedRaw) {
             const parsed = JSON.parse(savedRaw);
-            if (parsed && parsed.questions && Array.isArray(parsed.questions) && parsed.questions.length === parsedQuestions.length) {
+            // `questionCount` — yangi (yengil) format; `questions.length` —
+            // eski saqlanmalar bilan moslik uchun (bir marta o'tib ketadi).
+            const savedCount =
+              typeof parsed?.questionCount === 'number'
+                ? parsed.questionCount
+                : Array.isArray(parsed?.questions)
+                  ? parsed.questions.length
+                  : null;
+            if (savedCount === parsedQuestions.length) {
               setCurrentQuestion(parsed.currentQuestion || 1);
               setSelectedAnswers(parsed.selectedAnswers || {});
               setCorrectAnswers(parsed.correctAnswers || {});
@@ -307,12 +315,27 @@ export const MavzuliTestInterface = ({
     };
   }, []);
 
-  // Persist test state – skip when finished so cleared state isn't restored on refresh.
+  /**
+   * Persist test state – skip when finished so cleared state isn't restored.
+   *
+   * `questions` SAQLANMAYDI, faqat ularning SONI.
+   *
+   * ILGARIGI BUG (qotib qolish): bu yerda butun `questions` massivi
+   * JSON.stringify qilinardi. "Barcha savollar" mavzusi (31) 1250 ta savolni
+   * yuklaydi — ya'ni HAR javob bosilganda 0.82 MB asosiy oqimni bloklab
+   * localStorage ga yozilardi. Arzon Android da bu har bosishda sezilarli
+   * qotish edi va 5 MB kvotani to'ldirib yuborish xavfi bor edi (yozish
+   * bo'sh `catch` ichida — kvota tugasa progress jimgina saqlanmay qolardi).
+   *
+   * Saqlash shart emas: mavzuli savollar aralashtirilmaydi, ya'ni
+   * (topicId + til) dan har safar bir xil tartibda qayta hosil bo'ladi.
+   * Tiklashda ham ular faqat UZUNLIGI uchun tekshirilardi, mazmuni emas.
+   */
   useEffect(() => {
     if (questions.length === 0 || showResults) return;
     try {
       localStorage.setItem(storageKey, JSON.stringify({
-        questions,
+        questionCount: questions.length,
         currentQuestion,
         selectedAnswers,
         correctAnswers,
@@ -322,7 +345,7 @@ export const MavzuliTestInterface = ({
     } catch {
       // ignore quota errors
     }
-  }, [questions, currentQuestion, selectedAnswers, correctAnswers, revealedQuestions, showResults, storageKey, testStartTime]);
+  }, [questions.length, currentQuestion, selectedAnswers, correctAnswers, revealedQuestions, showResults, storageKey, testStartTime]);
 
   const totalQuestions = questions.length;
   const question = questions[currentQuestion - 1];

@@ -57,8 +57,16 @@ export default function Belgilar() {
     let cancelled = false;
 
     async function loadSigns() {
+      /**
+       * Timeout SHART: ilgari bu yagona timeout siz JSON so'rovi edi (qolgani
+       * fetchQuestionJson orqali himoyalangan). Sekin/uzilgan tarmoqda fetch
+       * hech qachon tugamasdi — `finally` ishlamay, `loading` abadiy true
+       * qolardi va /belgilar sahifasi cheksiz aylanardi.
+       */
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 15_000);
       try {
-        const res = await fetch("/data/belgilar.json");
+        const res = await fetch("/data/belgilar.json", { signal: controller.signal });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = (await res.json()) as SignGroup[];
         if (!cancelled) setGroups(Array.isArray(data) ? data : []);
@@ -66,6 +74,7 @@ export default function Belgilar() {
         if (!import.meta.env.PROD) console.error("Error loading signs:", err);
         if (!cancelled) setGroups([]);
       } finally {
+        clearTimeout(timer);
         if (!cancelled) setLoading(false);
       }
     }

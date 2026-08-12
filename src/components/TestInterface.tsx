@@ -183,7 +183,7 @@ export const TestInterface = ({
   const [showFinishDialog, setShowFinishDialog] = useState(false);
   const [showResults, setShowResults] = useState(false);
   // Restored from localStorage so timeTaken stays accurate after refresh
-  const [testStartTime] = useState(() => getInitialStartedAt(storageKey));
+  const [testStartTime, setTestStartTime] = useState(() => getInitialStartedAt(storageKey));
   const [resultSaved, setResultSaved] = useState(false);
   // After Try Again, drop completed session so re-save uses free insert path
   const [activeSessionId, setActiveSessionId] = useState<string | null>(sessionId);
@@ -513,6 +513,7 @@ export const TestInterface = ({
           setCorrectAnswers({});
           setRevealedQuestions({});
           setCurrentQuestion(1);
+          setTestStartTime(Date.now());
           endsAtRef.current = Date.now() + 25 * 60 * 1000;
           setTimeRemaining(25 * 60);
           setShowResults(false);

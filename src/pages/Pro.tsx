@@ -10,6 +10,7 @@ import { useAccessState } from "@/hooks/useAccessState";
 import { supabase } from "@/integrations/supabase/client";
 import { buildPaymeCheckoutUrl, formatTiyinAsSum, type PaymePlan } from "@/lib/payme";
 import { clearPendingPlan, peekPendingPlan, setPendingPlan } from "@/lib/pendingPlan";
+import { DB_READ_TIMEOUT_MS, withTimeout } from "@/lib/withTimeout";
 import { toast } from "sonner";
 import { Crown, Check, X, Star, Send } from "lucide-react";
 
@@ -25,11 +26,14 @@ async function fetchActivePaymePlans(
     // so'rov qurilishi hamma chaqiruvda bir xil bo'ladi.
     const activeSignal = signal ?? new AbortController().signal;
 
-    const { data, error } = await supabase
-      .from("payme_plans")
-      .select("plan_name, amount_tiyin, tariff_days")
-      .eq("is_active", true)
-      .abortSignal(activeSignal);
+    const { data, error } = await withTimeout(
+      supabase
+        .from("payme_plans")
+        .select("plan_name, amount_tiyin, tariff_days")
+        .eq("is_active", true)
+        .abortSignal(activeSignal),
+      DB_READ_TIMEOUT_MS,
+    );
 
     if (error || !data || data.length === 0) return null;
 

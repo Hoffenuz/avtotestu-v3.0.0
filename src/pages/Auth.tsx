@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { SEO } from '@/components/SEO';
 import { isNetworkError, NETWORK_ERROR_MESSAGE_UZ } from '@/lib/networkError';
+import { SIGNUP_FN_TIMEOUT_MS, withTimeout } from '@/lib/withTimeout';
 import { Turnstile } from '@/components/Turnstile';
 import { isTurnstileConfigured } from '@/lib/turnstile';
 import { peekPendingPlan } from '@/lib/pendingPlan';
@@ -190,13 +191,16 @@ const Auth = () => {
     // qayta tekshiriladi, sun'iy manzilga tasdiqlash xati yuborilmaydi.
     let created = false;
     try {
-      const { data, error: fnError } = await supabase.functions.invoke<{
-        ok?: boolean;
-        error?: string;
-        message?: string;
-      }>('phone-signup', {
-        body: { phone: normalized, password, turnstileToken },
-      });
+      const { data, error: fnError } = await withTimeout(
+        supabase.functions.invoke<{
+          ok?: boolean;
+          error?: string;
+          message?: string;
+        }>('phone-signup', {
+          body: { phone: normalized, password, turnstileToken },
+        }),
+        SIGNUP_FN_TIMEOUT_MS,
+      );
 
       let result = data;
       if (fnError) {

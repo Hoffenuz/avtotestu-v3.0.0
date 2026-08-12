@@ -28,11 +28,11 @@ import { TestInterfaceCombined } from "@/components/TestInterfaceCombined";
  * uchala tilni birga yuklovchi `600.json` ni olardi — sekin internetda
  * yuklanmay qolishning asosiy sababi shu edi).
  *
- * Free = 600 ta kurashtirilgan savol (`free-*.json`), PRO = 1250 ta to'liq
- * baza (`barcha-*.json`). 600 talik to'plam `scripts/generate-free-tier.cjs`
- * orqali generatsiya qilinadi — manba: birinchi commitdagi asl 600.json
- * (keyinchalik boshqa avtomatlashtirilgan skript uni tasodifan 1250 ga
- * kengaytirib, paywall'ni buzib qo'ygan edi).
+ * Free = 1000 ta kurashtirilgan savol (`free-*.json`, 2026-08-12 dan 600 dan
+ * oshirildi — takrorlanish shikoyatlari sababli), PRO = 1250 ta to'liq baza
+ * (`barcha-*.json`) + variantlar/mavzular/izohlar bo'limlariga kirish.
+ * To'plam `scripts/generate-free-tier.cjs` orqali generatsiya qilinadi
+ * (manba: `scripts/question-tools/free-tier-question-ids.json`).
  */
 const languages = [
   { id: "uz-lat" as const, label: "Lotin", file: "free-uz-lat.json", proFile: "barcha-uz-lat.json" },
@@ -122,8 +122,12 @@ export default function TestIshlash() {
     // so we can validate it on restore after a page refresh.
     // Must match the user-specific keys used in TestInterfaceCombined / TestInterfaceBase.
     const userId = user?.id ?? 'guest';
+    // Ikkalasida ham `dataSource` (= `/${dataFile}`) kalitning bir qismi —
+    // TestInterfaceCombined / TestInterfaceBase dagi storageKey bilan
+    // AYNAN bir xil bo'lishi shart, aks holda yangilashdan keyin sessiya
+    // tiklanmay, boshlangan test yo'qoladi.
     const testStateKey = questionCount === 50
-      ? `testState_combined_${questionCount}_${userId}`
+      ? `testState_combined_/${dataFile}_${questionCount}_${userId}`
       : `testState_base_/${dataFile}_${questionCount}_${userId}`;
 
     if (isPremium) {

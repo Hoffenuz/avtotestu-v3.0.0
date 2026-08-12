@@ -45,8 +45,12 @@
 # deploy ga chiqmaydi (vite.config.ts → excludeSourceDataFromDist).
 # 700baza.json / 700baza2.json / malumotlar.json — mavjud emas, olib tashlandi.
 #
-# free-*.json  — bepul (600 ta savol)
+# free-*.json  — bepul (1000 ta savol)
 # barcha-*.json — PRO (1250 ta savol)
+#
+# DIQQAT: bu fayllar uzoq keshlanadi. Kontent o'zgarganda
+# src/lib/fetchQuestionJson.ts dagi QUESTION_DATA_CACHE_BUST ni yangilang,
+# aks holda foydalanuvchilar eski nusxani ko'rishda davom etadi.
 # ---------------------------------------------------------------------------
 /free-uz-lat.json
   Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800

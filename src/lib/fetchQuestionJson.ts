@@ -52,8 +52,18 @@ export function normalizeQuestionArray(jsonData: unknown): unknown[] {
   return [];
 }
 
-/** Bump when question JSON structure/langs change — busts long CDN/browser caches */
-export const QUESTION_DATA_CACHE_BUST = "20260805a";
+/**
+ * Bump when question JSON structure/langs change — busts long CDN/browser caches.
+ *
+ * MUHIM: JSON lar `s-maxage=86400` + `stale-while-revalidate=604800` bilan
+ * keshlanadi (public/_headers). Ya'ni bu token yangilanmasa, tuzatilgan
+ * savollar foydalanuvchiga bir necha kungacha yetib bormaydi — eski kesh
+ * beriladi. Har safar public/*.json o'zgarganda SHU YERNI ham yangilang.
+ *
+ * 20260812a — free tier 600 → 1000 savol; ruscha savol/izohlardagi
+ *             mos kelmasliklar va matn sifati tuzatildi.
+ */
+export const QUESTION_DATA_CACHE_BUST = "20260812a";
 
 function withCacheBust(url: string): string {
   if (/^https?:\/\//i.test(url)) return url;

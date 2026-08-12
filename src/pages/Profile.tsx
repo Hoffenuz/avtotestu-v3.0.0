@@ -314,7 +314,24 @@ useEffect(() => {
     );
   }
 
-  if (!user) return null;
+  /**
+   * `return null` EMAS — u OQ EKRAN berardi.
+   *
+   * AuthContext sekin tarmoqda getSession() ni 3.5 s da timeout qilib
+   * `isLoading` ni false qiladi, sessiya esa keyinroq INITIAL_SESSION bilan
+   * keladi. O'sha oraliqda `user` hali null: useUserValidation ataylab
+   * /auth ga yubormaydi (haqiqiy foydalanuvchini chiqarib yubormaslik uchun),
+   * lekin bu yer null qaytarib butunlay bo'sh sahifa ko'rsatardi.
+   * Spinner: sessiya kelsa profil ochiladi, haqiqiy mehmon bo'lsa
+   * useUserValidation /auth ga yo'naltiradi.
+   */
+  if (!user) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="w-10 h-10 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
+      </div>
+    );
+  }
 
   const displayName = profile?.full_name || profile?.username || 'Foydalanuvchi';
 

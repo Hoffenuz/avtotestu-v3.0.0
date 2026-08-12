@@ -90,7 +90,7 @@ export const TestInterfaceBase = ({
   const [showFinishDialog, setShowFinishDialog] = useState(false);
   const [showResults, setShowResults] = useState(false);
   // Restored from localStorage so timeTaken stays accurate after refresh
-  const [testStartTime] = useState(() => getInitialStartedAt(storageKey));
+  const [testStartTime, setTestStartTime] = useState(() => getInitialStartedAt(storageKey));
   const [resultSaved, setResultSaved] = useState(false);
   const [activeSessionId, setActiveSessionId] = useState<string | null>(sessionId);
   const [zoomImage, setZoomImage] = useState<string | null>(null);
@@ -428,6 +428,7 @@ export const TestInterfaceBase = ({
           setCorrectAnswers({});
           setRevealedQuestions({});
           setCurrentQuestion(1);
+          setTestStartTime(Date.now());
           endsAtRef.current = Date.now() + timeLimit * 1000;
           setTimeRemaining(timeLimit);
           setShowResults(false);

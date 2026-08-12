@@ -3,6 +3,7 @@
 // ============================================================================
 
 import { supabase } from "@/integrations/supabase/client";
+import { DB_READ_TIMEOUT_MS, withTimeout } from "@/lib/withTimeout";
 
 export interface LicenseResponse {
   ok: boolean;
@@ -142,12 +143,15 @@ export function canRefreshLicense(
 /** Foydalanuvchining yagona litsenziyasini o'qiydi (RLS: faqat o'ziniki). */
 export async function fetchMyLicense(): Promise<StoredLicense | null> {
   try {
-    const { data, error } = await supabase
-      .from("device_licenses")
-      .select(
-        "device_id, license_key, short_code, issued_at, expires_at, revoked, refresh_count, last_refreshed_at",
-      )
-      .maybeSingle();
+    const { data, error } = await withTimeout(
+      supabase
+        .from("device_licenses")
+        .select(
+          "device_id, license_key, short_code, issued_at, expires_at, revoked, refresh_count, last_refreshed_at",
+        )
+        .maybeSingle(),
+      DB_READ_TIMEOUT_MS,
+    );
 
     if (error || !data) return null;
     return data;

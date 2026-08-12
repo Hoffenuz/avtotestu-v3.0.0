@@ -550,6 +550,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const signOut = useCallback(async () => {
+    // Capture BEFORE applySession(null) wipes it — userIdRef (not the `user`
+    // state) because this callback's deps never change, so its closure over
+    // `user` would otherwise be permanently stale from the initial render.
+    const outgoingUserId = userIdRef.current ?? undefined;
     signingOutRef.current = true;
     applySession(null);
     setProfile(null);
@@ -564,7 +568,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     } catch (err) {
       if (!import.meta.env.PROD) console.error('Sign out error:', err);
     } finally {
-      clearAllUserData();
+      clearAllUserData(outgoingUserId);
       window.setTimeout(() => {
         signingOutRef.current = false;
       }, 1500);

@@ -11,17 +11,27 @@ const SESSION_PROBE_TIMEOUT_MS = 3_000;
 /**
  * Clears test + auth storage leftovers.
  * Call only AFTER supabase.auth.signOut — never before (refresh-token races).
+ *
+ * `userId`: test-state keys are per-user (e.g. `testState_..._<userId>`).
+ * On a shared device, another account may have an unfinished test saved
+ * under its own key — only remove keys belonging to THIS user's id so
+ * signing out doesn't wipe a different account's in-progress test.
+ * Pass undefined only when the outgoing user id is genuinely unknown.
  */
-export const clearAllUserData = () => {
+export const clearAllUserData = (userId?: string) => {
+  const suffix = userId ? `_${userId}` : undefined;
+
   Object.keys(localStorage).forEach(key => {
-    if (
-      key.startsWith('sb-') ||
-      key.includes('supabase') ||
+    if (key.startsWith('sb-') || key.includes('supabase')) {
+      localStorage.removeItem(key);
+      return;
+    }
+    const isTestKey =
       key.startsWith('testState_') ||
       key.startsWith('variant_activeTest') ||
       key.startsWith('mavzuli_activeTest') ||
-      key.startsWith('testIshlash_activeTest')
-    ) {
+      key.startsWith('testIshlash_activeTest');
+    if (isTestKey && (!suffix || key.endsWith(suffix))) {
       localStorage.removeItem(key);
     }
   });
@@ -33,14 +43,14 @@ export const clearAllUserData = () => {
   });
 };
 
-export const forceLogoutAndClear = async (showNotification = true): Promise<void> => {
+export const forceLogoutAndClear = async (showNotification = true, userId?: string): Promise<void> => {
   try {
     await supabase.auth.signOut({ scope: 'local' });
   } catch (err) {
     if (!import.meta.env.PROD) console.error('Error during sign out:', err);
   }
 
-  clearAllUserData();
+  clearAllUserData(userId);
 
   if (showNotification) {
     toast({
@@ -176,7 +186,7 @@ export const useUserValidation = (redirectPath = '/auth') => {
           }
 
           if (!import.meta.env.PROD) console.log('User profile not found — forcing logout');
-          await forceLogoutAndClear(true);
+          await forceLogoutAndClear(true, sessionUser.id);
           navigate(redirectPath, { replace: true });
         }
       } catch (err) {
