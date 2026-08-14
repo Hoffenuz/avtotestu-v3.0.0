@@ -10,7 +10,11 @@
   # cloudflareinsights.com — Cloudflare Web Analytics beaconini Pages o'zi
   # HTML ga qo'shadi. CSP da ruxsat bo'lmagani uchun u bloklanardi: analitika
   # yoqilgan, lekin bironta ham tashrif yozilmasdi.
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://challenges.cloudflare.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' https://pub-ad116decdc154b0f90a4b452c72fa433.r2.dev blob:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://pub-ad116decdc154b0f90a4b452c72fa433.r2.dev https://challenges.cloudflare.com https://cloudflareinsights.com https://static.cloudflareinsights.com; font-src 'self'; frame-src https://challenges.cloudflare.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'
+  # telegram.org — Telegram Mini App SDK (telegram-web-app.js). Faqat sayt
+  # Telegram ichida ochilganda dinamik yuklanadi; oddiy tashrifda so'ralmaydi.
+  # frame-ancestors: Telegram Mini App sahifani WebView da ochadi (iframe
+  # emas), shuning uchun 'none' o'zgarishsiz qoladi.
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://challenges.cloudflare.com https://static.cloudflareinsights.com https://telegram.org; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' https://pub-ad116decdc154b0f90a4b452c72fa433.r2.dev blob:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://pub-ad116decdc154b0f90a4b452c72fa433.r2.dev https://challenges.cloudflare.com https://cloudflareinsights.com https://static.cloudflareinsights.com https://telegram.org; font-src 'self'; frame-src https://challenges.cloudflare.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'
 
 # SPA shell — HECH QACHON eskisi ishlatilmasin, LEKIN no-store emas.
 #

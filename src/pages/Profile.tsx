@@ -62,7 +62,7 @@ const Profile = () => {
   /** Telefon orqali ochilgan hisobda sun'iy email o'rniga raqam ko'rsatiladi. */
   const phoneFromEmail = emailToPhoneDisplay(user?.email);
   const navigate = useNavigate();
-  const registrationDays = useRegistrationAge(user?.id);
+  const registrationDays = useRegistrationAge();
   const { isPremium, expiresAt: subscriptionExpiresAt, refresh: refreshAccessState } = useAccessState();
   const paymePollRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const [results, setResults] = useState<TestResult[]>([]);

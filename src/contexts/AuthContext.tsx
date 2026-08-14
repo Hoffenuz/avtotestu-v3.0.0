@@ -1,7 +1,14 @@
 import React, { createContext, useContext, useState, useEffect, useCallback, useMemo, useRef, ReactNode } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { User, Session } from '@supabase/supabase-js';
-import { clearAllUserData } from '@/hooks/useUserValidation';
+/**
+ * `@/hooks/useUserValidation` DAN EMAS: u o'z navbatida shu fayldan
+ * `useAuth` ni import qiladi va aylanma bog'lanish hosil bo'lardi
+ * (AuthContext → useUserValidation → AuthContext). Vite dev serverida
+ * bu /profile kabi lazy sahifalarda "Failed to fetch dynamically
+ * imported module" xatosini keltirib chiqarardi.
+ */
+import { clearAllUserData } from '@/lib/clearUserData';
 import { AUTH_RPC_TIMEOUT_MS, PROFILE_TIMEOUT_MS, SIGN_IN_TIMEOUT_MS, withTimeout } from '@/lib/withTimeout';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -56,7 +63,24 @@ const VALID_ACCESS_STATES: AccessState[] = [
 ];
 
 /** getSession is local — long waits = auth lock / hung refresh on mobile */
-const SESSION_INIT_TIMEOUT_MS = 3_500;
+/**
+ * Ilova ishga tushganda sessiyani kutishning YUQORI chegarasi.
+ *
+ * NEGA 2 SONIYA (ilgari 3.5 s edi):
+ * Token amal qilayotgan bo'lsa `getSession()` localStorage dan bir zumda
+ * (~1 ms) qaytadi — bu chegara unga umuman tegmaydi. Chegara faqat token
+ * ESKIRGAN holatda ishlaydi: o'shanda supabase-js uni serverdan yangilaydi
+ * va O'zbekistondan Germaniyagacha borib kelish sekin mobil tarmoqda
+ * soniyalarga cho'zilishi mumkin. Aynan shu payt `isLoading` true bo'lib
+ * turadi va BUTUN sahifa spinner ko'rsatadi — foydalanuvchi sezgan
+ * "profilga kirishda 5 soniya qotish" ning asosiy qismi shu edi
+ * (chegara + undan keyingi profil so'rovlari).
+ *
+ * Chegaraga yetilsa sessiya YO'QOLMAYDI: pastdagi INITIAL_SESSION hodisasi
+ * uni fon rejimida tiklaydi. Ya'ni bu qiymatni kamaytirish — interfeysni
+ * ertaroq ochish, sessiyani esa keyinroq qo'llash demakdir.
+ */
+const SESSION_INIT_TIMEOUT_MS = 2_000;
 const SESSION_RECOVER_TIMEOUT_MS = 5_000;
 
 /** Trial yo'q — faqat haqiqiy PRO */

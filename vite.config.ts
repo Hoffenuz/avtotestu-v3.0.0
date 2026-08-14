@@ -1,9 +1,51 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import { execSync } from "child_process";
+import crypto from "crypto";
 import fs from "fs";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
+
+/**
+ * Savol JSON larining MAZMUNIDAN kesh belgisi hisoblaydi.
+ *
+ * NEGA KERAK: bu fayllar CDN da 24 soat + 7 kun `stale-while-revalidate`
+ * bilan keshlanadi. Ilgari kesh belgisi `fetchQuestionJson.ts` da QO'LDA
+ * yozilardi — va uni yangilash unutilsa, tuzatilgan savollar
+ * foydalanuvchiga bir necha kungacha yetib bormasdi (aynan shu bir marta
+ * sodir bo'lgan). Endi belgi fayllar mazmunidan chiqadi: JSON o'zgarsa
+ * belgi ham o'zgaradi, o'zgarmasa — o'sha-o'sha (keraksiz qayta yuklash
+ * bo'lmaydi). Foydalanuvchi buni umuman sezmaydi: hech qanday "yangilang"
+ * oynasi yo'q, shunchaki URL dagi `?v=` boshqacha bo'ladi.
+ */
+function questionDataVersion(): string {
+  const publicDir = path.resolve(__dirname, "public");
+  const hash = crypto.createHash("sha256");
+
+  const walk = (dir: string): string[] => {
+    let out: string[] = [];
+    for (const name of fs.readdirSync(dir).sort()) {
+      const p = path.join(dir, name);
+      const st = fs.statSync(p);
+      if (st.isDirectory()) out = out.concat(walk(p));
+      else if (name.endsWith(".json")) out.push(p);
+    }
+    return out;
+  };
+
+  try {
+    for (const file of walk(publicDir)) {
+      // Fayl nomi ham qo'shiladi: fayl qo'shilsa/o'chirilsa ham belgi o'zgarsin
+      hash.update(path.relative(publicDir, file).replace(/\\/g, "/"));
+      hash.update(fs.readFileSync(file));
+    }
+    return hash.digest("hex").slice(0, 12);
+  } catch {
+    // Hash olinmasa build to'xtamasin — sanaga qaytamiz (eng yomoni:
+    // bir marta ortiqcha qayta yuklash, eskirgan ma'lumot emas).
+    return new Date().toISOString().slice(0, 10).replace(/-/g, "");
+  }
+}
 
 /**
  * public/ dagi ba'zi fayllar — savol QA tooling uchun manba ma'lumot,
@@ -100,6 +142,13 @@ export default defineConfig(({ mode }) => ({
     excludeSourceDataFromDist(),
     mode === "development" && componentTagger(),
   ].filter(Boolean),
+  define: {
+    /**
+     * Savol JSON larining mazmun-hash i. `fetchQuestionJson.ts` shuni
+     * `?v=` sifatida ishlatadi — qo'lda yangilash SHART EMAS.
+     */
+    __QUESTION_DATA_VERSION__: JSON.stringify(questionDataVersion()),
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

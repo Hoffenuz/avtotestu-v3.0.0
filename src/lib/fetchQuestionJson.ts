@@ -53,17 +53,23 @@ export function normalizeQuestionArray(jsonData: unknown): unknown[] {
 }
 
 /**
- * Bump when question JSON structure/langs change — busts long CDN/browser caches.
+ * Savol JSON lari uchun kesh belgisi — AVTOMATIK.
  *
- * MUHIM: JSON lar `s-maxage=86400` + `stale-while-revalidate=604800` bilan
- * keshlanadi (public/_headers). Ya'ni bu token yangilanmasa, tuzatilgan
- * savollar foydalanuvchiga bir necha kungacha yetib bormaydi — eski kesh
- * beriladi. Har safar public/*.json o'zgarganda SHU YERNI ham yangilang.
+ * Qiymat build paytida `public/**\/*.json` mazmunidan hisoblanadi
+ * (vite.config.ts → `questionDataVersion()`), shuning uchun uni qo'lda
+ * yangilash SHART EMAS va unutib bo'lmaydi.
  *
- * 20260812a — free tier 600 → 1000 savol; ruscha savol/izohlardagi
- *             mos kelmasliklar va matn sifati tuzatildi.
+ * Nega muhim: bu fayllar CDN da 24 soat + 7 kun `stale-while-revalidate`
+ * bilan keshlanadi (public/_headers). Belgi o'zgarmasa — tuzatilgan
+ * savollar foydalanuvchiga kunlab yetib bormaydi. Belgi keraksiz
+ * o'zgarsa — hamma bekorga qayta yuklaydi. Mazmun-hash ikkalasini ham
+ * hal qiladi: JSON o'zgarsagina o'zgaradi.
+ *
+ * Dev rejimida (`vite`) `define` baribir beriladi; testlarda bo'lmasligi
+ * mumkin — shuning uchun `typeof` bilan xavfsiz o'qiymiz.
  */
-export const QUESTION_DATA_CACHE_BUST = "20260812a";
+export const QUESTION_DATA_CACHE_BUST =
+  typeof __QUESTION_DATA_VERSION__ === "string" ? __QUESTION_DATA_VERSION__ : "dev";
 
 function withCacheBust(url: string): string {
   if (/^https?:\/\//i.test(url)) return url;

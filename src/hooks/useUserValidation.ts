@@ -4,44 +4,17 @@ import { toast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
 import { withTimeout } from '@/lib/withTimeout';
+import { clearAllUserData } from '@/lib/clearUserData';
 
 /** Sessiya bor-yo'qligini tekshirish — lokal o'qish, uzoq kutmaymiz. */
 const SESSION_PROBE_TIMEOUT_MS = 3_000;
 
 /**
- * Clears test + auth storage leftovers.
- * Call only AFTER supabase.auth.signOut — never before (refresh-token races).
- *
- * `userId`: test-state keys are per-user (e.g. `testState_..._<userId>`).
- * On a shared device, another account may have an unfinished test saved
- * under its own key — only remove keys belonging to THIS user's id so
- * signing out doesn't wipe a different account's in-progress test.
- * Pass undefined only when the outgoing user id is genuinely unknown.
+ * Aylanma importni uzish uchun `lib/clearUserData.ts` ga ko'chirildi
+ * (AuthContext ↔ useUserValidation halqasi). Eski import yo'llari
+ * buzilmasligi uchun bu yerdan qayta eksport qilamiz.
  */
-export const clearAllUserData = (userId?: string) => {
-  const suffix = userId ? `_${userId}` : undefined;
-
-  Object.keys(localStorage).forEach(key => {
-    if (key.startsWith('sb-') || key.includes('supabase')) {
-      localStorage.removeItem(key);
-      return;
-    }
-    const isTestKey =
-      key.startsWith('testState_') ||
-      key.startsWith('variant_activeTest') ||
-      key.startsWith('mavzuli_activeTest') ||
-      key.startsWith('testIshlash_activeTest');
-    if (isTestKey && (!suffix || key.endsWith(suffix))) {
-      localStorage.removeItem(key);
-    }
-  });
-
-  Object.keys(sessionStorage).forEach(key => {
-    if (key.startsWith('sb-') || key.includes('supabase')) {
-      sessionStorage.removeItem(key);
-    }
-  });
-};
+export { clearAllUserData };
 
 export const forceLogoutAndClear = async (showNotification = true, userId?: string): Promise<void> => {
   try {
@@ -132,7 +105,7 @@ async function hasFreshSessionFor(userId: string): Promise<boolean> {
  */
 export const useUserValidation = (redirectPath = '/auth') => {
   const navigate = useNavigate();
-  const { isLoading: authLoading, user: sessionUser } = useAuth();
+  const { isLoading: authLoading, user: sessionUser, profile } = useAuth();
   const hasValidated = useRef(false);
 
   useEffect(() => {
@@ -153,6 +126,16 @@ export const useUserValidation = (redirectPath = '/auth') => {
           navigate(redirectPath, { replace: true });
           return;
         }
+
+        /**
+         * AuthContext shu foydalanuvchi profilini allaqachon o'qib olgan
+         * bo'lsa — bu hisob mavjudligining TO'G'RIDAN-TO'G'RI dalili.
+         * Yana bir marta `profiles` so'rovi yuborish keraksiz: /profile
+         * sahifasida bu jami uchta bir xil so'rovdan biri edi va har biri
+         * Germaniyagacha borib kelardi. Bundan tashqari bu quyidagi
+         * 1.2s + 2.5s kutishli qayta urinish yo'lini ham chetlab o'tadi.
+         */
+        if (profile?.id === sessionUser.id) return;
 
         let exists = await checkUserExists(sessionUser.id);
 
@@ -195,5 +178,9 @@ export const useUserValidation = (redirectPath = '/auth') => {
     };
 
     void validateUser();
+    // `profile` ataylab bog'liqlikda YO'Q: u faqat "hisob bor" degan tezkor
+    // dalil sifatida o'qiladi. Bog'liqlikka qo'shilsa, profil keyinroq
+    // kelganida effekt qayta ishga tushib, tekshiruvni takrorlardi.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [navigate, redirectPath, authLoading, sessionUser]);
 };
