@@ -92,3 +92,20 @@ supabase/migrations/*.sql
 
 # wrangler pages dev lokal keshi
 .wrangler/
+
+# ---------------------------------------------------------------------------
+# Markdown eslatmalar, tahlillar va audit hisobotlari — bular lokal ish
+# qog'ozlari, GitHub ga chiqmasin.
+#
+# DIQQAT: .gitignore ALLAQACHON kuzatilayotgan fayllarga ta'sir qilmaydi.
+# README.md va docs/ hozir ham repo da qoladi va oldingidek tahrirlanadi.
+# Quyidagi `!` istisnolari niyatni aniq qilish uchun: yangi klondan keyin
+# `git add -A` qilinganda ham muhim hujjatlar joyida qoladi.
+# ---------------------------------------------------------------------------
+*.md
+!README.md
+!QUICK_START.md
+!LOYIHA-TAHLILI.md
+!STARTUP-GOYALAR.md
+!docs/*.md
+!scripts/VARIANT-QUALITY-AUDIT.md

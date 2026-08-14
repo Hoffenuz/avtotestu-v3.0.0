@@ -107,6 +107,7 @@ describe('telegramWebApp — Telegram ichida', () => {
     const calls: string[] = [];
     window.Telegram = {
       WebApp: {
+        platform: 'tdesktop',
         ready: () => calls.push('ready'),
         expand: () => calls.push('expand'),
         isVersionAtLeast: (v: string) => v === '7.0',
@@ -120,10 +121,11 @@ describe('telegramWebApp — Telegram ichida', () => {
     expect(calls).not.toContain('fullscreen');
   });
 
-  it('8.0+ da requestFullscreen chaqiriladi', async () => {
+  it('desktopda 8.0+ da requestFullscreen chaqiriladi', async () => {
     const calls: string[] = [];
     window.Telegram = {
       WebApp: {
+        platform: 'tdesktop',
         ready: () => calls.push('ready'),
         expand: () => calls.push('expand'),
         isVersionAtLeast: () => true,
@@ -141,6 +143,7 @@ describe('telegramWebApp — Telegram ichida', () => {
     const calls: string[] = [];
     window.Telegram = {
       WebApp: {
+        platform: 'macos',
         ready: () => { throw new Error('boom'); },
         expand: () => calls.push('expand'),
         isVersionAtLeast: () => true,
@@ -153,5 +156,88 @@ describe('telegramWebApp — Telegram ichida', () => {
 
     expect(calls).toContain('expand');
     expect(calls).toContain('fullscreen');
+  });
+});
+
+/**
+ * MOBIL: fullscreen kontentni status bar (soat/batareya) va Telegram'ning
+ * `X` / menyu tugmalari ostiga kirgizib yuborardi. Mobilda faqat `expand()`.
+ */
+describe('telegramWebApp — mobil Telegram (fullscreen BO\'LMASIN)', () => {
+  beforeEach(() => {
+    delete window.Telegram;
+    delete window.TelegramWebviewProxy;
+    document.querySelectorAll('script').forEach((s) => s.remove());
+  });
+
+  afterEach(() => {
+    setHref('/');
+    delete window.Telegram;
+    delete window.TelegramWebviewProxy;
+    document.querySelectorAll('script').forEach((s) => s.remove());
+  });
+
+  const mobilPlatformalar = ['android', 'android_x', 'ios'];
+
+  for (const platform of mobilPlatformalar) {
+    it(`${platform}: expand ishlaydi, fullscreen chaqirilmaydi`, async () => {
+      const calls: string[] = [];
+      window.Telegram = {
+        WebApp: {
+          platform,
+          ready: () => calls.push('ready'),
+          expand: () => calls.push('expand'),
+          // Yangi mijoz: 8.0+ qo'llab-quvvatlansa ham fullscreen kerak emas
+          isVersionAtLeast: () => true,
+          requestFullscreen: () => calls.push('fullscreen'),
+          disableVerticalSwipes: () => calls.push('noSwipe'),
+        },
+      };
+      initTelegramWebApp();
+      await Promise.resolve();
+      await Promise.resolve();
+
+      expect(calls).toContain('ready');
+      expect(calls).toContain('expand');
+      expect(calls).toContain('noSwipe');
+      expect(calls).not.toContain('fullscreen');
+    });
+  }
+
+  it('noma\'lum platformada fullscreen chaqirilmaydi (xavfsiz standart)', async () => {
+    const calls: string[] = [];
+    window.Telegram = {
+      WebApp: {
+        platform: 'unknown',
+        ready: () => calls.push('ready'),
+        expand: () => calls.push('expand'),
+        isVersionAtLeast: () => true,
+        requestFullscreen: () => calls.push('fullscreen'),
+      },
+    };
+    initTelegramWebApp();
+    await Promise.resolve();
+    await Promise.resolve();
+
+    expect(calls).toContain('expand');
+    expect(calls).not.toContain('fullscreen');
+  });
+
+  it('platform umuman berilmasa ham fullscreen chaqirilmaydi', async () => {
+    const calls: string[] = [];
+    window.Telegram = {
+      WebApp: {
+        ready: () => calls.push('ready'),
+        expand: () => calls.push('expand'),
+        isVersionAtLeast: () => true,
+        requestFullscreen: () => calls.push('fullscreen'),
+      },
+    };
+    initTelegramWebApp();
+    await Promise.resolve();
+    await Promise.resolve();
+
+    expect(calls).toContain('expand');
+    expect(calls).not.toContain('fullscreen');
   });
 });

@@ -15,8 +15,14 @@
  *     ilovani butun ekranga yoyadi. Qo'llab-quvvatlanmasa xato beradi —
  *     shuning uchun try/catch va `isVersionAtLeast` bilan himoyalangan.
  *
- * Ya'ni: mobilda sezilarli yaxshilanish, desktopda esa qo'llab-quvvatlansa
- * to'liq ekran, aks holda avvalgidek — lekin hech qachon xato bermaydi.
+ * NEGA MOBILDA `requestFullscreen()` CHAQIRILMAYDI:
+ * Mobilda u ilovani HAQIQIY to'liq ekranga o'tkazadi — kontent qurilmaning
+ * status bari (soat, batareya, signal) va Telegram'ning o'z `X` / menyu
+ * tugmalari OSTIGA kirib ketadi. Sayt sarlavhasi o'qib bo'lmas holga keladi.
+ * Mobilda `expand()` ning o'zi allaqachon to'liq balandlik beradi va Telegram
+ * interfeysi bilan to'qnashmaydi — ya'ni fullscreen u yerda foyda emas, zarar.
+ *
+ * Shuning uchun: fullscreen FAQAT desktopda. Mobilda — oddiy `expand()`.
  */
 
 const SDK_SRC = 'https://telegram.org/js/telegram-web-app.js';
@@ -60,6 +66,29 @@ export function isTelegramWebApp(): boolean {
   } catch {
     return false;
   }
+}
+
+/**
+ * Telegram'ning desktop mijozlari (`WebApp.platform` qiymatlari).
+ *
+ * Mobil qiymatlar: `android`, `android_x`, `ios`.
+ * Noma'lum qiymat (`unknown` yoki kelajakdagi yangi platforma) desktop deb
+ * HISOBLANMAYDI — ya'ni fullscreen chaqirilmaydi. Bu ataylab shunday:
+ * foydalanuvchilarning aksariyati mobilda, shuning uchun shubha bo'lganda
+ * xavfsiz (mobil) yo'lni tanlaymiz.
+ */
+const DESKTOP_PLATFORMS = new Set([
+  'tdesktop', // Telegram Desktop (Windows / Linux)
+  'macos',    // Telegram for macOS
+  'web',      // web.telegram.org (eski)
+  'weba',     // Web A
+  'webk',     // Web K
+  'unigram',  // Windows uchun uchinchi tomon mijozi
+]);
+
+function isDesktopTelegram(wa: TelegramWebAppApi): boolean {
+  const platform = typeof wa.platform === 'string' ? wa.platform.toLowerCase() : '';
+  return DESKTOP_PLATFORMS.has(platform);
 }
 
 /** SDK skriptini bir marta yuklaydi. */
@@ -115,14 +144,15 @@ export function initTelegramWebApp(): void {
       safe(wa.expand);
 
       /**
-       * To'liq ekran — faqat Bot API 8.0+ da bor. Eski mijozda metod
-       * umuman yo'q yoki xato beradi, shuning uchun ikki qavat himoya:
-       * versiya tekshiruvi + try/catch.
+       * To'liq ekran — FAQAT DESKTOPDA (yuqoridagi izohga qarang: mobilda u
+       * kontentni status bar va Telegram tugmalari ostiga kirgizib yuboradi).
+       *
+       * Uch qavat himoya: platforma → Bot API 8.0+ versiyasi → try/catch.
        */
       const supportsFullscreen =
-        typeof wa.isVersionAtLeast === 'function'
-          ? wa.isVersionAtLeast('8.0')
-          : false;
+        isDesktopTelegram(wa) &&
+        typeof wa.isVersionAtLeast === 'function' &&
+        wa.isVersionAtLeast('8.0');
       if (supportsFullscreen) safe(wa.requestFullscreen);
 
       /**
