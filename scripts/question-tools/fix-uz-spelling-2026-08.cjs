@@ -413,6 +413,60 @@ const CYR_RU_FIXES = [
   { bad: 'Показано направления', good: 'Показаны направления',
     why: 'число не согласовано (направления — мн.ч.)' },
 
+  // ==========================================================================
+  // 12-BOSQICH: v3, v4, v5 ni to'liq qo'lda o'qishda topilganlar.
+  //
+  // ESLATMA: kirillda `е` allaqachon "ye" tovushini beradi, shuning uchun
+  // `етган`, `ечиш` kabi shakllar TO'G'RI va tegilmaydi — faqat lotinchasi
+  // tuzatiladi.
+  // ==========================================================================
+
+  // `masofa` + tushum kelishigi. Lotinda `n` tushib qolgan.
+  // DALIL: lotin 252+20=272, kirill `масофани` 272, `масофаи` 0 — sonlar mos.
+  { bad: 'masofai', good: 'masofani', why: "tushum kelishigidagi 'n' tushgan (252x)" },
+
+  { bad: 'qatnash qismi', good: 'qatnov qismi', stem: true, why: '6x vs 2061x' },
+  { bad: 'қатнаш қисми',  good: 'қатнов қисми', stem: true, why: '6x vs 2061x' },
+
+  // `yetmoq` (yetishmoq) o'zagi — ruschasi "Имеются ... повреждения"
+  { bad: 'shikast etgan', good: "shikast yetgan", why: "yetmoq o'zagi (12x)" },
+
+  { bad: 'hollardan taqiqlanadi', good: 'hollarda taqiqlanadi', why: 'kelishik (6x vs 88x)' },
+  { bad: 'ҳоллардан тақиқланади', good: 'ҳолларда тақиқланади', why: 'келишик (6x vs 88x)' },
+
+  // Kirillchasi `реанимация` (ц) -> lotinda `ts`. Lotin 12+6=18 = kirill 18.
+  { bad: 'reanimasiya', good: 'reanimatsiya', stem: true, why: 'ц -> ts (12x)' },
+
+  { bad: 'ishlayotmagan', good: 'ishlamayotgan', why: "bo'g'inlar almashgan (6x vs 115x)" },
+
+  // Qo'shtirnoqdan keyin ortiqcha vergul
+  { bad: "«TO'XTASH», yozuvi", good: "«TO'XTASH» yozuvi", why: 'ortiqcha vergul' },
+  { bad: '«ТЎХТАШ», ёзуви',    good: '«ТЎХТАШ» ёзуви',    why: 'ортиқча вергул' },
+
+  // Ro'yxat ajratgichi — korpusda vergul ustun (98x vs 60x)
+  { bad: 'N2; N3', good: 'N2, N3', why: 'ajratgich (60x vs 98x)' },
+
+  // `yechmoq` (yechib olmoq) o'zagi. Kirillchasi (`ечиш`) TO'G'RI.
+  { bad: 'echishni', good: 'yechishni', why: "yechmoq o'zagi (12x)" },
+  { bad: 'echilsa',  good: 'yechilsa',  why: "yechmoq o'zagi (6x)" },
+  { bad: 'echish',   good: 'yechish',   why: "yechmoq o'zagi (6x)" },
+
+  { bad: 'mopet', good: 'moped', why: 't -> d (6x vs 267x)' },
+  { bad: 'мопет', good: 'мопед', why: 'т -> д (6x vs 552x)' },
+
+  // t_5_q_14 — grammatika buzilgan. Ruschasi:
+  // "Из скольких глав и пунктов СОСТОЯТ Правила дорожного движения?"
+  { bad: "Yo'l harakat qoidalarida nechta bob va bandidan iborat?",
+    good: "Yo'l harakati qoidalari nechta bob va banddan iborat?",
+    why: 'kelishiklar buzilgan' },
+  { bad: 'Йўл ҳаракат қоидаларида нечта боб ва бандидан иборат?',
+    good: 'Йўл ҳаракати қоидалари нечта боб ва банддан иборат?',
+    why: 'келишиклар бузилган' },
+
+  // t_4_q_11 — variant yorlig'ida lotincha `A` kirillcha `В` bilan aralashgan.
+  // Kirillcha faylda to'g'ri (`А ва В`), lotinchada `A` lotincha qolib ketgan.
+  { bad: 'A va В', good: 'А va В', why: 'aralash alifbo (lotin A -> kirill А)' },
+
   // --- Fayllararo sinxronlik tekshiruvida topilgan (izoh matnlarida) ---
   // barcha-*.json da xato, data/variants/*.json da to'g'ri edi.
   { bad: 'trasnport', good: 'transport', stem: true, why: 'harflar almashgan (2x vs 10993x)' },

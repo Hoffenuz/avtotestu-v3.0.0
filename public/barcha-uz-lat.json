@@ -1500,7 +1500,7 @@
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Quvib o'tish qaysi hollardan taqiqlanadi?",
+                "text": "Quvib o'tish qaysi hollarda taqiqlanadi?",
                 "options": [
                     {
                         "id": 1,
@@ -1570,7 +1570,7 @@
         "media_url": "u20uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Avtomobillar harakatlanayotgan qatnash qismida necha harakatlanish tasmasi bor?",
+                "text": "Avtomobillar harakatlanayotgan qatnov qismida necha harakatlanish tasmasi bor?",
                 "options": [
                     {
                         "id": 1,
@@ -1591,7 +1591,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQning 10-bob. 64-band 1-xatboshiga asosan: 64. Relssiz transport vositalari harakatlanadigan tasmalar soni chiziqlar va (yoki) 5.8.1, 5.8.2, 5.8.7, 5.8.8 yo‘l belgilari bilan belgilanadi. Bunday chiziqlar yoki yo‘l belgilari bo‘lmasa, haydovchilar harakatlanish tasmalari sonini, qatnov qismining kengligini, transport vositalari orasidagi zarur yonlama oraliq masofai va ularning gabarit o‘lchamlarini hisobga olgan holda o‘zlari aniqlaydilar. Bunda harakatlanish ikki tomonlama bo‘lgan yo‘l qatnov qismining chap tomondagi yarmi, qatnov qismining joylardagi kengayishlari (sekinlashish va tezlashish tasmalari, balandlikka ko‘tarilishdagi qo‘shimcha tasmalar, yo‘nalishli transport vositalarining to‘xtash joylaridagi kengayishlar)ni hisobga olmagan holda, qarama-qarshi yo‘nalishda harakatlanish uchun mo‘ljallangan deb hisoblanadi."
+            "uz_lat": "YHQning 10-bob. 64-band 1-xatboshiga asosan: 64. Relssiz transport vositalari harakatlanadigan tasmalar soni chiziqlar va (yoki) 5.8.1, 5.8.2, 5.8.7, 5.8.8 yo‘l belgilari bilan belgilanadi. Bunday chiziqlar yoki yo‘l belgilari bo‘lmasa, haydovchilar harakatlanish tasmalari sonini, qatnov qismining kengligini, transport vositalari orasidagi zarur yonlama oraliq masofani va ularning gabarit o‘lchamlarini hisobga olgan holda o‘zlari aniqlaydilar. Bunda harakatlanish ikki tomonlama bo‘lgan yo‘l qatnov qismining chap tomondagi yarmi, qatnov qismining joylardagi kengayishlari (sekinlashish va tezlashish tasmalari, balandlikka ko‘tarilishdagi qo‘shimcha tasmalar, yo‘nalishli transport vositalarining to‘xtash joylaridagi kengayishlar)ni hisobga olmagan holda, qarama-qarshi yo‘nalishda harakatlanish uchun mo‘ljallangan deb hisoblanadi."
         }
     },
     {
@@ -1830,23 +1830,23 @@
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Yonlama oraliq masofai tanlashda tezlikning dahli bormi?",
+                "text": "Yonlama oraliq masofani tanlashda tezlikning dahli bormi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Tezlik oshganda yonlama oraliq masofai oshirish kerak",
+                        "text": "Tezlik oshganda yonlama oraliq masofani oshirish kerak",
                         "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Yonlama oraliq masofai tanlashni tezlikka aloqasi yo'q",
+                        "text": "Yonlama oraliq masofani tanlashni tezlikka aloqasi yo'q",
                         "is_correct": false
                     }
                 ]
             }
         },
         "izoh": {
-            "uz_lat": "Harakatlanish tezligi ortishi bilan avtomobilning tanlangan harakat trayektoriyasidan yon tomonga chetlashi ham ortib boradi. Bu g'ildiraklarning yon elastikligi, qoplamaning notekisligi, shamolning qarshiligi va rul boshqarmasidagi lyuft hisobiga vujudga keladi. Shuning uchun, haydovchilar tezlikni oshirgan sayin yon oraliq masofai ham oshirishlari kerak."
+            "uz_lat": "Harakatlanish tezligi ortishi bilan avtomobilning tanlangan harakat trayektoriyasidan yon tomonga chetlashi ham ortib boradi. Bu g'ildiraklarning yon elastikligi, qoplamaning notekisligi, shamolning qarshiligi va rul boshqarmasidagi lyuft hisobiga vujudga keladi. Shuning uchun, haydovchilar tezlikni oshirgan sayin yon oraliq masofani ham oshirishlari kerak."
         }
     },
     {
@@ -2079,7 +2079,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Kuzov (kabina) qismlari va bo'yog'iga tashqi tomondan anchagina shikast etgan bo'lsa",
+                        "text": "Kuzov (kabina) qismlari va bo'yog'iga tashqi tomondan anchagina shikast yetgan bo'lsa",
                         "is_correct": false
                     },
                     {
@@ -2089,7 +2089,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Kuzov (kabina) qismlari va bo'yog'iga tashqi tomondan anchagina shikast etgan bo'lsa hamda ressoralarning o'zak qatlami yoki markaziy bolti shikastlangan hollarda",
+                        "text": "Kuzov (kabina) qismlari va bo'yog'iga tashqi tomondan anchagina shikast yetgan bo'lsa hamda ressoralarning o'zak qatlami yoki markaziy bolti shikastlangan hollarda",
                         "is_correct": false
                     }
                 ]
@@ -2250,7 +2250,7 @@
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Agar jonlantirishni (reanimasiyani) 2 kishi bir vaqtda olib borganda yurakni bilvosita massaj qilish va sun'iy nafas oldirish qanday bajariladi?",
+                "text": "Agar jonlantirishni (reanimatsiyani) 2 kishi bir vaqtda olib borganda yurakni bilvosita massaj qilish va sun'iy nafas oldirish qanday bajariladi?",
                 "options": [
                     {
                         "id": 1,
@@ -2544,7 +2544,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "A va В",
+                        "text": "А va В",
                         "is_correct": false
                     },
                     {
@@ -2570,7 +2570,7 @@
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "N2; N3 toifadagi avtotransport vositalarining boshqaruv qurilmasida qanday eng katta umumiy lyuft yig'indisiga yo'l qo'yiladi?",
+                "text": "N2, N3 toifadagi avtotransport vositalarining boshqaruv qurilmasida qanday eng katta umumiy lyuft yig'indisiga yo'l qo'yiladi?",
                 "options": [
                     {
                         "id": 1,
@@ -2615,7 +2615,7 @@
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Old chiroqlar va orqa gabarit chiroqlari ishlayotmagan transport vositasi harakatini davom ettirishi taqiqlanadi:",
+                "text": "Old chiroqlar va orqa gabarit chiroqlari ishlamayotgan transport vositasi harakatini davom ettirishi taqiqlanadi:",
                 "options": [
                     {
                         "id": 1,
@@ -2755,7 +2755,7 @@
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Yo'lda «TO'XTASH», yozuvi ko'rinishidagi yo'l chizig'i nimani bildiradi?",
+                "text": "Yo'lda «TO'XTASH» yozuvi ko'rinishidagi yo'l chizig'i nimani bildiradi?",
                 "options": [
                     {
                         "id": 1,
@@ -3019,7 +3019,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Ruxsat etilgan to'la vazni 3 tonna bo'lgan yuk avtomobili va mopet haydovchisi",
+                        "text": "Ruxsat etilgan to'la vazni 3 tonna bo'lgan yuk avtomobili va moped haydovchisi",
                         "is_correct": true
                     }
                 ]
@@ -3336,7 +3336,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "\"YHQning 1-bob. 6-band 84-xatboshi va 10-bob. 64-band 1-xatboshiga asosan: harakatlanish tasmasi — avtomobillarning bir qator bo‘lib harakatlanishi uchun yetarlicha keng bo‘lgan, yo‘l chiziqlari bilan belgilangan yoki belgilanmagan yo‘l qatnov qismining har qanday bo‘ylama tasmasi; \r\n64. Relssiz transport vositalari harakatlanadigan tasmalar soni chiziqlar va (yoki) 5.8.1, 5.8.2, 5.8.7, 5.8.8 yo‘l belgilari bilan belgilanadi. Bunday chiziqlar yoki yo‘l belgilari bo‘lmasa, haydovchilar harakatlanish tasmalari sonini, qatnov qismining kengligini, transport vositalari orasidagi zarur yonlama oraliq masofai va ularning gabarit o‘lchamlarini hisobga olgan holda o‘zlari aniqlaydilar. Bunda harakatlanish ikki tomonlama bo‘lgan yo‘l qatnov qismining chap tomondagi yarmi, qatnov qismining joylardagi kengayishlari (sekinlashish va tezlashish tasmalari, balandlikka ko‘tarilishdagi qo‘shimcha tasmalar, yo‘nalishli transport vositalarining to‘xtash joylaridagi kengayishlar)ni hisobga olmagan holda, qarama-qarshi yo‘nalishda harakatlanish uchun mo‘ljallangan deb hisoblanadi.\""
+            "uz_lat": "\"YHQning 1-bob. 6-band 84-xatboshi va 10-bob. 64-band 1-xatboshiga asosan: harakatlanish tasmasi — avtomobillarning bir qator bo‘lib harakatlanishi uchun yetarlicha keng bo‘lgan, yo‘l chiziqlari bilan belgilangan yoki belgilanmagan yo‘l qatnov qismining har qanday bo‘ylama tasmasi; \r\n64. Relssiz transport vositalari harakatlanadigan tasmalar soni chiziqlar va (yoki) 5.8.1, 5.8.2, 5.8.7, 5.8.8 yo‘l belgilari bilan belgilanadi. Bunday chiziqlar yoki yo‘l belgilari bo‘lmasa, haydovchilar harakatlanish tasmalari sonini, qatnov qismining kengligini, transport vositalari orasidagi zarur yonlama oraliq masofani va ularning gabarit o‘lchamlarini hisobga olgan holda o‘zlari aniqlaydilar. Bunda harakatlanish ikki tomonlama bo‘lgan yo‘l qatnov qismining chap tomondagi yarmi, qatnov qismining joylardagi kengayishlari (sekinlashish va tezlashish tasmalari, balandlikka ko‘tarilishdagi qo‘shimcha tasmalar, yo‘nalishli transport vositalarining to‘xtash joylaridagi kengayishlar)ni hisobga olmagan holda, qarama-qarshi yo‘nalishda harakatlanish uchun mo‘ljallangan deb hisoblanadi.\""
         }
     },
     {
@@ -3350,21 +3350,21 @@
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Qo'l jarohatlanganda jabrlanuvchining ko'ylagi, kiyimi qanday echilsa to'g'ri bo'ladi?",
+                "text": "Qo'l jarohatlanganda jabrlanuvchining ko'ylagi, kiyimi qanday yechilsa to'g'ri bo'ladi?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Kiyim-boshni ikkala qo'ldan bir vaqtda echish",
+                        "text": "Kiyim-boshni ikkala qo'ldan bir vaqtda yechish",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Kiyim-boshni echishni sog' qo'ldan boshlash, so'ng kasal qo'lni bo'shatish",
+                        "text": "Kiyim-boshni yechishni sog' qo'ldan boshlash, so'ng kasal qo'lni bo'shatish",
                         "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "Kiyim-boshni echishni kasal qo'ldan boshlash, so'ng sog' qo'lni bo'shatish",
+                        "text": "Kiyim-boshni yechishni kasal qo'ldan boshlash, so'ng sog' qo'lni bo'shatish",
                         "is_correct": false
                     }
                 ]
@@ -3385,7 +3385,7 @@
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Yo'l harakat qoidalarida nechta bob va bandidan iborat?",
+                "text": "Yo'l harakati qoidalari nechta bob va banddan iborat?",
                 "options": [
                     {
                         "id": 1,
@@ -4371,7 +4371,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "\"YHQga 1-ILOVA 3.20 va 3.21 bandi hamda 7.1.1 va 7.2.1 bandiga asosan: 3.20. «Quvib o‘tish taqiqlangan». Soatiga 40 km dan kam tezlikda harakatlanayotgan yakka transport vositasidan boshqa transport vositalarini quvib o‘tish taqiqlanishini bildiradi.\r\n3.21. «Quvib o‘tish taqiqlangan hududning oxiri».\r\n7.1.1. «Obyektgacha bo‘lgan masofa». Belgidan yo‘lning xavfli joyi, yo‘l harakatiga tegishli cheklovlar kiritiladigan joyi yoki harakat yo‘nalishi bo‘yicha oldindagi muayyan joygacha bo‘lgan masofai ko‘rsatadi.\r\n7.2.1. «Ta’sir oralig‘i». Ogohlantiruvchi belgilar bilan belgilangan xavfli joyning uzunligini yoki taqiqlovchi va axborot-ko‘rsatkich belgilarining ta’sir oralig‘ini ko‘rsatadi.\""
+            "uz_lat": "\"YHQga 1-ILOVA 3.20 va 3.21 bandi hamda 7.1.1 va 7.2.1 bandiga asosan: 3.20. «Quvib o‘tish taqiqlangan». Soatiga 40 km dan kam tezlikda harakatlanayotgan yakka transport vositasidan boshqa transport vositalarini quvib o‘tish taqiqlanishini bildiradi.\r\n3.21. «Quvib o‘tish taqiqlangan hududning oxiri».\r\n7.1.1. «Obyektgacha bo‘lgan masofa». Belgidan yo‘lning xavfli joyi, yo‘l harakatiga tegishli cheklovlar kiritiladigan joyi yoki harakat yo‘nalishi bo‘yicha oldindagi muayyan joygacha bo‘lgan masofani ko‘rsatadi.\r\n7.2.1. «Ta’sir oralig‘i». Ogohlantiruvchi belgilar bilan belgilangan xavfli joyning uzunligini yoki taqiqlovchi va axborot-ko‘rsatkich belgilarining ta’sir oralig‘ini ko‘rsatadi.\""
         }
     },
     {
@@ -5645,7 +5645,7 @@
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "108 km/s tezlikda harakatlanayotgan transport vositasi 1 sekundda qancha masofai bosib o'tadi?",
+                "text": "108 km/s tezlikda harakatlanayotgan transport vositasi 1 sekundda qancha masofani bosib o'tadi?",
                 "options": [
                     {
                         "id": 1,
@@ -5666,7 +5666,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "Harakat xavfsizligi asoslari talablariga asosan, 108 km/s tezlikda harakatlanayotgan transport vositasi 1 sekundda 30 m masofai bosib o‘tadi."
+            "uz_lat": "Harakat xavfsizligi asoslari talablariga asosan, 108 km/s tezlikda harakatlanayotgan transport vositasi 1 sekundda 30 m masofani bosib o‘tadi."
         }
     },
     {
@@ -6841,7 +6841,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQning 4-bob. 19-band 1-xatboshiga asosan: 19. Tartibga solinmaydigan piyodalar o‘tish joylarida, piyodalar yaqinlashayotgan transport vositalarigacha bo‘lgan masofai va ularning tezligini chamalab ko‘rib, o‘tish o‘zlari uchun xavfsiz ekanligiga ishonch hosil qilganlaridan so‘ng qatnov qismi (tramvay bekati)ga chiqishlari ruxsat etiladi."
+            "uz_lat": "YHQning 4-bob. 19-band 1-xatboshiga asosan: 19. Tartibga solinmaydigan piyodalar o‘tish joylarida, piyodalar yaqinlashayotgan transport vositalarigacha bo‘lgan masofani va ularning tezligini chamalab ko‘rib, o‘tish o‘zlari uchun xavfsiz ekanligiga ishonch hosil qilganlaridan so‘ng qatnov qismi (tramvay bekati)ga chiqishlari ruxsat etiladi."
         }
     },
     {
@@ -7555,7 +7555,7 @@
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Qattiq ulagich transport vositalari orasida qanchadan ortiq bo'lmagan masofai ta'minlashi kerak?",
+                "text": "Qattiq ulagich transport vositalari orasida qanchadan ortiq bo'lmagan masofani ta'minlashi kerak?",
                 "options": [
                     {
                         "id": 1,
@@ -8930,7 +8930,7 @@
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Qaysi holatlarda jabrlanuvchiga yurak-o'pka reanimasiyasini boshlash kerak?",
+                "text": "Qaysi holatlarda jabrlanuvchiga yurak-o'pka reanimatsiyasini boshlash kerak?",
                 "options": [
                     {
                         "id": 1,
@@ -9856,7 +9856,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 1-ilova 3-bo'lim 3.22. \"Yuk avtomobillarida quvib o'tish taqiqlangan\" yo'l belgisi, to'liq vazni 3,5 tonnadan ortiq bo'lgan yuk avtomobillarida barcha transport vositalarini quvib o'tish taqiqlanishini bildiradi (soatiga 40 km dan kam tezlikda harakatlanayotgan transport vositasi, traktor, ot-arava, velosiped bundan mustasno), belgisi ostidagi 7.1.1. \"Obyektgacha bo'lgan masofa\" qo'shimcha axborot belgisi 3.22 belgisi ta'sir hududi boshlanadigan joygacha bo'lgan masofai ko'rsatadi."
+            "uz_lat": "YHQ 1-ilova 3-bo'lim 3.22. \"Yuk avtomobillarida quvib o'tish taqiqlangan\" yo'l belgisi, to'liq vazni 3,5 tonnadan ortiq bo'lgan yuk avtomobillarida barcha transport vositalarini quvib o'tish taqiqlanishini bildiradi (soatiga 40 km dan kam tezlikda harakatlanayotgan transport vositasi, traktor, ot-arava, velosiped bundan mustasno), belgisi ostidagi 7.1.1. \"Obyektgacha bo'lgan masofa\" qo'shimcha axborot belgisi 3.22 belgisi ta'sir hududi boshlanadigan joygacha bo'lgan masofani ko'rsatadi."
         }
     },
     {
@@ -10940,7 +10940,7 @@
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "72 km/soat tezlikda harakatlanayotgan transport vositasi 1 sekundda qancha masofai bosib o'tadi?",
+                "text": "72 km/soat tezlikda harakatlanayotgan transport vositasi 1 sekundda qancha masofani bosib o'tadi?",
                 "options": [
                     {
                         "id": 1,
@@ -10961,7 +10961,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "Harakat xavfsizligi asoslari talablariga asosan, 72 km/s tezlikda harakatlanayotgan transport vositasi 1 sekundda 20 m masofai bosib o‘tadi."
+            "uz_lat": "Harakat xavfsizligi asoslari talablariga asosan, 72 km/s tezlikda harakatlanayotgan transport vositasi 1 sekundda 20 m masofani bosib o‘tadi."
         }
     },
     {
@@ -11145,16 +11145,16 @@
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Aholi yashash joylaridan tashqaridagi ikki tomonlama harakat tashkil etilgan ikki tasmali yo'llarda tezligini soatiga 50 kilometrdan oshirishi mumkin bo'lmagan, shuningdek, uzunligi 7 metrdan ortiq bo'lgan transport vositalarining (transport vositalarining tarkibi) haydovchilari o'zi va oldida harakatlanayotgan transport vositasi orasida qancha masofai saqlashlari kerak?",
+                "text": "Aholi yashash joylaridan tashqaridagi ikki tomonlama harakat tashkil etilgan ikki tasmali yo'llarda tezligini soatiga 50 kilometrdan oshirishi mumkin bo'lmagan, shuningdek, uzunligi 7 metrdan ortiq bo'lgan transport vositalarining (transport vositalarining tarkibi) haydovchilari o'zi va oldida harakatlanayotgan transport vositasi orasida qancha masofani saqlashlari kerak?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ularni quvib o'tayotgan transport vositalari oldin egallagan qatoriga bemalol qayta tizilishi uchun imkon beradigan masofai saqlashlari kerak",
+                        "text": "Ularni quvib o'tayotgan transport vositalari oldin egallagan qatoriga bemalol qayta tizilishi uchun imkon beradigan masofani saqlashlari kerak",
                         "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Haydovchi o'zidan oldinda harakatlanayotgan transport vositasi keskin tormoz berganda, to'qnashib ketmaslik kafolatini beradigan darajadagi oraliq masofai",
+                        "text": "Haydovchi o'zidan oldinda harakatlanayotgan transport vositasi keskin tormoz berganda, to'qnashib ketmaslik kafolatini beradigan darajadagi oraliq masofani",
                         "is_correct": false
                     },
                     {
@@ -11171,7 +11171,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQning 10-bob. 74-bandi 1-xatboshiga asosan: 74. Aholi yashash joylaridan tashqaridagi ikki tomonlama harakat tashkil etilgan ikki tasmali yo‘llarda tezligini soatiga 50 kilometrdan oshirishi mumkin bo‘lmagan, shuningdek, uzunligi 7 metrdan ortiq bo‘lgan transport vositalarining (transport vositalarining tarkibi) haydovchilari o‘zi va oldida harakatlanayotgan transport vositasi orasida, ularni quvib o‘tayotgan transport vositalari oldin egallagan qatoriga bemalol qayta tizilishi uchun imkon beradigan masofai saqlashlari kerak."
+            "uz_lat": "YHQning 10-bob. 74-bandi 1-xatboshiga asosan: 74. Aholi yashash joylaridan tashqaridagi ikki tomonlama harakat tashkil etilgan ikki tasmali yo‘llarda tezligini soatiga 50 kilometrdan oshirishi mumkin bo‘lmagan, shuningdek, uzunligi 7 metrdan ortiq bo‘lgan transport vositalarining (transport vositalarining tarkibi) haydovchilari o‘zi va oldida harakatlanayotgan transport vositasi orasida, ularni quvib o‘tayotgan transport vositalari oldin egallagan qatoriga bemalol qayta tizilishi uchun imkon beradigan masofani saqlashlari kerak."
         }
     },
     {
@@ -11310,7 +11310,7 @@
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "108 km/s tezlikda harakatlanayotgan transport vositasi 1 sekundda qancha masofai bosib o'tadi?",
+                "text": "108 km/s tezlikda harakatlanayotgan transport vositasi 1 sekundda qancha masofani bosib o'tadi?",
                 "options": [
                     {
                         "id": 1,
@@ -11331,7 +11331,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "Harakat xavfsizligi asoslari talablariga asosan, 108 km/s tezlikda harakatlanayotgan transport vositasi 1 sekundda 30 m masofai bosib o‘tadi."
+            "uz_lat": "Harakat xavfsizligi asoslari talablariga asosan, 108 km/s tezlikda harakatlanayotgan transport vositasi 1 sekundda 30 m masofani bosib o‘tadi."
         }
     },
     {
@@ -11726,7 +11726,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 1-ilovasi 5-bo‘limining qirq oltinchi xatboshisiga asosan: 5.28. «Kilometr belgisi». Yo‘lning boshi yoki oxirigacha bo‘lgan masofai bildiradi. (km)."
+            "uz_lat": "YHQ 1-ilovasi 5-bo‘limining qirq oltinchi xatboshisiga asosan: 5.28. «Kilometr belgisi». Yo‘lning boshi yoki oxirigacha bo‘lgan masofani bildiradi. (km)."
         }
     },
     {
@@ -12500,7 +12500,7 @@
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "N2; N3; O3; O4 toifadagi transport vositalari shina protektori naqshlarining qoldiq balandligi qanchadan kam bo'lmasligi kerak?",
+                "text": "N2, N3; O3; O4 toifadagi transport vositalari shina protektori naqshlarining qoldiq balandligi qanchadan kam bo'lmasligi kerak?",
                 "options": [
                     {
                         "id": 1,
@@ -14351,7 +14351,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQning 10-bob. 64-band 1-xatboshiga asosan: 64. Relssiz transport vositalari harakatlanadigan tasmalar soni chiziqlar va (yoki) 5.8.1, 5.8.2, 5.8.7, 5.8.8 yo‘l belgilari bilan belgilanadi. Bunday chiziqlar yoki yo‘l belgilari bo‘lmasa, haydovchilar harakatlanish tasmalari sonini, qatnov qismining kengligini, transport vositalari orasidagi zarur yonlama oraliq masofai va ularning gabarit o‘lchamlarini hisobga olgan holda o‘zlari aniqlaydilar. Bunda harakatlanish ikki tomonlama bo‘lgan yo‘l qatnov qismining chap tomondagi yarmi, qatnov qismining joylardagi kengayishlari (sekinlashish va tezlashish tasmalari, balandlikka ko‘tarilishdagi qo‘shimcha tasmalar, yo‘nalishli transport vositalarining to‘xtash joylaridagi kengayishlar)ni hisobga olmagan holda, qarama-qarshi yo‘nalishda harakatlanish uchun mo‘ljallangan deb hisoblanadi."
+            "uz_lat": "YHQning 10-bob. 64-band 1-xatboshiga asosan: 64. Relssiz transport vositalari harakatlanadigan tasmalar soni chiziqlar va (yoki) 5.8.1, 5.8.2, 5.8.7, 5.8.8 yo‘l belgilari bilan belgilanadi. Bunday chiziqlar yoki yo‘l belgilari bo‘lmasa, haydovchilar harakatlanish tasmalari sonini, qatnov qismining kengligini, transport vositalari orasidagi zarur yonlama oraliq masofani va ularning gabarit o‘lchamlarini hisobga olgan holda o‘zlari aniqlaydilar. Bunda harakatlanish ikki tomonlama bo‘lgan yo‘l qatnov qismining chap tomondagi yarmi, qatnov qismining joylardagi kengayishlari (sekinlashish va tezlashish tasmalari, balandlikka ko‘tarilishdagi qo‘shimcha tasmalar, yo‘nalishli transport vositalarining to‘xtash joylaridagi kengayishlar)ni hisobga olmagan holda, qarama-qarshi yo‘nalishda harakatlanish uchun mo‘ljallangan deb hisoblanadi."
         }
     },
     {
@@ -19127,7 +19127,7 @@
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "N2; N3; O3; O4; M2; M3 toifadagi avtotransport vositalarining orqa devoriga yozilishi kerak?",
+                "text": "N2, N3; O3; O4; M2; M3 toifadagi avtotransport vositalarining orqa devoriga yozilishi kerak?",
                 "options": [
                     {
                         "id": 1,
@@ -19178,7 +19178,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "To'xtash yo'liga haydovchining xavf-xatarni sezgan vaqtidan boshlab, transport vositasining butunlay to'xtagunga qadar yurib o'tgan masofasi tushuniladi. To'xtash yo'li doim tormoz yo'lidan ko'proq bo'ladi, chunki tormozlanish boshlanishidan avval transport vositasi haydovchining reaksiya vaqti va tormoz yuritmasining ishlab ketish vaqtiga bog'liq bo'lgan masofai o'tadi."
+            "uz_lat": "To'xtash yo'liga haydovchining xavf-xatarni sezgan vaqtidan boshlab, transport vositasining butunlay to'xtagunga qadar yurib o'tgan masofasi tushuniladi. To'xtash yo'li doim tormoz yo'lidan ko'proq bo'ladi, chunki tormozlanish boshlanishidan avval transport vositasi haydovchining reaksiya vaqti va tormoz yuritmasining ishlab ketish vaqtiga bog'liq bo'lgan masofani o'tadi."
         }
     },
     {
@@ -25900,7 +25900,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 1-ilovasining 7-bo'limidagi 7.1.1. \"Ob'ektgacha bo'lgan masofa\" qo'shimcha axborot belgisi 3.20. \"Quvib o'tish taqiqlangan\" belgidan yo'l harakatiga tegishli cheklov kiritiladigan joygacha bo'lgan masofai ko'rsatadi."
+            "uz_lat": "YHQ 1-ilovasining 7-bo'limidagi 7.1.1. \"Ob'ektgacha bo'lgan masofa\" qo'shimcha axborot belgisi 3.20. \"Quvib o'tish taqiqlangan\" belgidan yo'l harakatiga tegishli cheklov kiritiladigan joygacha bo'lgan masofani ko'rsatadi."
         }
     },
     {
@@ -26763,7 +26763,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "N2; N3 toifadagi transport vositalari shinalari protektori naqshining qoldiq balandligi 1,6 mm ni tashkil qiladi",
+                        "text": "N2, N3 toifadagi transport vositalari shinalari protektori naqshining qoldiq balandligi 1,6 mm ni tashkil qiladi",
                         "is_correct": true
                     },
                     {
@@ -27023,7 +27023,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Belgidan yo'lning tor qismigacha bo'lgan masofai",
+                        "text": "Belgidan yo'lning tor qismigacha bo'lgan masofani",
                         "is_correct": true
                     },
                     {
@@ -27033,14 +27033,14 @@
                     },
                     {
                         "id": 3,
-                        "text": "Tor qismini aylanib o'tish joyigacha masofai",
+                        "text": "Tor qismini aylanib o'tish joyigacha masofani",
                         "is_correct": false
                     }
                 ]
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 1-ilovasi 7-bo‘limining ikkinchi xatboshisiga asosan: 7.1.1. “Ob‘ektgacha bo‘lgan masofa”. Belgidan yo‘lning xavfli joyi, yo‘l harakatiga tegishli cheklovlar kiritiladigan joyi yoki harakat yo‘nalishi bo‘yicha oldindagi muayyan joygacha bo‘lgan masofai ko‘rsatadi."
+            "uz_lat": "YHQ 1-ilovasi 7-bo‘limining ikkinchi xatboshisiga asosan: 7.1.1. “Ob‘ektgacha bo‘lgan masofa”. Belgidan yo‘lning xavfli joyi, yo‘l harakatiga tegishli cheklovlar kiritiladigan joyi yoki harakat yo‘nalishi bo‘yicha oldindagi muayyan joygacha bo‘lgan masofani ko‘rsatadi."
         }
     },
     {
@@ -27678,14 +27678,14 @@
                     },
                     {
                         "id": 4,
-                        "text": "Haydovchining o'zi tomonidan qatnov qismining kengligini, transport vositalarining o'lchamlarini va ular o'rtasidagi zarur yonlama oraliq masofai hisobga olib",
+                        "text": "Haydovchining o'zi tomonidan qatnov qismining kengligini, transport vositalarining o'lchamlarini va ular o'rtasidagi zarur yonlama oraliq masofani hisobga olib",
                         "is_correct": false
                     }
                 ]
             }
         },
         "izoh": {
-            "uz_lat": "Yo‘l harakati qoidalarining 10 bobi 64 bandiga asosan, relssiz transport vositalari harakatlanadigan tasmalar soni chiziqlar va (yoki) 5.8.1, 5.8.2, 5.8.7, 5.8.8 yo‘l belgilari bilan belgilanadi. Bunday chiziqlar yoki yo‘l belgilari bo‘lmasa, haydovchilar harakatlanish tasmalari sonini, qatnov qismining kengligini, transport vositalari orasidagi zarur yonlama oraliq masofai va ularning gabarit o‘lchamlarini hisobga olgan holda o‘zlari aniqlaydilar. Bunda harakatlanish ikki tomonlama bo‘lgan yo‘l qatnov qismining chap tomondagi yarmi, qatnov qismining joylardagi kengayishlari (sekinlashish va tezlashish tasmalari, balandlikka ko‘tarilishdagi qo‘shimcha tasmalar, yo‘nalishli transport vositalarining to‘xtash joylaridagi kengayishlar)ni hisobga olmagan holda, qarama-qarshi yo‘nalishda harakatlanish uchun mo‘ljallangan deb hisoblanadi.\r\nTramvay yo‘li, ajratuvchi tasma, uzluksiz 1.1, 1.3 yo‘l chiziqlar yoki uzuq-uzuq tomoni chapda joylashgan 1.11 yo‘l chizig‘i bilan ajratilgan yo‘llarda qarama-qarshi yo‘nalishga chiqish taqiqlanadi."
+            "uz_lat": "Yo‘l harakati qoidalarining 10 bobi 64 bandiga asosan, relssiz transport vositalari harakatlanadigan tasmalar soni chiziqlar va (yoki) 5.8.1, 5.8.2, 5.8.7, 5.8.8 yo‘l belgilari bilan belgilanadi. Bunday chiziqlar yoki yo‘l belgilari bo‘lmasa, haydovchilar harakatlanish tasmalari sonini, qatnov qismining kengligini, transport vositalari orasidagi zarur yonlama oraliq masofani va ularning gabarit o‘lchamlarini hisobga olgan holda o‘zlari aniqlaydilar. Bunda harakatlanish ikki tomonlama bo‘lgan yo‘l qatnov qismining chap tomondagi yarmi, qatnov qismining joylardagi kengayishlari (sekinlashish va tezlashish tasmalari, balandlikka ko‘tarilishdagi qo‘shimcha tasmalar, yo‘nalishli transport vositalarining to‘xtash joylaridagi kengayishlar)ni hisobga olmagan holda, qarama-qarshi yo‘nalishda harakatlanish uchun mo‘ljallangan deb hisoblanadi.\r\nTramvay yo‘li, ajratuvchi tasma, uzluksiz 1.1, 1.3 yo‘l chiziqlar yoki uzuq-uzuq tomoni chapda joylashgan 1.11 yo‘l chizig‘i bilan ajratilgan yo‘llarda qarama-qarshi yo‘nalishga chiqish taqiqlanadi."
         }
     },
     {
@@ -28608,12 +28608,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Birinchi burilishdan ikkinchi burilishning boshlanishigacha bo'lgan masofai",
+                        "text": "Birinchi burilishdan ikkinchi burilishning boshlanishigacha bo'lgan masofani",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Belgidan birinchi burilishning boshlanishigacha bo'lgan masofai",
+                        "text": "Belgidan birinchi burilishning boshlanishigacha bo'lgan masofani",
                         "is_correct": false
                     },
                     {
@@ -31144,7 +31144,7 @@
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "90 km/soat tezlikda harakatlanayotgan transport vositasi 1 sekundda qancha masofai bosib o'tadi?",
+                "text": "90 km/soat tezlikda harakatlanayotgan transport vositasi 1 sekundda qancha masofani bosib o'tadi?",
                 "options": [
                     {
                         "id": 1,
@@ -31165,7 +31165,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "Haydovchining reaksiya vaqti ko'plab omillarga bog'liq, odatda 0,4 dan 1,6 soniya orasida. Shundan kelib chiqqan holda, haydovchining reaksiya vaqti o'rtacha 1 soniya deb taxmin qilinadi. Shuning uchun harakat xavfsizligining shartlarini ta'minlash maqsadida tezlikni tanlayotgan haydovchi soatiga 90 kilometr tezlikda harakatlanayotgan transport vositasi bir soniyada taxminan 25 metr masofai bosib o'tishini hisobga olishi kerak (teng holatda 90 000 metr/soat yoki 90 000 metr : 3 600 soniya = taxminan bir soniyada 25 metr)."
+            "uz_lat": "Haydovchining reaksiya vaqti ko'plab omillarga bog'liq, odatda 0,4 dan 1,6 soniya orasida. Shundan kelib chiqqan holda, haydovchining reaksiya vaqti o'rtacha 1 soniya deb taxmin qilinadi. Shuning uchun harakat xavfsizligining shartlarini ta'minlash maqsadida tezlikni tanlayotgan haydovchi soatiga 90 kilometr tezlikda harakatlanayotgan transport vositasi bir soniyada taxminan 25 metr masofani bosib o'tishini hisobga olishi kerak (teng holatda 90 000 metr/soat yoki 90 000 metr : 3 600 soniya = taxminan bir soniyada 25 metr)."
         }
     },
     {
@@ -32024,7 +32024,7 @@
         "media_url": "u514uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Xavfsiz oraliq masofai ko'rsating",
+                "text": "Xavfsiz oraliq masofani ko'rsating",
                 "options": [
                     {
                         "id": 1,
@@ -32045,7 +32045,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "Yo‘l harakati qoidalarining 73 bandiga asosan, haydovchi o‘zidan oldinda harakatlanayotgan transport vositasi keskin tormoz berganda, to‘qnashib ketmaslik kafolatini beradigan darajadagi oraliq masofai, shuningdek, yo‘l harakati xavfsizligini ta’minlaydigan yonlama oraliq masofai saqlashi kerak."
+            "uz_lat": "Yo‘l harakati qoidalarining 73 bandiga asosan, haydovchi o‘zidan oldinda harakatlanayotgan transport vositasi keskin tormoz berganda, to‘qnashib ketmaslik kafolatini beradigan darajadagi oraliq masofani, shuningdek, yo‘l harakati xavfsizligini ta’minlaydigan yonlama oraliq masofani saqlashi kerak."
         }
     },
     {
@@ -34325,7 +34325,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 10 – bobi 73 – bandiga asosan: Haydovchi o‘zidan oldinda harakatlanayotgan transport vositasi keskin tormoz berganida to‘qnashib ketmaslik kafolatini beradigan darajadagi oraliq masofai, shuningdek yo‘l harakati xavfsizligini ta‘minlaydigan yonlama oraliq masofai saqlashi kerak."
+            "uz_lat": "YHQ 10 – bobi 73 – bandiga asosan: Haydovchi o‘zidan oldinda harakatlanayotgan transport vositasi keskin tormoz berganida to‘qnashib ketmaslik kafolatini beradigan darajadagi oraliq masofani, shuningdek yo‘l harakati xavfsizligini ta‘minlaydigan yonlama oraliq masofani saqlashi kerak."
         }
     },
     {
@@ -34373,7 +34373,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Haydovchi o'zidan oldinda harakatlanayotgan transport vositasi keskin tormoz berganida to'qnashib ketmaslik kafolatini beradigan darajadagi oraliq masofai saqlashi kerak",
+                        "text": "Haydovchi o'zidan oldinda harakatlanayotgan transport vositasi keskin tormoz berganida to'qnashib ketmaslik kafolatini beradigan darajadagi oraliq masofani saqlashi kerak",
                         "is_correct": true
                     },
                     {
@@ -34390,7 +34390,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "Yo‘l harakati qoidalarining 73 bandiga asosan, haydovchi o‘zidan oldinda harakatlanayotgan transport vositasi keskin tormoz berganda, to‘qnashib ketmaslik kafolatini beradigan darajadagi oraliq masofai, shuningdek, yo‘l harakati xavfsizligini ta’minlaydigan yonlama oraliq masofai saqlashi kerak."
+            "uz_lat": "Yo‘l harakati qoidalarining 73 bandiga asosan, haydovchi o‘zidan oldinda harakatlanayotgan transport vositasi keskin tormoz berganda, to‘qnashib ketmaslik kafolatini beradigan darajadagi oraliq masofani, shuningdek, yo‘l harakati xavfsizligini ta’minlaydigan yonlama oraliq masofani saqlashi kerak."
         }
     },
     {
@@ -35908,7 +35908,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat «N2; N3» toifali transport vositasi",
+                        "text": "Faqat «N2, N3» toifali transport vositasi",
                         "is_correct": false
                     },
                     {
@@ -36313,12 +36313,12 @@
                     },
                     {
                         "id": 3,
-                        "text": "Eng yaqin aholi yashaydigan joygacha bo'lgan masofai ko'rsatadi",
+                        "text": "Eng yaqin aholi yashaydigan joygacha bo'lgan masofani ko'rsatadi",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "DANning eng yaqin mahkamasigacha bo'lgan masofai ko'rsatadi",
+                        "text": "DANning eng yaqin mahkamasigacha bo'lgan masofani ko'rsatadi",
                         "is_correct": false
                     }
                 ]
@@ -40820,14 +40820,14 @@
                     },
                     {
                         "id": 2,
-                        "text": "Obyektgacha bo'lgan masofai bildiradi",
+                        "text": "Obyektgacha bo'lgan masofani bildiradi",
                         "is_correct": true
                     }
                 ]
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 1-ilovasining 7-bo‘limidagi 7.1.3 va 7.1.4 belgilariga asosan, «Obyektgacha bo‘lgan masofa». Yo‘ldan chetda joylashgan manzilgacha bo‘lgan masofai bildiradi."
+            "uz_lat": "YHQ 1-ilovasining 7-bo‘limidagi 7.1.3 va 7.1.4 belgilariga asosan, «Obyektgacha bo‘lgan masofa». Yo‘ldan chetda joylashgan manzilgacha bo‘lgan masofani bildiradi."
         }
     },
     {
