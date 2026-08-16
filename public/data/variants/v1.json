@@ -64,12 +64,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Шины по размеру или допустимой нагрузки не соответствуют модели транспортного средства",
+                        "text": "Шины по размеру или допустимой нагрузке не соответствуют модели транспортного средства",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "На передней оси автотранспортных средств категории М1, М2;М3 класса 1 установлены шины по первому классу ремонта",
+                        "text": "На передней оси автотранспортных средств категории М1, М2, М3 класса 1 установлены шины по первому классу ремонта",
                         "is_correct": true
                     },
                     {
@@ -151,7 +151,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Устранить неисправность на месте, а если это невозможно. следовать к месту стоянки или ремонта с соблюдением необходимых мер предосторожности",
+                        "text": "Устранить неисправность на месте, а если это невозможно, следовать к месту стоянки или ремонта с соблюдением необходимых мер предосторожности",
                         "is_correct": true
                     },
                     {
@@ -179,7 +179,7 @@
         "media_url": "u1uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Har bir chiziq uzunligi ular orasidagi masofadan uch barobar katta bo'lgan uzuq-uzuq chiziq bildiradi?",
+                "text": "Har bir chiziq uzunligi ular orasidagi masofadan uch barobar katta bo'lgan uzuq-uzuq chiziq nimani bildiradi?",
                 "options": [
                     {
                         "id": 1,
@@ -199,7 +199,7 @@
                 ]
             },
             "uz_cyr": {
-                "text": "Ҳар бир чизиқ узунлиги улар орасидаги масофадан уч баробар катта бўлган узуқ-узуқ чизиқ билдиради?",
+                "text": "Ҳар бир чизиқ узунлиги улар орасидаги масофадан уч баробар катта бўлган узуқ-узуқ чизиқ нимани билдиради?",
                 "options": [
                     {
                         "id": 1,
@@ -332,8 +332,8 @@
             }
         },
         "izoh": {
-            "uz_lat": "Avtomobilning sirpanchiq yo'lda surilishi orqa g'ildiraklarining blokirovkasi sababli tormozlanishda vujudga keladi. Bu holda birinchi navbatda surilish sababini bartaraf etish, ya'ni boshlangan tormozlanishni to'xtatish lozim. Keyinchalik rul chambaragini surilish tomon burib, harakat yo'nalishini to'g'irlab olish mumkin.",
-            "uz_cyr": "Автомобилнинг сирпанчиқ йўлда сурилиши орқа ғилдиракларининг блокировкаси сабабли тормозланишда вужудга келади. Бу ҳолда биринчи навбатда сурилиш сабабини бартараф этиш, яъни бошланган тормозланишни тўхтатиш лозим. Кейинчалик рул чамбарагини сурилиш томон буриб, ҳаракат йўналишини тўғирлаб олиш мумкин.",
+            "uz_lat": "Avtomobilning sirpanchiq yo'lda surilishi orqa g'ildiraklarining blokirovkasi sababli tormozlanishda vujudga keladi. Bu holda birinchi navbatda surilish sababini bartaraf etish, ya'ni boshlangan tormozlanishni to'xtatish lozim. Keyinchalik rul chambaragini surilish tomon burib, harakat yo'nalishini to'g'rilab olish mumkin.",
+            "uz_cyr": "Автомобилнинг сирпанчиқ йўлда сурилиши орқа ғилдиракларининг блокировкаси сабабли тормозланишда вужудга келади. Бу ҳолда биринчи навбатда сурилиш сабабини бартараф этиш, яъни бошланган тормозланишни тўхтатиш лозим. Кейинчалик рул чамбарагини сурилиш томон буриб, ҳаракат йўналишини тўғрилаб олиш мумкин.",
             "ru": "Движение автомобиля по скользкой дороге происходит при торможении за счет блокировки задних колес. В этом случае прежде всего необходимо устранить причину толкания, то есть прекратить начавшееся торможение. В дальнейшем направление движения можно будет скорректировать, повернув руль в сторону толчка."
         }
     },
@@ -348,7 +348,7 @@
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Haydovchi to'xtash oldidan ogohlatiruvchi ishora berishga qachon majbur?",
+                "text": "Haydovchi to'xtash oldidan ogohlantiruvchi ishora berishga qachon majbur?",
                 "options": [
                     {
                         "id": 1,
@@ -640,7 +640,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Faqat qattiq tirkagichda ruxsat etiladi",
+                        "text": "Faqat qattiq ulagichda ruxsat etiladi",
                         "is_correct": false
                     },
                     {
@@ -665,7 +665,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Фақат қаттиқ тиркагичда рухсат этилади",
+                        "text": "Фақат қаттиқ улагичда рухсат этилади",
                         "is_correct": false
                     },
                     {
@@ -676,7 +676,7 @@
                 ]
             },
             "ru": {
-                "text": "Разрешается ли буксировка мотоцикла с боковым прицепом по дороге на которой установлен этот знак?",
+                "text": "Разрешается ли буксировка мотоцикла с боковым прицепом по дороге, на которой установлен этот знак?",
                 "options": [
                     {
                         "id": 1,
@@ -702,8 +702,8 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 1-ilovasi 3-bo‘lim: 3.7 «Shatakka olish taqiqlangan» — barcha transport vositalarini shatakka olish taqiqlanishini bildiradi. Shu bois kajavali motosiklni shatakka olish taqiqlanadi.",
-            "uz_cyr": "YHQ 1-иловаси 3-бўлим: 3.7 «Шатакка олиш тақиқланган» — барча транспорт воситаларини шатакка олиш тақиқланишини билдиради. Шу боис кажавали мотосиклни шатакка олиш тақиқланади.",
+            "uz_lat": "YHQ 1-ilovasi 3-bo‘lim: 3.7 «Tirkama bilan harakatlanish taqiqlangan» — barcha transport vositalarini shatakka olish taqiqlanishini bildiradi. Shu bois kajavali motosiklni shatakka olish taqiqlanadi.",
+            "uz_cyr": "YHQ 1-иловаси 3-бўлим: 3.7 «Тиркама билан ҳаракатланиш тақиқланган» — барча транспорт воситаларини шатакка олиш тақиқланишини билдиради. Шу боис кажавали мотосиклни шатакка олиш тақиқланади.",
             "ru": "Приложение 1 к ПДД, раздел 3: 3.7 «Буксировка запрещена» — запрещает буксировку всех транспортных средств. Поэтому буксировка мотоцикла с боковым прицепом запрещена."
         }
     },
@@ -1025,7 +1025,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Sodir etilgan hodisa haqida YHXXga xabar berishi kerak",
+                        "text": "Sodir etilgan hodisa haqida DYHXXga xabar berishi kerak",
                         "is_correct": false
                     }
                 ]
@@ -1045,7 +1045,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Содир этилган ҳодиса ҳақида ЙҲХХга хабар бериши керак",
+                        "text": "Содир этилган ҳодиса ҳақида ДЙҲХХга хабар бериши керак",
                         "is_correct": false
                     }
                 ]
@@ -1065,7 +1065,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Сообщить о случившемся в СБДД",
+                        "text": "Сообщить о случившемся в ГСБДД",
                         "is_correct": false
                     }
                 ]

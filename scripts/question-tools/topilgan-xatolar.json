@@ -1,0 +1,828 @@
+{
+  "sana": "2026-08-16",
+  "usul": "data/variants/ dagi v1, v2, v33, v34, v53, v54 fayllari uchala tilda (uz_lat, uz_cyr, ru) savol, javob variantlari va izohlari bilan TO'LIQ qo'lda o'qib chiqildi. Topilgan har bir xato butun korpus bo'yicha qidirildi va soni aniqlandi.",
+  "oqilgan_variantlar": [
+    "v1.json",
+    "v2.json",
+    "v33.json",
+    "v34.json",
+    "v53.json",
+    "v54.json"
+  ],
+  "holat": "HAMMASI QO'LLANDI (2026-08-16). Bu fayl endi TARIX sifatida saqlanmoqda.",
+  "izoh_umumiy": "`soni` — butun public/ bo'yicha (bir savol 6-9 faylda takrorlanadi, shuning uchun sonlar 6 ning karrali). `tasdiq` — xato ekaniga dalil.",
+  "xatolar": [
+    {
+      "id": "belgi-3.7-nomi",
+      "savol": "t_1_q_9",
+      "til": "uz_lat",
+      "joy": "izoh",
+      "tur": "MAZMUN",
+      "jiddiylik": "yuqori",
+      "xato": "3.7 «Shatakka olish taqiqlangan»",
+      "togri": "3.7 «Tirkama bilan harakatlanish taqiqlangan»",
+      "soni": 6,
+      "tasdiq": "public/data/belgilar.json: \"3.7\" -> \"3.7 Tirkama bilan harakatlanish taqiqlangan\". Belgilar ro'yxatida \"Shatakka olish taqiqlangan\" degan belgi UMUMAN YO'Q. Korpusda to'g'ri nom 12 marta, xato nom 6 marta ishlatilgan.",
+      "eslatma": "Savolning JAVOBI to'g'ri (3.7 belgisi shatakka olishni ham taqiqlaydi), faqat izohdagi belgi NOMI xato."
+    },
+    {
+      "id": "yhxx-d-tushgan",
+      "savol": "t_1_q_14",
+      "til": "uz_lat",
+      "joy": "javob varianti",
+      "tur": "qisqartma",
+      "jiddiylik": "o'rta",
+      "xato": "YHXXga",
+      "togri": "DYHXXga",
+      "soni": 6,
+      "tasdiq": "Korpusda: DYHXX 82x, DYHXXning 12x, DYHXXdan 6x — hammasida `D` bor. Faqat shu bitta joyda `D` tushib qolgan."
+    },
+    {
+      "id": "tirkagich-ulagich",
+      "savol": "t_1_q_9",
+      "til": "uz_lat",
+      "joy": "javob varianti",
+      "tur": "atama",
+      "jiddiylik": "past",
+      "xato": "qattiq tirkagich",
+      "togri": "qattiq ulagich",
+      "soni": 12,
+      "tasdiq": "Korpusda `qattiq ulagich` 156x, `qattiq tirkagich` 12x. Bir xil savol turida ikki xil atama ishlatilgan.",
+      "eslatma": "`egiluvchan tirkagich` (6x) ham bor — u ham `egiluvchan ulagich` ga o'tkazilishi kerak."
+    },
+    {
+      "id": "chiziq-nimani-bildiradi",
+      "savol": "t_1_q_3",
+      "til": "uz_lat",
+      "joy": "savol matni",
+      "tur": "grammatika",
+      "jiddiylik": "o'rta",
+      "xato": "Har bir chiziq uzunligi ular orasidagi masofadan uch barobar katta bo'lgan uzuq-uzuq chiziq bildiradi?",
+      "togri": "Har bir chiziq uzunligi ular orasidagi masofadan uch barobar katta bo'lgan uzuq-uzuq chiziq nimani bildiradi?",
+      "soni": 6,
+      "tasdiq": "So'roq so'zi (`nimani`) tushib qolgan — jumla so'roq belgisi bilan tugaydi, lekin so'roq shakli yo'q. Ruschasi: \"...обозначает:\" (kirish jumlasi)."
+    },
+    {
+      "id": "ru-nuqta-vergul-ornida",
+      "savol": "t_1_q_2",
+      "til": "ru",
+      "joy": "javob varianti",
+      "tur": "tinish belgisi",
+      "jiddiylik": "o'rta",
+      "xato": "а если это невозможно. следовать к месту стоянки",
+      "togri": "а если это невозможно, следовать к месту стоянки",
+      "soni": 6,
+      "tasdiq": "Korpusda `невозможно, следовать` 6x (to'g'ri) va `невозможно. следовать` 6x (xato) — bir xil jumla ikki xil yozilgan."
+    },
+    {
+      "id": "ru-m2-m3-ajratgich",
+      "savol": "t_1_q_1",
+      "til": "ru",
+      "joy": "javob varianti",
+      "tur": "tinish belgisi",
+      "jiddiylik": "past",
+      "xato": "категории М1, М2;М3 класса 1",
+      "togri": "категории М1, М2, М3 класса 1",
+      "soni": 6,
+      "tasdiq": "Korpusda `М1, М2, М3` 48x, `М1, М2;М3` 6x."
+    },
+    {
+      "id": "ru-nagruzki-kelishik",
+      "savol": "t_1_q_1",
+      "til": "ru",
+      "joy": "javob varianti",
+      "tur": "grammatika",
+      "jiddiylik": "o'rta",
+      "xato": "Шины по размеру или допустимой нагрузки не соответствуют",
+      "togri": "Шины по размеру или допустимой нагрузке не соответствуют",
+      "soni": 6,
+      "tasdiq": "`по` predlogi bilan jo'nalish kelishigi (дательный) kerak: `по нагрузке`, `по размеру` kabi."
+    },
+    {
+      "id": "ru-sbdd",
+      "savol": "t_1_q_14",
+      "til": "ru",
+      "joy": "javob varianti",
+      "tur": "qisqartma",
+      "jiddiylik": "o'rta",
+      "xato": "Сообщить о случившемся в СБДД",
+      "togri": "Сообщить о случившемся в ГСБДД",
+      "soni": 6,
+      "tasdiq": "Korpusda `ГСБДД` 70x, `в СБДД` 6x. `Г` (Государственная) tushib qolgan."
+    },
+    {
+      "id": "ru-vergul-na-kotoroy",
+      "savol": "t_1_q_9",
+      "til": "ru",
+      "joy": "savol matni",
+      "tur": "tinish belgisi",
+      "jiddiylik": "past",
+      "xato": "по дороге на которой установлен этот знак",
+      "togri": "по дороге, на которой установлен этот знак",
+      "soni": 6,
+      "tasdiq": "Korpusda `дороге, на которой установлен` 12x (to'g'ri), vergulsizi 6x."
+    },
+    {
+      "id": "richagi-ni",
+      "savol": "t_2_q_3",
+      "til": "uz_lat",
+      "joy": "javob varianti",
+      "tur": "imlo",
+      "jiddiylik": "o'rta",
+      "xato": "Uzatmalar qutisi richagi ni neytral holatga",
+      "togri": "Uzatmalar qutisi richagini neytral holatga",
+      "soni": 6,
+      "tasdiq": "Qo'shimcha `-ni` so'zdan ajralib qolgan. Korpusda `richagini` shakli umuman yo'q — demak hamma joyda xato."
+    },
+    {
+      "id": "km-s-vergul",
+      "savol": "t_2_q_5",
+      "til": "uz_lat",
+      "joy": "savol matni",
+      "tur": "tinish belgisi",
+      "jiddiylik": "past",
+      "xato": "agar u 40 km/s, dan kam tezlik bilan",
+      "togri": "agar u 40 km/s dan kam tezlik bilan",
+      "soni": 6,
+      "tasdiq": "Korpusda `km/s dan` 30x, `km/s, dan` 6x."
+    },
+    {
+      "id": "t2q4-savol-belgisi",
+      "savol": "t_2_q_4",
+      "til": "uz_lat, uz_cyr",
+      "joy": "savol matni",
+      "tur": "tinish belgisi",
+      "jiddiylik": "past",
+      "xato": "...eng yuqori tezlikda harakatlanishga ruxsat etiladi",
+      "togri": "...eng yuqori tezlikda harakatlanishga ruxsat etiladi?",
+      "soni": 12,
+      "tasdiq": "Ruschasi `?` bilan tugaydi, ikkala o'zbekcha variantda yo'q."
+    },
+    {
+      "id": "ru-vokrugshkol",
+      "savol": "t_2_q_4",
+      "til": "ru",
+      "joy": "savol matni",
+      "tur": "birikib ketgan",
+      "jiddiylik": "yuqori",
+      "xato": "на дорогах вокругшкол и дошкольных учреждений",
+      "togri": "на дорогах вокруг школ и дошкольных учреждений",
+      "soni": 6,
+      "tasdiq": "Ikki so'z bo'shliqsiz birikib ketgan."
+    },
+    {
+      "id": "t2q4-cyr-harflar",
+      "savol": "t_2_q_4",
+      "til": "uz_cyr",
+      "joy": "savol matni",
+      "tur": "imlo",
+      "jiddiylik": "yuqori",
+      "xato": "Мактаб ва мактабгача таълим ташкилотлари атрофидаги йулларда 300 метргача бўлган масофада кандай энг юкори тезликда ҳаракатланишга рухсат этилади",
+      "togri": "Мактаб ва мактабгача таълим ташкилотлари атрофидаги йўлларда 300 метргача бўлган масофада қандай энг юқори тезликда ҳаракатланишга рухсат этилади?",
+      "soni": 6,
+      "tasdiq": "Bitta jumlada 4 ta xato: йулларда->йўлларда, кандай->қандай, юкори->юқори, savol belgisi yo'q."
+    },
+    {
+      "id": "v33-pnevmatik-uzatma",
+      "savol": "t_33_q_7",
+      "til": "uz_lat",
+      "joy": "savol matni",
+      "tur": "ATAMA / MAZMUN",
+      "jiddiylik": "yuqori",
+      "xato": "Agar pnevmatik uzatmaning zichligi buzilib",
+      "togri": "Agar pnevmatik yuritmaning zichligi buzilib",
+      "soni": 6,
+      "tasdiq": "Ruschasi: 'нарушена герметичность пневматического ПРИВОДА' (привод = yuritma). SHU savolning O'Z izohida to'g'ri atama ishlatilgan: 'pnevmatik yoki pnevmogidravlik tormoz YURITMASINING zichligini'. `uzatma` = передача (uzatmalar qutisi), butunlay boshqa tushuncha."
+    },
+    {
+      "id": "v33-ozib-ketish-tarifi",
+      "savol": "t_33_q_9",
+      "til": "uz_lat",
+      "joy": "javob varianti + izoh",
+      "tur": "MAZMUN",
+      "jiddiylik": "yuqori",
+      "xato": "transport vositasining bir yo'nalishda transport vositasi tezligidan ortiq tezlikda harakatlanishi",
+      "togri": "transport vositasining bir yo'nalishdagi transport vositasi tezligidan ortiq tezlikda harakatlanishi",
+      "soni": 12,
+      "tasdiq": "Ruschasi: 'со скоростью, большей скорости ПОПУТНОГО транспортного средства' — ya'ni YONDOSH (bir yo'nalishdagi) vosita tezligidan ortiq. Hozirgi o'zbekcha matn aylanma va tushunarsiz: 'transport vositasining ... transport vositasi tezligidan'. `-dagi` qo'shimchasi tushib qolgan.",
+      "eslatma": "Savol matnida ham, izohda ham bir xil xato bor."
+    },
+    {
+      "id": "v33-vergul-boshliq",
+      "savol": "t_33_q_9",
+      "til": "uz_lat, uz_cyr",
+      "joy": "javob varianti",
+      "tur": "tinish belgisi",
+      "jiddiylik": "past",
+      "xato": "tasmaga chiqib,so'ngra ilgari egallagan",
+      "togri": "tasmaga chiqib, so'ngra ilgari egallagan",
+      "soni": 12,
+      "tasdiq": "Verguldan keyin bo'shliq yo'q. Kirillcha jufti ham: 'чиқиб,сўнгра'."
+    },
+    {
+      "id": "v33-ru-kelishik-polosu",
+      "savol": "t_33_q_9",
+      "til": "ru",
+      "joy": "javob varianti",
+      "tur": "grammatika",
+      "jiddiylik": "o'rta",
+      "xato": "Выезд на полосу, предназначенной для движения",
+      "togri": "Выезд на полосу, предназначенную для движения",
+      "soni": 6,
+      "tasdiq": "Korpusda `полосу, предназначенную` 150x (to'g'ri), `полосу, предназначенной` 6x. Sifatdosh `полосу` (винительный) bilan moslashishi kerak."
+    },
+    {
+      "id": "v33-qarama-qarshi-defis",
+      "savol": "t_33_q_9",
+      "til": "uz_lat, uz_cyr",
+      "joy": "javob varianti",
+      "tur": "imlo",
+      "jiddiylik": "past",
+      "xato": "Qarama - qarshi yo'nalishda",
+      "togri": "Qarama-qarshi yo'nalishda",
+      "soni": 12,
+      "tasdiq": "Korpusda `qarama-qarshi` 919x + `Qarama-qarshi` 117x, bo'shliqli shakli atigi 6x (kirillchasi ham 6x)."
+    },
+    {
+      "id": "v33-lekin-vergul",
+      "savol": "t_33_q_12",
+      "til": "uz_lat",
+      "joy": "izoh",
+      "tur": "tinish belgisi",
+      "jiddiylik": "past",
+      "xato": "zudlik bilan, lekin, bir tekisda",
+      "togri": "zudlik bilan, lekin bir tekisda",
+      "soni": 6,
+      "tasdiq": "`lekin` dan keyin ortiqcha vergul."
+    },
+    {
+      "id": "v33-harakatlinishi",
+      "savol": "t_33_q_19",
+      "til": "uz_lat, uz_cyr",
+      "joy": "izoh",
+      "tur": "imlo",
+      "jiddiylik": "o'rta",
+      "xato": "transport vositalarining harakatlinishi",
+      "togri": "transport vositalarining harakatlanishi",
+      "soni": 12,
+      "tasdiq": "Korpusda `harakatlanishi` 1486x, `harakatlinishi` 6x. Kirillchasi ham: `ҳаракатлиниши` 6x vs `ҳаракатланиши` 1486x."
+    },
+    {
+      "id": "v33-belgi-1.11.1-nomi",
+      "savol": "t_33_q_20",
+      "til": "uz_lat",
+      "joy": "izoh",
+      "tur": "MAZMUN",
+      "jiddiylik": "o'rta",
+      "xato": "1.11.1, 1.11.2. \"Xavfli burilishi\"",
+      "togri": "1.11.1, 1.11.2. \"Xavfli burilish\"",
+      "soni": 6,
+      "tasdiq": "public/data/belgilar.json: \"1.11.1\" -> \"1.11.1 Xavfli burilish\". Korpusda to'g'ri nom 40x, xato 6x."
+    },
+    {
+      "id": "v34-ruxsat-beradi",
+      "savol": "t_34_q_2",
+      "til": "uz_lat",
+      "joy": "savol matni",
+      "tur": "MAZMUN / grammatika",
+      "jiddiylik": "yuqori",
+      "xato": "Avtomobil haydovchisi qaysi yo'nalishlarda harakatlanishga ruxsat beradi?",
+      "togri": "Avtomobil haydovchisiga qaysi yo'nalishlarda harakatlanishga ruxsat etiladi?",
+      "soni": 6,
+      "tasdiq": "Ruschasi: 'По каким направлениям ВОДИТЕЛЮ автомобиля РАЗРЕШЕНО движение?' — ya'ni haydovchiGA ruxsat ETILADI. Hozirgi matn 'haydovchi ruxsat beradi' degan teskari ma'noni beradi."
+    },
+    {
+      "id": "v34-qoyidagi",
+      "savol": "t_34_q_4",
+      "til": "uz_lat",
+      "joy": "savol matni",
+      "tur": "imlo",
+      "jiddiylik": "o'rta",
+      "xato": "Qo'yidagi belgilar",
+      "togri": "Quyidagi belgilar",
+      "soni": 6,
+      "tasdiq": "Korpusda `Quyidagi` 166x, `Qo'yidagi` 6x."
+    },
+    {
+      "id": "v34-korsatilingan",
+      "savol": "t_34_q_7",
+      "til": "uz_lat",
+      "joy": "savol matni",
+      "tur": "imlo",
+      "jiddiylik": "o'rta",
+      "xato": "yo'l ko'rsatilingan?",
+      "togri": "yo'l ko'rsatilgan?",
+      "soni": 6,
+      "tasdiq": "Korpusda `ko'rsatilgan` 579x, `ko'rsatilingan` 6x (ortiqcha `-in-`)."
+    },
+    {
+      "id": "v34-tahminan",
+      "savol": "t_34_q_11",
+      "til": "uz_lat",
+      "joy": "javob varianti",
+      "tur": "imlo",
+      "jiddiylik": "o'rta",
+      "xato": "Tahminan 1 soniya",
+      "togri": "Taxminan 1 soniya",
+      "soni": 18,
+      "tasdiq": "SHU savolning O'Z izohida to'g'ri yozilgan: 'reaksiya vaqti TAXMINAN 1 soniya'. Korpusda kichik harfli `taxminan` 14x (to'g'ri), `tahminan` 0x. Bosh harfli esa faqat `Tahminan` (18x, xato)."
+    },
+    {
+      "id": "v34-q11-tinish",
+      "savol": "t_34_q_11",
+      "til": "uz_lat, uz_cyr",
+      "joy": "savol matni",
+      "tur": "tinish belgisi",
+      "jiddiylik": "past",
+      "xato": "Haydovchining o'rtacha reaksiya vaqti deb qabul qilingan",
+      "togri": "Haydovchining o'rtacha reaksiya vaqti deb qabul qilingan:",
+      "soni": 12,
+      "tasdiq": "Ruschasi `:` bilan tugaydi ('составляет:'), ikkala o'zbekcha variantda yo'q."
+    },
+    {
+      "id": "v34-qarama-qarshi-defissiz",
+      "savol": "t_34_q_15",
+      "til": "uz_lat",
+      "joy": "javob varianti",
+      "tur": "imlo",
+      "jiddiylik": "past",
+      "xato": "Qarama qarshi yo'nalishda",
+      "togri": "Qarama-qarshi yo'nalishda",
+      "soni": 6,
+      "tasdiq": "Korpusda defisli shakl 1036x. Bu yerda defis UMUMAN yo'q (v33 dagi holatda esa bo'shliq bilan edi)."
+    },
+    {
+      "id": "v34-mashala",
+      "savol": "t_34_q_17",
+      "til": "uz_lat",
+      "joy": "javob varianti",
+      "tur": "imlo",
+      "jiddiylik": "o'rta",
+      "xato": "tunda- mashala yoki chiroq bilan",
+      "togri": "tunda — mash'ala yoki chiroq bilan",
+      "soni": 6,
+      "tasdiq": "SHU savolning O'Z izohida to'g'ri yozilgan: 'tunda esa MASH'ALA yoki chiroq bilan'. Apostrof tushib qolgan."
+    },
+    {
+      "id": "v34-kadab",
+      "savol": "t_34_q_18",
+      "til": "uz_lat",
+      "joy": "javob varianti",
+      "tur": "imlo",
+      "jiddiylik": "o'rta",
+      "xato": "Motoshlem kiyishlari va uni kadab olishlari",
+      "togri": "Motoshlem kiyishlari va uni qadab olishlari",
+      "soni": 6,
+      "tasdiq": "O'zbekchada `kadamoq` degan so'z yo'q; to'g'ri o'zak `qadamoq` (mahkamlamoq). k -> q."
+    },
+    {
+      "id": "v34-tulgan",
+      "savol": "t_34_q_18",
+      "til": "uz_lat",
+      "joy": "javob varianti",
+      "tur": "imlo",
+      "jiddiylik": "o'rta",
+      "xato": "16 yoshga tulgan bo'lishi",
+      "togri": "16 yoshga to'lgan bo'lishi",
+      "soni": 6,
+      "tasdiq": "Korpusda `to'lgan` 10x. Apostrof tushib qolgan (u -> o')."
+    },
+    {
+      "id": "v34-izoh-band-formatlash",
+      "savol": "t_34_q_5",
+      "til": "uz_lat",
+      "joy": "izoh",
+      "tur": "formatlash",
+      "jiddiylik": "past",
+      "xato": "YHQ 16-bobi 106-,105 - va 104 - bandlariga asosan",
+      "togri": "YHQ 16-bobi 106-, 105- va 104-bandlariga asosan",
+      "soni": 6,
+      "tasdiq": "Defis va bo'shliq tartibsiz qo'yilgan."
+    }
+  ],
+  "v53_v54_qollangan": {
+    "izoh": "Bular ALLAQACHON tuzatilgan (fix-uz-spelling-2026-08.cjs 10-bosqich). Tarix uchun saqlanmoqda.",
+    "royxat": [
+      {
+        "savol": "t_54_q_4",
+        "til": "uz_lat, uz_cyr",
+        "xato": "taqaqlanadi / тақақланади",
+        "togri": "taqiqlanadi / тақиқланади",
+        "soni": 12,
+        "tasdiq": "6x vs 2386x"
+      },
+      {
+        "savol": "t_53_q_10",
+        "til": "uz_lat, uz_cyr",
+        "xato": "qayrib olish / қайриб олиш",
+        "togri": "qayrilib olish / қайрилиб олиш",
+        "soni": 8,
+        "tasdiq": "4x vs 994x — `-il-` bo'g'ini tushgan"
+      },
+      {
+        "savol": "t_54_q_14",
+        "til": "uz_lat, uz_cyr",
+        "xato": "Istagan tomonidan",
+        "togri": "Istalgan tomonidan",
+        "soni": 8,
+        "tasdiq": "4x vs 12x — `istalgan` = har qanday"
+      },
+      {
+        "savol": "t_53_q_14",
+        "til": "uz_cyr",
+        "xato": "ҳавфли",
+        "togri": "хавфли",
+        "soni": 26,
+        "tasdiq": "ҳавф* 26x vs хавф* 1168x. O'zak bo'yicha tuzatildi, barcha shakllarni qamradi (ҳавфсизлик ham)."
+      },
+      {
+        "savol": "t_54_q_19",
+        "til": "uz_lat, uz_cyr",
+        "xato": "Tovushli signal berish",
+        "togri": "Tovush ishorasini berish",
+        "soni": 8,
+        "tasdiq": "Korpusda `tovush ishorasi` 54x, `Tovushli signal` 4x. Ruscha o'zlashma o'rniga rasmiy atama."
+      }
+    ]
+  },
+  "korpus_boyicha_sinflar": [
+    {
+      "id": "cyr-rus-harflari",
+      "tur": "imlo — KATTA SINF",
+      "jiddiylik": "yuqori",
+      "tavsif": "Kirill matnida o'zbek harflari (ў, қ, ғ, ҳ) o'rniga rus harflari (у, к, г, х) yozilgan. Rus klaviaturasida terilgani sababli.",
+      "topilish_usuli": "Har bir so'zda у/к/г/х ni ў/қ/ғ/ҳ ga almashtirib, natija korpusda 8 barobar ko'p uchrasa — xato.",
+      "juftliklar": [
+        {
+          "xato": "юкори",
+          "togri": "юқори",
+          "soni": 18,
+          "togri_soni": 347
+        },
+        {
+          "xato": "кандай",
+          "togri": "қандай",
+          "soni": 12,
+          "togri_soni": 1177
+        },
+        {
+          "xato": "сарик",
+          "togri": "сариқ",
+          "soni": 12,
+          "togri_soni": 840
+        },
+        {
+          "xato": "ётик",
+          "togri": "ётиқ",
+          "soni": 12,
+          "togri_soni": 278
+        },
+        {
+          "xato": "хам",
+          "togri": "ҳам",
+          "soni": 12,
+          "togri_soni": 924
+        },
+        {
+          "xato": "оркага",
+          "togri": "орқага",
+          "soni": 12,
+          "togri_soni": 216
+        },
+        {
+          "xato": "йулларда",
+          "togri": "йўлларда",
+          "soni": 6,
+          "togri_soni": 610
+        },
+        {
+          "xato": "курсатилган",
+          "togri": "кўрсатилган",
+          "soni": 6,
+          "togri_soni": 1042
+        },
+        {
+          "xato": "огохлантирувчи",
+          "togri": "огоҳлантирувчи",
+          "soni": 6,
+          "togri_soni": 190
+        },
+        {
+          "xato": "йулкаси",
+          "togri": "йўлкаси",
+          "soni": 6,
+          "togri_soni": 156
+        },
+        {
+          "xato": "вактда",
+          "togri": "вақтда",
+          "soni": 6,
+          "togri_soni": 746
+        },
+        {
+          "xato": "якинни",
+          "togri": "яқинни",
+          "soni": 6,
+          "togri_soni": 272
+        },
+        {
+          "xato": "ёкиб",
+          "togri": "ёқиб",
+          "soni": 6,
+          "togri_soni": 100
+        },
+        {
+          "xato": "килмайди",
+          "togri": "қилмайди",
+          "soni": 6,
+          "togri_soni": 101
+        },
+        {
+          "xato": "унгдаги",
+          "togri": "ўнгдаги",
+          "soni": 6,
+          "togri_soni": 90
+        },
+        {
+          "xato": "ортик",
+          "togri": "ортиқ",
+          "soni": 6,
+          "togri_soni": 608
+        },
+        {
+          "xato": "утишни",
+          "togri": "ўтишни",
+          "soni": 4,
+          "togri_soni": 186
+        },
+        {
+          "xato": "харакатига",
+          "togri": "ҳаракатига",
+          "soni": 4,
+          "togri_soni": 174
+        },
+        {
+          "xato": "холда",
+          "togri": "ҳолда",
+          "soni": 4,
+          "togri_soni": 855
+        },
+        {
+          "xato": "кор",
+          "togri": "қор",
+          "soni": 4,
+          "togri_soni": 67
+        },
+        {
+          "xato": "курсатгич",
+          "togri": "кўрсаткич",
+          "soni": 6,
+          "togri_soni": 344,
+          "eslatma": "IKKI xato birga: у->ў va г->к. Lotinchada `ko'rsatgich`->`ko'rsatkich` allaqachon tuzatilgan."
+        }
+      ]
+    },
+    {
+      "id": "cyr-korsatgich",
+      "tur": "atama",
+      "jiddiylik": "o'rta",
+      "tavsif": "Lotinchada `ko'rsatgich` -> `ko'rsatkich` ga o'tkazilgan, lekin kirillcha jufti qolib ketgan.",
+      "juftliklar": [
+        {
+          "xato": "кўрсатгич",
+          "togri": "кўрсаткич",
+          "soni": 78,
+          "togri_soni": 344
+        }
+      ]
+    },
+    {
+      "id": "togirlab",
+      "tur": "imlo",
+      "jiddiylik": "o'rta",
+      "tavsif": "O'zak `to'g'ri-` (to'g'ri = rost/tekis). `to'g'ir-` degan o'zak o'zbekchada yo'q.",
+      "juftliklar": [
+        {
+          "xato": "to'g'irlab",
+          "togri": "to'g'rilab",
+          "soni": 22,
+          "togri_soni": 16,
+          "eslatma": "DIQQAT: xato shakl ko'proq uchraydi (22 vs 16). Lekin `to'g'irlash` 0x, `to'g'rilash` 10x — bu `to'g'ri-` o'zagini tasdiqlaydi."
+        }
+      ]
+    },
+    {
+      "id": "ru-birikkan-sozlar",
+      "tur": "birikib ketgan",
+      "jiddiylik": "yuqori",
+      "tavsif": "Ruscha matnda ikki so'z bo'shliqsiz qo'shilib ketgan.",
+      "juftliklar": [
+        {
+          "xato": "вокругшкол",
+          "togri": "вокруг школ",
+          "soni": 6
+        },
+        {
+          "xato": "проезжейчасти",
+          "togri": "проезжей части",
+          "soni": 4
+        },
+        {
+          "xato": "другихучастников",
+          "togri": "других участников",
+          "soni": 4
+        },
+        {
+          "xato": "правильноуказан",
+          "togri": "правильно указан",
+          "soni": 4
+        }
+      ],
+      "tegilmasin": [
+        {
+          "sozi": "нижеуказанном",
+          "sabab": "Bu HAQIQIY ruscha qo'shma so'z, xato emas."
+        }
+      ]
+    },
+    {
+      "id": "vergul-boshliqsiz",
+      "tur": "tinish belgisi — SINF",
+      "jiddiylik": "o'rta",
+      "tavsif": "Verguldan keyin bo'shliq qo'yilmagan (ikkala tomonda ham harf turibdi, ya'ni raqam ajratgichi emas).",
+      "topilish_usuli": "`harf,harf` naqshi bo'yicha qidiruv — 10 ta noyob holat, jami ~56 ta.",
+      "juftliklar": [
+        {
+          "xato": "переход,так",
+          "togri": "переход, так",
+          "soni": 6
+        },
+        {
+          "xato": "bildiradi,chiziq",
+          "togri": "bildiradi, chiziq",
+          "soni": 6
+        },
+        {
+          "xato": "билдиради,чизиқ",
+          "togri": "билдиради, чизиқ",
+          "soni": 6
+        },
+        {
+          "xato": "налево,разворота",
+          "togri": "налево, разворота",
+          "soni": 6
+        },
+        {
+          "xato": "автомобилга,Таксометри",
+          "togri": "автомобилга, Таксометри",
+          "soni": 6
+        },
+        {
+          "xato": "yoqishi,agar",
+          "togri": "yoqishi, agar",
+          "soni": 6
+        },
+        {
+          "xato": "chiqib,so'ngra",
+          "togri": "chiqib, so'ngra",
+          "soni": 6
+        },
+        {
+          "xato": "чиқиб,сўнгра",
+          "togri": "чиқиб, сўнгра",
+          "soni": 6
+        },
+        {
+          "xato": "автомобиля,предназначенного",
+          "togri": "автомобиля, предназначенного",
+          "soni": 6
+        },
+        {
+          "xato": "означает,что",
+          "togri": "означает, что",
+          "soni": 4
+        }
+      ]
+    },
+    {
+      "id": "guillemet-boshliq",
+      "tur": "formatlash",
+      "jiddiylik": "past",
+      "tavsif": "Qo'shtirnoq ichida ortiqcha bo'shliq: `« Б »` o'rniga `«Б»`.",
+      "juftliklar": [
+        {
+          "xato": "« Б »",
+          "togri": "«Б»",
+          "soni": 168,
+          "togri_soni": 1176
+        }
+      ],
+      "eslatma": "Bu faqat «Б» emas — «А», «В», «Г» uchun ham tekshirish kerak."
+    },
+    {
+      "id": "aholi-yashash-joylari",
+      "tur": "atama",
+      "jiddiylik": "past",
+      "tavsif": "Rasmiy YHQ atamasi — `aholi punkti`.",
+      "juftliklar": [
+        {
+          "xato": "aholi yashash joylarida",
+          "togri": "aholi punktlarida",
+          "soni": 30,
+          "togri_soni": 552
+        }
+      ]
+    },
+    {
+      "id": "izoh-qoshtirnoqda",
+      "tur": "formatlash",
+      "jiddiylik": "past",
+      "tavsif": "76 ta izoh butunlay qo'shtirnoq ichiga olingan (`\"YHQning 7-bob...\"`), qolgan ~1170 tasi esa yo'q. Foydalanuvchi ekranda ortiqcha qo'shtirnoq ko'radi.",
+      "nima_qilish_kerak": "Boshi va oxiridagi qo'shtirnoqni olib tashlash. Juft bo'lgani uchun avtomatik detektor ularni ushlamaydi — alohida qoida kerak.",
+      "soni": 76
+    },
+    {
+      "id": "olchov-birligi",
+      "tur": "formatlash",
+      "jiddiylik": "past",
+      "tavsif": "O'lchov birligidan keyin nuqta va bo'shliq nomuvofiq.",
+      "juftliklar": [
+        {
+          "xato": "km.dan",
+          "togri": "km dan",
+          "soni": 10,
+          "togri_soni": 52
+        },
+        {
+          "xato": "m. dan",
+          "togri": "m dan",
+          "soni": 28,
+          "togri_soni": 58
+        }
+      ]
+    }
+  ],
+  "hal_qilinmagan_savollar": [
+    {
+      "mavzu": "Variant yorliqlari: lotin vs kirill",
+      "tavsif": "Ko'p savolda javob variantlari kirillcha «А» «Б» «В» bilan belgilangan (500+ marta), lekin v2 dagi t_2_q_1 va t_2_q_19 da lotincha A, B, C, D ishlatilgan.",
+      "nima_qilish_kerak": "Rasmlardagi yorliqlar qaysi alifboda ekanini ko'rish kerak. Agar rasmda kirill bo'lsa — matnni ham kirillga o'tkazish, aks holda teskarisi.",
+      "xavf": "Rasmni ko'rmasdan o'zgartirish javobni noto'g'ri qilib qo'yishi mumkin."
+    },
+    {
+      "mavzu": "Sirpanchiq / Yaxmalak",
+      "tavsif": "`Sirpanchiq` 171x, `Yaxmalak` 66x — ikkalasi ham 'sirpanuvchi yo'l' ma'nosida bir xil savol turida ishlatiladi.",
+      "nima_qilish_kerak": "Bu haqiqiy sinonimlar bo'lishi mumkin (yaxmalak = muz qatlami, sirpanchiq = sirpanuvchi). Tegilmadi.",
+      "xavf": "past"
+    },
+    {
+      "mavzu": "aholi yashaydigan/yashash joylari (v53 da uchradi)",
+      "tavsif": "Rasmiy atama `aholi punkti`, lekin 68 joyda `aholi yashaydigan joylardan tashqari` / `aholi yashash joylarida` shakllari ishlatilgan. t_53_q_14 da savolda `aholi yashaydigan joylarda`, SHU savolning izohida esa `aholi punktlarida` deyilgan.",
+      "nima_qilish_kerak": "Almashtirish grammatik jihatdan oddiy emas: `joylardan tashqari` -> `punktlaridan tashqarida` (qo'shimchalar farq qiladi). Har bir shaklni alohida ko'rish kerak.",
+      "xavf": "o'rta — noto'g'ri qo'shimcha jumlani buzadi",
+      "soni": 68
+    },
+    {
+      "mavzu": "Uchchalasi / Uchalasi",
+      "tavsif": "v53 t_53_q_16 da `Uchchalasi bir vaqtda` deyilgan. Korpusda `uchala` 0x, `uchchala` 4x — taqqoslash uchun asos yo'q.",
+      "nima_qilish_kerak": "Adabiy me'yorda `uchala` (qiyos: `ikkala` 232x). Lekin korpusda dalil bo'lmagani uchun O'ZBOSHIMCHALIK bilan o'zgartirmadim.",
+      "xavf": "past"
+    },
+    {
+      "mavzu": "qo'shimcha-axborot belgisi (defis bilan yoki defissiz)",
+      "tavsif": "Lotinda `qo'shimcha axborot` 124x / `qo'shimcha-axborot` 22x. Kirillda `қўшимча ахборот` 140x / `қўшимча-ахборот` 48x.",
+      "nima_qilish_kerak": "Ko'pchilik defissiz. Bir xillashtirish mumkin, lekin bu uslub masalasi.",
+      "xavf": "past"
+    },
+    {
+      "mavzu": "Raqamdan keyin defis + bo'shliq (`1- ilova`, `16- bobi`)",
+      "tavsif": "172 joyda `raqam- so'z` shaklida ortiqcha bo'shliq bor.",
+      "nima_qilish_kerak": "OMMAVIY almashtirish XAVFLI: `106-, 105- va 104-bandlariga` kabi joylarda defis oraliqni bildiradi va bo'shliq TO'G'RI. Har birini alohida ko'rish kerak.",
+      "xavf": "yuqori"
+    },
+    {
+      "mavzu": "DYHXX / DYHX / Davlat YHX",
+      "tavsif": "Uch xil shakl: DYHXX 100x (Xizmati bilan), DYHX 24x, Davlat YHX 16x.",
+      "nima_qilish_kerak": "Uchalasi ham to'g'ri o'qiladi. Bir xillashtirish — sizning qaroringiz.",
+      "xavf": "past"
+    }
+  ],
+  "jami": {
+    "oqilgan_variantlar": 6,
+    "aniq_xatolar": 32,
+    "qollangan_v53_v54": 5,
+    "korpus_boyicha_sinflar": 9,
+    "hal_qilinmagan_savollar": 7,
+    "taxminiy_almashtirishlar": 640
+  },
+  "qollangan_sana": "2026-08-16",
+  "tekshiruv": {
+    "JSON butunligi": "106/106 to'g'ri",
+    "Tuzilmaviy regressiya": "0 muammo (git HEAD bilan solishtirildi)",
+    "Fayllararo sinxronlik": "0 farq (savol/variant/to'g'ri javob/izoh/rasm)",
+    "Loyiha auditi": "o'tdi",
+    "Testlar": "84/84",
+    "Kirill rus-harflari detektori": "0 qoldi",
+    "Chuqur skaner (4 sinf)": "0 qoldi"
+  }
+}

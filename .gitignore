@@ -109,3 +109,9 @@ supabase/migrations/*.sql
 !STARTUP-GOYALAR.md
 !docs/*.md
 !scripts/VARIANT-QUALITY-AUDIT.md
+
+# Imlo auditi hisobotlari — lokal ish qog'ozlari, repozitoriyga kerak emas.
+# (TUZATILGAN-SOZLAR.md yuqoridagi `*.md` qoidasi bilan ham qamraladi,
+#  lekin niyat aniq bo'lishi uchun alohida yozilgan.)
+TUZATILGAN-SOZLAR.md
+SAYT-AUDIT-*.md

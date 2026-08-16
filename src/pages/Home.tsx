@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEO } from "@/components/SEO";
 import { useAuth } from "@/contexts/AuthContext";
+import { hasStoredSession } from "@/lib/hasStoredSession";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAccessState } from "@/hooks/useAccessState";
 import {
@@ -26,10 +28,33 @@ import ProGroupInvite from "@/components/ProGroupInvite";
 
 
 export default function Home() {
-  const { user, profile } = useAuth();
+  const { user, profile, isLoading: authLoading } = useAuth();
   const { t } = useLanguage();
   const navigate = useNavigate();
   const { isPremium } = useAccessState();
+
+  /**
+   * Birinchi renderda saqlangan sessiya bormi — faqat BIR MARTA hisoblanadi
+   * (`useState` initsializatori). Keyingi renderlarda localStorage qayta
+   * o'qilmaydi, ya'ni qiymat barqaror va maket sakramaydi.
+   */
+  const [expectsSession] = useState(hasStoredSession);
+
+  /**
+   * Profil panelini ko'rsatamizmi.
+   *
+   * `user` kelguncha ham (auth hali yuklanayotgan va saqlangan sessiya bor)
+   * panel chiziladi — shunda joy oldindan band bo'ladi va ma'lumot kelganda
+   * hech narsa surilmaydi.
+   *
+   * Auth yakunlangach (`authLoading === false`) faqat haqiqiy `user` ga
+   * ishonamiz. Ya'ni sessiya eskirgan bo'lsa panel olib tashlanadi — bu kamdan
+   * kam holat va baribir hozirgi xatti-harakatdan yomon emas.
+   */
+  const showProfilePanel = !!user || (authLoading && expectsSession);
+
+  /** Haqiqiy ma'lumot tayyormi (yo'q bo'lsa — o'sha o'lchamdagi kulrang chiziq). */
+  const profileReady = !!user;
 
   const features = [
     { icon: MonitorSmartphone, titleKey: "home.feature1Title", descKey: "home.feature1Desc" },
@@ -188,23 +213,48 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Profile Section - Only for logged in users */}
-      {user && (
+      {/*
+        Profile Section — kirgan foydalanuvchilar uchun.
+
+        `showProfilePanel` NEGA shunchaki `user` EMAS:
+        `user` birinchi renderda doim `null` (sessiya localStorage dan
+        o'qilguncha). Ilgari shu sababli butun bo'lim dastlab yo'q bo'lib,
+        ~1 soniyadan keyin BIRDAN paydo bo'lardi va pastdagi PRO bo'limi bilan
+        footer ni surib yuborardi (CLS 0.187).
+
+        Endi saqlangan sessiya bo'lsa joy BIRINCHI RENDERDAYOQ zahiralanadi va
+        ma'lumot kelganda o'sha joyga tushadi — siljish yo'q. Sessiyasi yo'q
+        mehmonlar uchun esa hech narsa o'zgarmadi: bo'lim umuman chizilmaydi.
+      */}
+      {showProfilePanel && (
         <section className="py-10 md:py-12 bg-background border-t border-border">
           <div className="max-w-4xl mx-auto px-4">
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-6">
               <Avatar className="h-14 w-14 bg-primary/10 text-primary shrink-0" style={{ aspectRatio: "1" }}>
                 <AvatarFallback className="bg-primary/10 text-primary text-lg font-semibold">
-                  {getInitials(profile?.full_name || profile?.username)}
+                  {profileReady ? getInitials(profile?.full_name || profile?.username) : ""}
                 </AvatarFallback>
               </Avatar>
               <div className="min-w-0 flex-1">
-                <h3 className="text-xl font-semibold text-foreground truncate">
-                  {profile?.full_name || profile?.username || t("nav.user")}
+                {/*
+                  Balandlik ikkala holatda bir xil bo'lishi uchun ism va
+                  username qatorlari DOIM chiziladi — yuklanayotganda o'rniga
+                  shu o'lchamdagi kulrang chiziq turadi.
+                */}
+                <h3 className="text-xl font-semibold text-foreground truncate leading-7 min-h-7">
+                  {profileReady ? (
+                    profile?.full_name || profile?.username || t("nav.user")
+                  ) : (
+                    <span className="block h-5 w-40 max-w-full rounded bg-muted animate-pulse" aria-hidden="true" />
+                  )}
                 </h3>
-                {profile?.username && (
-                  <p className="text-sm text-muted-foreground truncate">@{profile.username}</p>
-                )}
+                <p className="text-sm text-muted-foreground truncate leading-5 min-h-5">
+                  {profileReady ? (
+                    profile?.username ? `@${profile.username}` : ""
+                  ) : (
+                    <span className="block h-3.5 w-24 max-w-full rounded bg-muted animate-pulse" aria-hidden="true" />
+                  )}
+                </p>
               </div>
               {isPremium && (
                 <div className="flex items-center gap-2 text-sm text-muted-foreground sm:ml-auto">

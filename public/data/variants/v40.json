@@ -349,7 +349,7 @@
         "izoh": {
             "uz_lat": "YHQ 1-ilovasi 7-bo‘limidagi 7.3.3 “Ta'sir yo‘nalishlari” qo‘shimcha axborot belgisi, chorraha oldida o‘rnatilgan 3.2. “Harakatlanish taqiqlangan” belgisining ta'sir yo‘nalishlarini ko‘rsatadi.",
             "uz_cyr": "YHQ 1-иловаси 7-бўлимидаги 7.3.3 “Таъсир йўналишлари” қўшимча ахборот белгиси, чорраҳа олдида ўрнатилган 3.2. “Ҳаракатланиш тақиқланган” белгисининг таъсир йўналишларини кўрсатади.",
-            "ru": "Знак дополнительной информации 7.3.3 «Направления воздействия» в разделе 7 Приложения 1 Национальной дорожной карты, установленный перед перекрестком 3.2. Показано направления действия знака «Движение запрещено»."
+            "ru": "Знак дополнительной информации 7.3.3 «Направления воздействия» в разделе 7 Приложения 1 ПДД, установленный перед перекрестком 3.2. Показаны направления действия знака «Движение запрещено»."
         }
     },
     {
@@ -424,7 +424,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 1 – ilovasi 7 – bo‘imining beshinchi xatboshisiga asosan: 7.2.1 “Ta‘sir oralig‘i\". Ogohlantirivchi belgilar bilan belgilangan xavfli joyning uzunligini yoki taqiqlovchi va axborot – ko‘rsatkich belgilarining ta‘sir oralig‘ini ko‘rsatadi.",
+            "uz_lat": "YHQ 1 – ilovasi 7 – bo‘limining beshinchi xatboshisiga asosan: 7.2.1 “Ta‘sir oralig‘i\". Ogohlantiruvchi belgilar bilan belgilangan xavfli joyning uzunligini yoki taqiqlovchi va axborot – ko‘rsatkich belgilarining ta‘sir oralig‘ini ko‘rsatadi.",
             "uz_cyr": "YHQ 1 – иловаси 7 – бўимининг бешинчи хатбошисига асосан: 7.2.1 “Таъсир оралиғи\". Огоҳлантиривчи белгилар билан белгиланган хавфли жойнинг узунлигини ёки тақиқловчи ва ахборот – кўрсаткич белгиларининг таъсир оралиғини кўрсатади.",
             "ru": "Согласно абзацу пятому раздела 7 Приложения 1 ПДД: 7.2.1 «Диапазон влияния». Показывает протяженность опасной зоны, отмеченной предупреждающими знаками, или дальность действия запрещающих и информационно-указательных знаков."
         }
@@ -1460,7 +1460,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Faqat yukori chapdagi rasmda",
+                        "text": "Faqat yuqori chapdagi rasmda",
                         "is_correct": false
                     },
                     {
@@ -1470,12 +1470,12 @@
                     },
                     {
                         "id": 3,
-                        "text": "Faqat yukori ungdagi rasmda",
+                        "text": "Faqat yuqori o'ngdagi rasmda",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Yukoridagi ikkala rasmda",
+                        "text": "Yuqoridagi ikkala rasmda",
                         "is_correct": true
                     }
                 ]
@@ -1485,7 +1485,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Фақат юкори чапдаги расмда",
+                        "text": "Фақат юқори чапдаги расмда",
                         "is_correct": false
                     },
                     {
@@ -1495,7 +1495,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Фақат юкори унгдаги расмда",
+                        "text": "Фақат юқори ўнгдаги расмда",
                         "is_correct": false
                     },
                     {
@@ -1506,7 +1506,7 @@
                 ]
             },
             "ru": {
-                "text": "Главная дорога показана",
+                "text": "Главная дорога показана:",
                 "options": [
                     {
                         "id": 1,
