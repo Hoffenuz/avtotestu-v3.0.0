@@ -100,6 +100,20 @@ async function renderPro() {
   });
 }
 
+/**
+ * `waitFor` ning standart chegarasi 1000 ms.
+ *
+ * Bu yerda kutilayotgan natija bir nechta ASINXRON qadamdan keyin keladi:
+ * narxlarni o'qish -> auth holati -> PRO holati -> yo'naltirish. Mahalliy
+ * mashinada bu ~120 ms, lekin GitHub Actions yuguruvchisi sekinroq va CI da
+ * aynan shu 1000 ms chegarasiga urilib yiqilardi ("expected +0 to be 1").
+ *
+ * Chegara oshirilishi testni ZAIFLASHTIRMAYDI: shart o'zgarmadi, faqat
+ * natijani kutish vaqti sekin muhitga moslashtirildi. Shart bajarilishi
+ * bilan `waitFor` darhol qaytadi.
+ */
+const WAIT = { timeout: 5000 } as const;
+
 describe('Pro — ro\'yxatdan o\'tgach to\'lovni davom ettirish', () => {
   it('kirgan, PRO emas, tanlov bor -> Payme ga o\'tkazadi', async () => {
     setPendingPlan('weekly');
@@ -107,7 +121,7 @@ describe('Pro — ro\'yxatdan o\'tgach to\'lovni davom ettirish', () => {
 
     await renderPro();
 
-    await waitFor(() => expect(hrefWrites.length).toBe(1));
+    await waitFor(() => expect(hrefWrites.length).toBe(1), WAIT);
     expect(hrefWrites[0]).toContain('checkout.paycom.uz');
 
     // Havola ichidagi summa DB dagi narx bilan bir xil bo'lishi shart —
@@ -127,7 +141,7 @@ describe('Pro — ro\'yxatdan o\'tgach to\'lovni davom ettirish', () => {
 
     await renderPro();
 
-    await waitFor(() => expect(peekPendingPlan()).toBeNull());
+    await waitFor(() => expect(peekPendingPlan()).toBeNull(), WAIT);
     expect(hrefWrites).toEqual([]);
     expect(toastCalls.some((m) => m.includes('PRO obuna mavjud'))).toBe(true);
   });
@@ -168,7 +182,7 @@ describe('Pro — ro\'yxatdan o\'tgach to\'lovni davom ettirish', () => {
 
     await renderPro();
 
-    await waitFor(() => expect(peekPendingPlan()).toBeNull());
+    await waitFor(() => expect(peekPendingPlan()).toBeNull(), WAIT);
     expect(hrefWrites).toEqual([]);
   });
 });
