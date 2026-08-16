@@ -26,7 +26,17 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # Node 20 DA TESTLAR YIQILADI. Sabab:
+          #   jsdom@30  engines: ^22.22.2 || ^24.15.0 || >=26.0.0
+          #   undici@8  engines: >=22.19.0
+          # undici `webidl.util.markAsUncloneable` ni chaqiradi, u esa faqat
+          # Node 22+ da bor. Node 20 da har bir test faylida
+          # `TypeError: webidl.util.markAsUncloneable is not a function`
+          # chiqib, vitest ni yiqitardi (testlarning o'zi o'tsa ham).
+          #
+          # 24 tanlandi — mahalliy ishlab chiqish muhiti bilan bir xil,
+          # ya'ni CI va lokal natijalar farq qilmaydi.
+          node-version: 24
           cache: npm
 
       - name: Install
