@@ -26,4 +26,30 @@ if (typeof window !== "undefined" && window.location.hostname === "avtotestu.uz"
       <App />
     </HelmetProvider>
   );
+
+  /**
+   * ISHGA TUSHISH TIKLANISHINI O'CHIRAMIZ.
+   *
+   * `index.html` dagi skript asset yuklanmasa sahifani bir marta
+   * `?_cb=...` bilan qayta yuklaydi. Bu FAQAT ishga tushishdan oldin
+   * kerak. Bu qator bajarilayotgan bo'lsa — asosiy bundle yuklandi,
+   * demak uning vazifasi tugadi.
+   *
+   * Ikki sabab:
+   *
+   * 1) U `<link rel="modulepreload">` xatolarini ham ushlaydi. Ilova
+   *    ishlaganda lazy chunk uzilib qolsa, u DARHOL reload qilib
+   *    `lazyWithRetry` ning qayta urinishlarini kesib tashlardi.
+   *
+   * 2) `rl` bayrog'i hech qachon tozalanmasdi. Ya'ni bir marta tiklanish
+   *    ishlagach, o'sha sessiyada boshqa hech qanday tiklanish
+   *    ishlamasdi — foydalanuvchi bo'sh ekranda qolib ketardi.
+   *    (Aynan shu holat: `?_cb=` li manzilda qotib qolish.)
+   */
+  window.__bootRecoveryArmed = false;
+  try {
+    sessionStorage.removeItem("rl");
+  } catch {
+    /* private rejim — muhim emas */
+  }
 }

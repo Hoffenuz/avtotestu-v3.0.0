@@ -31,7 +31,24 @@
           }
         } catch (e) { /* ignore */ }
 
+        /**
+         * Ilova ishga tushgach bu tiklanish O'CHADI (main.tsx uni yoqadi).
+         *
+         * NEGA: bu eshituvchi `<link rel="modulepreload">` xatolarini ham
+         * ushlaydi. Ilova ishlab turganda lazy chunk yuklanmasa, u DARHOL
+         * sahifani qayta yuklab, `lazyWithRetry` ning 5 urinish / ~7 soniyalik
+         * byudjetini kesib tashlardi — ayni Payme'dan qaytishda mobil radio
+         * uyg'onayotgan paytda eng yomon ta'sir qilardi.
+         *
+         * Endi vazifalar aniq bo'lingan:
+         *   - ishga tushishdan OLDIN: shu skript (bitta kesh buzuvchi reload)
+         *   - ishga tushgandan KEYIN: lazyWithRetry (qayta urinish + kutish)
+         */
+        window.__bootRecoveryArmed = true;
+
         window.addEventListener('error', function (ev) {
+          if (!window.__bootRecoveryArmed) return;
+
           var el = ev && ev.target;
           if (!el) return;
           var src = el.src || el.href || '';
