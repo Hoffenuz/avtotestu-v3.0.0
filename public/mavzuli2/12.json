@@ -148,8 +148,8 @@
             }
         },
         "izoh": {
-            "uz_lat": "Yo‘l harakati qoidalarining 38 bandiga asosan, Tartibga soluvchining ishoralari quyidagi ma’noni bildiradi: O‘ng qo‘li oldinga uzatilganda: chap yonidan tramvayga chapga, relssiz transport vositalariga barcha yo‘nalishlarda;\n\noldi tomonidan barcha transport vositalariga faqat o‘ngga harakatlanishga ruxsat beriladi; orqa tomonidan va o‘ng yonidan barcha transport vositalarining harakatlanishi taqiqlanadi; piyodalarga tartibga soluvchining orqa tomonida qatnov qismini kesib o‘tishga ruxsat etiladi.\n\nUshbu vaziyatda mototsiklga o‘nga, yengil avtomobilga to‘g‘riga va o‘nga harakatlanishga ruxsat etiladi.",
-            "uz_cyr": "Йўл ҳаракати қоидаларининг 38 бандига асосан, Тартибга солувчининг ишоралари қуйидаги маънони билдиради: Ўнг қўли олдинга узатилганда: чап ёнидан трамвайга чапга, релссиз транспорт воситаларига барча йўналишларда;\n\nолди томонидан барча транспорт воситаларига фақат ўнгга ҳаракатланишга рухсат берилади; орқа томонидан ва ўнг ёнидан барча транспорт воситаларининг ҳаракатланиши тақиқланади; пиёдаларга тартибга солувчининг орқа томонида қатнов қисмини кесиб ўтишга рухсат этилади.\n\nУшбу вазиятда мотоциклга ўнга, енгил автомобилга тўғрига ва ўнга ҳаракатланишга рухсат этилади.",
+            "uz_lat": "Yo‘l harakati qoidalarining 38 bandiga asosan, Tartibga soluvchining ishoralari quyidagi ma’noni bildiradi: O‘ng qo‘li oldinga uzatilganda: chap yonidan tramvayga chapga, relssiz transport vositalariga barcha yo‘nalishlarda;\n\noldi tomonidan barcha transport vositalariga faqat o‘ngga harakatlanishga ruxsat beriladi; orqa tomonidan va o‘ng yonidan barcha transport vositalarining harakatlanishi taqiqlanadi; piyodalarga tartibga soluvchining orqa tomonida qatnov qismini kesib o‘tishga ruxsat etiladi.\n\nUshbu vaziyatda mototsiklga o'ngga, yengil avtomobilga to‘g‘riga va o'ngga harakatlanishga ruxsat etiladi.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 38 бандига асосан, Тартибга солувчининг ишоралари қуйидаги маънони билдиради: Ўнг қўли олдинга узатилганда: чап ёнидан трамвайга чапга, релссиз транспорт воситаларига барча йўналишларда;\n\nолди томонидан барча транспорт воситаларига фақат ўнгга ҳаракатланишга рухсат берилади; орқа томонидан ва ўнг ёнидан барча транспорт воситаларининг ҳаракатланиши тақиқланади; пиёдаларга тартибга солувчининг орқа томонида қатнов қисмини кесиб ўтишга рухсат этилади.\n\nУшбу вазиятда мотоциклга ўнгга, енгил автомобилга тўғрига ва ўнгга ҳаракатланишга рухсат этилади.",
             "ru": "Согласно статье 38 Правил дорожного движения сигналы Регулятора имеют следующее значение: При вытянутой вперед правой руке: с левой стороны на трамвай налево, на нерельсовые транспортные средства во всех направлениях; \n\nспереди всем транспортным средствам разрешено движение только вправо; запрещено движение всех транспортных средств сзади и с правой стороны; пешеходам разрешено переходить проезжую часть позади регулятора. \n\nВ этой ситуации мотоциклу разрешается двигаться вправо, автомобилю – прямо и направо."
         }
     },
@@ -1828,17 +1828,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yengil avtomobilga o'nga va to'g'riga",
+                        "text": "Yengil avtomobilga o'ngga va to'g'riga",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Motosiklga o'nga va Yengil avtomobilga barcha yo'nalishlarga",
+                        "text": "Motosiklga o'ngga va yengil avtomobilga barcha yo'nalishlarga",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Motosiklga o'nga, Yengil avtomobilga to'g'riga va o'nga",
+                        "text": "Motosiklga o'ngga, yengil avtomobilga to'g'riga va o'ngga",
                         "is_correct": true
                     }
                 ]
@@ -1848,32 +1848,32 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Енгил автомобилга ўнга ва тўғрига",
+                        "text": "Енгил автомобилга ўнгга ва тўғрига",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Мотоциклга ўнга ва енгил автомобилга барча йўналишларга",
+                        "text": "Мотоциклга ўнгга ва енгил автомобилга барча йўналишларга",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Мотоциклга ўнга, енгил автомобилга тўғрига ва ўнга",
+                        "text": "Мотоциклга ўнгга, енгил автомобилга тўғрига ва ўнгга",
                         "is_correct": true
                     }
                 ]
             },
             "ru": {
-                "text": "Каким транспортным средством разрешено движение?",
+                "text": "Каким транспортным средствам разрешено движение?",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Легковому автомобилю на право и прямо",
+                        "text": "Легковому автомобилю направо и прямо",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Мотоциклу направо, легковому автомобилю на все направления",
+                        "text": "Мотоциклу направо, легковому автомобилю во всех направлениях",
                         "is_correct": false
                     },
                     {
@@ -2183,7 +2183,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Qizilga ruxsat beriladi, ko'kka o'nga taqiqlangan",
+                        "text": "Qizilga ruxsat beriladi, ko'kka o'ngga taqiqlangan",
                         "is_correct": false
                     },
                     {
@@ -2208,7 +2208,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Қизилга рухсат берилади, кўкка ўнга тақиқланган",
+                        "text": "Қизилга рухсат берилади, кўкка ўнгга тақиқланган",
                         "is_correct": false
                     },
                     {

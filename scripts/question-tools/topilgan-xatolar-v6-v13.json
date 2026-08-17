@@ -1,0 +1,434 @@
+{
+  "sana": "2026-08-17",
+  "holat": "HALI QO'LLANMAGAN — ko'rib chiqish uchun",
+  "oqilgan_variantlar": [
+    "v6",
+    "v7",
+    "v8",
+    "v9",
+    "v10",
+    "v11",
+    "v12",
+    "v13",
+    "v14",
+    "v15",
+    "v16",
+    "v17"
+  ],
+  "usul": "Har bir variant uz_lat, uz_cyr va ru tillarida savol, javob variantlari va izohlari bilan TO'LIQ qo'lda o'qib chiqildi. Topilgan har bir xato butun korpus bo'yicha qidirildi va soni aniqlandi.",
+  "izoh_umumiy": "`soni` — butun public/ bo'yicha. Bir savol 6-9 faylda takrorlanadi, shuning uchun sonlar odatda 6 ning karrali. `tasdiq` — xato ekaniga dalil.",
+  "umumiy_baho": "Oldingi partiyalarga (v1-v5, v33/34, v53/54) qaraganda ANCHA TOZA. `masofai` (252x) yoki kirillda rus harflari (24 juftlik) kabi ommaviy xatolar yo'q. Asosan yakka imlo va tinish belgisi xatolari.",
+  "mazmun_nomuvofiqligi": [
+    {
+      "id": "t_6_q_9-tillar-boshqa",
+      "savol": "t_6_q_9",
+      "jiddiylik": "YUQORI — QAROR KERAK",
+      "rasm": "yo'q (matnning o'zi butun savol)",
+      "tavsif": "Savol o'zbekcha va ruschada BOSHQA-BOSHQA narsani so'raydi va to'g'ri javoblari ham har xil.",
+      "uz": {
+        "savol": "12 yoshga yetmagan bolalarni transport vositasining OLDINGI O'RINDIG'IDA tashishga ruxsat etiladimi?",
+        "togri_javob": "Bolalarni ushlab turuvchi maxsus qurilma o'rnatilgan bo'lsa ruxsat etiladi"
+      },
+      "ru": {
+        "savol": "Разрешается ли перевозить детей, не достигших 12-летнего возраста в КАБИНЕ ГРУЗОВОГО АВТОМОБИЛЯ?",
+        "togri_javob": "Разрешается"
+      },
+      "nima_qilish_kerak": "Ikkalasi ham YHQ da mavjud qoidalar. Qaysi biri asl savol ekanini SIZ hal qilishingiz kerak — men taxmin qilmayman, chunki javob to'g'riligiga ta'sir qiladi.",
+      "variantlar": [
+        "A) O'zbekchasi asl -> ruschasini qayta tarjima qilish",
+        "B) Ruschasi asl -> o'zbekchasini qayta yozish"
+      ],
+      "holat": "QO'LLANDI — egasi o'zbekchasini asl deb tasdiqladi; ruscha savol va to'g'ri javob unga moslashtirildi (matn ruscha IZOHDAGI rasmiy iboradan olindi)."
+    },
+    {
+      "id": "t_6_q_16-variant-farqi",
+      "savol": "t_6_q_16",
+      "jiddiylik": "past",
+      "tavsif": "Ikkinchi variant tillarda boshqa narsani aytadi.",
+      "uz": "Ishlab chiqargan korxona tomondan ko'zda tutilgan orqa himoya vositasi loyto'sgich va sachratmagichlar bo'lmasa",
+      "ru": "Отсутствует предусмотренный конструкцией задний противооткатный буфер безопасности",
+      "nima_qilish_kerak": "To'g'ri javob ikkalasida ham «hammasi» bo'lgani uchun amaliy ta'siri YO'Q. Xohlasangiz moslashtiramiz.",
+      "xavf": "past"
+    }
+  ],
+  "uz_lat": [
+    {
+      "id": "onga",
+      "savol": "t_6_q_2, t_7_q_11, t_9_q_6",
+      "xato": "o'nga",
+      "togri": "o'ngga",
+      "soni": 54,
+      "tasdiq": "606x to'g'ri. BARCHA kontekst yo'nalish ma'nosida tekshirildi (burilish, harakatlanish, taqiqlangan) — raqamli `o'n` (10) ma'nosida ishlatilmagan."
+    },
+    {
+      "id": "tarif",
+      "savol": "t_8_q_5, t_9_q_12",
+      "xato": "tarifni / tarifi",
+      "togri": "ta'rifni / ta'rifi",
+      "soni": 16,
+      "tasdiq": "Kirillda `таърифи` 18x, `тарифи` 0x. Kontekst: «atamaga tegishli ta'rifni ko'rsating» — ya'ni TA'RIF (definition), to'lov tarifi EMAS."
+    },
+    {
+      "id": "piyodalar-takror",
+      "savol": "t_6_q_3",
+      "xato": "piyodalarning va piyodalarning",
+      "togri": "piyodalarning",
+      "soni": 6,
+      "tasdiq": "So'z IKKI MARTA yozilgan (nusxa-xatosi). Ruschasida bitta: «предназначенная для движения пешеходов»."
+    },
+    {
+      "id": "etmagan",
+      "savol": "t_6_q_9",
+      "xato": "etmagan",
+      "togri": "yetmagan",
+      "soni": 6,
+      "tasdiq": "«12 yoshga YETMAGAN» — yetmoq o'zagi. Kirillchasi (`етмаган`) TO'G'RI, chunki kirillda `е` = «ye»."
+    },
+    {
+      "id": "xafvsizligi",
+      "savol": "t_9_q_9",
+      "xato": "xafvsizligi",
+      "togri": "xavfsizligi",
+      "soni": 6,
+      "tasdiq": "348x to'g'ri. Harflar almashgan."
+    },
+    {
+      "id": "harakter",
+      "savol": "t_8_q_20",
+      "xato": "harakterlanadi",
+      "togri": "xarakterlanadi",
+      "soni": 6,
+      "tasdiq": "Kirillda `характер` 40x (х bilan), `ҳарактер` 6x. Lotinda `xarakter` 0x — ya'ni hamma joyda xato."
+    },
+    {
+      "id": "korxona-tomondan",
+      "savol": "t_6_q_16",
+      "xato": "korxona tomondan",
+      "togri": "korxona tomonidan",
+      "soni": 6,
+      "tasdiq": "52x to'g'ri."
+    },
+    {
+      "id": "maysazor-vergul",
+      "savol": "t_6_q_3",
+      "xato": "maysazor ariq maxsus",
+      "togri": "maysazor, ariq, maxsus",
+      "soni": 6,
+      "tasdiq": "38x vergulli."
+    },
+    {
+      "id": "xavf-boshliq",
+      "savol": "t_9_q_12",
+      "xato": "«Xavf»atamasining",
+      "togri": "«Xavf» atamasining",
+      "soni": 6,
+      "tasdiq": "Qo'shtirnoqdan keyin bo'shliq yo'q."
+    },
+    {
+      "id": "tratuar",
+      "savol": "t_10_q_7",
+      "xato": "tratuar",
+      "togri": "trotuar",
+      "soni": 6,
+      "tasdiq": "249x to'g'ri."
+    },
+    {
+      "id": "taniqlilik",
+      "savol": "t_11_q_1",
+      "xato": "taniqlilik",
+      "togri": "taniqlik",
+      "soni": 6,
+      "tasdiq": "254x to'g'ri. Ortiqcha `-li-`."
+    },
+    {
+      "id": "velosipedchilarda",
+      "savol": "t_11_q_11",
+      "xato": "Velosipedchilarda",
+      "togri": "Velosipedchilarga",
+      "soni": 7,
+      "tasdiq": "Yagona kontekst: «Velosipedchilarda trotuarda harakatlanishga ruxsat etiladimi?» — jo'nalish kelishigi kerak."
+    },
+    {
+      "id": "atrof-muxit",
+      "savol": "t_12_q_7",
+      "xato": "atrof-muxit",
+      "togri": "atrof-muhit",
+      "soni": 6,
+      "tasdiq": "50/50 (6x/6x), lekin standart shakl `muhit`. Kirillchasi `муҳит` (ҳ bilan)."
+    },
+    {
+      "id": "uxshaydi",
+      "savol": "t_12_q_16",
+      "xato": "uxshaydi",
+      "togri": "o'xshaydi",
+      "soni": 12,
+      "tasdiq": "Korpusda `o'xshash*` 86x (to'g'ri unli bilan), `uxshaydi` esa yagona xato shakl."
+    },
+    {
+      "id": "bosh-harf",
+      "savol": "t_9_q_13, t_7_q_11, t_9_q_5 va b.",
+      "xato": "gap o'rtasida `Yengil` / `Chapga` / `Javobda`",
+      "togri": "kichik harf",
+      "soni": 40,
+      "tasdiq": "`Yengil` 28x, `Chapga` 6x, `Javobda` 6x — hammasi gap o'rtasida."
+    },
+    {
+      "id": "tashkiliy-defis",
+      "savol": "t_7_q_14",
+      "xato": "tashkiliy - texnikaviy",
+      "togri": "tashkiliy-texnikaviy",
+      "soni": 6,
+      "tasdiq": "4x defisli (bo'shliqsiz)."
+    },
+    {
+      "id": "t-nuqta",
+      "savol": "t_10_q_10",
+      "xato": "t. dan",
+      "togri": "t dan",
+      "soni": 14,
+      "tasdiq": "134x nuqtasiz. `m. dan` bilan bir xil sinf."
+    },
+    {
+      "id": "nuqtali-vergul-gap",
+      "savol": "t_11_q_3",
+      "xato": "bo'lsa; haydovchi",
+      "togri": "bo'lsa, haydovchi",
+      "soni": 6,
+      "tasdiq": "38x vergulli."
+    },
+    {
+      "id": "t_12_q_20-maqsad",
+      "savol": "t_12_q_20",
+      "xato": "Bu yo'l chizig'i quyidagi maqsadni:",
+      "togri": "Bu yo'l chizig'i:",
+      "soni": 6,
+      "tasdiq": "Ruschasi: «Эта дорожная разметка:» — «maqsadni» ortiqcha va javob variantlariga («bildiradi») grammatik jihatdan ulanmaydi."
+    },
+    {
+      "id": "diaganal",
+      "savol": "t_14_q_7",
+      "xato": "diaganal",
+      "togri": "diagonal",
+      "soni": 6,
+      "tasdiq": "22x to'g'ri; kirillda «диагонал» 62x, «диаганал» 6x"
+    },
+    {
+      "id": "tamirlangan",
+      "savol": "t_14_q_7",
+      "xato": "tamirlangan",
+      "togri": "ta'mirlangan",
+      "soni": 12,
+      "tasdiq": "Kirillda «таъмирланган» 18x, «тамирланган» 0x — apostrof shart"
+    },
+    {
+      "id": "etiborga",
+      "savol": "t_15_q_3",
+      "xato": "etiborga",
+      "togri": "e'tiborga",
+      "soni": 10,
+      "tasdiq": "Kirillda «эътиборга» 14x, «этиборга» 0x"
+    },
+    {
+      "id": "zarar-etishiga",
+      "savol": "t_14_q_4",
+      "xato": "zarar etishiga",
+      "togri": "zarar yetishiga",
+      "soni": 12,
+      "tasdiq": "50/50 (12x/12x). «yetmoq» o'zagi — zarar YETISHI. Kirillchasi («етишига») to'g'ri, chunki kirillda «е» = «ye»"
+    },
+    {
+      "id": "taaduqlidir",
+      "savol": "t_16_q_15",
+      "xato": "taaduqlidir",
+      "togri": "taalluqlidir",
+      "soni": 6,
+      "tasdiq": "SHU savolning boshqa variantida to'g'ri shakl bor (12x); kirillda «тааллуқлидир» 24x, «таадуқлидир» 6x"
+    },
+    {
+      "id": "onlik-nuqta",
+      "savol": "t_14_q_6, t_14_q_14",
+      "xato": "0.5 metr / 1.2 metr",
+      "togri": "0,5 metr / 1,2 metr",
+      "soni": 72,
+      "tasdiq": "Korpusda vergulli shakl 376x. O'zbek va rus tilida o'nlik ajratgich — VERGUL"
+    },
+    {
+      "id": "boshliq-vergul",
+      "savol": "t_17_q_6",
+      "xato": "«А» , «Б»",
+      "togri": "«А», «Б»",
+      "soni": 12,
+      "tasdiq": "Verguldan OLDIN bo'shliq. Butun korpusda atigi 2 xil holat"
+    }
+  ],
+  "uz_cyr": [
+    {
+      "xato": "ўнга",
+      "togri": "ўнгга",
+      "soni": 66,
+      "tasdiq": "947x to'g'ri"
+    },
+    {
+      "xato": "тарифни",
+      "togri": "таърифни",
+      "soni": 4,
+      "tasdiq": "`таърифни` 6x"
+    },
+    {
+      "xato": "хафвсизлиги",
+      "togri": "хавфсизлиги",
+      "soni": 6,
+      "tasdiq": "348x to'g'ri"
+    },
+    {
+      "xato": "ҳарактерланади",
+      "togri": "характерланади",
+      "soni": 6,
+      "tasdiq": "`характер` 40x"
+    },
+    {
+      "xato": "пиёдаларнинг ва пиёдаларнинг",
+      "togri": "пиёдаларнинг",
+      "soni": 6,
+      "tasdiq": "so'z ikki marta"
+    },
+    {
+      "xato": "майсазор ариқ махсус",
+      "togri": "майсазор, ариқ, махсус",
+      "soni": 6,
+      "tasdiq": "38x vergulli"
+    },
+    {
+      "xato": "корхона томондан",
+      "togri": "корхона томонидан",
+      "soni": 6,
+      "tasdiq": "52x to'g'ri"
+    },
+    {
+      "xato": "«Хавф»атамасининг",
+      "togri": "«Хавф» атамасининг",
+      "soni": 6,
+      "tasdiq": "bo'shliq yo'q"
+    },
+    {
+      "xato": "тратуар",
+      "togri": "тротуар",
+      "soni": 6,
+      "tasdiq": "616x to'g'ri"
+    },
+    {
+      "xato": "таниқлилик",
+      "togri": "таниқлик",
+      "soni": 6,
+      "tasdiq": "198x to'g'ri"
+    },
+    {
+      "xato": "Велосипедчиларда",
+      "togri": "Велосипедчиларга",
+      "soni": 7,
+      "tasdiq": "kelishik"
+    },
+    {
+      "xato": "атроф-мухит",
+      "togri": "атроф-муҳит",
+      "soni": 6,
+      "tasdiq": "standart shakl `муҳит`"
+    },
+    {
+      "xato": "ухшайди",
+      "togri": "ўхшайди",
+      "soni": 12,
+      "tasdiq": "`ўхшаш*` 162x"
+    },
+    {
+      "xato": "ташкилий - техникавий",
+      "togri": "ташкилий-техникавий",
+      "soni": 6,
+      "tasdiq": "4x defisli"
+    },
+    {
+      "xato": "т. дан",
+      "togri": "т дан",
+      "soni": 14,
+      "tasdiq": "178x nuqtasiz"
+    },
+    {
+      "xato": "бўлса; ҳайдовчи",
+      "togri": "бўлса, ҳайдовчи",
+      "soni": 6,
+      "tasdiq": "72x vergulli"
+    },
+    {
+      "xato": "диаганал",
+      "togri": "диагонал",
+      "soni": 6,
+      "tasdiq": "62x to'g'ri"
+    },
+    {
+      "xato": "таадуқлидир",
+      "togri": "тааллуқлидир",
+      "soni": 6,
+      "tasdiq": "24x to'g'ri"
+    }
+  ],
+  "ru": [
+    {
+      "id": "sredstvom",
+      "savol": "t_6_q_2",
+      "xato": "Каким транспортным средством разрешено",
+      "togri": "Каким транспортным средствам разрешено",
+      "soni": 6,
+      "tasdiq": "56x to'g'ri (ko'plik). Javob variantlarida bir nechta vosita sanaladi."
+    },
+    {
+      "id": "na-pravo",
+      "savol": "t_6_q_2",
+      "xato": "автомобилю на право",
+      "togri": "автомобилю направо",
+      "soni": 6,
+      "tasdiq": "`направо` — ravish, bir so'z yoziladi. `на право` = «huquqqa» degan boshqa ma'no."
+    },
+    {
+      "id": "na-vse-napravleniya",
+      "savol": "t_6_q_2",
+      "xato": "на все направления",
+      "togri": "во всех направлениях",
+      "soni": 6,
+      "tasdiq": "132x to'g'ri shakl."
+    },
+    {
+      "id": "vozrasta-vergul",
+      "savol": "t_6_q_9",
+      "xato": "возраста в кабине",
+      "togri": "возраста, в кабине",
+      "soni": 6,
+      "tasdiq": "Sifatdosh oborot yopilmagan: «детей, не достигших ... возраста, в кабине»."
+    }
+  ],
+  "hal_qilinmagan": [
+    {
+      "mavzu": "loyto'sgich / loy to'sgich",
+      "tavsif": "6x / 6x — ikkala alifboda ham teng (`лойтўсгич` 6x, `лой тўсгич` 6x). Etaloni noaniq.",
+      "xavf": "past"
+    },
+    {
+      "mavzu": "Variant yorliqlari: lotin A/B/V vs kirill А/Б/В",
+      "tavsif": "t_11_q_16 da `A, B, V`, boshqa savollarda `«А», «Б», «В»`. Oldingi partiyalarda ham uchragan.",
+      "nima_qilish_kerak": "Rasmdagi yorliqlar qaysi alifboda ekanini ko'rmasdan o'zgartirish javobni buzishi mumkin.",
+      "xavf": "o'rta"
+    },
+    {
+      "mavzu": "tasma / bo'lak atamasi",
+      "tavsif": "t_11_q_4 da savol `tasmaga ega` deb so'raydi, javob esa `bo'lakka` deb beradi. Korpusda ikkala atama ham keng ishlatiladi.",
+      "xavf": "past"
+    }
+  ],
+  "jami": {
+    "oqilgan_variantlar": 12,
+    "mazmun_nomuvofiqligi": 2,
+    "uz_lat_xatolari": 26,
+    "uz_cyr_xatolari": 18,
+    "ru_xatolari": 4,
+    "hal_qilinmagan": 3
+  }
+}

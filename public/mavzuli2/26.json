@@ -179,7 +179,7 @@
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "12 yoshga etmagan bolalarni transport vositasining oldingi o'rindig'ida tashishga ruxsat etiladimi?",
+                "text": "12 yoshga yetmagan bolalarni transport vositasining oldingi o'rindig'ida tashishga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
@@ -219,7 +219,7 @@
                 ]
             },
             "ru": {
-                "text": "Разрешается ли перевозить детей, не достигших 12-летнего возраста в кабине грузового автомобиля?",
+                "text": "Разрешается ли перевозить детей, не достигших 12-летнего возраста, на переднем сиденье транспортного средства?",
                 "options": [
                     {
                         "id": 1,
@@ -233,7 +233,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Разрешается",
+                        "text": "Разрешается при наличии специального детского удерживающего устройства",
                         "is_correct": true
                     }
                 ]
@@ -810,7 +810,7 @@
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Shatakka olingan Yengil avtomobilda yo'lovchilarni tashish mumkinmi?",
+                "text": "Shatakka olingan yengil avtomobilda yo'lovchilarni tashish mumkinmi?",
                 "options": [
                     {
                         "id": 1,
@@ -1199,17 +1199,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "0.3 - 0.5 metr",
+                        "text": "0.3 - 0,5 metr",
                         "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "0.8 - 0.9 metr",
+                        "text": "0.8 - 0,9 metr",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "0.6 - 0.7 metr",
+                        "text": "0.6 - 0,7 metr",
                         "is_correct": false
                     }
                 ]
@@ -1219,17 +1219,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "0.3 - 0.5 метр",
+                        "text": "0.3 - 0,5 метр",
                         "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "0.8 - 0.9 метр",
+                        "text": "0.8 - 0,9 метр",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "0.6 - 0.7 метр",
+                        "text": "0.6 - 0,7 метр",
                         "is_correct": false
                     }
                 ]
@@ -1239,17 +1239,17 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "0.3 - 0.5 метр",
+                        "text": "0.3 - 0,5 метр",
                         "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "0.8 - 0.9 метр",
+                        "text": "0.8 - 0,9 метр",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "0.6 - 0.7 метр",
+                        "text": "0.6 - 0,7 метр",
                         "is_correct": false
                     }
                 ]
@@ -1276,12 +1276,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1.5 metrdan kam bo'lmasligi kerak",
+                        "text": "1,5 metrdan kam bo'lmasligi kerak",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "0.7 metrdan kam bo'lmasligi kerak",
+                        "text": "0,7 metrdan kam bo'lmasligi kerak",
                         "is_correct": false
                     },
                     {
@@ -1291,7 +1291,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "1.3 metrdan kam bo'lmasligi kerak",
+                        "text": "1,3 metrdan kam bo'lmasligi kerak",
                         "is_correct": true
                     }
                 ]
@@ -1301,12 +1301,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "1.5 метрдан кам бўлмаслиги керак",
+                        "text": "1,5 метрдан кам бўлмаслиги керак",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "0.7 метрдан кам бўлмаслиги керак",
+                        "text": "0,7 метрдан кам бўлмаслиги керак",
                         "is_correct": false
                     },
                     {
@@ -1316,7 +1316,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "1.3 метрдан кам бўлмаслиги керак",
+                        "text": "1,3 метрдан кам бўлмаслиги керак",
                         "is_correct": true
                     }
                 ]
@@ -1326,22 +1326,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Не менее 1.5 метра",
+                        "text": "Не менее 1,5 метра",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "Не менее 0.7 метра",
+                        "text": "Не менее 0,7 метра",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Не менее 1.0 метра",
+                        "text": "Не менее 1,0 метра",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "Не менее 1.3 метра",
+                        "text": "Не менее 1,3 метра",
                         "is_correct": true
                     }
                 ]
@@ -1654,7 +1654,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Shovqin hosil qilmasligi, chang ko'tarmasligi va atrof-muxitni iflos qilmasligi kerak",
+                        "text": "Shovqin hosil qilmasligi, chang ko'tarmasligi va atrof-muhitni iflos qilmasligi kerak",
                         "is_correct": true
                     }
                 ]
@@ -1674,7 +1674,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Шовқин ҳосил қилмаслиги, чанг кўтармаслиги ва атроф-мухитни ифлос қилмаслиги керак",
+                        "text": "Шовқин ҳосил қилмаслиги, чанг кўтармаслиги ва атроф-муҳитни ифлос қилмаслиги керак",
                         "is_correct": true
                     }
                 ]
@@ -2842,22 +2842,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "0.5 metr",
+                        "text": "0,5 metr",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "1.0 metr",
+                        "text": "1,0 metr",
                         "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "1.2 metr",
+                        "text": "1,2 metr",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "1.5 metr",
+                        "text": "1,5 metr",
                         "is_correct": false
                     }
                 ]
@@ -2867,22 +2867,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "0.5 метр",
+                        "text": "0,5 метр",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "1.0 метр",
+                        "text": "1,0 метр",
                         "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "1.2 метр",
+                        "text": "1,2 метр",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "1.5 метр",
+                        "text": "1,5 метр",
                         "is_correct": false
                     }
                 ]
@@ -2892,22 +2892,22 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "0.5 метр",
+                        "text": "0,5 метр",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "1.0 метр",
+                        "text": "1,0 метр",
                         "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "1.2 метр",
+                        "text": "1,2 метр",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "1.5 метр",
+                        "text": "1,5 метр",
                         "is_correct": false
                     }
                 ]
@@ -2944,12 +2944,12 @@
                     },
                     {
                         "id": 3,
-                        "text": "1.2 metr",
+                        "text": "1,2 metr",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "0.5 metr",
+                        "text": "0,5 metr",
                         "is_correct": true
                     }
                 ]
@@ -2969,12 +2969,12 @@
                     },
                     {
                         "id": 3,
-                        "text": "1.2 метр",
+                        "text": "1,2 метр",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "0.5 метр",
+                        "text": "0,5 метр",
                         "is_correct": true
                     }
                 ]
@@ -2994,12 +2994,12 @@
                     },
                     {
                         "id": 3,
-                        "text": "1.2 метр",
+                        "text": "1,2 метр",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "0.5 метр",
+                        "text": "0,5 метр",
                         "is_correct": true
                     }
                 ]
@@ -3108,17 +3108,17 @@
                     },
                     {
                         "id": 2,
-                        "text": "0.3 m",
+                        "text": "0,3 m",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "0.5 m",
+                        "text": "0,5 m",
                         "is_correct": true
                     },
                     {
                         "id": 4,
-                        "text": "0.4 m",
+                        "text": "0,4 m",
                         "is_correct": false
                     }
                 ]

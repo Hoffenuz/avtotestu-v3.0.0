@@ -103,6 +103,38 @@ const MANUAL = [
   { gid: 't_55_q_5',  lang: 'ru', from: 'Тўғрига ва орқага бурилиш', to: 'Прямо и разворот',
     why: 'tarjima qilinmagan' },
 
+  /**
+   * t_6_q_9 — RUSCHA SAVOL BOSHQA NARSANI SO'RARDI.
+   *
+   *   uz : «...transport vositasining OLDINGI O'RINDIG'IDA tashishga
+   *        ruxsat etiladimi?»  -> javob: maxsus qurilma bo'lsa ruxsat
+   *   ru : «...в КАБИНЕ ГРУЗОВОГО АВТОМОБИЛЯ?»  -> javob: «Разрешается»
+   *
+   * Ya'ni rus tilidagi foydalanuvchi boshqa savol va boshqa javob olardi.
+   *
+   * O'ZBEKCHASI ASL ekani ikki dalil bilan tasdiqlandi:
+   *   1. Egasi tasdiqladi.
+   *   2. RUSCHA IZOHNING O'ZI savolga zid: «...а также на ПЕРЕДНЕМ СИДЕНЬЕ
+   *      транспортного средства БЕЗ специального детского удерживающего
+   *      устройства». Ya'ni izoh old o'rindiq va qurilma haqida.
+   *
+   * Yangi ruscha matn o'sha izohdagi RASMIY iboradan olindi — o'ylab
+   * topilmadi.
+   *
+   * `Разрешается` butun korpusda juda ko'p uchraydi, shuning uchun bu
+   * almashtirish SAVOL + TIL blokiga chegaralangan va to'liq JSON satri
+   * bo'yicha mos keladi (0-variant «Разрешается только в сопровождении...»
+   * tegilmaydi).
+   */
+  { gid: 't_6_q_9', lang: 'ru',
+    from: 'Разрешается ли перевозить детей, не достигших 12-летнего возраста в кабине грузового автомобиля?',
+    to: 'Разрешается ли перевозить детей, не достигших 12-летнего возраста, на переднем сиденье транспортного средства?',
+    why: "savol o'zbekchasiga mos kelmasdi" },
+  { gid: 't_6_q_9', lang: 'ru',
+    from: 'Разрешается',
+    to: 'Разрешается при наличии специального детского удерживающего устройства',
+    why: "to'g'ri javob o'zbekchasiga mos kelmasdi" },
+
   // Savol MATNI tarjima qilinmagan. Korpusdagi o'xshash savol:
   // "Avtomobilning qaysi yo'nalishda harakatlanishiga ruxsat etiladi?"
   //   -> "В каком направлении разрешается движение автомобиля?"
