@@ -73,7 +73,7 @@
         "izoh": {
             "uz_lat": "YHQ 11-bobi 81-bandiga muvofiq, haydovchilarga tezlikni transport vositasiga o'rnatilgan \"Tezligi cheklangan\" taniqlik belgisida ko'rsatilganidan oshirish taqiqlanadi.",
             "uz_cyr": "YHQ 11-боби 81-бандига мувофиқ, ҳайдовчиларга тезликни транспорт воситасига ўрнатилган \"Тезлиги чекланган\" таниқлик белгисида кўрсатилганидан ошириш тақиқланади.",
-            "ru": "В соответствии с главой 11 статьи 81 УК водителям запрещается превышать скорость, указанную на знаке «Ограничение скорости», размещенном на транспортном средстве."
+            "ru": "В соответствии с главой 11 статьи 81 ПДД водителям запрещается превышать скорость, указанную на знаке «Ограничение скорости», размещенном на транспортном средстве."
         }
     },
     {
@@ -136,7 +136,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Повернуть рулевое колесо в сторону;",
+                        "text": "Повернуть рулевое колесо в сторону, противоположную заносу",
                         "is_correct": false
                     },
                     {
@@ -532,7 +532,7 @@
         "media_url": "u273uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Chorrahadan uchinchi bo'lib Qaysi avtomobil o'tadi:",
+                "text": "Chorrahadan uchinchi bo'lib qaysi avtomobil o'tadi:",
                 "options": [
                     {
                         "id": 1,
@@ -664,7 +664,7 @@
                 ]
             },
             "ru": {
-                "text": "О чем обозначает Вас вертикальная разметка, нанесенная на ограждение дороги?",
+                "text": "Что обозначает вертикальная разметка, нанесенная на ограждение дороги?",
                 "options": [
                     {
                         "id": 1,
@@ -673,12 +673,12 @@
                     },
                     {
                         "id": 2,
-                        "text": "Обозначает приближении к железнодорожному переезду",
+                        "text": "Обозначает приближение к железнодорожному переезду",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Обозначает приближении к опасному перекрёстку",
+                        "text": "Обозначает приближение к опасному перекрёстку",
                         "is_correct": false
                     }
                 ]
@@ -750,7 +750,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Трамваев и троллейбусов",
+                        "text": "Трамваев и автобусов",
                         "is_correct": false
                     },
                     {
@@ -855,7 +855,7 @@
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Tormoz tizimi ishlamaydigan avtomobilni vazni sizning avtomobilingiz vaznini yarmidan ortiq bo'lsa, uni shatakka olishingizga ruxsat etiladimi?",
+                "text": "Tormoz tizimi ishlamaydigan avtomobilning vazni sizning avtomobilingiz vaznini yarmidan ortiq bo'lsa, uni shatakka olishingizga ruxsat etiladimi?",
                 "options": [
                     {
                         "id": 1,
@@ -864,7 +864,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Faqat 30 km. tezlikda ruxsat etiladi",
+                        "text": "Faqat 30 km/soat tezlikda ruxsat etiladi",
                         "is_correct": false
                     },
                     {
@@ -1348,7 +1348,7 @@
         "izoh": {
             "uz_lat": "YHQ 3-ilovasining 5.1-bandiga muvofiq, agar shina protektori naqshlarining qoldiq balandligi N2, N3, O3, o4 toifadagi avtotransport vositalari uchun — 1,0 mm dan kam bo'lsa; M1, N1, O1, O2 toifadagi avtotransport vositalari uchun — 1,6 mm dan, kam bo'lsa; m2, m3 toifadagi avtotransport vositalari uchun — 2,0 mm dan kam bo'lsa; mototsikl va mopedlar (skuterlar, Kvadrosikllar) uchun — 0,8 mm dan kam bo'lsa transport vositasidan foydalanish taqiqlanadi.",
             "uz_cyr": "YHQ 3-иловасининг 5.1-бандига мувофиқ, агар шина протектори нақшларининг қолдиқ баландлиги Н2, Н3, О3, о4 тоифадаги автотранспорт воситалари учун — 1,0 мм дан кам бўлса; М1, Н1, О1, О2 тоифадаги автотранспорт воситалари учун — 1,6 мм дан, кам бўлса; м2, м3 тоифадаги автотранспорт воситалари учун — 2,0 мм дан кам бўлса; мотоцикл ва мопедлар (скутерлар, Квадросикллар) учун — 0,8 мм дан кам бўлса транспорт воситасидан фойдаланиш тақиқланади.",
-            "ru": "В соответствии с пунктом 5.1 приложения 3 ХК, если остаточная высота рисунка протектора шин составляет менее 1,0 мм для автомобилей категорий Н2, Н3, О3, о4; для автомобилей категорий М1, Н1, О1, О2 — менее 1,6 мм; для автомобилей категорий м2, м3 — если она менее 2,0 мм; для мотоциклов и мопедов (скутеров, квадроциклов) – если она меньше 0,8 мм, эксплуатация транспортного средства запрещена."
+            "ru": "В соответствии с пунктом 5.1 приложения 3 ПДД, если остаточная высота рисунка протектора шин составляет менее 1,0 мм для автомобилей категорий Н2, Н3, О3, о4; для автомобилей категорий М1, Н1, О1, О2 — менее 1,6 мм; для автомобилей категорий м2, м3 — если она менее 2,0 мм; для мотоциклов и мопедов (скутеров, квадроциклов) – если она меньше 0,8 мм, эксплуатация транспортного средства запрещена."
         }
     },
     {
@@ -1663,7 +1663,7 @@
                 ]
             },
             "ru": {
-                "text": "B каком ответе правильно указана очередность проезда перекрёстка?",
+                "text": "В каком ответе правильно указана очередность проезда перекрёстка?",
                 "options": [
                     {
                         "id": 1,

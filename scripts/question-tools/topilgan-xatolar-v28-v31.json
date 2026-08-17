@@ -1,0 +1,83 @@
+{
+  "sana": "2026-08-17",
+  "holat": "TO'LIQ QO'LLANDI (2026-08-17) — fix-v28-v31.cjs (58) + fix-v28-v31-part2.cjs (50, foydalanuvchi tasdig'idan so'ng) + fix-ru-legal-code-refs.cjs (185, butun korpus bo'yicha tizimli tuzatish). Jami 293 almashtirish. Push QILINMAGAN.",
+  "oqilgan_variantlar": ["v28", "v29", "v30", "v31"],
+  "usul": "Har bir variant uz_lat, uz_cyr va ru tillarida savol va javob variantlari bilan TO'LIQ qo'lda o'qib chiqildi. Rasm etiketkalari (A/B/V) tasvirlar orqali tekshirildi.",
+
+  "qollandi": [
+    {
+      "savol": "t_28_q_11",
+      "xato": "uz_lat: \"A va b\" (kichik harf), uz_cyr: \"А ва б\"",
+      "togri": "uz_lat: \"A va B\", uz_cyr: \"А ва Б\"",
+      "soni": 12,
+      "tasdiq": "Rasm (u314uz.webp) ikki avtomobilni \"А\" va \"Б\" (bosh harf) deb belgilaydi; boshqa ikki variant (\"A\" va \"B\" alohida) bosh harfda, faqat shu variantda \"b/б\" kichik harfda edi."
+    },
+    {
+      "savol": "t_31_q_2",
+      "xato": "uz_cyr: \"2 ва 3 белгила\"",
+      "togri": "uz_cyr: \"2 ва 3 белгилар\"",
+      "soni": 6,
+      "tasdiq": "uz_lat \"2 va 3 belgilar\", ru \"Знаки 2 и 3\" bilan solishtirilganda kirillchada \"р\" harfi tushib qolgani ko'rindi."
+    },
+    {
+      "savollar": ["t_29_q_9", "t_27_q_12", "t_34_q_16", "t_36_q_3", "t_54_q_10", "t_57_q_3", "t_7_q_11"],
+      "xato": "ru izoh: \"...а тот, что посередине, направо.\" (\"направо\" ikki marta takrorlangan)",
+      "togri": "\"...а тот, что посередине, прямо.\"",
+      "soni": 58,
+      "tasdiq": "\"T\" harfli tramvay svetofori haqidagi umumiy izoh 7 xil savolda so'zma-so'z takrorlanadi: \"Ulardan chapdagisi chapga, o'ngdagisi o'ngga, o'rtadagisi to'g'riga\" (uz). Ruschasida oxirgi a'zo (\"to'g'riga\" = \"прямо\") \"направо\" bilan noto'g'ri tarjima qilingan — bu 7 ta savolning barchasida bir xil xato edi, shuning uchun global tuzatildi."
+    }
+  ],
+
+  "qarorga_muhtoj_QOLLANDI": [
+    {
+      "savol": "t_29_q_12",
+      "muammo": "ru \"text\" maydoni uz_lat/uz_cyr dan BUTUNLAY BOSHQA mavzuda",
+      "hozirgi_uz": "Turar joy dahasidan yo'lga chiqishda yo'l berish zarur? (kimga yo'l berish kerak — barcha TV, o'ng/chap tomondan, ko'k mayoqli TV)",
+      "hozirgi_ru": "О чем информирует водителя табличка, установленная под данным знаком? (bu belgi ostidagi taxtacha nimani bildiradi)",
+      "izoh": "izoh (uz ham, ru ham) uz_lat savoliga mos — \"турар жой даҳаларидан чиқишда... йўл беришлари керак\" / \"при выезде из жилых помещений\". Demak ru \"text\" boshqa (noma'lum) savoldan xato ko'chirilgan.",
+      "tavsiya": "ru matnni \"Кому необходимо уступить дорогу при выезде из жилого массива?\" kabi to'g'ridan tarjima qilish kerak — lekin bu tarjima qarori, taxmin bilan o'zgartirmadim."
+    },
+    {
+      "savol": "t_30_q_19",
+      "muammo": "ru variantlar uz bilan 1:1 mos kelmaydi — ikkita tushuncha takrorlanган, bittasi yo'q",
+      "uz_variantlar": ["Belgilangan yo'nalishdagi TV", "Taksometri ishlab turgan taksi + Nogiron TV (birga, TO'G'RI)", "Nogiron TV (alohida)", "Yo'nalishli taksi", "Taksometrli taksi (alohida)"],
+      "ru_variantlar": ["Таксисты с таксометрами и авто «Инвалид» (birga, TO'G'RI)", "Таксистам которые работают по таксометрам", "Маршрутные ТС", "Такси с включенным таксометром", "Маршрутное такси"],
+      "izoh": "ru'da \"Belgilangan yo'nalishdagi TV\" (marshrut bo'yicha yuruvchi TV) tarjimasi yo'q; buning o'rniga \"такси с таксометром\" va \"маршрутное такси\" ikki marta (deyarli bir xil ma'noda) takrorlangan.",
+      "tavsiya": "To'g'ri javob (id2, kombinatsiya) mos — faqat noto'g'ri variantlarning aniq tarjimasi kerak. Taxmin bilan o'zgartirmadim."
+    },
+    {
+      "savol": "t_31_q_4",
+      "muammo": "ru izoh: \"Раздел 3 Приложения 1 знака 3.19 «Удар в спину запрещен» запрещает только удар в спину.\"",
+      "izoh": "uz: \"3.19 \\\"Qayrilish taqiqlangan\\\" belgisida faqat qayrilish taqiqlanadi\" — bu YHQdagi \"қайрилиш\" (U-burilish) belgisi, \"удар в спину\" (orqadan zarba) bilan aloqasi yo'q. Aftidan mashina tarjimasi xato so'z tanlagan.",
+      "tavsiya": "\"Раздел 3 Приложения 1, знак 3.19 «Разворот запрещён» запрещает только разворот.\" ga tuzatish tavsiya etiladi."
+    },
+    {
+      "savol": "t_31_q_13",
+      "muammo": "ru izohda uchta alohida xato: (1) \"Место покаяния\" (tavba joyi?!) — \"Qayrilib olish joyi\" (5.11.1 belgisi) o'rniga; (2) \"грудной линии\" (ko'krak chizig'i?!) — \"sidirg'a chiziq\" (uzluksiz chiziq) o'rniga; (3) \"приложения 2 к УПК\" / \"приложения 1 к УПК\" — УПК (Jinoyat-protsessual kodeksi) ПДД o'rniga.",
+      "tavsiya": "Uchalasini ham tuzatish kerak: \"Место разворота\", \"сплошной линии\", \"ПДД\"."
+    },
+    {
+      "savol": "t_31_q_14",
+      "muammo": "ru izoh: \"Согласно главе 13 статьи 94 УК запрещается...\" — УК (Jinoyat kodeksi) noto'g'ri, ПДД bo'lishi kerak.",
+      "tavsiya": "\"УК\" ni \"ПДД\" bilan almashtirish."
+    },
+    {
+      "savol": "t_31_q_17",
+      "muammo": "ru izoh: \"Приложение 1, раздел 2, Знак 2.6 МВК «Приоритет встречного движения»\" — \"МВК\" nima ekanligi noaniq, matn oqimiga to'g'ri kelmaydi (ehtimol keraksiz qoldiq).",
+      "tavsiya": "\"МВК\" so'zini olib tashlash yoki kelib chiqishini aniqlash kerak."
+    }
+  ],
+
+  "yangi_tizimli_muammo_QOLLANDI": {
+    "holat": "TO'LIQ QO'LLANDI (2026-08-17) — scripts/question-tools/fix-ru-legal-code-refs.cjs orqali. 30 ta noyob global_id, 185 almashtirish, 42 fayl. Butun korpus qayta skanerlandi (УК/УПК/МВК/НХК/ОУК/ТК/КПЕС/ЗК) — 0 ta qoldiq topildi.",
+    "sarlavha": "\"УК\"/\"УПК\"/\"МВК\"/\"НХК\"/\"ОУК\"/\"ТК\"/\"КПЕС\"/\"ЗК\" (mavjud bo'lmagan yoki mos kelmaydigan kodeks qisqartmalari) ПДД o'rniga — butun korpus bo'yicha, v28-31 doirasidan TASHQARIDA",
+    "tavsif": "t_31_q_13/14 dagi \"УК\"/\"УПК\" xatosini butun korpusda qidirganda, xuddi shu turdagi xato ALLAQACHON TUGATILGAN deb belgilangan variantlarda ham topildi: v12, v18, v25 va boshqa ko'plab fayllarda (v32, v44, v45, v47, v56, v62, v63, va mavzuli2/4,5,7,10,14,16,19,23,24,35a). Shuningdek bog'liq ikkita boshqa mashina-tarjima xatosi ham shu safar tuzatildi: \"грудной линии\" (5 gid) va \"Апелляция запрещена\" (3 gid, 3.19 belgisi \"Разворот запрещён\" bo'lishi kerak).",
+    "misollar": [
+      "\"статьи 81 УК\" — v25 (t_25_q_1 atrofida), mavzuli2/16 — tezlik belgisi haqida savol",
+      "\"статьи 94 УК\" — v31 (t_31_q_14), mavzuli2/19 — eshik ochish haqida savol",
+      "\"статьи 135 УК\" — v56, mavzuli2/23 — ko'zi qamashgan haydovchi haqida savol",
+      "\"статьи 145 УК\" — v47, mavzuli2/24 — egiluvchan ulagichda shatak haqida savol"
+    ],
+    "tavsiya": "Bu alohida, kengroq tekshiruv talab qiladi — kamida 4 xil global_id, ehtimol ko'proq (\"МВК\", \"Апелляция запрещена\", \"Удар в спину\", \"Место покаяния\", \"грудной линии\" kabi boshqa g'alati mashina-tarjima izlari bilan birga). v28-31 doirasidan tashqarida bo'lgani uchun alohida topshiriq sifatida ko'rib chiqilishi kerak."
+  }
+}

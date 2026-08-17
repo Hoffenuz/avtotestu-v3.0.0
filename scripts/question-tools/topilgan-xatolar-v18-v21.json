@@ -1,0 +1,370 @@
+{
+  "sana": "2026-08-17",
+  "holat": "QO'LLANDI (2026-08-17) — fix-uz-spelling-v18-v25.cjs (414) + fix-ru-mazmun-v18-v25.cjs (66). Push QILINMAGAN.",
+  "oqilgan_variantlar": [
+    "v18",
+    "v19",
+    "v20",
+    "v21"
+  ],
+  "usul": "Har bir variant uz_lat, uz_cyr va ru tillarida savol va javob variantlari bilan TO'LIQ qo'lda o'qib chiqildi. Topilgan har bir xato butun korpus bo'yicha qidirildi, to'g'ri shakl bilan solishtirildi va soni aniqlandi.",
+  "izoh_umumiy": "`soni` — butun public/ bo'yicha. Bir savol 6 faylda takrorlanadi, shuning uchun sonlar odatda 6 ning karrali. `tasdiq` — xato ekaniga dalil.",
+  "uz_lat": [
+    {
+      "id": "hisoplanadi",
+      "savol": "t_18_q_2",
+      "xato": "hisoplanadimi",
+      "togri": "hisoblanadimi",
+      "soni": 6,
+      "tasdiq": "`hisoblanadi` 246x, `hisoplanadi` 6x. Kirillchasi `ҳисобланадими` — TO'G'RI, ya'ni xato faqat lotinchada."
+    },
+    {
+      "id": "yoqilgan-takror",
+      "savol": "t_18_q_5",
+      "xato": "Avtomobilda yoqilgan sarg'ish rangli miltillovchi chiroq yoqilgan holatda",
+      "togri": "Avtomobilda sarg'ish rangli miltillovchi chiroq yoqilgan holatda",
+      "soni": 6,
+      "tasdiq": "`yoqilgan` bir gapda ikki marta. Kirillchada ham xuddi shunday (`ёқилган ... ёқилган`)."
+    },
+    {
+      "id": "avtomobiliga",
+      "savol": "t_18_q_7",
+      "xato": "mayoqchasi yoqilgan avtomobiliga",
+      "togri": "mayoqchasi yoqilgan avtomobilga",
+      "soni": 6,
+      "tasdiq": "Gap mayoqli avtomobilga xalaqit bermaslik haqida — egalik qo'shimchasi `-i` ortiqcha. To'g'ri shakl korpusda 0x, ya'ni hamma joyda xato."
+    },
+    {
+      "id": "harakat-qismi",
+      "savol": "t_18_q_10",
+      "xato": "Yo'l harakat qismining chetidan",
+      "togri": "Yo'l qatnov qismining chetidan",
+      "soni": 6,
+      "tasdiq": "`qatnov qismining chetidan` 18x, `harakat qismining chetidan` 6x. SHU savolning o'zida, 1-variantda `qatnov qismining` deb yozilgan — ya'ni bitta savol ichida ikki xil atama."
+    },
+    {
+      "id": "kokiga",
+      "savol": "t_18_q_15",
+      "xato": "ko'kiga - chapga",
+      "togri": "ko'k avtomobilga - chapga",
+      "soni": 6,
+      "tasdiq": "`ko'k avtomobilga` 24x, `ko'kiga` 6x. SHU savolning 1- va 2-variantida `ko'k avtomobilga` deyilgan.",
+      "jiddiylik": "past — uslub nomuvofiqligi"
+    },
+    {
+      "id": "q20-kelishik",
+      "savol": "t_18_q_20",
+      "xato": "Qizil avtomobil qaysi yo'nalishlarda qayrilib olishga ruxsat beriladi?",
+      "togri": "Qizil avtomobilga qaysi yo'nalishlarda qayrilib olishga ruxsat beriladi?",
+      "soni": 6,
+      "tasdiq": "`ruxsat beriladi` jo'nalish kelishigini talab qiladi. To'g'ri shakl korpusda 0x."
+    },
+    {
+      "id": "qatnov-qismi",
+      "savol": "t_18_q_10, t_19_q_19 va b.",
+      "xato": "harakatlanish qismi / harakat qismi",
+      "togri": "qatnov qismi",
+      "soni": 62,
+      "tasdiq": "uz_lat bo'limlarida `qatnov qism` 2500x, `harakat qism` 38x, `harakatlanish qism` 24x — standart 97.6% ko'pchilikda."
+    },
+    {
+      "id": "aslahalangan",
+      "savol": "t_19_q_5",
+      "xato": "aslahalangan holatda",
+      "togri": "yuklangan holatda",
+      "soni": 6,
+      "jiddiylik": "YUQORI — noto'g'ri so'z",
+      "tasdiq": "Ruschasi `в загруженном состоянии` = YUKLANGAN. `aslaha` = jihoz/qurol, mazmunan mos emas.",
+      "ogohlantirish": "GLOBAL ALMASHTIRISH MUMKIN EMAS! `Aslahalangan transport vositasining` (18x) TO'G'RI — ruschasi `снаряжённого` (t_21_q_3). Faqat `aslahalangan holatda` (6x, t_19_q_5) xato, chunki uning ruschasi `в загруженном состоянии` = yuklangan."
+    },
+    {
+      "id": "750kg",
+      "savol": "t_19_q_13",
+      "xato": "750kg",
+      "togri": "750 kg",
+      "soni": 6,
+      "tasdiq": "Ruschasida `750 кг` — probel bor. Birlik oldidan probel standart."
+    },
+    {
+      "id": "40kms",
+      "savol": "t_19_q_15",
+      "xato": "40km/s",
+      "togri": "40 km/s",
+      "soni": 6,
+      "tasdiq": "`40 km/s` (probelli) 185x, probelsizi 6x."
+    },
+    {
+      "id": "sana-defis",
+      "savol": "t_19_q_15",
+      "xato": "01.01.1981- yilgacha",
+      "togri": "01.01.1981-yilgacha",
+      "soni": 6,
+      "tasdiq": "Defisdan keyin probel ortiqcha. To'g'ri shakl korpusda 6x — 50/50 bo'lingan."
+    },
+    {
+      "id": "lat-egan",
+      "savol": "t_20_q_18",
+      "xato": "lat egan / lat eganda",
+      "togri": "lat yegan / lat yeganda",
+      "soni": 24,
+      "tasdiq": "`lat yemoq` — `ye` o'zagi (`yemoq`). To'g'ri shakl korpusda 0x, ya'ni hamma joyda xato."
+    },
+    {
+      "id": "70kms-nuqta",
+      "savol": "t_21_q_1",
+      "xato": "70 km/s. dan",
+      "togri": "70 km/s dan",
+      "soni": 6,
+      "tasdiq": "Qisqartmadan keyin nuqta ortiqcha — `t. dan` bilan bir sinf. SHU savolning o'zida 4-variantda `km/soat` deb yozilgan."
+    },
+    {
+      "id": "transport-vazni",
+      "savol": "t_21_q_10",
+      "xato": "shatakka olinuvchi transport vaznidan",
+      "togri": "shatakka olinuvchi transport vositasi vaznidan",
+      "soni": 6,
+      "tasdiq": "`vositasi` so'zi tushib qolgan. To'g'ri shakl korpusda 6x."
+    },
+    {
+      "id": "oraliq-probel",
+      "savol": "t_21_q_11",
+      "xato": "10 -15 sm",
+      "togri": "10-15 sm",
+      "soni": 12,
+      "tasdiq": "Korpusda `15-20 daqiqa` 14x — probelsiz yozish standart. `10-15 sm` 0x."
+    },
+    {
+      "id": "belgi-tartibi",
+      "savol": "t_20_q_3",
+      "xato": "oq 5.22 yoki 5.24 havorang rangli belgidan",
+      "togri": "oq rangli 5.22 yoki havorang 5.24 belgidan",
+      "soni": 6,
+      "tasdiq": "So'z tartibi buzuq — raqam va rang bir-biridan ajralib qolgan."
+    }
+  ],
+  "uz_cyr": [
+    {
+      "id": "yonalishda-shcha",
+      "savol": "t_18_q_10",
+      "xato": "йўналищда",
+      "togri": "йўналишда",
+      "soni": 6,
+      "tasdiq": "`йўналишда` 1916x. `щ` — rus harfi, o'zbek kirillchasida bu so'zda `ш` bo'ladi."
+    },
+    {
+      "id": "avtomabil",
+      "savol": "t_18_q_14",
+      "xato": "автомабил",
+      "togri": "автомобил",
+      "soni": 6,
+      "tasdiq": "`автомобил` 11248x, `автомабил` 6x."
+    },
+    {
+      "id": "berilady-e",
+      "savol": "t_18_q_20",
+      "xato": "бэрилади",
+      "togri": "берилади",
+      "soni": 6,
+      "tasdiq": "`берилади` 662x. O'zbek kirillchasida `бэ` birikmasi bu so'zda ishlatilmaydi."
+    },
+    {
+      "id": "vergul-boshlasa",
+      "savol": "t_18_q_14",
+      "xato": "сирпанишни бошласа ҳайдовчи",
+      "togri": "сирпанишни бошласа, ҳайдовчи",
+      "soni": 6,
+      "tasdiq": "Lotinchasida vergul BOR (`boshlasa, haydovchi`) — tillar orasida nomuvofiqlik."
+    }
+  ],
+  "ru": [
+    {
+      "id": "perekrestok-tire",
+      "savol": "t_18_q_9",
+      "xato": "Перекресток это...",
+      "togri": "Перекресток — это...",
+      "soni": 6,
+      "tasdiq": "Ta'rif gapida tire shart. To'g'ri shakl korpusda 0x."
+    },
+    {
+      "id": "razvetvlenie",
+      "savol": "t_18_q_9",
+      "xato": "или разветвление дорог",
+      "togri": "или разветвления дорог",
+      "soni": 6,
+      "tasdiq": "Bir qatorda: `пересечения, примыкания или разветвления` — uchalasi ham qaratqich kelishigida bo'lishi kerak."
+    },
+    {
+      "id": "radius-vergul",
+      "savol": "t_18_q_13",
+      "xato": "малого радиуса крутых спусках",
+      "togri": "малого радиуса, крутых спусках",
+      "soni": 6,
+      "tasdiq": "Korpusda vergulli shakl ham 6x bor — ya'ni 50/50 bo'lingan, vergulli variant to'g'ri (sanash)."
+    },
+    {
+      "id": "q3-mazmun",
+      "savol": "t_18_q_3",
+      "xato": "Только направо и налево",
+      "togri": "Только направо",
+      "soni": 6,
+      "jiddiylik": "YUQORI — mazmun nomuvofiqligi",
+      "tasdiq": "O'zbekchada shu variant `Faqat o'ngga` (faqat o'ngga). Ruschada `и налево` ORTIQCHA qo'shilgan — javob varianti boshqa narsani anglatadi. Qolgan uchta variant tillar bo'yicha to'g'ri mos keladi."
+    },
+    {
+      "id": "km-sekund",
+      "savol": "t_19_q_15",
+      "xato": "40км/с",
+      "togri": "40 км/ч",
+      "soni": 12,
+      "jiddiylik": "YUQORI — o'lchov birligi xato",
+      "tasdiq": "`км/с` = sekundiga kilometr. Korpusda `км/ч` 755x. O'zbekchada `km/s` = kilometr/SOAT, ya'ni ruschaga ko'chirishda `с` deb xato yozilgan."
+    },
+    {
+      "id": "ru-lotin-m",
+      "savol": "t_19_q_15 va b.",
+      "xato": "ru bo'limida `19,5 m` (lotin m)",
+      "togri": "19,5 м (kirill м)",
+      "soni": 24,
+      "tasdiq": "ru bo'limlarida `\\d,\\d m` (lotin) 24x, kirillchasi 0x. Boshqa ruscha savollarda `м` ishlatilgan."
+    },
+    {
+      "id": "dnevnoe-vremya",
+      "savol": "t_19_q_18",
+      "xato": "фар дневное время",
+      "togri": "фар в дневное время",
+      "soni": 6,
+      "tasdiq": "Predlog tushib qolgan. To'g'ri shakl korpusda 6x — 50/50."
+    },
+    {
+      "id": "povrezhdennuyu-nogu",
+      "savol": "t_20_q_18",
+      "xato": "Перевязать неповреждённую ногу",
+      "togri": "Перевязать повреждённую ногу",
+      "soni": 6,
+      "jiddiylik": "YUQORI — tibbiy mazmun xato",
+      "tasdiq": "O'zbekchasi `Lat egan oyoqni ... bog'lash` = SHIKASTLANGAN oyoqni. Ruschada `не-` inkori qo'shilib, ma'no teskari bo'lgan."
+    },
+    {
+      "id": "polusidyachee",
+      "savol": "t_20_q_7",
+      "xato": "полу сидячее положение",
+      "togri": "полусидячее положение",
+      "soni": 6,
+      "tasdiq": "Qo'shma so'z birga yoziladi. To'g'ri shakl korpusda 0x."
+    },
+    {
+      "id": "q8-kelishik",
+      "savol": "t_20_q_8",
+      "xato": "Только грузовых автомобилей / Всех автомобилей",
+      "togri": "Только грузовым автомобилям / Всем автомобилям",
+      "soni": 12,
+      "tasdiq": "Savol `Каким транспортным средствам` (jo'nalish kelishigi) deb so'raydi. 1-variant `Всем механическим...` to'g'ri, qolgan ikkitasi qaratqichda qolib ketgan."
+    },
+    {
+      "id": "gradusov",
+      "savol": "t_20_q_12",
+      "xato": "3,25 градусов",
+      "togri": "3,25 градуса",
+      "soni": 6,
+      "tasdiq": "O'nlik sondan keyin birlik son qaratqichda. SHU savolning o'zida `10 градусов`, `20 градусов` — to'g'ri."
+    },
+    {
+      "id": "zhiloy-rayon",
+      "savol": "t_20_q_14",
+      "xato": "в жилом районе",
+      "togri": "в населённых пунктах",
+      "soni": 6,
+      "tasdiq": "O'zbekchasi `Aholi punktlarida`. Korpusda `в населённых пунктах` 84x."
+    },
+    {
+      "id": "cheredujushimisya",
+      "savol": "t_21_q_4",
+      "xato": "чередующими полосами",
+      "togri": "чередующимися полосами",
+      "soni": 6,
+      "tasdiq": "Qaytim qo'shimchasi `-ся` tushib qolgan. To'g'ri shakl korpusda 0x."
+    },
+    {
+      "id": "svetootrazh-bosh-harf",
+      "savol": "t_21_q_4",
+      "xato": "кроме того Светоотражающими",
+      "togri": "кроме того светоотражающими",
+      "soni": 6,
+      "tasdiq": "Gap o'rtasida bosh harf."
+    },
+    {
+      "id": "tupik",
+      "savol": "t_21_q_18",
+      "xato": "закрытую улицу в конце дороги",
+      "togri": "тупик",
+      "soni": 6,
+      "tasdiq": "O'zbekchasi `oxiri berk ko'cha` = тупик. Korpusda `тупик`/`Тупик` 41x — atama mavjud, bu yerda so'zma-so'z tarjima qilingan."
+    }
+  ],
+  "qaror_kerak": [
+    {
+      "mavzu": "uz_cyr: автомобил / автомобиль",
+      "tavsif": "uz_cyr bo'limlari ichida `автомобил` (yumshoq belgisiz) 5133x, `автомобиль` (yumshoq belgili) 321x. Ya'ni 94% ko'pchilik yumshoq belgisiz.",
+      "taklif": "Ko'pchilik shaklga (`автомобил`) birlashtirish. 321 ta almashtirish — katta o'zgarish, shuning uchun alohida tasdiq kerak.",
+      "eslatma": "Rus tilidagi `автомобиль` TEGILMAYDI — u yerda yumshoq belgi to'g'ri."
+    },
+    {
+      "mavzu": "t_18_q_6 — toifa kodlarida aralash alifbo",
+      "tavsif": "Kirillchada `N2, N3; О3; О4` — `N` lotincha, `О` kirillcha. Xalqaro toifa kodlari lotin harflarida bo'lishi kerak.",
+      "jiddiylik": "past"
+    },
+    {
+      "mavzu": "Rasm yorliqlari (А/Б/В vs A/B/C) — HAL QILINDI, lekin global tuzatib BO'LMAYDI",
+      "tavsif": "Rasmlar ikki xil uslubda: u211uz.webp va u214uz.webp da KIRILL yorliqlar (А, Б, В / А, Б, С, Д), u205uz.webp da esa LOTIN (A, B, C). Har bir savolning variantlari O'Z rasmiga mos bo'lishi kerak.",
+      "aniqlangan_nomuvofiqliklar": [
+        {
+          "savol": "t_19_q_6",
+          "rasm": "u211uz.webp (А, Б, В)",
+          "hozir": "uz_lat: A / A va B / V",
+          "kerak": "«А» / «А» va «Б» / «В»"
+        },
+        {
+          "savol": "t_19_q_9",
+          "rasm": "u214uz.webp (А, Б, С, Д)",
+          "hozir": "uz_lat va ru: A / B / B,C,D",
+          "kerak": "«А» / «Б» / «Б», «С», «Д»"
+        }
+      ],
+      "togri_ishlaganlari": [
+        {
+          "savol": "t_18_q_18",
+          "rasm": "u205uz.webp (A, B, C)",
+          "holat": "uz_lat, uz_cyr, ru — hammasi A/B/C, rasmga MOS ✓"
+        }
+      ],
+      "ogohlantirish": "uz_lat da kirill «А»/«Б»/«В» ishlatilgan 61 xil matn bor — ular RASMGA MOS va TO'G'RI. Global find-replace ularni BUZADI. Har bir savolni rasmi bilan alohida solishtirish kerak."
+    },
+    {
+      "mavzu": "t_20_q_3 — tillar boshqa narsani aytadi",
+      "jiddiylik": "YUQORI",
+      "uz": "Yo'l yuzidagi qurilma va inshootlardan boshlab",
+      "ru": "В начале застроенной территории, непосредственно прилегающей к дороге",
+      "tavsif": "Ikkalasi ham 6x. Ruscha variant YHQ ning standart chalg'ituvchi javobi (yo'lga tutash qurilgan hudud boshlanishi). O'zbekchasi `yo'l yuzidagi qurilma` deb boshqa narsaga aylangan.",
+      "taklif": "O'zbekchani ruschaga moslashtirish: `Yo'lga bevosita tutash qurilgan hudud boshlanishidan`. Tasdiq kerak."
+    },
+    {
+      "mavzu": "t_20_q_14 — ruscha savol grammatik buzuq",
+      "jiddiylik": "o'rta",
+      "hozir": "Каким должен быть знак остановки «авария» или мигающий красный свет в жилом районе, по крайней мере, на расстоянии от автомобиля (кроме мотоцикла без бокового прицепа)?",
+      "tavsif": "Gap tuzilishi buzuq (`Каким должен быть ... на расстоянии`), hamda o'zbekchada yo'q `(кроме мотоцикла...)` qo'shimchasi bor.",
+      "taklif": "`На каком расстоянии от транспортного средства должен быть установлен знак аварийной остановки или мигающий красный фонарь в населённых пунктах?` — qayta yozish tasdiq talab qiladi."
+    },
+    {
+      "mavzu": "DYHX / DYHXX qisqartmasi",
+      "tavsif": "`DYHXX` 106x, faqat `DYHX` 24x. Ruschasi `ГСБДД` 76x. Etalon shakl aniqlanmagan.",
+      "jiddiylik": "past"
+    }
+  ],
+  "jami": {
+    "uz_lat": 16,
+    "uz_cyr": 4,
+    "ru": 15,
+    "qaror_kerak": 6,
+    "jami_xato": 35
+  }
+}
