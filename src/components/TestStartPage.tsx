@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useAuth } from "@/contexts/AuthContext";
 import { useTestResults } from "@/hooks/useTestResults";
-import { useDarkMode } from "@/hooks/useDarkMode";
 import { Button } from "@/components/ui/button";
-import { Home, Play, AlertTriangle, User, LogIn, Lock, Crown } from "lucide-react";
+import { Play, AlertTriangle, Lock, Crown, Home } from "lucide-react";
 import { FREE_VARIANT_UI, isVariantLocked as checkVariantLocked } from "@/lib/variantAccess";
 
 interface TestStartPageProps {
@@ -68,10 +66,7 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
   );
   const [proNotice, setProNotice] = useState<string | null>(null);
   const { language, setLanguage, t } = useLanguage();
-  const { user, profile } = useAuth();
   const { getVariantStatus, loading: resultsLoading } = useTestResults();
-  const { isDark } = useDarkMode();
-  const navigate = useNavigate();
 
   const handleStartTest = () => {
     if (selectedVariant !== null) {
@@ -147,62 +142,45 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-primary/5">
+    <div className="bg-gradient-to-br from-background via-background to-primary/5">
       {/* Mobile Layout */}
       <div className="lg:hidden bg-background pb-4">
-        {/* Header — scroll bilan ketadi */}
-        <div className="bg-card border-b border-border p-4">
-          <div className="flex items-center justify-between mb-3">
-            <Link to="/">
-              <Button variant="outline" size="sm" className="gap-2">
-                <Home className="w-4 h-4" />
-                Bosh sahifa
-              </Button>
-            </Link>
-            {user ? (
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => navigate('/profile')}
-                className="gap-2"
-              >
-                <User className="w-4 h-4" />
-                <span className="text-xs">{profile?.full_name || profile?.username || 'Profil'}</span>
-              </Button>
-            ) : (
-              <Button
-                size="sm"
-                onClick={() => navigate('/auth')}
-                className="gap-2"
-              >
-                <LogIn className="w-4 h-4" />
-                <span className="text-xs">Kirish</span>
-              </Button>
-            )}
-          </div>
-
-          {/* Language Selection */}
-          <div className="flex gap-2">
-            {languages.map((lang) => (
-              <Button
-                key={lang.id}
-                variant="outline"
-                size="sm"
-                className={`flex-1 text-xs ${
-                  language === lang.id 
-                    ? "bg-primary text-primary-foreground border-primary" 
-                    : ""
-                }`}
-                onClick={() => setLanguage(lang.id)}
-              >
-                {lang.label}
-              </Button>
-            ))}
-          </div>
+        {/* Mobilda ham chiqish yo'li ko'rinib tursin */}
+        <div className="px-4 pt-3">
+          <Link to="/">
+            <Button variant="outline" size="sm" className="gap-2">
+              <Home className="w-4 h-4" />
+              {t("nav.home")}
+            </Button>
+          </Link>
         </div>
 
-        {/* Sticky: faqat boshlash tugmasi — scroll pastga tushganda ham tepada */}
-        <div className="sticky top-0 z-30 bg-card/95 backdrop-blur-sm border-b border-border px-4 py-2.5 shadow-sm">
+        {/*
+          "Bosh sahifa / Profil / Kirish" tugmalari BU YERDAN OLIB TASHLANDI —
+          uchalasi ham sayt headerida bor va ikkinchi qatorda takrorlanishi
+          ekranning yuqori qismini bekorga egallardi.
+
+          Til tanlash QOLDIRILDI: bu yerda u "test qaysi tilda bo'ladi" degan
+          ma'noni bildiradi va desktop yon panelida ham shu turadi.
+        */}
+        <div className="flex gap-2 border-b border-border bg-card px-4 py-3">
+          {languages.map((lang) => (
+            <Button
+              key={lang.id}
+              variant="outline"
+              size="sm"
+              className={`flex-1 text-xs ${
+                language === lang.id ? "bg-primary text-primary-foreground border-primary" : ""
+              }`}
+              onClick={() => setLanguage(lang.id)}
+            >
+              {lang.label}
+            </Button>
+          ))}
+        </div>
+
+        {/* Sticky: faqat boshlash tugmasi — sayt headeri ostiga yopishadi */}
+        <div className="sticky top-14 z-30 bg-card/95 backdrop-blur-sm border-b border-border px-4 py-2.5 shadow-sm md:top-[60px]">
           <Button
             size="lg"
             className="w-full gap-2 h-12"
@@ -232,21 +210,21 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
           )}
 
           {startError && (
-            <div className="mt-2 flex items-center gap-2 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+            <div className="mt-2 flex items-center gap-2 bg-red-500/10 border border-red-500/25 rounded-lg px-3 py-2">
               <AlertTriangle className="w-4 h-4 text-red-500 flex-shrink-0" />
-              <p className="text-xs text-red-700">{startError}</p>
+              <p className="text-xs text-red-700 dark:text-red-300">{startError}</p>
             </div>
           )}
           {!hasProAccess && (
-            <div className="mt-2 flex items-start gap-2 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2">
-              <Crown className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
-              <p className="text-xs text-amber-900">{freeHintMessage}</p>
+            <div className="mt-2 flex items-start gap-2 bg-amber-500/10 border border-amber-500/25 rounded-lg px-3 py-2">
+              <Crown className="w-4 h-4 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
+              <p className="text-xs text-amber-900 dark:text-amber-200">{freeHintMessage}</p>
             </div>
           )}
           {proNotice && (
-            <div className="mt-2 flex items-center gap-2 bg-orange-50 border border-orange-200 rounded-lg px-3 py-2">
-              <Lock className="w-4 h-4 text-orange-600 flex-shrink-0" />
-              <p className="text-xs text-orange-900">{proNotice}</p>
+            <div className="mt-2 flex items-center gap-2 bg-orange-500/10 border border-orange-500/25 rounded-lg px-3 py-2">
+              <Lock className="w-4 h-4 text-orange-600 dark:text-orange-400 flex-shrink-0" />
+              <p className="text-xs text-orange-900 dark:text-orange-200">{proNotice}</p>
             </div>
           )}
         </div>
@@ -303,49 +281,31 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
         </div>
       </div>
 
-      {/* Desktop Layout */}
-      <div className={`hidden lg:flex h-screen overflow-hidden bg-background text-foreground${isDark ? ' dark' : ''}`}>
+      {/*
+        Desktop: ikki panelli "ilova" ko'rinishi.
+
+        Balandlik `100vh - header` — ilgari to'liq `h-screen` edi va sayt
+        headeri yo'q deb hisoblanardi. Header qaytarilgach, o'sha balandlik
+        ekrandan oshib ketardi.
+
+        "Bosh sahifa / Profil" tugmalari olib tashlandi — header da bor.
+      */}
+      <div className="hidden h-[calc(100vh-60px)] overflow-hidden bg-background text-foreground lg:flex">
         {/* Left Side - Test Start Section (30%) */}
         <div className="w-[30%] bg-card border-r border-border p-6 flex flex-col">
           <div className="flex-1 flex flex-col">
-            <div className="mb-4">
-              <Link to="/">
-                <Button variant="outline" size="sm" className="gap-2">
-                  <Home className="w-4 h-4" />
-                  Bosh sahifa
-                </Button>
-              </Link>
-            </div>
-
-            {/* Profile Section */}
-            <div className="mb-4">
-              {user ? (
-                <Button
-                  variant="outline"
-                  onClick={() => navigate('/profile')}
-                  className="w-full flex items-center gap-2 h-auto py-2.5 px-3 justify-start"
-                >
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <User className="w-4 h-4 text-primary" />
-                  </div>
-                  <div className="flex-1 text-left min-w-0">
-                    <div className="font-semibold text-xs truncate">{profile?.full_name || profile?.username || 'Profil'}</div>
-                    {profile?.username && profile?.full_name && (
-                      <div className="text-[10px] text-muted-foreground truncate">@{profile.username}</div>
-                    )}
-                  </div>
-                </Button>
-              ) : (
-                <Button
-                  onClick={() => navigate('/auth')}
-                  className="w-full gap-2"
-                  size="sm"
-                >
-                  <LogIn className="w-4 h-4" />
-                  Kirish
-                </Button>
-              )}
-            </div>
+            {/*
+              Bosh sahifaga qaytish. Sayt headerida ham havola bor, lekin bu
+              ekran to'liq balandlikdagi ikki panelli "ilova" ko'rinishida —
+              foydalanuvchi tepadagi menyuni izlamasligi uchun chiqish yo'li
+              shu yerda, ko'z oldida turadi.
+            */}
+            <Link to="/" className="mb-4 self-start">
+              <Button variant="outline" size="sm" className="gap-2">
+                <Home className="w-4 h-4" />
+                {t("nav.home")}
+              </Button>
+            </Link>
 
             {/* Language Selection */}
             <div className="mb-4">
@@ -403,21 +363,21 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
 
             {/* Start Button */}
             {startError && (
-              <div className="mb-2 flex items-center gap-2 bg-red-50 border border-red-200 rounded-lg px-3 py-2">
+              <div className="mb-2 flex items-center gap-2 bg-red-500/10 border border-red-500/25 rounded-lg px-3 py-2">
                 <AlertTriangle className="w-4 h-4 text-red-500 flex-shrink-0" />
-                <p className="text-xs text-red-700">{startError}</p>
+                <p className="text-xs text-red-700 dark:text-red-300">{startError}</p>
               </div>
             )}
             {!hasProAccess && (
-              <div className="mb-2 flex items-start gap-2 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2">
-                <Crown className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
-                <p className="text-xs text-amber-900">{freeHintMessage}</p>
+              <div className="mb-2 flex items-start gap-2 bg-amber-500/10 border border-amber-500/25 rounded-lg px-3 py-2">
+                <Crown className="w-4 h-4 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
+                <p className="text-xs text-amber-900 dark:text-amber-200">{freeHintMessage}</p>
               </div>
             )}
             {proNotice && (
-              <div className="mb-2 flex items-center gap-2 bg-orange-50 border border-orange-200 rounded-lg px-3 py-2">
-                <Lock className="w-4 h-4 text-orange-600 flex-shrink-0" />
-                <p className="text-xs text-orange-900">{proNotice}</p>
+              <div className="mb-2 flex items-center gap-2 bg-orange-500/10 border border-orange-500/25 rounded-lg px-3 py-2">
+                <Lock className="w-4 h-4 text-orange-600 dark:text-orange-400 flex-shrink-0" />
+                <p className="text-xs text-orange-900 dark:text-orange-200">{proNotice}</p>
               </div>
             )}
             <Button

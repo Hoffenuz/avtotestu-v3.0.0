@@ -3,6 +3,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useAccessState } from "@/hooks/useAccessState";
 import { useTestSession } from "@/hooks/useTestSession";
 import { SEO } from "@/components/SEO";
+import { MainLayout } from "@/components/layout/MainLayout";
 import { TestStartPage } from "@/components/TestStartPage";
 import { TestInterface } from "@/components/TestInterface";
 import {
@@ -151,8 +152,12 @@ export default function Variant() {
     setTestStarted(true);
   };
 
+  // Test BOSHLANMAGAN holat sayt headeri bilan ko'rsatiladi — `/bolimlar` dan
+  // "Variantlar" ga o'tilganda header yo'qolib qolmasligi uchun. Test
+  // boshlangach (yuqoridagi `TestInterface` shohobchasi) header ataylab yo'q:
+  // imtihon paytida diqqatni chalg'itadigan navigatsiya keraksiz.
   return (
-    <>
+    <MainLayout>
       <SEO
         title="63 ta Test Varianti 2026 — Bepul YHQ Imtihon Testi"
         description="63 ta YHQ test varianti, har birida 20 ta savol — xuddi haqiqiy imtihondagidek. Bepul onlayn ishlang va prava olishga to'liq tayyorlaning."
@@ -160,7 +165,7 @@ export default function Variant() {
         keywords="test varianti, prava test, imtihon savollari, YHQ test, 63 variant"
       />
       {starting ? (
-        <div className="min-h-screen flex items-center justify-center">
+        <div className="flex min-h-[60vh] items-center justify-center">
           <div className="w-10 h-10 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
         </div>
       ) : (
@@ -170,6 +175,6 @@ export default function Variant() {
           hasProAccess={isPremium}
         />
       )}
-    </>
+    </MainLayout>
   );
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEO } from "@/components/SEO";
@@ -8,18 +8,21 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useAccessState } from "@/hooks/useAccessState";
 import {
   Play,
-  MonitorSmartphone,
-  ShieldCheck,
-  Trophy,
   User,
   BarChart3,
   BookOpen,
   Settings,
   Crown,
-  Zap
+  Zap,
+  MonitorSmartphone,
+  ShieldCheck,
+  Trophy
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { SectionGrid } from "@/components/SectionGrid";
+import { QUICK_ITEMS } from "@/lib/siteSections";
+import { fetchSectionCounts } from "@/lib/questionState";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { SiteNotificationBanner } from "@/components/SiteNotificationBanner";
 import MobileAppBanner from "@/components/MobileAppBanner";
@@ -39,6 +42,29 @@ export default function Home() {
    * o'qilmaydi, ya'ni qiymat barqaror va maket sakramaydi.
    */
   const [expectsSession] = useState(hasStoredSession);
+  const [quickBadges, setQuickBadges] = useState<Record<string, number>>({});
+
+  /**
+   * Xato javoblar soni — faqat kirgan foydalanuvchi uchun.
+   *
+   * Son "Xatolar ustida ishlash" plitkasida ko'rsatiladi: u aynan nechta
+   * savolni qayta yechish mumkinligini bildiradi. Saqlangan savollar soni
+   * bu yerda kerak emas — u plitka bosh sahifada yo'q.
+   */
+  useEffect(() => {
+    if (!user) {
+      setQuickBadges({});
+      return;
+    }
+    let cancelled = false;
+    void (async () => {
+      const { wrong } = await fetchSectionCounts();
+      if (cancelled) return;
+      setQuickBadges(wrong > 0 ? { "/xatolar-testi": wrong } : {});
+    })();
+    return () => { cancelled = true; };
+  }, [user]);
+
 
   /**
    * Profil panelini ko'rsatamizmi.
@@ -92,11 +118,11 @@ export default function Home() {
           width="1920"
           height="1080"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/90 to-primary/85 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand/95 via-brand/90 to-brand/85 backdrop-blur-[2px]" />
 
         {/* Content */}
         <div className="relative w-full max-w-7xl mx-auto px-4 py-16">
-          <div className="max-w-4xl mx-auto bg-primary/80 backdrop-blur-md rounded-[2rem] p-8 md:p-12 text-center shadow-2xl">
+          <div className="max-w-4xl mx-auto bg-brand/80 backdrop-blur-md rounded-[2rem] p-8 md:p-12 text-center shadow-2xl">
 
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white/95 text-sm font-medium mb-6 border border-white/10">
               <span className="relative flex h-2 w-2">
@@ -181,11 +207,34 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-16 bg-background">
+      {/*
+        Tezkor amallar — afzalliklardan YUQORIDA.
+
+        Foydalanuvchi pastga surganda avval o'ziga kerakli amalni ko'radi
+        (imtihon, xatolar ustida ishlash, qidiruv), keyin reklama matnini
+        o'qiydi. Teskari tartibda foydali havolalar pastga surilib ketardi.
+      */}
+      <section className="py-10 bg-background">
+        <div className="max-w-4xl mx-auto px-4">
+          <SectionGrid items={QUICK_ITEMS} badges={quickBadges} signedIn={!!user} />
+        </div>
+      </section>
+
+      {/*
+        Platformaning afzalliklari.
+
+        ATAYLAB BO'LIMLARDAN KEYIN: foydalanuvchi avval nima qila olishini
+        (bo'limlar) ko'rsin, keyin nega aynan shu saytni tanlashi kerakligini
+        o'qisin. Teskari tartibda reklama matni foydali havolalarni pastga
+        surib yuborardi.
+      */}
+      <section className="py-16 bg-muted/30 defer-paint">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4" style={{ fontFamily: "'Segoe UI', system-ui, -apple-system, sans-serif" }}>
+            <h2
+              className="text-3xl md:text-4xl font-bold text-foreground mb-4"
+              style={{ fontFamily: "'Segoe UI', system-ui, -apple-system, sans-serif" }}
+            >
               {t("home.featuresTitle")}
             </h2>
           </div>
@@ -194,7 +243,7 @@ export default function Home() {
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <Card key={index} className="border border-muted/60 shadow-sm bg-card hover:shadow-md transition-all hover:-translate-y-1">
+                <Card key={index} className="border border-border shadow-sm bg-card hover:shadow-md transition-all hover:-translate-y-1">
                   <CardContent className="pt-8 pb-6 text-center">
                     <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-2xl flex items-center justify-center" style={{ aspectRatio: '1' }}>
                       <Icon className="w-8 h-8 text-primary" />
@@ -227,7 +276,7 @@ export default function Home() {
         mehmonlar uchun esa hech narsa o'zgarmadi: bo'lim umuman chizilmaydi.
       */}
       {showProfilePanel && (
-        <section className="py-10 md:py-12 bg-background border-t border-border">
+        <section className="py-10 md:py-12 bg-background border-t border-border defer-paint">
           <div className="max-w-4xl mx-auto px-4">
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-6">
               <Avatar className="h-14 w-14 bg-primary/10 text-primary shrink-0" style={{ aspectRatio: "1" }}>
@@ -288,7 +337,7 @@ export default function Home() {
 
       {/* PRO Section — sodda */}
       {!(user && isPremium) && (
-        <section className="py-10 md:py-12 bg-muted/30 border-t border-border">
+        <section className="py-10 md:py-12 bg-muted/30 border-t border-border defer-paint">
           <div className="max-w-4xl mx-auto px-4">
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
               <div className="flex-1">

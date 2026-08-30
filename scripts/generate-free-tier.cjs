@@ -44,7 +44,17 @@ function writeJson(p, data) {
   fs.writeFileSync(p, JSON.stringify(data), "utf8");
 }
 
-const EXPECTED_COUNT = 1000;
+/**
+ * Manifestdagi savollar soni — TASODIFIY o'zgarib ketmasligi uchun qo'riqchi.
+ *
+ * Tarix:
+ *   1000 — 2026-08-12 (600 dan kengaytirilgan)
+ *   1009 — 2026-08-30, v63 ga 11–19 savollar qo'shildi (t_63_q_11 … t_63_q_19)
+ *
+ * Manifestga savol qo'shsangiz, shu sonni ham yangilang — aks holda skript
+ * ataylab yiqiladi va e'tiborsiz o'zgarish sezilmay o'tib ketmaydi.
+ */
+const EXPECTED_COUNT = 1009;
 
 const freeIds = new Set(loadJson(MANIFEST));
 if (freeIds.size !== EXPECTED_COUNT) {

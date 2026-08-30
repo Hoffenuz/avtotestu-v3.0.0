@@ -9,6 +9,7 @@ import { User, Session } from '@supabase/supabase-js';
  * imported module" xatosini keltirib chiqarardi.
  */
 import { clearAllUserData } from '@/lib/clearUserData';
+import { resetSavedCache } from '@/lib/questionState';
 import { AUTH_RPC_TIMEOUT_MS, PROFILE_TIMEOUT_MS, SIGN_IN_TIMEOUT_MS, withTimeout } from '@/lib/withTimeout';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -146,6 +147,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const bootstrappedRef = useRef(false);
 
   const clearAccessState = useCallback(() => {
+    // Saqlangan savollar keshi FOYDALANUVCHIGA tegishli — tozalanmasa,
+    // shu qurilmada kirgan keyingi odam avvalgisining ro'yxatini ko'rardi.
+    resetSavedCache();
     accessFetchSeqRef.current++;
     accessConfirmedRef.current = false;
     setAccessState('guest');

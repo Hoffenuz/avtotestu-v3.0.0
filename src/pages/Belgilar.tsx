@@ -120,23 +120,38 @@ export default function Belgilar() {
         path="/belgilar"
         keywords={t("belgilar.seoKeywords")}
       />
-      <section className="bg-gradient-to-br from-primary to-primary-hover py-12 md:py-16">
+      {/*
+        `--brand`, `--primary` EMAS.
+
+        `--primary` dark rejimda ATAYLAB yorishadi (u matn urg'usi sifatida
+        ham ishlatiladi va qora fonda o'qilishi kerak). Shu sababli bu
+        sarlavha dark rejimda siyohrangdan yorqin binafshaga aylanib
+        ketardi. `--brand` esa faqat KATTA YUZALAR uchun va ikkala temada
+        ham bir xil siyohrang bo'lib qoladi.
+      */}
+      <section className="bg-gradient-to-br from-brand to-brand/90 py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h1 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-3">
+          <h1 className="text-3xl md:text-4xl font-bold text-brand-foreground mb-3">
             {t("belgilar.title")}
           </h1>
-          <p className="text-base text-primary-foreground/90 mb-6">
+          <p className="text-base text-brand-foreground/90 mb-6">
             {t("belgilar.subtitle").replace("{count}", String(totalSigns))}
           </p>
 
           <div className="max-w-md mx-auto relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
+            {/*
+              Maydon ikkala temada ham OQ: u doim siyohrang fon ustida
+              turadi. Ilgari `bg-primary-foreground` (oq) edi, lekin matn
+              rangi `foreground` bo'lib qolgan — dark rejimda oq fonda oq
+              matn chiqib, yozgan narsangiz ko'rinmasdi.
+            */}
             <Input
               type="text"
               placeholder={t("belgilar.searchPlaceholder")}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-12 py-5 text-base rounded-xl bg-primary-foreground border-none shadow-lg"
+              className="pl-12 py-5 text-base rounded-xl bg-white text-slate-900 placeholder:text-slate-500 border-none shadow-lg"
             />
           </div>
         </div>

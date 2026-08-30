@@ -48,13 +48,13 @@ export default function Qoshimcha() {
 
       {/* Hero Section */}
       <section className="relative py-16 md:py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary-hover to-primary-light" />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand via-brand to-brand/90" />
         <div className="absolute inset-0 hero-pattern" />
         <div className="relative max-w-7xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-6" style={{ fontFamily: "'Segoe UI', system-ui, -apple-system, sans-serif" }}>
+          <h1 className="text-4xl md:text-5xl font-bold text-brand-foreground mb-6" style={{ fontFamily: "'Segoe UI', system-ui, -apple-system, sans-serif" }}>
             Qo'shimcha ma'lumotlar
           </h1>
-          <p className="text-lg md:text-xl text-primary-foreground/90 max-w-2xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-brand-foreground/90 max-w-2xl mx-auto mb-8">
             Testga tayyorlanish bo'yicha batafsil yo'riqnoma, amaliy maslahatlar va qo'llanmalar.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -65,7 +65,7 @@ export default function Qoshimcha() {
               </Button>
             </Link>
             <Link to="/yangiliklar">
-              <Button variant="outline" className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/20 gap-2 px-6 py-5 rounded-full font-semibold">
+              <Button variant="outline" className="bg-brand-foreground/10 border-primary-foreground/20 text-brand-foreground hover:bg-brand-foreground/20 gap-2 px-6 py-5 rounded-full font-semibold">
                 <Newspaper className="w-5 h-5" />
                 Yangiliklar
               </Button>

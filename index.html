@@ -17,6 +17,90 @@
       "buzilgan" deb yanglishardi). Faqat HAQIQIY yuklanish xatosida
       sahifa bir marta jimgina qayta yuklanadi.
     -->
+    <!--
+      Dark mode klassini React chizilishidan OLDIN qo'yamiz.
+      Aks holda dark rejimdagi foydalanuvchi bir lahza OQ sahifani ko'radi
+      ("flash of light theme") — bu ayniqsa kechqurun ko'zni qamashtiradi.
+    -->
+    <script data-cfasync="false">
+      (function () {
+        try {
+          if (localStorage.getItem('darkMode') === 'true') {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) { /* private rejim */ }
+      })();
+    </script>
+
+    <!--
+      Telegram Mini App — SDK ni ENG ERTA yuklaymiz.
+
+      MUAMMO (foydalanuvchi shikoyati: "Telegramda sayt birdan ishlamaydi,
+      refresh qilsa ishlaydi"):
+        SDK ilgari `main.tsx` dan, ya'ni ~310 KB asosiy bundle yuklanib,
+        tahlil qilingandan KEYIN so'ralardi. Telegram mobil ilovada Mini App
+        avval YARIM BALANDLIKDAGI panelda ochiladi va faqat `expand()`
+        chaqirilgach to'liq ekranga yoyiladi. Sekin mobil internetda bu
+        zanjir bir necha soniya davom etardi: shu vaqt ichida sayt yarim
+        panelda, kesilgan holda turardi — foydalanuvchi buni "ishlamayapti"
+        deb qabul qiladi. Qayta ochilganda SDK keshdan kelib, `expand()`
+        deyarli darhol ishlagani uchun "refresh qilsa ishlaydi" bo'lardi.
+
+      YECHIM: skript shu yerda, bundle yuklanishi bilan PARALLEL ravishda
+      so'raladi va `ready()` + `expand()` imkon boricha erta chaqiriladi.
+      Qolgan sozlamalar (desktopda fullscreen, vertikal swipe) `main.tsx`
+      dagi `initTelegramWebApp()` da davom etadi — u SDK allaqachon
+      yuklanganini ko'rib, qayta so'ramaydi.
+
+      Telegram'dan TASHQARIDA hech qanday so'rov yuborilmaydi: shart
+      bajarilmasa funksiya darhol qaytadi.
+    -->
+    <script data-cfasync="false">
+      (function () {
+        try {
+          var inTelegram =
+            !!(window.Telegram && window.Telegram.WebApp) ||
+            !!window.TelegramWebviewProxy ||
+            /[?&#]tgWebApp(Data|Platform|Version)=/.test(window.location.href);
+
+          /**
+           * Natijani SHU YERDA saqlaymiz — bu URL hali butun bo'lgan yagona
+           * ishonchli payt. React Router birinchi navigatsiyada
+           * `#tgWebAppData=...` fragmentini yo'qotadi, shundan keyin
+           * aniqlashning iloji bo'lmay qolishi mumkin (ayniqsa iOS'da).
+           */
+          window.__inTelegram = inTelegram;
+
+          if (!inTelegram) return;
+
+          /**
+           * Telegram'da `BottomNav` umuman chizilmaydi (Telegram o'z pastki
+           * interfeysini ko'rsatadi), LEKIN `.has-bottom-nav` klassi u uchun
+           * joy ajratishda davom etardi — har sahifa pastida 56px bo'sh
+           * chiziq qolardi. Klass `<html>` ga qo'yiladi, CSS esa joyni
+           * bekor qiladi (index.css). React holati orqali emas — ortiqcha
+           * qayta render ham, maket sakrashi ham bo'lmaydi.
+           */
+          document.documentElement.classList.add('tg-app');
+
+          var s = document.createElement('script');
+          s.src = 'https://telegram.org/js/telegram-web-app.js';
+          s.async = true;
+          s.onload = function () {
+            var wa = window.Telegram && window.Telegram.WebApp;
+            if (!wa) return;
+            // Telegram'ga "tayyor" signali — yuklanish ekrani yopiladi.
+            try { wa.ready(); } catch (e) { /* eski mijoz */ }
+            // Yarim paneldan to'liq balandlikka. Desktopda ta'sirsiz.
+            try { wa.expand(); } catch (e) { /* eski mijoz */ }
+          };
+          // Xato bo'lsa jimgina o'tamiz — sayt Telegram'siz ham ishlaydi.
+          s.onerror = function () { /* ignore */ };
+          document.head.appendChild(s);
+        } catch (e) { /* ignore */ }
+      })();
+    </script>
+
     <script data-cfasync="false">
       (function () {
         var KEY = 'rl';

@@ -721,6 +721,33 @@ export type Database = {
           },
         ]
       }
+      user_question_state: {
+        Row: {
+          correct_count: number
+          global_id: string
+          last_seen_at: string
+          saved: boolean
+          user_id: string
+          wrong_count: number
+        }
+        Insert: {
+          correct_count?: number
+          global_id: string
+          last_seen_at?: string
+          saved?: boolean
+          user_id: string
+          wrong_count?: number
+        }
+        Update: {
+          correct_count?: number
+          global_id?: string
+          last_seen_at?: string
+          saved?: boolean
+          user_id?: string
+          wrong_count?: number
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
@@ -747,6 +774,14 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      record_question_answers: {
+        Args: { p_answers: Json }
+        Returns: number
+      }
+      toggle_saved_question: {
+        Args: { p_global_id: string }
+        Returns: boolean
+      }
       activate_trial_for_user: {
         Args: { p_user_id: string }
         Returns: undefined

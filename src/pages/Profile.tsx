@@ -25,13 +25,15 @@ import {
   FileText,
   History,
   ExternalLink,
-  ChevronDown,
+  Monitor,
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { DeviceLicenseCard } from '@/components/DeviceLicenseCard';
 import { PasswordSection } from '@/components/PasswordSection';
 import { emailToPhoneDisplay } from '@/lib/phone';
 import { formatTestTime } from '@/lib/testPersistence';
+import { BottomNav } from '@/components/layout/BottomNav';
+import { ProfileSection } from '@/components/profile/ProfileSection';
 
 interface TestResult {
   id: string;
@@ -71,7 +73,6 @@ const Profile = () => {
   const [editUsername, setEditUsername] = useState('');
   const [editFullName, setEditFullName] = useState('');
   const [isSaving, setIsSaving] = useState(false);
-  const [resultsExpanded, setResultsExpanded] = useState(true);
   
   // Chek linkini saqlash uchun yangi state
   const [checkLink, setCheckLink] = useState<string | null>(null);
@@ -343,16 +344,17 @@ useEffect(() => {
       path="/profile"
       noIndex={true}
     />
-    <div className="min-h-screen bg-background">
+    {/* `has-bottom-nav` — mobil pastki panel uchun joy ajratadi */}
+    <div className="min-h-screen bg-background has-bottom-nav">
       {/* Header with User Name */}
-      <header className="bg-primary text-primary-foreground px-4 md:px-6 py-6 md:py-8">
+      <header className="bg-brand text-brand-foreground px-4 md:px-6 py-6 md:py-8">
         <div className="max-w-5xl mx-auto w-full">
           <div className="flex items-center justify-between mb-4">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => navigate('/')}
-              className="text-primary-foreground hover:bg-primary-foreground/10"
+              className="text-brand-foreground hover:bg-brand-foreground/10"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               Orqaga
@@ -370,7 +372,7 @@ useEffect(() => {
           </div>
           
           <div className="flex items-center gap-4">
-            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-primary-foreground/20 flex items-center justify-center">
+            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-brand-foreground/20 flex items-center justify-center">
               <User className="w-10 h-10 md:w-12 md:h-12 text-primary-foreground" />
             </div>
             <div className="flex-1">
@@ -386,15 +388,63 @@ useEffect(() => {
         </div>
       </header>
 
+      {/*
+        BO'LIMLAR YIG'ILADIGAN.
+
+        Ilgari hamma narsa bir vaqtda ochiq turardi va sahifa uzun tasmaga
+        aylanardi. Endi har biri bitta qator — bosilganda ochiladi.
+        "Natijalar" ISTISNO: u qisqa va eng ko'p qaraladigan ma'lumot,
+        shuning uchun doim ochiq.
+      */}
       <main className="max-w-5xl mx-auto w-full px-4 md:px-6 py-6 md:py-8 -mt-4">
-        {/* Profil ma'lumotlari + Natijalar — yonma-yon */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6 items-start">
-          <Card className="p-6 h-full">
-            <div className="flex items-center justify-between mb-4 gap-2">
-              <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
-                <User className="w-5 h-5 text-primary" />
-                Profil ma'lumotlari
-              </h2>
+        {/* Natijalar — doim ochiq */}
+        <Card className="p-4 md:p-5">
+          <h2 className="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
+            <Trophy className="w-4 h-4 text-primary" />
+            Natijalar
+          </h2>
+          <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+            <div className="p-3 rounded-xl bg-muted/40 border border-border text-center">
+              <Trophy className="w-5 h-5 text-primary mx-auto mb-1.5" />
+              <div className="text-2xl font-bold text-foreground">{examResults.length}</div>
+              <p className="text-xs text-muted-foreground mt-0.5">Jami testlar</p>
+            </div>
+            <div className="p-3 rounded-xl bg-muted/40 border border-border text-center">
+              <CheckCircle className="w-5 h-5 text-green-500 mx-auto mb-1.5" />
+              <div className="text-2xl font-bold text-foreground">{sortedVariants.length}</div>
+              <p className="text-xs text-muted-foreground mt-0.5">Variantlar</p>
+            </div>
+            <div className="p-3 rounded-xl bg-muted/40 border border-border text-center">
+              <CheckCircle className="w-5 h-5 text-green-500 mx-auto mb-1.5" />
+              <div className="text-2xl font-bold text-foreground">
+                {examResults.reduce((sum, r) => sum + r.correct_answers, 0)}
+              </div>
+              <p className="text-xs text-muted-foreground mt-0.5">To'g'ri javoblar</p>
+            </div>
+            <div className="p-3 rounded-xl bg-muted/40 border border-border text-center">
+              <XCircle className="w-5 h-5 text-red-500 mx-auto mb-1.5" />
+              <div className="text-2xl font-bold text-foreground">
+                {examResults.reduce((sum, r) => sum + (r.total_questions - r.correct_answers), 0)}
+              </div>
+              <p className="text-xs text-muted-foreground mt-0.5">Noto'g'ri javoblar</p>
+            </div>
+          </div>
+        </Card>
+
+        {/*
+          Desktopda IKKI USTUN: bo'limlar yig'ilgan holatda past bo'lgani
+          uchun bitta ustunda ekranning yarmi bo'sh qolardi.
+          `items-start` — ochilgan bo'lim qo'shnisini cho'zib yubormaydi.
+        */}
+        <div className="mt-3 grid grid-cols-1 items-start gap-3 lg:grid-cols-2">
+        <ProfileSection
+          icon={User}
+          title="Profil ma'lumotlari"
+          tone="indigo"
+          storageKey="profile.section.info"
+        >
+          <div>
+            <div className="flex items-center justify-end mb-4 gap-2">
               {!isEditing ? (
                 <Button
                   variant="outline"
@@ -508,55 +558,36 @@ useEffect(() => {
 
             {/* Parol — tahrirlash rejimida emas, ma'lumotlar ostida ixcham bo'lim */}
             {!isEditing && <PasswordSection />}
-          </Card>
+          </div>
+        </ProfileSection>
 
-          <Card className="p-6 h-full">
-            <h2 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
-              <Trophy className="w-5 h-5 text-primary" />
-              Natijalar
-            </h2>
-            <div className="grid grid-cols-2 gap-3">
-              <div className="p-4 rounded-xl bg-muted/40 border border-border text-center">
-                <Trophy className="w-5 h-5 text-primary mx-auto mb-1.5" />
-                <div className="text-2xl font-bold text-foreground">{examResults.length}</div>
-                <p className="text-xs text-muted-foreground mt-0.5">Jami testlar</p>
-              </div>
-              <div className="p-4 rounded-xl bg-muted/40 border border-border text-center">
-                <CheckCircle className="w-5 h-5 text-green-500 mx-auto mb-1.5" />
-                <div className="text-2xl font-bold text-foreground">{sortedVariants.length}</div>
-                <p className="text-xs text-muted-foreground mt-0.5">Variantlar</p>
-              </div>
-              <div className="p-4 rounded-xl bg-muted/40 border border-border text-center">
-                <CheckCircle className="w-5 h-5 text-green-500 mx-auto mb-1.5" />
-                <div className="text-2xl font-bold text-foreground">
-                  {examResults.reduce((sum, r) => sum + r.correct_answers, 0)}
-                </div>
-                <p className="text-xs text-muted-foreground mt-0.5">To'g'ri javoblar</p>
-              </div>
-              <div className="p-4 rounded-xl bg-muted/40 border border-border text-center">
-                <XCircle className="w-5 h-5 text-red-500 mx-auto mb-1.5" />
-                <div className="text-2xl font-bold text-foreground">
-                  {examResults.reduce((sum, r) => sum + (r.total_questions - r.correct_answers), 0)}
-                </div>
-                <p className="text-xs text-muted-foreground mt-0.5">Noto'g'ri javoblar</p>
-              </div>
-            </div>
-          </Card>
-        </div>
-
-        <DeviceLicenseCard
-          isPremium={isPremium}
-          subscriptionExpiresAt={subscriptionExpiresAt}
-          className="mb-6"
-        />
+        <ProfileSection
+          icon={Monitor}
+          title="Aktivatsiya qilish"
+          tone="emerald"
+          storageKey="profile.section.license"
+        >
+          {/*
+            `className` bo'sh berilgan: standart qiymati `mb-6` va ichki
+            ramka — bo'lim allaqachon ramka ichida bo'lgani uchun ular
+            ikkilangan chegara hosil qilardi.
+          */}
+          <DeviceLicenseCard
+            isPremium={isPremium}
+            subscriptionExpiresAt={subscriptionExpiresAt}
+            className="p-0 border-0 bg-transparent shadow-none"
+          />
+        </ProfileSection>
 
         {/* Subscriptions History */}
         {subscriptions.length > 0 && (
-          <Card className="p-6 mb-6">
-            <h2 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
-              <History className="w-5 h-5 text-primary" />
-              Obuna tarixi
-            </h2>
+          <ProfileSection
+            icon={History}
+            title="Obuna tarixi"
+            value={`${subscriptions.length} ta`}
+            tone="violet"
+            storageKey="profile.section.subs"
+          >
             <div className="space-y-3">
               {subscriptions.map((sub) => {
                 const isActive = new Date(sub.ends_at) > new Date();
@@ -587,35 +618,18 @@ useEffect(() => {
                 );
               })}
             </div>
-          </Card>
+          </ProfileSection>
         )}
 
-        {/* Variant bo'yicha test natijalari — yig'iladigan */}
-        <Card className="overflow-hidden">
-          <button
-            type="button"
-            onClick={() => setResultsExpanded((v) => !v)}
-            className="w-full flex items-center justify-between gap-3 p-6 text-left hover:bg-muted/30 transition-colors"
-            aria-expanded={resultsExpanded}
-          >
-            <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
-              <Trophy className="w-5 h-5 text-primary" />
-              Variant bo'yicha eng yaxshi natijalar
-              {sortedVariants.length > 0 && (
-                <span className="text-sm font-normal text-muted-foreground">
-                  ({sortedVariants.length})
-                </span>
-              )}
-            </h2>
-            <ChevronDown
-              className={`w-5 h-5 text-muted-foreground shrink-0 transition-transform duration-200 ${
-                resultsExpanded ? 'rotate-180' : ''
-              }`}
-            />
-          </button>
-
-          {resultsExpanded && (
-          <div className="px-6 pb-6 pt-0 border-t border-border">
+        {/* Variant bo'yicha test natijalari */}
+        <ProfileSection
+          icon={Trophy}
+          title="Variant bo'yicha eng yaxshi natijalar"
+          value={sortedVariants.length > 0 ? `${sortedVariants.length} ta` : undefined}
+          tone="amber"
+          storageKey="profile.section.variants"
+        >
+          <div>
           {loadingResults ? (
             <div className="text-center py-8">
               <div className="w-8 h-8 border-4 border-primary/30 border-t-primary rounded-full animate-spin mx-auto" />
@@ -687,9 +701,16 @@ useEffect(() => {
             </div>
           )}
           </div>
-          )}
-        </Card>
+        </ProfileSection>
+        </div>
       </main>
+
+      {/*
+        Profil pastki panelning to'rt bandidan biri — u yerga o'tgach panel
+        yo'qolib qolishi va orqaga faqat brauzer tugmasi bilan qaytish
+        noqulay edi.
+      */}
+      <BottomNav />
     </div>
     </>
   );

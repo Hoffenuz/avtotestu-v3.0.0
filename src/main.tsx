@@ -2,6 +2,7 @@ import { createRoot } from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
 import App from "./App.tsx";
 import { initTelegramWebApp } from "./lib/telegramWebApp";
+import { initDarkMode } from "./hooks/useDarkMode";
 import "./index.css";
 
 // Apex ↔ www localStorage ajraladi — sessiya "yo'qoladi". Brauzerda ham www ga majburan.
@@ -20,6 +21,11 @@ if (typeof window !== "undefined" && window.location.hostname === "avtotestu.uz"
    * yuklanmaydi, ya'ni oddiy foydalanuvchiga hech qanday ta'siri yo'q.
    */
   initTelegramWebApp();
+
+  // Dark mode holatini localStorage dan tiklaymiz.
+  // index.html dagi skript klassni allaqachon qo'ygan bo'lishi mumkin —
+  // bu chaqiruv JS holatini shu bilan moslashtiradi.
+  initDarkMode();
 
   createRoot(document.getElementById("root")!).render(
     <HelmetProvider>

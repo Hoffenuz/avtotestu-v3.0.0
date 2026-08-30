@@ -80,24 +80,24 @@ export default function Darslik() {
       />
 
       {/* Compact Hero */}
-      <section className="bg-gradient-to-br from-primary via-primary-hover to-primary py-6 md:py-8">
+      <section className="bg-gradient-to-br from-brand via-brand to-brand/90 py-6 md:py-8">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-lg bg-primary-foreground/10 flex items-center justify-center backdrop-blur-sm">
-              <Video className="w-4 h-4 text-primary-foreground" />
+            <div className="w-9 h-9 rounded-lg bg-brand-foreground/10 flex items-center justify-center backdrop-blur-sm">
+              <Video className="w-4 h-4 text-brand-foreground" />
             </div>
             <div>
-              <h1 className="text-xl md:text-2xl font-bold text-primary-foreground leading-tight">
+              <h1 className="text-xl md:text-2xl font-bold text-brand-foreground leading-tight">
                 Video Darslik
               </h1>
-              <p className="text-xs text-primary-foreground/70 hidden md:block">
+              <p className="text-xs text-brand-foreground/70 hidden md:block">
                 YHQ bo'yicha video darsliklar
               </p>
             </div>
           </div>
-          <div className="inline-flex items-center gap-1.5 bg-primary-foreground/10 px-3 py-1.5 rounded-full backdrop-blur-sm">
-            <BookOpen className="w-3.5 h-3.5 text-primary-foreground" />
-            <span className="text-xs text-primary-foreground/90">
+          <div className="inline-flex items-center gap-1.5 bg-brand-foreground/10 px-3 py-1.5 rounded-full backdrop-blur-sm">
+            <BookOpen className="w-3.5 h-3.5 text-brand-foreground" />
+            <span className="text-xs text-brand-foreground/90">
               {chapters.length} bo'lim · {chapters.reduce((sum, c) => sum + c.data.length, 0)} video
             </span>
           </div>

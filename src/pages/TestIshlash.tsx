@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { TestInterfaceBase } from "@/components/TestInterfaceBase";
 import { TestInterfaceCombined } from "@/components/TestInterfaceCombined";
+import { BottomNav } from "@/components/layout/BottomNav";
 
 /**
  * Bitta til = bitta fayl, ham free ham PRO uchun (ilgari free 5.9 MB'lik
@@ -47,6 +48,25 @@ const RETIRED_DATA_FILES = new Set(["600.json", "barcha.json"]);
 
 const FREE_VARIANT = 99; // sentinel for free/practice test in DB (0..100 constraint)
 
+/**
+ * Tanlanadigan savol sonlari va ularga mos vaqt (daqiqada).
+ *
+ * 20 va 50 — ASOSIY tanlovlar (imtihon formati va uzaytirilgani).
+ * 75 va 100 — qo'shimcha, uzoq mashq uchun; interfeysda kichikroq ko'rsatiladi.
+ *
+ * Vaqt savol soniga teng daqiqa (20 dan tashqari: u imtihondagidek 25 daqiqa).
+ */
+const QUESTION_COUNTS = { 20: 25, 50: 50, 75: 75, 100: 100 } as const;
+type QuestionCount = keyof typeof QUESTION_COUNTS;
+
+/** Katta (asosiy) va kichik (qo'shimcha) tanlovlar. */
+const PRIMARY_COUNTS = [20, 50] as const;
+const EXTRA_COUNTS = [75, 100] as const;
+
+function isQuestionCount(v: unknown): v is QuestionCount {
+  return typeof v === 'number' && v in QUESTION_COUNTS;
+}
+
 export default function TestIshlash() {
   const { user } = useAuth();
   const { language, setLanguage, t } = useLanguage();
@@ -65,7 +85,7 @@ export default function TestIshlash() {
           const testStateKey: string | undefined = parsed.activeSession.testStateKey;
           if (testStateKey && !localStorage.getItem(testStateKey)) {
             localStorage.removeItem(testIshlashStorageKey);
-            return { testStarted: false, activeSession: null, questionCount: 20 as 20 | 50 };
+            return { testStarted: false, activeSession: null, questionCount: 20 as QuestionCount };
           }
           // Eski sessiya olib tashlangan monolit faylga ishora qilsa (600.json /
           // barcha.json) — tiklamaymiz, aks holda 404 va bo'sh test bo'ladi.
@@ -73,24 +93,24 @@ export default function TestIshlash() {
           if (savedFile && RETIRED_DATA_FILES.has(savedFile)) {
             localStorage.removeItem(testIshlashStorageKey);
             if (testStateKey) localStorage.removeItem(testStateKey);
-            return { testStarted: false, activeSession: null, questionCount: 20 as 20 | 50 };
+            return { testStarted: false, activeSession: null, questionCount: 20 as QuestionCount };
           }
           return {
             testStarted: true,
             activeSession: parsed.activeSession,
-            questionCount: (parsed.questionCount || 20) as 20 | 50,
+            questionCount: (isQuestionCount(parsed.questionCount) ? parsed.questionCount : 20) as QuestionCount,
           };
         }
       }
     } catch (e) { /* ignore */ }
-    return { testStarted: false, activeSession: null, questionCount: 20 as 20 | 50 };
+    return { testStarted: false, activeSession: null, questionCount: 20 as QuestionCount };
   };
 
   const initial = getInitialState();
   const [testStarted, setTestStarted] = useState(initial.testStarted);
   const [sessionError, setSessionError] = useState<string | null>(null);
   const [activeSession, setActiveSession] = useState<{ sessionId: string | null; isPremium: boolean; testStateKey?: string; dataFile?: string } | null>(initial.activeSession);
-  const [questionCount, setQuestionCount] = useState<20 | 50>(initial.questionCount as 20 | 50);
+  const [questionCount, setQuestionCount] = useState<QuestionCount>(initial.questionCount);
 
   // Persist active test state
   useEffect(() => {
@@ -126,7 +146,10 @@ export default function TestIshlash() {
     // TestInterfaceCombined / TestInterfaceBase dagi storageKey bilan
     // AYNAN bir xil bo'lishi shart, aks holda yangilashdan keyin sessiya
     // tiklanmay, boshlangan test yo'qoladi.
-    const testStateKey = questionCount === 50
+    // Shart yuqoridagi render tarmog'i bilan AYNAN bir xil bo'lishi kerak
+    // (20 -> Base, qolgani -> Combined), aks holda yangilashdan keyin
+    // boshlangan test topilmay yo'qoladi.
+    const testStateKey = questionCount !== 20
       ? `testState_combined_/${dataFile}_${questionCount}_${userId}`
       : `testState_base_/${dataFile}_${questionCount}_${userId}`;
 
@@ -185,14 +208,20 @@ export default function TestIshlash() {
   const dataSourcePath = `/${effectiveDataFile}`;
 
   if (testStarted && activeSession !== null) {
-    if (questionCount === 50) {
+    /**
+     * 20 ta — `TestInterfaceBase` (imtihon formati, natija serverga yoziladi).
+     * 20 dan ko'pi — `TestInterfaceCombined`: u uzun ro'yxat uchun mo'ljallangan
+     * va `questionCount` ni umumiy prop sifatida qabul qiladi, ya'ni 75 va 100
+     * uchun ham o'zgarishsiz ishlaydi.
+     */
+    if (questionCount !== 20) {
       return (
         <TestInterfaceCombined
           onExit={() => { setTestStarted(false); setActiveSession(null); }}
           dataSource={dataSourcePath}
-          testName="Test (50 ta)"
-          questionCount={50}
-          timeLimit={50 * 60}
+          testName={`Test (${questionCount} ta)`}
+          questionCount={questionCount}
+          timeLimit={QUESTION_COUNTS[questionCount] * 60}
           randomize={true}
           isPremiumSession={activeSession.isPremium}
         />
@@ -224,7 +253,12 @@ export default function TestIshlash() {
       />
       <TestPageSchema />
 
-      <div className="min-h-screen bg-background flex flex-col font-sans text-[#1E2350] dark:text-foreground">
+      {/*
+        `has-bottom-nav` — pastki panel uchun joy. Bu FAQAT boshlash ekrani:
+        test boshlangach yuqoridagi `TestInterfaceBase` shohobchasi ishlaydi
+        va u panelni `body.test-active` orqali yashiradi.
+      */}
+      <div className="min-h-screen bg-background flex flex-col font-sans text-[#1E2350] dark:text-foreground has-bottom-nav">
 
         <header className="w-full bg-background border-b border-border px-6 py-3 sticky top-0 z-20">
           <div className="max-w-5xl mx-auto flex items-center justify-between">
@@ -272,9 +306,9 @@ export default function TestIshlash() {
 
           {/* Backend unavailable warning (only for premium users) */}
           {!accessLoading && !backendConfirmed && isPremium === false && user && (
-            <div className="flex items-center gap-3 bg-yellow-50 border border-yellow-300 rounded-xl px-4 py-3">
+            <div className="flex items-center gap-3 bg-yellow-500/10 border border-yellow-500/30 rounded-xl px-4 py-3">
               <ServerCrash className="w-4 h-4 text-yellow-600 flex-shrink-0" />
-              <p className="text-sm text-yellow-800">
+              <p className="text-sm text-yellow-800 dark:text-yellow-200">
                 Server bilan aloqa yo'q. Bepul rejimda test ishlash mumkin.
               </p>
             </div>
@@ -282,9 +316,9 @@ export default function TestIshlash() {
 
           {/* Session error */}
           {sessionError && (
-            <div className="flex items-center gap-3 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+            <div className="flex items-center gap-3 bg-red-500/10 border border-red-500/25 rounded-xl px-4 py-3">
               <AlertTriangle className="w-4 h-4 text-red-500 flex-shrink-0" />
-              <p className="text-sm text-red-700">{sessionError}</p>
+              <p className="text-sm text-red-700 dark:text-red-300">{sessionError}</p>
             </div>
           )}
 
@@ -297,7 +331,7 @@ export default function TestIshlash() {
               <div>
                 <h1 className="text-2xl font-black tracking-tight text-[#1E2350] dark:text-foreground">Test ishlash</h1>
                 <p className="text-slate-500 dark:text-muted-foreground text-sm font-semibold">
-                  {questionCount} ta tasodifiy savol • {questionCount === 20 ? "25" : "50"} daqiqa
+                  {questionCount} ta tasodifiy savol • {QUESTION_COUNTS[questionCount]} daqiqa
                 </p>
               </div>
             </div>
@@ -309,7 +343,7 @@ export default function TestIshlash() {
                   Savollar sonini tanlang
                 </p>
                 <div className="grid grid-cols-2 gap-3">
-                  {([20, 50] as const).map((num) => (
+                  {PRIMARY_COUNTS.map((num) => (
                     <button
                       key={num}
                       onClick={() => setQuestionCount(num)}
@@ -328,7 +362,32 @@ export default function TestIshlash() {
                         {num}
                       </span>
                       <span className="text-sm font-semibold text-slate-500 dark:text-muted-foreground mt-1">savollar</span>
-                      <span className="text-sm text-slate-400 dark:text-muted-foreground/70">{num === 20 ? "25 daqiqa" : "50 daqiqa"}</span>
+                      <span className="text-sm text-slate-400 dark:text-muted-foreground/70">{QUESTION_COUNTS[num]} daqiqa</span>
+                    </button>
+                  ))}
+                </div>
+
+                {/*
+                  Qo'shimcha (uzoq) tanlovlar — ATAYLAB kichikroq.
+                  20 va 50 asosiy formatlar, 75 va 100 esa uzoq mashq uchun.
+                  Bir xil o'lchamda ko'rsatilsa, tanlov to'rttaga bo'linib,
+                  imtihon formati (20) ajralib turmay qolardi.
+                */}
+                <div className="grid grid-cols-2 gap-2 mt-2">
+                  {EXTRA_COUNTS.map((num) => (
+                    <button
+                      key={num}
+                      onClick={() => setQuestionCount(num)}
+                      aria-pressed={questionCount === num}
+                      className={`flex items-center justify-center gap-1.5 rounded-xl border py-2.5 text-sm transition-all ${
+                        questionCount === num
+                          ? "border-[#1E2350] dark:border-primary bg-[#1E2350]/5 dark:bg-primary/10 font-bold text-[#1E2350] dark:text-primary"
+                          : "border-slate-200 dark:border-border bg-slate-50 dark:bg-muted text-slate-500 dark:text-muted-foreground hover:border-slate-300 dark:hover:border-border/70"
+                      }`}
+                    >
+                      <span className="font-black">{num}</span>
+                      <span className="font-medium">savol</span>
+                      <span className="opacity-60">· {QUESTION_COUNTS[num]} daq</span>
                     </button>
                   ))}
                 </div>
@@ -339,7 +398,7 @@ export default function TestIshlash() {
                 <div className="grid grid-cols-3 gap-2">
                   {[
                     { icon: HelpCircle, value: questionCount, label: "Savollar" },
-                    { icon: Clock, value: questionCount === 20 ? 25 : 50, label: "Daqiqa" },
+                    { icon: Clock, value: QUESTION_COUNTS[questionCount], label: "Daqiqa" },
                     { icon: CheckCircle, value: "90%", label: "O'tish", green: true },
                   ].map(({ icon: Icon, value, label, green }) => (
                     <div key={label} className="flex flex-col items-center gap-2 bg-slate-100/80 dark:bg-muted rounded-2xl py-4">
@@ -374,6 +433,12 @@ export default function TestIshlash() {
             Testni boshlash uchun ro'yxatdan o'tish shart emas
           </p>
         </main>
+
+        {/*
+          Pastki navigatsiya boshlash ekranida ham turadi: u yerdan
+          "Profil" yoki "Bo'limlar" ga o'tib bo'lmasligi noqulay edi.
+        */}
+        <BottomNav />
       </div>
     </div>
   );

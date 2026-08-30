@@ -10,6 +10,12 @@ export interface AppQuestion {
   answers: { id: number; text: string }[];
   /** Tanlangan tildagi izoh matni */
   izoh?: string;
+  /**
+   * Savolning barqaror identifikatori (masalan `t_19_q_3`).
+   * Saqlangan savollar va "Xatolarim" shu kalit bo'yicha ishlaydi.
+   * Eski formatdagi fayllarda bo'lmasligi mumkin — shuning uchun ixtiyoriy.
+   */
+  globalId?: string;
 }
 
 export function transformRawToQuestions(
@@ -19,6 +25,7 @@ export function transformRawToQuestions(
 ): AppQuestion[] {
   return selectedQuestions.map((item, idx) => {
     const q = item as {
+      task_info?: { global_id?: string };
       content?: {
         uz_lat?: { text: string; options: { id: number; text: string; is_correct: boolean }[] };
         uz_cyr?: { text: string; options: { id: number; text: string; is_correct: boolean }[] };
@@ -37,10 +44,12 @@ export function transformRawToQuestions(
       };
     };
 
+    const globalId = q.task_info?.global_id?.trim() || undefined;
+
     if (q.content && (q.content.uz_lat || q.content.uz_cyr || q.content.ru)) {
       const langContent = pickLangContent(q.content, questionLang);
       if (!langContent?.options?.length) {
-        return { id: idx + 1, text: '', answers: [], correctAnswer: 1 };
+        return { id: idx + 1, globalId, text: '', answers: [], correctAnswer: 1 };
       }
       const correctOption = langContent.options.find((o) => o.is_correct);
       const correctAnswer = correctOption ? correctOption.id : langContent.options[0].id;
@@ -52,6 +61,7 @@ export function transformRawToQuestions(
       }
       return {
         id: idx + 1,
+        globalId,
         text: langContent.text || '',
         image: imagePath,
         correctAnswer,
@@ -70,6 +80,7 @@ export function transformRawToQuestions(
       }
       return {
         id: idx + 1,
+        globalId,
         text: typeof q.question === 'string' ? q.question : '',
         image: imagePath,
         correctAnswer: correctIndex >= 0 ? correctIndex + 1 : 1,
@@ -98,6 +109,7 @@ export function transformRawToQuestions(
 
     return {
       id: idx + 1,
+      globalId,
       text: questionText,
       image: photoField ? `${imagePrefix}${photoField}` : undefined,
       correctAnswer: q.answers?.status || 1,

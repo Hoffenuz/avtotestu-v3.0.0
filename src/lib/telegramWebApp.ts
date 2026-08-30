@@ -42,23 +42,16 @@ declare global {
     Telegram?: { WebApp?: TelegramWebAppApi };
     /** Telegram mobil webview'ida mavjud bo'ladi */
     TelegramWebviewProxy?: unknown;
+    /** `index.html` dagi erta blok qo'yadi — eng ishonchli manba. */
+    __inTelegram?: boolean;
   }
 }
 
-/**
- * Sahifa Telegram ichida ochilganmi.
- *
- * Telegram Mini App ni ishga tushirganda URL fragmentiga `tgWebApp*`
- * parametrlarini qo'shadi. Mobil webview'da bundan tashqari
- * `TelegramWebviewProxy` obyekti ham bo'ladi.
- *
- * MUHIM: fragment React Router yoki boshqa kod tomonidan o'zgartirilishidan
- * OLDIN o'qilishi kerak — shuning uchun bu funksiya main.tsx da, React
- * mount bo'lishidan avval chaqiriladi.
- */
-export function isTelegramWebApp(): boolean {
+function detectTelegram(): boolean {
   if (typeof window === 'undefined') return false;
   try {
+    // Eng ishonchli: `index.html` da, URL hali butun paytda hisoblangan.
+    if (typeof window.__inTelegram === 'boolean') return window.__inTelegram;
     if (window.Telegram?.WebApp) return true;
     if (window.TelegramWebviewProxy) return true;
     // `#tgWebAppData=...&tgWebAppPlatform=...`
@@ -66,6 +59,31 @@ export function isTelegramWebApp(): boolean {
   } catch {
     return false;
   }
+}
+
+/**
+ * Natija BIR MARTA hisoblanib, keshlanadi.
+ *
+ * NEGA KESH SHART (aniqlangan xato):
+ *   Tekshiruvning uchala manbasi ham VAQT O'TISHI BILAN O'ZGARADI:
+ *     * `window.Telegram.WebApp` — SDK yuklangandan KEYIN paydo bo'ladi;
+ *     * URL fragmenti (`#tgWebAppData=...`) — React Router birinchi
+ *       navigatsiyada uni YO'QOTADI;
+ *     * `TelegramWebviewProxy` — iOS mijozida bo'lmasligi mumkin.
+ *
+ *   Ya'ni funksiya boshida `true`, keyin `false` (yoki teskarisi) qaytarardi.
+ *   `BottomNav` aynan shuni render paytida o'qiydi: iOS'da foydalanuvchi
+ *   boshqa sahifaga o'tgach fragment yo'qolib, panel Telegram'ning o'z
+ *   interfeysi ustiga chiqib qolardi.
+ *
+ *   Birinchi chaqiruv `main.tsx` da, React mount bo'lishidan OLDIN sodir
+ *   bo'ladi — o'sha paytda URL hali butun.
+ */
+let cachedIsTelegram: boolean | null = null;
+
+export function isTelegramWebApp(): boolean {
+  if (cachedIsTelegram === null) cachedIsTelegram = detectTelegram();
+  return cachedIsTelegram;
 }
 
 /**
@@ -91,35 +109,63 @@ function isDesktopTelegram(wa: TelegramWebAppApi): boolean {
   return DESKTOP_PLATFORMS.has(platform);
 }
 
-/** SDK skriptini bir marta yuklaydi. */
+/** SDK yuklanishini shuncha kutamiz — keyin voz kechamiz. */
+const SDK_TIMEOUT_MS = 8_000;
+
+/**
+ * SDK skriptini bir marta yuklaydi.
+ *
+ * Odatda skript `index.html` dagi erta blok tomonidan allaqachon qo'shilgan
+ * bo'ladi — bu funksiya uni qayta so'ramaydi, shunchaki tayyor bo'lishini
+ * kutadi.
+ */
 function loadSdk(): Promise<void> {
   return new Promise((resolve, reject) => {
     if (window.Telegram?.WebApp) {
       resolve();
       return;
     }
+
+    /**
+     * Taymer SHART: mavjud skript allaqachon XATO bergan bo'lsa, `error`
+     * hodisasi o'tib ketgan va quyidagi tinglovchilar hech qachon
+     * ishlamaydi — promise abadiy osilib qolardi.
+     */
+    const timer = setTimeout(() => reject(new Error('tg_sdk_timeout')), SDK_TIMEOUT_MS);
+    const done = (ok: boolean) => {
+      clearTimeout(timer);
+      if (ok) resolve();
+      else reject(new Error('tg_sdk'));
+    };
+
     const existing = document.querySelector<HTMLScriptElement>(
       `script[src="${SDK_SRC}"]`,
     );
     if (existing) {
-      existing.addEventListener('load', () => resolve(), { once: true });
-      existing.addEventListener('error', () => reject(new Error('tg_sdk')), { once: true });
+      existing.addEventListener('load', () => done(true), { once: true });
+      existing.addEventListener('error', () => done(false), { once: true });
       return;
     }
+
     const s = document.createElement('script');
     s.src = SDK_SRC;
     s.async = true;
-    s.onload = () => resolve();
-    s.onerror = () => reject(new Error('tg_sdk'));
+    s.onload = () => done(true);
+    s.onerror = () => done(false);
     document.head.appendChild(s);
   });
 }
 
-/** Har bir chaqiruv alohida himoyalanadi: bittasi ishlamasa qolgani davom etsin. */
-function safe(fn: (() => void) | undefined): void {
-  if (typeof fn !== 'function') return;
+/**
+ * Har bir chaqiruv alohida himoyalanadi: bittasi ishlamasa qolgani davom etsin.
+ *
+ * Kolbek qabul qiladi, metod HAVOLASINI emas. Ilgari `safe(wa.expand)` deb
+ * yozilardi va metod obyektidan uzilib qolardi — SDK ichida `this` ishlatilsa,
+ * chaqiruv jimgina yiqilardi (xato `catch` ga tushib, iz qoldirmasdi).
+ */
+function safe(run: () => void): void {
   try {
-    fn();
+    run();
   } catch {
     /* qo'llab-quvvatlanmasa — jimgina o'tamiz */
   }
@@ -137,11 +183,17 @@ export function initTelegramWebApp(): void {
       const wa = window.Telegram?.WebApp;
       if (!wa) return;
 
-      // Telegram'ga "ilova tayyor" deb bildiradi (yuklanish ekrani yopiladi).
-      safe(wa.ready);
+      /**
+       * `ready()` va `expand()` odatda `index.html` dagi erta skript
+       * tomonidan ALLAQACHON chaqirilgan bo'ladi (u SDK ni bundle bilan
+       * parallel yuklaydi). Bu yerda ular takroran chaqiriladi: ikkalasi ham
+       * idempotent (Telegram'ga oddiy xabar yuboradi), lekin erta skript
+       * biror sababga ko'ra ishlamay qolgan bo'lsa — zaxira bo'lib qoladi.
+       */
+      safe(() => wa.ready?.());
 
       // Mobilda yarim ekrandan to'liq balandlikka yoyadi. Desktopda ta'sirsiz.
-      safe(wa.expand);
+      safe(() => wa.expand?.());
 
       /**
        * To'liq ekran — FAQAT DESKTOPDA (yuqoridagi izohga qarang: mobilda u
@@ -153,14 +205,14 @@ export function initTelegramWebApp(): void {
         isDesktopTelegram(wa) &&
         typeof wa.isVersionAtLeast === 'function' &&
         wa.isVersionAtLeast('8.0');
-      if (supportsFullscreen) safe(wa.requestFullscreen);
+      if (supportsFullscreen) safe(() => wa.requestFullscreen?.());
 
       /**
        * Test yechishda pastga surish Telegram oynasini yopib yubormasin.
        * Saytda savollar orasida surish (swipe) bor — ular to'qnashardi.
        * Bot API 7.7+; bo'lmasa jimgina o'tadi.
        */
-      safe(wa.disableVerticalSwipes);
+      safe(() => wa.disableVerticalSwipes?.());
     })
     .catch(() => {
       /* SDK yuklanmadi — sayt oddiy holatda ishlayveradi */

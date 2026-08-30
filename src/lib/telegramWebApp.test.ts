@@ -1,10 +1,29 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { isTelegramWebApp, initTelegramWebApp } from './telegramWebApp';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 
 /**
  * ASOSIY TALAB: Telegram integratsiyasi oddiy saytga UMUMAN ta'sir
  * qilmasligi kerak — skript yuklanmasin, xato bermasin.
  */
+
+type TgModule = typeof import('./telegramWebApp');
+
+/**
+ * Modulni HAR SAFAR toza holda yuklaydi.
+ *
+ * NEGA KERAK: `isTelegramWebApp()` natijani modul darajasida keshlaydi.
+ * Ishlab chiqarishda bu SHART — aniqlash manbalari (URL fragmenti,
+ * `window.Telegram`, `TelegramWebviewProxy`) vaqt o'tishi bilan o'zgaradi va
+ * keshsiz funksiya bir xil sahifada goh `true`, goh `false` qaytarardi.
+ *
+ * Test esa har xil boshlang'ich holatni tekshiradi, shuning uchun modul
+ * (va u bilan birga kesh) har testda qaytadan yuklanadi.
+ *
+ * DIQQAT: modul window holati SOZLANGANDAN KEYIN import qilinishi kerak.
+ */
+async function freshModule(): Promise<TgModule> {
+  vi.resetModules();
+  return import('./telegramWebApp');
+}
 
 function scriptCount(): number {
   return document.querySelectorAll(
@@ -17,70 +36,113 @@ function setHref(href: string) {
   window.history.replaceState(null, '', href);
 }
 
+function resetWindow() {
+  delete window.Telegram;
+  delete window.TelegramWebviewProxy;
+  delete window.__inTelegram;
+  document.querySelectorAll('script').forEach((s) => s.remove());
+}
+
 describe('telegramWebApp — oddiy brauzerda', () => {
   beforeEach(() => {
-    delete window.Telegram;
-    delete window.TelegramWebviewProxy;
+    resetWindow();
     setHref('/');
-    document.querySelectorAll('script').forEach((s) => s.remove());
   });
 
-  afterEach(() => {
-    document.querySelectorAll('script').forEach((s) => s.remove());
-  });
+  afterEach(resetWindow);
 
-  it('Telegram aniqlanmaydi', () => {
+  it('Telegram aniqlanmaydi', async () => {
+    const { isTelegramWebApp } = await freshModule();
     expect(isTelegramWebApp()).toBe(false);
   });
 
-  it('SDK skripti YUKLANMAYDI', () => {
+  it('SDK skripti YUKLANMAYDI', async () => {
+    const { initTelegramWebApp } = await freshModule();
     initTelegramWebApp();
     expect(scriptCount()).toBe(0);
   });
 
-  it('oddiy hash bilan ham Telegram deb hisoblamaydi', () => {
+  it('oddiy hash bilan ham Telegram deb hisoblamaydi', async () => {
     setHref('/test-ishlash#natija');
+    const { isTelegramWebApp, initTelegramWebApp } = await freshModule();
     expect(isTelegramWebApp()).toBe(false);
     initTelegramWebApp();
     expect(scriptCount()).toBe(0);
   });
 
-  it('xato tashlamaydi', () => {
+  it('xato tashlamaydi', async () => {
+    const { initTelegramWebApp } = await freshModule();
     expect(() => initTelegramWebApp()).not.toThrow();
   });
 });
 
-describe('telegramWebApp — Telegram ichida', () => {
+describe('telegramWebApp — aniqlash keshlanadi', () => {
   beforeEach(() => {
-    delete window.Telegram;
-    delete window.TelegramWebviewProxy;
-    document.querySelectorAll('script').forEach((s) => s.remove());
+    resetWindow();
+    setHref('/');
   });
+
+  afterEach(resetWindow);
+
+  /**
+   * Bu ikki test aynan tuzatilgan xatoni qo'riqlaydi: `BottomNav` render
+   * paytida `isTelegramWebApp()` ni o'qiydi va javob o'zgarib ketsa, panel
+   * Telegram interfeysi ustiga chiqib qolardi.
+   */
+  it('fragment yo\'qolsa ham `true` bo\'lib qoladi', async () => {
+    setHref('/#tgWebAppPlatform=ios');
+    const { isTelegramWebApp } = await freshModule();
+    expect(isTelegramWebApp()).toBe(true);
+
+    // React Router navigatsiyasi fragmentni yo'qotadi
+    setHref('/bolimlar');
+    expect(isTelegramWebApp()).toBe(true);
+  });
+
+  it('oddiy brauzerda keyin SDK paydo bo\'lsa ham `false` bo\'lib qoladi', async () => {
+    const { isTelegramWebApp } = await freshModule();
+    expect(isTelegramWebApp()).toBe(false);
+
+    window.Telegram = { WebApp: {} };
+    expect(isTelegramWebApp()).toBe(false);
+  });
+
+  it('index.html qo\'ygan `__inTelegram` ustun turadi', async () => {
+    window.__inTelegram = true;
+    const { isTelegramWebApp } = await freshModule();
+    expect(isTelegramWebApp()).toBe(true);
+  });
+});
+
+describe('telegramWebApp — Telegram ichida', () => {
+  beforeEach(resetWindow);
 
   afterEach(() => {
     setHref('/');
-    delete window.Telegram;
-    delete window.TelegramWebviewProxy;
-    document.querySelectorAll('script').forEach((s) => s.remove());
+    resetWindow();
   });
 
-  it('URL fragmentidagi tgWebAppData orqali aniqlanadi', () => {
+  it('URL fragmentidagi tgWebAppData orqali aniqlanadi', async () => {
     setHref('/#tgWebAppData=abc&tgWebAppVersion=8.0&tgWebAppPlatform=tdesktop');
+    const { isTelegramWebApp } = await freshModule();
     expect(isTelegramWebApp()).toBe(true);
   });
 
-  it('tgWebAppPlatform orqali ham aniqlanadi', () => {
+  it('tgWebAppPlatform orqali ham aniqlanadi', async () => {
     setHref('/#tgWebAppPlatform=android');
+    const { isTelegramWebApp } = await freshModule();
     expect(isTelegramWebApp()).toBe(true);
   });
 
-  it('mobil webview obyekti orqali aniqlanadi', () => {
+  it('mobil webview obyekti orqali aniqlanadi', async () => {
     window.TelegramWebviewProxy = {};
+    const { isTelegramWebApp } = await freshModule();
     expect(isTelegramWebApp()).toBe(true);
   });
 
-  it('aniqlanganda SDK skripti qo\'shiladi', () => {
+  it('aniqlanganda SDK skripti qo\'shiladi', async () => {
     setHref('/#tgWebAppPlatform=ios');
+    const { initTelegramWebApp } = await freshModule();
     initTelegramWebApp();
     expect(scriptCount()).toBe(1);
   });
@@ -94,6 +156,7 @@ describe('telegramWebApp — Telegram ichida', () => {
         isVersionAtLeast: () => false,
       },
     };
+    const { initTelegramWebApp } = await freshModule();
     initTelegramWebApp();
     await Promise.resolve();
     await Promise.resolve();
@@ -114,6 +177,7 @@ describe('telegramWebApp — Telegram ichida', () => {
         requestFullscreen: () => calls.push('fullscreen'),
       },
     };
+    const { initTelegramWebApp } = await freshModule();
     initTelegramWebApp();
     await Promise.resolve();
     await Promise.resolve();
@@ -132,6 +196,7 @@ describe('telegramWebApp — Telegram ichida', () => {
         requestFullscreen: () => calls.push('fullscreen'),
       },
     };
+    const { initTelegramWebApp } = await freshModule();
     initTelegramWebApp();
     await Promise.resolve();
     await Promise.resolve();
@@ -150,12 +215,40 @@ describe('telegramWebApp — Telegram ichida', () => {
         requestFullscreen: () => calls.push('fullscreen'),
       },
     };
+    const { initTelegramWebApp } = await freshModule();
     expect(() => initTelegramWebApp()).not.toThrow();
     await Promise.resolve();
     await Promise.resolve();
 
     expect(calls).toContain('expand');
     expect(calls).toContain('fullscreen');
+  });
+
+  /**
+   * Metodlar obyektdan uzilib qolmasligi kerak. Ilgari `safe(wa.expand)` deb
+   * yozilgan edi va SDK ichida `this` ishlatilsa chaqiruv jimgina yiqilardi.
+   */
+  it('metodlar `this` bog\'lanishini yo\'qotmaydi', async () => {
+    const calls: string[] = [];
+    const webApp = {
+      platform: 'android',
+      marker: 'wa',
+      ready(this: { marker?: string }) { calls.push('ready:' + this?.marker); },
+      expand(this: { marker?: string }) { calls.push('expand:' + this?.marker); },
+      isVersionAtLeast: () => true,
+      disableVerticalSwipes(this: { marker?: string }) {
+        calls.push('noSwipe:' + this?.marker);
+      },
+    };
+    window.Telegram = { WebApp: webApp };
+    const { initTelegramWebApp } = await freshModule();
+    initTelegramWebApp();
+    await Promise.resolve();
+    await Promise.resolve();
+
+    expect(calls).toContain('ready:wa');
+    expect(calls).toContain('expand:wa');
+    expect(calls).toContain('noSwipe:wa');
   });
 });
 
@@ -164,17 +257,11 @@ describe('telegramWebApp — Telegram ichida', () => {
  * `X` / menyu tugmalari ostiga kirgizib yuborardi. Mobilda faqat `expand()`.
  */
 describe('telegramWebApp — mobil Telegram (fullscreen BO\'LMASIN)', () => {
-  beforeEach(() => {
-    delete window.Telegram;
-    delete window.TelegramWebviewProxy;
-    document.querySelectorAll('script').forEach((s) => s.remove());
-  });
+  beforeEach(resetWindow);
 
   afterEach(() => {
     setHref('/');
-    delete window.Telegram;
-    delete window.TelegramWebviewProxy;
-    document.querySelectorAll('script').forEach((s) => s.remove());
+    resetWindow();
   });
 
   const mobilPlatformalar = ['android', 'android_x', 'ios'];
@@ -193,6 +280,7 @@ describe('telegramWebApp — mobil Telegram (fullscreen BO\'LMASIN)', () => {
           disableVerticalSwipes: () => calls.push('noSwipe'),
         },
       };
+      const { initTelegramWebApp } = await freshModule();
       initTelegramWebApp();
       await Promise.resolve();
       await Promise.resolve();
@@ -215,6 +303,7 @@ describe('telegramWebApp — mobil Telegram (fullscreen BO\'LMASIN)', () => {
         requestFullscreen: () => calls.push('fullscreen'),
       },
     };
+    const { initTelegramWebApp } = await freshModule();
     initTelegramWebApp();
     await Promise.resolve();
     await Promise.resolve();
@@ -233,6 +322,7 @@ describe('telegramWebApp — mobil Telegram (fullscreen BO\'LMASIN)', () => {
         requestFullscreen: () => calls.push('fullscreen'),
       },
     };
+    const { initTelegramWebApp } = await freshModule();
     initTelegramWebApp();
     await Promise.resolve();
     await Promise.resolve();

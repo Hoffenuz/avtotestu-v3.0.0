@@ -27,24 +27,36 @@
 export const clearAllUserData = (userId?: string) => {
   const suffix = userId ? `_${userId}` : undefined;
 
-  Object.keys(localStorage).forEach((key) => {
-    if (key.startsWith('sb-') || key.includes('supabase')) {
-      localStorage.removeItem(key);
-      return;
-    }
-    const isTestKey =
-      key.startsWith('testState_') ||
-      key.startsWith('variant_activeTest') ||
-      key.startsWith('mavzuli_activeTest') ||
-      key.startsWith('testIshlash_activeTest');
-    if (isTestKey && (!suffix || key.endsWith(suffix))) {
-      localStorage.removeItem(key);
-    }
-  });
+  /**
+   * Storage ga MUROJAATNING O'ZI xato berishi mumkin.
+   *
+   * Telegram va Payme ichki brauzerlarida (shuningdek "sayt ma'lumotlarini
+   * bloklash" yoqilgan brauzerlarda) `Object.keys(localStorage)` ham
+   * `SecurityError` tashlaydi. Ilgari bu himoyalanmagan edi va chiqish
+   * (sign-out) o'sha joyda uzilib qolardi.
+   */
+  try {
+    Object.keys(localStorage).forEach((key) => {
+      if (key.startsWith('sb-') || key.includes('supabase')) {
+        localStorage.removeItem(key);
+        return;
+      }
+      const isTestKey =
+        key.startsWith('testState_') ||
+        key.startsWith('variant_activeTest') ||
+        key.startsWith('mavzuli_activeTest') ||
+        key.startsWith('testIshlash_activeTest');
+      if (isTestKey && (!suffix || key.endsWith(suffix))) {
+        localStorage.removeItem(key);
+      }
+    });
+  } catch { /* storage bloklangan — tozalanadigan narsa ham yo'q */ }
 
-  Object.keys(sessionStorage).forEach((key) => {
-    if (key.startsWith('sb-') || key.includes('supabase')) {
-      sessionStorage.removeItem(key);
-    }
-  });
+  try {
+    Object.keys(sessionStorage).forEach((key) => {
+      if (key.startsWith('sb-') || key.includes('supabase')) {
+        sessionStorage.removeItem(key);
+      }
+    });
+  } catch { /* storage bloklangan */ }
 };

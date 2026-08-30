@@ -25,6 +25,20 @@ export default {
           foreground: "hsl(var(--primary-foreground))",
           hover: "hsl(var(--primary-hover))",
         },
+        /**
+         * Brend yuzasi — header, hero va footer foni.
+         *
+         * NEGA `primary` DAN AJRATILGAN:
+         *   `--primary` bir vaqtda fon (bg-primary, 90 joy) va urg'u matni
+         *   (text-primary, 159 joy) sifatida ishlatiladi. Dark rejimda matn
+         *   o'qilishi uchun u yorug'roq bo'lishi SHART, lekin saytning
+         *   siyohrang brend foni yorug'lashib ketmasligi kerak.
+         *   Ikkala talabni bitta o'zgaruvchi bajara olmaydi.
+         */
+        brand: {
+          DEFAULT: "hsl(var(--brand))",
+          foreground: "hsl(var(--brand-foreground))",
+        },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",

@@ -18,6 +18,10 @@
 const BOT_UA =
   /googlebot|adsbot-google|google-inspectiontool|bingbot|msnbot|yandexbot|baiduspider|duckduckbot|slurp|teoma|ia_archiver|archive\.org_bot|facebookexternalhit|facebot|meta-externalagent|twitterbot|telegrambot|slackbot|linkedinbot|whatsapp|applebot|semrushbot|ahrefsbot|mj12bot|dotbot|petalbot|bytespider|360spider|sogou|exabot|netcraft|gptbot|oai-searchbot|claudebot|cohere-ai|anthropic-ai|perplexitybot|youbot|diffbot/i;
 
+// DIQQAT: yangi marshrut qo'shilganda SHU RO'YXAT ham yangilansin.
+// Ro'yxatda yo'q marshrut `_redirects` dagi `/* /index.html 200` zaxira
+// qoidasiga tushadi — sahifa ochiladi, lekin middleware qo'yadigan
+// `no-store` sarlavhalarisiz, ya'ni boshqa sahifalardan farqli keshlanadi.
 const SPA_PREFIXES: string[] = [
   '/test-ishlash',
   '/belgilar',
@@ -32,6 +36,15 @@ const SPA_PREFIXES: string[] = [
   '/profile',
   '/auth',
   '/desktop',
+  // Bo'limlar bo'limi (2026-08)
+  '/bolimlar',
+  '/real-imtihon',
+  '/qidirish',
+  '/avtodrom',
+  '/yodlash-kerak',
+  '/xatolarim',
+  '/saqlangan',
+  '/xatolar-testi',
 ];
 
 const SEO_EXACT: string[] = [

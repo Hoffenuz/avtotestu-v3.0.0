@@ -1,7 +1,11 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { fetchQuestionJson, getFetchErrorMessage } from "@/lib/fetchQuestionJson";
+import { useTestActive } from "@/hooks/useTestActive";
+import { useQuestionKeyboardNav } from "@/hooks/useQuestionKeyboardNav";
+import { SaveQuestionButton } from "@/components/SaveQuestionButton";
 import { QuestionNavigation } from "./QuestionNavigation";
 import { TestResults } from "./TestResults";
+import { recordQuestionAnswers } from "@/lib/questionState";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useTestResults } from "@/hooks/useTestResults";
@@ -26,7 +30,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { Clock, ChevronRight, X, Check, Maximize, Minimize, SkipForward, Moon, Sun } from "lucide-react";
+import { Clock, ChevronRight, X, Check, Maximize, Minimize, SkipForward, Moon, Sun, ChevronLeft } from "lucide-react";
 import { useDarkMode } from "@/hooks/useDarkMode";
 import { toast } from "sonner";
 import { ImageLightbox } from "./ImageLightbox";
@@ -84,6 +88,7 @@ function transformVariantRaw(raw: unknown, questionLang: string): Question[] {
       if (!langContent || !langContent.options?.length) {
         return {
           id: idx + 1,
+          globalId: task.task_info?.global_id,
           text: "",
           answers: [],
           correctAnswer: 1,
@@ -103,6 +108,7 @@ function transformVariantRaw(raw: unknown, questionLang: string): Question[] {
       }
       return {
         id: idx + 1,
+        globalId: task.task_info?.global_id,
         text: langContent.text || "",
         image,
         correctAnswer,
@@ -144,6 +150,8 @@ interface Question {
   correctAnswer: number;
   answers: { id: number; text: string }[];
   izoh?: string;
+  /** Savolning barqaror kaliti (`t_19_q_3`). Eski formatda bo'lmaydi. */
+  globalId?: string;
 }
 
 interface TestInterfaceProps {
@@ -182,6 +190,9 @@ export const TestInterface = ({
   );
   const [showFinishDialog, setShowFinishDialog] = useState(false);
   const [showResults, setShowResults] = useState(false);
+  // Test ketayotganda pastki navigatsiya yashiriladi — test ekranida
+  // o'z savol navigatsiyasi bor, ikkitasi chalkashtiradi.
+  useTestActive(!showResults);
   // Restored from localStorage so timeTaken stays accurate after refresh
   const [testStartTime, setTestStartTime] = useState(() => getInitialStartedAt(storageKey));
   const [resultSaved, setResultSaved] = useState(false);
@@ -365,6 +376,21 @@ export const TestInterface = ({
   const formatTime = (seconds: number) => formatTestTime(seconds);
 
   const totalQuestions = questions.length || 20;
+
+  /** Oldingi savolga o'tish — tugma va klaviatura (←) uchun umumiy. */
+  const goToPrevQuestion = useCallback(() => {
+    if (autoAdvanceTimeoutRef.current) clearTimeout(autoAdvanceTimeoutRef.current);
+    setCurrentQuestion((prev) => Math.max(1, prev - 1));
+  }, []);
+
+  /** Keyingi savolga o'tish — tugma va klaviatura (→) uchun umumiy. */
+  const goToNextQuestion = useCallback(() => {
+    if (autoAdvanceTimeoutRef.current) clearTimeout(autoAdvanceTimeoutRef.current);
+    setCurrentQuestion((prev) => Math.min(totalQuestions, prev + 1));
+  }, [totalQuestions]);
+
+  // Natijalar ekranida strelkalar kerak emas
+  useQuestionKeyboardNav(!showResults, goToPrevQuestion, goToNextQuestion);
   const question = questions[currentQuestion - 1];
   const isRevealed = revealedQuestions[currentQuestion];
   const selectedAnswer = selectedAnswers[currentQuestion];
@@ -476,6 +502,16 @@ export const TestInterface = ({
       saveAttemptedRef.current = true;
       const stats = getTestStats();
       const timeTaken = getElapsedTestSeconds(testStartTime, 25 * 60);
+      // Har bir savol natijasi — "Xatolarim" uchun. Kutilmaydi: asosiy oqim to'xtamasin.
+      void recordQuestionAnswers(
+        questions
+          .map((q) => ({ globalId: q.globalId, isCorrect: correctAnswers[q.id] }))
+          .filter(
+            (a): a is { globalId: string; isCorrect: boolean } =>
+              typeof a.globalId === "string" && typeof a.isCorrect === "boolean",
+          ),
+      );
+
       void saveTestResult(variant, stats.correct, totalQuestions, timeTaken, activeSessionId, isPremiumSession)
         .then((res) => {
           if (res.success) {
@@ -580,6 +616,12 @@ export const TestInterface = ({
             </div>
           </div>
           <div className="flex gap-1 md:gap-2 shrink-0">
+            {/* Savolni saqlash — yuqori panelda, boshqa amallar bilan bir qatorda.
+                Ilgari savol kartasi ichida edi va ko'zga tashlanmasdi. */}
+            <SaveQuestionButton
+              globalId={question?.globalId}
+              className="h-9 w-9 p-0 md:h-8 md:w-8 border border-input"
+            />
             <Button 
               variant="outline" 
               size="sm" 
@@ -676,9 +718,11 @@ export const TestInterface = ({
             <div className="md:w-[55%] md:flex-shrink-0">
               {/* Question Text */}
               <Card className="p-4 md:p-5 bg-card border-border mb-4">
-                <p className="text-base md:text-[15px] font-medium text-foreground leading-relaxed">
-                  {question.text}
-                </p>
+                <div className="flex items-start justify-between gap-2">
+                  <p className="text-base md:text-[15px] font-medium text-foreground leading-relaxed">
+                    {question.text}
+                  </p>
+                </div>
               </Card>
 
               {/* Mobile Only: Question Image - bosilsa kattalashadi */}
@@ -776,12 +820,7 @@ export const TestInterface = ({
             size="default"
             className="h-9 px-2.5 sm:px-3 md:h-10 md:px-4 text-sm shrink-0"
             disabled={currentQuestion === totalQuestions}
-            onClick={() => {
-              if (autoAdvanceTimeoutRef.current) {
-                clearTimeout(autoAdvanceTimeoutRef.current);
-              }
-              setCurrentQuestion(prev => Math.min(totalQuestions, prev + 1));
-            }}
+            onClick={goToNextQuestion}
           >
             <span className="max-[340px]:hidden">{t("test.next")}</span>
             <ChevronRight className="w-4 h-4 ml-0.5 sm:ml-1" />

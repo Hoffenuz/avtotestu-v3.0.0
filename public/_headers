@@ -83,6 +83,11 @@
 /data/belgilar.json
   Cache-Control: public, max-age=86400, s-maxage=604800, stale-while-revalidate=604800
 
+# Bepul tarifdagi savol ID lari — qidiruvda qaysi savol qulfli ekanini
+# aniqlash uchun. Kontent kamdan-kam o'zgaradi, uzoq keshlanadi.
+/data/free-question-ids.json
+  Cache-Control: public, max-age=86400, s-maxage=604800, stale-while-revalidate=604800
+
 # ---------------------------------------------------------------------------
 # Vite build assetlari — xesh nomli, abadiy kesh
 # ---------------------------------------------------------------------------
