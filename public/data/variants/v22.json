@@ -135,7 +135,7 @@
         "izoh": {
             "uz_lat": "YHQ 24 – bobi 145 – bandining oltinchi xatboshisiga asosan, shatakka olish quydagi holatlarda taqiqlanadi: yo‘l yaxmalak, sirpanchiq bo‘lgan hollarda egiluvchan ulagichda.",
             "uz_cyr": "YHQ 24 – боби 145 – бандининг олтинчи хатбошисига асосан, шатакка олиш қуйдаги ҳолатларда тақиқланади: йўл яхмалак, сирпанчиқ бўлган ҳолларда эгилувчан улагичда.",
-            "ru": "Согласно шестому пункту статьи 24 – главе 145 УК, запрещается брать ограждение в следующих случаях: на гибкой соединительной линии при скользкой дороге."
+            "ru": "Согласно шестому пункту статьи 24 – главе 145 ПДД, запрещается брать ограждение в следующих случаях: на гибкой соединительной линии при скользкой дороге."
         }
     },
     {
@@ -149,7 +149,7 @@
         "media_url": "u240uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Avtomobil haydovchisi quvib o'tishni qaysi yo'nalish bo'yicha to'g'ri bajaradi?",
+                "text": "Avtomobil haydovchisi o'zib ketishni qaysi yo'nalish bo'yicha to'g'ri bajaradi?",
                 "options": [
                     {
                         "id": 1,
@@ -169,7 +169,7 @@
                 ]
             },
             "uz_cyr": {
-                "text": "Автомобил ҳайдовчиси қувиб ўтишни қайси йўналиш бўйича тўғри бажаради?",
+                "text": "Автомобил ҳайдовчиси ўзиб кетишни қайси йўналиш бўйича тўғри бажаради?",
                 "options": [
                     {
                         "id": 1,
@@ -189,7 +189,7 @@
                 ]
             },
             "ru": {
-                "text": "По какому направлению водитель автомобиля правильно выполняет обгон?",
+                "text": "По какому направлению водитель автомобиля правильно выполняет опережение?",
                 "options": [
                     {
                         "id": 1,
@@ -266,21 +266,21 @@
                 ]
             },
             "ru": {
-                "text": "Для предотвращения опасный последствий заноса автомобиля водитель должен:",
+                "text": "Если высота автомобиля (с грузом или без груза) превышает указанную на знаке, водитель должен:",
                 "options": [
                     {
                         "id": 1,
-                        "text": "Прекратить начатое торможение",
+                        "text": "Объехать этот участок дороги по другому направлению",
                         "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Резко нажать на педаль тормоза",
+                        "text": "Получить разрешение на проезд у руководителя автохозяйства",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "Нажать на педаль сцепления",
+                        "text": "Получить разрешение на проезд у ГСБДД",
                         "is_correct": false
                     }
                 ]
@@ -289,7 +289,7 @@
         "izoh": {
             "uz_lat": "YHQ 1-ilovasining 3-bo'limi 3.13 \"Cheklangan balandlik\" belgisiga muvofiq, gabarit balandligi (yuk bilan yoki yuksiz) belgida ko'rsatilgandan ortiq bo'lgan transport vositalarning harakatlanishi taqiqlanishini bildiradi.",
             "uz_cyr": "YHQ 1-иловасининг 3-бўлими 3.13 \"Чекланган баландлик\" белгисига мувофиқ, габарит баландлиги (юк билан ёки юксиз) белгида кўрсатилгандан ортиқ бўлган транспорт воситаларнинг ҳаракатланиши тақиқланишини билдиради.",
-            "ru": "В разделе 3.13 приложения 1 ПДД указано, что согласно знаку «Ограничение по высоте» запрещается движение транспортных средств, габаритная высота которых (с грузом или без него) превышает указанную на знаке."
+            "ru": "Согласно знаку 3.13 «Ограничение по высоте» раздела 3 приложения 1 ПДД запрещается движение транспортных средств, габаритная высота которых (с грузом или без него) превышает указанную на знаке."
         }
     },
     {
@@ -312,7 +312,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Tezlikni o'zgartirmasdan harakatlani davom ettirish",
+                        "text": "Tezlikni o'zgartirmasdan harakatni davom ettirish",
                         "is_correct": false
                     },
                     {
@@ -794,9 +794,9 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 2 – bobi 12 – bandining uchunchi xatboshisiga asosan: tormoz tizimi, rul boshqaruvi ishlamayotgan, ulagich moslamasi ( avtopoyezd tarkibida ) nosoz bo‘lgan, sutkaning qorong‘i vaqtida yoki ko‘rinish cheklangan vaziyatlarda yonmaydigan fara chiroqlari va orqa gabarit fara chiroqlari, yomg‘ir yoki qor yog‘ayotgan vaqtda oyna tozalagich ishlamaydigan transport vositasini boshqarish taqiqlanadi.",
+            "uz_lat": "YHQ 2 – bobi 12 – bandining uchinchi xatboshisiga asosan: tormoz tizimi, rul boshqaruvi ishlamayotgan, ulagich moslamasi ( avtopoyezd tarkibida ) nosoz bo‘lgan, sutkaning qorong‘i vaqtida yoki ko‘rinish cheklangan vaziyatlarda yonmaydigan fara chiroqlari va orqa gabarit fara chiroqlari, yomg‘ir yoki qor yog‘ayotgan vaqtda oyna tozalagich ishlamaydigan transport vositasini boshqarish taqiqlanadi.",
             "uz_cyr": "YHQ 2 – боби 12 – бандининг учунчи хатбошисига асосан: тормоз тизими, рул бошқаруви ишламаётган, улагич мосламаси ( автопоезд таркибида ) носоз бўлган, сутканинг қоронғи вақтида ёки кўриниш чекланган вазиятларда ёнмайдиган фара чироқлари ва орқа габарит фара чироқлари, ёмғир ёки қор ёғаётган вақтда ойна тозалагич ишламайдиган транспорт воситасини бошқариш тақиқланади.",
-            "ru": "Согласно третьему пункту главы 12 ПДД 2: запрещается управлять транспортным средством с тормозной системой, неисправным рулевым управлением, неисправным соединительным устройством (в составе автопоезда), фарами и задними габаритными фонарями, не загорающимися в темное время суток или в ситуациях с ограниченной видимостью, неработающими дворниками во время дождя или снега."
+            "ru": "Согласно третьему абзацу пункта 12 главы 2 ПДД: запрещается управлять транспортным средством с неисправной тормозной системой, неисправным рулевым управлением, неисправным соединительным устройством (в составе автопоезда), фарами и задними габаритными фонарями, не загорающимися в темное время суток или в ситуациях с ограниченной видимостью, неработающими дворниками во время дождя или снега."
         }
     },
     {
@@ -814,7 +814,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yaxmalakda, qattiq ulangich bilan",
+                        "text": "Yaxmalakda, qattiq ulagich bilan",
                         "is_correct": false
                     },
                     {
@@ -829,7 +829,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Ulangich bilan birga transport vositalarining umumiy uzunligi 20 metr bo'lganda",
+                        "text": "Ulagich bilan birga transport vositalarining umumiy uzunligi 20 metr bo'lganda",
                         "is_correct": false
                     }
                 ]
@@ -860,7 +860,7 @@
                 ]
             },
             "ru": {
-                "text": "Буксировка запрещается",
+                "text": "Буксировка запрещается:",
                 "options": [
                     {
                         "id": 1,
@@ -879,7 +879,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "При общей длине поезда сцепленных транспортных средств-20 м",
+                        "text": "При общей длине поезда сцепленных транспортных средств — 20 м",
                         "is_correct": false
                     }
                 ]
@@ -887,7 +887,7 @@
         },
         "izoh": {
             "uz_lat": "YHQ 24-bobi 145-bandining beshinchi xatboshisiga asosan, shatakka olish quyidagi holatlarda taqiqlanadi: kajavasiz mototsikllar bilan, shuningdek bunday mototsikllarni.",
-            "uz_cyr": "YHQ 24-боби 145-бандининг бешинчи хатбошисига асосан, шатакка олиш қуйидаги ҳолатларда тақиқланади: кажавасиз мототсикллар билан, шунингдек бундай мототсиклларни.",
+            "uz_cyr": "YHQ 24-боби 145-бандининг бешинчи хатбошисига асосан, шатакка олиш қуйидаги ҳолатларда тақиқланади: кажавасиз мотоцикллар билан, шунингдек бундай мотоциклларни.",
             "ru": "Согласно пятому пункту статьи 145 главы 24 ПДД, запрещается ездить в следующих случаях: на мотоциклах без бензопилы, а также на таких мотоциклах."
         }
     },
@@ -902,7 +902,7 @@
         "media_url": "u246uz.webp",
         "content": {
             "uz_lat": {
-                "text": "Ko'k avtomobil chorraxani kesib o'tadi:",
+                "text": "Ko'k avtomobil chorrahani kesib o'tadi:",
                 "options": [
                     {
                         "id": 1,
@@ -963,7 +963,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "Yo‘l harakati qoidalarining 106 bandiga asosan, Asosiy yo‘lning yo‘nalishi chorrahada o‘zgarganda, asosiy yo‘lda harakatlanayotgan haydovchilar o‘zaro teng ahamiyatli yo‘llar chorrahasidan o‘tish qoidasiga amal qilishlari kerak.\r\nIkkinchi darajali yo‘llarda harakatlanayotgan haydovchilar ham o‘zaro shu qoidaga amal qilishlari kerak.\r\nUshbu chorrahani tramvay birinchi, qizil avtomobil ikkinchi, yashil avtomobil uchunchi va ko‘k avtomobil oxirgi bo‘lib kesib o‘tadi.",
+            "uz_lat": "Yo‘l harakati qoidalarining 106 bandiga asosan, Asosiy yo‘lning yo‘nalishi chorrahada o‘zgarganda, asosiy yo‘lda harakatlanayotgan haydovchilar o‘zaro teng ahamiyatli yo‘llar chorrahasidan o‘tish qoidasiga amal qilishlari kerak.\r\nIkkinchi darajali yo‘llarda harakatlanayotgan haydovchilar ham o‘zaro shu qoidaga amal qilishlari kerak.\r\nUshbu chorrahani tramvay birinchi, qizil avtomobil ikkinchi, yashil avtomobil uchinchi va ko‘k avtomobil oxirgi bo‘lib kesib o‘tadi.",
             "uz_cyr": "Йўл ҳаракати қоидаларининг 106 бандига асосан, Асосий йўлнинг йўналиши чорраҳада ўзгарганда, асосий йўлда ҳаракатланаётган ҳайдовчилар ўзаро тенг аҳамиятли йўллар чорраҳасидан ўтиш қоидасига амал қилишлари керак.\r\nИккинчи даражали йўлларда ҳаракатланаётган ҳайдовчилар ҳам ўзаро шу қоидага амал қилишлари керак.\r\nУшбу чорраҳани трамвай биринчи, қизил автомобил иккинчи, яшил автомобил учунчи ва кўк автомобил охирги бўлиб кесиб ўтади.",
             "ru": "Согласно пункту 106 Правил дорожного движения, если на перекрёстке главная дорога меняет направление, водители, движущиеся по главной дороге, должны руководствоваться между собой правилами проезда перекрёстков равнозначных дорог.\r\nЭтим же правилом должны руководствоваться между собой водители, движущиеся по второстепенным дорогам.\r\nДанный перекрёсток первым пересекает трамвай, вторым — красный автомобиль, третьим — зелёный автомобиль, последним — синий автомобиль."
         }
@@ -983,27 +983,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "« А » yo'nalishida",
+                        "text": "«А» yo'nalishida",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "« А », « Б » va « В » yo'nalishlarida",
+                        "text": "«А», «Б» va «В» yo'nalishlarida",
                         "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "« Б » yo'nalishida",
+                        "text": "«Б» yo'nalishida",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "« Б » va « В » yo'nalishlarida",
+                        "text": "«Б» va «В» yo'nalishlarida",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "« В » yo'nalishida",
+                        "text": "«В» yo'nalishida",
                         "is_correct": false
                     }
                 ]
@@ -1013,27 +1013,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "« А » йўналишида",
+                        "text": "«А» йўналишида",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "« А », « Б » ва « В » йўналишларида",
+                        "text": "«А», «Б» ва «В» йўналишларида",
                         "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "« Б » йўналишида",
+                        "text": "«Б» йўналишида",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "« Б » ва « В » йўналишларида",
+                        "text": "«Б» ва «В» йўналишларида",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "« В » йўналишида",
+                        "text": "«В» йўналишида",
                         "is_correct": false
                     }
                 ]
@@ -1043,27 +1043,27 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "По направлению « А »",
+                        "text": "По направлению «А»",
                         "is_correct": false
                     },
                     {
                         "id": 2,
-                        "text": "По направлениям « А », « Б » и « В »",
+                        "text": "По направлениям «А», «Б» и «В»",
                         "is_correct": true
                     },
                     {
                         "id": 3,
-                        "text": "По направлениям « Б » и « В »",
+                        "text": "По направлениям «Б» и «В»",
                         "is_correct": false
                     },
                     {
                         "id": 4,
-                        "text": "По направлению « Б »",
+                        "text": "По направлению «Б»",
                         "is_correct": false
                     },
                     {
                         "id": 5,
-                        "text": "По направлению « В »",
+                        "text": "По направлению «В»",
                         "is_correct": false
                     }
                 ]
@@ -1280,7 +1280,7 @@
                 ]
             },
             "ru": {
-                "text": "По какой полосе разрешается движение грузовых автомобилей с разрешенной максимальной массой более 3,5 т в населённых пунктах?",
+                "text": "По какой полосе разрешается движение автомобилей с разрешенной максимальной массой более 3,5 т в населённых пунктах?",
                 "options": [
                     {
                         "id": 1,
@@ -1289,7 +1289,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "По любой полосе, однако, если для движения безрельсовых транспортных средств в одном направлении имеются три полосы и более, то на крайнюю левую полосу разрешается выезжать только для поворота налево, разворота и остановки на дорогах с односторонним движением",
+                        "text": "По любой полосе, однако, если для движения безрельсовых транспортных средств в одном направлении имеются три полосы и более, то на крайнюю левую полосу разрешается выезжать только для поворота налево и разворота",
                         "is_correct": false
                     },
                     {
@@ -1303,7 +1303,7 @@
         "izoh": {
             "uz_lat": "YHQ 7-bobi 38-bandiga asosan, tartibga soluvchining o'ng qo'li oldinga uzatilganda: chap yonidan tramvayga chapga, relssiz transport vositalariga barcha yo'nalishlarda; oldi tomonidan barcha transport vositalariga faqat o'ngga harakatlanishga ruxsat beriladi; orqa tomonidan va o'ng yonidan barcha transport vositalarining harakatlanishi taqiqlanadi; piyodalarga tartibga soluvchining orqa tomonida qatnov qismini kesib o'tishga ruxsat etiladi.",
             "uz_cyr": "YHQ 7-боби 38-бандига асосан, тартибга солувчининг ўнг қўли олдинга узатилганда: чап ёнидан трамвайга чапга, релссиз транспорт воситаларига барча йўналишларда; олди томонидан барча транспорт воситаларига фақат ўнгга ҳаракатланишга рухсат берилади; орқа томонидан ва ўнг ёнидан барча транспорт воситаларининг ҳаракатланиши тақиқланади; пиёдаларга тартибга солувчининг орқа томонида қатнов қисмини кесиб ўтишга рухсат этилади.",
-            "ru": "Согласно главе 7, пункту 38 Закона, при вытягивании правой руки регулятора вперед: с левой стороны на трамвай налево, на нерельсовые транспортные средства во всех направлениях; спереди всем транспортным средствам разрешено движение только вправо; запрещено движение всех транспортных средств сзади и с правой стороны; пешеходам разрешено переходить проезжую часть позади регулятора."
+            "ru": "Согласно главе 7, пункту 38 ПДД, при вытягивании правой руки регулятора вперед: с левой стороны на трамвай налево, на нерельсовые транспортные средства во всех направлениях; спереди всем транспортным средствам разрешено движение только вправо; запрещено движение всех транспортных средств сзади и с правой стороны; пешеходам разрешено переходить проезжую часть позади регулятора."
         }
     },
     {
@@ -1361,12 +1361,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "желтый",
+                        "text": "Желтый",
                         "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Зеленым",
+                        "text": "Зелёный",
                         "is_correct": false
                     },
                     {
@@ -1457,7 +1457,7 @@
         "izoh": {
             "uz_lat": "YHQ 7-bobi 38-bandiga asosan, tartibga soluvchining o'ng qo'li oldinga uzatilganda: chap yonidan tramvayga chapga, relssiz transport vositalariga barcha yo'nalishlarda; oldi tomonidan barcha transport vositalariga faqat o'ngga harakatlanishga ruxsat beriladi; orqa tomonidan va o'ng yonidan barcha transport vositalarining harakatlanishi taqiqlanadi; piyodalarga tartibga soluvchining orqa tomonida qatnov qismini kesib o'tishga ruxsat etiladi.",
             "uz_cyr": "YHQ 7-боби 38-бандига асосан, тартибга солувчининг ўнг қўли олдинга узатилганда: чап ёнидан трамвайга чапга, релссиз транспорт воситаларига барча йўналишларда; олди томонидан барча транспорт воситаларига фақат ўнгга ҳаракатланишга рухсат берилади; орқа томонидан ва ўнг ёнидан барча транспорт воситаларининг ҳаракатланиши тақиқланади; пиёдаларга тартибга солувчининг орқа томонида қатнов қисмини кесиб ўтишга рухсат этилади.",
-            "ru": "Согласно главе 7, пункту 38 Закона, при вытягивании правой руки регулятора вперед: с левой стороны на трамвай налево, на нерельсовые транспортные средства во всех направлениях; спереди всем транспортным средствам разрешено движение только вправо; запрещено движение всех транспортных средств сзади и с правой стороны; пешеходам разрешено переходить проезжую часть позади регулятора."
+            "ru": "Согласно главе 7, пункту 38 ПДД, при вытягивании правой руки регулятора вперед: с левой стороны на трамвай налево, на нерельсовые транспортные средства во всех направлениях; спереди всем транспортным средствам разрешено движение только вправо; запрещено движение всех транспортных средств сзади и с правой стороны; пешеходам разрешено переходить проезжую часть позади регулятора."
         }
     },
     {
@@ -1480,7 +1480,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Har ikkila rasmda",
+                        "text": "Har ikkala rasmda",
                         "is_correct": true
                     },
                     {
@@ -1534,7 +1534,7 @@
         "izoh": {
             "uz_lat": "YHQ 4-bobi 15-bandi 1-va 3-xatboshilariga asosan, piyodalar trotuarlardan, piyodalar yo'lkalaridan, piyoda va velosiped yo'lkalaridan, ular bo'lmaganda esa yo'l yoqalaridan harakatlanishi kerak. Qatnov qismi chetida harakatlanayotgan piyodalar transport vositalarining harakatlanishiga qarama-qarshi yo'nalishda yurishlari kerak.",
             "uz_cyr": "YHQ 4-боби 15-банди 1-ва 3-хатбошиларига асосан, пиёдалар тротуарлардан, пиёдалар йўлкаларидан, пиёда ва велосипед йўлкаларидан, улар бўлмаганда эса йўл ёқаларидан ҳаракатланиши керак. Қатнов қисми четида ҳаракатланаётган пиёдалар транспорт воситаларининг ҳаракатланишига қарама-қарши йўналишда юришлари керак.",
-            "ru": "Согласно главе 4 статьи 15 пунктам 1 и 3 ПДД пешеходы должны передвигаться по тротуарам, тротуарам, пешеходным и велосипедным дорожкам, а при их отсутствии - по обочине дороги. Пешеходы, передвигающиеся по краю проезжей части, должны двигаться в направлении, противоположном движению транспортных средств."
+            "ru": "Согласно главе 4 статьи 15 пунктам 1 и 3 ПДД пешеходы должны передвигаться по тротуарам, пешеходным и велосипедным дорожкам, а при их отсутствии - по обочине дороги. Пешеходы, передвигающиеся по краю проезжей части, должны двигаться в направлении, противоположном движению транспортных средств."
         }
     },
     {
@@ -1548,7 +1548,7 @@
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Suniy yoritilgan tunnellarda harakatlanayotganda qoidalar haydovchiga qanday majburiyat yuklaydi?",
+                "text": "Sun'iy yoritilgan tunnellarda harakatlanayotganda qoidalar haydovchiga qanday majburiyat yuklaydi?",
                 "options": [
                     {
                         "id": 1,
@@ -1557,7 +1557,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Majburiy to'xtash yorigichini yoqishni",
+                        "text": "Majburiy to'xtash yoritgichini yoqishni",
                         "is_correct": false
                     },
                     {
@@ -1617,7 +1617,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "Включить ближний свет фар",
+                        "text": "Включить ближний или дальний свет фар",
                         "is_correct": true
                     }
                 ]

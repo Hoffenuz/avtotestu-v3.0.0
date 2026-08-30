@@ -3,6 +3,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useAccessState } from "@/hooks/useAccessState";
 import { useTestSession } from "@/hooks/useTestSession";
 import { SEO } from "@/components/SEO";
+import { MainLayout } from "@/components/layout/MainLayout";
 import { TestStartPage } from "@/components/TestStartPage";
 import { TestInterface } from "@/components/TestInterface";
 import {
@@ -18,51 +19,46 @@ export default function Variant() {
 
   const variantStorageKey = `variant_activeTest_${user?.id ?? 'guest'}`;
 
-  const [testStarted, setTestStarted] = useState(false);
-  const [selectedVariant, setSelectedVariant] = useState<number | null>(null);
-  const [dataVariant, setDataVariant] = useState<number | null>(null);
-  const [sessionId, setSessionId] = useState<string | null>(null);
-  const [startError, setStartError] = useState<string | null>(null);
-
-  useEffect(() => {
+  const getInitialState = () => {
     try {
       const saved = localStorage.getItem(variantStorageKey);
-      if (!saved) {
-        setTestStarted(false);
-        setSelectedVariant(null);
-        setDataVariant(null);
-        setSessionId(null);
-        return;
-      }
-      const parsed = JSON.parse(saved);
-      if (parsed.testStarted && parsed.selectedVariant != null) {
-        const userId = user?.id ?? 'guest';
-        const testKey = `testState_variant_${parsed.selectedVariant}_${userId}`;
-        if (!localStorage.getItem(testKey)) {
-          localStorage.removeItem(variantStorageKey);
-          setTestStarted(false);
-          setSelectedVariant(null);
-          setDataVariant(null);
-          setSessionId(null);
-          return;
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed.testStarted && parsed.selectedVariant != null) {
+          const userId = user?.id ?? 'guest';
+          const testKey = `testState_variant_${parsed.selectedVariant}_${userId}`;
+          if (!localStorage.getItem(testKey)) {
+            localStorage.removeItem(variantStorageKey);
+            return {
+              testStarted: false,
+              selectedVariant: null as number | null,
+              dataVariant: null as number | null,
+              sessionId: null as string | null,
+            };
+          }
+          return {
+            testStarted: true,
+            selectedVariant: parsed.selectedVariant as number,
+            dataVariant: (parsed.dataVariant ?? parsed.selectedVariant) as number,
+            sessionId: (parsed.sessionId ?? null) as string | null,
+          };
         }
-        setTestStarted(true);
-        setSelectedVariant(parsed.selectedVariant as number);
-        setDataVariant((parsed.dataVariant ?? parsed.selectedVariant) as number);
-        setSessionId((parsed.sessionId ?? null) as string | null);
-        return;
       }
-      setTestStarted(false);
-      setSelectedVariant(null);
-      setDataVariant(null);
-      setSessionId(null);
-    } catch {
-      setTestStarted(false);
-      setSelectedVariant(null);
-      setDataVariant(null);
-      setSessionId(null);
-    }
-  }, [variantStorageKey, user?.id]);
+    } catch (e) { /* ignore */ }
+    return {
+      testStarted: false,
+      selectedVariant: null as number | null,
+      dataVariant: null as number | null,
+      sessionId: null as string | null,
+    };
+  };
+
+  const initial = getInitialState();
+  const [testStarted, setTestStarted] = useState(initial.testStarted);
+  const [selectedVariant, setSelectedVariant] = useState<number | null>(initial.selectedVariant);
+  const [dataVariant, setDataVariant] = useState<number | null>(initial.dataVariant);
+  const [sessionId, setSessionId] = useState<string | null>(initial.sessionId);
+  const [startError, setStartError] = useState<string | null>(null);
 
   useEffect(() => {
     try {
@@ -156,16 +152,20 @@ export default function Variant() {
     setTestStarted(true);
   };
 
+  // Test BOSHLANMAGAN holat sayt headeri bilan ko'rsatiladi — `/bolimlar` dan
+  // "Variantlar" ga o'tilganda header yo'qolib qolmasligi uchun. Test
+  // boshlangach (yuqoridagi `TestInterface` shohobchasi) header ataylab yo'q:
+  // imtihon paytida diqqatni chalg'itadigan navigatsiya keraksiz.
   return (
-    <>
+    <MainLayout>
       <SEO
-        title="Test variantlari — 63 ta YHQ varianti"
-        description="Haydovchilik guvohnomasi uchun 63 ta YHQ test varianti. Haqiqiy imtihon formatida. Prava imtihoniga to'liq tayyorgarlik — Avtotestlar.uz."
+        title="63 ta Test Varianti 2026 — Bepul YHQ Imtihon Testi"
+        description="63 ta YHQ test varianti, har birida 20 ta savol — xuddi haqiqiy imtihondagidek. Bepul onlayn ishlang va prava olishga to'liq tayyorlaning."
         path="/variant"
         keywords="test varianti, prava test, imtihon savollari, YHQ test, 63 variant"
       />
       {starting ? (
-        <div className="min-h-screen flex items-center justify-center">
+        <div className="flex min-h-[60vh] items-center justify-center">
           <div className="w-10 h-10 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
         </div>
       ) : (
@@ -175,6 +175,6 @@ export default function Variant() {
           hasProAccess={isPremium}
         />
       )}
-    </>
+    </MainLayout>
   );
 }

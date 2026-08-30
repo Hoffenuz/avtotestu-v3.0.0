@@ -61,16 +61,16 @@ export default function Yangiliklar() {
         keywords="avtotestlar yangiliklar, YHQ yangiliklari, prava test yangiliklari, haydovchilik guvohnomasi"
       />
 
-      <section className="bg-gradient-to-br from-primary via-primary-hover to-primary-light py-10 md:py-14">
+      <section className="bg-gradient-to-br from-brand via-brand to-brand/90 py-10 md:py-14">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 px-3 py-1 text-xs font-semibold text-primary-foreground mb-4">
+          <div className="inline-flex items-center gap-2 rounded-full bg-brand-foreground/10 px-3 py-1 text-xs font-semibold text-brand-foreground mb-4">
             <Newspaper className="w-3.5 h-3.5" />
             {language === "ru" ? "Официальные новости" : "Rasmiy yangiliklar"}
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-3">
+          <h1 className="text-3xl md:text-4xl font-bold text-brand-foreground mb-3">
             {pageTitle}
           </h1>
-          <p className="text-primary-foreground/85 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-brand-foreground/85 max-w-2xl mx-auto leading-relaxed">
             {pageDescription}
           </p>
         </div>

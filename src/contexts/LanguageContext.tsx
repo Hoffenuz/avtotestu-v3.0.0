@@ -20,6 +20,21 @@ const translations: Record<Language, Translations> = {
   ru: ruTranslations,
 };
 
+/**
+ * `<html lang>` uchun BCP-47 kodlari.
+ *
+ * NEGA KERAK: `index.html` da `lang="uz"` qotib qolgan edi va til
+ * almashtirilganda o'zgarmasdi. Natijada ruscha sahifa ham o'zbek tili deb
+ * e'lon qilinardi — ekran o'quvchi (screen reader) matnni noto'g'ri talaffuz
+ * qiladi, brauzer "tarjima qilinsinmi?" degan taklifni noto'g'ri ko'rsatadi,
+ * qidiruv tizimlari esa sahifa tilini xato aniqlaydi.
+ */
+const HTML_LANG: Record<Language, string> = {
+  'uz-lat': 'uz-Latn',
+  uz: 'uz-Cyrl',
+  ru: 'ru',
+};
+
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
@@ -34,6 +49,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     try { localStorage.setItem('language', language); } catch { /* ignore quota/security errors */ }
+    document.documentElement.lang = HTML_LANG[language];
   }, [language]);
 
   const setLanguage = useCallback((lang: Language) => {

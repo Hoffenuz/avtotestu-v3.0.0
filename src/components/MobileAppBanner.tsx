@@ -20,7 +20,7 @@ export function MobileAppBanner() {
         </div>
 
         <img
-          src="/data/rasm32.webp"
+          src="/images/rasm32.webp"
           alt="Google Play"
           className="w-32 h-12 object-contain flex-shrink-0"
           loading="lazy"

@@ -1,8 +1,16 @@
 import React, { createContext, useContext, useState, useEffect, useCallback, useMemo, useRef, ReactNode } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { User, Session } from '@supabase/supabase-js';
-import { clearAllUserData } from '@/hooks/useUserValidation';
-import { AUTH_RPC_TIMEOUT_MS, withTimeout } from '@/lib/withTimeout';
+/**
+ * `@/hooks/useUserValidation` DAN EMAS: u o'z navbatida shu fayldan
+ * `useAuth` ni import qiladi va aylanma bog'lanish hosil bo'lardi
+ * (AuthContext → useUserValidation → AuthContext). Vite dev serverida
+ * bu /profile kabi lazy sahifalarda "Failed to fetch dynamically
+ * imported module" xatosini keltirib chiqarardi.
+ */
+import { clearAllUserData } from '@/lib/clearUserData';
+import { resetSavedCache } from '@/lib/questionState';
+import { AUTH_RPC_TIMEOUT_MS, PROFILE_TIMEOUT_MS, SIGN_IN_TIMEOUT_MS, withTimeout } from '@/lib/withTimeout';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
@@ -38,6 +46,13 @@ interface AuthContextType {
   signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
   signInWithGoogle: () => Promise<{ error: Error | null }>;
   signOut: () => Promise<void>;
+  /**
+   * Foydalanuvchida parol bilan kirish allaqachon bormi.
+   * false = faqat Google orqali kirgan (parol hali qo'yilmagan).
+   */
+  hasPasswordLogin: boolean;
+  /** Faqat o'z parolini o'rnatadi/yangilaydi (joriy sessiya egasi uchun). */
+  updatePassword: (newPassword: string, currentPassword?: string) => Promise<{ error: Error | null }>;
   refreshProfile: () => Promise<void>;
   refreshAccessState: () => Promise<void>;
 }
@@ -49,12 +64,39 @@ const VALID_ACCESS_STATES: AccessState[] = [
 ];
 
 /** getSession is local — long waits = auth lock / hung refresh on mobile */
-const SESSION_INIT_TIMEOUT_MS = 3_500;
+/**
+ * Ilova ishga tushganda sessiyani kutishning YUQORI chegarasi.
+ *
+ * NEGA 2 SONIYA (ilgari 3.5 s edi):
+ * Token amal qilayotgan bo'lsa `getSession()` localStorage dan bir zumda
+ * (~1 ms) qaytadi — bu chegara unga umuman tegmaydi. Chegara faqat token
+ * ESKIRGAN holatda ishlaydi: o'shanda supabase-js uni serverdan yangilaydi
+ * va O'zbekistondan Germaniyagacha borib kelish sekin mobil tarmoqda
+ * soniyalarga cho'zilishi mumkin. Aynan shu payt `isLoading` true bo'lib
+ * turadi va BUTUN sahifa spinner ko'rsatadi — foydalanuvchi sezgan
+ * "profilga kirishda 5 soniya qotish" ning asosiy qismi shu edi
+ * (chegara + undan keyingi profil so'rovlari).
+ *
+ * Chegaraga yetilsa sessiya YO'QOLMAYDI: pastdagi INITIAL_SESSION hodisasi
+ * uni fon rejimida tiklaydi. Ya'ni bu qiymatni kamaytirish — interfeysni
+ * ertaroq ochish, sessiyani esa keyinroq qo'llash demakdir.
+ */
+const SESSION_INIT_TIMEOUT_MS = 2_000;
 const SESSION_RECOVER_TIMEOUT_MS = 5_000;
 
 /** Trial yo'q — faqat haqiqiy PRO */
 function premiumFromState(state: AccessState, rpcPremium: boolean): boolean {
   return state === 'active_pro' && rpcPremium;
+}
+
+/**
+ * onAuthStateChange callback supabase-js ning auth lock i ichida chaqiriladi.
+ * Lock ushlab turilganda .rpc() / .from() / getSession() chaqirilsa, ular
+ * o'sha lock ni kutadi — natijada login dan keyin profil/PRO holati timeout
+ * gacha (8 s) osilib qolardi. Macrotask ga surib, lock bo'shashini ta'minlaymiz.
+ */
+function deferFromAuthCallback(fn: () => void): void {
+  setTimeout(fn, 0);
 }
 
 async function readSessionSafe(): Promise<Session | null | 'unknown'> {
@@ -101,8 +143,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const signingOutRef = useRef(false);
   const signInInFlightRef = useRef(false);
   const userIdRef = useRef<string | null>(null);
+  /** Boshlang'ich sessiya uchun loadUserState bir marta ishlashini kafolatlaydi */
+  const bootstrappedRef = useRef(false);
 
   const clearAccessState = useCallback(() => {
+    // Saqlangan savollar keshi FOYDALANUVCHIGA tegishli — tozalanmasa,
+    // shu qurilmada kirgan keyingi odam avvalgisining ro'yxatini ko'rardi.
+    resetSavedCache();
     accessFetchSeqRef.current++;
     accessConfirmedRef.current = false;
     setAccessState('guest');
@@ -120,11 +167,17 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const fetchProfileData = useCallback(async (userId: string): Promise<Profile | null> => {
     try {
-      const { data, error } = await supabase
-        .from('profiles')
-        .select('id, username, full_name, avatar_url, created_at')
-        .eq('id', userId)
-        .single();
+      // Timeout SHART: bu chaqiruv timeout siz qolganda (boshqa hammasida bor edi)
+      // sekin tarmoqda osilib qolib, loadUserState dagi Promise.all ni abadiy
+      // ushlab turardi → profileLoading hech qachon false bo'lmasdi.
+      const { data, error } = await withTimeout(
+        supabase
+          .from('profiles')
+          .select('id, username, full_name, avatar_url, created_at')
+          .eq('id', userId)
+          .single(),
+        PROFILE_TIMEOUT_MS,
+      );
 
       if (error) {
         if (!import.meta.env.PROD) console.error('Auth Error - Profile fetch:', error);
@@ -139,7 +192,19 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const fetchAccessState = useCallback(async (userId: string): Promise<void> => {
     const seq = ++accessFetchSeqRef.current;
+    /** Eskirgan MA'LUMOTNI qo'llamaslik uchun (user almashgan bo'lishi mumkin) */
     const isStale = () => seq !== accessFetchSeqRef.current || userIdRef.current !== userId;
+    /**
+     * Spinner ni o'chirish uchun ALOHIDA shart. Ilgari ikkalasi bitta `isStale()`
+     * edi: agar userIdRef o'zgargan bo'lsa (sessiya almashdi/null bo'ldi), eng
+     * oxirgi chaqiruv ham "stale" hisoblanib, `setAccessStateLoading(false)`
+     * BAJARILMAY qolardi. Keyin uni tozalaydigan hech kim yo'q →
+     * accessStateLoading abadiy true → useAccessState().loading abadiy true →
+     * /variant, /mavzuli, /darslik cheksiz "Yuklanmoqda" spinner da qotib
+     * qolardi. Spinner ni faqat YANGIROQ chaqiruv bor bo'lsa qoldiramiz —
+     * u holda uni o'sha chaqiruv o'chiradi.
+     */
+    const supersededByNewer = () => seq !== accessFetchSeqRef.current;
 
     const blockUi = !accessConfirmedRef.current;
     if (blockUi) setAccessStateLoading(true);
@@ -186,7 +251,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         setBackendConfirmed(false);
       }
     } finally {
-      if (!isStale() && blockUi) setAccessStateLoading(false);
+      if (!supersededByNewer() && blockUi) setAccessStateLoading(false);
     }
   }, []);
 
@@ -215,13 +280,16 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         );
         if (!isMounted || signingOutRef.current) return;
 
-        if (currentSession?.user) {
+        if (currentSession?.user && !bootstrappedRef.current) {
+          bootstrappedRef.current = true;
           applySession(currentSession);
           void loadUserState(currentSession.user.id);
         }
       } catch (err) {
         if (!import.meta.env.PROD) console.error('Auth Error - Initialization:', err);
-        // Timeout: unlock UI immediately; TOKEN_REFRESHED / SIGNED_IN will hydrate
+        // Timeout: UI ni darhol ochamiz. Sessiyani INITIAL_SESSION hodisasi
+        // tiklaydi (pastda) — ilgari u e'tiborsiz qoldirilardi va shu sababli
+        // tizimga kirgan foydalanuvchi "mehmon" bo'lib qolardi.
       } finally {
         if (isMounted) setIsLoading(false);
       }
@@ -233,7 +301,38 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
         // Keep callback sync — never await inside (Supabase deadlock risk).
         // Defer async recovery to microtasks.
-        if (event === 'INITIAL_SESSION') return;
+
+        /**
+         * ILGARIGI BUG: bu hodisa butunlay e'tiborsiz qoldirilardi.
+         *
+         * initializeAuth() dagi getSession() mobil tarmoqda yoki supabase-js
+         * auth lock i band bo'lganda 3.5 s da timeout bo'ladi. O'sha holatda
+         * sessiyani qo'llaydigan YAGONA yo'l — shu INITIAL_SESSION hodisasi.
+         * U tashlab yuborilgani uchun user null qolib, isLoading esa false
+         * bo'lardi — ya'ni HAQIQATDA TIZIMGA KIRGAN (va hatto PRO to'lagan)
+         * foydalanuvchi ilova nazarida "mehmon" bo'lib qolardi:
+         *   /mavzuli, /darslik → "Kirish talab qilinadi" gate
+         *   /pro              → obuna yo'qdek ko'rinardi
+         * Tiklanish faqat TOKEN_REFRESHED / SIGNED_IN ga bog'liq edi, ular esa
+         * yangi sessiyada bir soatlab umuman kelmasligi mumkin.
+         */
+        if (event === 'INITIAL_SESSION') {
+          if (
+            currentSession?.user &&
+            !bootstrappedRef.current &&
+            !signingOutRef.current
+          ) {
+            bootstrappedRef.current = true;
+            applySession(currentSession);
+            const initialUserId = currentSession.user.id;
+            deferFromAuthCallback(() => {
+              if (!isMounted || signingOutRef.current) return;
+              void loadUserState(initialUserId);
+            });
+            setIsLoading(false);
+          }
+          return;
+        }
 
         if (event === 'SIGNED_OUT') {
           if (signingOutRef.current) {
@@ -244,47 +343,52 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             return;
           }
 
-          void (async () => {
-            const stillThere = await readSessionSafe();
-            if (!isMounted || signingOutRef.current) return;
-
-            if (stillThere === 'unknown') return;
-            if (stillThere?.user) {
-              applySession(stillThere);
-              void fetchAccessState(stillThere.user.id);
-              return;
-            }
-            applySession(null);
-            setProfile(null);
-            clearAccessState();
-            setIsLoading(false);
-          })();
-          return;
-        }
-
-        if (event === 'TOKEN_REFRESHED') {
-          if (!currentSession) {
+          deferFromAuthCallback(() => {
             void (async () => {
-              // Give multi-tab rotation time before declaring logout
-              await new Promise((r) => setTimeout(r, 500));
-              const recovered = await readSessionSafe();
+              const stillThere = await readSessionSafe();
               if (!isMounted || signingOutRef.current) return;
-              if (recovered === 'unknown') return;
-              if (recovered?.user) {
-                applySession(recovered);
-                void fetchAccessState(recovered.user.id);
+
+              if (stillThere === 'unknown') return;
+              if (stillThere?.user) {
+                applySession(stillThere);
+                void fetchAccessState(stillThere.user.id);
                 return;
               }
-              // Soft: only clear React state — do not wipe localStorage again
               applySession(null);
               setProfile(null);
               clearAccessState();
               setIsLoading(false);
             })();
+          });
+          return;
+        }
+
+        if (event === 'TOKEN_REFRESHED') {
+          if (!currentSession) {
+            deferFromAuthCallback(() => {
+              void (async () => {
+                // Give multi-tab rotation time before declaring logout
+                await new Promise((r) => setTimeout(r, 500));
+                const recovered = await readSessionSafe();
+                if (!isMounted || signingOutRef.current) return;
+                if (recovered === 'unknown') return;
+                if (recovered?.user) {
+                  applySession(recovered);
+                  void fetchAccessState(recovered.user.id);
+                  return;
+                }
+                // Soft: only clear React state — do not wipe localStorage again
+                applySession(null);
+                setProfile(null);
+                clearAccessState();
+                setIsLoading(false);
+              })();
+            });
             return;
           }
           applySession(currentSession);
-          void fetchAccessState(currentSession.user.id);
+          const refreshedUserId = currentSession.user.id;
+          deferFromAuthCallback(() => { void fetchAccessState(refreshedUserId); });
           return;
         }
 
@@ -294,7 +398,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
         if (currentSession?.user && event === 'SIGNED_IN') {
           if (signingOutRef.current) return;
-          void loadUserState(currentSession.user.id);
+          // OAuth oqimida INITIAL_SESSION shundan KEYIN kelishi mumkin —
+          // belgilab qo'yamiz, aks holda loadUserState ikki marta ishlaydi.
+          bootstrappedRef.current = true;
+          const signedInUserId = currentSession.user.id;
+          deferFromAuthCallback(() => {
+            if (!isMounted || signingOutRef.current) return;
+            void loadUserState(signedInUserId);
+          });
         } else if (!currentSession?.user) {
           setProfile(null);
           clearAccessState();
@@ -362,6 +473,57 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
+  /**
+   * Foydalanuvchi qaysi usul(lar) bilan kira oladi. Google orqali kelgan
+   * foydalanuvchida parol yo'q — unga "parol o'rnatish" taklif qilinadi,
+   * paroli borlardan esa eskisi so'raladi.
+   */
+  const hasPasswordLogin = useMemo(() => {
+    const meta = user?.app_metadata as { providers?: unknown; provider?: unknown } | undefined;
+    const list = Array.isArray(meta?.providers) ? (meta.providers as unknown[]) : [];
+    if (list.some((p) => p === 'email')) return true;
+    return meta?.provider === 'email';
+  }, [user]);
+
+  /**
+   * Parolni o'rnatish yoki yangilash.
+   *
+   * Xavfsizlik: `updateUser` HAR DOIM joriy sessiya egasiga tegishli — boshqa
+   * foydalanuvchini ko'rsatish imkoniyati yo'q, shuning uchun foydalanuvchi
+   * faqat o'z parolini o'zgartira oladi. Paroli bor foydalanuvchidan qo'shimcha
+   * ravishda eski parol so'raladi (ochiq qolgan sessiyani himoyalash uchun).
+   */
+  const updatePassword = useCallback(async (
+    newPassword: string,
+    currentPassword?: string,
+  ): Promise<{ error: Error | null }> => {
+    const email = user?.email?.trim();
+    if (!email) return { error: new Error('not_authenticated') };
+
+    try {
+      if (hasPasswordLogin) {
+        if (!currentPassword) return { error: new Error('current_password_required') };
+        // Parolni tekshirishning yagona yo'li — u bilan kirib ko'rish.
+        // Xato parol joriy sessiyani buzmaydi.
+        const { error: verifyError } = await withTimeout(
+          supabase.auth.signInWithPassword({ email, password: currentPassword }),
+          SIGN_IN_TIMEOUT_MS,
+        );
+        if (verifyError) return { error: new Error('wrong_current_password') };
+      }
+
+      const { error } = await withTimeout(
+        supabase.auth.updateUser({ password: newPassword }),
+        SIGN_IN_TIMEOUT_MS,
+      );
+      if (error) return { error };
+
+      return { error: null };
+    } catch (err) {
+      return { error: err as Error };
+    }
+  }, [user, hasPasswordLogin]);
+
   const signIn = useCallback(async (
     email: string,
     password: string
@@ -375,7 +537,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     try {
       // Password auth only — profile/PRO RPC runs in background so mobile
       // "Kirish" is not stuck 10–20s waiting on get_user_access_state.
-      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+      // Timeout shart: usul o'zi hech qachon rad etmaydi, sekin/uzilgan
+      // tarmoqda tugma cheksiz "Tekshirilmoqda..." holatida qolardi.
+      const { data, error } = await withTimeout(
+        supabase.auth.signInWithPassword({ email, password }),
+        SIGN_IN_TIMEOUT_MS,
+      );
 
       if (error) return { error };
 
@@ -411,6 +578,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const signOut = useCallback(async () => {
+    // Capture BEFORE applySession(null) wipes it — userIdRef (not the `user`
+    // state) because this callback's deps never change, so its closure over
+    // `user` would otherwise be permanently stale from the initial render.
+    const outgoingUserId = userIdRef.current ?? undefined;
     signingOutRef.current = true;
     applySession(null);
     setProfile(null);
@@ -425,7 +596,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     } catch (err) {
       if (!import.meta.env.PROD) console.error('Sign out error:', err);
     } finally {
-      clearAllUserData();
+      clearAllUserData(outgoingUserId);
       window.setTimeout(() => {
         signingOutRef.current = false;
       }, 1500);
@@ -447,12 +618,15 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     signIn,
     signInWithGoogle,
     signOut,
+    hasPasswordLogin,
+    updatePassword,
     refreshProfile,
     refreshAccessState,
   }), [
     user, session, profile, isLoading, profileLoading,
     accessStateLoading, accessState, isPremium, expiresAt, backendConfirmed,
-    signUp, signIn, signInWithGoogle, signOut, refreshProfile, refreshAccessState,
+    signUp, signIn, signInWithGoogle, signOut, hasPasswordLogin, updatePassword,
+    refreshProfile, refreshAccessState,
   ]);
 
   return (

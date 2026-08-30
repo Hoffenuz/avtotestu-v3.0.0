@@ -79,3 +79,39 @@ netlify.toml
 live_test.sh
 test_migrations.sql
 test_review_ratelimit.js
+
+# Supabase migratsiyalari MCP orqali to'g'ridan-to'g'ri bazaga qo'llanadi va
+# to'liq SQL matni bilan birga `supabase_migrations.schema_migrations`
+# jadvalida saqlanadi — ya'ni haqiqiy manba BAZA.
+# Lokal nusxalar to'liq emas (bazada 89 ta, bu yerda 17 ta) va chalg'itadi,
+# shuning uchun yangilari repozitoriyga qo'shilmasin.
+supabase/migrations/*.sql
+
+# tsc -b (typecheck) yaratadigan inkremental kesh fayllari
+*.tsbuildinfo
+
+# wrangler pages dev lokal keshi
+.wrangler/
+
+# ---------------------------------------------------------------------------
+# Markdown eslatmalar, tahlillar va audit hisobotlari — bular lokal ish
+# qog'ozlari, GitHub ga chiqmasin.
+#
+# DIQQAT: .gitignore ALLAQACHON kuzatilayotgan fayllarga ta'sir qilmaydi.
+# README.md va docs/ hozir ham repo da qoladi va oldingidek tahrirlanadi.
+# Quyidagi `!` istisnolari niyatni aniq qilish uchun: yangi klondan keyin
+# `git add -A` qilinganda ham muhim hujjatlar joyida qoladi.
+# ---------------------------------------------------------------------------
+*.md
+!README.md
+!QUICK_START.md
+!LOYIHA-TAHLILI.md
+!STARTUP-GOYALAR.md
+!docs/*.md
+!scripts/VARIANT-QUALITY-AUDIT.md
+
+# Imlo auditi hisobotlari — lokal ish qog'ozlari, repozitoriyga kerak emas.
+# (TUZATILGAN-SOZLAR.md yuqoridagi `*.md` qoidasi bilan ham qamraladi,
+#  lekin niyat aniq bo'lishi uchun alohida yozilgan.)
+TUZATILGAN-SOZLAR.md
+SAYT-AUDIT-*.md

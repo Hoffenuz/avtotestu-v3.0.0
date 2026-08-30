@@ -282,13 +282,42 @@ function buildIndex(questions) {
   return { generatedAt: TODAY, variant: 59, questions, bySlug, byGlobalId };
 }
 
+/**
+ * "Yodlash kerak" bo'limidagi mavzular — manba fayldan O'QILADI.
+ *
+ * Ro'yxatni bu yerda takrorlash yaramaydi: mavzu qo'shilsa yoki id
+ * o'zgarsa, sitemap jimgina eskirib qolardi.
+ */
+function yodlashTopicPaths() {
+  try {
+    const src = fs.readFileSync(path.join(ROOT, "src/lib/yodlashRaqamlari.ts"), "utf-8");
+    return [...src.matchAll(/^\s{4}id:\s*"([a-z0-9-]+)",/gm)].map(
+      (m) => `/yodlash-kerak/${m[1]}`,
+    );
+  } catch {
+    return [];
+  }
+}
+
 function updateSitemap(questions) {
+  /**
+   * DIQQAT: sitemap TO'LIQ shu yerda qayta yaratiladi va
+   * `public/sitemap.xml` ustiga yoziladi. Ya'ni o'sha faylni qo'lda
+   * tahrirlash BEHUDA — keyingi build o'chirib tashlaydi.
+   * Yangi ochiq marshrut shu ro'yxatga qo'shilsin.
+   */
   const mainUrls = [
     ["/", "daily", "1.0"],
     ["/test-ishlash", "daily", "0.95"],
+    ["/real-imtihon", "weekly", "0.9"],
     ["/belgilar", "weekly", "0.9"],
     ["/variant", "weekly", "0.9"],
     ["/mavzuli", "weekly", "0.85"],
+    ["/bolimlar", "weekly", "0.9"],
+    ["/avtodrom", "monthly", "0.8"],
+    ["/yodlash-kerak", "monthly", "0.8"],
+    ...yodlashTopicPaths().map((p) => [p, "monthly", "0.7"]),
+    ["/qidirish", "weekly", "0.6"],
     ["/darslik", "weekly", "0.8"],
     ["/qoshimcha", "monthly", "0.7"],
     ["/pro", "monthly", "0.75"],

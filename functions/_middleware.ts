@@ -18,6 +18,10 @@
 const BOT_UA =
   /googlebot|adsbot-google|google-inspectiontool|bingbot|msnbot|yandexbot|baiduspider|duckduckbot|slurp|teoma|ia_archiver|archive\.org_bot|facebookexternalhit|facebot|meta-externalagent|twitterbot|telegrambot|slackbot|linkedinbot|whatsapp|applebot|semrushbot|ahrefsbot|mj12bot|dotbot|petalbot|bytespider|360spider|sogou|exabot|netcraft|gptbot|oai-searchbot|claudebot|cohere-ai|anthropic-ai|perplexitybot|youbot|diffbot/i;
 
+// DIQQAT: yangi marshrut qo'shilganda SHU RO'YXAT ham yangilansin.
+// Ro'yxatda yo'q marshrut `_redirects` dagi `/* /index.html 200` zaxira
+// qoidasiga tushadi — sahifa ochiladi, lekin middleware qo'yadigan
+// `no-store` sarlavhalarisiz, ya'ni boshqa sahifalardan farqli keshlanadi.
 const SPA_PREFIXES: string[] = [
   '/test-ishlash',
   '/belgilar',
@@ -32,6 +36,15 @@ const SPA_PREFIXES: string[] = [
   '/profile',
   '/auth',
   '/desktop',
+  // Bo'limlar bo'limi (2026-08)
+  '/bolimlar',
+  '/real-imtihon',
+  '/qidirish',
+  '/avtodrom',
+  '/yodlash-kerak',
+  '/xatolarim',
+  '/saqlangan',
+  '/xatolar-testi',
 ];
 
 const SEO_EXACT: string[] = [
@@ -195,8 +208,43 @@ async function handleRequest(ctx: PagesContext): Promise<Response> {
   const url = new URL(request.url);
   const path = url.pathname;
 
+  /**
+   * Statik fayl so'rovi HECH QACHON HTML qaytarmasin.
+   *
+   * MUAMMO: `_redirects` dagi `/* /index.html 200` SPA fallback mavjud
+   * bo'lmagan HAR QANDAY yo'lga index.html ni 200 bilan qaytaradi. Bu ikki
+   * joyda foydalanuvchiga urardi:
+   *
+   *   1. `/assets/index-ESKIHASH.js` — brauzerda eski index.html qolgan
+   *      foydalanuvchi (har deploy da hash o'zgaradi) HTML ni JavaScript
+   *      moduli deb bajarishga urinadi → BUTUN ilova ishga tushmaydi.
+   *
+   *   2. `/data/variants/vN.json`, `/free-*.json` va boshqa savol
+   *      fayllari — `fetchQuestionJson` HTML oladi, `JSON.parse` yiqiladi.
+   *      U buni tarmoq xatosi deb hisoblab 4 marta qayta uriniladi
+   *      (eksponensial kutish bilan ~5 soniya) va shundan keyingina xato
+   *      ko'rsatadi. Foydalanuvchi uchun bu "qotib qolish".
+   *
+   * YECHIM: statik fayl so'raldi-yu, javob HTML bo'lsa — haqiqiy 404.
+   * Shunda <script> da `error` hodisasi chiqadi (index.html dagi
+   * ko'rinmas tiklanish ishlaydi) va `fetchQuestionJson` uni doimiy
+   * xato deb bilib bekorga qayta urinmaydi.
+   *
+   * Haqiqiy fayllar o'z content-type i bilan tegilmasdan o'tadi.
+   */
   if (isStaticAsset(path) && !path.endsWith('.html')) {
-    return next();
+    const assetRes = await next();
+    const type = assetRes.headers.get('content-type') ?? '';
+    if (type.includes('text/html')) {
+      return new Response('Not found', {
+        status: 404,
+        headers: {
+          'Content-Type': 'text/plain; charset=utf-8',
+          'Cache-Control': 'no-store',
+        },
+      });
+    }
+    return assetRes;
   }
 
   if (path === '/') {

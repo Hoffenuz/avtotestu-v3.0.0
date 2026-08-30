@@ -1,35 +1,86 @@
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEO } from "@/components/SEO";
 import { useAuth } from "@/contexts/AuthContext";
+import { hasStoredSession } from "@/lib/hasStoredSession";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAccessState } from "@/hooks/useAccessState";
 import {
   Play,
-  MonitorSmartphone,
-  ShieldCheck,
-  Trophy,
   User,
   BarChart3,
   BookOpen,
   Settings,
   Crown,
-  Zap
+  Zap,
+  MonitorSmartphone,
+  ShieldCheck,
+  Trophy
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { SectionGrid } from "@/components/SectionGrid";
+import { QUICK_ITEMS } from "@/lib/siteSections";
+import { fetchSectionCounts } from "@/lib/questionState";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { SiteNotificationBanner } from "@/components/SiteNotificationBanner";
 import MobileAppBanner from "@/components/MobileAppBanner";
 import DesktopAppBanner from "@/components/DesktopAppBanner";
+import ProGroupInvite from "@/components/ProGroupInvite";
 
 
 export default function Home() {
   const { user, profile, isLoading: authLoading } = useAuth();
   const { t } = useLanguage();
   const navigate = useNavigate();
-  const { isPremium, loading: accessLoading } = useAccessState();
-  const authReady = !authLoading && !accessLoading;
+  const { isPremium } = useAccessState();
+
+  /**
+   * Birinchi renderda saqlangan sessiya bormi — faqat BIR MARTA hisoblanadi
+   * (`useState` initsializatori). Keyingi renderlarda localStorage qayta
+   * o'qilmaydi, ya'ni qiymat barqaror va maket sakramaydi.
+   */
+  const [expectsSession] = useState(hasStoredSession);
+  const [quickBadges, setQuickBadges] = useState<Record<string, number>>({});
+
+  /**
+   * Xato javoblar soni — faqat kirgan foydalanuvchi uchun.
+   *
+   * Son "Xatolar ustida ishlash" plitkasida ko'rsatiladi: u aynan nechta
+   * savolni qayta yechish mumkinligini bildiradi. Saqlangan savollar soni
+   * bu yerda kerak emas — u plitka bosh sahifada yo'q.
+   */
+  useEffect(() => {
+    if (!user) {
+      setQuickBadges({});
+      return;
+    }
+    let cancelled = false;
+    void (async () => {
+      const { wrong } = await fetchSectionCounts();
+      if (cancelled) return;
+      setQuickBadges(wrong > 0 ? { "/xatolar-testi": wrong } : {});
+    })();
+    return () => { cancelled = true; };
+  }, [user]);
+
+
+  /**
+   * Profil panelini ko'rsatamizmi.
+   *
+   * `user` kelguncha ham (auth hali yuklanayotgan va saqlangan sessiya bor)
+   * panel chiziladi — shunda joy oldindan band bo'ladi va ma'lumot kelganda
+   * hech narsa surilmaydi.
+   *
+   * Auth yakunlangach (`authLoading === false`) faqat haqiqiy `user` ga
+   * ishonamiz. Ya'ni sessiya eskirgan bo'lsa panel olib tashlanadi — bu kamdan
+   * kam holat va baribir hozirgi xatti-harakatdan yomon emas.
+   */
+  const showProfilePanel = !!user || (authLoading && expectsSession);
+
+  /** Haqiqiy ma'lumot tayyormi (yo'q bo'lsa — o'sha o'lchamdagi kulrang chiziq). */
+  const profileReady = !!user;
 
   const features = [
     { icon: MonitorSmartphone, titleKey: "home.feature1Title", descKey: "home.feature1Desc" },
@@ -38,14 +89,8 @@ export default function Home() {
   ];
 
   const getInitials = (name: string | null | undefined) => {
-    if (!name?.trim()) return "U";
-    return name
-      .trim()
-      .split(/\s+/)
-      .map((part) => part[0])
-      .join("")
-      .toUpperCase()
-      .slice(0, 2) || "U";
+    if (!name) return "U";
+    return name.split(" ").map(n => n[0]).join("").toUpperCase().slice(0, 2);
   };
 
   return (
@@ -73,11 +118,11 @@ export default function Home() {
           width="1920"
           height="1080"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/90 to-primary/85 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand/95 via-brand/90 to-brand/85 backdrop-blur-[2px]" />
 
         {/* Content */}
         <div className="relative w-full max-w-7xl mx-auto px-4 py-16">
-          <div className="max-w-4xl mx-auto bg-primary/80 backdrop-blur-md rounded-[2rem] p-8 md:p-12 text-center shadow-2xl">
+          <div className="max-w-4xl mx-auto bg-brand/80 backdrop-blur-md rounded-[2rem] p-8 md:p-12 text-center shadow-2xl">
 
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white/95 text-sm font-medium mb-6 border border-white/10">
               <span className="relative flex h-2 w-2">
@@ -133,14 +178,12 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Mavzuli testlar — faqat kirgan userlar; PRO badge faqat active_pro da */}
-              {authReady && user && (
+              {/* Mavzuli testlar — kirgan userlar (mobile + desktop) */}
+              {user && (
                 <div className="relative w-full md:w-auto">
-                  {isPremium && (
-                    <span className="absolute -top-2 -right-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full z-10 shadow-sm">
-                      {t("common.pro")}
-                    </span>
-                  )}
+                  <span className="absolute -top-2 -right-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full z-10 shadow-sm">
+                    {t("common.pro")}
+                  </span>
                   <Link to="/mavzuli" className="w-full md:w-auto group block">
                     <Button
                       size="lg"
@@ -157,11 +200,41 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-16 bg-background">
+      {/* PRO userlarga bir martalik guruh taklifi — hammaga ko'rinadigan guruh kartasi footerga ko'chirildi */}
+      <section className="py-8 bg-background">
+        <div className="max-w-4xl mx-auto px-4">
+          <ProGroupInvite />
+        </div>
+      </section>
+
+      {/*
+        Tezkor amallar — afzalliklardan YUQORIDA.
+
+        Foydalanuvchi pastga surganda avval o'ziga kerakli amalni ko'radi
+        (imtihon, xatolar ustida ishlash, qidiruv), keyin reklama matnini
+        o'qiydi. Teskari tartibda foydali havolalar pastga surilib ketardi.
+      */}
+      <section className="py-10 bg-background">
+        <div className="max-w-4xl mx-auto px-4">
+          <SectionGrid items={QUICK_ITEMS} badges={quickBadges} signedIn={!!user} />
+        </div>
+      </section>
+
+      {/*
+        Platformaning afzalliklari.
+
+        ATAYLAB BO'LIMLARDAN KEYIN: foydalanuvchi avval nima qila olishini
+        (bo'limlar) ko'rsin, keyin nega aynan shu saytni tanlashi kerakligini
+        o'qisin. Teskari tartibda reklama matni foydali havolalarni pastga
+        surib yuborardi.
+      */}
+      <section className="py-16 bg-muted/30 defer-paint">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4" style={{ fontFamily: "'Segoe UI', system-ui, -apple-system, sans-serif" }}>
+            <h2
+              className="text-3xl md:text-4xl font-bold text-foreground mb-4"
+              style={{ fontFamily: "'Segoe UI', system-ui, -apple-system, sans-serif" }}
+            >
               {t("home.featuresTitle")}
             </h2>
           </div>
@@ -170,7 +243,7 @@ export default function Home() {
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <Card key={index} className="border border-muted/60 shadow-sm bg-card hover:shadow-md transition-all hover:-translate-y-1">
+                <Card key={index} className="border border-border shadow-sm bg-card hover:shadow-md transition-all hover:-translate-y-1">
                   <CardContent className="pt-8 pb-6 text-center">
                     <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-2xl flex items-center justify-center" style={{ aspectRatio: '1' }}>
                       <Icon className="w-8 h-8 text-primary" />
@@ -189,23 +262,48 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Profile Section - Only for logged in users (auth yuklanmaguncha flicker yo'q) */}
-      {authReady && user && (
-        <section className="py-10 md:py-12 bg-background border-t border-border">
+      {/*
+        Profile Section — kirgan foydalanuvchilar uchun.
+
+        `showProfilePanel` NEGA shunchaki `user` EMAS:
+        `user` birinchi renderda doim `null` (sessiya localStorage dan
+        o'qilguncha). Ilgari shu sababli butun bo'lim dastlab yo'q bo'lib,
+        ~1 soniyadan keyin BIRDAN paydo bo'lardi va pastdagi PRO bo'limi bilan
+        footer ni surib yuborardi (CLS 0.187).
+
+        Endi saqlangan sessiya bo'lsa joy BIRINCHI RENDERDAYOQ zahiralanadi va
+        ma'lumot kelganda o'sha joyga tushadi — siljish yo'q. Sessiyasi yo'q
+        mehmonlar uchun esa hech narsa o'zgarmadi: bo'lim umuman chizilmaydi.
+      */}
+      {showProfilePanel && (
+        <section className="py-10 md:py-12 bg-background border-t border-border defer-paint">
           <div className="max-w-4xl mx-auto px-4">
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-6">
               <Avatar className="h-14 w-14 bg-primary/10 text-primary shrink-0" style={{ aspectRatio: "1" }}>
                 <AvatarFallback className="bg-primary/10 text-primary text-lg font-semibold">
-                  {getInitials(profile?.full_name || profile?.username)}
+                  {profileReady ? getInitials(profile?.full_name || profile?.username) : ""}
                 </AvatarFallback>
               </Avatar>
               <div className="min-w-0 flex-1">
-                <h3 className="text-xl font-semibold text-foreground truncate">
-                  {profile?.full_name || profile?.username || t("nav.user")}
+                {/*
+                  Balandlik ikkala holatda bir xil bo'lishi uchun ism va
+                  username qatorlari DOIM chiziladi — yuklanayotganda o'rniga
+                  shu o'lchamdagi kulrang chiziq turadi.
+                */}
+                <h3 className="text-xl font-semibold text-foreground truncate leading-7 min-h-7">
+                  {profileReady ? (
+                    profile?.full_name || profile?.username || t("nav.user")
+                  ) : (
+                    <span className="block h-5 w-40 max-w-full rounded bg-muted animate-pulse" aria-hidden="true" />
+                  )}
                 </h3>
-                {profile?.username && (
-                  <p className="text-sm text-muted-foreground truncate">@{profile.username}</p>
-                )}
+                <p className="text-sm text-muted-foreground truncate leading-5 min-h-5">
+                  {profileReady ? (
+                    profile?.username ? `@${profile.username}` : ""
+                  ) : (
+                    <span className="block h-3.5 w-24 max-w-full rounded bg-muted animate-pulse" aria-hidden="true" />
+                  )}
+                </p>
               </div>
               {isPremium && (
                 <div className="flex items-center gap-2 text-sm text-muted-foreground sm:ml-auto">
@@ -237,9 +335,9 @@ export default function Home() {
         </section>
       )}
 
-      {/* PRO Section — sodda (sessiya tekshirilguncha ko'rsatmaymiz) */}
-      {authReady && !(user && isPremium) && (
-        <section className="py-10 md:py-12 bg-muted/30 border-t border-border">
+      {/* PRO Section — sodda */}
+      {!(user && isPremium) && (
+        <section className="py-10 md:py-12 bg-muted/30 border-t border-border defer-paint">
           <div className="max-w-4xl mx-auto px-4">
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
               <div className="flex-1">

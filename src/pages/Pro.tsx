@@ -1,74 +1,131 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAccessState } from "@/hooks/useAccessState";
 import { supabase } from "@/integrations/supabase/client";
+import { buildPaymeCheckoutUrl, formatTiyinAsSum, type PaymePlan } from "@/lib/payme";
+import { clearPendingPlan, peekPendingPlan, setPendingPlan } from "@/lib/pendingPlan";
+import { DB_READ_TIMEOUT_MS, withTimeout } from "@/lib/withTimeout";
 import { toast } from "sonner";
-import {
-  Crown,
-  Check,
-  X,
-  Star,
-  Send,
-  FileUp,
-  CheckCircle
-} from "lucide-react";
+import { Crown, Check, X, Star, Send } from "lucide-react";
+
+/**
+ * Faol tariflarni o'qiydi.
+ * `null` = so'rov muvaffaqiyatsiz yoki bo'sh (qayta urinish mantiqiy).
+ */
+async function fetchActivePaymePlans(
+  signal?: AbortSignal,
+): Promise<Record<string, PaymePlan> | null> {
+  try {
+    // Bitta yo'l: signal berilmasa ham o'zimiznikini yaratamiz, shunda
+    // so'rov qurilishi hamma chaqiruvda bir xil bo'ladi.
+    const activeSignal = signal ?? new AbortController().signal;
+
+    const { data, error } = await withTimeout(
+      supabase
+        .from("payme_plans")
+        .select("plan_name, amount_tiyin, tariff_days")
+        .eq("is_active", true)
+        .abortSignal(activeSignal),
+      DB_READ_TIMEOUT_MS,
+    );
+
+    if (error || !data || data.length === 0) return null;
+
+    const byName: Record<string, PaymePlan> = {};
+    for (const plan of data) byName[plan.plan_name] = plan;
+    return byName;
+  } catch {
+    return null;
+  }
+}
 
 export default function Pro() {
   const navigate = useNavigate();
   const { user, isLoading } = useAuth();
-  const { t } = useLanguage();
-  const { isPremium } = useAccessState();
+  const { t, language } = useLanguage();
+  const { isPremium, loading: accessLoading } = useAccessState();
 
-  // Receipt submission state
-  const [receiptUrl, setReceiptUrl] = useState('');
-  const [receiptAmount, setReceiptAmount] = useState('');
-  const [paymentMethod, setPaymentMethod] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  /**
+   * Tariflar DB dan olinadi: Payme summani `payme_plans.amount_tiyin` bo'yicha
+   * tekshiradi, shuning uchun sahifadagi narx bilan DB dagi summa bir xil
+   * bo'lishi shart. Hardcode qilinganda narx o'zgartirilsa Payme -31001
+   * (invalid_amount) qaytarib, to'lov ishlamay qolardi.
+   */
+  const [paymePlans, setPaymePlans] = useState<Record<string, PaymePlan>>({});
 
-  const handleSubmitReceipt = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!user || !receiptUrl.trim()) return;
+  /**
+   * Tariflarni o'qish TUGADIMI (muvaffaqiyatli yoki urinishlar tugagan).
+   * Avto-davom ettirish oqimi shuni kutadi: aks holda tariflar kelmasa
+   * foydalanuvchi sahifada jimgina osilib qolardi.
+   */
+  const [plansSettled, setPlansSettled] = useState(false);
 
-    setIsSubmitting(true);
-    try {
-      const { error } = await supabase.from('payment_receipts').insert({
-        user_id: user.id,
-        email: user.email ?? null,
-        receipt_url: receiptUrl.trim(),
-        amount: receiptAmount ? Number(receiptAmount) : null,
-        currency: 'UZS',
-        payment_method: paymentMethod.trim() || null,
-      });
+  /**
+   * /profile chunkini oldindan (fon rejimida) yuklab qo'yamiz.
+   *
+   * Payme'dan qaytish har doim TO'LIQ sahifa qayta yuklanishi (hard
+   * navigation) — brauzer /profile uchun JS chunkini yangidan so'raydi.
+   * Agar aynan shu payt tarmoq hali "uyg'onmagan" bo'lsa (ayniqsa mobil
+   * internetda, tashqi Payme sahifasidan qaytgach) — chunk yuklanmay
+   * qoladi, `lazyWithRetry` bir necha marta urinib ko'radi va oxiri
+   * sahifani majburan qayta yuklaydi (`window.location.reload()`),
+   * shu payt foydalanuvchi bir necha soniya "oq ekran" ko'radi.
+   *
+   * Yechim: hali /pro sahifasida turganda (tarmoq yaxshi ishlayotganda)
+   * /profile chunkini oldindan yuklab, brauzer keshiga (immutable,
+   * 1 yillik) tushirib qo'yamiz. Payme'dan qaytilganda u tarmoqdan emas,
+   * keshdan olinadi — tarmoq holatidan qat'i nazar darhol ochiladi.
+   */
+  useEffect(() => {
+    import("@/pages/Profile").catch(() => { /* faqat qulaylik uchun — muhim emas */ });
+  }, []);
 
-      if (error) {
-        toast.error("Chek yuborishda xatolik: " + error.message);
-      } else {
-        toast.success("Chek muvaffaqiyatli yuborildi! Admin tekshirib, obunani faollashtiradi.");
-        setSubmitted(true);
-        setReceiptUrl('');
-        setReceiptAmount('');
-        setPaymentMethod('');
+  /**
+   * ILGARIGI KAMCHILIK: tariflar bir marta, qayta urinishsiz so'ralardi.
+   * Mobil tarmoqda o'sha yagona so'rov uzilsa, sahifa zaxira narxlar bilan
+   * mutlaqo SOG'LOM ko'rinardi — lekin "Sotib olish" tugmasi ishlamay
+   * qolardi ("Tarif ma'lumoti yuklanmadi"). Foydalanuvchi sababni bilmasdi
+   * va PRO sotib ololmasdi. Endi 3 marta qayta uriniladi.
+   */
+  useEffect(() => {
+    const controller = new AbortController();
+
+    (async () => {
+      for (let attempt = 0; attempt < 3; attempt++) {
+        if (controller.signal.aborted) return;
+
+        const byName = await fetchActivePaymePlans(controller.signal);
+        if (controller.signal.aborted) return;
+
+        if (byName) {
+          setPaymePlans(byName);
+          setPlansSettled(true);
+          return;
+        }
+        if (attempt < 2) {
+          await new Promise((r) => setTimeout(r, 600 * 2 ** attempt));
+        }
       }
-    } catch (err) {
-      toast.error("Xatolik yuz berdi");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+
+      // Uchala urinish ham uzildi. Kutib turmaymiz — `goToPayme` tarifni
+      // tugma bosilgan payt qayta o'qishga uriniadi.
+      if (!controller.signal.aborted) setPlansSettled(true);
+    })();
+
+    return () => controller.abort();
+  }, []);
 
   const plans = [
     {
+      planName: "weekly",
       nameKey: "pro.planWeekly",
-      price: "15,000",
+      fallbackPrice: "15 000",
       periodKey: "pro.planWeeklyDesc",
       descriptionKey: "pro.planWeeklyDesc",
       highlighted: false,
@@ -76,8 +133,9 @@ export default function Pro() {
       buttonVariant: "outline" as const,
     },
     {
+      planName: "monthly",
       nameKey: "pro.planMonthly",
-      price: "33,000",
+      fallbackPrice: "35 000",
       periodKey: "pro.planMonthlyDesc",
       descriptionKey: "pro.planMonthlyDesc",
       highlighted: true,
@@ -85,8 +143,9 @@ export default function Pro() {
       buttonVariant: "default" as const,
     },
     {
+      planName: "quarterly",
       nameKey: "pro.planQuarterly",
-      price: "83,000",
+      fallbackPrice: "83 000",
       periodKey: "pro.planQuarterlyDesc",
       descriptionKey: "pro.planQuarterlyDesc",
       highlighted: false,
@@ -95,11 +154,141 @@ export default function Pro() {
     },
   ];
 
+  /** Ko'rsatiladigan narx — DB dagi haqiqiy summa (yuklanmasa zaxira qiymat). */
+  const priceOf = (plan: { planName: string; fallbackPrice: string }): string => {
+    const dbPlan = paymePlans[plan.planName];
+    return dbPlan ? formatTiyinAsSum(dbPlan.amount_tiyin) : plan.fallbackPrice;
+  };
+
   // Allow both guests and logged-in users to view the Pro page.
 
   const handleGetPro = () => {
     window.open('https://t.me/avtotestu_ad', '_blank');
   };
+
+  /**
+   * Tarif tugmasi — foydalanuvchini Payme to'lov sahifasiga olib boradi.
+   *
+   * PRO huquqi bu yerda BERILMAYDI: Payme to'lovni tasdiqlagach o'z serveridan
+   * `payme` Edge Function ni chaqiradi va obuna `payme_perform_transaction`
+   * ichida yoziladi. Shuning uchun havolani qo'lda ochib PRO olish mumkin emas.
+   */
+  const goToPayme = useCallback(
+    async (planName: string): Promise<boolean> => {
+      const email = user?.email?.trim();
+      if (!email) {
+        // Payme hisobni aynan email bo'yicha topadi (`account.email`)
+        toast.error("Hisobingizda email ko'rsatilmagan. Administrator bilan bog'laning.");
+        return false;
+      }
+
+      /**
+       * Tarif hali yuklanmagan bo'lsa (sahifa ochilganda tarmoq uzilgan edi)
+       * foydalanuvchini "sahifani yangilang" deb qaytarib yubormaymiz —
+       * aynan SHU YERDA o'qib olamiz. Tugma bosilgan payt tarmoq deyarli
+       * har doim tirik bo'ladi, shuning uchun bu xaridni saqlab qoladi.
+       */
+      let dbPlan = paymePlans[planName];
+      if (!dbPlan) {
+        const fresh = await fetchActivePaymePlans();
+        if (fresh) {
+          setPaymePlans(fresh);
+          dbPlan = fresh[planName];
+        }
+      }
+      if (!dbPlan) {
+        toast.error("Tarif ma'lumoti yuklanmadi. Internetni tekshirib, qayta urinib ko'ring.");
+        return false;
+      }
+
+      const checkoutUrl = buildPaymeCheckoutUrl({
+        email,
+        amountTiyin: dbPlan.amount_tiyin,
+        // "?from=payme" — /profile shu belgini ko'rib, PRO holatini bir necha
+        // marta qayta so'raydi (Payme server callback bilan browser qaytishi
+        // orasida race condition bo'lishi mumkin, pastga qarang: Profile.tsx).
+        callbackUrl: `${window.location.origin}/profile?from=payme`,
+        language,
+      });
+
+      if (!checkoutUrl) {
+        toast.error("To'lov havolasini yaratib bo'lmadi. Administrator bilan bog'laning.");
+        return false;
+      }
+
+      // Payme'ga aynan shu yerda ketyapmiz — qolgan har qanday eski
+      // pending tanlov endi kerak emas. Buni shu yerda (chaqiruvchidan
+      // qat'i nazar) tozalamasak, keyinroq (masalan to'lovdan qaytgach
+      // sessiya uzilib qayta login qilinganda) /auth foydalanuvchini
+      // allaqachon to'langan bo'lsa ham qayta /pro ga yuborib yuboradi.
+      clearPendingPlan();
+
+      window.location.href = checkoutUrl;
+      return true;
+    },
+    [user, paymePlans, language],
+  );
+
+  const handleBuyPlan = (planName: string) => {
+    if (!user) {
+      // Mehmonning aksariyati hali ro'yxatdan o'tmagan — uni "Kirish" emas,
+      // to'g'ridan-to'g'ri "Ro'yxatdan o'tish" bo'limiga olib boramiz va
+      // tugagach shu sahifaga qaytaramiz. Tanlagan tarifi ham saqlanadi —
+      // ro'yxatdan o'tgach uni qaytadan izlashi shart emas.
+      setPendingPlan(planName);
+      toast.info("To'lov uchun avval ro'yxatdan o'ting — bir daqiqa vaqt oladi.");
+      navigate('/auth', { state: { mode: 'signup', returnTo: '/pro' } });
+      return;
+    }
+
+    // Faol PRO ustiga yangi PRO olinmaydi — muddat tugagach xarid qilinadi.
+    // Bu qoida serverda ham bor (payme_resolve_account → already_paid), bu yerda
+    // faqat foydalanuvchini keraksiz to'lov sahifasiga yubormaslik uchun.
+    if (isPremium) {
+      toast.info("Sizda faol PRO obuna mavjud. Muddati tugagach yangi obuna olishingiz mumkin.");
+      return;
+    }
+
+    void goToPayme(planName);
+  };
+
+  /**
+   * Ro'yxatdan o'tib qaytgan foydalanuvchini to'g'ridan-to'g'ri to'lovga
+   * o'tkazamiz — u tanlovini qaytadan qilishi shart emas.
+   *
+   * `access.loading` kutiladi: PRO holati aniqlanmasdan turib yo'naltirsak,
+   * obunasi bor odam ham to'lov sahifasiga tushib qolardi.
+   */
+  useEffect(() => {
+    if (isLoading || accessLoading || !user) return;
+
+    /**
+     * ILGARI bu yerda `paymePlans` BO'SH bo'lsa `return` qilinardi — ya'ni
+     * tariflar so'rovi uzilgan bo'lsa, ro'yxatdan endigina o'tgan
+     * foydalanuvchi /pro sahifasida JIMGINA osilib qolardi: na xato, na
+     * yo'naltirish, tanlovi ham iste'mol qilinmasdi.
+     *
+     * Endi bo'sh ro'yxat emas, "o'qish tugadimi" kutiladi: urinishlar
+     * muvaffaqiyatsiz tugasa ham davom etamiz — `goToPayme` tarifni
+     * o'sha payt qayta o'qishga uriniadi.
+     */
+    if (!plansSettled) return;
+
+    const planName = peekPendingPlan();
+    if (!planName) return;
+
+    // Bu nuqtadan keyin tanlov har qanday holatda ham iste'mol qilinadi:
+    // aks holda foydalanuvchi sahifaga har kirganda qayta yo'naltirilaverardi.
+    clearPendingPlan();
+
+    if (isPremium) {
+      toast.info("Sizda allaqachon faol PRO obuna mavjud.");
+      return;
+    }
+
+    toast.info("To'lov sahifasiga o'tkazilmoqda...");
+    void goToPayme(planName);
+  }, [isLoading, accessLoading, user, isPremium, plansSettled, goToPayme]);
 
 
   if (isLoading) {
@@ -185,7 +374,7 @@ export default function Pro() {
                       </div>
                       
                       <div className="flex items-end gap-1.5 mb-3.5">
-                        <span className="text-xl font-extrabold">{plan.price} so&apos;m</span>
+                        <span className="text-xl font-extrabold">{priceOf(plan)} so&apos;m</span>
                         <span className="text-[13px] font-medium text-muted-foreground mb-1">{t(plan.periodKey)}</span>
                       </div>
 
@@ -196,7 +385,7 @@ export default function Pro() {
                             : "bg-muted hover:bg-muted/80"
                         }`}
                         variant={plan.buttonVariant}
-                        onClick={handleGetPro}
+                        onClick={() => handleBuyPlan(plan.planName)}
                       >
                         {t(plan.buttonTextKey)}
                       </Button>
@@ -310,88 +499,6 @@ export default function Pro() {
                 </Button>
               </div>
 
-              {/* Receipt submission form — only shown for logged-in non-premium users */}
-              {user && !isPremium && (
-                <div className="bg-card border border-border rounded-2xl p-5 shadow-sm">
-                  <h3 className="text-base font-bold text-foreground mb-1 flex items-center gap-2">
-                    <FileUp className="w-5 h-5 text-primary" />
-                    To'lov chekini yuborish
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    To'lovni amalga oshirgach, chek havolasini yuboring. Admin tekshirib, obunani faollashtiradi.
-                  </p>
-
-                  {submitted ? (
-                    <div className="flex items-center gap-3 p-4 rounded-xl bg-green-500/10 border border-green-500/30">
-                      <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0" />
-                      <div>
-                        <p className="font-semibold text-green-700">Chek yuborildi!</p>
-                        <p className="text-sm text-muted-foreground">Admin tekshirgach obuna faollashadi.</p>
-                      </div>
-                    </div>
-                  ) : (
-                    <form onSubmit={handleSubmitReceipt} className="space-y-3">
-                      <div className="space-y-1.5">
-                        <Label htmlFor="receipt-url">Chek havolasi (URL) *</Label>
-                        <Input
-                          id="receipt-url"
-                          type="url"
-                          placeholder="https://..."
-                          value={receiptUrl}
-                          onChange={(e) => setReceiptUrl(e.target.value)}
-                          disabled={isSubmitting}
-                          required
-                          className="h-10"
-                        />
-                      </div>
-                      <div className="grid grid-cols-2 gap-3">
-                        <div className="space-y-1.5">
-                          <Label htmlFor="receipt-amount">Miqdor (UZS)</Label>
-                          <Input
-                            id="receipt-amount"
-                            type="number"
-                            placeholder="33000"
-                            value={receiptAmount}
-                            onChange={(e) => setReceiptAmount(e.target.value)}
-                            disabled={isSubmitting}
-                            className="h-10"
-                          />
-                        </div>
-                        <div className="space-y-1.5">
-                          <Label htmlFor="payment-method">To'lov usuli</Label>
-                          <Input
-                            id="payment-method"
-                            type="text"
-                            placeholder="Click, Payme..."
-                            value={paymentMethod}
-                            onChange={(e) => setPaymentMethod(e.target.value)}
-                            disabled={isSubmitting}
-                            className="h-10"
-                          />
-                        </div>
-                      </div>
-                      <Button
-                        type="submit"
-                        className="w-full h-10 font-semibold"
-                        disabled={isSubmitting || !receiptUrl.trim()}
-                      >
-                        {isSubmitting ? (
-                          <span className="flex items-center gap-2">
-                            <span className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
-                            Yuborilmoqda...
-                          </span>
-                        ) : (
-                          <span className="flex items-center gap-2">
-                            <Send className="w-4 h-4" />
-                            Chekni yuborish
-                          </span>
-                        )}
-                      </Button>
-                    </form>
-                  )}
-                </div>
-              )}
-
             </div>
 
             {/* O'NG TARAF: Ta'riflar / Narxlar (4/12) - Desktop only */}
@@ -425,7 +532,7 @@ export default function Pro() {
                       </div>
                       
                       <div className="flex items-end gap-1.5 mb-3.5">
-                        <span className="text-xl font-extrabold">{plan.price} so&apos;m</span>
+                        <span className="text-xl font-extrabold">{priceOf(plan)} so&apos;m</span>
                         <span className="text-[13px] font-medium text-muted-foreground mb-1">{t(plan.periodKey)}</span>
                       </div>
 
@@ -436,7 +543,7 @@ export default function Pro() {
                             : "bg-muted hover:bg-muted/80"
                         }`}
                         variant={plan.buttonVariant}
-                        onClick={handleGetPro}
+                        onClick={() => handleBuyPlan(plan.planName)}
                       >
                         {t(plan.buttonTextKey)}
                       </Button>

@@ -71,7 +71,20 @@ export const TestInterfaceCombined = ({
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
   const [correctAnswers, setCorrectAnswers] = useState<Record<number, boolean>>({});
   const [revealedQuestions, setRevealedQuestions] = useState<Record<number, boolean>>({});
-  const storageKey = `testState_combined_${questionCount}_${user?.id ?? 'guest'}`;
+  /**
+   * `dataSource` SHART: u ham tilni, ham free/PRO bazani kodlaydi
+   * (free-uz-lat.json / free-ru.json / barcha-*.json).
+   *
+   * ILGARIGI BUG: kalitda faqat questionCount bor edi. Lotin tilida 50 talik
+   * testni boshlab, chiqib, tilni Rus tiliga o'zgartirib qayta boshlansa —
+   * AYNI kalit o'qilardi va saqlangan lotincha savollar `ru` bilan qayta
+   * transform qilinardi. Bitta til fayli faqat o'z blokini saqlaydi, ya'ni
+   * pickLangContent `undefined` qaytarib, 50 ta savol ham BO'SH matn va
+   * javobsiz chiqardi (holat darhol qayta saqlanib, yangilash ham yordam
+   * bermasdi). Shu bilan birga PRO sotib olgan foydalanuvchi 50 talik testda
+   * eski BEPUL savollar to'plamini ko'raverardi.
+   */
+  const storageKey = `testState_combined_${dataSource}_${questionCount}_${user?.id ?? 'guest'}`;
   // Init from endsAt so refresh doesn't reset the timer
   const [timeRemaining, setTimeRemaining] = useState(() =>
     getInitialTimeRemaining(storageKey, timeLimit)
@@ -79,7 +92,7 @@ export const TestInterfaceCombined = ({
   const [showFinishDialog, setShowFinishDialog] = useState(false);
   const [showResults, setShowResults] = useState(false);
   // Restored from localStorage so timeTaken stays accurate after refresh
-  const [testStartTime] = useState(() => getInitialStartedAt(storageKey));
+  const [testStartTime, setTestStartTime] = useState(() => getInitialStartedAt(storageKey));
   const [zoomImage, setZoomImage] = useState<string | null>(null);
   // Increment to restart the timer interval (used by onTryAgain)
   const [timerKey, setTimerKey] = useState(0);
@@ -392,6 +405,7 @@ export const TestInterfaceCombined = ({
           setCorrectAnswers({});
           setRevealedQuestions({});
           setCurrentQuestion(1);
+          setTestStartTime(Date.now());
           endsAtRef.current = Date.now() + timeLimit * 1000;
           setTimeRemaining(timeLimit);
           setShowResults(false);

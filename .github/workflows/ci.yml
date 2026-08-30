@@ -1,0 +1,66 @@
+name: CI
+
+# Buzilgan kod deploy ga yetib bormasligi uchun: har push va PR da lint,
+# tiplar, testlar va to'liq build (barcha assert skriptlari bilan) tekshiriladi.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Bir branch ga ketma-ket push qilinsa, eskisini bekor qilib resursni tejaymiz.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Lint · Types · Test · Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+        # vite.config.ts dagi buildStamp `git rev-parse --short HEAD` chaqiradi,
+        # shuning uchun .git kerak (checkout uni beradi).
+
+      - uses: actions/setup-node@v4
+        with:
+          # Node 20 DA TESTLAR YIQILADI. Sabab:
+          #   jsdom@30  engines: ^22.22.2 || ^24.15.0 || >=26.0.0
+          #   undici@8  engines: >=22.19.0
+          # undici `webidl.util.markAsUncloneable` ni chaqiradi, u esa faqat
+          # Node 22+ da bor. Node 20 da har bir test faylida
+          # `TypeError: webidl.util.markAsUncloneable is not a function`
+          # chiqib, vitest ni yiqitardi (testlarning o'zi o'tsa ham).
+          #
+          # 24 tanlandi — mahalliy ishlab chiqish muhiti bilan bir xil,
+          # ya'ni CI va lokal natijalar farq qilmaydi.
+          node-version: 24
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        # `tsc --noEmit` BO'LMASIN: tsconfig.json da `"files": []` va
+        # `references` bor, shuning uchun u hech qanday faylni tekshirmay
+        # jimgina muvaffaqiyat qaytaradi — tip xatolari o'tib ketardi.
+        # `tsc -b` referenslarni kuzatib, src ni haqiqatan tekshiradi.
+        run: npm run typecheck
+
+      - name: Test
+        run: npm run test:run
+
+      - name: Build
+        # Supabase client import paytida bu ikkisini talab qiladi. CI da haqiqiy
+        # kalit kerak emas — build faqat statik almashtirish qiladi, tarmoqqa
+        # chiqmaydi. Shuning uchun soxta qiymatlar yetarli va hech qanday sir
+        # repo ga tushmaydi.
+        env:
+          VITE_SUPABASE_URL: https://ci-placeholder.supabase.co
+          VITE_SUPABASE_PUBLISHABLE_KEY: ci-placeholder-anon-key
+        run: npm run build

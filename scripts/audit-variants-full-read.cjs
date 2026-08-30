@@ -85,7 +85,11 @@ function auditOne(q, file) {
   const ru = q.content?.ru;
   const iz = q.izoh || {};
 
-  const push = (severity, severity, detail, extra = {}) => {
+  // Chaqiruv tartibi: push(type, severity, detail) — masalan
+  // push("missing-lang-block", "critical", "..."). Ilgari ikkala parametr
+  // ham `severity` deb nomlangan (sintaksis xatosi) va tanada aniqlanmagan
+  // `type` ishlatilgan — skript umuman ishga tushmasdi.
+  const push = (type, severity, detail, extra = {}) => {
     issues.push({ severity, type, detail, ...extra });
   };
 

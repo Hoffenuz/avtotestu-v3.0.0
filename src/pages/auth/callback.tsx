@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { SEO } from '@/components/SEO';
+import { peekPendingPlan } from '@/lib/pendingPlan';
 
 /** Slow mobile / CF — detectSessionInUrl exchange tugaguncha kutamiz */
 const OAUTH_GRACE_PERIOD_MS = 45_000;
@@ -19,7 +20,11 @@ const AuthCallback = () => {
         clearTimeout(timeoutRef.current);
         timeoutRef.current = null;
       }
-      navigate('/', { replace: true });
+      // Google orqali kirish to'liq sahifa yangilanishi bilan qaytadi, shuning
+      // uchun tanlangan tarif faqat sessionStorage da omon qoladi. Bor bo'lsa
+      // foydalanuvchini bosh sahifaga emas, to'lovni davom ettiradigan joyga
+      // qaytaramiz.
+      navigate(peekPendingPlan() ? '/pro' : '/', { replace: true });
       return;
     }
 

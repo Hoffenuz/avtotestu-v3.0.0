@@ -10,7 +10,7 @@
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Chorrahada aylanma harakatlanish tashqil qilingan. Siz yaqinlashib kelayotgan chorrahaning qatnov qismi ikkita harakat bo'lagiga ega. Chorrahaga kirishda burilish uchun Siz qaysi bo'lakni egallashingiz lozim?",
+                "text": "Chorrahada aylanma harakatlanish tashkil qilingan. Siz yaqinlashib kelayotgan chorrahaning qatnov qismi ikkita harakat bo'lagiga ega. Chorrahaga kirishda burilish uchun Siz qaysi bo'lakni egallashingiz lozim?",
                 "options": [
                     {
                         "id": 1,
@@ -71,7 +71,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 9 – bobi 56 – bandi: Haydovchi, aylanma harakatlanish tashkil qilingan chorrahalarga kirish uchun burulishdan boshqa barcha hollarda, haydovchi o‘ngga, chapga burulishi yoki qayrilib olishidan oldinroq shu yo‘nalishda harakatlanishi uchun mo‘ljallangan qatnov qismining eng chetki holatni egallashi shart.\n\nYa’ni aylanma harakatli chorrahadan kirishda eng chetki holatni egallash shart emas va bu holatda o‘ng yoki chap yo‘lakdan harakatlanish mumkin.",
+            "uz_lat": "YHQ 9 – bobi 56 – bandi: Haydovchi, aylanma harakatlanish tashkil qilingan chorrahalarga kirish uchun burilishdan boshqa barcha hollarda, haydovchi o‘ngga, chapga burilishi yoki qayrilib olishidan oldinroq shu yo‘nalishda harakatlanishi uchun mo‘ljallangan qatnov qismining eng chetki holatni egallashi shart.\n\nYa’ni aylanma harakatli chorrahadan kirishda eng chetki holatni egallash shart emas va bu holatda o‘ng yoki chap yo‘lakdan harakatlanish mumkin.",
             "uz_cyr": "YHQ 9 – боби 56 – банди: Ҳайдовчи, айланма ҳаракатланиш ташкил қилинган чорраҳаларга кириш учун бурулишдан бошқа барча ҳолларда, ҳайдовчи ўнгга, чапга бурулиши ёки қайрилиб олишидан олдинроқ шу йўналишда ҳаракатланиши учун мўлжалланган қатнов қисмининг энг четки ҳолатни эгаллаши шарт.\n\nЯни айланма ҳаракатли чорраҳадан киришда энг четки ҳолатни эгаллаш шарт эмас ва бу ҳолатда ўнг ёки чап йўлакдан ҳаракатланиш мумкин.",
             "ru": "YHK 9 - Глава 56 - Пункт: Водитель должен занять самое крайнее положение участка движения, предназначенного для движения в этом направлении, прежде чем водитель повернет направо, налево или развернется во всех случаях, кроме поворота для въезда на перекрестки, где организовано круговое движение. \n\nТо есть не обязательно при въезде на круговое движение занимать самую крайнюю позицию, и в этом случае можно ехать как с правой, так и с левой полосы."
         }
@@ -127,7 +127,7 @@
                 ]
             },
             "ru": {
-                "text": "Признаки венозного кровотечения",
+                "text": "Признаки венозного кровотечения:",
                 "options": [
                     {
                         "id": 1,
@@ -141,7 +141,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "Розовая кровь бъёт из сосудов пульсацией",
+                        "text": "Розовая кровь бьёт из сосудов пульсацией",
                         "is_correct": false
                     }
                 ]
@@ -486,12 +486,12 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Только предотвращает возможность скольжения автомобиля в сторону.",
+                        "text": "Не исключает боковое скольжение и скольжение автомобиля в сторону",
                         "is_correct": true
                     },
                     {
                         "id": 2,
-                        "text": "Не исключает боковое скольжение и скольжение автомобиля в сторону",
+                        "text": "Только предотвращает возможность скольжения автомобиля в сторону.",
                         "is_correct": false
                     },
                     {
@@ -723,7 +723,7 @@
                 ]
             },
             "ru": {
-                "text": "В случае остановки на подъеме при наличии тротуара можно предотвратить самопроизвольное скатывание автомобиля, повернув его передние колеса в положение",
+                "text": "В случае остановки на подъеме при наличии ограждения у края дороги можно предотвратить самопроизвольное скатывание автомобиля, повернув его передние колеса в положение:",
                 "options": [
                     {
                         "id": 1,
@@ -886,7 +886,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Разрешается только автомобилям которые обслуживают предприятия находящиеся в этой зоне или принадлежат гражданам проживающим в ближайших дома",
+                        "text": "Разрешается только автомобилям которые обслуживают предприятия находящиеся в этой зоне или принадлежат гражданам проживающим в ближайших домах",
                         "is_correct": false
                     },
                     {
@@ -923,7 +923,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Hech qaysi buzmad",
+                        "text": "Hech qaysi buzmadi",
                         "is_correct": false
                     },
                     {
@@ -969,7 +969,7 @@
                 ]
             },
             "ru": {
-                "text": "Водителю какого автомобиля нарушил правило повернув во двор?",
+                "text": "Водитель какого автомобиля нарушил правило повернув во двор?",
                 "options": [
                     {
                         "id": 1,
@@ -1281,7 +1281,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "До остановочной площадки",
+                        "text": "Стоять в кузове движущегося бортового грузового автомобиля, сидеть на бортах или на грузе выше бортов",
                         "is_correct": false
                     },
                     {
@@ -1291,7 +1291,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "До светофора",
+                        "text": "Открывать двери транспортного средства во время его движения",
                         "is_correct": false
                     },
                     {
@@ -1487,9 +1487,9 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 1-ilovasining 3-bo'limi 3.5 \"Motosikllar harakatlanishi taqiqlangan\" belgisiga muvofiq, faqat motosikllarning harakatlanishi taqiqlanadi.",
-            "uz_cyr": "YHQ 1-иловасининг 3-бўлими 3.5 \"Мотосикллар ҳаракатланиши тақиқланган\" белгисига мувофиқ, фақат мотосиклларнинг ҳаракатланиши тақиқланади.",
-            "ru": "Согласно статье 3.5 приложения 1 ПДД, движение запрещено только на мотоциклах."
+            "uz_lat": "YHQ 1-ilovasining 3-bo'limi 3.9 \"Velosipedda harakatlanish taqiqlangan\" belgisiga muvofiq, faqat velosipedlarning harakatlanishi taqiqlanadi.",
+            "uz_cyr": "YHQ 1-иловасининг 3-бўлими 3.9 \"Велосипедда ҳаракатланиш тақиқланган\" белгисига мувофиқ, фақат велосипедларнинг ҳаракатланиши тақиқланади.",
+            "ru": "Согласно статье 3.9 приложения 1 ПДД, движение запрещено только на велосипедах."
         }
     },
     {
@@ -1572,7 +1572,7 @@
                     },
                     {
                         "id": 4,
-                        "text": "При движении в составе организованной транспортной колонны",
+                        "text": "На автобусах и маршрутных транспортных средствах, перевозящих пассажиров",
                         "is_correct": false
                     }
                 ]
@@ -1580,7 +1580,7 @@
         },
         "izoh": {
             "uz_lat": "Yo‘l harakati qoidalarining 138 bandiga asosan, sutkaning yorug‘ vaqtida quyidagi hollarda yaqinni yorituvchi fara chiroqlari yoqilishi kerak: transport vositalari tashkiliy jamlanma safida harakatlanayotganda; yo‘lovchilarni tashiyotgan avtobuslar va yo‘nalishli transport vositalarida; bolalar guruhini tashkiliy tashishda; xavfli, katta o‘lchamli va og‘ir vaznli yuklarni tashishda;\r\nmexanik transport vositalarini shatakka olishda (shatakka olib ketayotgan transport vositasida); kuchli yog‘ingarchilik (yomg‘ir, qor) sharoitida; mototsikl va mopedlarda.",
-            "uz_cyr": "Йўл ҳаракати қоидаларининг 138 бандига асосан, сутканинг ёруғ вақтида қуйидаги ҳолларда яқинни ёритувчи фара чироқлари ёқилиши керак: транспорт воситалари ташкилий жамланма сафида ҳаракатланаётганда; йўловчиларни ташиётган автобуслар ва йўналишли транспорт воситаларида; болалар гуруҳини ташкилий ташишда; хавфли, катта ўлчамли ва оғир вазнли юкларни ташишда;\r\nмеханик транспорт воситаларини шатакка олишда (шатакка олиб кетаётган транспорт воситасида); кучли ёғингарчилик (ёмғир, қор) шароитида; мототсикл ва мопедларда.",
+            "uz_cyr": "Йўл ҳаракати қоидаларининг 138 бандига асосан, сутканинг ёруғ вақтида қуйидаги ҳолларда яқинни ёритувчи фара чироқлари ёқилиши керак: транспорт воситалари ташкилий жамланма сафида ҳаракатланаётганда; йўловчиларни ташиётган автобуслар ва йўналишли транспорт воситаларида; болалар гуруҳини ташкилий ташишда; хавфли, катта ўлчамли ва оғир вазнли юкларни ташишда;\r\nмеханик транспорт воситаларини шатакка олишда (шатакка олиб кетаётган транспорт воситасида); кучли ёғингарчилик (ёмғир, қор) шароитида; мотоцикл ва мопедларда.",
             "ru": "Согласно статье 138 Правил дорожного движения фары должны быть включены в светлое время суток в следующих случаях: при движении транспортных средств организованным строем; в автобусах и маршрутных транспортных средствах, перевозящих пассажиров; при организации перевозки группы детей; при перевозке опасных, крупногабаритных и тяжеловесных грузов; \r\nпри ввозе механических транспортных средств в клетку (в транспортном средстве, перевозящем клетку); в условиях обильных осадков (дождь, снег); на мотоциклах и мопедах."
         }
     }

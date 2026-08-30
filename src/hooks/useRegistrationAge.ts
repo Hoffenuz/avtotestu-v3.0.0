@@ -1,42 +1,30 @@
-import { useState, useEffect } from 'react';
-import { supabase } from '@/integrations/supabase/client';
+import { useMemo } from 'react';
+import { useAuth } from '@/contexts/AuthContext';
 
-export const useRegistrationAge = (userId: string | undefined): number | null => {
-  const [days, setDays] = useState<number | null>(null);
+/**
+ * Ro'yxatdan o'tgandan beri necha kun o'tganini qaytaradi.
+ *
+ * ILGARI: bu hook `profiles` jadvalidan `created_at` ni ALOHIDA so'rov bilan
+ * o'qirdi. Lekin AuthContext o'sha profilni (created_at bilan birga)
+ * allaqachon yuklagan bo'ladi — ya'ni bu /profile sahifasidagi uchinchi
+ * ortiqcha `profiles` so'rovi edi. O'zbekistondan Germaniyadagi bazagacha
+ * har bir so'rov ~100-200 ms, mobil tarmoqda undan ham ko'p — shuning uchun
+ * keraksiz so'rovlar sahifa ochilishini sezilarli sekinlashtirardi.
+ *
+ * Endi tarmoqqa umuman chiqmaydi: mavjud profildan hisoblab beradi.
+ */
+export const useRegistrationAge = (): number | null => {
+  const { profile } = useAuth();
 
-  useEffect(() => {
-    if (!userId) {
-      setDays(null);
-      return;
-    }
+  return useMemo(() => {
+    if (!profile?.created_at) return null;
 
-    const fetchCreatedAt = async () => {
-      try {
-        // Get profile created_at (mirrors auth.users creation)
-        const { data, error } = await supabase
-          .from('profiles')
-          .select('created_at')
-          .eq('id', userId)
-          .single();
+    const createdAt = new Date(profile.created_at);
+    if (Number.isNaN(createdAt.getTime())) return null;
 
-        if (error || !data) {
-          if (!import.meta.env.PROD) console.error('Error fetching profile created_at:', error);
-          return;
-        }
+    const diffMs = Date.now() - createdAt.getTime();
+    if (diffMs < 0) return 0;
 
-        const createdAt = new Date(data.created_at);
-        const now = new Date();
-        const diffTime = Math.abs(now.getTime() - createdAt.getTime());
-        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-        
-        setDays(diffDays);
-      } catch (err) {
-        if (!import.meta.env.PROD) console.error('Registration age error:', err);
-      }
-    };
-
-    fetchCreatedAt();
-  }, [userId]);
-
-  return days;
+    return Math.floor(diffMs / (1000 * 60 * 60 * 24));
+  }, [profile?.created_at]);
 };

@@ -7,14 +7,31 @@
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' https://pub-ad116decdc154b0f90a4b452c72fa433.r2.dev blob:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://pub-ad116decdc154b0f90a4b452c72fa433.r2.dev; font-src 'self'; frame-ancestors 'none'; object-src 'none'; base-uri 'self'
+  # cloudflareinsights.com — Cloudflare Web Analytics beaconini Pages o'zi
+  # HTML ga qo'shadi. CSP da ruxsat bo'lmagani uchun u bloklanardi: analitika
+  # yoqilgan, lekin bironta ham tashrif yozilmasdi.
+  # telegram.org — Telegram Mini App SDK (telegram-web-app.js). Faqat sayt
+  # Telegram ichida ochilganda dinamik yuklanadi; oddiy tashrifda so'ralmaydi.
+  # frame-ancestors: Telegram Mini App sahifani WebView da ochadi (iframe
+  # emas), shuning uchun 'none' o'zgarishsiz qoladi.
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://challenges.cloudflare.com https://static.cloudflareinsights.com https://telegram.org; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' https://pub-ad116decdc154b0f90a4b452c72fa433.r2.dev blob:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://pub-ad116decdc154b0f90a4b452c72fa433.r2.dev https://challenges.cloudflare.com https://cloudflareinsights.com https://static.cloudflareinsights.com https://telegram.org; font-src 'self'; frame-src https://challenges.cloudflare.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'
 
-# SPA shell — brauzer/edge keshlamasin (login holati)
+# SPA shell — HECH QACHON eskisi ishlatilmasin, LEKIN no-store emas.
+#
+#   no-store  = umuman saqlanmaydi → har kirishda to'liq ~11 KB HTML qayta
+#               yuklanadi (sekin tarmoqda seziladigan lag).
+#   no-cache  = saqlanadi, AMMO har safar validatsiya qilinadi → o'zgarmagan
+#               bo'lsa 304 Not Modified (~200 bayt). Yangilik chiqsa darhol
+#               yangi HTML keladi — ya'ni eskirish xavfi bir xil darajada yo'q.
+#
+# Bosh sahifa butun trafikning ~96% ini oladi, shuning uchun bu eng katta
+# tezlik yutug'i. `/` middleware da next() bilan tegilmay o'tadi, demak
+# Cloudflare Pages ning ETag i saqlanadi va 304 haqiqatan ishlaydi.
 /
-  Cache-Control: no-store
+  Cache-Control: no-cache
 
 /index.html
-  Cache-Control: no-store
+  Cache-Control: no-cache
 
 # ---------------------------------------------------------------------------
 # SEO snapshot (botlar) — Cloudflare edge kesh MUHIM.
@@ -27,11 +44,25 @@
 # ---------------------------------------------------------------------------
 # JSON test ma'lumotlari — brauzer 1 soat + edge 24 soat
 # MUHIM: s-maxage bo'lmasa CF "Bypass" ko'rsatadi (faqat max-age yetarli emas).
+#
+# 600.json / barcha.json bu yerda YO'Q: ular QA tooling uchun manba ma'lumot,
+# deploy ga chiqmaydi (vite.config.ts → excludeSourceDataFromDist).
+# 700baza.json / 700baza2.json / malumotlar.json — mavjud emas, olib tashlandi.
+#
+# free-*.json  — bepul (1000 ta savol)
+# barcha-*.json — PRO (1250 ta savol)
+#
+# DIQQAT: bu fayllar uzoq keshlanadi. Kontent o'zgarganda
+# src/lib/fetchQuestionJson.ts dagi QUESTION_DATA_CACHE_BUST ni yangilang,
+# aks holda foydalanuvchilar eski nusxani ko'rishda davom etadi.
 # ---------------------------------------------------------------------------
-/600.json
+/free-uz-lat.json
   Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
 
-/barcha.json
+/free-uz-cyr.json
+  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
+
+/free-ru.json
   Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
 
 /barcha-uz-lat.json
@@ -43,15 +74,6 @@
 /barcha-ru.json
   Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
 
-/700baza.json
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
-
-/700baza2.json
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
-
-/malumotlar.json
-  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
-
 /data/variants/*
   Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
 
@@ -59,6 +81,11 @@
   Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800
 
 /data/belgilar.json
+  Cache-Control: public, max-age=86400, s-maxage=604800, stale-while-revalidate=604800
+
+# Bepul tarifdagi savol ID lari — qidiruvda qaysi savol qulfli ekanini
+# aniqlash uchun. Kontent kamdan-kam o'zgaradi, uzoq keshlanadi.
+/data/free-question-ids.json
   Cache-Control: public, max-age=86400, s-maxage=604800, stale-while-revalidate=604800
 
 # ---------------------------------------------------------------------------
@@ -75,6 +102,28 @@
 
 /lovable-uploads/*
   Cache-Control: public, max-age=2592000, s-maxage=2592000, immutable
+
+# Ildizdagi statik rasmlar: hero fon, logo, favicon, OG rasmlari.
+#
+# Ular uchun qoida YO'Q edi va Cloudflare Pages ularga standart
+# `max-age=0, must-revalidate` qo'yardi — ya'ni hero fon (eng katta va
+# eng birinchi yuklanadigan element, preload+fetchpriority=high bilan)
+# HAR sahifa ochilishida qayta tekshirilardi. Bu har bir foydalanuvchida
+# ortiqcha kechikish edi.
+#
+# `immutable` EMAS: bu fayllar nomi hashsiz, kelajakda almashtirilishi
+# mumkin — shuning uchun stale-while-revalidate bilan yumshoqroq kesh.
+/*.webp
+  Cache-Control: public, max-age=604800, s-maxage=2592000, stale-while-revalidate=86400
+
+/*.png
+  Cache-Control: public, max-age=604800, s-maxage=2592000, stale-while-revalidate=86400
+
+/*.jpg
+  Cache-Control: public, max-age=604800, s-maxage=2592000, stale-while-revalidate=86400
+
+/*.ico
+  Cache-Control: public, max-age=604800, s-maxage=2592000, stale-while-revalidate=86400
 
 # ---------------------------------------------------------------------------
 # SEO fayllar — to'g'ri MIME tur, qisqa kesh

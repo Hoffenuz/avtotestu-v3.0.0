@@ -1,10 +1,13 @@
+import { BottomNav } from "./BottomNav";
+import { useDarkMode } from "@/hooks/useDarkMode";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect, useMemo, useCallback, useRef } from "react";
-import { Menu, X, User, LogIn, Crown, Globe, ChevronDown, Home, Phone, BookOpen, Info, Car, Monitor, Newspaper, type LucideIcon } from "lucide-react";
+import { Menu, X, User, LogIn, Crown, Globe, ChevronDown, Home, Phone, BookOpen, Info, Monitor, Newspaper, MessageCircle, type LucideIcon, LayoutGrid, Moon, Sun } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { TELEGRAM_GROUP_URL } from "@/lib/telegram";
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -18,6 +21,7 @@ interface QoshimchaLink {
 }
 
 export function MainLayout({ children }: MainLayoutProps) {
+  const { isDark, toggle: toggleDark } = useDarkMode();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
   const [qoshimchaOpen, setQoshimchaOpen] = useState(false);
@@ -33,26 +37,26 @@ export function MainLayout({ children }: MainLayoutProps) {
     setMobileMenuOpen(false);
   }, [location.pathname]);
 
-  // Faqat menu ochiq bo'lganda scroll bloklaymiz; yopilganda oldingi qiymatni qaytaramiz.
-  // Eski kod menu yopilganda body.style.overflow ni 'hidden' deb o'qib qayta yozardi → scroll qotib qolardi.
   useEffect(() => {
-    if (!mobileMenuOpen) return;
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = previousOverflow;
-    };
+    const originalOverflow = document.body.style.overflow;
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = originalOverflow;
+    }
+    return () => { document.body.style.overflow = originalOverflow; };
   }, [mobileMenuOpen]);
 
   const navLinks = useMemo(() => [
     { path: "/", label: t("nav.home") },
-    { path: "/mavzuli", label: t("home.btnMavzuli") },
+    { path: "/bolimlar", label: t("nav.sections") },
     { path: "/contact", label: t("nav.contact") },
     { path: "/darslik", label: t("nav.darslik") },
   ], [t]);
 
+  // "Yo'l belgilari" bu yerdan olib tashlandi — u `/bolimlar` ro'yxatida
+  // turadi va ikki joyda takrorlanishi menyuni behuda uzaytirardi.
   const qoshimchaLinks = useMemo<QoshimchaLink[]>(() => [
-    { path: "/belgilar", label: t("nav.roadSigns"), icon: Car },
     { path: "/yangiliklar", label: t("nav.news"), icon: Newspaper },
     { path: "/desktop", label: t("nav.desktopApp"), icon: Monitor },
     { path: "/qoshimcha", label: t("nav.info"), icon: Info },
@@ -85,7 +89,7 @@ export function MainLayout({ children }: MainLayoutProps) {
 
   const footerLinks = useMemo(() => [
     { path: "/", label: t("nav.home") },
-    { path: "/mavzuli", label: t("home.btnMavzuli") },
+    { path: "/bolimlar", label: t("nav.sections") },
     { path: "/contact", label: t("nav.contact") },
   ], [t]);
 
@@ -112,29 +116,19 @@ export function MainLayout({ children }: MainLayoutProps) {
     setLangMenuOpen(false);
   }, [setLanguage]);
   
-  const isMavzuliSection = useMemo(
-    () => location.pathname === '/mavzuli' || location.pathname.startsWith('/mavzuli/'),
-    [location.pathname]
-  );
-
   const getInitials = useCallback((name: string | null | undefined) => {
-    if (!name?.trim()) return "U";
-    return name
-      .trim()
-      .split(/\s+/)
-      .map((part) => part[0])
-      .join("")
-      .toUpperCase()
-      .slice(0, 2) || "U";
+    if (!name) return "U";
+    return name.split(" ").map(n => n[0]).join("").toUpperCase().slice(0, 2);
   }, []);
 
-  if (isMavzuliSection) {
-    return <div className="min-h-screen bg-background">{children}</div>;
-  }
-
+  // DIQQAT: bu yerda ilgari `/mavzuli` uchun ERTA QAYTISH bor edi va u sayt
+  // navigatsiyasini butunlay olib tashlardi. Natijada `/bolimlar` dan
+  // "Mavzuli testlar" ga o'tilganda header yo'qolib, sahifaning o'z ichki
+  // paneliga almashardi — foydalanuvchi uchun "boshqa saytga tushdim" degan
+  // taassurot. Endi barcha sahifalarda BITTA header.
   return (
-    <div className="min-h-screen flex flex-col bg-background">
-      <nav className="sticky top-0 z-50 bg-primary shadow-lg">
+    <div className="min-h-screen flex flex-col bg-background has-bottom-nav">
+      <nav className="sticky top-0 z-50 bg-brand shadow-lg">
         <div className="w-full px-2 sm:px-4 md:px-6 lg:px-8">
           <div className="flex justify-between items-center h-14 md:h-[60px]">
             
@@ -260,6 +254,18 @@ export function MainLayout({ children }: MainLayoutProps) {
                 </div>
               </div>
               
+              {/* Dark mode — istalgan sahifada almashtiriladi */}
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={toggleDark}
+                aria-label={isDark ? "Yorug' rejim" : "Qorong'i rejim"}
+                title={isDark ? "Yorug' rejim" : "Qorong'i rejim"}
+                className="h-8 w-8 p-0 text-primary-foreground hover:bg-primary-foreground/10"
+              >
+                {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              </Button>
+
               <Link to="/pro">
                 <Button size="sm" className="ml-1.5 bg-[hsl(var(--cta-green))] hover:bg-[hsl(var(--cta-green-hover))] text-white font-semibold px-3.5 h-8">
                   <Crown className="w-3.5 h-3.5 mr-1" />
@@ -294,6 +300,18 @@ export function MainLayout({ children }: MainLayoutProps) {
             </div>
 
             <div className="lg:hidden flex items-center gap-1 sm:gap-2">
+              {/* Dark mode — istalgan sahifada almashtiriladi */}
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={toggleDark}
+                aria-label={isDark ? "Yorug' rejim" : "Qorong'i rejim"}
+                title={isDark ? "Yorug' rejim" : "Qorong'i rejim"}
+                className="h-8 w-8 p-0 text-primary-foreground hover:bg-primary-foreground/10"
+              >
+                {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              </Button>
+
               <Link to="/pro">
                 <Button 
                   size="sm"
@@ -421,15 +439,15 @@ export function MainLayout({ children }: MainLayoutProps) {
                 </Link>
 
                 <Link
-                  to="/mavzuli"
+                  to="/bolimlar"
                   className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors ${
-                    location.pathname === '/mavzuli' || location.pathname.startsWith('/mavzuli/')
+                    location.pathname === '/bolimlar'
                       ? 'bg-primary text-primary-foreground'
                       : 'text-foreground hover:bg-muted'
                   }`}
                 >
-                  <BookOpen className="w-5 h-5" />
-                  {t("home.btnMavzuli")}
+                  <LayoutGrid className="w-5 h-5" />
+                  {t("nav.sections")}
                 </Link>
                 
                 <div>
@@ -514,7 +532,7 @@ export function MainLayout({ children }: MainLayoutProps) {
 
       <main className="flex-1">{children}</main>
 
-      <footer className="bg-primary text-primary-foreground py-10">
+      <footer className="bg-brand text-brand-foreground py-10">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
@@ -552,6 +570,15 @@ export function MainLayout({ children }: MainLayoutProps) {
             <div>
               <h3 className="font-semibold text-lg mb-4">{t("footer.contactTitle")}</h3>
               <div className="space-y-2 text-sm text-primary-foreground/70">
+                <a
+                  href={TELEGRAM_GROUP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:text-primary-foreground transition-colors"
+                >
+                  <MessageCircle className="w-4 h-4 flex-shrink-0" />
+                  {t("tgGroup.join")}
+                </a>
                 <p>{t("footer.telegramLabel")}</p>
                 <p>{t("footer.botLabel")}</p>
               </div>
@@ -559,6 +586,8 @@ export function MainLayout({ children }: MainLayoutProps) {
           </div>
         </div>
       </footer>
+
+      <BottomNav />
     </div>
   );
 }

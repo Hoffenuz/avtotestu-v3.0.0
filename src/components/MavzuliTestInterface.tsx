@@ -1,8 +1,11 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { QuestionNavigation } from "./QuestionNavigation";
 import { TestResults } from "./TestResults";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useTestActive } from "@/hooks/useTestActive";
+import { useQuestionKeyboardNav } from "@/hooks/useQuestionKeyboardNav";
+import { SaveQuestionButton } from "@/components/SaveQuestionButton";
 import { useAuth } from "@/contexts/AuthContext";
 import { useTestResults } from "@/hooks/useTestResults";
 import {
@@ -14,7 +17,8 @@ import {
   MAX_TEST_TIME_SECONDS,
 } from "@/lib/testPersistence";
 import { pickIzohText, pickLangContent } from "@/lib/pickLangContent";
-import { fetchQuestionJson } from "@/lib/fetchQuestionJson";
+import { fetchQuestionJson, normalizeQuestionArray } from "@/lib/fetchQuestionJson";
+import { recordQuestionAnswers } from "@/lib/questionState";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
@@ -27,7 +31,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { Clock, ChevronRight, X, Check, Maximize, Minimize, SkipForward, Moon, Sun } from "lucide-react";
+import { Clock, ChevronRight, X, Check, Maximize, Minimize, SkipForward, Moon, Sun, ChevronLeft } from "lucide-react";
 import { ImageLightbox } from "./ImageLightbox";
 import { QuestionImageBlock } from "./QuestionImageBlock";
 import { IzohNavButton } from "./IzohBox";
@@ -64,6 +68,8 @@ interface Question {
   correctAnswer: number;
   answers: { id: number; text: string }[];
   izoh?: string;
+  /** Savolning barqaror kaliti (`t_48_q_5`). Eski formatda bo'lmaydi. */
+  globalId?: string;
 }
 
 /** Shape of a single answer option inside a task's language content */
@@ -81,6 +87,7 @@ interface TaskLangContent {
 
 /** Shape of a raw task entry from topic JSON files */
 interface RawTask {
+  task_info?: { global_id?: string };
   media_url?: string;
   content?: Record<string, TaskLangContent>;
   izoh?: { uz_lat?: string; uz_cyr?: string; ru?: string } | string;
@@ -124,6 +131,9 @@ export const MavzuliTestInterface = ({
   );
   const [showFinishDialog, setShowFinishDialog] = useState(false);
   const [showResults, setShowResults] = useState(false);
+  // Test ketayotganda pastki navigatsiya yashiriladi — test ekranida
+  // o'z savol navigatsiyasi bor, ikkitasi chalkashtiradi.
+  useTestActive(!showResults);
   const [resultSaved, setResultSaved] = useState(false);
   const [activeSessionId, setActiveSessionId] = useState<string | null>(sessionId);
   const [zoomImage, setZoomImage] = useState<string | null>(null);
@@ -200,6 +210,7 @@ export const MavzuliTestInterface = ({
             if (!langContent || !langContent.options?.length) {
               return {
                 id: idx + 1,
+                globalId: task.task_info?.global_id,
                 text: "",
                 answers: [],
                 correctAnswer: 1,
@@ -214,6 +225,7 @@ export const MavzuliTestInterface = ({
             }
             return {
               id: idx + 1,
+              globalId: task.task_info?.global_id,
               text: langContent.text || "",
               image,
               correctAnswer,
@@ -223,16 +235,11 @@ export const MavzuliTestInterface = ({
           });
           parsedQuestions = tQuestions;
         } else {
-          // Old format fallback
-          let questionsArray: QuestionData[] = [];
-          if (jsonData.data && Array.isArray(jsonData.data)) {
-            questionsArray = jsonData.data;
-          } else if (Array.isArray(jsonData)) {
-            questionsArray = jsonData;
-          } else if (jsonData.questions && Array.isArray(jsonData.questions)) {
-            questionsArray = jsonData.questions;
-          }
-          
+          // Old format fallback — normalizeQuestionArray aynan shu uchta
+          // shaklni (array / .data / .questions) qo'llab-quvvatlaydi.
+          const questionsArray = normalizeQuestionArray(jsonData) as QuestionData[];
+
+
           if (questionsArray.length === 0) {
             throw new Error(t("test.noQuestionsFound"));
           }
@@ -265,7 +272,15 @@ export const MavzuliTestInterface = ({
           const savedRaw = localStorage.getItem(storageKey);
           if (savedRaw) {
             const parsed = JSON.parse(savedRaw);
-            if (parsed && parsed.questions && Array.isArray(parsed.questions) && parsed.questions.length === parsedQuestions.length) {
+            // `questionCount` — yangi (yengil) format; `questions.length` —
+            // eski saqlanmalar bilan moslik uchun (bir marta o'tib ketadi).
+            const savedCount =
+              typeof parsed?.questionCount === 'number'
+                ? parsed.questionCount
+                : Array.isArray(parsed?.questions)
+                  ? parsed.questions.length
+                  : null;
+            if (savedCount === parsedQuestions.length) {
               setCurrentQuestion(parsed.currentQuestion || 1);
               setSelectedAnswers(parsed.selectedAnswers || {});
               setCorrectAnswers(parsed.correctAnswers || {});
@@ -312,12 +327,27 @@ export const MavzuliTestInterface = ({
     };
   }, []);
 
-  // Persist test state – skip when finished so cleared state isn't restored on refresh.
+  /**
+   * Persist test state – skip when finished so cleared state isn't restored.
+   *
+   * `questions` SAQLANMAYDI, faqat ularning SONI.
+   *
+   * ILGARIGI BUG (qotib qolish): bu yerda butun `questions` massivi
+   * JSON.stringify qilinardi. "Barcha savollar" mavzusi (31) 1250 ta savolni
+   * yuklaydi — ya'ni HAR javob bosilganda 0.82 MB asosiy oqimni bloklab
+   * localStorage ga yozilardi. Arzon Android da bu har bosishda sezilarli
+   * qotish edi va 5 MB kvotani to'ldirib yuborish xavfi bor edi (yozish
+   * bo'sh `catch` ichida — kvota tugasa progress jimgina saqlanmay qolardi).
+   *
+   * Saqlash shart emas: mavzuli savollar aralashtirilmaydi, ya'ni
+   * (topicId + til) dan har safar bir xil tartibda qayta hosil bo'ladi.
+   * Tiklashda ham ular faqat UZUNLIGI uchun tekshirilardi, mazmuni emas.
+   */
   useEffect(() => {
     if (questions.length === 0 || showResults) return;
     try {
       localStorage.setItem(storageKey, JSON.stringify({
-        questions,
+        questionCount: questions.length,
         currentQuestion,
         selectedAnswers,
         correctAnswers,
@@ -327,9 +357,24 @@ export const MavzuliTestInterface = ({
     } catch {
       // ignore quota errors
     }
-  }, [questions, currentQuestion, selectedAnswers, correctAnswers, revealedQuestions, showResults, storageKey, testStartTime]);
+  }, [questions.length, currentQuestion, selectedAnswers, correctAnswers, revealedQuestions, showResults, storageKey, testStartTime]);
 
   const totalQuestions = questions.length;
+
+  /** Oldingi savolga o'tish — tugma va klaviatura (←) uchun umumiy. */
+  const goToPrevQuestion = useCallback(() => {
+    if (autoAdvanceTimeoutRef.current) clearTimeout(autoAdvanceTimeoutRef.current);
+    setCurrentQuestion((prev) => Math.max(1, prev - 1));
+  }, []);
+
+  /** Keyingi savolga o'tish — tugma va klaviatura (→) uchun umumiy. */
+  const goToNextQuestion = useCallback(() => {
+    if (autoAdvanceTimeoutRef.current) clearTimeout(autoAdvanceTimeoutRef.current);
+    setCurrentQuestion((prev) => Math.min(totalQuestions, prev + 1));
+  }, [totalQuestions]);
+
+  // Natijalar ekranida strelkalar kerak emas
+  useQuestionKeyboardNav(!showResults, goToPrevQuestion, goToNextQuestion);
   const question = questions[currentQuestion - 1];
   const isRevealed = revealedQuestions[currentQuestion];
   const selectedAnswer = selectedAnswers[currentQuestion];
@@ -427,6 +472,16 @@ export const MavzuliTestInterface = ({
       const stats = getTestStats();
       // DB still caps at 60:59; UI shows full wall elapsed
       const timeTaken = getElapsedTestSeconds(testStartTime, MAX_TEST_TIME_SECONDS);
+      // Har bir savol natijasi — "Xatolarim" uchun. Kutilmaydi.
+      void recordQuestionAnswers(
+        questions
+          .map((q) => ({ globalId: q.globalId, isCorrect: correctAnswers[q.id] }))
+          .filter(
+            (a): a is { globalId: string; isCorrect: boolean } =>
+              typeof a.globalId === "string" && typeof a.isCorrect === "boolean",
+          ),
+      );
+
       void saveTestResult(
         saveVariant,
         stats.correct,
@@ -531,6 +586,12 @@ export const MavzuliTestInterface = ({
             </div>
           </div>
           <div className="flex gap-1 md:gap-2 shrink-0">
+            {/* Savolni saqlash — yuqori panelda, boshqa amallar bilan bir qatorda.
+                Ilgari savol kartasi ichida edi va ko'zga tashlanmasdi. */}
+            <SaveQuestionButton
+              globalId={question?.globalId}
+              className="h-9 w-9 p-0 md:h-8 md:w-8 border border-input"
+            />
             <Button 
               variant="outline" 
               size="sm" 
@@ -613,9 +674,11 @@ export const MavzuliTestInterface = ({
             <div className="md:w-[55%] md:flex-shrink-0">
               {/* Question Text */}
               <Card className="p-4 md:p-5 bg-card border-border mb-4">
-                <p className="text-base md:text-[15px] font-medium text-foreground leading-relaxed">
-                  {question.text}
-                </p>
+                <div className="flex items-start justify-between gap-2">
+                  <p className="text-base md:text-[15px] font-medium text-foreground leading-relaxed">
+                    {question.text}
+                  </p>
+                </div>
               </Card>
 
               {/* Mobile Only: Question Image - bosilsa kattalashadi */}
@@ -712,12 +775,7 @@ export const MavzuliTestInterface = ({
             size="default"
             className="h-9 px-2.5 sm:px-3 md:h-10 md:px-4 text-sm shrink-0"
             disabled={currentQuestion === totalQuestions}
-            onClick={() => {
-              if (autoAdvanceTimeoutRef.current) {
-                clearTimeout(autoAdvanceTimeoutRef.current);
-              }
-              setCurrentQuestion(prev => Math.min(totalQuestions, prev + 1));
-            }}
+            onClick={goToNextQuestion}
           >
             <span className="max-[340px]:hidden">{t("test.next")}</span>
             <ChevronRight className="w-4 h-4 ml-0.5 sm:ml-1" />

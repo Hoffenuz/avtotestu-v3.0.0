@@ -6,6 +6,12 @@ Allow: /
 Disallow: /auth
 Disallow: /profile
 
+# Shaxsiy bo'limlar — kirmagan mehmonga bo'sh sahifa ko'rinadi,
+# indekslashdan foyda yo'q (sahifalarda `noindex` meta ham bor).
+Disallow: /xatolarim
+Disallow: /saqlangan
+Disallow: /xatolar-testi
+
 # Sitemap
 Sitemap: https://www.avtotestu.uz/sitemap.xml
 

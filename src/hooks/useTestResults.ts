@@ -2,6 +2,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
 import { useState, useEffect, useCallback } from 'react';
 import { clampTestTimeSeconds } from '@/lib/testPersistence';
+import { SAVE_RESULT_TIMEOUT_MS, withTimeout } from '@/lib/withTimeout';
 
 interface VariantResult {
   variant: number;
@@ -101,13 +102,16 @@ export const useTestResults = () => {
     const clampedTime = clampTestTimeSeconds(timeTakenSeconds ?? 0);
 
     try {
-      const { data, error } = await supabase.rpc('verify_and_save_test_result', {
-        p_session_id:         sessionId,
-        p_variant:            variant,
-        p_correct_answers:    correctAnswers,
-        p_total_questions:    totalQuestions,
-        p_time_taken_seconds: clampedTime,
-      });
+      const { data, error } = await withTimeout(
+        supabase.rpc('verify_and_save_test_result', {
+          p_session_id:         sessionId,
+          p_variant:            variant,
+          p_correct_answers:    correctAnswers,
+          p_total_questions:    totalQuestions,
+          p_time_taken_seconds: clampedTime,
+        }),
+        SAVE_RESULT_TIMEOUT_MS,
+      );
 
       if (error) {
         if (!import.meta.env.PROD) console.error('Save RPC error:', error);

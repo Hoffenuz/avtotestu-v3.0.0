@@ -149,7 +149,9 @@ export type Database = {
           expires_at: string
           id: string
           issued_at: string
+          last_refreshed_at: string | null
           license_key: string
+          refresh_count: number
           revoked: boolean
           short_code: string
           updated_at: string
@@ -161,7 +163,9 @@ export type Database = {
           expires_at: string
           id?: string
           issued_at?: string
+          last_refreshed_at?: string | null
           license_key: string
+          refresh_count?: number
           revoked?: boolean
           short_code: string
           updated_at?: string
@@ -173,13 +177,104 @@ export type Database = {
           expires_at?: string
           id?: string
           issued_at?: string
+          last_refreshed_at?: string | null
           license_key?: string
+          refresh_count?: number
           revoked?: boolean
           short_code?: string
           updated_at?: string
           user_id?: string
         }
         Relationships: []
+      }
+      payme_plans: {
+        Row: {
+          amount_tiyin: number
+          created_at: string
+          is_active: boolean
+          plan_name: string
+          tariff_days: number
+        }
+        Insert: {
+          amount_tiyin: number
+          created_at?: string
+          is_active?: boolean
+          plan_name: string
+          tariff_days: number
+        }
+        Update: {
+          amount_tiyin?: number
+          created_at?: string
+          is_active?: boolean
+          plan_name?: string
+          tariff_days?: number
+        }
+        Relationships: []
+      }
+      payme_transactions: {
+        Row: {
+          account_email: string
+          amount_tiyin: number
+          cancel_time: number
+          create_time: number
+          created_at: string
+          id: string
+          payme_id: string
+          perform_time: number
+          plan_name: string
+          prev_tariff_days: number | null
+          prev_tariff_end_date: string | null
+          reason: number | null
+          state: number
+          subscription_id: string | null
+          tariff_days: number
+          user_id: string
+        }
+        Insert: {
+          account_email: string
+          amount_tiyin: number
+          cancel_time?: number
+          create_time: number
+          created_at?: string
+          id?: string
+          payme_id: string
+          perform_time?: number
+          plan_name: string
+          prev_tariff_days?: number | null
+          prev_tariff_end_date?: string | null
+          reason?: number | null
+          state?: number
+          subscription_id?: string | null
+          tariff_days: number
+          user_id: string
+        }
+        Update: {
+          account_email?: string
+          amount_tiyin?: number
+          cancel_time?: number
+          create_time?: number
+          created_at?: string
+          id?: string
+          payme_id?: string
+          perform_time?: number
+          plan_name?: string
+          prev_tariff_days?: number | null
+          prev_tariff_end_date?: string | null
+          reason?: number | null
+          state?: number
+          subscription_id?: string | null
+          tariff_days?: number
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "payme_transactions_subscription_id_fkey"
+            columns: ["subscription_id"]
+            isOneToOne: false
+            referencedRelation: "subscriptions"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       payment_receipts: {
         Row: {
@@ -626,6 +721,33 @@ export type Database = {
           },
         ]
       }
+      user_question_state: {
+        Row: {
+          correct_count: number
+          global_id: string
+          last_seen_at: string
+          saved: boolean
+          user_id: string
+          wrong_count: number
+        }
+        Insert: {
+          correct_count?: number
+          global_id: string
+          last_seen_at?: string
+          saved?: boolean
+          user_id: string
+          wrong_count?: number
+        }
+        Update: {
+          correct_count?: number
+          global_id?: string
+          last_seen_at?: string
+          saved?: boolean
+          user_id?: string
+          wrong_count?: number
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
@@ -652,6 +774,14 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      record_question_answers: {
+        Args: { p_answers: Json }
+        Returns: number
+      }
+      toggle_saved_question: {
+        Args: { p_global_id: string }
+        Returns: boolean
+      }
       activate_trial_for_user: {
         Args: { p_user_id: string }
         Returns: undefined

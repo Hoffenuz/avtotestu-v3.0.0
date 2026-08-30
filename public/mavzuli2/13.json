@@ -30,7 +30,7 @@
                 ]
             },
             "uz_cyr": {
-                "text": "Қайси ҳолда қоидалар огоҳлантириш ишорасини беришни талаб килмайди?",
+                "text": "Қайси ҳолда қоидалар огоҳлантириш ишорасини беришни талаб қилмайди?",
                 "options": [
                     {
                         "id": 1,
@@ -44,7 +44,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "«Ҳавфли бурилиш» белгиси билан белгиланган йўлнинг эгри бурилиш жойи олдидан.",
+                        "text": "«Хавфли бурилиш» белгиси билан белгиланган йўлнинг эгри бурилиш жойи олдидан.",
                         "is_correct": true
                     }
                 ]
@@ -71,9 +71,9 @@
             }
         },
         "izoh": {
-            "uz_lat": "Yoʻl harakati qoidalarining 67-bandiga muvofiq:\n\nHaydovchi harakatlanishni boshlashdan, qayta saflanishdan (boʻlakka oʻtishdan), burilishdan (qayrilib olishdan) va toʻxtashdan oldin tegishli yoʻnalishni koʻrsatuvchi yorugʻlik ishoralari (povorotniklar) orqali ogohlantirish ishorasini berishi shart.\n\n«Xavfli burilish» (1.11.1, 1.11.2, 1.12.1, 1.12.2) ogohlantiruvchi belgilari bilan belgilangan yoʻlning egri joylarida haydovchi oʻz harakat boʻlagini oʻzgartirmasdan, yoʻlning oʻzini yoʻnalishi boʻylab ketayotgan boʻlsa, manyovr bajarilmayotganligi sababli ogohlantirish ishorasini (povorotnikni) yoqish talab etilmaydi.",
+            "uz_lat": "Yoʻl harakati qoidalarining 67-bandiga muvofiq:\n\nHaydovchi harakatlanishni boshlashdan, qayta saflanishdan (boʻlakka oʻtishdan), burilishdan (qayrilib olishdan) va toʻxtashdan oldin tegishli yoʻnalishni koʻrsatuvchi yorugʻlik ishoralari (povorotniklar) orqali ogohlantirish ishorasini berishi shart.\n\n«Xavfli burilish» (1.11.1, 1.11.2, 1.12.1, 1.12.2) ogohlantiruvchi belgilari bilan belgilangan yoʻlning egri joylarida haydovchi oʻz harakat boʻlagini oʻzgartirmasdan, yoʻlning oʻzini yoʻnalishi boʻylab ketayotgan boʻlsa, manevr bajarilmayotganligi sababli ogohlantirish ishorasini (povorotnikni) yoqish talab etilmaydi.",
             "uz_cyr": "Йўл ҳаракати қоидаларининг 67-бандига мувофиқ:\n\nҲайдовчи ҳаракатланишни бошлашдан, қайта сафланишдан (бўлакка ўтишдан), бурилишдан (қайрилиб олишдан) ва тўхташдан олдин тегишли йўналишни кўрсатувчи ёруғлик ишоралари (поворотниклар) орқали огоҳлантириш ишорасини бериши шарт.\n\n«Хавфли бурилиш» (1.11.1, 1.11.2, 1.12.1, 1.12.2) огоҳлантирувчи белгилари билан белгиланган йўлнинг эгри жойларида ҳайдовчи ўз ҳаракат бўлагини ўзгартирмасдан, йўлнинг ўзини йўналиши бўйлаб кетаётган бўлса, манёвр бажарилмаётганлиги сабабли огоҳлантириш ишорасини (поворотникни) ёқиш талаб этилмайди.",
-            "ru": "Согласно статье 67 Правил дорожного движения:\n\nПеред началом движения, перестроением (выездом на полосу), поворотом (поворотом) и остановкой водитель обязан подать предупредительный сигнал посредством световых сигналов, указывающих соответствующее направление (поворотников). \n\nНа криволинейных участках дороги, обозначенных предупреждающими знаками «Опасный поворот» (1.11.1, 1.11.2, 1.12.1, 1.12.2), если водитель движется в одном направлении дороги без перестроения, включение предупредительного сигнала (поворотника) не требуется, поскольку маневр не выполняется."
+            "ru": "Согласно статье 67 Правил дорожного движения:\n\nПеред началом движения, перестроением (выездом на полосу), поворотом и остановкой водитель обязан подать предупредительный сигнал посредством световых сигналов, указывающих соответствующее направление (поворотников). \n\nНа криволинейных участках дороги, обозначенных предупреждающими знаками «Опасный поворот» (1.11.1, 1.11.2, 1.12.1, 1.12.2), если водитель движется в одном направлении дороги без перестроения, включение предупредительного сигнала (поворотника) не требуется, поскольку маневр не выполняется."
         }
     },
     {
@@ -208,7 +208,7 @@
                     },
                     {
                         "id": 2,
-                        "text": "Переключение света фар и включение ближнего света фар дневное время",
+                        "text": "Переключение света фар и включение ближнего света фар в дневное время",
                         "is_correct": false
                     },
                     {
@@ -317,8 +317,8 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 8-bobi 46-bandiga muvofiq, burilish ko'rsatgichlari bilan berilayotgan ogohlantiruvchi ishora berish haydovchiga oldin o'tish huquqini bermaydi va uni zaruriy ehtiyot choralarini ko'rish mas'uliyatidan ozod etmaydi.",
-            "uz_cyr": "YHQ 8-боби 46-бандига мувофиқ, бурилиш кўрсатгичлари билан берилаётган огоҳлантирувчи ишора бериш ҳайдовчига олдин ўтиш ҳуқуқини бермайди ва уни зарурий эҳтиёт чораларини кўриш масулиятидан озод этмайди.",
+            "uz_lat": "YHQ 8-bobi 46-bandiga muvofiq, burilish ko'rsatkichlari bilan berilayotgan ogohlantiruvchi ishora berish haydovchiga oldin o'tish huquqini bermaydi va uni zaruriy ehtiyot choralarini ko'rish mas'uliyatidan ozod etmaydi.",
+            "uz_cyr": "YHQ 8-боби 46-бандига мувофиқ, бурилиш кўрсаткичлари билан берилаётган огоҳлантирувчи ишора бериш ҳайдовчига олдин ўтиш ҳуқуқини бермайди ва уни зарурий эҳтиёт чораларини кўриш масулиятидан озод этмайди.",
             "ru": "В соответствии с главой 8, пунктом 46 ПДД, предупредительный сигнал поворотников не дает водителю права преимущественного проезда и не освобождает его от ответственности за соблюдение необходимых мер предосторожности."
         }
     },
@@ -563,7 +563,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 8- bobi 46 – bandining ikkinchisi xatboshisiga asosan: Burilish ko‘rsatkichi yoki qo‘l bilan berilayotgan ishora manyovrni bajarishdan oldinroq berilishi va uni tugallagach, darhol to‘xtatilishi kerak (qo‘l bilan berilayotgan ishorani manyovrni bevosita bajarishdan oldin tugallash mumkin). Beriladigan ishoralar yo‘l harakatining boshqa qatnashchilarini chalg‘itmasligi kerak. Ogohlantiruvchi ishora berish haydovchiga oldin o‘tish huquqini bermaydi va uni zaruriy ehtiyot choralarini ko‘rish mas’uliyatidan ozod etmaydi.",
+            "uz_lat": "YHQ 8- bobi 46 – bandining ikkinchisi xatboshisiga asosan: Burilish ko‘rsatkichi yoki qo‘l bilan berilayotgan ishora manevrni bajarishdan oldinroq berilishi va uni tugallagach, darhol to‘xtatilishi kerak (qo‘l bilan berilayotgan ishorani manevrni bevosita bajarishdan oldin tugallash mumkin). Beriladigan ishoralar yo‘l harakatining boshqa qatnashchilarini chalg‘itmasligi kerak. Ogohlantiruvchi ishora berish haydovchiga oldin o‘tish huquqini bermaydi va uni zaruriy ehtiyot choralarini ko‘rish mas’uliyatidan ozod etmaydi.",
             "uz_cyr": "YHQ 8- боби 46 – бандининг иккинчиси хатбошисига асосан: Бурилиш кўрсаткичи ёки қўл билан берилаётган ишора манёврни бажаришдан олдинроқ берилиши ва уни тугаллагач, дарҳол тўхтатилиши керак (қўл билан берилаётган ишорани манёврни бевосита бажаришдан олдин тугаллаш мумкин). Бериладиган ишоралар йўл ҳаракатининг бошқа қатнашчиларини чалғитмаслиги керак. Огоҳлантирувчи ишора бериш ҳайдовчига олдин ўтиш ҳуқуқини бермайди ва уни зарурий эҳтиёт чораларини кўриш масулиятидан озод этмайди.",
             "ru": "Согласно абзацу второму статьи 46 главы 8 ПДД: Сигнал поворота или сигнал рукой должен быть подан перед маневром и прекращен немедленно по его завершению (сигнал рукой может быть завершен непосредственно перед маневром). Данные знаки не должны сбивать с толку других участников дорожного движения. Постановка предупреждающего знака не дает водителю права обгона и не освобождает его от ответственности за соблюдение необходимых мер предосторожности."
         }
@@ -732,7 +732,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 8-bobi 46- bandiga muvofiq, qo'l bilan berilayotgan ishorani manyovrni bavosita bajarishdan oldin tugallash mumkin. Ishoralar boshqa yo'l harakati qatnashchilarini chalg'itmasligi kerak.",
+            "uz_lat": "YHQ 8-bobi 46- bandiga muvofiq, qo'l bilan berilayotgan ishorani manevrni bevosita bajarishdan oldin tugallash mumkin. Ishoralar boshqa yo'l harakati qatnashchilarini chalg'itmasligi kerak.",
             "uz_cyr": "YHQ 8-боби 46- бандига мувофиқ, қўл билан берилаётган ишорани манёврни бавосита бажаришдан олдин тугаллаш мумкин. Ишоралар бошқа йўл ҳаракати қатнашчиларини чалғитмаслиги керак.",
             "ru": "В соответствии с главой 8 пункта 46 Кодекса поведения сигнал рукой может быть выполнен до непосредственного выполнения маневра. Знаки не должны сбивать с толку других участников дорожного движения."
         }
@@ -824,7 +824,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 8-bobi 45 - va 46-bandlariga muvofiq, haydovchi manyovrni bajarishdan oldin tegishli yo'nalishni ko'rsatuvchi yorug'lik ishoralarini yoqishi shart. Ishoralar boshqa yo'l harakati qatnashchilarini chalg'itmasligi kerak.",
+            "uz_lat": "YHQ 8-bobi 45 - va 46-bandlariga muvofiq, haydovchi manevrni bajarishdan oldin tegishli yo'nalishni ko'rsatuvchi yorug'lik ishoralarini yoqishi shart. Ishoralar boshqa yo'l harakati qatnashchilarini chalg'itmasligi kerak.",
             "uz_cyr": "YHQ 8-боби 45 - ва 46-бандларига мувофиқ, ҳайдовчи манёврни бажаришдан олдин тегишли йўналишни кўрсатувчи ёруғлик ишораларини ёқиши шарт. Ишоралар бошқа йўл ҳаракати қатнашчиларини чалғитмаслиги керак.",
             "ru": "В соответствии с главой 8, пунктами 45 и 46, перед выполнением маневра водитель обязан включить световые сигналы, указывающие соответствующее направление. Знаки не должны сбивать с толку других участников дорожного движения."
         }
@@ -840,7 +840,7 @@
         "media_url": "",
         "content": {
             "uz_lat": {
-                "text": "Haydovchi to'xtash oldidan ogohlatiruvchi ishora berishga qachon majbur?",
+                "text": "Haydovchi to'xtash oldidan ogohlantiruvchi ishora berishga qachon majbur?",
                 "options": [
                     {
                         "id": 1,
@@ -903,7 +903,7 @@
         "izoh": {
             "uz_lat": "YHQ 8-bobi 45-bandining birinchi xatboshisiga asosan: Haydovchi harakatlanishni boshlashdan, qayta tizilishdan, burilish (qayrilib olish) dan va to‘xtashdan oldin tegishli yo‘nalishni ko‘rsatuvchi yorug‘lik ishoralarini yoqishi, ular bo‘lmaganda yoki ishlamaganda qo‘l bilan ishoralar berishi shart.",
             "uz_cyr": "YHQ 8-боби 45-бандининг биринчи хатбошисига асосан: Ҳайдовчи ҳаракатланишни бошлашдан, қайта тизилишдан, бурилиш (қайрилиб олиш) дан ва тўхташдан олдин тегишли йўналишни кўрсатувчи ёруғлик ишораларини ёқиши, улар бўлмаганда ёки ишламаганда қўл билан ишоралар бериши шарт.",
-            "ru": "Согласно первому пункту статьи 45 главы 8 ПДД: Перед троганием с места, перестановкой, поворотом (поворотом) и остановкой водитель обязан включить световые сигналы, указывающие соответствующее направление, и подавать сигналы рукой, когда они отсутствуют или не работают."
+            "ru": "Согласно первому пункту статьи 45 главы 8 ПДД: Перед троганием с места, перестановкой, поворотом и остановкой водитель обязан включить световые сигналы, указывающие соответствующее направление, и подавать сигналы рукой, когда они отсутствуют или не работают."
         }
     },
     {
@@ -978,9 +978,9 @@
             }
         },
         "izoh": {
-            "uz_lat": "YHQ 8-bobi 46-bandiga muvofiq, burilish ko'rsatkichi yoki qo'l bilan berilayotgan ishora manyovrni bajarishdan oldinroq berilishi kerak.",
+            "uz_lat": "YHQ 8-bobi 46-bandiga muvofiq, burilish ko'rsatkichi yoki qo'l bilan berilayotgan ishora manevrni bajarishdan oldinroq berilishi kerak.",
             "uz_cyr": "YHQ 8-боби 46-бандига мувофиқ, бурилиш кўрсаткичи ёки қўл билан берилаётган ишора манёврни бажаришдан олдинроқ берилиши керак.",
-            "ru": "В соответствии с главой 8, пунктом 46 UCC, перед выполнением маневра необходимо подать сигнал поворота или сигнал рукой."
+            "ru": "В соответствии с главой 8, пунктом 46 ПДД, перед выполнением маневра необходимо подать сигнал поворота или сигнал рукой."
         }
     },
     {
@@ -1044,7 +1044,7 @@
                 ]
             },
             "ru": {
-                "text": "Каким должен быть знак остановки «авария» или мигающий красный свет в жилом районе, по крайней мере, на расстоянии от автомобиля (кроме мотоцикла без бокового прицепа)?",
+                "text": "Каким должен быть знак остановки «авария» или мигающий красный свет в населённых пунктах, по крайней мере, на расстоянии от автомобиля (кроме мотоцикла без бокового прицепа)?",
                 "options": [
                     {
                         "id": 1,
@@ -1090,7 +1090,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Yo'lning yoritilmagan qismlarida to'xtaganda va to'xtab turganda yoki ko'rinish etarli bo'lmagan sharoitda gabarit yoki to'xtab turish chiroqlari nosoz bo'lganda",
+                        "text": "Yo'lning yoritilmagan qismlarida to'xtaganda va to'xtab turganda yoki ko'rinish yetarli bo'lmagan sharoitda gabarit yoki to'xtab turish chiroqlari nosoz bo'lganda",
                         "is_correct": false
                     },
                     {
@@ -1793,7 +1793,7 @@
             }
         },
         "izoh": {
-            "uz_lat": "Yo‘l harakati qoidalarining 46 bandiga asosan, burilish ko‘rsatkichi yoki qo‘l bilan berilayotgan ishora manyovrni bajarishdan oldinroq berilishi va uni tugallagach, darhol to‘xtatilishi kerak (qo‘l bilan berilayotgan ishorani manyovrni bevosita bajarishdan oldin tugallash mumkin).",
+            "uz_lat": "Yo‘l harakati qoidalarining 46 bandiga asosan, burilish ko‘rsatkichi yoki qo‘l bilan berilayotgan ishora manevrni bajarishdan oldinroq berilishi va uni tugallagach, darhol to‘xtatilishi kerak (qo‘l bilan berilayotgan ishorani manevrni bevosita bajarishdan oldin tugallash mumkin).",
             "uz_cyr": "Йўл ҳаракати қоидаларининг 46 бандига асосан, бурилиш кўрсаткичи ёки қўл билан берилаётган ишора манёврни бажаришдан олдинроқ берилиши ва уни тугаллагач, дарҳол тўхтатилиши керак (қўл билан берилаётган ишорани манёврни бевосита бажаришдан олдин тугаллаш мумкин).",
             "ru": "Согласно статье 46 Правил дорожного движения сигнал поворота или сигнал рукой должны быть поданы до выполнения маневра и должны быть прекращены сразу после его завершения (сигнал рукой может быть завершен непосредственно перед выполнением маневра)."
         }
@@ -1872,7 +1872,7 @@
         "izoh": {
             "uz_lat": "Yo‘l harakati qoidalarining 45 bandiga asosan, haydovchi harakatlanishni boshlashdan, qayta tizilishdan, burilish (qayrilib olish)dan va to‘xtashdan oldin tegishli yo‘nalishni ko‘rsatuvchi yorug‘lik ishoralarini yoqishi, ular bo‘lmaganda yoki ishlamaganda qo‘l bilan ishoralar berishi shart.\r\nChapga burilish (qayrilib olish)ni bildiruvchi ishoraga chap qo‘lni yonga uzatish yoki o‘ng qo‘lni tirsakdan to‘g‘ri burchak ostida bukib, yuqoriga ko‘tarish mos keladi.",
             "uz_cyr": "Йўл ҳаракати қоидаларининг 45 бандига асосан, ҳайдовчи ҳаракатланишни бошлашдан, қайта тизилишдан, бурилиш (қайрилиб олиш)дан ва тўхташдан олдин тегишли йўналишни кўрсатувчи ёруғлик ишораларини ёқиши, улар бўлмаганда ёки ишламаганда қўл билан ишоралар бериши шарт.\r\nЧапга бурилиш (қайрилиб олиш)ни билдирувчи ишорага чап қўлни ёнга узатиш ёки ўнг қўлни тирсакдан тўғри бурчак остида букиб, юқорига кўтариш мос келади.",
-            "ru": "Согласно статье 45 Правил дорожного движения водитель обязан включать световые сигналы, указывающие соответствующее направление движения, перед троганием с места, перестановкой, поворотом (поворотом) и остановкой, а также подавать сигналы рукой при их отсутствии или неработоспособности. \r\nДля поворота налево левая рука отводится в сторону или правая рука сгибается под прямым углом и поднимается вверх."
+            "ru": "Согласно статье 45 Правил дорожного движения водитель обязан включать световые сигналы, указывающие соответствующее направление движения, перед троганием с места, перестановкой, поворотом и остановкой, а также подавать сигналы рукой при их отсутствии или неработоспособности. \r\nДля поворота налево левая рука отводится в сторону или правая рука сгибается под прямым углом и поднимается вверх."
         }
     },
     {
@@ -1949,7 +1949,7 @@
         "izoh": {
             "uz_lat": "Yo‘l harakati qoidalarining 45 bandiga asosan, haydovchi harakatlanishni boshlashdan, qayta tizilishdan, burilish (qayrilib olish)dan va to‘xtashdan oldin tegishli yo‘nalishni ko‘rsatuvchi yorug‘lik ishoralarini yoqishi, ular bo‘lmaganda yoki ishlamaganda qo‘l bilan ishoralar berishi shart.\r\nTo‘xtash ishorasi chap yoki o‘ng qo‘lni yuqoriga ko‘tarib beriladi.",
             "uz_cyr": "Йўл ҳаракати қоидаларининг 45 бандига асосан, ҳайдовчи ҳаракатланишни бошлашдан, қайта тизилишдан, бурилиш (қайрилиб олиш)дан ва тўхташдан олдин тегишли йўналишни кўрсатувчи ёруғлик ишораларини ёқиши, улар бўлмаганда ёки ишламаганда қўл билан ишоралар бериши шарт.\r\nТўхташ ишораси чап ёки ўнг қўлни юқорига кўтариб берилади.",
-            "ru": "Согласно статье 45 Правил дорожного движения водитель обязан включать световые сигналы, указывающие соответствующее направление движения, перед троганием с места, перестановкой, поворотом (поворотом) и остановкой, а также подавать сигналы рукой при их отсутствии или неработоспособности. \r\nСигнал остановки подается поднятием левой или правой руки."
+            "ru": "Согласно статье 45 Правил дорожного движения водитель обязан включать световые сигналы, указывающие соответствующее направление движения, перед троганием с места, перестановкой, поворотом и остановкой, а также подавать сигналы рукой при их отсутствии или неработоспособности. \r\nСигнал остановки подается поднятием левой или правой руки."
         }
     },
     {
@@ -2084,7 +2084,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "A)Звуковые сигналы",
+                        "text": "Звуковые сигналы",
                         "is_correct": false
                     },
                     {
@@ -2094,7 +2094,7 @@
                     },
                     {
                         "id": 3,
-                        "text": "B) Фары дальнего света",
+                        "text": "Фары дальнего света",
                         "is_correct": false
                     }
                 ]
@@ -2166,21 +2166,21 @@
                     },
                     {
                         "id": 2,
-                        "text": "A) Звуковые сигналы",
+                        "text": "Звуковые сигналы",
                         "is_correct": false
                     },
                     {
                         "id": 3,
-                        "text": "B) Фары дальнего света",
+                        "text": "Фары дальнего света",
                         "is_correct": true
                     }
                 ]
             }
         },
         "izoh": {
-            "uz_lat": "\"YHQning 8-bob. 48-band 2 va 3-xatboshi va 49-bandiga asosan: 48. Tovushli ishoralar faqat quyidagi hollarda qo‘llanilishi mumkin:\r\naholi punktlaridan tashqarida boshqa haydovchilarni quvib o‘tish haqida ogohlantirish uchun; Yuqorida ko‘rsatilgan hollardan tashqari tovushli ishoralardan foydalanish taqiqlanadi. \r\n49. Quvib o‘tish haqida tovushli ishora o‘rniga yoki u bilan birga fara chiroqlarini yoqib-o‘chirib, ogohlantirish ishorasini ham berish mumkin.\"",
-            "uz_cyr": "\"YHQнинг 8-боб. 48-банд 2 ва 3-хатбоши ва 49-бандига асосан: 48. Товушли ишоралар фақат қуйидаги ҳолларда қўлланилиши мумкин:\r\nаҳоли пунктларидан ташқарида бошқа ҳайдовчиларни қувиб ўтиш ҳақида огоҳлантириш учун; Юқорида кўрсатилган ҳоллардан ташқари товушли ишоралардан фойдаланиш тақиқланади. \r\n49. Қувиб ўтиш ҳақида товушли ишора ўрнига ёки у билан бирга фара чироқларини ёқиб-ўчириб, огоҳлантириш ишорасини ҳам бериш мумкин.\"",
-            "ru": "Согласно «Главе 8. Статья 48, пункты 2 и 3 и статья 49 ПДД: 48. Звуковые сигналы могут использоваться только в следующих случаях:\r\nпредупреждать других водителей об обгоне за пределами населенных пунктов; Использование звуковых сигналов запрещено, за исключением случаев, указанных выше. \r\n49. Предупреждающий сигнал может подаваться вместо звукового сигнала обгона или в дополнение к нему миганием фар."
+            "uz_lat": "YHQning 8-bob. 48-band 2 va 3-xatboshi va 49-bandiga asosan: 48. Tovushli ishoralar faqat quyidagi hollarda qo‘llanilishi mumkin:\r\naholi punktlaridan tashqarida boshqa haydovchilarni quvib o‘tish haqida ogohlantirish uchun; Yuqorida ko‘rsatilgan hollardan tashqari tovushli ishoralardan foydalanish taqiqlanadi. \r\n49. Quvib o‘tish haqida tovushli ishora o‘rniga yoki u bilan birga fara chiroqlarini yoqib-o‘chirib, ogohlantirish ishorasini ham berish mumkin.",
+            "uz_cyr": "YHQнинг 8-боб. 48-банд 2 ва 3-хатбоши ва 49-бандига асосан: 48. Товушли ишоралар фақат қуйидаги ҳолларда қўлланилиши мумкин:\r\nаҳоли пунктларидан ташқарида бошқа ҳайдовчиларни қувиб ўтиш ҳақида огоҳлантириш учун; Юқорида кўрсатилган ҳоллардан ташқари товушли ишоралардан фойдаланиш тақиқланади. \r\n49. Қувиб ўтиш ҳақида товушли ишора ўрнига ёки у билан бирга фара чироқларини ёқиб-ўчириб, огоҳлантириш ишорасини ҳам бериш мумкин.",
+            "ru": "Согласно Главе 8. Статья 48, пункты 2 и 3 и статья 49 ПДД: 48. Звуковые сигналы могут использоваться только в следующих случаях:\r\nпредупреждать других водителей об обгоне за пределами населенных пунктов; Использование звуковых сигналов запрещено, за исключением случаев, указанных выше. \r\n49. Предупреждающий сигнал может подаваться вместо звукового сигнала обгона или в дополнение к нему миганием фар."
         }
     }
 ]

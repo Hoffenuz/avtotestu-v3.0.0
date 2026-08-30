@@ -6,6 +6,10 @@ import {
   selectQuestionsFromPool,
 } from "@/lib/fetchQuestionJson";
 import { transformRawToQuestions, type AppQuestion } from "@/lib/questionTransform";
+import { useTestActive } from "@/hooks/useTestActive";
+import { useQuestionKeyboardNav } from "@/hooks/useQuestionKeyboardNav";
+import { SaveQuestionButton } from "@/components/SaveQuestionButton";
+import { recordQuestionAnswers } from "@/lib/questionState";
 import { useNavigate } from "react-router-dom";
 import { QuestionNavigation } from "./QuestionNavigation";
 import { TestResults } from "./TestResults";
@@ -32,7 +36,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { Clock, ChevronRight, X, Check, SkipForward, Moon, Sun, Maximize, Minimize } from "lucide-react";
+import { Clock, ChevronRight, X, Check, SkipForward, Moon, Sun, Maximize, Minimize, ChevronLeft } from "lucide-react";
 import { ImageLightbox } from "./ImageLightbox";
 import { QuestionImageBlock } from "./QuestionImageBlock";
 import { IzohNavButton } from "./IzohBox";
@@ -55,6 +59,16 @@ interface TestInterfaceBaseProps {
   sessionId?: string | null;
   /** Whether this is a premium session — controls fail-closed save behaviour */
   isPremiumSession?: boolean;
+  /**
+   * Savollarni URL dan emas, TAYYOR ro'yxatdan olish.
+   *
+   * "Xatolar ustida ishlash" kabi rejimlar uchun: savollar foydalanuvchining
+   * o'z tarixidan yig'iladi, ularni URL bilan ifodalab bo'lmaydi.
+   *
+   * Berilganda `dataSource` ISHLATILMAYDI, lekin u baribir talab qilinadi —
+   * `storageKey` va sessiya identifikatorlari o'shanga bog'langan.
+   */
+  poolProvider?: () => Promise<unknown[]>;
 }
 
 export const TestInterfaceBase = ({
@@ -68,6 +82,7 @@ export const TestInterfaceBase = ({
   variant = 0,
   sessionId = null,
   isPremiumSession = false,
+  poolProvider,
 }: TestInterfaceBaseProps) => {
   const { t, questionLang } = useLanguage();
   const { user } = useAuth();
@@ -89,8 +104,11 @@ export const TestInterfaceBase = ({
   );
   const [showFinishDialog, setShowFinishDialog] = useState(false);
   const [showResults, setShowResults] = useState(false);
+  // Test ketayotganda pastki navigatsiya yashiriladi — test ekranida
+  // o'z savol navigatsiyasi bor, ikkitasi chalkashtiradi.
+  useTestActive(!showResults);
   // Restored from localStorage so timeTaken stays accurate after refresh
-  const [testStartTime] = useState(() => getInitialStartedAt(storageKey));
+  const [testStartTime, setTestStartTime] = useState(() => getInitialStartedAt(storageKey));
   const [resultSaved, setResultSaved] = useState(false);
   const [activeSessionId, setActiveSessionId] = useState<string | null>(sessionId);
   const [zoomImage, setZoomImage] = useState<string | null>(null);
@@ -126,13 +144,15 @@ export const TestInterfaceBase = ({
   );
 
   const fetchPool = useCallback(async () => {
-    const jsonData = await fetchQuestionJson(dataSource);
-    const pool = normalizeQuestionArray(jsonData);
+    // Tayyor ro'yxat berilgan bo'lsa URL ga umuman murojaat qilmaymiz
+    const pool = poolProvider
+      ? await poolProvider()
+      : normalizeQuestionArray(await fetchQuestionJson(dataSource));
     if (pool.length === 0) {
       throw new Error(t("test.noQuestionsFound"));
     }
     return pool;
-  }, [dataSource, t]);
+  }, [dataSource, t, poolProvider]);
 
   const loadQuestionBank = useCallback(
     async (lang: string) => buildQuestionsFromPool(await fetchPool(), lang),
@@ -279,6 +299,21 @@ export const TestInterfaceBase = ({
   const formatTime = (seconds: number) => formatTestTime(seconds);
 
   const totalQuestions = questions.length;
+
+  /** Oldingi savolga o'tish — tugma va klaviatura (←) uchun umumiy. */
+  const goToPrevQuestion = useCallback(() => {
+    if (autoAdvanceTimeoutRef.current) clearTimeout(autoAdvanceTimeoutRef.current);
+    setCurrentQuestion((prev) => Math.max(1, prev - 1));
+  }, []);
+
+  /** Keyingi savolga o'tish — tugma va klaviatura (→) uchun umumiy. */
+  const goToNextQuestion = useCallback(() => {
+    if (autoAdvanceTimeoutRef.current) clearTimeout(autoAdvanceTimeoutRef.current);
+    setCurrentQuestion((prev) => Math.min(totalQuestions, prev + 1));
+  }, [totalQuestions]);
+
+  // Natijalar ekranida strelkalar kerak emas
+  useQuestionKeyboardNav(!showResults, goToPrevQuestion, goToNextQuestion);
   const question = questions[currentQuestion - 1];
   const isRevealed = revealedQuestions[currentQuestion];
   const selectedAnswer = selectedAnswers[currentQuestion];
@@ -391,6 +426,22 @@ export const TestInterfaceBase = ({
       saveAttemptedRef.current = true;
       const stats = getTestStats();
       const timeTaken = getElapsedTestSeconds(testStartTime, timeLimit);
+
+      /**
+       * Har bir savol bo'yicha natijani yozamiz — "Xatolarim" bo'limi shundan
+       * oziqlanadi. Javob berilmagan savollar `correctAnswers` da yo'q, ya'ni
+       * ular yozilmaydi. Bu chaqiruv ATAYLAB kutilmaydi: statistika yozilmasa
+       * ham test yakunlanishi va asosiy natija saqlanishi shart.
+       */
+      void recordQuestionAnswers(
+        questions
+          .map((q) => ({ globalId: q.globalId, isCorrect: correctAnswers[q.id] }))
+          .filter(
+            (a): a is { globalId: string; isCorrect: boolean } =>
+              typeof a.globalId === "string" && typeof a.isCorrect === "boolean",
+          ),
+      );
+
       void saveTestResult(variant, stats.correct, totalQuestions, timeTaken, activeSessionId, isPremiumSession)
         .then((res) => {
           if (res.success) {
@@ -428,6 +479,7 @@ export const TestInterfaceBase = ({
           setCorrectAnswers({});
           setRevealedQuestions({});
           setCurrentQuestion(1);
+          setTestStartTime(Date.now());
           endsAtRef.current = Date.now() + timeLimit * 1000;
           setTimeRemaining(timeLimit);
           setShowResults(false);
@@ -496,6 +548,12 @@ export const TestInterfaceBase = ({
             </div>
           </div>
           <div className="flex gap-1 md:gap-2 shrink-0">
+            {/* Savolni saqlash — yuqori panelda, boshqa amallar bilan bir qatorda.
+                Ilgari savol kartasi ichida edi va ko'zga tashlanmasdi. */}
+            <SaveQuestionButton
+              globalId={question?.globalId}
+              className="h-9 w-9 p-0 md:h-8 md:w-8 border border-input"
+            />
             <Button 
               variant="outline" 
               size="sm" 
@@ -579,9 +637,11 @@ export const TestInterfaceBase = ({
             <div className="md:w-[55%] md:flex-shrink-0">
               {/* Question Text */}
               <Card className="p-4 md:p-5 bg-card border-border mb-4">
-                <p className="text-base md:text-[15px] font-medium text-foreground leading-relaxed">
-                  {question.text}
-                </p>
+                <div className="flex items-start justify-between gap-2">
+                  <p className="text-base md:text-[15px] font-medium text-foreground leading-relaxed">
+                    {question.text}
+                  </p>
+                </div>
               </Card>
 
               {/* Mobile Only: Question Image - bosilsa kattalashadi */}
@@ -679,12 +739,7 @@ export const TestInterfaceBase = ({
             size="default"
             className="h-9 px-2.5 sm:px-3 md:h-10 md:px-4 text-sm shrink-0"
             disabled={currentQuestion === totalQuestions}
-            onClick={() => {
-              if (autoAdvanceTimeoutRef.current) {
-                clearTimeout(autoAdvanceTimeoutRef.current);
-              }
-              setCurrentQuestion(prev => Math.min(totalQuestions, prev + 1));
-            }}
+            onClick={goToNextQuestion}
           >
             <span className="max-[340px]:hidden">{t("test.next")}</span>
             <ChevronRight className="w-4 h-4 ml-0.5 sm:ml-1" />

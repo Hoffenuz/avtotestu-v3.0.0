@@ -17,6 +17,10 @@
 
     /* Indigo primary colors */
     --primary: 238 50% 18%;
+
+    /* Brend yuzasi — ikkala temada BIR XIL siyohrang qoladi */
+    --brand: 238 50% 18%;
+    --brand-foreground: 0 0% 100%;
     --primary-foreground: 0 0% 100%;
     --primary-hover: 238 50% 24%;
     --primary-light: 238 50% 30%;
@@ -90,6 +94,11 @@
     --popover-foreground: 210 40% 98%;
 
     --primary: 238 60% 55%;
+
+    /* Dark rejimda ham AYNAN o'sha siyohrang — atigi bir oz to'qroq,
+       chunki fon qorayadi va kontrast saqlanishi kerak */
+    --brand: 238 50% 16%;
+    --brand-foreground: 0 0% 100%;
     --primary-foreground: 0 0% 100%;
     --primary-hover: 238 60% 50%;
     --primary-light: 238 60% 60%;
@@ -249,4 +258,93 @@
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--muted-foreground) / 0.4);
+}
+
+/* ---------------------------------------------------------------------------
+   Test paytida pastki navigatsiyani yashirish.
+
+   NEGA CSS ORQALI, React holati bilan emas:
+   Test interfeysi har bir javobda qayta renderlanadi. Agar panel React
+   holatiga bog'lansa, u ham har safar qayta hisoblanardi. `<body>` klassi
+   esa React daraxtidan tashqarida — nol qayta render.
+
+   Test ekranida o'z savol navigatsiyasi bor (1, 2, 3 ...), ikkita navigatsiya
+   bir vaqtda foydalanuvchini chalkashtiradi.
+--------------------------------------------------------------------------- */
+body.test-active .js-bottom-nav {
+  display: none;
+}
+
+/* ---------------------------------------------------------------------------
+   Pastki panel uchun joy ajratish.
+
+   Tailwind ning `pb-[...]` sinfi o'rniga alohida klass ishlatilgan, chunki
+   joy uchta shartga bog'liq: mobil ekran, Telegram emas, test ketmayapti.
+   Bularni bitta utility sinf bilan ifodalab bo'lmaydi.
+--------------------------------------------------------------------------- */
+.has-bottom-nav {
+  padding-bottom: calc(3.5rem + env(safe-area-inset-bottom));
+}
+
+/* Desktopda panel yo'q */
+@media (min-width: 768px) {
+  .has-bottom-nav {
+    padding-bottom: 0;
+  }
+}
+
+/* Test paytida panel yashirilgan — joy ham kerak emas */
+body.test-active .has-bottom-nav {
+  padding-bottom: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   Telegram Mini App ichida pastki panel UMUMAN chizilmaydi (Telegram o'z
+   interfeysini ko'rsatadi), shuning uchun joy ham ajratilmaydi.
+
+   Klassni `index.html` dagi erta skript qo'yadi — birinchi bo'yashdayoq
+   to'g'ri, ya'ni maket sakramaydi.
+--------------------------------------------------------------------------- */
+html.tg-app .has-bottom-nav {
+  padding-bottom: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   EKRANDAN PASTDAGI BO'LIMLARNI KECHIKTIRIB CHIZISH.
+
+   `content-visibility: auto` brauzerga "bu blok ekranda ko'rinmaguncha
+   uning ichini hisoblama" deydi — maket (layout), stil va bo'yash ishi
+   o'tkazib yuboriladi. Bosh sahifada ekrandan pastda bir necha uzun bo'lim
+   bor va ular birinchi ochilishda bekorga hisoblanardi. Kuchsiz
+   telefonlarda sezilarli farq beradi.
+
+   `contain-intrinsic-size: auto 600px` — chizilmagan blokning taxminiy
+   balandligi. `auto` kalit so'zi tufayli brauzer bir marta chizgandan keyin
+   HAQIQIY balandlikni eslab qoladi, ya'ni surish paytida sakrash bo'lmaydi.
+
+   Qo'llab-quvvatlamaydigan brauzerlar qatorni e'tiborsiz qoldiradi —
+   sahifa avvalgidek ishlayveradi.
+--------------------------------------------------------------------------- */
+.defer-paint {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
+
+/* ---------------------------------------------------------------------------
+   GORIZONTAL SURILISHNING OLDINI OLISH (mobil).
+
+   Kenglikdan bitta piksel oshgan element ham butun sahifani yon tomonga
+   suriladigan qilib qo'yadi — telefonda bu juda bezovta qiladi va sababini
+   topish qiyin.
+
+   `clip`, `hidden` EMAS: `overflow: hidden` element ichida yangi surish
+   konteyneri yaratadi va shu sababli ichkaridagi `position: sticky`
+   ishlamay qoladi (bizda sayt headeri aynan sticky). `clip` esa surish
+   konteyneri yaratmaydi — sticky ishlayveradi.
+
+   Ataylab gorizontal suriladigan bloklar (masalan savol raqamlari lentasi
+   `overflow-x-auto` bilan) o'z konteyneriga ega, ularga ta'sir qilmaydi.
+--------------------------------------------------------------------------- */
+html {
+  overflow-x: clip;
 }
