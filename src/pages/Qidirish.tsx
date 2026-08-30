@@ -24,6 +24,7 @@ import { useDeferredValue, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Crown, Lock, Search, X } from "lucide-react";
 import { MainLayout } from "@/components/layout/MainLayout";
+import { ProSectionGate } from "@/components/ProSectionGate";
 import { SEO } from "@/components/SEO";
 import { PageHeader } from "@/components/PageHeader";
 import { Card, CardContent } from "@/components/ui/card";
@@ -110,7 +111,8 @@ export default function Qidirish() {
   const tooShort = trimmed.length > 0 && trimmed.length < MIN_QUERY;
 
   return (
-    <MainLayout>
+    <ProSectionGate section="qidirish" returnPath="/qidirish">
+      <MainLayout>
       <SEO
         title="Savol qidirish — YHQ testlari"
         description="1250 ta YHQ savoli ichidan matn bo'yicha qidiring: savol matni yoki javob varianti bo'yicha."
@@ -224,5 +226,6 @@ export default function Qidirish() {
 
       <ImageLightbox imageUrl={zoomImage} onClose={() => setZoomImage(null)} />
     </MainLayout>
+    </ProSectionGate>
   );
 }

@@ -15,9 +15,10 @@
 // ============================================================================
 
 import { Link } from "react-router-dom";
-import { ChevronRight, Lock } from "lucide-react";
+import { ChevronRight, Crown, Lock } from "lucide-react";
 import { ACCENT_CLASS, type SectionItem } from "@/lib/siteSections";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useAccessState } from "@/hooks/useAccessState";
 import { cn } from "@/lib/utils";
 
 interface SectionGridProps {
@@ -66,6 +67,7 @@ export function SectionGrid({
   showDescription = false,
 }: SectionGridProps) {
   const { t } = useLanguage();
+  const { isPremium } = useAccessState();
 
   return (
     <ul
@@ -123,7 +125,19 @@ export function SectionGrid({
                 ) : null}
               </span>
 
-              {locked ? (
+              {/*
+                PRO belgisi qulfdan OLDIN: kirmagan foydalanuvchi uchun ham
+                muhimrog'i bo'lim pullik ekani, kirish esa ikkinchi shart.
+              */}
+              {item.requiresPro && !isPremium ? (
+                <span
+                  className="flex shrink-0 items-center gap-1 rounded-full bg-amber-500/15 px-2 py-0.5 text-[11px] font-bold text-amber-600 dark:text-amber-400"
+                  title={t("sections.proOnly")}
+                >
+                  <Crown className="h-3 w-3" aria-hidden="true" />
+                  PRO
+                </span>
+              ) : locked ? (
                 <Lock
                   className="h-3.5 w-3.5 shrink-0 text-muted-foreground"
                   aria-label={t("sections.locked")}

@@ -7,8 +7,28 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 type GateReason = "guest" | "no_pro" | "backend";
 
+export type GateSection =
+  | "mavzuli"
+  | "darslik"
+  | "qidirish"
+  | "xatolarim"
+  | "xatolarTesti";
+
+/** Bo'lim nomi uch tilda — gate matnining ichiga qo'yiladi. */
+const SECTION_LABEL: Record<GateSection, { uz_lat: string; uz_cyr: string; ru: string }> = {
+  mavzuli: { uz_lat: "Mavzular", uz_cyr: "Мавзулар", ru: "Темы" },
+  darslik: { uz_lat: "Video darslik", uz_cyr: "Видео дарслик", ru: "Видеоуроки" },
+  qidirish: { uz_lat: "Savol qidirish", uz_cyr: "Савол қидириш", ru: "Поиск вопросов" },
+  xatolarim: { uz_lat: "Xato savollarim", uz_cyr: "Хато саволларим", ru: "Мои ошибки" },
+  xatolarTesti: {
+    uz_lat: "Xatolar ustida ishlash",
+    uz_cyr: "Хатолар устида ишлаш",
+    ru: "Работа над ошибками",
+  },
+};
+
 interface ProAccessGateProps {
-  section: "mavzuli" | "darslik";
+  section: GateSection;
   reason: GateReason;
   returnPath: string;
   onRetry?: () => void;
@@ -45,18 +65,9 @@ export function ProAccessGate({ section, reason, returnPath, onRetry }: ProAcces
   const navigate = useNavigate();
   const { language } = useLanguage();
 
+  const labels = SECTION_LABEL[section] ?? SECTION_LABEL.mavzuli;
   const sectionLabel =
-    section === "mavzuli"
-      ? language === "ru"
-        ? "Темы"
-        : language === "uz"
-          ? "Мавзулар"
-          : "Mavzular"
-      : language === "ru"
-        ? "Видеоуроки"
-        : language === "uz"
-          ? "Вideo darslik"
-          : "Video darslik";
+    language === "ru" ? labels.ru : language === "uz" ? labels.uz_cyr : labels.uz_lat;
 
   if (reason === "backend") {
     return (

@@ -6,9 +6,12 @@
 // ko'rinish, imtihon emas.
 // ============================================================================
 
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Crown } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { QuestionImageBlock } from "@/components/QuestionImageBlock";
+import { useAccessState } from "@/hooks/useAccessState";
+import { useLanguage } from "@/contexts/LanguageContext";
 import type { AppQuestion } from "@/lib/questionTransform";
 
 interface QuestionReviewCardProps {
@@ -19,9 +22,8 @@ interface QuestionReviewCardProps {
   /** O'ng yuqori burchakdagi qo'shimcha element (masalan saqlash tugmasi). */
   action?: React.ReactNode;
   /**
-   * Izohni ko'rsatish. Qidiruvda O'CHIRILADI: izoh PRO funksiyasi
-   * (testda ham `requirePro` bilan yopilgan), qidiruvda ochiq berilsa
-   * PRO ning qiymati yo'qolardi.
+   * Izoh blokini UMUMAN ko'rsatmaslik (hatto PRO ga ham).
+   * Qidiruvda `false`: u yerda natijalar ro'yxati qisqa bo'lishi kerak.
    */
   showIzoh?: boolean;
 }
@@ -34,6 +36,18 @@ export function QuestionReviewCard({
   showIzoh = true,
 }: QuestionReviewCardProps) {
   const hasImage = Boolean(question.image);
+
+  /**
+   * IZOH — HAR QANDAY HOLATDA faqat PRO uchun.
+   *
+   * Tekshiruv ATAYLAB shu komponent ichida, chaqiruvchi tomonda emas:
+   * kartochka uch joyda ishlatiladi (xatolarim, saqlangan, qidiruv) va
+   * yangi joy qo'shilganda tekshiruvni unutib qo'yish oson bo'lardi.
+   * Bu yerda esa uni chetlab o'tib bo'lmaydi.
+   */
+  const { isPremium } = useAccessState();
+  const { t } = useLanguage();
+  const izohVisible = showIzoh && Boolean(question.izoh);
 
   return (
     <Card>
@@ -94,13 +108,26 @@ export function QuestionReviewCard({
           </ul>
         </div>
 
-        {showIzoh && question.izoh ? (
-          <details className="mt-3">
-            <summary className="cursor-pointer text-sm font-medium text-primary">Izoh</summary>
-            <p className="mt-2 whitespace-pre-line text-sm text-muted-foreground">
-              {question.izoh}
-            </p>
-          </details>
+        {izohVisible ? (
+          isPremium ? (
+            <details className="mt-3">
+              <summary className="cursor-pointer text-sm font-medium text-primary">
+                {t("test.explanation")}
+              </summary>
+              <p className="mt-2 whitespace-pre-line text-sm text-muted-foreground">
+                {question.izoh}
+              </p>
+            </details>
+          ) : (
+            /* PRO emas — izoh matni CHIZILMAYDI, faqat taklif ko'rsatiladi */
+            <Link
+              to="/pro"
+              className="mt-3 flex items-center gap-2 rounded-md border border-amber-500/30 bg-amber-500/10 px-3 py-2 text-xs font-medium text-amber-700 transition-colors hover:bg-amber-500/20 dark:text-amber-400"
+            >
+              <Crown className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+              {t("test.izohProTitle")}
+            </Link>
+          )
         ) : null}
       </CardContent>
     </Card>

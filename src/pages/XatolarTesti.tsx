@@ -18,6 +18,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AlertCircle, CheckCircle2, Play, Loader2 } from "lucide-react";
 import { MainLayout } from "@/components/layout/MainLayout";
+import { ProSectionGate } from "@/components/ProSectionGate";
 import { SEO } from "@/components/SEO";
 import { PageHeader } from "@/components/PageHeader";
 import { Button } from "@/components/ui/button";
@@ -89,8 +90,14 @@ export default function XatolarTesti() {
     setStarted(true);
   };
 
+  /*
+    Test ekrani ham gate ICHIDA: `started` faqat gate ortidagi tugmadan
+    yoqiladi, lekin obuna test davomida tugab qolsa (yoki holat boshqa
+    yo'l bilan qayta tiklansa) ekran ochiq qolib ketmasligi kerak.
+  */
   if (started) {
     return (
+      <ProSectionGate section="xatolarTesti" returnPath="/xatolar-testi">
       <TestInterfaceBase
         onExit={() => {
           setStarted(false);
@@ -108,13 +115,15 @@ export default function XatolarTesti() {
         sessionId={sessionId}
         isPremiumSession={isPremium}
       />
+      </ProSectionGate>
     );
   }
 
   const count = wrongIds?.length ?? 0;
 
   return (
-    <MainLayout>
+    <ProSectionGate section="xatolarTesti" returnPath="/xatolar-testi">
+      <MainLayout>
       <SEO
         title={t("sections.xatolarTesti")}
         description="Xato javob bergan savollaringizdan test tuzing va ularni mustahkamlang."
@@ -194,5 +203,6 @@ export default function XatolarTesti() {
         )}
       </div>
     </MainLayout>
+    </ProSectionGate>
   );
 }

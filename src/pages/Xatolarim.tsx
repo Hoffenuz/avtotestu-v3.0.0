@@ -3,6 +3,7 @@
 // Shaxsiy sahifa — qidiruv tizimlariga indekslanmaydi.
 
 import { MainLayout } from "@/components/layout/MainLayout";
+import { ProSectionGate } from "@/components/ProSectionGate";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SEO } from "@/components/SEO";
 import { PageHeader } from "@/components/PageHeader";
@@ -12,7 +13,8 @@ export default function Xatolarim() {
   const { t } = useLanguage();
 
   return (
-    <MainLayout>
+    <ProSectionGate section="xatolarim" returnPath="/xatolarim">
+      <MainLayout>
       <SEO
         title={t("sections.xatolarim")}
         description="Test ishlashda xato javob bergan savollaringiz — takrorlash uchun bir joyda."
@@ -26,5 +28,6 @@ export default function Xatolarim() {
         <SavedWrongList mode="wrong" />
       </div>
     </MainLayout>
+    </ProSectionGate>
   );
 }

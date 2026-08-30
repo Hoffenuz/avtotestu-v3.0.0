@@ -69,6 +69,13 @@ export interface SectionItem {
    */
   requiresAuth?: boolean;
   /**
+   * PRO obuna talab qilinadi.
+   *
+   * Plitkada toj belgisi ko'rsatiladi — foydalanuvchi bosib, gate ekraniga
+   * urilib qaytishdan ko'ra, oldindan bilgani yaxshiroq.
+   */
+  requiresPro?: boolean;
+  /**
    * Bo'lim to'liq ekranda ishlaydi — plitka bosilganda to'liq ekran
    * so'raladi.
    *
@@ -87,10 +94,10 @@ export interface SectionItem {
  * ro'yxatni uzaytirib, aynan shu bo'limga xos amallarni ko'zdan yashirardi.
  */
 export const SECTION_ITEMS: readonly SectionItem[] = [
-  { to: "/xatolar-testi", titleKey: "sections.xatolarTesti", descKey: "sections.xatolarTestiDesc", icon: Brain, accent: "rose", requiresAuth: true },
-  { to: "/xatolarim", titleKey: "sections.xatolarim", descKey: "sections.xatolarimDesc", icon: XCircle, accent: "amber", requiresAuth: true },
+  { to: "/xatolar-testi", titleKey: "sections.xatolarTesti", descKey: "sections.xatolarTestiDesc", icon: Brain, accent: "rose", requiresAuth: true , requiresPro: true },
+  { to: "/xatolarim", titleKey: "sections.xatolarim", descKey: "sections.xatolarimDesc", icon: XCircle, accent: "amber", requiresAuth: true , requiresPro: true },
   { to: "/saqlangan", titleKey: "sections.saqlangan", descKey: "sections.saqlanganDesc", icon: Bookmark, accent: "violet", requiresAuth: true },
-  { to: "/qidirish", titleKey: "sections.qidirish", descKey: "sections.qidirishDesc", icon: Search, accent: "cyan" },
+  { to: "/qidirish", titleKey: "sections.qidirish", descKey: "sections.qidirishDesc", icon: Search, accent: "cyan" , requiresPro: true },
   { to: "/belgilar", titleKey: "sections.belgilar", descKey: "sections.belgilarDesc", icon: Signpost, accent: "emerald" },
   { to: "/avtodrom", titleKey: "sections.avtodrom", descKey: "sections.avtodromDesc", icon: TrafficCone, accent: "amber" },
   { to: "/yodlash-kerak", titleKey: "sections.yodlashKerak", descKey: "sections.yodlashKerakDesc", icon: Hash, accent: "indigo" },

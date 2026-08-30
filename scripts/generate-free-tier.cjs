@@ -74,13 +74,27 @@ const langFiles = [
   ["barcha-ru.json", "free-ru.json"],
 ];
 
+/**
+ * IZOH BEPUL FAYLLARGA UMUMAN QO'SHILMAYDI.
+ *
+ * Izoh — PRO funksiyasi. Interfeysda uni yashirish YETARLI EMAS: matn
+ * baribir brauzerga yuklanardi va DevTools'dan o'qib olish mumkin edi.
+ * Shu sababli u manbadan kesib tashlanadi — chinakam cheklov shu.
+ *
+ * Yon foyda: izoh bepul faylning ~43% ini egallardi (876 KB -> 500 KB).
+ * Sekin mobil internetda bu sezilarli.
+ */
+function stripIzoh(questions) {
+  return questions.map(({ izoh, ...rest }) => rest);
+}
+
 for (const [source, target] of langFiles) {
   const subset = extractSubset(source);
   if (subset.length !== EXPECTED_COUNT) {
     throw new Error(`${source}: expected ${EXPECTED_COUNT} matches, got ${subset.length} — manifest/data out of sync`);
   }
-  writeJson(path.join(PUBLIC, target), subset);
-  console.log(`${target}: ${subset.length} ta savol`);
+  writeJson(path.join(PUBLIC, target), stripIzoh(subset));
+  console.log(`${target}: ${subset.length} ta savol (izohsiz)`);
 }
 
 // ── Ko'p tilli 600.json (QA tooling uchun, deploy'ga chiqmaydi) ───────────
