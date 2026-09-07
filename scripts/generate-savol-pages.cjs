@@ -318,6 +318,7 @@ function updateSitemap(questions) {
     ["/yodlash-kerak", "monthly", "0.8"],
     ...yodlashTopicPaths().map((p) => [p, "monthly", "0.7"]),
     ["/qidirish", "weekly", "0.6"],
+    ["/qiyin-savollar", "weekly", "0.8"],
     ["/darslik", "weekly", "0.8"],
     ["/qoshimcha", "monthly", "0.7"],
     ["/pro", "monthly", "0.75"],

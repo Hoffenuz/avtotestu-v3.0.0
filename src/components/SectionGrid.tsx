@@ -38,28 +38,6 @@ interface SectionGridProps {
   showDescription?: boolean;
 }
 
-/**
- * To'liq ekran so'rovi — bosish HODISASI ichida bajarilishi shart.
- *
- * Brauzer buni faqat foydalanuvchi harakati doirasida beradi. Maqsad
- * sahifasidan so'ralsa (navigatsiyadan keyin) rad etiladi, shuning uchun
- * aynan shu yerda chaqiriladi. SPA navigatsiyasi sahifani qayta
- * yuklamagani uchun to'liq ekran keyingi sahifada ham saqlanib qoladi.
- *
- * Rad etilsa (iOS Safari qo'llab-quvvatlamaydi) hech narsa buzilmaydi:
- * imtihon ekrani baribir butun oynani egallaydi.
- */
-function requestFullscreen(): void {
-  try {
-    if (document.fullscreenElement) return;
-    void document.documentElement.requestFullscreen?.().catch(() => {
-      /* qo'llab-quvvatlanmaydi — muhim emas */
-    });
-  } catch {
-    /* eski brauzer */
-  }
-}
-
 export function SectionGrid({
   items,
   badges,
@@ -89,7 +67,6 @@ export function SectionGrid({
           <li key={item.to}>
             <Link
               to={item.to}
-              onClick={item.fullscreenOnOpen ? requestFullscreen : undefined}
               className={cn(
                 "group flex h-full items-center gap-3 rounded-xl border border-border bg-card",
                 "transition-colors",

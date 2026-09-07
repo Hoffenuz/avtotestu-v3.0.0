@@ -11,6 +11,24 @@ export function useFullscreen() {
     }
   }, []);
 
+  /**
+   * To'liq ekranga kirish.
+   *
+   * Brauzer buni faqat foydalanuvchi harakati doirasida beradi. Bosishdan
+   * keyin qisqa "o'tuvchi faollik" oynasi qoladi, shuning uchun test
+   * yuklanib bo'lgach chaqirilsa ko'p holatda ishlaydi. Rad etilsa hech
+   * narsa buzilmaydi: imtihon ekrani `fixed inset-0` bilan baribir butun
+   * oynani egallaydi va sarlavhada qo'lda yoqish tugmasi turadi.
+   */
+  const enterFullscreen = useCallback(() => {
+    if (document.fullscreenElement) return;
+    try {
+      void document.documentElement.requestFullscreen?.()
+        .then(() => setIsFullscreen(true))
+        .catch(() => { /* qo'llab-quvvatlanmaydi yoki rad etildi */ });
+    } catch { /* eski brauzer */ }
+  }, []);
+
   const exitFullscreen = useCallback(() => {
     if (document.fullscreenElement) {
       document.exitFullscreen().then(() => setIsFullscreen(false)).catch(() => {});
@@ -25,5 +43,5 @@ export function useFullscreen() {
     return () => document.removeEventListener("fullscreenchange", handleFullscreenChange);
   }, []);
 
-  return { isFullscreen, toggleFullscreen, exitFullscreen };
+  return { isFullscreen, toggleFullscreen, enterFullscreen, exitFullscreen };
 }

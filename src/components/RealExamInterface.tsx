@@ -98,7 +98,7 @@ export function RealExamInterface({
   const { t, questionLang } = useLanguage();
   const { user, profile } = useAuth();
   const { saveTestResult } = useTestResults();
-  const { isFullscreen, toggleFullscreen, exitFullscreen } = useFullscreen();
+  const { isFullscreen, toggleFullscreen, enterFullscreen, exitFullscreen } = useFullscreen();
 
   const [questions, setQuestions] = useState<AppQuestion[]>([]);
   const [loading, setLoading] = useState(true);
@@ -195,6 +195,26 @@ export function RealExamInterface({
       if (timerRef.current) clearInterval(timerRef.current);
     };
   }, [showResults, loading, questions.length]);
+
+  /*
+    To'liq ekran AYNAN IMTIHON BOSHLANGANDA yoqiladi — savollar yuklanib,
+    birinchi savol ekranga chiqqan paytda.
+
+    Ilgari u bosh sahifadagi plitka bosilishi bilan so'ralardi, ya'ni
+    foydalanuvchi hali "tayyorlanmoqda" ekranini to'liq ekranda ko'rib
+    turardi. Endi tayyorgarlik oddiy oynada, imtihonning o'zi to'liq
+    ekranda va `finish()` da undan chiqiladi.
+
+    Bir marta: qayta urinish foydalanuvchi qo'lda chiqqan bo'lsa uni
+    majburan qaytarardi.
+  */
+  const fullscreenSoralganRef = useRef(false);
+  useEffect(() => {
+    if (loading || showResults || questions.length === 0) return;
+    if (fullscreenSoralganRef.current) return;
+    fullscreenSoralganRef.current = true;
+    enterFullscreen();
+  }, [loading, showResults, questions.length, enterFullscreen]);
 
   const finish = useCallback(() => {
     if (timerRef.current) clearInterval(timerRef.current);

@@ -110,9 +110,9 @@ export default function Qidirish() {
   const trimmed = query.trim();
   const tooShort = trimmed.length > 0 && trimmed.length < MIN_QUERY;
 
+  // MainLayout gate'dan TASHQARIDA — izohi `ProSectionGate` da.
   return (
-    <ProSectionGate section="qidirish" returnPath="/qidirish">
-      <MainLayout>
+    <MainLayout>
       <SEO
         title="Savol qidirish — YHQ testlari"
         description="1250 ta YHQ savoli ichidan matn bo'yicha qidiring: savol matni yoki javob varianti bo'yicha."
@@ -120,6 +120,7 @@ export default function Qidirish() {
         keywords="savol qidirish, YHQ savollari, test qidiruv"
       />
 
+      <ProSectionGate section="qidirish" returnPath="/qidirish">
       <div className="mx-auto w-full max-w-3xl px-4 py-6 md:py-10">
         <PageHeader
           title={t("sections.qidirish")}
@@ -225,7 +226,7 @@ export default function Qidirish() {
       </div>
 
       <ImageLightbox imageUrl={zoomImage} onClose={() => setZoomImage(null)} />
+      </ProSectionGate>
     </MainLayout>
-    </ProSectionGate>
   );
 }

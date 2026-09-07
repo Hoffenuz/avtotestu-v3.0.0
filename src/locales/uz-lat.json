@@ -204,7 +204,8 @@
     "contactTitle": "Bog'lanish",
     "telegramLabel": "Telegram: @avtotestu_ad2",
     "botLabel": "Bot: @Avtotestubot",
-    "tagline": "Avtotest platformasi"
+    "tagline": "Avtotest platformasi",
+    "groupLabel": "Guruh"
   },
   "common": {
     "pro": "PRO",
@@ -217,7 +218,8 @@
     "searchPlaceholder": "Belgi nomi yoki kodi bo'yicha qidirish...",
     "seoTitle": "Yo'l belgilari 2026 — rasm va tushuntirish bilan",
     "seoDescription": "O'zbekiston YHQ yo'l belgilarining to'liq ro'yxati: ogohlantiruvchi, taqiqlovchi, buyuruvchi va axborot belgilari — rasm va tushuntirish bilan. Bepul o'rganing va imtihonga tayyorlaning.",
-    "seoKeywords": "yo'l belgilari 2026, ogohlantiruvchi belgilar, taqiqlovchi belgilar, buyuruvchi belgilar, yo'l chiziqlari"
+    "seoKeywords": "yo'l belgilari 2026, ogohlantiruvchi belgilar, taqiqlovchi belgilar, buyuruvchi belgilar, yo'l chiziqlari",
+    "countLabel": "{count} ta belgi"
   },
   "pro": {
     "seoTitle": "PRO obuna — cheksiz test va to'liq izohlar",
@@ -283,6 +285,8 @@
     "tabLogin": "Kirish",
     "tabSignup": "Ro'yxatdan o'tish",
     "phone": "Telefon raqam",
+    "loginLabel": "Telefon raqam yoki email",
+    "loginPlaceholder": "88 123 45 67 yoki email",
     "phonePlaceholder": "90 123 45 67",
     "email": "Email",
     "emailPlaceholder": "email@example.com",
@@ -321,9 +325,6 @@
     "title": "Telegram guruhimiz",
     "desc": "Tushunmagan savolingiz bormi? Guruhda so'rang — javob beramiz. Yangiliklar va foydali maslahatlar ham shu yerda.",
     "join": "Guruhga qo'shilish",
-    "proTitle": "PRO obunangiz uchun rahmat!",
-    "proDesc": "Telegram guruhimizga qo'shiling — tushunmagan savollaringiz yoki testdagi muammolaringiz bo'yicha shu yerda murojaat qilishingiz mumkin.",
-    "later": "Keyinroq",
     "close": "Yopish"
   },
   "sections": {
@@ -344,7 +345,9 @@
     "avtodromDesc": "Amaliy imtihondagi jarima ballari jadvali",
     "yodlashKerakDesc": "Tezlik, masofa va o'lcham me'yorlari",
     "realImtihonDesc": "Imtihon shartlarida test ishlang",
-    "proOnly": "Faqat PRO obuna bilan"
+    "proOnly": "Faqat PRO obuna bilan",
+    "qiyinSavollar": "Qiyin savollar",
+    "qiyinSavollarDesc": "Eng ko'p xato qilinadigan savollar, 50 tadan"
   },
   "pages": {
     "back": "Orqaga",
@@ -395,7 +398,12 @@
     "clearAllTitle": "Xatolar ro'yxatini tozalash?",
     "clearAllDesc": "Barcha savollar xatolar ro'yxatidan olib tashlanadi. Savollarning o'zi va saqlanganlar o'chmaydi.",
     "clearAllDone": "Xatolar ro'yxati tozalandi",
-    "clearFailed": "Tozalab bo'lmadi. Qayta urinib ko'ring."
+    "clearFailed": "Tozalab bo'lmadi. Qayta urinib ko'ring.",
+    "qiyinSavollarDesc": "250 ta eng qiyin savol, 50 tadan 5 bo'limda",
+    "qiyinSavollarQanday": "Qiyinlik taxmin emas. Foydalanuvchilar bu {s} ta savolda jami {x} marta xato qilgan — shu bo'yicha tartiblangan. 1-bo'lim eng qiyini.",
+    "qiyinSavollarQator": "{n} ta savol · {x} marta xato qilingan",
+    "qiyinSavollarIzoh": "Bo'limni bossangiz test darhol boshlanadi. Xato qilgan savolingiz avtomatik saqlanadi.",
+    "qiyinSavollarXato": "Ma'lumotni yuklab bo'lmadi. Sahifani yangilang."
   },
   "exam": {
     "intro": "Haqiqiy imtihon shartlarida sinov",

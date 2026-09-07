@@ -294,7 +294,7 @@ export default function Pro() {
   if (isLoading) {
     return (
       <MainLayout>
-        <div className="min-h-[60vh] flex items-center justify-center">
+        <div className="min-h-screen flex items-center justify-center">
           <div className="w-10 h-10 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
         </div>
       </MainLayout>
@@ -488,9 +488,17 @@ export default function Pro() {
 
               {/* Murojaat tugmasi (Farqlarning tagida) */}
               <div className="flex sm:justify-start">
+                {/*
+                  `whitespace-normal` va `h-auto` MAJBURIY: tugma matni uzun
+                  ("Savollar bo'yicha murojaat: @avtotestu_ad"), `Button` esa
+                  o'z uslubida `whitespace-nowrap` va qat'iy balandlik
+                  beradi. Natijada tugma 347px ga cho'zilib, 320px va 360px
+                  li telefonlarda BUTUN sahifada gorizontal scroll paydo
+                  qilardi (o'lchangan toshish: 43px va 3px).
+                */}
                 <Button
                   size="lg"
-                  className="gap-2.5 px-6 h-11 font-semibold rounded-xl border-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                  className="gap-2.5 px-5 sm:px-6 min-h-11 h-auto py-2.5 font-semibold rounded-xl border-2 whitespace-normal text-left max-w-full hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                   variant="outline"
                   onClick={handleGetPro}
                 >

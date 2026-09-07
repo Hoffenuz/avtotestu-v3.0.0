@@ -4,7 +4,6 @@ import { execSync } from "child_process";
 import crypto from "crypto";
 import fs from "fs";
 import path from "path";
-import { componentTagger } from "lovable-tagger";
 
 /**
  * Savol JSON larining MAZMUNIDAN kesh belgisi hisoblaydi.
@@ -130,7 +129,7 @@ function cloudflareNoRocketLoader() {
 }
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig(() => ({
   server: {
     host: "::",
     port: 8080,
@@ -140,8 +139,7 @@ export default defineConfig(({ mode }) => ({
     buildStamp(),
     cloudflareNoRocketLoader(),
     excludeSourceDataFromDist(),
-    mode === "development" && componentTagger(),
-  ].filter(Boolean),
+  ],
   define: {
     /**
      * Savol JSON larining mazmun-hash i. `fetchQuestionJson.ts` shuni

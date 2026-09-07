@@ -17,8 +17,11 @@ import { Turnstile } from '@/components/Turnstile';
 import { isTurnstileConfigured } from '@/lib/turnstile';
 import { peekPendingPlan } from '@/lib/pendingPlan';
 import {
-  formatUzLocalInput,
+  formatLoginInput,
+  formatUzPhoneDisplay,
+  formatUzPhoneLoose,
   loginIdentifierToEmail,
+  looksLikePhone,
   normalizeUzPhone,
   phoneToEmail,
 } from '@/lib/phone';
@@ -29,8 +32,6 @@ import { z } from 'zod';
 const MIN_SIGNUP_PASSWORD = 8;
 
 type Mode = 'login' | 'signup';
-/** Kirishda qaysi ma'lumot bilan: telefon (asosiy) yoki eski email hisobi. */
-type LoginBy = 'phone' | 'email';
 
 const Auth = () => {
   const location = useLocation();
@@ -38,10 +39,15 @@ const Auth = () => {
   // Pro sahifasidan "obuna olish" bosilganda darhol ro'yxatdan o'tish ochiladi
   const requestedMode = (location.state as { mode?: Mode })?.mode;
   const [mode, setMode] = useState<Mode>(requestedMode === 'signup' ? 'signup' : 'login');
-  const [loginBy, setLoginBy] = useState<LoginBy>('phone');
 
+  /**
+   * Kirishda YAGONA maydon: telefon raqam ham, email ham shu yerga yoziladi
+   * (`loginIdentifierToEmail` o'zi ajratadi). Avval "telefon/email" tanlash
+   * tugmalari bor edi — foydalanuvchi noto'g'ri tabda turib "parol xato"
+   * degan xabar olardi.
+   */
+  const [login, setLogin] = useState('');
   const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -100,6 +106,9 @@ const Auth = () => {
   const switchMode = (next: Mode) => {
     setMode(next);
     setError('');
+    // Kirishdagi qiymat telefon bo'lsa ro'yxatdan o'tishga ko'chiramiz —
+    // foydalanuvchi raqamini ikki marta yozmasin.
+    if (next === 'signup' && looksLikePhone(login)) setPhone(formatUzPhoneLoose(login));
     setPassword('');
     setConfirmPassword('');
     setShowPassword(false);
@@ -116,11 +125,11 @@ const Auth = () => {
     setError('');
     if (isLoginBlocked) return;
 
-    const identifier = loginBy === 'phone' ? phone : email;
-    const loginEmail = loginIdentifierToEmail(identifier);
+    const loginEmail = loginIdentifierToEmail(login);
 
     if (!loginEmail) {
-      setError(loginBy === 'phone' ? t('auth.errPhoneIncomplete') : t('auth.errEmailInvalid'));
+      // Raqam yozgan bo'lsa — raqam to'liq emas; aks holda email noto'g'ri
+      setError(looksLikePhone(login) ? t('auth.errPhoneIncomplete') : t('auth.errEmailInvalid'));
       return;
     }
     if (!password) {
@@ -143,7 +152,7 @@ const Auth = () => {
 
       const msg = signInError.message || '';
       if (msg.includes('Invalid login credentials')) {
-        setError(loginBy === 'phone' ? t('auth.errPhoneOrPassword') : t('auth.errEmailOrPassword'));
+        setError(looksLikePhone(login) ? t('auth.errPhoneOrPassword') : t('auth.errEmailOrPassword'));
       } else if (msg.includes('Email not confirmed')) {
         setError(t('auth.errNotConfirmed'));
       } else {
@@ -257,6 +266,10 @@ const Auth = () => {
 
   const isSignup = mode === 'signup';
 
+  // Tushunilgan raqam (maydon ostida tasdiq sifatida ko'rsatiladi)
+  const normalizedSignupPhone = normalizeUzPhone(phone);
+  const normalizedLoginPhone = looksLikePhone(login) ? normalizeUzPhone(login) : null;
+
   /**
    * Telefon maydoni. `+998` doimiy prefiks sifatida chapda turadi —
    * foydalanuvchi faqat 9 ta raqam yozadi, mamlakat kodini har safar
@@ -265,24 +278,65 @@ const Auth = () => {
   const phoneField = (
     <div className="space-y-1.5">
       <Label htmlFor="auth-phone" className="text-sm">{t('auth.phone')}</Label>
-      <div className="flex items-stretch rounded-md border border-input bg-background focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 overflow-hidden">
-        <span className="flex items-center gap-1.5 px-3 bg-muted/60 border-r border-input text-sm font-medium text-foreground select-none">
-          <Phone className="w-4 h-4 text-muted-foreground" />
-          +998
-        </span>
-        <input
+      <div className="relative">
+        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+        <Input
           id="auth-phone"
           type="tel"
-          inputMode="numeric"
-          placeholder={t('auth.phonePlaceholder')}
+          inputMode="tel"
+          placeholder="+998 90 123 45 67"
           value={phone}
-          onChange={(e) => setPhone(formatUzLocalInput(e.target.value))}
+          onChange={(e) => setPhone(formatUzPhoneLoose(e.target.value))}
           disabled={isSubmitting}
-          autoComplete="tel-national"
-          maxLength={12}
-          className="flex-1 h-10 px-3 bg-transparent text-base sm:text-sm font-medium outline-none placeholder:text-muted-foreground placeholder:font-normal disabled:opacity-50"
+          autoComplete="tel"
+          className="h-10 pl-10 font-medium"
         />
       </div>
+      {/*
+        Raqam qanday yozilgan bo'lsa ham (+998…, 998…, yoki 90…) qabul
+        qilinadi. Tushunilgan raqamni ko'rsatib turamiz — foydalanuvchi
+        xato terganini yuborishdan OLDIN ko'rsin.
+      */}
+      {normalizedSignupPhone && (
+        <p className="text-xs text-emerald-600 dark:text-emerald-400">
+          {formatUzPhoneDisplay(normalizedSignupPhone)}
+        </p>
+      )}
+    </div>
+  );
+
+  /** Kirish uchun yagona maydon — telefon yoki email. */
+  const loginField = (
+    <div className="space-y-1.5">
+      <Label htmlFor="auth-login" className="text-sm">{t('auth.loginLabel')}</Label>
+      <div className="relative">
+        {looksLikePhone(login)
+          ? <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+          : <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />}
+        <Input
+          id="auth-login"
+          type="text"
+          /*
+            `email` klaviaturasi — harflar ham, raqamlar ham bor. `tel`
+            bo'lsa edi email egalari (383 ta hisob) harf yoza olmay qolardi.
+          */
+          inputMode="email"
+          autoCapitalize="none"
+          autoCorrect="off"
+          spellCheck={false}
+          placeholder={t('auth.loginPlaceholder')}
+          value={login}
+          onChange={(e) => setLogin(formatLoginInput(e.target.value))}
+          disabled={isSubmitting}
+          autoComplete="username"
+          className="h-10 pl-10"
+        />
+      </div>
+      {normalizedLoginPhone && (
+        <p className="text-xs text-emerald-600 dark:text-emerald-400">
+          {formatUzPhoneDisplay(normalizedLoginPhone)}
+        </p>
+      )}
     </div>
   );
 
@@ -389,57 +443,7 @@ const Auth = () => {
           )}
 
           <form onSubmit={isSignup ? handleSignup : handleLogin} className="space-y-3">
-            {!isSignup && (
-              <div className="flex gap-2">
-                <button
-                  type="button"
-                  onClick={() => { setLoginBy('phone'); setError(''); }}
-                  className={`flex-1 h-8 rounded-lg text-xs font-medium border transition-colors flex items-center justify-center gap-1.5 ${
-                    loginBy === 'phone'
-                      ? 'border-primary bg-primary/10 text-foreground'
-                      : 'border-border text-muted-foreground hover:text-foreground'
-                  }`}
-                >
-                  <Phone className="w-3.5 h-3.5" />
-                  {t('auth.phone')}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => { setLoginBy('email'); setError(''); }}
-                  className={`flex-1 h-8 rounded-lg text-xs font-medium border transition-colors flex items-center justify-center gap-1.5 ${
-                    loginBy === 'email'
-                      ? 'border-primary bg-primary/10 text-foreground'
-                      : 'border-border text-muted-foreground hover:text-foreground'
-                  }`}
-                >
-                  <Mail className="w-3.5 h-3.5" />
-                  {t('auth.email')}
-                </button>
-              </div>
-            )}
-
-            {isSignup || loginBy === 'phone' ? phoneField : (
-              <div className="space-y-1.5">
-                <Label htmlFor="auth-email" className="text-sm">{t('auth.email')}</Label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                  <Input
-                    id="auth-email"
-                    type="email"
-                    inputMode="email"
-                    placeholder={t('auth.emailPlaceholder')}
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    disabled={isSubmitting}
-                    autoComplete="email"
-                    className="h-10 pl-10"
-                  />
-                </div>
-                <p className="text-xs text-muted-foreground">
-                  {t('auth.emailHint')}
-                </p>
-              </div>
-            )}
+            {isSignup ? phoneField : loginField}
 
             {passwordField}
 

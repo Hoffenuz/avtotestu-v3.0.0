@@ -14,7 +14,6 @@
 // ============================================================================
 
 import type { ReactNode } from "react";
-import { MainLayout } from "@/components/layout/MainLayout";
 import { ProAccessGate, type GateSection } from "@/components/ProAccessGate";
 import { useAuth } from "@/contexts/AuthContext";
 import { useAccessState } from "@/hooks/useAccessState";
@@ -40,13 +39,20 @@ export function ProSectionGate({ section, returnPath, children }: ProSectionGate
   const { backendConfirmed, refresh } = useAccessState();
   const { user } = useAuth();
 
+  /*
+    DIQQAT: bu komponent `MainLayout` ni O'ZI chizmaydi — uni chaqiruvchi
+    sahifa TASHQARIDAN o'raydi.
+
+    Ilgari uchala holat ham o'z `MainLayout` ini qaytarardi. Natijada holat
+    almashganda React eski daraxtni butunlay yo'q qilib, yangisini qurardi:
+    footer DOM dan chiqib qayta paydo bo'lardi va sahifa keskin sakrardi
+    (CLS 0.68 gacha). Endi layout bir marta o'rnatiladi, faqat ichi almashadi.
+  */
   if (loading) {
     return (
-      <MainLayout>
-        <div className="flex min-h-[60vh] items-center justify-center" role="status">
-          <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
-        </div>
-      </MainLayout>
+      <div className="flex min-h-[70vh] items-center justify-center" role="status">
+        <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+      </div>
     );
   }
 
@@ -62,13 +68,11 @@ export function ProSectionGate({ section, returnPath, children }: ProSectionGate
   const reason = !user ? "guest" : !backendConfirmed ? "backend" : "no_pro";
 
   return (
-    <MainLayout>
-      <ProAccessGate
-        section={section}
-        reason={reason}
-        returnPath={returnPath}
-        onRetry={refresh}
-      />
-    </MainLayout>
+    <ProAccessGate
+      section={section}
+      reason={reason}
+      returnPath={returnPath}
+      onRetry={refresh}
+    />
   );
 }

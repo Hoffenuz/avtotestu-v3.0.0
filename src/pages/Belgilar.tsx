@@ -160,8 +160,41 @@ export default function Belgilar() {
       <section className="py-12 bg-background">
         <div className="max-w-7xl mx-auto px-4">
           {loading ? (
-            <div className="flex items-center justify-center py-20">
-              <div className="w-10 h-10 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
+            /*
+              Skelet EKRANNI TO'LDIRADI (min-h-screen) — ilgari bu yerda
+              ~200px lik spinner turardi va belgilar kelganda uning
+              o'rniga yuzlab kartochka chiqib, footer bir necha ming
+              piksel pastga sakrardi. O'lchangan CLS 0.3309 edi (yuklash
+              tezligiga qarab 5 tadan 3 tasida).
+
+              To'liq balandlikni oldindan bilib bo'lmaydi (qidiruv
+              natijani filtrlaydi), lekin buning hojati ham yo'q: CLS
+              faqat KO'RINIB TURGAN siljishni hisoblaydi. Skelet ekranni
+              to'ldirsa, almashinuv paytida footer allaqachon ekrandan
+              pastda bo'ladi va siljish ko'rinmaydi.
+            */
+            <div className="min-h-screen space-y-12" role="status" aria-live="polite">
+              <span className="sr-only">{t("pages.loading")}</span>
+              {Array.from({ length: 3 }, (_, g) => (
+                <div key={g} aria-hidden="true">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="h-7 w-48 rounded-md bg-muted animate-pulse" />
+                    <div className="h-6 w-16 rounded-full bg-muted animate-pulse" />
+                  </div>
+                  <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-2 md:gap-3">
+                    {Array.from({ length: 16 }, (_, i) => (
+                      <Card key={i} className="overflow-hidden">
+                        <CardContent className="p-0">
+                          <div className="aspect-square bg-muted animate-pulse" />
+                          <div className="p-2">
+                            <div className="h-3 w-full rounded bg-muted animate-pulse" />
+                          </div>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           ) : (
             <div className="space-y-12">

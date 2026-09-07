@@ -121,9 +121,9 @@ export default function XatolarTesti() {
 
   const count = wrongIds?.length ?? 0;
 
+  // MainLayout gate'dan TASHQARIDA — izohi `ProSectionGate` da.
   return (
-    <ProSectionGate section="xatolarTesti" returnPath="/xatolar-testi">
-      <MainLayout>
+    <MainLayout>
       <SEO
         title={t("sections.xatolarTesti")}
         description="Xato javob bergan savollaringizdan test tuzing va ularni mustahkamlang."
@@ -131,6 +131,7 @@ export default function XatolarTesti() {
         noIndex
       />
 
+      <ProSectionGate section="xatolarTesti" returnPath="/xatolar-testi">
       <div className="mx-auto w-full max-w-2xl px-4 py-6 md:py-10">
         <PageHeader
           title={t("sections.xatolarTesti")}
@@ -202,7 +203,7 @@ export default function XatolarTesti() {
           </Card>
         )}
       </div>
+      </ProSectionGate>
     </MainLayout>
-    </ProSectionGate>
   );
 }

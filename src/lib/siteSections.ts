@@ -16,6 +16,7 @@ import {
   Bookmark,
   Brain,
   Hash,
+  AlertTriangle,
   Search,
   Signpost,
   Timer,
@@ -75,17 +76,6 @@ export interface SectionItem {
    * urilib qaytishdan ko'ra, oldindan bilgani yaxshiroq.
    */
   requiresPro?: boolean;
-  /**
-   * Bo'lim to'liq ekranda ishlaydi — plitka bosilganda to'liq ekran
-   * so'raladi.
-   *
-   * NEGA AYNAN SHU YERDA: brauzer `requestFullscreen()` ni FAQAT
-   * foydalanuvchi harakati doirasida qabul qiladi. Maqsad sahifasi
-   * navigatsiyadan keyin ochiladi va o'sha doira tugagan bo'ladi — u yerdan
-   * so'ralsa rad etiladi. SPA navigatsiyasi sahifani qayta yuklamagani
-   * uchun bu yerda olingan to'liq ekran keyingi sahifada ham saqlanadi.
-   */
-  fullscreenOnOpen?: boolean;
 }
 
 /**
@@ -101,13 +91,19 @@ export const SECTION_ITEMS: readonly SectionItem[] = [
   { to: "/belgilar", titleKey: "sections.belgilar", descKey: "sections.belgilarDesc", icon: Signpost, accent: "emerald" },
   { to: "/avtodrom", titleKey: "sections.avtodrom", descKey: "sections.avtodromDesc", icon: TrafficCone, accent: "amber" },
   { to: "/yodlash-kerak", titleKey: "sections.yodlashKerak", descKey: "sections.yodlashKerakDesc", icon: Hash, accent: "indigo" },
+  { to: "/qiyin-savollar", titleKey: "sections.qiyinSavollar", descKey: "sections.qiyinSavollarDesc", icon: AlertTriangle, accent: "amber", requiresPro: true },
 ];
 
 /**
  * Bosh sahifada ko'rsatiladigan TEZKOR amallar.
  *
  * Faqat uchtasi va tartib MUHIMLIK bo'yicha: avval imtihon (saytga kelishning
- * asosiy sababi), keyin xatolar ustida ishlash, oxirida qidiruv.
+ * asosiy sababi), keyin xatolar ustida ishlash, oxirida qiyin savollar.
+ *
+ * "Savol qidirish" o'rniga "Qiyin savollar" turadi: qidiruv KERAKLI savolni
+ * topish uchun, ya'ni odam nima izlayotganini oldindan bilishi kerak. Qiyin
+ * savollar esa nimani mashq qilish kerakligini O'ZI aytadi — haqiqiy
+ * foydalanuvchi xatolaridan hisoblangan. Qidiruv /bolimlar da qoladi.
  *
  * "Xato savollarim" ATAYLAB yo'q: u faqat KO'RSATADI, "Xatolar ustida ishlash"
  * esa o'sha savollarni qayta YECHTIRADI — ikkinchisi foydaliroq va ikkalasi
@@ -122,7 +118,6 @@ export const QUICK_ITEMS: readonly SectionItem[] = [
     descKey: "sections.realImtihonDesc",
     icon: Timer,
     accent: "emerald",
-    fullscreenOnOpen: true,
   },
-  ...SECTION_ITEMS.filter((item) => ["/xatolar-testi", "/qidirish"].includes(item.to)),
+  ...SECTION_ITEMS.filter((item) => ["/xatolar-testi", "/qiyin-savollar"].includes(item.to)),
 ];

@@ -165,7 +165,7 @@ export default function Variant() {
         keywords="test varianti, prava test, imtihon savollari, YHQ test, 63 variant"
       />
       {starting ? (
-        <div className="flex min-h-[60vh] items-center justify-center">
+        <div className="flex min-h-screen items-center justify-center">
           <div className="w-10 h-10 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
         </div>
       ) : (

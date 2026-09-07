@@ -32,6 +32,14 @@ const ROUTE_MAP = {
   "qoshimcha.html": "qoshimcha",
   "pro.html": "pro",
   "contact.html": "contact",
+  // Yangi bo'limlar — bularsiz Googlebot xom HTML da bosh sahifaning
+  // sarlavhasini ko'rardi va sahifalar takror deb baholanardi.
+  "bolimlar.html": "bolimlar",
+  "avtodrom.html": "avtodrom",
+  "yodlash-kerak.html": "yodlash-kerak",
+  "real-imtihon.html": "real-imtihon",
+  "qidirish.html": "qidirish",
+  "qiyin-savollar.html": "qiyin-savollar",
 };
 
 function applyContentFixes(html) {
@@ -158,8 +166,45 @@ function patchHomeNoscript() {
   console.log("✅ index.html noscript yangilandi");
 }
 
+/**
+ * `functions/_middleware.ts` dagi SEO_EXACT bilan solishtiradi.
+ *
+ * Ikki ro'yxat ajralib ketsa xato JIMGINA sodir bo'ladi: middleware botni
+ * mavjud bo'lmagan `/_seo/...` ga yuboradi yoki aksincha, tayyor snapshot
+ * hech qachon ishlatilmaydi. Ikkalasi ham faqat productionda bilinadi.
+ */
+function assertMiddlewareInSync() {
+  const mwPath = path.join(ROOT, "functions/_middleware.ts");
+  if (!fs.existsSync(mwPath)) return;
+
+  const block = fs.readFileSync(mwPath, "utf-8").match(/SEO_EXACT[^=]*=\s*\[([\s\S]*?)\]/);
+  if (!block) return;
+
+  // Izohlarni olib tashlaymiz — o'zbekcha matndagi apostrof qator
+  // chegarasi deb o'qilib, xato "marshrut" hosil qilardi.
+  const body = block[1].replace(/\/\/[^\n]*/g, "").replace(/\/\*[\s\S]*?\*\//g, "");
+  const inMiddleware = [...body.matchAll(/'([^']+)'/g)].map((m) => m[1]);
+  const generated = [...Object.values(ROUTE_MAP), "desktop"].map((r) => `/${r}`);
+
+  const missing = inMiddleware.filter((r) => !generated.includes(r));
+  const unused = generated.filter((r) => !inMiddleware.includes(r));
+
+  if (missing.length || unused.length) {
+    console.error("\n❌ SEO_EXACT va ROUTE_MAP mos emas:");
+    if (missing.length) {
+      console.error(`   _middleware.ts da bor, snapshot YO'Q: ${missing.join(", ")}`);
+    }
+    if (unused.length) {
+      console.error(`   snapshot bor, _middleware.ts da YO'Q: ${unused.join(", ")}`);
+    }
+    process.exit(1);
+  }
+  console.log(`✅ _middleware.ts bilan mos (${generated.length} ta marshrut)`);
+}
+
 console.log("🔧 Asosiy sahifalar statik HTML yaratilmoqda...\n");
 copyRoutePages();
 writeDesktopPage();
+assertMiddlewareInSync();
 patchHomeNoscript();
 console.log("\n✨ Tayyor!");

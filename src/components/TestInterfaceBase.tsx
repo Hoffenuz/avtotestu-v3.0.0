@@ -666,6 +666,14 @@ export const TestInterfaceBase = ({
                       key={answer.id}
                       onClick={() => { if (!isSwiping.current) handleAnswerSelect(answer.id); }}
                       disabled={isRevealed}
+                      /*
+                        Tanlangan javob FAQAT rang bilan ko'rsatilardi — ekran
+                        o'quvchi foydalanuvchi qaysi variant tanlanganini
+                        bilmasdi. `aria-pressed` shu holatni e'lon qiladi;
+                        `data-state` esa avtotestlar uchun ishonchli tayanch.
+                      */
+                      aria-pressed={isSelected}
+                      data-state={state === "default" ? (isSelected ? "selected" : "idle") : state}
                       className={`
                         w-full p-4 md:p-4 rounded-lg border text-left transition-all duration-200
                         flex items-center gap-4

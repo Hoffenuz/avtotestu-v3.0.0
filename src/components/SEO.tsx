@@ -53,9 +53,19 @@ export function SEO({
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
-      
-      {/* Language */}
-      <html lang="uz" />
+
+      {/*
+        `<html lang>` ATAYLAB bu yerda EMAS.
+
+        Ilgari bu yerda `<html lang="uz" />` turardi va ikki muammo tug'dirardi:
+        1. Helmet uni har render'da "uz" ga qaytarib, `LanguageContext` ning
+           tilga mos qiymatini (uz / uz-Cyrl / ru) bosib ketardi;
+        2. SEO komponenti unmount bo'lganda (masalan real imtihon boshlanib
+           sahifa almashganda) Helmet atributni butunlay OLIB TASHLAB,
+           `lang=""` qoldirardi.
+
+        Til endi faqat `LanguageContext` da o'rnatiladi — yagona manba.
+      */}
     </Helmet>
   );
 }

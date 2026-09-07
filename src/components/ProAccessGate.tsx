@@ -12,7 +12,8 @@ export type GateSection =
   | "darslik"
   | "qidirish"
   | "xatolarim"
-  | "xatolarTesti";
+  | "xatolarTesti"
+  | "qiyinSavollar";
 
 /** Bo'lim nomi uch tilda — gate matnining ichiga qo'yiladi. */
 const SECTION_LABEL: Record<GateSection, { uz_lat: string; uz_cyr: string; ru: string }> = {
@@ -24,6 +25,11 @@ const SECTION_LABEL: Record<GateSection, { uz_lat: string; uz_cyr: string; ru: s
     uz_lat: "Xatolar ustida ishlash",
     uz_cyr: "Хатолар устида ишлаш",
     ru: "Работа над ошибками",
+  },
+  qiyinSavollar: {
+    uz_lat: "Qiyin savollar",
+    uz_cyr: "Қийин саволлар",
+    ru: "Сложные вопросы",
   },
 };
 

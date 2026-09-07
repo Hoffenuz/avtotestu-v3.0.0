@@ -364,7 +364,14 @@ useEffect(() => {
               size="sm"
               onClick={handleSignOut}
               disabled={signingOut}
-              className="bg-white text-black border-white hover:bg-gray-100 disabled:opacity-70"
+              /*
+                Ilgari `bg-white text-black border-white` edi — to'q ko'k
+                banner ustida oppoq blok bo'lib ko'zni qamashtirardi
+                (dark modeda ayniqsa). Endi yonidagi "Orqaga" bilan bir xil
+                `brand` tokenlaridan foydalanadi: banner qaysi rejimda
+                bo'lsa ham matn va ramka unga mos keladi.
+              */
+              className="border-brand-foreground/30 bg-brand-foreground/10 text-brand-foreground hover:bg-brand-foreground/20 hover:text-brand-foreground disabled:opacity-70"
             >
               <LogOut className="w-4 h-4 mr-2" />
               {signingOut ? 'Chiqilmoqda…' : 'Chiqish'}

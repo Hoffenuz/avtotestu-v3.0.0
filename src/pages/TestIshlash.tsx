@@ -260,8 +260,16 @@ export default function TestIshlash() {
       */}
       <div className="min-h-screen bg-background flex flex-col font-sans text-[#1E2350] dark:text-foreground has-bottom-nav">
 
-        <header className="w-full bg-background border-b border-border px-6 py-3 sticky top-0 z-20">
-          <div className="max-w-5xl mx-auto flex items-center justify-between">
+        {/*
+          Yon bo'shliqlar va til tugmalari kichik ekranda TORAYTIRILGAN.
+          Ilgari sarlavha `px-6`, tugmalar esa `px-4` edi va "Bosh sahifa"
+          bilan uchta til tugmasi bitta qatorga sig'masdi: 320px da 54px,
+          360px da 14px toshib, BUTUN sahifada gorizontal scroll paydo
+          qilardi. `flex-wrap` — zaxira: matn uzunroq tilda ham qator
+          ikkiga bo'linadi, lekin toshmaydi.
+        */}
+        <header className="w-full bg-background border-b border-border px-3 sm:px-6 py-3 sticky top-0 z-20">
+          <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-2">
             <Link to="/">
               <Button variant="ghost" size="sm" className="gap-2 font-bold text-[#1E2350] dark:text-foreground">
                 <Home className="w-4 h-4" /> Bosh sahifa
@@ -272,7 +280,7 @@ export default function TestIshlash() {
                 <button
                   key={lang.id}
                   onClick={() => setLanguage(lang.id)}
-                  className={`px-4 py-1.5 rounded-md text-xs font-bold transition-all ${
+                  className={`px-2.5 sm:px-4 py-1.5 rounded-md text-xs font-bold transition-all ${
                     language === lang.id
                       ? "bg-primary text-primary-foreground shadow-sm"
                       : "text-muted-foreground hover:text-foreground"
@@ -287,9 +295,26 @@ export default function TestIshlash() {
 
         <main className="flex-1 max-w-3xl mx-auto w-full px-4 py-8 flex flex-col gap-6">
 
-          {/* Pro Banner */}
-          {showProBanner && !accessLoading && (
-            <Link to="/pro" className="group flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 bg-card border-2 border-orange-400 rounded-2xl px-4 py-3 sm:px-5 sm:py-4 hover:border-orange-500 hover:bg-orange-50/30 dark:hover:bg-orange-950/20 transition-all active:scale-[0.99] shadow-sm hover:shadow-md">
+          {/*
+            Pro Banner
+
+            `accessLoading` paytida banner YASHIRILADI, lekin O'RNI
+            saqlanadi (`invisible`). Ilgari u butunlay render qilinmasdi
+            va obuna holati aniqlangach paydo bo'lib, pastdagi hamma
+            narsani surardi — o'lchangan CLS 0.1463 edi.
+
+            `invisible` tanlandi, chunki bannerni darhol ko'rsatish ham
+            yaramaydi: PRO obunachiga bir lahza "PRO oling" deb turishi
+            noto'g'ri bo'lardi. Bu yerda joy band qilinadi, mazmun esa
+            holat aniqlangandan keyin ko'rinadi.
+          */}
+          {showProBanner && (
+            <Link
+              to="/pro"
+              aria-hidden={accessLoading || undefined}
+              tabIndex={accessLoading ? -1 : undefined}
+              className={`group flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 bg-card border-2 border-orange-400 rounded-2xl px-4 py-3 sm:px-5 sm:py-4 hover:border-orange-500 hover:bg-orange-50/30 dark:hover:bg-orange-950/20 transition-all active:scale-[0.99] shadow-sm hover:shadow-md${accessLoading ? " invisible" : ""}`}
+            >
               <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center flex-shrink-0 shadow-sm">
                <Crown className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
               </div>

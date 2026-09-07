@@ -78,6 +78,7 @@ const Qidirish = lazyWithRetry(() => import("./pages/Qidirish"));
 const XatolarTesti = lazyWithRetry(() => import("./pages/XatolarTesti"));
 const Avtodrom = lazyWithRetry(() => import("./pages/Avtodrom"));
 const RealImtihon = lazyWithRetry(() => import("./pages/RealImtihon"));
+const QiyinSavollar = lazyWithRetry(() => import("./pages/QiyinSavollar"));
 const YodlashKerak = lazyWithRetry(() => import("./pages/YodlashKerak"));
 const YodlashKerakMavzu = lazyWithRetry(() => import("./pages/YodlashKerakMavzu"));
 const Xatolarim = lazyWithRetry(() => import("./pages/Xatolarim"));
@@ -133,6 +134,7 @@ const App = () => {
                 <Route path="/xatolar-testi" element={<XatolarTesti />} />
                 <Route path="/avtodrom" element={<Avtodrom />} />
                 <Route path="/real-imtihon" element={<RealImtihon />} />
+                <Route path="/qiyin-savollar" element={<QiyinSavollar />} />
                 <Route path="/yodlash-kerak" element={<YodlashKerak />} />
                 <Route path="/yodlash-kerak/:mavzu" element={<YodlashKerakMavzu />} />
                 <Route path="/pro" element={<Pro />} />

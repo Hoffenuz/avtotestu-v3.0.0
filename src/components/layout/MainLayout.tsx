@@ -2,12 +2,20 @@ import { BottomNav } from "./BottomNav";
 import { useDarkMode } from "@/hooks/useDarkMode";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect, useMemo, useCallback, useRef } from "react";
-import { Menu, X, User, LogIn, Crown, Globe, ChevronDown, Home, Phone, BookOpen, Info, Monitor, Newspaper, MessageCircle, type LucideIcon, LayoutGrid, Moon, Sun } from "lucide-react";
+import { Menu, X, User, LogIn, Crown, Globe, ChevronDown, Home, Phone, BookOpen, Info, Monitor, Newspaper, type LucideIcon, LayoutGrid, Moon, Sun } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { TELEGRAM_GROUP_URL } from "@/lib/telegram";
+import { TelegramGroupNotice } from "@/components/TelegramGroupNotice";
+
+/**
+ * Guruh manzilining "@nom" ko'rinishi — footerda qolgan aloqa qatorlari
+ * bilan bir xil uslubda ko'rsatish uchun. Havola manbasi bitta:
+ * `TELEGRAM_GROUP_URL`.
+ */
+const telegramGroupHandle = `@${TELEGRAM_GROUP_URL.split("/").filter(Boolean).pop()}`;
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -345,13 +353,21 @@ export function MainLayout({ children }: MainLayoutProps) {
                   <span className="text-xs sm:text-sm">{t("nav.login")}</span>
                 </Button>
               )}
+              {/*
+                `max-[359px]:` — 320px li eski telefonlarda bu qator 4px ga
+                toshib, BUTUN sahifada gorizontal scroll paydo qilardi
+                (pastki menyu ham 324px ga cho'zilardi). 360px va undan
+                kattalarda hech narsa o'zgarmaydi.
+              */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label={mobileMenuOpen ? "Menyuni yopish" : "Menyuni ochish"}
                 aria-expanded={mobileMenuOpen}
-                className="p-1.5 sm:p-2 rounded-lg text-primary-foreground hover:bg-primary-foreground/10 transition-colors ml-0.5"
+                className="p-1.5 max-[359px]:p-1 sm:p-2 rounded-lg text-primary-foreground hover:bg-primary-foreground/10 transition-colors ml-0.5"
               >
-                {mobileMenuOpen ? <X className="w-7 h-7 sm:w-9 sm:h-9" /> : <Menu className="w-7 h-7 sm:w-9 sm:h-9" />}
+                {mobileMenuOpen
+                  ? <X className="w-7 h-7 max-[359px]:w-6 max-[359px]:h-6 sm:w-9 sm:h-9" />
+                  : <Menu className="w-7 h-7 max-[359px]:w-6 max-[359px]:h-6 sm:w-9 sm:h-9" />}
               </button>
             </div>
           </div>
@@ -532,6 +548,9 @@ export function MainLayout({ children }: MainLayoutProps) {
 
       <main className="flex-1">{children}</main>
 
+      {/* Guruh xabarnomasi — har foydalanuvchiga bir marta, footer ustida */}
+      <TelegramGroupNotice />
+
       <footer className="bg-brand text-brand-foreground py-10">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -569,16 +588,25 @@ export function MainLayout({ children }: MainLayoutProps) {
 
             <div>
               <h3 className="font-semibold text-lg mb-4">{t("footer.contactTitle")}</h3>
-              <div className="space-y-2 text-sm text-primary-foreground/70">
-                <a
-                  href={TELEGRAM_GROUP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 hover:text-primary-foreground transition-colors"
-                >
-                  <MessageCircle className="w-4 h-4 flex-shrink-0" />
-                  {t("tgGroup.join")}
-                </a>
+              {/*
+                Uchala aloqa qatori BIR XIL ko'rinishda: "nomi: @manzil".
+                Ilgari guruh alohida katta kartochka edi va u qolgan ikki
+                qatordan ajralib, ustunni nomutanosib qilardi.
+
+                Manzil `TELEGRAM_GROUP_URL` dan olinadi — qo'lda yozilsa
+                havola bilan matn ajralib ketishi mumkin edi.
+              */}
+              <div className="space-y-1.5 text-sm text-primary-foreground/70">
+                <p>
+                  <a
+                    href={TELEGRAM_GROUP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="transition-colors hover:text-primary-foreground"
+                  >
+                    {t("footer.groupLabel")}: {telegramGroupHandle}
+                  </a>
+                </p>
                 <p>{t("footer.telegramLabel")}</p>
                 <p>{t("footer.botLabel")}</p>
               </div>

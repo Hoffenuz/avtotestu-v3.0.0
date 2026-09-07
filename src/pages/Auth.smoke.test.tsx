@@ -52,8 +52,43 @@ describe('Auth sahifasi', () => {
   it('kirish rejimida xatosiz ochiladi', async () => {
     await renderAuth();
     expect(screen.getByRole('button', { name: /Google bilan davom etish/i })).toBeInTheDocument();
-    expect(screen.getByLabelText(/Telefon raqam/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Telefon raqam yoki email/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/^Parol$/i)).toBeInTheDocument();
+  });
+
+  /**
+   * Kirish maydoni YAGONA bo'lishi kerak: telefon/email tanlash tugmalari
+   * olib tashlangan. Ilgari foydalanuvchi noto'g'ri tabda turib "parol xato"
+   * degan xabar olardi va sababini tushunmasdi.
+   */
+  it('kirishda yagona maydon: telefon ham, email ham qabul qilinadi', async () => {
+    await renderAuth();
+
+    const field = screen.getByLabelText(/Telefon raqam yoki email/i);
+    expect(screen.queryByLabelText(/^Email$/i)).not.toBeInTheDocument();
+
+    // Uch xil shakl — bittaga keltiriladi
+    for (const kiritma of ['901234567', '998901234567', '+998901234567']) {
+      await act(async () => {
+        await userEvent.clear(field);
+        await userEvent.type(field, kiritma);
+      });
+      expect(screen.getByText('+998 90 123 45 67')).toBeInTheDocument();
+    }
+
+    // 99 operator kodli raqam (998... bilan boshlanadi) buzilmasligi kerak
+    await act(async () => {
+      await userEvent.clear(field);
+      await userEvent.type(field, '998123456');
+    });
+    expect(screen.getByText('+998 99 812 34 56')).toBeInTheDocument();
+
+    // Email tegilmaydi
+    await act(async () => {
+      await userEvent.clear(field);
+      await userEvent.type(field, 'user@gmail.com');
+    });
+    expect((field as HTMLInputElement).value).toBe('user@gmail.com');
   });
 
   it("ro'yxatdan o'tish rejimiga o'tganda ham xatosiz render bo'ladi", async () => {

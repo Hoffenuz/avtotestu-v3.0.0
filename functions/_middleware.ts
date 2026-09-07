@@ -42,6 +42,7 @@ const SPA_PREFIXES: string[] = [
   '/qidirish',
   '/avtodrom',
   '/yodlash-kerak',
+  '/qiyin-savollar',
   '/xatolarim',
   '/saqlangan',
   '/xatolar-testi',
@@ -57,6 +58,14 @@ const SEO_EXACT: string[] = [
   '/pro',
   '/contact',
   '/desktop',
+  // Bu ro'yxat `scripts/generate-main-pages.cjs` dagi ROUTE_MAP bilan
+  // MOS bo'lishi shart — aks holda bot mavjud bo'lmagan snapshot so'raydi.
+  '/bolimlar',
+  '/avtodrom',
+  '/yodlash-kerak',
+  '/qiyin-savollar',
+  '/real-imtihon',
+  '/qidirish',
 ];
 
 const SPA_NO_STORE_HEADERS: Record<string, string> = {

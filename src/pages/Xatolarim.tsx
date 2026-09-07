@@ -12,9 +12,10 @@ import { SavedWrongList } from "@/components/SavedWrongList";
 export default function Xatolarim() {
   const { t } = useLanguage();
 
+  // MainLayout gate'dan TASHQARIDA: gate holatlari almashganda layout qayta
+  // qurilmasin (aks holda footer DOM dan chiqib qaytadi va sahifa sakraydi).
   return (
-    <ProSectionGate section="xatolarim" returnPath="/xatolarim">
-      <MainLayout>
+    <MainLayout>
       <SEO
         title={t("sections.xatolarim")}
         description="Test ishlashda xato javob bergan savollaringiz — takrorlash uchun bir joyda."
@@ -22,12 +23,13 @@ export default function Xatolarim() {
         noIndex
       />
 
-      <div className="container mx-auto max-w-4xl px-4 py-8 md:py-12">
-        <PageHeader title={t("sections.xatolarim")} description={t("pages.xatolarimDesc")} />
+      <ProSectionGate section="xatolarim" returnPath="/xatolarim">
+        <div className="container mx-auto max-w-4xl px-4 py-8 md:py-12">
+          <PageHeader title={t("sections.xatolarim")} description={t("pages.xatolarimDesc")} />
 
-        <SavedWrongList mode="wrong" />
-      </div>
+          <SavedWrongList mode="wrong" />
+        </div>
+      </ProSectionGate>
     </MainLayout>
-    </ProSectionGate>
   );
 }
