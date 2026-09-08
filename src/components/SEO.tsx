@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { detectLangFromWindow, buildLangPath, langAlternates } from "@/lib/langUrl";
 
 interface SEOProps {
   title: string;
@@ -20,8 +21,28 @@ export function SEO({
   ogImage = DEFAULT_OG_IMAGE,
   noIndex = false,
 }: SEOProps) {
-  const fullUrl = `${BASE_URL}${path}`;
+  /*
+    `path` — TIL PREFIKSISIZ yo'l (masalan `/belgilar`), chunki sahifalar
+    uni shunday uzatadi. Canonical esa joriy tilning manzili bo'lishi
+    kerak: `/ru/belgilar` sahifasi o'zini o'zi canonical qilsin, aks
+    holda uchala til bitta manzilga ishora qilib, ruscha va kirillcha
+    versiyalar indeksdan tushib qolardi.
+  */
+  const { lang } = detectLangFromWindow();
+  const fullUrl = `${BASE_URL}${buildLangPath(lang, path)}`;
   const fullTitle = path === "/" ? title : `${title} | Avtotestlar.uz`;
+
+  /*
+    hreflang — uchala versiyani bir-biriga bog'laydi.
+
+    Bu Google ga "bu bir sahifaning uch tildagi varianti" deb aytadi va
+    ikki muammoni hal qiladi: versiyalar bir-birining nusxasi deb
+    hisoblanmaydi, va foydalanuvchiga o'z tilidagisi ko'rsatiladi.
+
+    `x-default` — tili mos kelmagan foydalanuvchiga qaysi versiya
+    ko'rsatilishi. Bu yerda asosiy til.
+  */
+  const alternates = langAlternates(path, BASE_URL);
 
   return (
     <Helmet>
@@ -37,6 +58,12 @@ export function SEO({
 
       {/* Canonical URL */}
       <link rel="canonical" href={fullUrl} />
+
+      {/* hreflang — uchala til versiyasi bir-biriga bog'lanadi */}
+      {alternates.map((a) => (
+        <link key={a.hreflang} rel="alternate" hrefLang={a.hreflang} href={a.href} />
+      ))}
+      <link rel="alternate" hrefLang="x-default" href={`${BASE_URL}${path}`} />
       
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
@@ -44,7 +71,7 @@ export function SEO({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogImage} />
-      <meta property="og:locale" content="uz_UZ" />
+      <meta property="og:locale" content={lang === "ru" ? "ru_RU" : "uz_UZ"} />
       <meta property="og:site_name" content="Avtotestlar.uz" />
       
       {/* Twitter */}

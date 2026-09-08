@@ -46,6 +46,23 @@ const DEFAULT_DATA_FILE = "free-uz-lat.json";
 /** Endi mavjud bo'lmagan monolit fayllar — eski localStorage sessiyalari uchun */
 const RETIRED_DATA_FILES = new Set(["600.json", "barcha.json"]);
 
+/**
+ * To'liq (PRO) korpus fayllari — 1260 ta savol, izohlari bilan.
+ * FREE korpus (`free-*.json`) esa 1009 ta va izohsiz.
+ *
+ * NEGA RO'YXAT KERAK: tugallanmagan test `localStorage` da o'z `dataFile`i
+ * bilan saqlanadi va qaytib kelganda o'sha fayl bilan tiklanadi. Agar
+ * oraliqda PRO muddati tugagan bo'lsa, eski sessiya PRO korpusni ochiq
+ * qoldirardi — obuna tugagan foydalanuvchi 1260 ta savolni izohlari bilan
+ * ishlashda davom etaverardi. `localStorage` ni brauzerdan qo'lda
+ * tahrirlab ham xuddi shu natijaga erishish mumkin edi.
+ */
+const PRO_DATA_FILES = new Set([
+  "barcha-uz-lat.json",
+  "barcha-uz-cyr.json",
+  "barcha-ru.json",
+]);
+
 const FREE_VARIANT = 99; // sentinel for free/practice test in DB (0..100 constraint)
 
 /**
@@ -123,6 +140,30 @@ export default function TestIshlash() {
     } catch (e) { /* ignore */ }
   }, [testIshlashStorageKey, testStarted, activeSession, questionCount]);
   const { state: accessState, isPremium, loading: accessLoading, backendConfirmed } = useAccessState();
+
+  /*
+    Tiklangan sessiyani joriy obuna holatiga solishtirish.
+
+    `getInitialState()` sessiyani `localStorage` dan tiklaydi, lekin u
+    `useState` initializer'ida ishlaydi — u paytda obuna holati hali
+    serverdan kelmagan. Shuning uchun tekshiruv shu yerda, javob kelgach.
+
+    `backendConfirmed` SHART: RPC javob bermaguncha `isPremium` boshlang'ich
+    `false` qiymatida turadi, va u holda haqiqiy PRO foydalanuvchining
+    tugallanmagan testini xato bilan o'chirib yuborardik.
+  */
+  useEffect(() => {
+    if (accessLoading || !backendConfirmed || isPremium) return;
+    const savedFile = activeSession?.dataFile;
+    if (!savedFile || !PRO_DATA_FILES.has(savedFile)) return;
+
+    try {
+      if (activeSession?.testStateKey) localStorage.removeItem(activeSession.testStateKey);
+      localStorage.removeItem(testIshlashStorageKey);
+    } catch (e) { /* ignore */ }
+    setTestStarted(false);
+    setActiveSession(null);
+  }, [accessLoading, backendConfirmed, isPremium, activeSession, testIshlashStorageKey]);
   const { isDark } = useDarkMode();
   const { starting, startSession } = useTestSession();
 
@@ -203,8 +244,16 @@ export default function TestIshlash() {
   };
 
   // ── Render: test in progress ───────────────────────────────────────────────
+  /*
+    Yuqoridagi `useEffect` sessiyani tozalaydi, lekin u render'dan KEYIN
+    ishlaydi — oradagi bitta render'da PRO fayl yuklanib ulgurishi mumkin.
+    Shuning uchun bu yerda ham tekshiriladi.
+  */
+  const savedFile = activeSession?.dataFile;
+  const savedFileHuquqli =
+    !savedFile || !PRO_DATA_FILES.has(savedFile) || isPremium || !backendConfirmed;
   const effectiveDataFile =
-    testStarted && activeSession ? activeSession.dataFile ?? dataFile : dataFile;
+    testStarted && activeSession && savedFileHuquqli ? savedFile ?? dataFile : dataFile;
   const dataSourcePath = `/${effectiveDataFile}`;
 
   if (testStarted && activeSession !== null) {
@@ -246,10 +295,10 @@ export default function TestIshlash() {
   return (
     <div className={isDark ? 'dark' : ''}>
       <SEO
-        title="Avto test ishlash 2026 — 20/50 savol"
-        description="Avto test online 2026: 1250+ YHQ savol. 20 yoki 50 ta tasodifiy savol, 25 daqiqa, 18/20 o'tish bali. Bepul, ro'yxatsiz — haqiqiy imtihon formatida."
+        title={t("seo.testIshlash.title")}
+        description={t("seo.testIshlash.description")}
         path="/test-ishlash"
-        keywords="test ishlash, onlayn test, prava test, YHQ savollari, avtotest, avtomaktab test, avto test ishlash 2026"
+        keywords={t("seo.testIshlash.keywords")}
       />
       <TestPageSchema />
 

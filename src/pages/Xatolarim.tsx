@@ -3,7 +3,7 @@
 // Shaxsiy sahifa — qidiruv tizimlariga indekslanmaydi.
 
 import { MainLayout } from "@/components/layout/MainLayout";
-import { ProSectionGate } from "@/components/ProSectionGate";
+import { AuthSectionGate } from "@/components/AuthSectionGate";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SEO } from "@/components/SEO";
 import { PageHeader } from "@/components/PageHeader";
@@ -23,13 +23,13 @@ export default function Xatolarim() {
         noIndex
       />
 
-      <ProSectionGate section="xatolarim" returnPath="/xatolarim">
+      <AuthSectionGate section="xatolarim" returnPath="/xatolarim">
         <div className="container mx-auto max-w-4xl px-4 py-8 md:py-12">
           <PageHeader title={t("sections.xatolarim")} description={t("pages.xatolarimDesc")} />
 
           <SavedWrongList mode="wrong" />
         </div>
-      </ProSectionGate>
+      </AuthSectionGate>
     </MainLayout>
   );
 }

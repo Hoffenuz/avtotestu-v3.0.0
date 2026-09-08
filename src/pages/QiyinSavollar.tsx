@@ -144,10 +144,10 @@ export default function QiyinSavollar() {
   return (
     <MainLayout>
       <SEO
-        title="Qiyin savollar — 250 ta eng ko'p xato"
-        description="Foydalanuvchilar eng ko'p xato qilgan 250 ta savol, 50 tadan 5 bo'limda. Eng qiyinidan boshlab mashq qiling."
+        title={t("seo.qiyinSavollar.title")}
+        description={t("seo.qiyinSavollar.description")}
         path="/qiyin-savollar"
-        keywords="qiyin savollar, eng ko'p xato, YHQ qiyin testlar, prava qiyin savollar"
+        keywords={t("seo.qiyinSavollar.keywords")}
       />
 
       <ProSectionGate section="qiyinSavollar" returnPath="/qiyin-savollar">

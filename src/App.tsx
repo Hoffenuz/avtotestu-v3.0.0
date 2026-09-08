@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { detectLangFromWindow } from "@/lib/langUrl";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { Suspense, Component, ReactNode } from "react";
@@ -111,7 +112,29 @@ const App = () => {
    * yuzaga kelgan xato hech kim tomonidan ushlanmay oq ekran berardi.
    */
   <ErrorBoundary>
-  <BrowserRouter>
+  {/*
+    TIL PREFIKSI `basename` ORQALI
+
+      /belgilar        o'zbekcha (lotin)   <- asosiy, o'zgarmagan
+      /cyr/belgilar    o'zbekcha (kirill)
+      /ru/belgilar     ruscha
+
+    NEGA `basename`, marshrutlarni uch marta yozish EMAS:
+    `basename` berilganda Router prefiksni yo'ldan kesib tashlaydi VA
+    har bir `<Link>` / `navigate()` ga uni qaytarib qo'shadi. Ya'ni
+    saytdagi yuzlab ichki havolaning birortasini ham o'zgartirish
+    kerak emas — ular avtomatik o'z tilida qoladi.
+
+    Marshrutlarni uch marta ulash usuli sinab ko'rildi va shu sababdan
+    rad etildi: sahifalar ochilardi, lekin ichki havola bosilganda
+    prefiks tushib qolib, foydalanuvchi o'zbekchaga qaytarib tashlanardi
+    (o'lchovda `/ru/profile` -> `/auth` shunday buzilgan edi).
+
+    Prefiks sahifa yuklanishida bir marta o'qiladi. Til almashtirilganda
+    to'liq qayta yuklash bo'ladi (`LanguageContext`) — shunda yangi
+    `basename` kuchga kiradi.
+  */}
+  <BrowserRouter basename={detectLangFromWindow().prefix || undefined}>
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <LanguageProvider>

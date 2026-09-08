@@ -1,5 +1,6 @@
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEO } from "@/components/SEO";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { ProAccessGate } from "@/components/ProAccessGate";
 import { useAuth } from "@/contexts/AuthContext";
 import { useProAccess } from "@/hooks/useProAccess";
@@ -9,6 +10,7 @@ import { ChapterAccordion } from "@/components/darslik/ChapterAccordion";
 import { BookOpen, Video } from "lucide-react";
 
 export default function Darslik() {
+  const { t } = useLanguage();
   const { user, isLoading } = useAuth();
   const { hasAccess, loading: accessLoading } = useProAccess({
     redirectPath: "/pro",
@@ -32,10 +34,10 @@ export default function Darslik() {
     return (
       <MainLayout>
         <SEO
-          title="Video Darslik — YHQ bo'yicha 211 ta video"
-          description="YHQ bo'yicha 11 bob va 211 ta video darslik: belgilar, chiziqlar, chorrahalar va imtihon mavzulari."
+          title={t("seo.darslik.title")}
+          description={t("seo.darslik.description")}
           path="/darslik"
-          keywords="YHQ darslik, video darslar, haydovchilik kursi, avto darslik, prava video"
+          keywords={t("seo.darslik.keywords")}
         />
         <ProAccessGate section="darslik" reason="guest" returnPath="/darslik" />
       </MainLayout>

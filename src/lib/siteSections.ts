@@ -84,8 +84,15 @@ export interface SectionItem {
  * ro'yxatni uzaytirib, aynan shu bo'limga xos amallarni ko'zdan yashirardi.
  */
 export const SECTION_ITEMS: readonly SectionItem[] = [
-  { to: "/xatolar-testi", titleKey: "sections.xatolarTesti", descKey: "sections.xatolarTestiDesc", icon: Brain, accent: "rose", requiresAuth: true , requiresPro: true },
-  { to: "/xatolarim", titleKey: "sections.xatolarim", descKey: "sections.xatolarimDesc", icon: XCircle, accent: "amber", requiresAuth: true , requiresPro: true },
+  /*
+    "Xato savollarim" va "Xatolar ustida ishlash" da `requiresPro` ATAYLAB
+    YO'Q: bu bo'limlar foydalanuvchining o'z ma'lumotini ko'rsatadi va
+    ro'yxatdan o'tish yetarli. Ular ro'yxatdan o'tishga eng tabiiy sabab —
+    xatolarni saqlashni faqat hisob bilan berish mumkin. PRO boshqa narsani
+    sotadi: to'liq savol bazasi, izohlar, qidiruv, qiyin savollar.
+  */
+  { to: "/xatolar-testi", titleKey: "sections.xatolarTesti", descKey: "sections.xatolarTestiDesc", icon: Brain, accent: "rose", requiresAuth: true },
+  { to: "/xatolarim", titleKey: "sections.xatolarim", descKey: "sections.xatolarimDesc", icon: XCircle, accent: "amber", requiresAuth: true },
   { to: "/saqlangan", titleKey: "sections.saqlangan", descKey: "sections.saqlanganDesc", icon: Bookmark, accent: "violet", requiresAuth: true },
   { to: "/qidirish", titleKey: "sections.qidirish", descKey: "sections.qidirishDesc", icon: Search, accent: "cyan" , requiresPro: true },
   { to: "/belgilar", titleKey: "sections.belgilar", descKey: "sections.belgilarDesc", icon: Signpost, accent: "emerald" },

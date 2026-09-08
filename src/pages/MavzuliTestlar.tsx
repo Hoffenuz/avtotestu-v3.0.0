@@ -143,10 +143,10 @@ export default function MavzuliTestlar() {
     return (
       <MainLayout>
         <SEO
-          title="Mavzuli testlar 2026"
-          description="YHQ mavzulari bo'yicha testlar: yo'l belgilari, svetofor, ustunlik, to'xtash va to'xtab turish qoidalari. Har bir mavzuni alohida o'rganing."
+          title={t("seo.mavzuli.title")}
+          description={t("seo.mavzuli.description")}
           path="/mavzuli"
-          keywords="mavzuli test, YHQ mavzular, prava test, yo'l belgilari testi"
+          keywords={t("seo.mavzuli.keywords")}
         />
         <ProAccessGate section="mavzuli" reason="guest" returnPath="/mavzuli" />
       </MainLayout>

@@ -114,10 +114,10 @@ export default function Qidirish() {
   return (
     <MainLayout>
       <SEO
-        title="Savol qidirish — YHQ testlari"
-        description="1250 ta YHQ savoli ichidan matn bo'yicha qidiring: savol matni yoki javob varianti bo'yicha."
+        title={t("seo.qidirish.title")}
+        description={t("seo.qidirish.description")}
         path="/qidirish"
-        keywords="savol qidirish, YHQ savollari, test qidiruv"
+        keywords={t("seo.qidirish.keywords")}
       />
 
       <ProSectionGate section="qidirish" returnPath="/qidirish">

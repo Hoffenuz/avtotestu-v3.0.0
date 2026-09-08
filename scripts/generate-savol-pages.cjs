@@ -331,10 +331,46 @@ function updateSitemap(questions) {
     [`/savol/variant-${questions[0].ticketNum}`, "weekly", "0.85"],
   ];
 
-  let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
+  /*
+    TIL VERSIYALARI
+
+    Har bir asosiy sahifa uch manzilda mavjud:
+      /belgilar        o'zbekcha (lotin)   — asosiy
+      /cyr/belgilar    o'zbekcha (kirill)
+      /ru/belgilar     ruscha
+
+    Uchalasi ham alohida <url> sifatida beriladi va har biri `xhtml:link`
+    orqali qolganlariga bog'lanadi. Bu Google ga "bir sahifaning uch
+    varianti" deb aytadi — aks holda ular bir-birining nusxasi deb
+    hisoblanardi va faqat bittasi indeksda qolardi.
+
+    Savol sahifalari (/savol/...) faqat asosiy tilda: ular savol matnidan
+    yasaladi va tarjima qilingan varianti yo'q.
+  */
+  const TILLAR = [
+    { prefix: "", hreflang: "uz-Latn" },
+    { prefix: "/cyr", hreflang: "uz-Cyrl" },
+    { prefix: "/ru", hreflang: "ru" },
+  ];
+
+  /** `/` uchun prefiksli manzil `/ru` bo'ladi, `/ru/` emas. */
+  const tilManzili = (prefix, loc) =>
+    loc === "/" ? `${BASE_URL}${prefix || "/"}` : `${BASE_URL}${prefix}${loc}`;
+
+  const alternates = (loc) => {
+    const qatorlar = TILLAR.map(
+      (t) => `    <xhtml:link rel="alternate" hreflang="${t.hreflang}" href="${tilManzili(t.prefix, loc)}"/>`,
+    );
+    qatorlar.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${tilManzili("", loc)}"/>`);
+    return qatorlar.join("\n");
+  };
+
+  let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n`;
 
   for (const [loc, freq, priority] of mainUrls) {
-    xml += `  <url>\n    <loc>${BASE_URL}${loc}</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>${freq}</changefreq>\n    <priority>${priority}</priority>\n  </url>\n`;
+    for (const til of TILLAR) {
+      xml += `  <url>\n    <loc>${tilManzili(til.prefix, loc)}</loc>\n${alternates(loc)}\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>${freq}</changefreq>\n    <priority>${priority}</priority>\n  </url>\n`;
+    }
   }
 
   for (const q of questions) {

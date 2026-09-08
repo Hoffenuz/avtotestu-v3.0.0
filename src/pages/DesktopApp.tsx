@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEO } from "@/components/SEO";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { DeviceLicenseInstructions } from "@/components/DeviceLicenseInstructions";
 import {
@@ -28,6 +29,7 @@ const perks = [
 ];
 
 export default function DesktopApp() {
+  const { t } = useLanguage();
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -37,10 +39,10 @@ export default function DesktopApp() {
   return (
     <MainLayout>
       <SEO
-        title="Desktop ilova — Offline YHQ test"
-        description="Windows uchun offline YHQ test ilovasi: internetsiz test ishlang, katta ekranda qulay o'rganing. Bepul."
+        title={t("seo.desktop.title")}
+        description={t("seo.desktop.description")}
         path="/desktop"
-        keywords="avtotestlar desktop, offline test, windows ilova, prava test offline"
+        keywords={t("seo.desktop.keywords")}
       />
 
       {isMobile ? (

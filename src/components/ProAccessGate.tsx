@@ -4,34 +4,13 @@ import { Crown, Home, LogIn, Lock, ServerCrash } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { SECTION_LABEL, type GateSection } from "@/lib/gateSections";
+
+/* Eski import yo'llari ishlashda davom etsin. */
+export type { GateSection };
 
 type GateReason = "guest" | "no_pro" | "backend";
 
-export type GateSection =
-  | "mavzuli"
-  | "darslik"
-  | "qidirish"
-  | "xatolarim"
-  | "xatolarTesti"
-  | "qiyinSavollar";
-
-/** Bo'lim nomi uch tilda — gate matnining ichiga qo'yiladi. */
-const SECTION_LABEL: Record<GateSection, { uz_lat: string; uz_cyr: string; ru: string }> = {
-  mavzuli: { uz_lat: "Mavzular", uz_cyr: "Мавзулар", ru: "Темы" },
-  darslik: { uz_lat: "Video darslik", uz_cyr: "Видео дарслик", ru: "Видеоуроки" },
-  qidirish: { uz_lat: "Savol qidirish", uz_cyr: "Савол қидириш", ru: "Поиск вопросов" },
-  xatolarim: { uz_lat: "Xato savollarim", uz_cyr: "Хато саволларим", ru: "Мои ошибки" },
-  xatolarTesti: {
-    uz_lat: "Xatolar ustida ishlash",
-    uz_cyr: "Хатолар устида ишлаш",
-    ru: "Работа над ошибками",
-  },
-  qiyinSavollar: {
-    uz_lat: "Qiyin savollar",
-    uz_cyr: "Қийин саволлар",
-    ru: "Сложные вопросы",
-  },
-};
 
 interface ProAccessGateProps {
   section: GateSection;
@@ -40,7 +19,7 @@ interface ProAccessGateProps {
   onRetry?: () => void;
 }
 
-function GateShell({
+export function GateShell({
   icon,
   title,
   description,

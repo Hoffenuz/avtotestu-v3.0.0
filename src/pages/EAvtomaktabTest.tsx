@@ -121,10 +121,10 @@ export default function EAvtomaktabTest() {
   return (
     <MainLayout>
       <SEO
-        title="E-avtomaktab test savollari 2026"
-        description="E-avtomaktab nazariy imtihoniga tayyorgarlik: 20 savol, 25 daqiqa, rasmiy format. Ro'yxatdan o'tmasdan bepul ishlang, javoblar izohi bilan."
+        title={t("seo.eAvtomaktabTest.title")}
+        description={t("seo.eAvtomaktabTest.description")}
         path="/e-avtomaktab-test"
-        keywords="e avtomaktab test savollari, e avtomaktab testni boshlash, e avtomaktab test online, eavtotalim test, avtomaktab test, nazariy imtihon test"
+        keywords={t("seo.eAvtomaktabTest.keywords")}
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(faqLd)}</script>

@@ -98,7 +98,11 @@
     "failed": "O'tmadingiz",
     "timeTaken": "Sarflangan vaqt",
     "backToHome": "Bosh sahifaga qaytish",
-    "tryAgain": "Qayta urinish"
+    "tryAgain": "Qayta urinish",
+    "guestTitle": "Xatolaringiz saqlanmadi",
+    "guestText": "Siz {n} ta savolda xato qildingiz. Ro'yxatdan o'tsangiz, ular saqlanadi va keyin aynan shu savollar ustida ishlaysiz.",
+    "guestTextPerfect": "Natijangizni saqlaymizmi? Ro'yxatdan o'tsangiz, keyingi testlardagi xatolaringiz eslab qolinadi.",
+    "guestBtn": "Ro'yxatdan o'tish"
   },
   "home": {
     "badge": "2026 YHQ savollari",
@@ -208,6 +212,7 @@
     "groupLabel": "Guruh"
   },
   "common": {
+    "close": "Yopish",
     "pro": "PRO",
     "bepul": "Bepul",
     "siteName": "Avtotestlar.uz"
@@ -462,5 +467,82 @@
     "retakeText": "Qayta topshirasiz — lekin vaqt va navbat yana ketadi. Uyda 20 savollik mashqni bir necha marta ishlab chiqish, imtihon kunini qayta belgilashdan ancha arzon.",
     "mainBtn": "E-avtotalim testlariga tayyorgarlik",
     "notOfficialShort": "Bu rasmiy portal emas — tayyorgarlik sayti. Ro'yxatdan o'tish va imtihonga yozilish:"
+  },
+  "seo": {
+    "avtoimtihon2026": {
+      "title": "Avto imtihon 2026 — qoidalar va ballar",
+      "description": "2026-yilda haydovchilik imtihoni qanday topshiriladi: 20 savol, 25 daqiqa, 18 ta to'g'ri javob. Avtodrom va shahar bosqichlari.",
+      "keywords": "avto imtihon 2026, avtoimtihon 2026, haydovchilik imtihoni 2026, nazariy imtihon qoidalari, o'tish bali"
+    },
+    "avtodrom": {
+      "title": "Avtodrom — amaliy imtihon jarima ballari",
+      "description": "Haydovchilik amaliy imtihonida (avtodrom) beriladigan jarima ballari: kichik, o'rta va qo'pol xatoliklar to'liq ro'yxati.",
+      "keywords": "avtodrom, amaliy imtihon, jarima ballari, haydovchilik imtihoni"
+    },
+    "bolimlar": {
+      "title": "Bo'limlar — testlar, belgilar, darslik",
+      "description": "Avtotestu.uz barcha bo'limlari bir joyda: mavzuli testlar, 63 variant, yo'l belgilari, darslik va qo'shimcha materiallar.",
+      "keywords": "bo'limlar, mavzuli testlar, yo'l belgilari, darslik, variantlar"
+    },
+    "darslik": {
+      "title": "Video Darslik — YHQ bo'yicha 211 ta video",
+      "description": "YHQ bo'yicha 11 bob va 211 ta video darslik: belgilar, chiziqlar, chorrahalar va imtihon mavzulari.",
+      "keywords": "YHQ darslik, video darslar, haydovchilik kursi, avto darslik, prava video"
+    },
+    "desktop": {
+      "title": "Desktop ilova — Offline YHQ test",
+      "description": "Windows uchun offline YHQ test ilovasi: internetsiz test ishlang, katta ekranda qulay o'rganing. Bepul.",
+      "keywords": "avtotestlar desktop, offline test, windows ilova, prava test offline"
+    },
+    "eAvtomaktab": {
+      "title": "E-avtomaktab 2026 — qo'llanma va test",
+      "description": "E-avtomaktab nima, elektron guvohnoma qanday beriladi va nazariy imtihon qanday o'tadi: 20 savol, 25 daqiqa, 18 ta to'g'ri javob. Bepul mashq testi.",
+      "keywords": "e avtomaktab, eavtomaktab, e-avtomaktab, e avtotalim, eavtotalim, avtomaktab test, elektron guvohnoma, nazariy imtihon"
+    },
+    "eAvtomaktabTest": {
+      "title": "E-avtomaktab test savollari 2026",
+      "description": "E-avtomaktab nazariy imtihoniga tayyorgarlik: 20 savol, 25 daqiqa, rasmiy format. Ro'yxatdan o'tmasdan bepul ishlang, javoblar izohi bilan.",
+      "keywords": "e avtomaktab test savollari, e avtomaktab testni boshlash, e avtomaktab test online, eavtotalim test, avtomaktab test, nazariy imtihon test"
+    },
+    "mavzuli": {
+      "title": "Mavzuli testlar 2026",
+      "description": "YHQ mavzulari bo'yicha testlar: yo'l belgilari, svetofor, ustunlik, to'xtash va to'xtab turish qoidalari. Har bir mavzuni alohida o'rganing.",
+      "keywords": "mavzuli test, YHQ mavzular, prava test, yo'l belgilari testi"
+    },
+    "qidirish": {
+      "title": "Savol qidirish — YHQ testlari",
+      "description": "1250 ta YHQ savoli ichidan matn bo'yicha qidiring: savol matni yoki javob varianti bo'yicha.",
+      "keywords": "savol qidirish, YHQ savollari, test qidiruv"
+    },
+    "qiyinSavollar": {
+      "title": "Qiyin savollar — 250 ta eng ko'p xato",
+      "description": "Foydalanuvchilar eng ko'p xato qilgan 250 ta savol, 50 tadan 5 bo'limda. Eng qiyinidan boshlab mashq qiling.",
+      "keywords": "qiyin savollar, eng ko'p xato, YHQ qiyin testlar, prava qiyin savollar"
+    },
+    "qoshimcha": {
+      "title": "Test tayyorgarligi — maslahat va usul",
+      "description": "YHQ imtihoniga tez va samarali tayyorlanish sirlari: o'rganish strategiyalari, amaliy mashqlar va tajribali maslahatlar — bir joyda.",
+      "keywords": "test tayyorgarlik, o'rganish strategiyasi, imtihon maslahatlari, YHQ yo'riqnoma"
+    },
+    "realImtihon": {
+      "title": "Real imtihon — YHQ imtihon sinovi 2026",
+      "description": "Haqiqiy imtihon shartlarida sinov: 20 ta tasodifiy savol, 25 daqiqa, izohsiz. Rasmiy imtihon dasturi ko'rinishida.",
+      "keywords": "real imtihon, YHQ imtihon, prava imtihon sinovi, imtihon dasturi"
+    },
+    "testIshlash": {
+      "title": "Avto test ishlash 2026 — 20/50 savol",
+      "description": "Avto test online 2026: 1250+ YHQ savol. 20 yoki 50 ta tasodifiy savol, 25 daqiqa, 18/20 o'tish bali. Bepul, ro'yxatsiz — haqiqiy imtihon formatida.",
+      "keywords": "test ishlash, onlayn test, prava test, YHQ savollari, avtotest, avtomaktab test, avto test ishlash 2026"
+    },
+    "variant": {
+      "title": "63 ta test varianti 2026 — bepul",
+      "description": "63 ta YHQ test varianti, har birida 20 ta savol — xuddi haqiqiy imtihondagidek. Bepul onlayn ishlang va prava olishga to'liq tayyorlaning.",
+      "keywords": "test varianti, prava test, imtihon savollari, YHQ test, 63 variant"
+    },
+    "yodlashKerak": {
+      "title": "Yodlash kerak raqamlar — tezlik, masofa",
+      "description": "Imtihonda tez-tez uchraydigan raqamli ma'lumotlar: tezlik chegaralari, to'xtash masofalari, gabaritlar va boshqa me'yorlar bir joyda.",
+      "keywords": "yodlash kerak raqamlar, tezlik chegarasi, to'xtash masofasi, gabarit, YHQ me'yorlari"
+    }
   }
 }

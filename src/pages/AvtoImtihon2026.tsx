@@ -66,10 +66,10 @@ export default function AvtoImtihon2026() {
   return (
     <MainLayout>
       <SEO
-        title="Avto imtihon 2026 — qoidalar va ballar"
-        description="2026-yilda haydovchilik imtihoni qanday topshiriladi: 20 savol, 25 daqiqa, 18 ta to'g'ri javob. Avtodrom va shahar bosqichlari."
+        title={t("seo.avtoimtihon2026.title")}
+        description={t("seo.avtoimtihon2026.description")}
         path="/avtoimtihon-2026"
-        keywords="avto imtihon 2026, avtoimtihon 2026, авто имтихон 2026, haydovchilik imtihoni 2026, nazariy imtihon qoidalari, o'tish bali"
+        keywords={t("seo.avtoimtihon2026.keywords")}
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(faqLd)}</script>

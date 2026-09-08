@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEO } from "@/components/SEO";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { BookOpen, ChevronRight, Download, FileText, Lightbulb, ListChecks, Monitor, Newspaper, Play, Target, WifiOff } from "lucide-react";
@@ -37,13 +38,14 @@ const tips = [
 ];
 
 export default function Qoshimcha() {
+  const { t } = useLanguage();
   return (
     <MainLayout>
       <SEO
-        title="Test tayyorgarligi — maslahat va usul"
-        description="YHQ imtihoniga tez va samarali tayyorlanish sirlari: o'rganish strategiyalari, amaliy mashqlar va tajribali maslahatlar — bir joyda."
+        title={t("seo.qoshimcha.title")}
+        description={t("seo.qoshimcha.description")}
         path="/qoshimcha"
-        keywords="test tayyorgarlik, o'rganish strategiyasi, imtihon maslahatlari, YHQ yo'riqnoma"
+        keywords={t("seo.qoshimcha.keywords")}
       />
 
       {/* Hero Section */}
