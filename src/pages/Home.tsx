@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MainLayout } from "@/components/layout/MainLayout";
+import { Helmet } from "react-helmet-async";
 import { SEO } from "@/components/SEO";
 import { useAuth } from "@/contexts/AuthContext";
 import { hasStoredSession } from "@/lib/hasStoredSession";
@@ -28,6 +29,39 @@ import { SiteNotificationBanner } from "@/components/SiteNotificationBanner";
 import MobileAppBanner from "@/components/MobileAppBanner";
 import DesktopAppBanner from "@/components/DesktopAppBanner";
 
+
+
+/** Bosh sahifa uchun FAQPage sxemasi (ilgari index.html da edi). */
+const HOME_FAQ_LD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Haydovchilik guvohnomasi olish uchun qanday tayyorlanish kerak?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Avtotestlar platformasida YHQ testlarini yechish, yo'l belgilarini o'rganish va variant testlarini topshirish orqali tayyorlanishingiz mumkin."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "YHQ testlarida nechta savol bo'ladi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Har bir test variantida 20 ta savol mavjud. Imtihondan o'tish uchun kamida 18 ta to'g'ri javob berish kerak."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Avtotestlar.uz bepulmi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ha, asosiy testlar va yo'l belgilari bepul. Pro obuna qo'shimcha imkoniyatlar beradi."
+      }
+    }
+  ]
+} as const;
 
 export default function Home() {
   const { user, profile, isLoading: authLoading } = useAuth();
@@ -103,6 +137,15 @@ export default function Home() {
         path="/"
         keywords="avto test, avtotest 2026, prava test, YHQ testlar, haydovchilik guvohnomasi, yo'l belgilari, avtotestu.uz"
       />
+
+      {/*
+        FAQPage sxemasi — ilgari `index.html` da turgan va shu sababli HAR
+        BIR sahifaga tarqagan edi. Savollar bosh sahifaga tegishli, shuning
+        uchun o'rni shu yer. Boshqa sahifalar o'z FAQ ini o'zi qo'yadi.
+      */}
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(HOME_FAQ_LD)}</script>
+      </Helmet>
 
       {/* Hero Section */}
       <section className="relative min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden">

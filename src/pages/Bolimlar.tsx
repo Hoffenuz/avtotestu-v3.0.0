@@ -52,7 +52,7 @@ export default function Bolimlar() {
   return (
     <MainLayout>
       <SEO
-        title="Bo'limlar — Mavzuli testlar, Yo'l belgilari va Darslik"
+        title="Bo'limlar — testlar, belgilar, darslik"
         description="Avtotestu.uz barcha bo'limlari bir joyda: mavzuli testlar, 63 variant, yo'l belgilari, darslik va qo'shimcha materiallar."
         path="/bolimlar"
         keywords="bo'limlar, mavzuli testlar, yo'l belgilari, darslik, variantlar"

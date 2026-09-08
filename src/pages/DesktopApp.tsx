@@ -38,7 +38,7 @@ export default function DesktopApp() {
     <MainLayout>
       <SEO
         title="Desktop ilova — Offline YHQ test"
-        description="Avtotestlar.uz Windows desktop ilovasini yuklab oling. Internetsiz YHQ testlari, katta ekranda qulay o'rganish. Haydovchilik guvohnomasi imtihoniga offline tayyorgarlik."
+        description="Windows uchun offline YHQ test ilovasi: internetsiz test ishlang, katta ekranda qulay o'rganing. Bepul."
         path="/desktop"
         keywords="avtotestlar desktop, offline test, windows ilova, prava test offline"
       />

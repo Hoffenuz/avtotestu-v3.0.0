@@ -33,7 +33,7 @@ export default function Darslik() {
       <MainLayout>
         <SEO
           title="Video Darslik — YHQ bo'yicha 211 ta video"
-          description="Yo'l harakati qoidalari bo'yicha 11 bob va 211 ta video darslik. Belgilar, chiziqlar, chorrahalar va imtihon mavzulari. Haydovchilik guvohnomasiga video orqali tayyorlaning."
+          description="YHQ bo'yicha 11 bob va 211 ta video darslik: belgilar, chiziqlar, chorrahalar va imtihon mavzulari."
           path="/darslik"
           keywords="YHQ darslik, video darslar, haydovchilik kursi, avto darslik, prava video"
         />
@@ -47,7 +47,7 @@ export default function Darslik() {
       <MainLayout>
         <SEO
           title="Video Darslik — YHQ bo'yicha 211 ta video"
-          description="Yo'l harakati qoidalari bo'yicha 11 bob va 211 ta video darslik. Belgilar, chiziqlar, chorrahalar va imtihon mavzulari. Haydovchilik guvohnomasiga video orqali tayyorlaning."
+          description="YHQ bo'yicha 11 bob va 211 ta video darslik: belgilar, chiziqlar, chorrahalar va imtihon mavzulari."
           path="/darslik"
           keywords="YHQ darslik, video darslar, haydovchilik kursi, avto darslik, prava video"
         />
@@ -61,7 +61,7 @@ export default function Darslik() {
       <MainLayout>
         <SEO
           title="Video Darslik — YHQ bo'yicha 211 ta video"
-          description="Yo'l harakati qoidalari bo'yicha 11 bob va 211 ta video darslik. Belgilar, chiziqlar, chorrahalar va imtihon mavzulari. Haydovchilik guvohnomasiga video orqali tayyorlaning."
+          description="YHQ bo'yicha 11 bob va 211 ta video darslik: belgilar, chiziqlar, chorrahalar va imtihon mavzulari."
           path="/darslik"
           keywords="YHQ darslik, video darslar, haydovchilik kursi, avto darslik, prava video"
         />
@@ -74,7 +74,7 @@ export default function Darslik() {
     <MainLayout>
       <SEO
         title="Video Darslik — YHQ bo'yicha 211 ta video"
-        description="Yo'l harakati qoidalari bo'yicha 11 bob va 211 ta video darslik. Belgilar, chiziqlar, chorrahalar va imtihon mavzulari. Haydovchilik guvohnomasiga video orqali tayyorlaning."
+        description="YHQ bo'yicha 11 bob va 211 ta video darslik: belgilar, chiziqlar, chorrahalar va imtihon mavzulari."
         path="/darslik"
         keywords="YHQ darslik, video darslar, haydovchilik kursi, avto darslik, prava video"
       />

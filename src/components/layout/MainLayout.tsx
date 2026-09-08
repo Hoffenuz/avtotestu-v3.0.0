@@ -17,6 +17,42 @@ import { TelegramGroupNotice } from "@/components/TelegramGroupNotice";
  */
 const telegramGroupHandle = `@${TELEGRAM_GROUP_URL.split("/").filter(Boolean).pop()}`;
 
+/**
+ * "Telegram: @nom" ko'rinishidagi matndan bosiladigan qator yasaydi.
+ *
+ * NEGA MATNDAN OLINADI: manzil tarjima faylida, havola esa kodda edi va
+ * ular AJRALIB KETGAN — footerda `@avtotestu_ad2` yozilgan, koddagi
+ * `TELEGRAM_ADMIN_URL` esa `avtotestu_ad` ga ishora qilardi. Ikkalasi ham
+ * mavjud hisob, shuning uchun qaysi biri to'g'ri ekanini kod bilib
+ * bo'lmaydi. Endi havola KO'RSATILGAN nomdan yasaladi: foydalanuvchi
+ * nimani ko'rsa, o'shanga o'tadi.
+ *
+ * Matnda "@nom" bo'lmasa — oddiy matn qaytariladi, hech narsa buzilmaydi.
+ */
+function TelegramQatori({ label }: { label: string }) {
+  const mos = label.match(/@([A-Za-z0-9_]{4,32})/);
+  if (!mos) return <p>{label}</p>;
+
+  const [, nom] = mos;
+  const oldi = label.slice(0, mos.index);
+  const keyin = label.slice((mos.index ?? 0) + mos[0].length);
+
+  return (
+    <p>
+      {oldi}
+      <a
+        href={`https://t.me/${nom}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="transition-colors hover:text-primary-foreground hover:underline"
+      >
+        @{nom}
+      </a>
+      {keyin}
+    </p>
+  );
+}
+
 interface MainLayoutProps {
   children: React.ReactNode;
 }
@@ -607,8 +643,8 @@ export function MainLayout({ children }: MainLayoutProps) {
                     {t("footer.groupLabel")}: {telegramGroupHandle}
                   </a>
                 </p>
-                <p>{t("footer.telegramLabel")}</p>
-                <p>{t("footer.botLabel")}</p>
+                <TelegramQatori label={t("footer.telegramLabel")} />
+                <TelegramQatori label={t("footer.botLabel")} />
               </div>
             </div>
           </div>

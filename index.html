@@ -170,16 +170,28 @@
     <title>Avto test — Prava test va YHQ testlar 2026</title>
 
     <!-- SEO Meta (fallback) -->
-    <meta name="description" content="Avto test 2026: prava test va YHQ testlar, yo&#39;l belgilari, 63 variant. Bepul onlayn — Avtotestlar.uz (avtotestu.uz).">
+    <meta name="description" content="Avto test 2026: prava test va YHQ testlar, yo&#39;l belgilari, 63 variant. Bepul onlayn — Avtotestlar.uz (avtotestu.uz)." data-rh="true">
     <meta name="keywords" content="avtotestlar.uz, avtotest, avtotest 2026, haydovchilik imtihoni, haydovchilik guvohnomasi, YHQ testlari, yo'l belgilari, prava test, avto test" />
     <meta name="author" content="Avtotestlar.uz" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow" data-rh="true"/>
     <meta name="language" content="uz" />
     <meta name="geo.region" content="UZ" />
     <meta name="geo.placename" content="Uzbekistan" />
 
-    <!-- Canonical (fallback) -->
-    <link rel="canonical" href="https://www.avtotestu.uz/" />
+    <!--
+      CANONICAL BU YERDA YO'Q — ATAYLAB.
+
+      Ilgari bu yerda "zaxira" sifatida bosh sahifaga ishora qiluvchi
+      canonical turardi. Natijada HAR BIR sahifada ikkita canonical
+      bo'lib qolardi: statik "/" va React qo'yadigan to'g'ri manzil.
+      Google ko'p canonical bo'lsa ularni e'tiborsiz qoldiradi yoki
+      birinchisini oladi — ya'ni har bir chuqur sahifa bosh sahifaning
+      nusxasi deb belgilanardi.
+
+      Endi canonical ni faqat `src/components/SEO.tsx` qo'yadi.
+      JS ishlamaydigan botlar `/_seo/` snapshotlarini oladi — ularda
+      har bir sahifaning o'z canonical i bor.
+    -->
 
     <!-- Fontlar: faqat system font (Segoe UI / system-ui) — render-blocking yo'q -->
 
@@ -200,8 +212,8 @@
     <meta property="og:locale" content="uz_UZ" />
     
     
-    <meta property="og:url" content="https://www.avtotestu.uz/" />
-    <meta property="og:image" content="https://www.avtotestu.uz/rasm2.webp">
+    <meta property="og:url" content="https://www.avtotestu.uz/" data-rh="true"/>
+    <meta property="og:image" content="https://www.avtotestu.uz/rasm2.webp" data-rh="true">
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
@@ -209,7 +221,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     
     
-    <meta name="twitter:image" content="https://www.avtotestu.uz/rasm2.webp">
+    <meta name="twitter:image" content="https://www.avtotestu.uz/rasm2.webp" data-rh="true">
 
     <!-- Structured Data - WebSite -->
     <script type="application/ld+json">
@@ -249,44 +261,21 @@
       }
     </script>
 
-    <!-- Structured Data - FAQPage for SEO -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Haydovchilik guvohnomasi olish uchun qanday tayyorlanish kerak?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Avtotestlar platformasida YHQ testlarini yechish, yo'l belgilarini o'rganish va variant testlarini topshirish orqali tayyorlanishingiz mumkin."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "YHQ testlarida nechta savol bo'ladi?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Har bir test variantida 20 ta savol mavjud. Imtihondan o'tish uchun kamida 18 ta to'g'ri javob berish kerak."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Avtotestlar.uz bepulmi?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Ha, asosiy testlar va yo'l belgilari bepul. Pro obuna qo'shimcha imkoniyatlar beradi."
-            }
-          }
-        ]
-      }
-    </script>
+    <!--
+      FAQPage sxemasi BU YERDAN OLIB TASHLANDI.
 
-    <meta property="og:title" content="Avto test — Prava test va YHQ testlar 2026">
-  <meta name="twitter:title" content="Avto test — Prava test va YHQ testlar 2026">
-  <meta property="og:description" content="Avto test 2026: prava test va YHQ testlar, yo&#39;l belgilari, 63 variant. Bepul onlayn tayyorgarlik.">
-  <meta name="twitter:description" content="Avto test 2026: prava test va YHQ testlar, yo&#39;l belgilari, 63 variant. Bepul onlayn tayyorgarlik.">
+      U index.html da turgani uchun HAR BIR sahifaga tarqalardi. Ikki
+      muammo tug'dirardi: savollar ko'pchilik sahifaning ko'rinadigan
+      mazmuniga mos kelmasdi (Google buni yoqtirmaydi), va o'z FAQ i
+      bo'lgan sahifalarda ikkita FAQPage paydo bo'lardi — bu yaroqsiz.
+
+      Endi u faqat bosh sahifada: `src/pages/Home.tsx`.
+    -->
+
+    <meta property="og:title" content="Avto test — Prava test va YHQ testlar 2026" data-rh="true">
+  <meta name="twitter:title" content="Avto test — Prava test va YHQ testlar 2026" data-rh="true">
+  <meta property="og:description" content="Avto test 2026: prava test va YHQ testlar, yo&#39;l belgilari, 63 variant. Bepul onlayn tayyorgarlik." data-rh="true">
+  <meta name="twitter:description" content="Avto test 2026: prava test va YHQ testlar, yo&#39;l belgilari, 63 variant. Bepul onlayn tayyorgarlik." data-rh="true">
 </head>
 
   <body>

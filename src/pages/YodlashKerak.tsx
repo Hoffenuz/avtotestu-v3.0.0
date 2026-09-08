@@ -22,7 +22,7 @@ export default function YodlashKerak() {
   return (
     <MainLayout>
       <SEO
-        title="Yodlash kerak raqamlar — tezlik, masofa va o'lcham me'yorlari"
+        title="Yodlash kerak raqamlar — tezlik, masofa"
         description="Imtihonda tez-tez uchraydigan raqamli ma'lumotlar: tezlik chegaralari, to'xtash masofalari, gabaritlar va boshqa me'yorlar bir joyda."
         path="/yodlash-kerak"
         keywords="yodlash kerak raqamlar, tezlik chegarasi, to'xtash masofasi, gabarit, YHQ me'yorlari"

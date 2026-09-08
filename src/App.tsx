@@ -80,6 +80,9 @@ const Avtodrom = lazyWithRetry(() => import("./pages/Avtodrom"));
 const RealImtihon = lazyWithRetry(() => import("./pages/RealImtihon"));
 const QiyinSavollar = lazyWithRetry(() => import("./pages/QiyinSavollar"));
 const YodlashKerak = lazyWithRetry(() => import("./pages/YodlashKerak"));
+const EAvtomaktab = lazyWithRetry(() => import("./pages/EAvtomaktab"));
+const EAvtomaktabTest = lazyWithRetry(() => import("./pages/EAvtomaktabTest"));
+const AvtoImtihon2026 = lazyWithRetry(() => import("./pages/AvtoImtihon2026"));
 const YodlashKerakMavzu = lazyWithRetry(() => import("./pages/YodlashKerakMavzu"));
 const Xatolarim = lazyWithRetry(() => import("./pages/Xatolarim"));
 const Saqlangan = lazyWithRetry(() => import("./pages/Saqlangan"));
@@ -135,6 +138,9 @@ const App = () => {
                 <Route path="/avtodrom" element={<Avtodrom />} />
                 <Route path="/real-imtihon" element={<RealImtihon />} />
                 <Route path="/qiyin-savollar" element={<QiyinSavollar />} />
+                <Route path="/e-avtomaktab" element={<EAvtomaktab />} />
+                <Route path="/e-avtomaktab-test" element={<EAvtomaktabTest />} />
+                <Route path="/avtoimtihon-2026" element={<AvtoImtihon2026 />} />
                 <Route path="/yodlash-kerak" element={<YodlashKerak />} />
                 <Route path="/yodlash-kerak/:mavzu" element={<YodlashKerakMavzu />} />
                 <Route path="/pro" element={<Pro />} />

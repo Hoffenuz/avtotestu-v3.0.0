@@ -144,7 +144,7 @@ export default function QiyinSavollar() {
   return (
     <MainLayout>
       <SEO
-        title="Qiyin savollar — eng ko'p xato qilinadigan YHQ savollari"
+        title="Qiyin savollar — 250 ta eng ko'p xato"
         description="Foydalanuvchilar eng ko'p xato qilgan 250 ta savol, 50 tadan 5 bo'limda. Eng qiyinidan boshlab mashq qiling."
         path="/qiyin-savollar"
         keywords="qiyin savollar, eng ko'p xato, YHQ qiyin testlar, prava qiyin savollar"

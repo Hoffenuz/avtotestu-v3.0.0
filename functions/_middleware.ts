@@ -46,6 +46,10 @@ const SPA_PREFIXES: string[] = [
   '/xatolarim',
   '/saqlangan',
   '/xatolar-testi',
+  // E-avtomaktab klasteri (2026-09)
+  '/e-avtomaktab',
+  '/e-avtomaktab-test',
+  '/avtoimtihon-2026',
 ];
 
 const SEO_EXACT: string[] = [
@@ -66,6 +70,9 @@ const SEO_EXACT: string[] = [
   '/qiyin-savollar',
   '/real-imtihon',
   '/qidirish',
+  '/e-avtomaktab',
+  '/e-avtomaktab-test',
+  '/avtoimtihon-2026',
 ];
 
 const SPA_NO_STORE_HEADERS: Record<string, string> = {

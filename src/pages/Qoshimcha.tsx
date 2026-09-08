@@ -40,7 +40,7 @@ export default function Qoshimcha() {
   return (
     <MainLayout>
       <SEO
-        title="Test Tayyorgarlik Yo'riqnomasi — Maslahat va Strategiyalar"
+        title="Test tayyorgarligi — maslahat va usul"
         description="YHQ imtihoniga tez va samarali tayyorlanish sirlari: o'rganish strategiyalari, amaliy mashqlar va tajribali maslahatlar — bir joyda."
         path="/qoshimcha"
         keywords="test tayyorgarlik, o'rganish strategiyasi, imtihon maslahatlari, YHQ yo'riqnoma"

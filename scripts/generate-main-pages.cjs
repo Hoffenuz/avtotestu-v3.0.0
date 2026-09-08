@@ -40,6 +40,11 @@ const ROUTE_MAP = {
   "real-imtihon.html": "real-imtihon",
   "qidirish.html": "qidirish",
   "qiyin-savollar.html": "qiyin-savollar",
+  // E-avtomaktab klasteri: "e avtomaktab" so'rovlari 28 kunda 81 792 marta
+  // ko'rsatilgan, CTR 0,4%. Bu sahifalar aynan o'sha niyatga javob beradi.
+  "e-avtomaktab.html": "e-avtomaktab",
+  "e-avtomaktab-test.html": "e-avtomaktab-test",
+  "avtoimtihon-2026.html": "avtoimtihon-2026",
 };
 
 function applyContentFixes(html) {
@@ -91,7 +96,7 @@ function writeDesktopPage() {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Desktop ilova | ${BRAND} — Offline test</title>
-  <meta name="description" content="Avtotestlar.uz Windows desktop ilovasini yuklab oling. Internetsiz YHQ testlari, katta ekranda qulay o'rganish va tez mahalliy ilova. Haydovchilik guvohnomasi imtihoniga tayyorlaning.">
+  <meta name="description" content="Windows uchun offline YHQ test ilovasi: internetsiz test ishlang, katta ekranda qulay o'rganing. Bepul yuklab oling.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="${BASE_URL}/desktop">
   <meta property="og:type" content="website">
