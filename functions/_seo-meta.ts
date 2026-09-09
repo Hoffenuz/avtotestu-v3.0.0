@@ -118,7 +118,7 @@ export const SEO_META: Record<string, Record<string, SeoMeta>> = {
     "uz-lat": {
       "title": "Desktop ilova — Offline YHQ test",
       "description": "Windows uchun offline YHQ test ilovasi: internetsiz test ishlang, katta ekranda qulay o'rganing. Bepul.",
-      "keywords": "avtotestlar desktop, offline test, windows ilova, prava test offline"
+      "keywords": "avtosmart desktop, offline test, windows ilova, prava test offline"
     },
     "uz": {
       "title": "Десктоп илова — Оффлайн ЙҲҚ тест",
@@ -168,17 +168,17 @@ export const SEO_META: Record<string, Record<string, SeoMeta>> = {
   "/": {
     "uz-lat": {
       "title": "Avto test — Prava test va YHQ testlar 2026",
-      "description": "Avto test 2026: prava test va YHQ testlar, yo'l belgilari, 63 variant. Bepul onlayn — Avtotestlar.uz.",
+      "description": "Avto test 2026: prava test va YHQ testlar, yo'l belgilari, 63 variant. Bepul onlayn — AvtoSmart.",
       "keywords": ""
     },
     "uz": {
       "title": "Авто тест — Права тест ва ЙҲҚ тестлар 2026",
-      "description": "Авто тест 2026: права тест ва ЙҲҚ тестлар, йўл белгилари, 63 вариант. Бепул онлайн — Avtotestlar.uz.",
+      "description": "Авто тест 2026: права тест ва ЙҲҚ тестлар, йўл белгилари, 63 вариант. Бепул онлайн — AvtoSmart.",
       "keywords": ""
     },
     "ru": {
       "title": "Avto test — Права и ПДД тесты 2026",
-      "description": "Avto test 2026: тест на права и ПДД, дорожные знаки, 63 варианта. Бесплатно онлайн — Avtotestlar.uz.",
+      "description": "Avto test 2026: тест на права и ПДД, дорожные знаки, 63 варианта. Бесплатно онлайн — AvtoSmart.",
       "keywords": ""
     }
   },
@@ -203,17 +203,17 @@ export const SEO_META: Record<string, Record<string, SeoMeta>> = {
     "uz-lat": {
       "title": "PRO obuna — cheksiz test va to'liq izohlar",
       "description": "PRO obuna bilan cheksiz test, 1250+ savol, 63 ta variant, to'liq va tushunarli izohlar hamda reklamasiz o'rganish — atigi 35 000 so'm/oy.",
-      "keywords": "pro obuna, premium, avtotestlar.uz pro, savol izohlari, prava test premium, 1250 savol"
+      "keywords": "pro obuna, premium, avtosmart pro, savol izohlari, prava test premium, 1250 savol"
     },
     "uz": {
       "title": "PRO обуна — чексиз тест ва тўлиқ изоҳлар",
       "description": "PRO обуна билан чексиз тест, 1250+ савол, 63 та вариант, тўлиқ ва тушунарли изоҳлар ҳамда рекламасиз ўрганиш — атиги 35 000 сўм/ой.",
-      "keywords": "pro обуна, premium, avtotestlar.uz pro, савол изоҳлари, права тест premium, 1250 савол"
+      "keywords": "pro обуна, premium, avtosmart pro, савол изоҳлари, права тест premium, 1250 савол"
     },
     "ru": {
       "title": "PRO подписка — безлимитные тесты и полные объяснения",
       "description": "С PRO подпиской: безлимитные тесты, 1250+ вопросов, 63 варианта, полные и понятные объяснения и обучение без рекламы — всего 35 000 сум/мес.",
-      "keywords": "pro подписка, premium, avtotestlar.uz pro, объяснения вопросов, тест на права premium, 1250 вопросов"
+      "keywords": "pro подписка, premium, avtosmart pro, объяснения вопросов, тест на права premium, 1250 вопросов"
     }
   },
   "/qidirish": {

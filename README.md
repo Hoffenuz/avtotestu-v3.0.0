@@ -1,4 +1,4 @@
-# Avtotestlar.uz
+# AvtoSmart (avtotestu.uz)
 
 O'zbekistonda haydovchilik guvohnomasi olish uchun YHQ (yo'l harakati
 qoidalari) testlariga tayyorgarlik platformasi — <https://www.avtotestu.uz>

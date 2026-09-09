@@ -28,7 +28,7 @@ export function TestPageSchema() {
   const jsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: "Avtotestlar — YHQ onlayn test",
+    name: "AvtoSmart — YHQ onlayn test",
     url: `${BASE_URL}/test-ishlash`,
     applicationCategory: "EducationalApplication",
     operatingSystem: "Web browser",
@@ -42,7 +42,7 @@ export function TestPageSchema() {
     inLanguage: ["uz", "ru"],
     provider: {
       "@type": "Organization",
-      name: "Avtotestlar.uz",
+      name: "AvtoSmart",
       url: BASE_URL,
     },
   };

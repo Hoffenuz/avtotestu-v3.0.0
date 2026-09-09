@@ -14,8 +14,15 @@ export function MobileAppBanner() {
           <path d="M3 2L20 12L3 22V2Z" />
         </svg>
 
+        {/*
+          DIQQAT: bu nom Play Market'dagi ilova nomi bilan BIR XIL bo'lishi
+          shart. Hozir do'kondagi nom "Avtodars" — agar u AvtoSmart ga
+          o'zgartirilmasa, foydalanuvchi bannerda bir nom, do'konda boshqa
+          nom ko'rib chalkashadi. Play Console'da nom o'zgartirilgach bu
+          matn to'g'ri bo'ladi.
+        */}
         <div className="flex-1 min-w-0 px-2">
-          <div className="font-semibold text-sm leading-tight">Avtodars — Mobil ilova</div>
+          <div className="font-semibold text-sm leading-tight">AvtoSmart — Mobil ilova</div>
           <div className="text-[13px] leading-tight opacity-95">Yangi savollarni offline ishlang</div>
         </div>
 

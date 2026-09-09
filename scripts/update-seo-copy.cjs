@@ -11,7 +11,7 @@ const updates = {
       btnMavzuli: "Mavzular bo'yicha",
       seoTitle: "Avto test — Prava test va YHQ testlar 2026",
       seoDescription:
-        "Avto test 2026: prava test va YHQ testlar, yo'l belgilari, 63 variant. Bepul onlayn — Avtotestlar.uz.",
+        "Avto test 2026: prava test va YHQ testlar, yo'l belgilari, 63 variant. Bepul onlayn — AvtoSmart.",
       proSectionDesc:
         "To'liq savollar bazasi, qo'shimcha videodarslar va imtihonbop savollar bir joyda.",
     },
@@ -20,7 +20,7 @@ const updates = {
       heroTitle: "PRO — To'liq savollar bazasi",
       testBannerTitle: "PRO obuna oling",
       seoDescription:
-        "Avtotestlar PRO obuna: 1250+ savol, videodarsliklar, 63 ta variant va barcha mavzular.",
+        "AvtoSmart PRO obuna: 1250+ savol, videodarsliklar, 63 ta variant va barcha mavzular.",
     },
   },
   "uz.json": {
@@ -30,7 +30,7 @@ const updates = {
       btnMavzuli: "Мавзулар бўйича",
       seoTitle: "Avto test — Prava test va YHQ testlar 2026",
       seoDescription:
-        "Avto test 2026: prava test va YHQ testlar, yo'l belgilari, 63 variant. Bepul onlayn — Avtotestlar.uz.",
+        "Avto test 2026: prava test va YHQ testlar, yo'l belgilari, 63 variant. Bepul onlayn — AvtoSmart.",
       proSectionDesc:
         "Тўлиқ саволлар базаси, қўшимча видеодарслар ва имтиҳонбоп саволлар бир жойда.",
     },
@@ -39,7 +39,7 @@ const updates = {
       heroTitle: "PRO — Тўлиқ саволлар базаси",
       testBannerTitle: "PRO обуна олинг",
       seoDescription:
-        "Avtotestlar PRO обуна: 1250+ савол, видеодарсликлар, 63 та вариант ва барча мавзулар.",
+        "AvtoSmart PRO обуна: 1250+ савол, видеодарсликлар, 63 та вариант ва барча мавзулар.",
     },
   },
   "ru.json": {
@@ -49,7 +49,7 @@ const updates = {
       btnMavzuli: "По темам",
       seoTitle: "Avto test — Права и ПДД тесты 2026",
       seoDescription:
-        "Avto test 2026: тест на права и ПДД, дорожные знаки, 63 варианта. Бесплатно онлайн — Avtotestlar.uz.",
+        "Avto test 2026: тест на права и ПДД, дорожные знаки, 63 варианта. Бесплатно онлайн — AvtoSmart.",
       proSectionDesc:
         "Полная база вопросов, дополнительные видеоуроки и экзаменационные задания в одном месте.",
     },
@@ -58,7 +58,7 @@ const updates = {
       heroTitle: "PRO — Полная база вопросов",
       testBannerTitle: "Оформите PRO подписку",
       seoDescription:
-        "Подписка Avtotestlar PRO: 1250+ вопросов, видеоуроки, 63 варианта и все темы.",
+        "Подписка AvtoSmart PRO: 1250+ вопросов, видеоуроки, 63 варианта и все темы.",
     },
   },
 };

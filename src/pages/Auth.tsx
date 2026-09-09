@@ -514,12 +514,12 @@ const Auth = () => {
             <p className="mt-3 text-center text-xs text-muted-foreground">
               {t('auth.resetPassword')} —{' '}
               <a
-                href="https://t.me/avtotestu_ad"
+                href="https://t.me/avtosmart1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:underline font-medium"
               >
-                @avtotestu_ad
+                @avtosmart1
               </a>
             </p>
           )}

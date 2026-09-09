@@ -21,11 +21,11 @@ const telegramGroupHandle = `@${TELEGRAM_GROUP_URL.split("/").filter(Boolean).po
  * "Telegram: @nom" ko'rinishidagi matndan bosiladigan qator yasaydi.
  *
  * NEGA MATNDAN OLINADI: manzil tarjima faylida, havola esa kodda edi va
- * ular AJRALIB KETGAN — footerda `@avtotestu_ad2` yozilgan, koddagi
- * `TELEGRAM_ADMIN_URL` esa `avtotestu_ad` ga ishora qilardi. Ikkalasi ham
- * mavjud hisob, shuning uchun qaysi biri to'g'ri ekanini kod bilib
- * bo'lmaydi. Endi havola KO'RSATILGAN nomdan yasaladi: foydalanuvchi
- * nimani ko'rsa, o'shanga o'tadi.
+ * ular bir vaqtlar AJRALIB KETGAN — footerda bir nom, koddagi
+ * `TELEGRAM_ADMIN_URL` da boshqa nom turardi va qaysi biri to'g'ri
+ * ekanini kod bilib bo'lmasdi. Endi havola KO'RSATILGAN nomdan yasaladi:
+ * foydalanuvchi nimani ko'rsa, o'shanga o'tadi — nom o'zgarganda ham
+ * (masalan rebrandingda) ikkisi hech qachon ajralib qolmaydi.
  *
  * Matnda "@nom" bo'lmasa — oddiy matn qaytariladi, hech narsa buzilmaydi.
  */
@@ -173,7 +173,15 @@ export function MainLayout({ children }: MainLayoutProps) {
   return (
     <div className="min-h-screen flex flex-col bg-background has-bottom-nav">
       <nav className="sticky top-0 z-50 bg-brand shadow-lg">
-        <div className="w-full px-2 sm:px-4 md:px-6 lg:px-8">
+        {/*
+          `max-w-7xl mx-auto` SHART — footer va sahifa kontenti ham aynan
+          shu kenglikda. Ilgari header `w-full` edi va keng ekranda (yoki
+          brauzer masshtabi kichraytirilganda) `justify-between` elementlarni
+          ekranning eng chekkalariga surib yuborardi: yuqorida logotip
+          chap burchakda, tugmalar o'ng burchakda, o'rtada esa bo'sh joy —
+          pastdagi markazlashgan kontentdan uzilib qolardi.
+        */}
+        <div className="mx-auto w-full max-w-7xl px-2 sm:px-4 md:px-6 lg:px-8">
           <div className="flex justify-between items-center h-14 md:h-[60px]">
             
            <div className="flex items-center gap-3 sm:gap-6 md:gap-8">
@@ -210,17 +218,42 @@ export function MainLayout({ children }: MainLayoutProps) {
                 )}
               </div>
 
-              <Link to="/" aria-label="Avtotestlar.uz - Bosh sahifa" className="flex items-center gap-2 sm:gap-3 ml-2 sm:ml-4">
-                <img
-                  src="/rasm1.webp"
-                  alt="Avtotestlar.uz logo"
-                  className="hidden md:block w-10 h-10 md:w-[42px] md:h-[42px] rounded-xl shadow-md object-contain"
-                  width="42"
-                  height="42"
-                />
-                <span className="text-primary-foreground font-bold text-lg sm:text-xl md:text-[1.3125rem] hidden md:block tracking-tight font-montserrat">
-                  {t("common.siteName")}
-                </span>
+              {/*
+                LOGOTIP IKKI VARIANTDA — `<picture>` orqali.
+
+                Mobilda faqat ikonka: to'liq logotip tor ekranda joy
+                yetmasdan siqilardi. Desktopda esa gorizontal logotip — u
+                "AvtoSmart" yozuvini o'z ichiga oladi, shuning uchun yonida
+                alohida matn YOZILMAYDI (aks holda nom ikki marta chiqardi).
+
+                NEGA IKKI `<img>` EMAS, `<picture>`: `display:none` qilingan
+                rasmni ham brauzer YUKLAB OLADI — ya'ni har bir tashrifchi
+                o'ziga kerak bo'lmagan variantni ham tortardi. `<picture>`
+                da esa `media` shartiga mos MANBAGINA so'raladi.
+
+                `width`/`height` — CLS uchun: rasm kelmaguncha joyi band
+                bo'lsin. `<source>` dagilari desktop nisbatini beradi.
+              */}
+              <Link
+                to="/"
+                aria-label="AvtoSmart — Bosh sahifa"
+                className="flex items-center ml-2 sm:ml-4"
+              >
+                <picture>
+                  <source
+                    media="(min-width: 768px)"
+                    srcSet="/avtosmart-logo-white-notag.webp"
+                    width="600"
+                    height="154"
+                  />
+                  <img
+                    src="/avtosmart-icon-white.webp"
+                    alt="AvtoSmart"
+                    className="h-8 w-8 object-contain md:h-9 md:w-auto"
+                    width="128"
+                    height="128"
+                  />
+                </picture>
               </Link>
             </div>
 
@@ -591,18 +624,16 @@ export function MainLayout({ children }: MainLayoutProps) {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <div className="flex items-center gap-3 mb-2">
-                <img
-                  src="/rasm1.webp"
-                  alt="Avtotestlar.uz logo"
-                  className="w-10 h-10 rounded-xl object-contain"
-                  width="40"
-                  height="40"
-                  loading="lazy"
-                />
-                <span className="font-bold text-xl font-montserrat">{t("common.siteName")}</span>
-              </div>
-              <p className="text-primary-foreground/70 text-sm pl-[52px]">
+              {/* Logotip wordmark'ni o'z ichiga oladi — yonida matn takrorlanmaydi. */}
+              <img
+                src="/avtosmart-logo-white-notag.webp"
+                alt="AvtoSmart"
+                className="mb-3 h-10 w-auto object-contain"
+                width="600"
+                height="154"
+                loading="lazy"
+              />
+              <p className="text-primary-foreground/70 text-sm">
                 {t("footer.tagline")}
               </p>
             </div>

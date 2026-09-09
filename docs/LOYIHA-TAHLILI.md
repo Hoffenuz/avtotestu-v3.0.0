@@ -1,4 +1,4 @@
-# Avtotestlar.uz — Loyiha tahlili va strategiya
+# AvtoSmart — Loyiha tahlili va strategiya
 
 **Sana:** 2026-yil 2-avgust
 **Manba:** Google Search Console (oxirgi 28 kun), kod bazasi auditi, Supabase konfiguratsiyasi

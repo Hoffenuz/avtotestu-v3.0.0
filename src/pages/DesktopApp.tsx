@@ -88,7 +88,7 @@ export default function DesktopApp() {
                   Kompyuter uchun ilovamizni yuklab oling
                 </h1>
                 <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-xl">
-                  Avtotestlar desktop ilovasini o&apos;rnating va internetsiz ham
+                  AvtoSmart desktop ilovasini o&apos;rnating va internetsiz ham
                   test ishlashingiz mumkin. PRO uchun aktivatsiya kalitini{" "}
                   <Link to="/profile" className="text-primary hover:underline font-medium">
                     profil

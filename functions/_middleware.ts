@@ -91,7 +91,7 @@ const SPA_NO_STORE_HEADERS: Record<string, string> = {
 
 /** Faqat haqiqiy fayl kengaytmalari — /belgilar/1.3.1 kabi belgi kodlari emas */
 function isStaticAsset(pathname: string): boolean {
-  return /\.(html?|css|js|mjs|json|png|jpe?g|webp|gif|svg|ico|woff2?|ttf|eot|txt|xml|map|pdf|avif|mp4|webm|wasm)$/i.test(
+  return /\.(html?|css|js|mjs|json|webmanifest|png|jpe?g|webp|gif|svg|ico|woff2?|ttf|eot|txt|xml|map|pdf|avif|mp4|webm|wasm)$/i.test(
     pathname,
   );
 }
@@ -263,7 +263,8 @@ function localizeSpaMeta(res: Response, pathname: string): Response {
 
   const url = SITE_ORIGIN + prefix + (basePath === '/' ? '' : basePath);
   // Sarlavha `src/components/SEO.tsx` dagi qoida bilan bir xil yasaladi.
-  const title = basePath === '/' ? meta.title : meta.title + ' | Avtotestlar.uz';
+  // `src/components/SEO.tsx` dagi qoida bilan BIR XIL: brend har doim oxirida.
+  const title = meta.title + ' | AvtoSmart';
 
   const kontent = (qiymat: string) => ({
     element(el: RewriterElement) {

@@ -21,7 +21,7 @@ const distDir = join(__dirname, '..', 'dist');
 const routes = [
   {
     path: '/',
-    title: 'Avtotestlar 2026 - Avtotestu | Avtomaktab Online Imtihonlar',
+    title: 'AvtoSmart 2026 — Avtotestu | Avtomaktab Online Imtihonlar',
     description: 'Haydovchilik guvohnomasini olish uchun YHQ testlari, yo\'l belgilari va onlayn avtotestlar. 2026 yil yangilangan savollar bilan prava olishga tayyorlaning.',
     h1: 'Avtoexclusive o\'quv markazi!',
     content: `

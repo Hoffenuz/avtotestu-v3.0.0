@@ -18,7 +18,7 @@ const LEGACY_SAVOL_DIR = path.join(ROOT, "public/savol");
 const INDEX_PATH = path.join(ROOT, "src/data/savol-v59-index.json");
 const SITEMAP_PATH = path.join(ROOT, "public/sitemap.xml");
 const BASE_URL = "https://www.avtotestu.uz";
-const BRAND = "Avtotestlar.uz";
+const BRAND = "AvtoSmart";
 const TODAY = new Date().toISOString().slice(0, 10);
 
 function escapeHtml(str) {
@@ -57,7 +57,7 @@ function buildExplanation(text, correctText, order) {
   return (
     `Bu savolda to'g'ri javob: «${correctText}». ` +
     `Savol ${order}-sonli bo'lib, 59-sonli YHQ test variantiga kiradi. ` +
-    `«${shortQ}» mavzusini mustahkamlash uchun Avtotestlar.uz da onlayn test topshiring.`
+    `«${shortQ}» mavzusini mustahkamlash uchun AvtoSmart da onlayn test topshiring.`
   );
 }
 

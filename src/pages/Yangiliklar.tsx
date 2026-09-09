@@ -46,11 +46,11 @@ export default function Yangiliklar() {
   }, [language]);
 
   const pageTitle =
-    language === "ru" ? "Новости Avtotestlar.uz" : language === "uz" ? "Yangiliklar" : "Yangiliklar";
+    language === "ru" ? "Новости AvtoSmart" : language === "uz" ? "Yangiliklar" : "Yangiliklar";
   const pageDescription =
     language === "ru"
-      ? "Официальные новости Avtotestlar.uz: обновления тестов ПДД, PRO-подписка, видеоуроки и полезные советы."
-      : "Avtotestlar.uz rasmiy yangiliklari: YHQ testlari, PRO obuna, video darslik va foydali maslahatlar.";
+      ? "Официальные новости AvtoSmart: обновления тестов ПДД, PRO-подписка, видеоуроки и полезные советы."
+      : "AvtoSmart rasmiy yangiliklari: YHQ testlari, PRO obuna, video darslik va foydali maslahatlar.";
 
   return (
     <MainLayout>
@@ -58,7 +58,7 @@ export default function Yangiliklar() {
         title={pageTitle}
         description={pageDescription}
         path="/yangiliklar"
-        keywords="avtotestlar yangiliklar, YHQ yangiliklari, prava test yangiliklari, haydovchilik guvohnomasi"
+        keywords="avtosmart yangiliklar, YHQ yangiliklari, prava test yangiliklari, haydovchilik guvohnomasi"
       />
 
       <section className="bg-gradient-to-br from-brand via-brand to-brand/90 py-10 md:py-14">

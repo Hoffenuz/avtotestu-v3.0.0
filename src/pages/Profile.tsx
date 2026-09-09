@@ -132,7 +132,7 @@ const Profile = () => {
          */
         toast.error(
           "To'lov tasdig'i kechikmoqda. Sahifani yangilang — o'zgarmasa " +
-            "Telegram orqali bog'laning: @avtotestu_ad",
+            "Telegram orqali bog'laning: @avtosmart1",
           { duration: 15000 },
         );
         return;
@@ -340,7 +340,7 @@ useEffect(() => {
     <>
     <SEO
       title="Profilim"
-      description="Avtotestlar.uz foydalanuvchi profili."
+      description="AvtoSmart foydalanuvchi profili."
       path="/profile"
       noIndex={true}
     />

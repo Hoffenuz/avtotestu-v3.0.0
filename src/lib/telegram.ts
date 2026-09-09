@@ -1,10 +1,10 @@
 /** Rasmiy Telegram manzillari — bitta joyda saqlanadi. */
 
 /** Foydalanuvchilar guruhi: savol-javob va yordam. */
-export const TELEGRAM_GROUP_URL = 'https://t.me/Avtotest_laruz';
+export const TELEGRAM_GROUP_URL = 'https://t.me/avtosmartuzb';
 
 /** Administrator (shaxsiy murojaat, parolni tiklash va h.k.). */
-export const TELEGRAM_ADMIN_URL = 'https://t.me/avtotestu_ad';
+export const TELEGRAM_ADMIN_URL = 'https://t.me/avtosmart1';
 
 /**
  * Guruh xabarnomasi bir marta ko'rsatilishi uchun localStorage kaliti.

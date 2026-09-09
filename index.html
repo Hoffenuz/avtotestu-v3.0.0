@@ -167,12 +167,12 @@
     <meta name="fragment" content="!">
 
     <!-- Title (fallback, will be overwritten by react-helmet-async) -->
-    <title>Avto test — Prava test va YHQ testlar 2026</title>
+    <title>Avto test — Prava test va YHQ testlar 2026 | AvtoSmart</title>
 
     <!-- SEO Meta (fallback) -->
-    <meta name="description" content="Avto test 2026: prava test va YHQ testlar, yo&#39;l belgilari, 63 variant. Bepul onlayn — Avtotestlar.uz (avtotestu.uz)." data-rh="true">
-    <meta name="keywords" content="avtotestlar.uz, avtotest, avtotest 2026, haydovchilik imtihoni, haydovchilik guvohnomasi, YHQ testlari, yo'l belgilari, prava test, avto test" />
-    <meta name="author" content="Avtotestlar.uz" />
+    <meta name="description" content="Avto test 2026: prava test va YHQ testlar, yo&#39;l belgilari, 63 variant. Bepul onlayn — AvtoSmart (avtotestu.uz)." data-rh="true">
+    <meta name="keywords" content="avtosmart, avto smart, avtotest, avtotest 2026, haydovchilik imtihoni, haydovchilik guvohnomasi, YHQ testlari, yo'l belgilari, prava test, avto test" />
+    <meta name="author" content="AvtoSmart" />
     <meta name="robots" content="index, follow" data-rh="true"/>
     <meta name="language" content="uz" />
     <meta name="geo.region" content="UZ" />
@@ -198,8 +198,25 @@
     <!-- Preload hero image - responsive -->
     <link rel="preload" as="image" href="/hero-bg-640.webp" imagesrcset="/hero-bg-640.webp 640w, /hero-bg-1024.webp 1024w, /hero-bg-1920.webp 1920w" imagesizes="100vw" fetchpriority="high">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/logo.ico">
+    <!--
+      Favicon — AvtoSmart brend to'plami.
+
+      GOOGLE QIDIRUVI uchun favicon kvadrat va 48px ga karrali bo'lishi
+      kerak. Bu ikki yo'l bilan ta'minlangan:
+        1) `favicon.svg` — SVG uchun o'lcham sharti yo'q (Google hujjati);
+        2) `favicon.ico` ichida 48x48 varianti bor.
+      192x192 PNG `<link>` da ATAYLAB YO'Q: brauzer uni har tashrifda
+      yuklab, 23 KB behuda sarflardi. U `site.webmanifest` da qoladi —
+      Android'da "ekranga qo'shish" uchun o'sha yerdan olinadi.
+      https://developers.google.com/search/docs/appearance/favicon-in-search
+    -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#131A45">
     
     <!-- Inline critical CSS for spinner -->
     <style>
@@ -208,12 +225,12 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Avtotestlar.uz" />
+    <meta property="og:site_name" content="AvtoSmart" />
     <meta property="og:locale" content="uz_UZ" data-rh="true" />
     
     
     <meta property="og:url" content="https://www.avtotestu.uz/" data-rh="true"/>
-    <meta property="og:image" content="https://www.avtotestu.uz/rasm2.webp" data-rh="true">
+    <meta property="og:image" content="https://www.avtotestu.uz/avtosmart-og.jpg" data-rh="true">
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
@@ -221,15 +238,15 @@
     <meta name="twitter:card" content="summary_large_image" />
     
     
-    <meta name="twitter:image" content="https://www.avtotestu.uz/rasm2.webp" data-rh="true">
+    <meta name="twitter:image" content="https://www.avtotestu.uz/avtosmart-og.jpg" data-rh="true">
 
     <!-- Structured Data - WebSite -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "Avtotestlar.uz",
-        "alternateName": ["Avto test", "Avtotestlar", "AvtoTest"],
+        "name": "AvtoSmart",
+        "alternateName": ["AvtoSmart", "Avto Smart", "Avtotestu", "Avto test"],
         "url": "https://www.avtotestu.uz",
         "description": "Avto test 2026 — prava test va YHQ testlar (sayt: avtotestu.uz). Yo'l belgilari va onlayn variantlar",
         "inLanguage": "uz",
@@ -249,9 +266,9 @@
       {
         "@context": "https://schema.org",
         "@type": "EducationalOrganization",
-        "name": "Avtotestlar.uz",
+        "name": "AvtoSmart",
         "url": "https://www.avtotestu.uz",
-        "logo": "https://www.avtotestu.uz/rasm1.webp",
+        "logo": "https://www.avtotestu.uz/avtosmart-logo.webp",
         "description": "O'zbekistonda haydovchilik guvohnomasi imtihoniga tayyorlanish: YHQ onlayn testlari 2026",
         "address": {
           "@type": "PostalAddress",
@@ -284,7 +301,7 @@
       <noscript>
         <div style="font-family:system-ui,sans-serif;color:#1a202c">
           <header style="padding:20px;background:#1a365d;color:#fff;text-align:center">
-            <h1>Avtotestlar.uz — Haydovchilik guvohnomasi uchun YHQ testlari</h1>
+            <h1>AvtoSmart — Haydovchilik guvohnomasi uchun YHQ testlari</h1>
             <p style="margin-top:8px;opacity:.9">2026 yil yangilangan savollar, yo'l belgilari va onlayn testlar</p>
           </header>
           
@@ -335,22 +352,22 @@
 
   <section >
     <div >
-      <h3>Avtotestlar.uz haqida</h3>
-      <p>Avtotestlar.uz — bu haydovchilik guvohnomasi olishni xohlovchilar uchun yaratilgan zamonaviy onlayn platforma bo'lib, foydalanuvchilarga Yo'l harakati qoidalari (YHQ) bo'yicha test savollarini interaktiv tarzda yechish imkonini beradi.</p>
+      <h3>AvtoSmart haqida</h3>
+      <p>AvtoSmart — bu haydovchilik guvohnomasi olishni xohlovchilar uchun yaratilgan zamonaviy onlayn platforma bo'lib, foydalanuvchilarga Yo'l harakati qoidalari (YHQ) bo'yicha test savollarini interaktiv tarzda yechish imkonini beradi.</p>
       <p>Platformadagi barcha testlar O'zbekiston Respublikasi Yo'l harakati qoidalariga asoslangan bo'lib, har bir savolga yagona to'g'ri javob keltirilgan. Savollar muntazam yangilanib boriladi va yangi qoidalar qabul qilinishi bilan tizimga avtomatik tarzda qo'shiladi.</p>
-      <p>Avtotestlar.uz nafaqat test topshirish imkonini beradi, balki foydalanuvchilar o'z xatolarini ko'rib chiqib, to'g'ri javobni o'rganishlari mumkin. Har bir test yakunida tizim sizga umumiy natijangizni, to'g'ri va noto'g'ri javoblar sonini ko'rsatadi.</p>
+      <p>AvtoSmart nafaqat test topshirish imkonini beradi, balki foydalanuvchilar o'z xatolarini ko'rib chiqib, to'g'ri javobni o'rganishlari mumkin. Har bir test yakunida tizim sizga umumiy natijangizni, to'g'ri va noto'g'ri javoblar sonini ko'rsatadi.</p>
     </div>
   </section>
 
   <footer >
-    <p>© 2026 Avtotestlar.uz - O'zbekistonda haydovchilik guvohnomasi olish uchun YHQ testlari platformasi</p>
+    <p>© 2026 AvtoSmart - O'zbekistonda haydovchilik guvohnomasi olish uchun YHQ testlari platformasi</p>
     <p style="margin-top: 8px; font-size: 14px;">Barcha huquqlar himoyalangan</p>
   </footer>
   <!-- 100% privacy-first analytics -->
   <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 
           <footer style="padding:20px;background:#f7fafc;text-align:center;margin-top:32px">
-            <p>© 2026 Avtotestlar.uz — O'zbekistonda haydovchilik guvohnomasi uchun YHQ testlari</p>
+            <p>© 2026 AvtoSmart — O'zbekistonda haydovchilik guvohnomasi uchun YHQ testlari</p>
           </footer>
         </div>
       </noscript>

@@ -163,7 +163,7 @@ export default function Pro() {
   // Allow both guests and logged-in users to view the Pro page.
 
   const handleGetPro = () => {
-    window.open('https://t.me/avtotestu_ad', '_blank');
+    window.open('https://t.me/avtosmart1', '_blank');
   };
 
   /**
@@ -490,7 +490,7 @@ export default function Pro() {
               <div className="flex sm:justify-start">
                 {/*
                   `whitespace-normal` va `h-auto` MAJBURIY: tugma matni uzun
-                  ("Savollar bo'yicha murojaat: @avtotestu_ad"), `Button` esa
+                  ("Savollar bo'yicha murojaat: @avtosmart1"), `Button` esa
                   o'z uslubida `whitespace-nowrap` va qat'iy balandlik
                   beradi. Natijada tugma 347px ga cho'zilib, 320px va 360px
                   li telefonlarda BUTUN sahifada gorizontal scroll paydo

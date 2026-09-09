@@ -471,10 +471,10 @@ export function RealExamInterface({
             aria-hidden="true"
           >
             <img
-              src="/rasm1.webp"
+              src="/avtosmart-icon-white.webp"
               alt=""
-              width="32"
-              height="32"
+              width="128"
+              height="128"
               className="h-6 w-6 rounded-full object-contain sm:h-8 sm:w-8"
             />
           </span>

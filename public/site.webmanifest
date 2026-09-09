@@ -1,0 +1,32 @@
+{
+  "name": "AvtoSmart — YHQ testlari va prava imtihoni",
+  "short_name": "AvtoSmart",
+  "description": "YHQ testlari, yo'l belgilari va 63 variant — haydovchilik guvohnomasi imtihoniga bepul onlayn tayyorgarlik.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#131A45",
+  "theme_color": "#131A45",
+  "lang": "uz",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

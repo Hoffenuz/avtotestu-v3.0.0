@@ -41,7 +41,7 @@ const HOME_FAQ_LD = {
       "name": "Haydovchilik guvohnomasi olish uchun qanday tayyorlanish kerak?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Avtotestlar platformasida YHQ testlarini yechish, yo'l belgilarini o'rganish va variant testlarini topshirish orqali tayyorlanishingiz mumkin."
+        "text": "AvtoSmart platformasida YHQ testlarini yechish, yo'l belgilarini o'rganish va variant testlarini topshirish orqali tayyorlanishingiz mumkin."
       }
     },
     {
@@ -54,7 +54,7 @@ const HOME_FAQ_LD = {
     },
     {
       "@type": "Question",
-      "name": "Avtotestlar.uz bepulmi?",
+      "name": "AvtoSmart bepulmi?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Ha, asosiy testlar va yo'l belgilari bepul. Pro obuna qo'shimcha imkoniyatlar beradi."

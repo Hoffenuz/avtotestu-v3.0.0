@@ -76,7 +76,7 @@ export default function YangilikDetail() {
         publishedAt={post.published_at || post.created_at}
         updatedAt={post.updated_at}
         ogImage={post.cover_image_url || undefined}
-        keywords="avtotestlar yangilik, YHQ, prava test, haydovchilik guvohnomasi"
+        keywords="avtosmart yangilik, YHQ, prava test, haydovchilik guvohnomasi"
       />
 
       <article className="py-8 md:py-12 bg-background">
