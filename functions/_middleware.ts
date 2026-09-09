@@ -185,6 +185,18 @@ const LANG_PREFIXES: Array<[string, string]> = [
   ['/cyr', 'uz'],
 ];
 
+/** Uchala til uchun [prefiks, hreflang kodi] — `src/lib/langUrl.ts` dagi bilan bir xil. */
+const ALL_LANGS: Array<[string, string]> = [
+  ['', 'uz-Latn'],
+  ['/cyr', 'uz-Cyrl'],
+  ['/ru', 'ru'],
+];
+
+/** `href` atributiga xom satr sifatida qo'yilishidan oldin xavfsiz qilish. */
+function escapeAttr(qiymat: string): string {
+  return qiymat.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+}
+
 const HTML_LANG: Record<string, string> = {
   'uz-lat': 'uz-Latn',
   uz: 'uz-Cyrl',
@@ -207,6 +219,7 @@ const SITE_ORIGIN = 'https://www.avtotestu.uz';
 interface RewriterElement {
   setAttribute(name: string, value: string): void;
   setInnerContent(content: string): void;
+  append(content: string, options?: { html?: boolean }): void;
 }
 
 interface RewriterInstance {
@@ -279,6 +292,33 @@ function localizeSpaMeta(res: Response, pathname: string): Response {
 
   // Bo'sh `keywords` qo'yishdan ko'ra tegilmagani yaxshi.
   if (meta.keywords) rw = rw.on('meta[name="keywords"]', kontent(meta.keywords));
+
+  /*
+    CANONICAL VA HREFLANG — statik qobiqda ULUMAN YO'Q edi (faqat brauzerda
+    Helmet qo'yardi). JS ishlatmaydigan o'quvchi (ko'p SEO vositalari,
+    Bing'ning cheklangan render qilishi, ba'zi ulashish botlari) uchun bu
+    sahifaning "rasmiy manzili qaysi" va "boshqa til versiyalari qayerda"
+    degan signal umuman yo'q edi. `src/components/SEO.tsx` dagi mantiq
+    bilan bir xil qiymatlar shu yerda ham qo'yiladi.
+
+    `data-rh="true"` SHART: brauzerda Helmet ishga tushganda faqat shu
+    atributli `<link>` teglarni "eski" deb hisoblab ular bilan solishtiradi
+    (`react-helmet-async` manbasi, `updateTags`). Bu belgisiz Helmet bu
+    teglarni "begona" deb qoldirib, USTIGA YANA BIR TO'PLAM qo'shardi —
+    xuddi ilgari meta teglar uchun tuzatilgan duplikat xatosi kabi.
+  */
+  const yollar = ALL_LANGS.map(
+    ([pfx, hreflang]) =>
+      `<link rel="alternate" hreflang="${hreflang}" href="${escapeAttr(SITE_ORIGIN + pfx + (basePath === '/' ? '' : basePath))}" data-rh="true">`,
+  ).join('');
+  const xDefault = `<link rel="alternate" hreflang="x-default" href="${escapeAttr(SITE_ORIGIN + (basePath === '/' ? '' : basePath))}" data-rh="true">`;
+  const canonical = `<link rel="canonical" href="${escapeAttr(url)}" data-rh="true">`;
+
+  rw = rw.on('head', {
+    element(el: RewriterElement) {
+      el.append(canonical + yollar + xDefault, { html: true });
+    },
+  });
 
   return rw.transform(res);
 }

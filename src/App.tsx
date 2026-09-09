@@ -1,7 +1,6 @@
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { detectLangFromWindow } from "@/lib/langUrl";
 import { LanguageProvider } from "@/contexts/LanguageContext";
@@ -102,8 +101,6 @@ const DesktopApp = lazyWithRetry(() => import("./pages/DesktopApp"));
 const Savol = lazyWithRetry(() => import("./pages/Savol"));
 const SavolVariantList = lazyWithRetry(() => import("./pages/SavolVariantList"));
 
-const queryClient = new QueryClient();
-
 const App = () => {
   return (
   /**
@@ -135,51 +132,49 @@ const App = () => {
     `basename` kuchga kiradi.
   */}
   <BrowserRouter basename={detectLangFromWindow().prefix || undefined}>
-    <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <LanguageProvider>
-          <TooltipProvider>
-            <Toaster />
-            <Sonner />
-            <Suspense fallback={<div style={{minHeight:'100vh',display:'flex',alignItems:'center',justifyContent:'center'}}><div style={{width:'40px',height:'40px',border:'3px solid #e5e7eb',borderTopColor:'#1e3a8a',borderRadius:'50%',animation:'spin 0.6s linear infinite'}}></div></div>}>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/test-ishlash" element={<TestIshlash />} />
-                <Route path="/belgilar" element={<Belgilar />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/darslik" element={<Darslik />} />
-                <Route path="/qoshimcha" element={<Qoshimcha />} />
-                <Route path="/yangiliklar" element={<Yangiliklar />} />
-                <Route path="/yangiliklar/:slug" element={<YangilikDetail />} />
-                <Route path="/variant" element={<Variant />} />
-                <Route path="/mavzuli" element={<MavzuliTestlar />} />
-                <Route path="/bolimlar" element={<Bolimlar />} />
-                <Route path="/xatolarim" element={<Xatolarim />} />
-                <Route path="/saqlangan" element={<Saqlangan />} />
-                <Route path="/qidirish" element={<Qidirish />} />
-                <Route path="/xatolar-testi" element={<XatolarTesti />} />
-                <Route path="/avtodrom" element={<Avtodrom />} />
-                <Route path="/real-imtihon" element={<RealImtihon />} />
-                <Route path="/qiyin-savollar" element={<QiyinSavollar />} />
-                <Route path="/e-avtomaktab" element={<EAvtomaktab />} />
-                <Route path="/e-avtomaktab-test" element={<EAvtomaktabTest />} />
-                <Route path="/avtoimtihon-2026" element={<AvtoImtihon2026 />} />
-                <Route path="/yodlash-kerak" element={<YodlashKerak />} />
-                <Route path="/yodlash-kerak/:mavzu" element={<YodlashKerakMavzu />} />
-                <Route path="/pro" element={<Pro />} />
-                <Route path="/auth" element={<Auth />} />
-                <Route path="/auth/callback" element={<AuthCallback />} />
-                <Route path="/profile" element={<Profile />} />
-                <Route path="/desktop" element={<DesktopApp />} />
-                <Route path="/savol/variant-59" element={<SavolVariantList />} />
-                <Route path="/savol/:slug" element={<Savol />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Suspense>
-          </TooltipProvider>
-        </LanguageProvider>
-      </AuthProvider>
-    </QueryClientProvider>
+    <AuthProvider>
+      <LanguageProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <Suspense fallback={<div style={{minHeight:'100vh',display:'flex',alignItems:'center',justifyContent:'center'}}><div style={{width:'40px',height:'40px',border:'3px solid #e5e7eb',borderTopColor:'#1e3a8a',borderRadius:'50%',animation:'spin 0.6s linear infinite'}}></div></div>}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/test-ishlash" element={<TestIshlash />} />
+              <Route path="/belgilar" element={<Belgilar />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/darslik" element={<Darslik />} />
+              <Route path="/qoshimcha" element={<Qoshimcha />} />
+              <Route path="/yangiliklar" element={<Yangiliklar />} />
+              <Route path="/yangiliklar/:slug" element={<YangilikDetail />} />
+              <Route path="/variant" element={<Variant />} />
+              <Route path="/mavzuli" element={<MavzuliTestlar />} />
+              <Route path="/bolimlar" element={<Bolimlar />} />
+              <Route path="/xatolarim" element={<Xatolarim />} />
+              <Route path="/saqlangan" element={<Saqlangan />} />
+              <Route path="/qidirish" element={<Qidirish />} />
+              <Route path="/xatolar-testi" element={<XatolarTesti />} />
+              <Route path="/avtodrom" element={<Avtodrom />} />
+              <Route path="/real-imtihon" element={<RealImtihon />} />
+              <Route path="/qiyin-savollar" element={<QiyinSavollar />} />
+              <Route path="/e-avtomaktab" element={<EAvtomaktab />} />
+              <Route path="/e-avtomaktab-test" element={<EAvtomaktabTest />} />
+              <Route path="/avtoimtihon-2026" element={<AvtoImtihon2026 />} />
+              <Route path="/yodlash-kerak" element={<YodlashKerak />} />
+              <Route path="/yodlash-kerak/:mavzu" element={<YodlashKerakMavzu />} />
+              <Route path="/pro" element={<Pro />} />
+              <Route path="/auth" element={<Auth />} />
+              <Route path="/auth/callback" element={<AuthCallback />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/desktop" element={<DesktopApp />} />
+              <Route path="/savol/variant-59" element={<SavolVariantList />} />
+              <Route path="/savol/:slug" element={<Savol />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </TooltipProvider>
+      </LanguageProvider>
+    </AuthProvider>
   </BrowserRouter>
   </ErrorBoundary>
   );

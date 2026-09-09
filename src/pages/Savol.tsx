@@ -4,6 +4,7 @@ import { MainLayout } from "@/components/layout/MainLayout";
 import { SEO } from "@/components/SEO";
 import { ChevronLeft, ChevronRight, CheckCircle2 } from "lucide-react";
 import savolIndex from "@/data/savol-v59-index.json";
+import { fileNameOf, lookupSize } from "@/components/QuestionImageBlock";
 
 interface SavolOption {
   id: number;
@@ -92,16 +93,30 @@ export default function Savol() {
           {question.text}
         </h1>
 
-        {question.imageUrl && (
-          <figure className="mb-6 rounded-xl border bg-card overflow-hidden">
-            <img
-              src={question.imageUrl.replace("https://www.avtotestu.uz", "")}
-              alt={question.text}
-              className="w-full h-auto object-contain"
-              loading="lazy"
-            />
-          </figure>
-        )}
+        {question.imageUrl && (() => {
+          /*
+            `width`/`height` SHART — QuestionImageBlock.tsx dagi bilan bir
+            xil CLS xatosi bu yerda ham bo'lardi: rasm kelmaguncha brauzer
+            balandlikni bilmay, kelganda pastdagi matn pastga surilardi.
+            Bu sahifa Google'da alohida savol bo'yicha indekslanadi, ya'ni
+            LCP/CLS to'g'ridan-to'g'ri qidiruv reytingiga ta'sir qiladi —
+            shuning uchun `loading="lazy"` ham OLIB TASHLANDI: rasm sarlavha
+            tagida, birinchi ekranda turadi, kechiktirish faqat zarar berardi.
+          */
+          const [width, height] = lookupSize(fileNameOf(question.imageUrl));
+          return (
+            <figure className="mb-6 rounded-xl border bg-card overflow-hidden">
+              <img
+                src={question.imageUrl.replace("https://www.avtotestu.uz", "")}
+                alt={question.text}
+                className="w-full h-auto object-contain"
+                width={width}
+                height={height}
+                decoding="async"
+              />
+            </figure>
+          );
+        })()}
 
         <ol className="space-y-2 mb-6 list-none">
           {question.options.map((opt) => (

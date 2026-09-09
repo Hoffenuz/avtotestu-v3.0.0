@@ -164,7 +164,6 @@ export default defineConfig(() => ({
           if (!id.includes("node_modules")) return;
           if (id.includes("lucide-react")) return "vendor-lucide";
           if (id.includes("@supabase")) return "vendor-supabase";
-          if (id.includes("@tanstack/react-query")) return "vendor-query";
           if (id.includes("@radix-ui")) return "vendor-radix";
           if (
             id.includes("react-dom") ||

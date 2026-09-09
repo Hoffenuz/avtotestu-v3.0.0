@@ -98,12 +98,20 @@ export default function YangilikDetail() {
           </h1>
 
           {post.cover_image_url && (
-            <div className="mb-8 overflow-hidden rounded-2xl border border-border">
+            /*
+              `aspect-[16/9]` SHART — muqova rasmi admin panel orqali
+              yuklanadi, haqiqiy o'lchami oldindan noma'lum (savol rasmlari
+              kabi manifest yo'q). Qattiq nisbat rasm hali kelmagan bo'lsa
+              ham joyni zahiralaydi — aks holda pastdagi matn rasm
+              kelganda pastga surilardi (CLS).
+            */
+            <div className="mb-8 aspect-[16/9] overflow-hidden rounded-2xl border border-border bg-muted">
               <img
                 src={post.cover_image_url}
                 alt={localized.title}
-                className="w-full max-h-[420px] object-cover"
+                className="h-full w-full object-cover"
                 loading="lazy"
+                decoding="async"
               />
             </div>
           )}

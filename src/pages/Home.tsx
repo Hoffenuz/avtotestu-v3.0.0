@@ -155,7 +155,11 @@ export default function Home() {
           src="/hero-bg-1920.webp"
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
-          fetchPriority="high"
+          /* React 18.3 `fetchPriority` (camelCase) ni tanimaydi (bu faqat
+             React 19 da qo'shildi) va har render'da konsolga ogohlantirish
+             yozadi. Kichik harf bilan yozilsa DOM'ga xuddi shunday
+             `fetchpriority="high"` bo'lib chiqadi, lekin ogohlantirishsiz. */
+          fetchpriority="high"
           aria-hidden="true"
           width="1920"
           height="1080"

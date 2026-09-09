@@ -65,12 +65,19 @@ function pair(value: number[] | undefined): readonly [number, number] | null {
  * eski `<picture>` tarmog'iga tushib qolardi va `.png` deb qidirilardi —
  * ya'ni butunlay buzilgan rasm.
  */
-function fileNameOf(src: string): string {
+export function fileNameOf(src: string): string {
   return src.split("/").pop()?.split(/[?#]/)[0] ?? "";
 }
 
-/** Fayl nomidan `[w, h]`. Topilmasa zaxira nisbat qaytadi. */
-function lookupSize(file: string): readonly [number, number] {
+/**
+ * Fayl nomidan `[w, h]`. Topilmasa zaxira nisbat qaytadi.
+ *
+ * Eksport qilingan — `Savol.tsx` kabi savol rasmini boshqa maketda
+ * ko'rsatadigan joylar ham xuddi shu CLS-xavfsiz o'lchamdan foydalansin,
+ * mantiq ikki joyda alohida-alohida yozilib, ulardan biri unutilib
+ * qolmasin.
+ */
+export function lookupSize(file: string): readonly [number, number] {
   const numbered = NUMBERED_NAME.exec(file);
   if (numbered) {
     const hit = pair(sizes.numbered[numbered[1]]);
