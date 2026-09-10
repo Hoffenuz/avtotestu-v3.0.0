@@ -1,7 +1,9 @@
 /**
- * admin-manager v25
+ * admin-manager v26
  * - super_admin: barcha actionlar
- * - admin: faqat user qo'shish + muddat (tariff) belgilash
+ * - admin: faqat user qo‘shish + muddat (tariff) belgilash
+ * - v26: delete_test_result action qo'shildi (ResultsPage'dagi
+ *   "o'chirish" tugmasi avval doim xato qaytarardi)
  */
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 import { handleGetPayments } from '../_shared/getPayments.ts';
@@ -24,7 +26,7 @@ const ADMIN_ALLOWED_ACTIONS = new Set([
   'get_users',
   'create_user',
   'update_tariff',
-  'get_payment_types', // faqat ko'rish (UI)
+  'get_payment_types', // faqat ko‘rish (UI)
   'get_user_payment_type',
 ]);
 
@@ -181,10 +183,17 @@ Deno.serve(async (req) => {
 
   try {
 
+    // ══════════════════════════════════════════════════════════════
+    // USER BOSHQARUVI
+    // profiles ustunlari: id, email, full_name, username, avatar_url,
+    //                     tariff_days, tariff_end_date, created_at, updated_at
+    // ══════════════════════════════════════════════════════════════
+
     if (action === 'get_users') {
       const { page = 1, per_page = 50, search = '', status = 'all' } = body;
       const offset = (Number(page) - 1) * Number(per_page);
 
+      // profiles da faqat mavjud ustunlar
       let q = db.from('profiles').select(
         `id, email, full_name, username, tariff_days, tariff_end_date,
          created_at, updated_at,
@@ -197,9 +206,12 @@ Deno.serve(async (req) => {
       if (search) q = q.or(`email.ilike.%${search}%,full_name.ilike.%${search}%`);
 
       const now = new Date().toISOString();
+      // Trial filter — subscriptions dan qilinmaydi (filtering uchun qiyin)
+      // Faqat profiles ustunlari asosida filter:
       if (status === 'active_pro')  q = q.gt('tariff_days', 0).gt('tariff_end_date', now);
       if (status === 'expired_pro') q = q.gt('tariff_days', 0).lte('tariff_end_date', now);
       if (status === 'free')        q = q.eq('tariff_days', 0);
+      // active_trial va expired_trial uchun subscriptions join kerak — alohida query
       if (status === 'active_trial' || status === 'expired_trial') {
         const isActive = status === 'active_trial';
         const { data: trialSubs } = await db.from('subscriptions')
@@ -214,6 +226,7 @@ Deno.serve(async (req) => {
       const { data, error, count } = await q;
       if (error) throw error;
 
+      // Rollarni alohida birlashtirish
       const enriched = await attachRoles(db, (data ?? []) as Array<Record<string, unknown>>);
       return res({ success: true, data: enriched, count, page, per_page }, 200, cors);
     }
@@ -222,6 +235,7 @@ Deno.serve(async (req) => {
       const { user_id } = body;
       if (!user_id) return res({ error: 'user_id kerak' }, 400, cors);
 
+      // profiles: faqat mavjud ustunlar
       const { data: profile, error: pErr } = await db.from('profiles').select(
         `id, email, full_name, username, avatar_url,
          tariff_days, tariff_end_date,
@@ -296,6 +310,7 @@ Deno.serve(async (req) => {
       if (!userId) return res({ error: 'User ID aniqlanmadi' }, 500, cors);
       await new Promise(r => setTimeout(r, 700));
 
+      // profiles: faqat mavjud ustunlar (is_trial_used yo'q)
       const upsertData: Record<string, unknown> = { id: userId, email: emailLower };
       if (full_name) upsertData.full_name = full_name;
       if (tariff_days > 0) {
@@ -306,6 +321,7 @@ Deno.serve(async (req) => {
       const { error: upsertErr } = await db.from('profiles').upsert(upsertData, { onConflict: 'id' });
       if (upsertErr) throw upsertErr;
 
+      // subscriptions ga yozish
       if (tariff_days > 0) {
         const endDate = tariffEnd(startDate, tariff_days);
         await db.from('subscriptions').insert({
@@ -340,6 +356,7 @@ Deno.serve(async (req) => {
           return res({ error: "tariff_days 0-366 bo'lishi kerak" }, 400, cors);
         updates.tariff_days = tariff_days;
         if (tariff_days > 0) {
+          // started_at uchun subscriptions dan oxirgisini olamiz, aks holda now()
           const { data: lastSub } = await db.from('subscriptions')
             .select('started_at').eq('user_id', user_id).eq('is_trial', false)
             .order('created_at', { ascending: false }).limit(1).maybeSingle();
@@ -386,6 +403,7 @@ Deno.serve(async (req) => {
       const startIso  = tariff_start_date ? String(tariff_start_date) : new Date().toISOString();
       const endDate   = tariff_days > 0 ? tariffEnd(startIso, tariff_days) : null;
 
+      // profiles yangilash (faqat mavjud ustunlar)
       const { error } = await db.from('profiles').update({
         tariff_days,
         tariff_end_date: endDate,
@@ -424,6 +442,7 @@ Deno.serve(async (req) => {
         return res({ error: "O'z rolingizni o'zgartira olmaysiz" }, 400, cors);
       if (!['admin', 'super_admin', 'moderator', 'user'].includes(String(role)))
         return res({ error: 'Rol: super_admin | admin | moderator | user' }, 400, cors);
+      // Faqat super_admin boshqa super_admin/admin tayinlashi mumkin (ACL yuqorida)
       await db.from('user_roles').delete().eq('user_id', user_id);
       if (String(role) !== 'user') {
         const { error } = await db.from('user_roles').insert({ user_id, role });
@@ -432,6 +451,10 @@ Deno.serve(async (req) => {
       await auditLog(db, actorId, 'update_role', 'user_roles', null, { user_id, role });
       return res({ success: true }, 200, cors);
     }
+
+    // ══════════════════════════════════════════════════════════════
+    // ARXIV
+    // ══════════════════════════════════════════════════════════════
 
     if (action === 'get_archive') {
       const { page = 1, per_page = 50, search = '' } = body;
@@ -475,6 +498,10 @@ Deno.serve(async (req) => {
       return res({ success: true, deleted_count: foundIds.length, not_found_count: archive_ids.length - foundIds.length }, 200, cors);
     }
 
+    // ══════════════════════════════════════════════════════════════
+    // CHEK
+    // ══════════════════════════════════════════════════════════════
+
     if (action === 'update_chek') {
       const { chek_id, link, email, user_id: chekUserId } = body;
       if (!chek_id) return res({ error: 'chek_id kerak' }, 400, cors);
@@ -511,6 +538,10 @@ Deno.serve(async (req) => {
       await auditLog(db, actorId, 'delete_chek', 'chek', existing, null);
       return res({ success: true }, 200, cors);
     }
+
+    // ══════════════════════════════════════════════════════════════
+    // SUBSCRIPTIONS
+    // ══════════════════════════════════════════════════════════════
 
     if (action === 'get_subscriptions') {
       const { page = 1, per_page = 50, user_id: fUid = '', status_filter = 'all', plan_filter = '' } = body;
@@ -560,6 +591,7 @@ Deno.serve(async (req) => {
       }).select().single();
       if (sErr) throw sErr;
 
+      // profiles yangilash — faqat mavjud ustunlar (tariff_start_date yo'q)
       if (!Boolean(is_trial)) {
         await db.from('profiles').update({
           tariff_days,
@@ -594,6 +626,10 @@ Deno.serve(async (req) => {
       if (error) throw error;
       return res({ success: true, data }, 200, cors);
     }
+
+    // ══════════════════════════════════════════════════════════════
+    // PAYMENT RECEIPTS
+    // ══════════════════════════════════════════════════════════════
 
     if (action === 'get_payment_receipts') {
       const { page = 1, per_page = 50, user_id: fUid = '', search = '' } = body;
@@ -637,6 +673,10 @@ Deno.serve(async (req) => {
       return res({ success: true, data }, 200, cors);
     }
 
+    // ══════════════════════════════════════════════════════════════
+    // STATISTIKA — subscriptions dan to'g'ri hisoblanadi
+    // ══════════════════════════════════════════════════════════════
+
     if (action === 'get_stats') {
       const now   = new Date().toISOString();
       const today = new Date(); today.setHours(0, 0, 0, 0);
@@ -654,6 +694,7 @@ Deno.serve(async (req) => {
       const ps = profs.data ?? [];
       const ss = subs.data  ?? [];
 
+      // Trial statistikasi subscriptions dan
       const activeTrialCount  = ss.filter((s: { is_trial: boolean; status: string; expires_at: string }) =>
         s.is_trial && s.status === 'active' && s.expires_at > now).length;
       const expiredTrialCount = ss.filter((s: { is_trial: boolean; status: string }) =>
@@ -687,6 +728,10 @@ Deno.serve(async (req) => {
         archived_users:       arch.count ?? 0,
       }, signups_14d: days14 }, 200, cors);
     }
+
+    // ══════════════════════════════════════════════════════════════
+    // KONTENT
+    // ══════════════════════════════════════════════════════════════
 
     if (action === 'get_audit_logs') {
       const { page = 1, per_page = 50, table_filter = '', action_filter = '' } = body;
@@ -730,6 +775,10 @@ Deno.serve(async (req) => {
       });
       return res({ success: true, ...result }, 200, cors);
     }
+
+    // ══════════════════════════════════════════════════════════════
+    // PAYME TO'LOVLARI
+    // ══════════════════════════════════════════════════════════════
 
     if (action === 'get_payme_transactions') {
       const {
@@ -837,6 +886,23 @@ Deno.serve(async (req) => {
       return res({ success: true, data, count }, 200, cors);
     }
 
+    if (action === 'delete_test_result') {
+      const { result_id } = body;
+      if (!result_id) return res({ error: 'result_id kerak' }, 400, cors);
+      const { data: existing } = await db.from('test_results')
+        .select('id, user_id, variant, correct_answers, total_questions, completed_at')
+        .eq('id', result_id).single();
+      if (!existing) return res({ error: 'Natija topilmadi' }, 404, cors);
+      const { error } = await db.from('test_results').delete().eq('id', result_id);
+      if (error) throw error;
+      await auditLog(db, actorId, 'delete_test_result', 'test_results', existing, null);
+      return res({ success: true }, 200, cors);
+    }
+
+    // ══════════════════════════════════════════════════════════════
+    // TO'LOV TURLARI
+    // ══════════════════════════════════════════════════════════════
+
     if (action === 'get_payment_types') {
       const { data, error } = await db.from('payment_types')
         .select('id,name,description,is_active,sort_order,created_at').order('sort_order');
@@ -915,6 +981,10 @@ Deno.serve(async (req) => {
       const stats = await handleGetFinanceStats();
       return res({ success: true, data: stats }, 200, cors);
     }
+
+    // ══════════════════════════════════════════════════════════════
+    // YANGILIKLAR (news_posts)
+    // ══════════════════════════════════════════════════════════════
 
     if (action === 'get_news_posts') {
       const { page = 1, per_page = 50, search = '', is_published } = body;
@@ -1062,7 +1132,7 @@ Deno.serve(async (req) => {
     return res({ error: "Noma'lum action" }, 400, cors);
 
   } catch (err) {
-    console.error('[admin-manager v27]', err);
+    console.error('[admin-manager v26]', err);
     return res({ error: 'Server xatosi', detail: String(err) }, 500, cors);
   }
 });
