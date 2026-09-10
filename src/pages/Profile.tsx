@@ -34,6 +34,7 @@ import { emailToPhoneDisplay } from '@/lib/phone';
 import { formatTestTime } from '@/lib/testPersistence';
 import { BottomNav } from '@/components/layout/BottomNav';
 import { ProfileSection } from '@/components/profile/ProfileSection';
+import { trackEvent } from '@/lib/track';
 
 interface TestResult {
   id: string;
@@ -153,6 +154,11 @@ const Profile = () => {
       clearInterval(paymePollRef.current);
       paymePollRef.current = null;
       toast.success("PRO tarif faollashtirildi!");
+      // Voronka: to'lov CHINAKAM tasdiqlangan payt — `paymePollRef.current`
+      // faqat Payme'dan hozirgina qaytilganda faol bo'ladi, ya'ni bu
+      // allaqachon PRO bo'lgan foydalanuvchi shunchaki profilni ochishi
+      // bilan aralashmaydi.
+      trackEvent("payment_complete");
     }
   }, [isPremium]);
 // Eski (legacy) chek havolasini olish.

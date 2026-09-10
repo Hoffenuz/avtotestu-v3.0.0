@@ -135,7 +135,7 @@ export default function Home() {
         title={t("home.seoTitle")}
         description={t("home.seoDescription")}
         path="/"
-        keywords="avto test, avtotest 2026, prava test, YHQ testlar, haydovchilik guvohnomasi, yo'l belgilari, avtotestu.uz"
+        keywords="avtosmart, avto smart, avtosmart uz, avto test, avtotest 2026, prava test, YHQ testlar, haydovchilik guvohnomasi, yo'l belgilari, avtotestu.uz"
       />
 
       {/*

@@ -13,6 +13,7 @@ import { clearPendingPlan, peekPendingPlan, setPendingPlan } from "@/lib/pending
 import { DB_READ_TIMEOUT_MS, withTimeout } from "@/lib/withTimeout";
 import { toast } from "sonner";
 import { Crown, Check, X, Star, Send } from "lucide-react";
+import { trackEvent } from "@/lib/track";
 
 /**
  * Faol tariflarni o'qiydi.
@@ -223,6 +224,11 @@ export default function Pro() {
       // allaqachon to'langan bo'lsa ham qayta /pro ga yuborib yuboradi.
       clearPendingPlan();
 
+      // Voronka: to'lov muvaffaqiyatli boshlandi — shu yerdan keyin
+      // foydalanuvchi saytdan chiqib Payme'ga ketadi, ya'ni bu SO'NGGI
+      // moment uni kuzata olamiz. Bekor qilingan/tugatilmagan tranzaksiya
+      // (avgustda 5.6%) shu bilan "boshlangan" hisoblarga solishtiriladi.
+      trackEvent("checkout_start", { plan: planName });
       window.location.href = checkoutUrl;
       return true;
     },
@@ -235,6 +241,7 @@ export default function Pro() {
       // to'g'ridan-to'g'ri "Ro'yxatdan o'tish" bo'limiga olib boramiz va
       // tugagach shu sahifaga qaytaramiz. Tanlagan tarifi ham saqlanadi —
       // ro'yxatdan o'tgach uni qaytadan izlashi shart emas.
+      trackEvent("guest_buy_click", { plan: planName });
       setPendingPlan(planName);
       toast.info("To'lov uchun avval ro'yxatdan o'ting — bir daqiqa vaqt oladi.");
       navigate('/auth', { state: { mode: 'signup', returnTo: '/pro' } });

@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { detectLangFromWindow } from "@/lib/langUrl";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { AuthProvider } from "@/contexts/AuthContext";
+import { RouteTracker } from "@/components/RouteTracker";
 import { Suspense, Component, ReactNode } from "react";
 import { lazyWithRetry } from "@/lib/lazyWithRetry";
 import Home from "./pages/Home";
@@ -132,6 +133,7 @@ const App = () => {
     `basename` kuchga kiradi.
   */}
   <BrowserRouter basename={detectLangFromWindow().prefix || undefined}>
+    <RouteTracker />
     <AuthProvider>
       <LanguageProvider>
         <TooltipProvider>

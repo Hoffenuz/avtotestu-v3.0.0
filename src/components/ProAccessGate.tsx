@@ -1,10 +1,11 @@
-import type { ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 import { Crown, Home, LogIn, Lock, ServerCrash } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SECTION_LABEL, type GateSection } from "@/lib/gateSections";
+import { trackEvent } from "@/lib/track";
 
 /* Eski import yo'llari ishlashda davom etsin. */
 export type { GateSection };
@@ -49,6 +50,16 @@ export function GateShell({
 export function ProAccessGate({ section, reason, returnPath, onRetry }: ProAccessGateProps) {
   const navigate = useNavigate();
   const { language } = useLanguage();
+
+  /*
+    Voronka: "cheklovga urildi" — hozirgacha hech qayerda o'lchanmagan
+    edi. `backend` chiqarib tashlangan — bu server xatosi, konversiya
+    signali emas, aralashtirilsa voronka noto'g'ri o'qiladi.
+  */
+  useEffect(() => {
+    if (reason === "backend") return;
+    trackEvent("paywall_view", { section, reason });
+  }, [section, reason]);
 
   const labels = SECTION_LABEL[section] ?? SECTION_LABEL.mavzuli;
   const sectionLabel =
@@ -108,7 +119,13 @@ export function ProAccessGate({ section, reason, returnPath, onRetry }: ProAcces
   return (
     <GateShell icon={icon} title={title} description={description}>
       <div className="flex flex-col sm:flex-row gap-3 justify-center">
-        <Button className="gap-2" onClick={() => navigate("/pro")}>
+        <Button
+          className="gap-2"
+          onClick={() => {
+            trackEvent("paywall_cta_click", { section, reason });
+            navigate("/pro");
+          }}
+        >
           <Crown className="w-4 h-4" />
           {language === "ru" ? "Получить PRO" : language === "uz" ? "PRO olish" : "Pro olish"}
         </Button>

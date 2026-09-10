@@ -23,7 +23,7 @@
 // uchun bu bir xil turdagi ekran, faqat mazmuni boshqa.
 // ============================================================================
 
-import type { ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserPlus, LogIn, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -31,6 +31,7 @@ import { GateShell } from "@/components/ProAccessGate";
 import { SECTION_LABEL, type GateSection } from "@/lib/gateSections";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { trackEvent } from "@/lib/track";
 
 interface AuthSectionGateProps {
   section: GateSection;
@@ -57,6 +58,30 @@ export function AuthSectionGate({ section, returnPath, children }: AuthSectionGa
   }
 
   if (user) return <>{children}</>;
+
+  return <SignupGateView section={section} returnPath={returnPath} navigate={navigate} language={language} />;
+}
+
+/*
+  Alohida komponentga ajratilgan — chunki `useEffect` shart bo'yicha
+  chaqirilmasligi kerak (Rules of Hooks). Yuqoridagi ikki erta `return`
+  (`isLoading`, `user`) tugagach, bu komponent FAQAT haqiqatan taklif
+  ko'rsatilganda chiziladi va shu payt voronka voqeasi yuboriladi.
+*/
+function SignupGateView({
+  section,
+  returnPath,
+  navigate,
+  language,
+}: {
+  section: GateSection;
+  returnPath: string;
+  navigate: ReturnType<typeof useNavigate>;
+  language: ReturnType<typeof useLanguage>["language"];
+}) {
+  useEffect(() => {
+    trackEvent("signup_gate_view", { section });
+  }, [section]);
 
   const labels = SECTION_LABEL[section] ?? SECTION_LABEL.mavzuli;
   const nom =
@@ -85,7 +110,10 @@ export function AuthSectionGate({ section, returnPath, children }: AuthSectionGa
       <div className="flex flex-col justify-center gap-3 sm:flex-row">
         <Button
           className="gap-2"
-          onClick={() => navigate("/auth", { state: { returnTo: returnPath, mode: "signup" } })}
+          onClick={() => {
+            trackEvent("signup_gate_cta_click", { section });
+            navigate("/auth", { state: { returnTo: returnPath, mode: "signup" } });
+          }}
         >
           <UserPlus className="h-4 w-4" aria-hidden="true" />
           {language === "ru" ? "Регистрация" : language === "uz" ? "Рўйхатдан ўтиш" : "Ro'yxatdan o'tish"}
