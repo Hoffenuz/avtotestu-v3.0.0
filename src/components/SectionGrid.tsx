@@ -69,28 +69,28 @@ export function SectionGrid({
               to={item.to}
               className={cn(
                 "group flex h-full items-center gap-3 rounded-xl border border-border bg-card",
-                "transition-colors",
-                "hover:border-primary/40 hover:bg-accent",
+                "transition-all",
+                "hover:border-primary/40 hover:bg-accent hover:shadow-md hover:-translate-y-0.5",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-                showDescription ? "gap-4 px-4 py-4 sm:px-5 sm:py-5" : "px-3.5 py-3",
+                showDescription ? "gap-4 px-4 py-4 sm:px-5 sm:py-5" : "gap-3.5 px-4 py-4 sm:px-5 sm:py-5",
               )}
             >
               <span
                 className={cn(
                   "flex shrink-0 items-center justify-center rounded-lg",
                   ACCENT_CLASS[item.accent],
-                  showDescription ? "h-11 w-11 rounded-xl sm:h-12 sm:w-12" : "h-9 w-9",
+                  showDescription ? "h-11 w-11 rounded-xl sm:h-12 sm:w-12" : "h-12 w-12 rounded-xl sm:h-14 sm:w-14",
                 )}
                 aria-hidden="true"
               >
-                <Icon className={showDescription ? "h-5 w-5 sm:h-6 sm:w-6" : "h-[18px] w-[18px]"} />
+                <Icon className={showDescription ? "h-5 w-5 sm:h-6 sm:w-6" : "h-6 w-6 sm:h-7 sm:w-7"} />
               </span>
 
               <span className="min-w-0 flex-1">
                 <span
                   className={cn(
                     "block truncate font-semibold text-foreground",
-                    showDescription ? "text-[15px] sm:text-base" : "text-sm",
+                    showDescription ? "text-[15px] sm:text-base" : "text-base font-bold sm:text-lg",
                   )}
                 >
                   {t(item.titleKey)}
@@ -129,7 +129,10 @@ export function SectionGrid({
               ) : null}
 
               <ChevronRight
-                className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5"
+                className={cn(
+                  "shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5",
+                  showDescription ? "h-4 w-4" : "h-5 w-5",
+                )}
                 aria-hidden="true"
               />
             </Link>

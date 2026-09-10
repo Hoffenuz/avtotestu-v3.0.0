@@ -18,7 +18,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AlertCircle, CheckCircle2, Play, Loader2 } from "lucide-react";
 import { MainLayout } from "@/components/layout/MainLayout";
-import { AuthSectionGate } from "@/components/AuthSectionGate";
+import { ProSectionGate } from "@/components/ProSectionGate";
 import { SEO } from "@/components/SEO";
 import { PageHeader } from "@/components/PageHeader";
 import { Button } from "@/components/ui/button";
@@ -97,7 +97,7 @@ export default function XatolarTesti() {
   */
   if (started) {
     return (
-      <AuthSectionGate section="xatolarTesti" returnPath="/xatolar-testi">
+      <ProSectionGate section="xatolarTesti" returnPath="/xatolar-testi">
       <TestInterfaceBase
         onExit={() => {
           setStarted(false);
@@ -115,7 +115,7 @@ export default function XatolarTesti() {
         sessionId={sessionId}
         isPremiumSession={isPremium}
       />
-      </AuthSectionGate>
+      </ProSectionGate>
     );
   }
 
@@ -131,7 +131,7 @@ export default function XatolarTesti() {
         noIndex
       />
 
-      <AuthSectionGate section="xatolarTesti" returnPath="/xatolar-testi">
+      <ProSectionGate section="xatolarTesti" returnPath="/xatolar-testi">
       <div className="mx-auto w-full max-w-2xl px-4 py-6 md:py-10">
         <PageHeader
           title={t("sections.xatolarTesti")}
@@ -203,7 +203,7 @@ export default function XatolarTesti() {
           </Card>
         )}
       </div>
-      </AuthSectionGate>
+      </ProSectionGate>
     </MainLayout>
   );
 }

@@ -1,9 +1,8 @@
 // ============================================================================
 // gateSections — kirish darvozalarida ko'rsatiladigan bo'lim nomlari
 // ----------------------------------------------------------------------------
-// NEGA ALOHIDA FAYL: bu nomlarni ikkita komponent ishlatadi —
-// `ProAccessGate` (PRO talab qiladigan bo'limlar) va `AuthSectionGate`
-// (faqat ro'yxatdan o'tish talab qiladiganlar). Konstantani komponent
+// NEGA ALOHIDA FAYL: `ProAccessGate`/`ProSectionGate` bu nomlarni PRO
+// talab qiladigan har bir bo'lim uchun ishlatadi. Konstantani komponent
 // faylidan eksport qilish React Fast Refresh ni buzadi, shuning uchun
 // u shu yerda turadi.
 // ============================================================================
