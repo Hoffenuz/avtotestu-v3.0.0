@@ -1,9 +1,12 @@
 /**
- * admin-manager v26
+ * admin-manager v27
  * - super_admin: barcha actionlar
  * - admin: faqat user qo‘shish + muddat (tariff) belgilash
  * - v26: delete_test_result action qo'shildi (ResultsPage'dagi
  *   "o'chirish" tugmasi avval doim xato qaytarardi)
+ * - v27: get_stats/get_payme_stats Toshkent (UTC+5) kun chegarasiga
+ *   o'tkazildi; update_tariff endi subscriptions'ga yozuv qo'shadi va
+ *   audit_logs'ga yoziladi (avval takroriy to'lovlar tarixi yo'qolardi)
  */
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 import { handleGetPayments } from '../_shared/getPayments.ts';
@@ -423,6 +426,9 @@ Deno.serve(async (req) => {
       if (typeof tariff_days !== 'number' || tariff_days < 0 || tariff_days > 366)
         return res({ error: 'tariff_days 0-366' }, 400, cors);
 
+      const { data: oldProfile } = await db.from('profiles')
+        .select('tariff_days, tariff_end_date').eq('id', user_id).single();
+
       const startIso  = tariff_start_date ? String(tariff_start_date) : new Date().toISOString();
       const endDate   = tariff_days > 0 ? tariffEnd(startIso, tariff_days) : null;
 
@@ -432,6 +438,27 @@ Deno.serve(async (req) => {
         tariff_end_date: endDate,
       }).eq('id', user_id);
       if (error) throw error;
+
+      // subscriptions'ga yozuv — bu yo'q bo'lsa, ushbu (eng ko'p ishlatiladigan)
+      // amal orqali berilgan tarif hech qayerda tarix sifatida saqlanmay,
+      // keyingi "Tarif berish"da ustidan yozilib ketardi va moliya
+      // hisobotlarida (Jami daromad) takroriy to'lovlar yo'qolib qolardi.
+      if (tariff_days > 0) {
+        const { error: subErr } = await db.from('subscriptions').insert({
+          user_id,
+          plan_name:   'basic',
+          status:      new Date(endDate!) > new Date() ? 'active' : 'expired',
+          started_at:  startIso,
+          expires_at:  endDate,
+          tariff_days,
+          is_trial:    false,
+          assigned_by: actorId === 'system' ? null : actorId,
+          note:        actorId === 'system' ? 'Bot orqali yangilandi' : 'Admin tomonidan yangilandi',
+        });
+        if (subErr) console.error('[update_tariff] subscriptions insert:', subErr.message);
+      }
+
+      await auditLog(db, actorId, 'update_tariff', 'profiles', oldProfile, { tariff_days, tariff_end_date: endDate });
 
       return res({ success: true, tariff_end_date: endDate }, 200, cors);
     }
@@ -1160,7 +1187,7 @@ Deno.serve(async (req) => {
     return res({ error: "Noma'lum action" }, 400, cors);
 
   } catch (err) {
-    console.error('[admin-manager v26]', err);
+    console.error('[admin-manager v27]', err);
     return res({ error: 'Server xatosi', detail: String(err) }, 500, cors);
   }
 });
