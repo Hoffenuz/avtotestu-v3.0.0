@@ -1,5 +1,14 @@
 /** Server-side moliya (src/lib/finance.ts bilan mos) */
 
+// Deno runtime UTC'da ishlaydi, biznes Toshkentda (UTC+5, DST yo'q).
+const TASHKENT_TZ_MS = 5 * 3600000;
+
+function tashkentDayStart(d: Date): Date {
+  const shifted = new Date(d.getTime() + TASHKENT_TZ_MS);
+  const startShifted = Date.UTC(shifted.getUTCFullYear(), shifted.getUTCMonth(), shifted.getUTCDate());
+  return new Date(startShifted - TASHKENT_TZ_MS);
+}
+
 const TARIFF_PRICES: Record<number, number> = {
   7: 15_000,
   31: 33_000,
@@ -186,11 +195,12 @@ export function buildFinancePayload(
       new Date(a.tariff_start_date as string).getTime()
   );
 
-  const todayStart = new Date(now);
-  todayStart.setHours(0, 0, 0, 0);
-  const weekAgo = new Date(todayStart);
-  weekAgo.setDate(weekAgo.getDate() - 7);
-  const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+  const todayStart = tashkentDayStart(now);
+  const weekAgo = new Date(todayStart.getTime() - 7 * 86_400_000);
+  const shiftedNow = new Date(now.getTime() + TASHKENT_TZ_MS);
+  const monthStart = new Date(
+    Date.UTC(shiftedNow.getUTCFullYear(), shiftedNow.getUTCMonth(), 1) - TASHKENT_TZ_MS
+  );
 
   let today = 0;
   let weekly = 0;

@@ -57,6 +57,29 @@ function tariffEnd(startIso: string, days: number): string {
   return new Date(t.getTime() - TZ).toISOString();
 }
 
+// Edge Function Deno runtime UTC'da ishlaydi, biznes esa Toshkentda (UTC+5,
+// yil bo'yi qishki/yozgi vaqtsiz). "Bugun/hafta/oy" kabi kun chegaralarini
+// oddiy Date.setHours(0,0,0,0) bilan hisoblash noto'g'ri edi — bu UTC yarim
+// tunni olardi, ya'ni Toshkentda soat 00:00-05:00 oralig'idagi hodisalar
+// noto'g'ri kunga (kechagiga) hisoblanardi. Shu ikki funksiya buni tuzatadi.
+const TASHKENT_TZ_MS = 5 * 3600000;
+
+/** Berilgan lahza tushadigan Toshkent kalendar kunining boshlanish lahzasi (UTC instant) */
+function tashkentDayStart(d: Date): Date {
+  const shifted = new Date(d.getTime() + TASHKENT_TZ_MS);
+  const startShifted = Date.UTC(shifted.getUTCFullYear(), shifted.getUTCMonth(), shifted.getUTCDate());
+  return new Date(startShifted - TASHKENT_TZ_MS);
+}
+
+/** Berilgan lahza uchun Toshkent kalendar kuni kaliti, "YYYY-MM-DD" */
+function tashkentDayKey(d: Date): string {
+  const shifted = new Date(d.getTime() + TASHKENT_TZ_MS);
+  const y = shifted.getUTCFullYear();
+  const m = String(shifted.getUTCMonth() + 1).padStart(2, '0');
+  const day = String(shifted.getUTCDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+}
+
 // news_posts.slug CHECK: '^[a-z0-9]+(?:-[a-z0-9]+)*$'
 function slugify(title: string): string {
   return title
@@ -678,8 +701,9 @@ Deno.serve(async (req) => {
     // ══════════════════════════════════════════════════════════════
 
     if (action === 'get_stats') {
-      const now   = new Date().toISOString();
-      const today = new Date(); today.setHours(0, 0, 0, 0);
+      const nowDate = new Date();
+      const now   = nowDate.toISOString();
+      const todayStart = tashkentDayStart(nowDate);
 
       const [profs, tr, msgs, chk, arch, subs, recs] = await Promise.all([
         db.from('profiles').select('tariff_days, tariff_end_date, created_at'),
@@ -702,12 +726,13 @@ Deno.serve(async (req) => {
 
       const days14: Record<string, number> = {};
       for (let i = 13; i >= 0; i--) {
-        const d = new Date(); d.setDate(d.getDate() - i); d.setHours(0, 0, 0, 0);
-        days14[d.toISOString().split('T')[0]] = 0;
+        const key = tashkentDayKey(new Date(nowDate.getTime() - i * 86_400_000));
+        days14[key] = 0;
       }
       ps.forEach(p => {
-        const day = p.created_at?.split('T')[0];
-        if (day && day in days14) days14[day]++;
+        if (!p.created_at) return;
+        const key = tashkentDayKey(new Date(p.created_at));
+        if (key in days14) days14[key]++;
       });
 
       return res({ success: true, stats: {
@@ -717,7 +742,7 @@ Deno.serve(async (req) => {
         active_trial:         activeTrialCount,
         expired_trial:        expiredTrialCount,
         free:                 ps.filter(p => !p.tariff_days || p.tariff_days === 0).length,
-        new_today:            ps.filter(p => p.created_at >= today.toISOString()).length,
+        new_today:            ps.filter(p => p.created_at >= todayStart.toISOString()).length,
         total_subscriptions:  ss.length,
         active_subscriptions: ss.filter((s: { status: string }) => s.status === 'active').length,
         trial_subscriptions:  ss.filter((s: { is_trial: boolean }) => s.is_trial).length,
@@ -811,9 +836,12 @@ Deno.serve(async (req) => {
 
     if (action === 'get_payme_stats') {
       const now = new Date();
-      const todayStart = new Date(now); todayStart.setHours(0, 0, 0, 0);
-      const weekAgo = new Date(todayStart); weekAgo.setDate(weekAgo.getDate() - 7);
-      const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+      const todayStart = tashkentDayStart(now);
+      const weekAgo = new Date(todayStart.getTime() - 7 * 86_400_000);
+      const shiftedNow = new Date(now.getTime() + TASHKENT_TZ_MS);
+      const monthStart = new Date(
+        Date.UTC(shiftedNow.getUTCFullYear(), shiftedNow.getUTCMonth(), 1) - TASHKENT_TZ_MS
+      );
       const thirtyDaysAgoIso = new Date(now.getTime() - 30 * 86_400_000).toISOString();
 
       const [{ data: paid, error: paidErr }, { data: cancelled, error: cancelErr }] = await Promise.all([
