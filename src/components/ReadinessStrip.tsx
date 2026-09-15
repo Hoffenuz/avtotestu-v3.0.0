@@ -47,7 +47,15 @@ export function ReadinessStrip({ className }: { className?: string }) {
 
   return (
     <div className={cn("relative z-10 border-b border-border bg-card/90 backdrop-blur-md", className)}>
-      <div className="mx-auto flex max-w-7xl items-center gap-3 px-3 py-2 lg:px-4">
+      {/*
+        Balandlik ataylab kichik (py-1.5).
+
+        Bu tasma faqat KIRGAN foydalanuvchiga ko'rinadi, ya'ni mehmon bilan
+        kirgan odamning sahifasi shu miqdorga farq qiladi. Farqni butunlay
+        yo'qotib bo'lmaydi (mehmonga bo'sh joy qoldirish ma'nosiz), lekin
+        uni iloji boricha kichik tutish kerak.
+      */}
+      <div className="mx-auto flex max-w-7xl items-center gap-3 px-3 py-1.5 lg:px-4">
         {/* Chap qism — bosilsa profilga. */}
         <Link
           to="/profile"
