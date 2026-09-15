@@ -59,6 +59,27 @@ function isExamTicketResult(r: TestResult): boolean {
   return false;
 }
 
+/**
+ * Tarif nomini odam tilida: `weekly` → "Haftalik · 7 kun".
+ *
+ * Bazadagi nom texnik (`weekly`, `basic`) — foydalanuvchiga uni xom holda
+ * ko'rsatish hech narsa tushuntirmaydi. Kun soni ham qo'shiladi: shunda
+ * "haftalik" so'zi qancha muddatni anglatishi shubhasiz bo'ladi.
+ */
+const PLAN_LABELS: Record<string, string> = {
+  weekly: 'Haftalik',
+  monthly: 'Oylik',
+  quarterly: '3 oylik',
+  basic: 'Admin tarifi',
+};
+
+function formatPlanLabel(planName: string | null, tariffDays: number | null): string {
+  const label = PLAN_LABELS[(planName || '').toLowerCase()];
+  const days = tariffDays && tariffDays > 0 ? `${tariffDays} kun` : null;
+  if (label && days) return `${label} · ${days}`;
+  return label || days || 'Obuna';
+}
+
 const Profile = () => {
   const { user, profile, signOut, isLoading, refreshProfile } = useAuth();
 
@@ -517,13 +538,27 @@ useEffect(() => {
               </div>
             ) : (
               <div className="space-y-3">
+                {/*
+                  Bo'sh maydon "-" emas: telefon orqali ro'yxatdan o'tganda
+                  ism ham, username ham SO'RALMAYDI, ya'ni bu maydonlar
+                  ko'pchilikda bo'sh. "-" xatoga o'xshab ko'rinardi —
+                  "Kiritilmagan" esa buni to'ldirish mumkinligini aytadi.
+                */}
                 <div>
                   <p className="text-sm text-muted-foreground">To'liq ism</p>
-                  <p className="font-medium text-foreground">{profile?.full_name || '-'}</p>
+                  {profile?.full_name ? (
+                    <p className="font-medium text-foreground">{profile.full_name}</p>
+                  ) : (
+                    <p className="font-medium text-muted-foreground/70 italic">Kiritilmagan</p>
+                  )}
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Foydalanuvchi nomi</p>
-                  <p className="font-medium text-foreground">{profile?.username ? `@${profile.username}` : '-'}</p>
+                  {profile?.username ? (
+                    <p className="font-medium text-foreground">@{profile.username}</p>
+                  ) : (
+                    <p className="font-medium text-muted-foreground/70 italic">Kiritilmagan</p>
+                  )}
                 </div>
                 {/*
                   Telefon orqali ro'yxatdan o'tganlarda email sun'iy
@@ -614,12 +649,24 @@ useEffect(() => {
                           {isActive ? 'Faol' : 'Tugagan'}
                         </span>
                         <span className="text-sm font-medium">
-                          {sub.plan_name || `${sub.tariff_days} kun`}
+                          {formatPlanLabel(sub.plan_name, sub.tariff_days)}
                         </span>
                       </div>
-                      <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
-                        <Calendar className="w-3 h-3" />
-                        {new Date(sub.started_at).toLocaleDateString('uz-UZ')} – {new Date(sub.ends_at).toLocaleDateString('uz-UZ')}
+                      {/*
+                        ATAYLAB "boshlandi – tugadi" oralig'i EMAS.
+
+                        `ends_at` — shu xariddan keyingi PRO tugash sanasi, u
+                        eski obuna USTIGA qo'shiladi. Shuning uchun eski
+                        ko'rinishda 7 kunlik xarid "17.08 – 25.11" bo'lib
+                        chiqib, "haftalik obuna 3 oy davom etyapti" degan
+                        chalkashlik tug'dirardi. Endi xarid sanasi va PRO
+                        tugash sanasi alohida, nomi bilan yoziladi.
+                      */}
+                      <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1 flex-wrap">
+                        <Calendar className="w-3 h-3 shrink-0" />
+                        <span>Xarid: {new Date(sub.started_at).toLocaleDateString('uz-UZ')}</span>
+                        <span aria-hidden="true">·</span>
+                        <span>PRO {new Date(sub.ends_at).toLocaleDateString('uz-UZ')} gacha</span>
                       </p>
                     </div>
                     {sub.amount && (
