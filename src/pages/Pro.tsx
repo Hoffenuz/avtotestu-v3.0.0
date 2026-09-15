@@ -8,7 +8,12 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAccessState } from "@/hooks/useAccessState";
 import { supabase } from "@/integrations/supabase/client";
-import { buildPaymeCheckoutUrl, formatTiyinAsSum, type PaymePlan } from "@/lib/payme";
+import {
+  buildPaymeCheckoutUrl,
+  formatTiyinAsSum,
+  formatTiyinPerDayAsSum,
+  type PaymePlan,
+} from "@/lib/payme";
 import { clearPendingPlan, peekPendingPlan, setPendingPlan } from "@/lib/pendingPlan";
 import { DB_READ_TIMEOUT_MS, withTimeout } from "@/lib/withTimeout";
 import { toast } from "sonner";
@@ -127,6 +132,7 @@ export default function Pro() {
       planName: "weekly",
       nameKey: "pro.planWeekly",
       fallbackPrice: "15 000",
+      fallbackDays: 7,
       periodKey: "pro.planWeeklyDesc",
       descriptionKey: "pro.planWeeklyDesc",
       highlighted: false,
@@ -137,6 +143,7 @@ export default function Pro() {
       planName: "monthly",
       nameKey: "pro.planMonthly",
       fallbackPrice: "35 000",
+      fallbackDays: 30,
       periodKey: "pro.planMonthlyDesc",
       descriptionKey: "pro.planMonthlyDesc",
       highlighted: true,
@@ -147,6 +154,7 @@ export default function Pro() {
       planName: "quarterly",
       nameKey: "pro.planQuarterly",
       fallbackPrice: "83 000",
+      fallbackDays: 90,
       periodKey: "pro.planQuarterlyDesc",
       descriptionKey: "pro.planQuarterlyDesc",
       highlighted: false,
@@ -159,6 +167,49 @@ export default function Pro() {
   const priceOf = (plan: { planName: string; fallbackPrice: string }): string => {
     const dbPlan = paymePlans[plan.planName];
     return dbPlan ? formatTiyinAsSum(dbPlan.amount_tiyin) : plan.fallbackPrice;
+  };
+
+  type PlanCard = (typeof plans)[number];
+
+  /** Summa va muddat — DB dagi haqiqiy qiymat, yuklanmasa zaxira. */
+  const amountAndDays = (plan: PlanCard): { tiyin: number; days: number } => {
+    const dbPlan = paymePlans[plan.planName];
+    if (dbPlan?.tariff_days) {
+      return { tiyin: dbPlan.amount_tiyin, days: dbPlan.tariff_days };
+    }
+    return {
+      tiyin: Number(plan.fallbackPrice.replace(/\s/g, "")) * 100,
+      days: plan.fallbackDays,
+    };
+  };
+
+  /**
+   * Kunlik narx va haftalikka nisbatan arzonlik.
+   *
+   * Nega kerak: to'lovlarning ~63%i haftalik tarif, chunki 15 000 raqami
+   * 35 000 dan arzon ko'rinadi. Kunlik hisobda esa oylik ~46% arzon —
+   * bu farq hech qayerda ko'rsatilmagani uchun odam doim arzonini tanlaydi.
+   */
+  const perDayOf = (plan: PlanCard): string => {
+    const { tiyin, days } = amountAndDays(plan);
+    return formatTiyinPerDayAsSum(tiyin, days);
+  };
+
+  /** Haftalikka nisbatan necha foiz arzon (0 — arzon emas yoki o'zi haftalik). */
+  const cheaperThanWeeklyPercent = (plan: PlanCard): number => {
+    if (plan.planName === "weekly") return 0;
+    const weekly = plans.find((p) => p.planName === "weekly");
+    if (!weekly) return 0;
+
+    const weeklyInfo = amountAndDays(weekly);
+    const planInfo = amountAndDays(plan);
+    if (!weeklyInfo.days || !planInfo.days) return 0;
+
+    const weeklyPerDay = weeklyInfo.tiyin / weeklyInfo.days;
+    const planPerDay = planInfo.tiyin / planInfo.days;
+    if (!(planPerDay < weeklyPerDay)) return 0;
+
+    return Math.round((1 - planPerDay / weeklyPerDay) * 100);
   };
 
   // Allow both guests and logged-in users to view the Pro page.
@@ -380,9 +431,21 @@ export default function Pro() {
                         </div>
                       </div>
                       
-                      <div className="flex items-end gap-1.5 mb-3.5">
+                      <div className="flex items-end gap-1.5 mb-1.5">
                         <span className="text-xl font-extrabold">{priceOf(plan)} so&apos;m</span>
                         <span className="text-[13px] font-medium text-muted-foreground mb-1">{t(plan.periodKey)}</span>
+                      </div>
+
+                      {/* Kunlik narx — tariflarni HAQIQATAN taqqoslash mumkin bo'lgan yagona o'lchov */}
+                      <div className="flex items-center gap-2 flex-wrap mb-3.5">
+                        <span className="text-[12px] text-muted-foreground">
+                          {perDayOf(plan)} so&apos;m {t("pro.perDay")}
+                        </span>
+                        {cheaperThanWeeklyPercent(plan) > 0 && (
+                          <span className="text-[11px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/25 px-2 py-0.5 rounded-full">
+                            {t("pro.cheaperThanWeekly").replace("{p}", String(cheaperThanWeeklyPercent(plan)))}
+                          </span>
+                        )}
                       </div>
 
                       <Button
@@ -546,9 +609,21 @@ export default function Pro() {
                         </div>
                       </div>
                       
-                      <div className="flex items-end gap-1.5 mb-3.5">
+                      <div className="flex items-end gap-1.5 mb-1.5">
                         <span className="text-xl font-extrabold">{priceOf(plan)} so&apos;m</span>
                         <span className="text-[13px] font-medium text-muted-foreground mb-1">{t(plan.periodKey)}</span>
+                      </div>
+
+                      {/* Kunlik narx — tariflarni HAQIQATAN taqqoslash mumkin bo'lgan yagona o'lchov */}
+                      <div className="flex items-center gap-2 flex-wrap mb-3.5">
+                        <span className="text-[12px] text-muted-foreground">
+                          {perDayOf(plan)} so&apos;m {t("pro.perDay")}
+                        </span>
+                        {cheaperThanWeeklyPercent(plan) > 0 && (
+                          <span className="text-[11px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/25 px-2 py-0.5 rounded-full">
+                            {t("pro.cheaperThanWeekly").replace("{p}", String(cheaperThanWeeklyPercent(plan)))}
+                          </span>
+                        )}
                       </div>
 
                       <Button

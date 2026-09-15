@@ -26,8 +26,7 @@ import { QUICK_ITEMS } from "@/lib/siteSections";
 import { fetchSectionCounts } from "@/lib/questionState";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { SiteNotificationBanner } from "@/components/SiteNotificationBanner";
-import MobileAppBanner from "@/components/MobileAppBanner";
-import DesktopAppBanner from "@/components/DesktopAppBanner";
+import HomeTopBanner from "@/components/HomeTopBanner";
 
 
 
@@ -129,8 +128,7 @@ export default function Home() {
   return (
     <MainLayout>
       <SiteNotificationBanner />
-      <MobileAppBanner />
-      <DesktopAppBanner />
+      <HomeTopBanner />
       <SEO
         title={t("home.seoTitle")}
         description={t("home.seoDescription")}
