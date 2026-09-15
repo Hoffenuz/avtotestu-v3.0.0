@@ -6,7 +6,8 @@
  * qo'shimcha yozuv KERAK EMAS.
  *
  * Koeffitsient to'rtta o'lchanadigan komponentdan yig'iladi (vazni bilan):
- *   aniqlik 35% · qamrov 25% · variantlar 15% · mustahkamlik 25%
+ *   variantlar 35% · testlar soni 25% · aniqlik 20% · qamrov 10% ·
+ *   mustahkamlik 10%  — urg'u VARIANT va MASHQ HAJMIGA berilgan.
  * Natijaga yengil egri chiziq qo'llanadi (monoton) — tartib saqlanadi,
  * pastki qism biroz ko'tariladi. Daraja shu foizdan kelib chiqadi.
  * O'lchab bo'lmaydigan komponent (masalan savol-holati umuman yo'q hisob)
@@ -23,9 +24,11 @@ export interface Readiness {
   coveragePercent: number;
   variantsPercent: number;
   masteryPercent: number;
+  testsPercent: number;
 
   testsTotal: number;
   testsToday: number;
+  testsTarget: number;
   questionsSeen: number;
   questionsTotal: number;
   questionsMastered: number;
@@ -52,8 +55,10 @@ interface ReadinessRow {
   coverage_percent: number;
   variants_percent: number;
   mastery_percent: number;
+  tests_percent: number;
   tests_total: number;
   tests_today: number;
+  tests_target: number;
   questions_seen: number;
   questions_total: number;
   questions_mastered: number;
@@ -78,8 +83,10 @@ function toReadiness(row: ReadinessRow): Readiness {
     coveragePercent: row.coverage_percent,
     variantsPercent: row.variants_percent,
     masteryPercent: row.mastery_percent,
+    testsPercent: row.tests_percent,
     testsTotal: row.tests_total,
     testsToday: row.tests_today,
+    testsTarget: row.tests_target,
     questionsSeen: row.questions_seen,
     questionsTotal: row.questions_total,
     questionsMastered: row.questions_mastered,

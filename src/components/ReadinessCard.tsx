@@ -157,9 +157,10 @@ function LevelGuide({
         <div className="mx-auto mt-4 max-w-md rounded-xl bg-muted/50 p-3">
           <p className="text-xs font-semibold text-foreground">{t("readiness.levelsHowTitle")}</p>
           <ul className="mt-1.5 space-y-1 text-xs leading-relaxed text-muted-foreground">
+            <li>· {t("readiness.levelsHow3")}</li>
+            <li>· {t("readiness.levelsHow5")}</li>
             <li>· {t("readiness.levelsHow1")}</li>
             <li>· {t("readiness.levelsHow2")}</li>
-            <li>· {t("readiness.levelsHow3")}</li>
             <li>· {t("readiness.levelsHow4")}</li>
           </ul>
         </div>
@@ -351,6 +352,19 @@ export function ReadinessCard({ variant = "full", className }: ReadinessCardProp
         {/* ── Tafsilot ───────────────────────────────────────────────────── */}
         {!compact && (
           <div className="mt-4 space-y-2.5 border-t border-border pt-4">
+            {/* Tartib = VAZN tartibi: eng ko'p ta'sir qiladigan mezon yuqorida. */}
+            <Metric
+              label={t("readiness.variants")}
+              percent={data.variantsPercent}
+              detail={`${data.variantsPassed}/${data.variantsTotal}`}
+              barClass={tone.bar}
+            />
+            <Metric
+              label={t("readiness.tests")}
+              percent={data.testsPercent}
+              detail={`${data.testsTotal}/${data.testsTarget}`}
+              barClass={tone.bar}
+            />
             <Metric
               label={t("readiness.accuracy")}
               percent={data.accuracyPercent}
@@ -373,12 +387,6 @@ export function ReadinessCard({ variant = "full", className }: ReadinessCardProp
                 />
               </>
             )}
-            <Metric
-              label={t("readiness.variants")}
-              percent={data.variantsPercent}
-              detail={`${data.variantsPassed}/${data.variantsTotal}`}
-              barClass={tone.bar}
-            />
 
             {/* Xatolar ustida ishlash — ATAYLAB kattaroq: bu kartadagi eng
                 foydali harakat, qolgan hamma narsa faqat ma'lumot. */}

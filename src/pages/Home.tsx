@@ -268,7 +268,7 @@ export default function Home() {
         sahifaning SEO maketi o'zgarmaydi.
       */}
       {user && (
-        <section className="pb-10 bg-background">
+        <section className="border-t border-border bg-muted/30 py-8 md:py-10">
           <div className="max-w-4xl mx-auto px-4">
             <ReadinessCard />
           </div>

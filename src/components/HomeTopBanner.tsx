@@ -36,9 +36,10 @@ interface UpgradeOffer {
  *
  * Bu slotda BITTA element ko'rsatiladi, ustuvorlik bo'yicha:
  *
- *   1. Obunasi 3 kun ichida tugaydigan foydalanuvchi → uzaytirish taklifi.
- *   2. Kirgan foydalanuvchi → tayyorgarlik tasmasi (foiz + daraja).
- *   3. Mehmon → mobil ilova banneri (faqat telefonda).
+ *   1. Obunasi 3 kun ichida tugaydigan foydalanuvchi → uzaytirish taklifi
+ *      (bitta o'zi, chunki bu vaqtga bog'liq va eng muhim xabar).
+ *   2. Aks holda: mobil ilova banneri (faqat telefonda) va uning OSTIDA
+ *      kirgan foydalanuvchi uchun tayyorgarlik tasmasi.
  *
  * KOMPYUTER ILOVASI banneri bu yerdan OLIB TASHLANDI: u har bir tashrifda
  * eng qimmatli joyni egallardi, lekin o'lchanadigan foyda bermasdi. Ilova
@@ -141,9 +142,12 @@ export function HomeTopBanner() {
   }, [showRenew, msLeft]);
 
   if (!showRenew || msLeft === null) {
-    // Kirgan foydalanuvchiga — o'z holati; mehmonga — ilova banneri.
-    if (user) return <ReadinessStrip />;
-    return <MobileAppBanner />;
+    return (
+      <>
+        <MobileAppBanner />
+        {user && <ReadinessStrip />}
+      </>
+    );
   }
 
   const handleDismiss = (e: React.MouseEvent) => {
