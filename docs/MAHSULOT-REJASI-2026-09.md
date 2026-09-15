@@ -98,7 +98,12 @@ Bularning aksariyati **allaqachon qilindi** (yuqoridagi 1-bo'limga qarang). Qolg
 | **Play Market'da ilova nomini moslash** (`Avtodars`→`AvtoSmart`) | Brend nomuvofiqligi Google/foydalanuvchini chalkashtiradi | ⬜ Qilinmagan |
 | GA4'da funnel dashboardini ko'rish/tahlil qilish | Haqiqiy tushib qolish foizlarini bilish | ⬜ Ma'lumot yig'ilmoqda, hali tahlil qilinmagan |
 
-### Bosqich 2 (3-6 hafta) — "Shaxsiy o'qituvchi"ga aylanish
+### Bosqich 2 (3-6 hafta) — "Shaxsiy o'qituvchi"ga aylanish  ✅ TUGADI (2026-09-16)
+
+**Bajarilgani:** tayyorgarlik indikatori (foiz + 6 daraja + streak + ixtiyoriy
+imtihon sanasi) bosh sahifa va profilga qo'shildi; xatolarni ko'rish bepul
+qilindi (ular ustida ishlash PRO bo'lib qoldi); lvl tizimi indikator ichiga
+birlashtirildi. Kunlik challenge — 4-bandga qarang, Telegram botga ko'chirildi.
 
 Bu — joylashtirilgan matnning eng kuchli g'oyasi, va u **mavjud ma'lumotdan** foydalanadi (yangi kontent yozish shart emas):
 
@@ -113,10 +118,14 @@ Bu — joylashtirilgan matnning eng kuchli g'oyasi, va u **mavjud ma'lumotdan** 
 
 3. **Lvl tizimi** (sizning g'oyangiz) — ishlangan testlar soniga qarab: yo'lovchi → velosiped → avtomaktab o'quvchisi → ... Bu "Bugungi reja" ekrani bilan tabiiy birlashadi (masalan "Keyingi lvl'gacha: 12 ta test").
 
-4. **Kunlik challenge — YENGIL versiya** (murakkab live o'yin emas):
-   - "Bugungi 5 savol" + 24 soatlik umumiy reyting + streak (ketma-ket kunlar)
-   - Do'stga natija havolasi yuborish
-   - **Bot-simulyatsiya/soxta xona g'oyangiz hali kerak emas** — bu yengil versiya hech qanday soxta ishtirokchisiz ham "birgalikda" hissini beradi va ishonch xavfisiz. Agar bu versiya talabni isbotlasa, keyin murakkabroq (bot bilan to'ldirilgan xona) versiyaga o'tish mumkin — lekin FAQAT o'shanda.
+4. ~~**Kunlik challenge**~~ — **SAYTDAN OLIB TASHLANDI (qaror: 2026-09-16).**
+
+   Sabab: foydalanuvchi saytga TEST ISHLASH uchun keladi. Kunlik challenge
+   uni asosiy maqsaddan chalg'itadi va bosh sahifada joy egallaydi.
+
+   Bu g'oya butunlay bekor qilinmaydi — u **Telegram botga** ko'chiriladi
+   (Bosqich 3). Bot muhiti bunga tabiiy mos: u yerda odam allaqachon
+   "kunlik xabar" kutadi, saytda esa yo'q.
 
 5. **Eng ko'p xato qilingan 50 savolga audio/video izoh** — 1250 tasiga emas, eng samaraliga. "Ko'p odam shu yerda xato qiladi" belgisi + "xato topdingizmi?" tugmasi.
 
@@ -136,7 +145,7 @@ Bu — joylashtirilgan matnning eng kuchli g'oyasi, va u **mavjud ma'lumotdan** 
 
 Bu bosqich **faqat Bosqich 2-3 talabni isbotlagandan keyin** boshlanadi:
 
-- **Bot-simulyatsiya bilan "birga ishlash" xonalari** (sizning g'oyangiz) — agar yengil "Kunlik challenge" (Bosqich 2.4) real qiziqish ko'rsatsa.
+- **Bot-simulyatsiya bilan "birga ishlash" xonalari** — agar Telegram botdagi kunlik challenge (Bosqich 3) real qiziqish ko'rsatsa. Saytga qaytarilmaydi.
 - **Do'stga challenge / referral tizimi**: "do'stingiz 3 ta test ishlasa, sizga PRO kuni".
 - **Video darslar / kontent sotuvi** — alohida ish, alohida reja talab qiladi (hosting, to'lov oqimi). Bosqich 2'dagi qisqa audio/video izohlardan farqli — bu to'liq video kurs.
 - **1v1 live duel** — faqat kunlik challenge talabni isbotlagandan keyin.

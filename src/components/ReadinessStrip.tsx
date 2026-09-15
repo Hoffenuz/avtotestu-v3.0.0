@@ -84,7 +84,7 @@ export function ReadinessStrip({ className }: { className?: string }) {
 
           <div className="min-w-0 flex-1">
             <div className="flex items-center gap-2">
-              <span className="truncate text-sm font-extrabold leading-tight text-foreground">
+              <span className="truncate text-sm font-extrabold leading-[1.4] text-foreground">
                 {t(`readiness.level${data.levelIndex}`)}
               </span>
               {data.streakDays > 1 && (
@@ -96,14 +96,20 @@ export function ReadinessStrip({ className }: { className?: string }) {
             </div>
 
             {/* Progress — tasma ICHIDA, daraja nomi ostida. */}
-            <div className="mt-1 flex items-center gap-2">
+            <div className="mt-1.5 flex items-center gap-2">
               <span className="h-1 w-16 shrink-0 overflow-hidden rounded-full bg-muted sm:w-24">
                 <span
                   className="block h-full rounded-full transition-[width] duration-700 ease-out"
                   style={{ width: `${withinLevel}%`, background: tone.ring }}
                 />
               </span>
-              <span className="truncate text-[11px] leading-none text-muted-foreground">
+              {/*
+                `leading-none` ATAYLAB ISHLATILMAYDI: `truncate`
+                (overflow:hidden) bilan birga kelganda qator qutisi shrift
+                balandligiga teng bo'lib qoladi va pastga chiqadigan harflar
+                (g, q, y) kesiladi — aynan shu nuqson kuzatilgan edi.
+              */}
+              <span className="truncate text-[11px] leading-[1.45] text-muted-foreground">
                 {data.percentToNext !== null && data.percentToNext > 0
                   ? t("readiness.toNextLevel")
                       .replace("{n}", String(data.percentToNext))

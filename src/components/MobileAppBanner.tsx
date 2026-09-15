@@ -26,8 +26,16 @@ export function MobileAppBanner() {
           shart. Do'kondagi nom hozir "Avtodars" — u AvtoSmart ga
           o'zgartirilgach bu matn to'liq to'g'ri bo'ladi.
         */}
+        {/*
+          O'LCHAM QURILMAGA MOSLASHADI, matn kesilmaydi.
+
+          `truncate` OLIB TASHLANDI: tor telefonda u nomni "AvtoSmart —
+          mobil..." qilib kesardi. Endi matn kerak bo'lsa ikki qatorga
+          o'tadi (`leading-snug` — harf dumlari kesilmasin uchun), Google
+          Play tugmasi esa kichik ekranda ozroq kichrayadi va joy ochadi.
+        */}
         <div className="flex-1 min-w-0 px-1">
-          <div className="font-semibold text-sm leading-tight truncate">
+          <div className="font-semibold text-sm leading-snug sm:text-[15px]">
             AvtoSmart — mobil ilova
           </div>
         </div>
@@ -35,7 +43,7 @@ export function MobileAppBanner() {
         <img
           src="/images/rasm32.webp"
           alt="Google Play"
-          className="w-28 h-10 object-contain flex-shrink-0"
+          className="w-24 h-9 sm:w-28 sm:h-10 object-contain flex-shrink-0"
           loading="lazy"
         />
       </div>
