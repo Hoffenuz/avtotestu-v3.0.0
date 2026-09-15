@@ -204,34 +204,17 @@
       GOOGLE QIDIRUVI uchun favicon kvadrat va 48px ga karrali bo'lishi
       kerak. Bu ikki yo'l bilan ta'minlangan:
         1) `favicon.svg` — SVG uchun o'lcham sharti yo'q (Google hujjati);
-        2) `favicon.ico` ichida 64x64 varianti bor (48px talabidan yuqori).
-
-      DIQQAT — 2026-09-15 (ikki bosqichli tuzatish):
-        1) ICO'dagi 48px avval nozik chiziqli ("rul" detali) dizaynda
-           edi — Google уни kichraytirganda chiziqlar qo'shilib ketib
-           favicon deyarli OQ ko'rinardi. 64px'ga (48 talabidan yuqori)
-           "asosiy logo" (quyuq ink rangli S, aniq kontrast) qo'yildi.
-        2) 16/32px'dagi eski dizaynda "S" harfi RANG bilan emas, DISK
-           ICHIDA SHAFFOF TESHIK sifatida chizilgan edi (evenodd
-           fill-rule) — och/oq fonda harf ko'rinmay ketardi. Endi teshik
-           OPAQUE OQ rangga to'ldirilgan: shakl saqlanadi, lekin ortidagi
-           fonga bog'liqlik yo'qoladi.
-      `favicon.svg` endi to'liq "asosiy logo" vektori (`avtosmart-icon.svg`)
-      — teshik emas, haqiqiy rangli shakllar.
+        2) `favicon.ico` ichida 48x48 varianti bor.
       192x192 PNG `<link>` da ATAYLAB YO'Q: brauzer uni har tashrifda
-      yuklab, ~25 KB behuda sarflardi. U `site.webmanifest` da qoladi —
+      yuklab, 23 KB behuda sarflardi. U `site.webmanifest` da qoladi —
       Android'da "ekranga qo'shish" uchun o'sha yerdan olinadi.
-
-      `apple-touch-icon.png` endi 192x192 (avval 180x180 edi) — 2026-09-15
-      dagi qalin "S" dizayniga o'tishda mos o'lcham topilmagani uchun
-      mavjud 192px fayl ishlatildi. iOS buni muammosiz masshtablaydi.
       https://developers.google.com/search/docs/appearance/favicon-in-search
     -->
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="192x192" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#131A45">
     
