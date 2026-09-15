@@ -35,17 +35,21 @@ export function levelOf(percent: number): ReadinessLevel {
 }
 
 /**
- * Daraja rangi. Ataylab "yaxshi/yomon" emas, PROGRESS ranglari:
- * quyi darajalar ham xunuk ko'rinmasligi kerak — foydalanuvchi endi
- * boshlagan bo'lishi mumkin.
+ * Rang FOIZGA qarab tanlanadi (darajaga emas).
+ *
+ * Nega: rang — bu "qanday ketyapti" degan tezkor signal, va u foiz bilan
+ * bevosita bog'langanda o'qish oson bo'ladi (qizil -> sariq -> yashil).
+ * Darajaga bog'langanda rang har darajada o'zgarib, ma'nosini yo'qotardi.
  */
-export function levelTone(index: number) {
-  switch (index) {
-    case 6: return { ring: "#a855f7", text: "text-purple-600 dark:text-purple-400", chip: "border-purple-500/25 bg-purple-500/10 text-purple-700 dark:text-purple-300", bar: "bg-purple-500" };
-    case 5: return { ring: "#10b981", text: "text-emerald-600 dark:text-emerald-400", chip: "border-emerald-500/25 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300", bar: "bg-emerald-500" };
-    case 4: return { ring: "#22c55e", text: "text-green-600 dark:text-green-400",   chip: "border-green-500/25 bg-green-500/10 text-green-700 dark:text-green-300",     bar: "bg-green-500" };
-    case 3: return { ring: "#3b82f6", text: "text-blue-600 dark:text-blue-400",     chip: "border-blue-500/25 bg-blue-500/10 text-blue-700 dark:text-blue-300",         bar: "bg-blue-500" };
-    case 2: return { ring: "#f59e0b", text: "text-amber-600 dark:text-amber-400",   chip: "border-amber-500/25 bg-amber-500/10 text-amber-700 dark:text-amber-300",     bar: "bg-amber-500" };
-    default: return { ring: "#94a3b8", text: "text-slate-600 dark:text-slate-400",  chip: "border-slate-500/25 bg-slate-500/10 text-slate-700 dark:text-slate-300",     bar: "bg-slate-400" };
+export function toneOf(percent: number) {
+  if (percent >= 85) {
+    return { ring: "#10b981", text: "text-emerald-600 dark:text-emerald-400", chip: "border-emerald-500/25 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300", bar: "bg-emerald-500" };
   }
+  if (percent >= 65) {
+    return { ring: "#22c55e", text: "text-green-600 dark:text-green-400", chip: "border-green-500/25 bg-green-500/10 text-green-700 dark:text-green-300", bar: "bg-green-500" };
+  }
+  if (percent >= 40) {
+    return { ring: "#f59e0b", text: "text-amber-600 dark:text-amber-400", chip: "border-amber-500/25 bg-amber-500/10 text-amber-700 dark:text-amber-300", bar: "bg-amber-500" };
+  }
+  return { ring: "#ef4444", text: "text-red-600 dark:text-red-400", chip: "border-red-500/25 bg-red-500/10 text-red-700 dark:text-red-300", bar: "bg-red-500" };
 }

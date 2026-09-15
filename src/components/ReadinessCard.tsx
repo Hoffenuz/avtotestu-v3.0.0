@@ -21,7 +21,7 @@ import { Brain, Calendar, Check, ChevronRight, Flame, Target, X } from "lucide-r
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useReadiness, type Readiness } from "@/hooks/useReadiness";
-import { READINESS_LEVELS, levelTone } from "@/lib/readinessLevels";
+import { READINESS_LEVELS, toneOf } from "@/lib/readinessLevels";
 import {
   Sheet,
   SheetContent,
@@ -110,7 +110,7 @@ function LevelGuide({
 
         <ol className="mx-auto mt-4 max-w-md space-y-2">
           {READINESS_LEVELS.map((lvl) => {
-            const tone = levelTone(lvl.index);
+            const tone = toneOf(lvl.minPercent);
             const isCurrent = lvl.index === currentIndex;
             const reached = currentPercent >= lvl.minPercent;
             return (
@@ -263,7 +263,7 @@ export function ReadinessCard({ variant = "full", className }: ReadinessCardProp
   if (!data) return null;
 
   const compact = variant === "compact";
-  const tone = levelTone(data.levelIndex);
+  const tone = toneOf(data.readinessPercent);
   const ringSize = compact ? 84 : 112;
 
   /* Hali test ishlanmagan — foiz o'rniga taklif. "0%" yangi foydalanuvchini
@@ -392,7 +392,7 @@ export function ReadinessCard({ variant = "full", className }: ReadinessCardProp
                 foydali harakat, qolgan hamma narsa faqat ma'lumot. */}
             {data.questionsToReview > 0 && (
               <Link
-                to="/xatolar-testi"
+                to="/xatolarim"
                 className="mt-3 flex items-center gap-3 rounded-2xl border border-primary/25 bg-primary/5 p-3.5 transition-colors hover:bg-primary/10"
               >
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/15">
@@ -400,7 +400,7 @@ export function ReadinessCard({ variant = "full", className }: ReadinessCardProp
                 </span>
                 <span className="min-w-0 flex-1">
                   <span className="block text-sm font-bold text-foreground">
-                    {t("readiness.reviewCta")}
+                    {t("sections.xatolarim")}
                   </span>
                   <span className="mt-0.5 block text-[12px] leading-snug text-muted-foreground">
                     {t("readiness.reviewHint").replace("{n}", String(data.questionsToReview))}

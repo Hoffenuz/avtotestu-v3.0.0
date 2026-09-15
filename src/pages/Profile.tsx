@@ -612,6 +612,64 @@ useEffect(() => {
               </div>
             )}
 
+            {/*
+              OBUNA TARIXI — ATAYLAB shu bo'lim ichida, ixcham ro'yxat.
+
+              Avval alohida "Obuna tarixi" bo'limi bor edi: ko'pchilik
+              foydalanuvchida u 1-2 qatordan iborat bo'lgani uchun butun
+              bo'limga arzimasdi va profil sahifasini uzaytirardi.
+              Bu ma'lumot hisobga tegishli — o'rni shu yer.
+            */}
+            {!isEditing && subscriptions.length > 0 && (
+              <div className="mt-4 border-t border-border pt-4">
+                <p className="mb-2 flex items-center gap-1.5 text-sm text-muted-foreground">
+                  <History className="h-3.5 w-3.5" />
+                  Obuna tarixi
+                  <span className="text-xs">({subscriptions.length} ta)</span>
+                </p>
+                <ul className="space-y-1.5">
+                  {subscriptions.map((sub) => {
+                    const isActive = new Date(sub.ends_at) > new Date();
+                    return (
+                      <li
+                        key={sub.id}
+                        className="flex items-center justify-between gap-2 rounded-lg border border-border bg-muted/30 px-2.5 py-2"
+                      >
+                        <span className="flex min-w-0 items-center gap-2">
+                          <span
+                            className={`h-1.5 w-1.5 shrink-0 rounded-full ${
+                              isActive ? "bg-green-500" : "bg-muted-foreground/40"
+                            }`}
+                            aria-hidden="true"
+                          />
+                          <span className="min-w-0">
+                            <span className="block truncate text-[13px] font-medium text-foreground">
+                              {formatPlanLabel(sub.plan_name, sub.tariff_days)}
+                            </span>
+                            {/*
+                              "boshlandi – tugadi" oralig'i EMAS: `ends_at`
+                              eski obuna USTIGA qo'shiladi, shuning uchun
+                              7 kunlik xarid "17.08 – 25.11" bo'lib chiqib
+                              chalkashlik tug'dirardi.
+                            */}
+                            <span className="block truncate text-[11px] text-muted-foreground">
+                              Xarid: {new Date(sub.started_at).toLocaleDateString("uz-UZ")} · PRO{" "}
+                              {new Date(sub.ends_at).toLocaleDateString("uz-UZ")} gacha
+                            </span>
+                          </span>
+                        </span>
+                        {sub.amount ? (
+                          <span className="shrink-0 text-[12px] font-medium text-muted-foreground">
+                            {sub.amount.toLocaleString()} {sub.currency}
+                          </span>
+                        ) : null}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
+
             {/* Parol — tahrirlash rejimida emas, ma'lumotlar ostida ixcham bo'lim */}
             {!isEditing && <PasswordSection />}
           </div>
@@ -634,60 +692,6 @@ useEffect(() => {
             className="p-0 border-0 bg-transparent shadow-none"
           />
         </ProfileSection>
-
-        {/* Subscriptions History */}
-        {subscriptions.length > 0 && (
-          <ProfileSection
-            icon={History}
-            title="Obuna tarixi"
-            value={`${subscriptions.length} ta`}
-            tone="violet"
-            storageKey="profile.section.subs"
-          >
-            <div className="space-y-3">
-              {subscriptions.map((sub) => {
-                const isActive = new Date(sub.ends_at) > new Date();
-                return (
-                  <div key={sub.id} className="flex items-center justify-between p-3 rounded-lg bg-muted/30 border border-border">
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
-                          isActive ? 'bg-green-500/20 text-green-700' : 'bg-muted text-muted-foreground'
-                        }`}>
-                          {isActive ? 'Faol' : 'Tugagan'}
-                        </span>
-                        <span className="text-sm font-medium">
-                          {formatPlanLabel(sub.plan_name, sub.tariff_days)}
-                        </span>
-                      </div>
-                      {/*
-                        ATAYLAB "boshlandi – tugadi" oralig'i EMAS.
-
-                        `ends_at` — shu xariddan keyingi PRO tugash sanasi, u
-                        eski obuna USTIGA qo'shiladi. Shuning uchun eski
-                        ko'rinishda 7 kunlik xarid "17.08 – 25.11" bo'lib
-                        chiqib, "haftalik obuna 3 oy davom etyapti" degan
-                        chalkashlik tug'dirardi. Endi xarid sanasi va PRO
-                        tugash sanasi alohida, nomi bilan yoziladi.
-                      */}
-                      <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1 flex-wrap">
-                        <Calendar className="w-3 h-3 shrink-0" />
-                        <span>Xarid: {new Date(sub.started_at).toLocaleDateString('uz-UZ')}</span>
-                        <span aria-hidden="true">·</span>
-                        <span>PRO {new Date(sub.ends_at).toLocaleDateString('uz-UZ')} gacha</span>
-                      </p>
-                    </div>
-                    {sub.amount && (
-                      <span className="text-sm font-medium text-muted-foreground">
-                        {sub.amount.toLocaleString()} {sub.currency}
-                      </span>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </ProfileSection>
-        )}
 
         {/* Variant bo'yicha test natijalari */}
         <ProfileSection

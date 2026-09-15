@@ -3,7 +3,6 @@
 // Shaxsiy sahifa — qidiruv tizimlariga indekslanmaydi.
 
 import { MainLayout } from "@/components/layout/MainLayout";
-import { ProSectionGate } from "@/components/ProSectionGate";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SEO } from "@/components/SEO";
 import { PageHeader } from "@/components/PageHeader";
@@ -12,8 +11,6 @@ import { SavedWrongList } from "@/components/SavedWrongList";
 export default function Xatolarim() {
   const { t } = useLanguage();
 
-  // MainLayout gate'dan TASHQARIDA: gate holatlari almashganda layout qayta
-  // qurilmasin (aks holda footer DOM dan chiqib qaytadi va sahifa sakraydi).
   return (
     <MainLayout>
       <SEO
@@ -23,13 +20,21 @@ export default function Xatolarim() {
         noIndex
       />
 
-      <ProSectionGate section="xatolarim" returnPath="/xatolarim">
-        <div className="container mx-auto max-w-4xl px-4 py-8 md:py-12">
-          <PageHeader title={t("sections.xatolarim")} description={t("pages.xatolarimDesc")} />
+      {/*
+        PRO TO'SIG'I YO'Q — ataylab.
 
-          <SavedWrongList mode="wrong" />
-        </div>
-      </ProSectionGate>
+        Foydalanuvchi O'Z xatosini ko'ra olishi kerak: buni yopish
+        "to'lamasang, nimani bilmasliging ham aytmayman" degani bo'lardi.
+        PRO esa ular USTIDA ISHLASHDA (`/xatolar-testi` — xatolar bo'yicha
+        test yechish) talab qilinadi; qiymat o'sha yerda.
+
+        Mehmon holatini `SavedWrongList` o'zi hal qiladi (kirish taklifi).
+      */}
+      <div className="container mx-auto max-w-4xl px-4 py-8 md:py-12">
+        <PageHeader title={t("sections.xatolarim")} description={t("pages.xatolarimDesc")} />
+
+        <SavedWrongList mode="wrong" />
+      </div>
     </MainLayout>
   );
 }
