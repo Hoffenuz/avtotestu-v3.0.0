@@ -28,7 +28,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAccessState } from "@/hooks/useAccessState";
 import { useTestSession } from "@/hooks/useTestSession";
-import { fetchWrongQuestionIds } from "@/lib/questionState";
+import { clearWrongQuestions, fetchWrongQuestionIds } from "@/lib/questionState";
 import { loadCorpusIndex } from "@/lib/questionCorpus";
 
 /** DB dagi `variant` ustuni 0..100 oralig'ida — xatolar rejimi uchun ajratilgan qiymat. */
@@ -114,6 +114,19 @@ export default function XatolarTesti() {
         variant={MISTAKES_VARIANT}
         sessionId={sessionId}
         isPremiumSession={isPremium}
+        /*
+          TO'G'RI YECHILGAN SAVOL XATOLAR RO'YXATIDAN CHIQADI.
+
+          Avval bunday emasdi: `record_question_answers` faqat
+          `correct_count` ni oshirardi, `wrong_count` esa o'sha holicha
+          qolardi. Natijada bir marta xato qilingan savol keyin necha
+          marta to'g'ri yechilsa ham "Xato savollarim" da abadiy turardi
+          va ro'yxat hech qachon kamaymasdi.
+        */
+        onAnswersRecorded={(answers) => {
+          const solved = answers.filter((a) => a.isCorrect).map((a) => a.globalId);
+          if (solved.length) void clearWrongQuestions(solved);
+        }}
       />
       </ProSectionGate>
     );

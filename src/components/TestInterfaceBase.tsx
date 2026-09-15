@@ -70,6 +70,16 @@ interface TestInterfaceBaseProps {
    * `storageKey` va sessiya identifikatorlari o'shanga bog'langan.
    */
   poolProvider?: () => Promise<unknown[]>;
+  /**
+   * Javoblar bazaga yozilgandan KEYIN chaqiriladi.
+   *
+   * "Xatolar ustida ishlash" rejimi shu orqali to'g'ri yechilgan
+   * savollarni xatolar ro'yxatidan chiqaradi. Boshqa test turlari bu
+   * propni bermaydi — ularning xatti-harakati o'zgarmaydi.
+   */
+  onAnswersRecorded?: (
+    answers: { globalId: string; isCorrect: boolean }[],
+  ) => void;
 }
 
 export const TestInterfaceBase = ({
@@ -84,6 +94,7 @@ export const TestInterfaceBase = ({
   sessionId = null,
   isPremiumSession = false,
   poolProvider,
+  onAnswersRecorded,
 }: TestInterfaceBaseProps) => {
   const { t, questionLang } = useLanguage();
   const { user } = useAuth();
@@ -436,14 +447,15 @@ export const TestInterfaceBase = ({
        * ular yozilmaydi. Bu chaqiruv ATAYLAB kutilmaydi: statistika yozilmasa
        * ham test yakunlanishi va asosiy natija saqlanishi shart.
        */
-      void recordQuestionAnswers(
-        questions
-          .map((q) => ({ globalId: q.globalId, isCorrect: correctAnswers[q.id] }))
-          .filter(
-            (a): a is { globalId: string; isCorrect: boolean } =>
-              typeof a.globalId === "string" && typeof a.isCorrect === "boolean",
-          ),
-      );
+      const answered = questions
+        .map((q) => ({ globalId: q.globalId, isCorrect: correctAnswers[q.id] }))
+        .filter(
+          (a): a is { globalId: string; isCorrect: boolean } =>
+            typeof a.globalId === "string" && typeof a.isCorrect === "boolean",
+        );
+
+      void recordQuestionAnswers(answered);
+      onAnswersRecorded?.(answered);
 
       void saveTestResult(variant, stats.correct, totalQuestions, timeTaken, activeSessionId, isPremiumSession)
         .then((res) => {
