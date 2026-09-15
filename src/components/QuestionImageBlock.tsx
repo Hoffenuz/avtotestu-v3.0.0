@@ -1,4 +1,6 @@
+import { useEffect, useRef, useState } from "react";
 import imageSizes from "@/data/question-image-sizes.json";
+import { cn } from "@/lib/utils";
 
 interface QuestionImageBlockProps {
   src: string;
@@ -87,12 +89,36 @@ export function lookupSize(file: string): readonly [number, number] {
   return pair(sizes.other[file]) ?? FALLBACK_SIZE;
 }
 
+/**
+ * Rasm yuklanmaguncha "skeleton" (yaltirab turuvchi kulrang quti).
+ *
+ * Joy allaqachon `width`/`height` bilan zahiralangan — ya'ni siljish yo'q edi,
+ * lekin sekin internetda o'sha joy BO'SH oq quti bo'lib turardi va foydalanuvchi
+ * rasm bormi yoki buzuqmi bilmasdi. Kulrang jonli fon "kelyapti" degani.
+ *
+ * `complete` tekshiruvi kerak: keshdagi rasmda brauzer `onLoad` ni React
+ * hodisani ulashidan OLDIN chaqiradi va skeleton abadiy qotib qolardi.
+ */
+function useImageLoaded() {
+  const ref = useRef<HTMLImageElement>(null);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    if (ref.current?.complete) setLoaded(true);
+  }, []);
+
+  // Xato bo'lsa ham skeletonni o'chiramiz — aks holda u cheksiz yaltirab turadi.
+  return { ref, loaded, onLoad: () => setLoaded(true), onError: () => setLoaded(true) };
+}
+
 export function QuestionImageBlock({
   src,
   alt = "Question illustration",
   onZoom,
   layout,
 }: QuestionImageBlockProps) {
+  const { ref, loaded, onLoad, onError } = useImageLoaded();
+  const skeletonClass = loaded ? "" : "animate-pulse bg-muted";
   /**
    * Mobil o'lcham ATAYLAB o'zgartirilmadi: telefonda rasm javob tugmalarining
    * USTIDA turadi, kattalashtirilsa javoblar ekrandan pastga tushib ketardi.
@@ -135,14 +161,17 @@ export function QuestionImageBlock({
     return (
       <button type="button" className={buttonClass} onClick={onZoom}>
         <img
+          ref={ref}
           src={src}
           alt={alt}
-          className={imgClass}
+          className={cn(imgClass, skeletonClass)}
           style={{ maxWidth: width }}
           width={width}
           height={height}
           loading="lazy"
           decoding="async"
+          onLoad={onLoad}
+          onError={onError}
         />
       </button>
     );
@@ -157,14 +186,17 @@ export function QuestionImageBlock({
         <source srcSet={`${src}.jpg`} type="image/jpeg" />
         <source srcSet={`${src}.jpeg`} type="image/jpeg" />
         <img
+          ref={ref}
           src={`${src}.png`}
           alt={alt}
-          className={imgClass}
+          className={cn(imgClass, skeletonClass)}
           style={{ maxWidth: FALLBACK_SIZE[0] }}
           width={FALLBACK_SIZE[0]}
           height={FALLBACK_SIZE[1]}
           loading="lazy"
           decoding="async"
+          onLoad={onLoad}
+          onError={onError}
         />
       </picture>
     </button>

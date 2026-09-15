@@ -14,11 +14,13 @@
 // DARK MODE: faqat tema tokenlari (`bg-card`, `text-foreground`, `border-border`).
 // ============================================================================
 
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight, Crown, Lock } from "lucide-react";
 import { ACCENT_CLASS, type SectionItem } from "@/lib/siteSections";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAccessState } from "@/hooks/useAccessState";
+import { hasStoredSession } from "@/lib/hasStoredSession";
 import { cn } from "@/lib/utils";
 
 interface SectionGridProps {
@@ -45,7 +47,23 @@ export function SectionGrid({
   showDescription = false,
 }: SectionGridProps) {
   const { t } = useLanguage();
-  const { isPremium } = useAccessState();
+  const { isPremium, backendConfirmed } = useAccessState();
+
+  /**
+   * PRO belgisi qachon chizilishi mumkin.
+   *
+   * Muammo: PRO foydalanuvchi sahifani ochganda `isPremium` bir lahza `false`
+   * bo'lib turadi (RPC hali javob bermagan) va u O'ZI SOTIB OLGAN bo'limlarda
+   * "PRO" qulfini ko'radi — keyin belgi g'oyib bo'ladi. Bu "yaltillash" pullik
+   * mijozga "obunam ishlamayaptimi?" degan shubha beradi.
+   *
+   * Yechim `Home.tsx` dagi bilan bir xil: saqlangan sessiya BOR bo'lsa,
+   * serverdan tasdiq kelguncha belgi chizilmaydi. Mehmonda (saqlangan sessiya
+   * yo'q) kutish umuman yo'q — belgi darhol ko'rinadi, chunki mehmon hech
+   * qachon PRO bo'lmaydi.
+   */
+  const [expectsSession] = useState(hasStoredSession);
+  const proBadgeReady = backendConfirmed || !expectsSession;
 
   return (
     <ul
@@ -106,7 +124,7 @@ export function SectionGrid({
                 PRO belgisi qulfdan OLDIN: kirmagan foydalanuvchi uchun ham
                 muhimrog'i bo'lim pullik ekani, kirish esa ikkinchi shart.
               */}
-              {item.requiresPro && !isPremium ? (
+              {item.requiresPro && !isPremium && proBadgeReady ? (
                 <span
                   className="flex shrink-0 items-center gap-1 rounded-full bg-amber-500/15 px-2 py-0.5 text-[11px] font-bold text-amber-600 dark:text-amber-400"
                   title={t("sections.proOnly")}

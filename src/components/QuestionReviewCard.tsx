@@ -71,9 +71,16 @@ export function QuestionReviewCard({
           Mobilda esa ustma-ust (rasm avval) — tor ekranda yonma-yon
           ikkalasi ham o'qib bo'lmas darajada kichrayardi.
         */}
-        <div className={hasImage ? "flex flex-col gap-4 lg:flex-row lg:items-start" : undefined}>
+        {/*
+          Chegara `md:` (768px) — ATAYLAB test interfeysi bilan bir xil
+          (`TestInterfaceBase` da rasm `md:hidden` bilan ustma-ustdan
+          yonma-yonga o'tadi). Ilgari bu yerda `lg:` edi va 768-1023px
+          ekranda bir xil savol testda o'ngda, "Xatolarim"da esa pastda
+          ko'rinardi — o'sha izchillik buzilishi shundan edi.
+        */}
+        <div className={hasImage ? "flex flex-col gap-4 md:flex-row md:items-start" : undefined}>
           {hasImage ? (
-            <div className="lg:w-[46%] lg:shrink-0">
+            <div className="md:w-[46%] md:shrink-0">
               <QuestionImageBlock
                 src={question.image as string}
                 alt={question.text}
