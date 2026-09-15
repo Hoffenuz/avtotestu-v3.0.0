@@ -55,6 +55,8 @@ const Auth = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState('');
+  /** Tekshiruv widget'ini ko'rsatib bo'lmadi — forma baribir ochiladi. */
+  const [turnstileUnavailable, setTurnstileUnavailable] = useState(false);
 
   // ── Rate limiting UX (UX only — real limiting is server-side) ────────────
   const [failCount, setFailCount] = useState(0);
@@ -117,6 +119,21 @@ const Auth = () => {
 
   const handleTurnstileVerify = useCallback((token: string) => {
     setTurnstileToken(token);
+    setTurnstileUnavailable(false);
+  }, []);
+
+  /**
+   * Cloudflare tekshiruvi chizilmadi (skript bloklangan, tarmoq sekin yoki
+   * widget qotib qoldi).
+   *
+   * Bu holatda formani BLOKLAMAYMIZ. Sabab: server tomonda captcha allaqachon
+   * majburiy emas — token kelmasa `phone-signup` himoyani IP bo'yicha chastota
+   * cheklovi (`register_signup_attempt`) zimmasiga o'tkazadi, va token yo'q
+   * bo'lgan so'rovga qattiqroq limit qo'llanadi. Ya'ni bu yerda odamni ushlab
+   * turishning yagona natijasi — haqiqiy foydalanuvchini yo'qotish.
+   */
+  const handleTurnstileUnavailable = useCallback(() => {
+    setTurnstileUnavailable(true);
   }, []);
 
   // ── Kirish ────────────────────────────────────────────────────────────────
@@ -189,7 +206,10 @@ const Auth = () => {
       setError(t('auth.errPasswordMismatch'));
       return;
     }
-    if (isTurnstileConfigured() && !turnstileToken) {
+    // Tekshiruv ishlayotgan bo'lsagina token talab qilinadi. Widget umuman
+    // chizilmagan bo'lsa (`turnstileUnavailable`) — server tomondagi chastota
+    // cheklovi yetarli, foydalanuvchi shu yerda qotib qolmasligi kerak.
+    if (isTurnstileConfigured() && !turnstileToken && !turnstileUnavailable) {
       setError(t('auth.errTurnstile'));
       return;
     }
@@ -206,7 +226,14 @@ const Auth = () => {
           error?: string;
           message?: string;
         }>('phone-signup', {
-          body: { phone: normalized, password, turnstileToken },
+          body: {
+            phone: normalized,
+            password,
+            turnstileToken,
+            // Serverda o'lchash uchun: captchasiz so'rov mobil ilovadanmi
+            // yoki saytda widget yuklanmaganidanmi — shu bilan ajratiladi.
+            captchaUnavailable: turnstileUnavailable,
+          },
         }),
         SIGNUP_FN_TIMEOUT_MS,
       );
@@ -571,6 +598,7 @@ const Auth = () => {
           {isSignup && (
             <Turnstile
               onVerify={handleTurnstileVerify}
+              onUnavailable={handleTurnstileUnavailable}
               action="signup"
               language={language}
               className="mt-4"

@@ -159,13 +159,47 @@ Deno.serve(async (req: Request) => {
 
     const supabase = admin();
 
+    /**
+     * Captcha tokeni KELDIMI.
+     *
+     * Kelmagan bo'lsa ikki holat bo'lishi mumkin: mobil ilova (u captcha
+     * ko'rsatolmaydi) yoki saytda widget yuklanmagan. Ikkalasida ham so'rov
+     * rad etilmaydi — lekin himoyasiz qolmasligi uchun chastota cheklovi
+     * QATTIQROQ qo'llanadi.
+     */
+    const hadCaptcha = typeof body.turnstileToken === "string" &&
+      body.turnstileToken.trim().length > 0;
+
+    if (!hadCaptcha) {
+      // O'lchov uchun: captcha necha marta ko'rsatilmayotganini bilamiz.
+      console.warn(
+        `[phone-signup] captchasiz urinish (sayt: ${body.captchaUnavailable === true})`,
+      );
+    }
+
+    /*
+      Limitlar.
+
+      Tokenli so'rov: 30/soat, 150/kun (avvalgidek). Bu ataylab keng —
+      O'zbekistonda mobil operatorlar CGNAT ishlatadi, ya'ni yuzlab haqiqiy
+      foydalanuvchi bitta IP ostidan chiqadi, avtomaktabning Wi-Fi'sida esa
+      butun guruh. Tor limit o'z mijozimizni bloklardi.
+
+      Tokensiz so'rov: 8/soat, 20/kun. Haqiqiy odam bitta IP'dan kuniga 1-2 ta
+      hisob ochadi (o'lchandi: 7 kunda bitta IP'dan eng ko'pi 2 ta), skript esa
+      yuzlab urinadi — shu chegara ikkisini ajratadi.
+    */
+    const limitArgs = hadCaptcha
+      ? {}
+      : { p_max_per_hour: 8, p_max_per_day: 20 };
+
     // Chastota cheklovi: kirish ma'lumotlari to'g'ri bo'lgandan keyin, ya'ni
     // xato yozilgan raqam foydalanuvchining limitini yeb qo'ymaydi.
     const ip = clientIp(req);
     if (ip) {
       const { data: limit, error: limitErr } = await supabase.rpc(
         "register_signup_attempt",
-        { p_ip_hash: await hashIp(ip) },
+        { p_ip_hash: await hashIp(ip), ...limitArgs },
       );
       if (limitErr) {
         console.error("[phone-signup] rate limit rpc:", limitErr.message);
