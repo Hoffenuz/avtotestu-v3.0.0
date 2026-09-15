@@ -6,7 +6,9 @@
  * qo'shimcha yozuv KERAK EMAS.
  *
  * Koeffitsient to'rtta o'lchanadigan komponentdan yig'iladi (vazni bilan):
- *   aniqlik 40% · qamrov 25% · variantlar 20% · mustahkamlik 15%
+ *   aniqlik 35% · qamrov 25% · variantlar 15% · mustahkamlik 25%
+ * Natijaga yengil egri chiziq qo'llanadi (monoton) — tartib saqlanadi,
+ * pastki qism biroz ko'tariladi. Daraja shu foizdan kelib chiqadi.
  * O'lchab bo'lmaydigan komponent (masalan savol-holati umuman yo'q hisob)
  * tashlab ketiladi va uning vazni qolganlar orasida qayta taqsimlanadi.
  */
@@ -33,9 +35,9 @@ export interface Readiness {
   variantsTotal: number;
 
   levelIndex: number;
-  levelMinTests: number;
-  levelNextTests: number | null;
-  testsToNextLevel: number | null;
+  levelMinPercent: number;
+  levelNextPercent: number | null;
+  percentToNext: number | null;
 
   examDate: string | null;
   daysToExam: number | null;
@@ -60,9 +62,9 @@ interface ReadinessRow {
   variants_attempted: number;
   variants_total: number;
   level_index: number;
-  level_min_tests: number;
-  level_next_tests: number | null;
-  tests_to_next_level: number | null;
+  level_min_percent: number;
+  level_next_percent: number | null;
+  percent_to_next: number | null;
   exam_date: string | null;
   days_to_exam: number | null;
   streak_days: number;
@@ -86,9 +88,9 @@ function toReadiness(row: ReadinessRow): Readiness {
     variantsAttempted: row.variants_attempted,
     variantsTotal: row.variants_total,
     levelIndex: row.level_index,
-    levelMinTests: row.level_min_tests,
-    levelNextTests: row.level_next_tests,
-    testsToNextLevel: row.tests_to_next_level,
+    levelMinPercent: row.level_min_percent,
+    levelNextPercent: row.level_next_percent,
+    percentToNext: row.percent_to_next,
     examDate: row.exam_date,
     daysToExam: row.days_to_exam,
     streakDays: row.streak_days,

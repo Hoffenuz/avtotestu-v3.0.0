@@ -8,7 +8,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { formatTiyinPerDayAsSum } from "@/lib/payme";
 import { trackEvent } from "@/lib/track";
 import MobileAppBanner from "@/components/MobileAppBanner";
-import DesktopAppBanner from "@/components/DesktopAppBanner";
+import ReadinessStrip from "@/components/ReadinessStrip";
 
 /** Obuna tugashiga shuncha kun qolganda banner ko'rinadi. */
 const RENEW_WINDOW_DAYS = 3;
@@ -34,14 +34,15 @@ interface UpgradeOffer {
 /**
  * Bosh sahifa yuqorisidagi BITTA tasma.
  *
- * Nega bitta komponent: avval bu yerda ikkita banner turardi (mobil ilova va
- * kompyuter ilovasi). Obuna tugash eslatmasini ular YONIGA qo'shish sahifani
- * pastga surib yuborardi, shuning uchun taklif o'sha joyning O'ZIDA chiqadi:
+ * Bu slotda BITTA element ko'rsatiladi, ustuvorlik bo'yicha:
  *
  *   1. Obunasi 3 kun ichida tugaydigan foydalanuvchi → uzaytirish taklifi.
- *   2. Qolgan hammaga → avvalgidek ilova bannerlari.
+ *   2. Kirgan foydalanuvchi → tayyorgarlik tasmasi (foiz + daraja).
+ *   3. Mehmon → mobil ilova banneri (faqat telefonda).
  *
- * Ya'ni balandlik o'zgarmaydi va ilova reklamasi ham yo'qolmaydi.
+ * KOMPYUTER ILOVASI banneri bu yerdan OLIB TASHLANDI: u har bir tashrifda
+ * eng qimmatli joyni egallardi, lekin o'lchanadigan foyda bermasdi. Ilova
+ * havolasi menyuda va "Qo'shimcha" bo'limida qoldi.
  */
 export function HomeTopBanner() {
   const { user } = useAuth();
@@ -140,12 +141,9 @@ export function HomeTopBanner() {
   }, [showRenew, msLeft]);
 
   if (!showRenew || msLeft === null) {
-    return (
-      <>
-        <MobileAppBanner />
-        <DesktopAppBanner />
-      </>
-    );
+    // Kirgan foydalanuvchiga — o'z holati; mehmonga — ilova banneri.
+    if (user) return <ReadinessStrip />;
+    return <MobileAppBanner />;
   }
 
   const handleDismiss = (e: React.MouseEvent) => {

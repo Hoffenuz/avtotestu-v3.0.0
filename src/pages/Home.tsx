@@ -246,22 +246,6 @@ export default function Home() {
       </section>
 
       {/*
-        Tayyorgarlik indikatori — qahramon blokdan KEYIN, tezkor amallardan OLDIN.
-
-        Nega aynan shu yer: bu foydalanuvchining O'Z holati, ya'ni u sahifaga
-        qaytganda birinchi ko'rmoqchi bo'ladigan narsa. Mehmonga (kirmagan
-        foydalanuvchiga) komponent NULL qaytaradi — SEO uchun muhim bo'lgan
-        sahifa tuzilishi va maketi umuman o'zgarmaydi.
-      */}
-      {user && (
-        <section className="pt-8 pb-2 bg-background">
-          <div className="max-w-4xl mx-auto px-4">
-            <ReadinessCard />
-          </div>
-        </section>
-      )}
-
-      {/*
         Tezkor amallar — afzalliklardan YUQORIDA.
 
         Foydalanuvchi pastga surganda avval o'ziga kerakli amalni ko'radi
@@ -273,6 +257,23 @@ export default function Home() {
           <SectionGrid items={QUICK_ITEMS} badges={quickBadges} signedIn={!!user} />
         </div>
       </section>
+
+      {/*
+        Tayyorgarlik indikatori — tezkor amallardan (real imtihon va yonidagi
+        tugmalar) KEYIN.
+
+        Nega pastda: yuqoridagi uch tugma — foydalanuvchi shu yerga nima uchun
+        kelganini bildiradigan HARAKAT. Indikator esa natija/holat, ya'ni
+        harakatdan keyin o'qiladi. Mehmonga umuman ko'rsatilmaydi — bosh
+        sahifaning SEO maketi o'zgarmaydi.
+      */}
+      {user && (
+        <section className="pb-10 bg-background">
+          <div className="max-w-4xl mx-auto px-4">
+            <ReadinessCard />
+          </div>
+        </section>
+      )}
 
       {/*
         Platformaning afzalliklari.
