@@ -9,6 +9,7 @@ import { transformRawToQuestions, type AppQuestion } from "@/lib/questionTransfo
 import { useAuth } from "@/contexts/AuthContext";
 import { QuestionNavigation } from "./QuestionNavigation";
 import { TestResults } from "./TestResults";
+import { MistakesReview } from "./MistakesReview";
 import { useLanguage } from "@/contexts/LanguageContext";
 import {
   getElapsedTestSeconds,
@@ -91,6 +92,8 @@ export const TestInterfaceCombined = ({
   );
   const [showFinishDialog, setShowFinishDialog] = useState(false);
   const [showResults, setShowResults] = useState(false);
+  /** Natija ekranidan "xatolarni ko'rib chiqish" ekraniga o'tilganmi. */
+  const [showMistakes, setShowMistakes] = useState(false);
   // Restored from localStorage so timeTaken stays accurate after refresh
   const [testStartTime, setTestStartTime] = useState(() => getInitialStartedAt(storageKey));
   const [zoomImage, setZoomImage] = useState<string | null>(null);
@@ -389,7 +392,16 @@ export const TestInterfaceCombined = ({
   if (showResults) {
     const stats = getTestStats();
     const timeTaken = getElapsedTestSeconds(testStartTime, timeLimit);
-    
+
+    // Xato qilingan VA javobsiz qolgan savollar (`TestInterfaceBase` bilan bir xil).
+    const mistakeItems = questions
+      .filter((q) => correctAnswers[q.id] !== true)
+      .map((q) => ({ question: q, answered: correctAnswers[q.id] === false }));
+
+    if (showMistakes) {
+      return <MistakesReview items={mistakeItems} onBack={() => setShowMistakes(false)} />;
+    }
+
     return (
       <TestResults
         totalQuestions={totalQuestions}
@@ -399,6 +411,8 @@ export const TestInterfaceCombined = ({
         variant={0}
         onBackToHome={handleExit}
         isDark={isDark}
+        mistakesCount={mistakeItems.length}
+        onReviewMistakes={() => setShowMistakes(true)}
         onTryAgain={async () => {
           clearTestState(storageKey);
           setSelectedAnswers({});
@@ -409,6 +423,7 @@ export const TestInterfaceCombined = ({
           endsAtRef.current = Date.now() + timeLimit * 1000;
           setTimeRemaining(timeLimit);
           setShowResults(false);
+          setShowMistakes(false);
           setTimerKey((k) => k + 1);
           setLoading(true);
           setError(null);

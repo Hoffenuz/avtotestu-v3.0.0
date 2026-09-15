@@ -13,6 +13,7 @@ import { recordQuestionAnswers } from "@/lib/questionState";
 import { useNavigate } from "react-router-dom";
 import { QuestionNavigation } from "./QuestionNavigation";
 import { TestResults } from "./TestResults";
+import { MistakesReview } from "./MistakesReview";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useTestResults } from "@/hooks/useTestResults";
@@ -97,6 +98,8 @@ export const TestInterfaceBase = ({
   const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
   const [correctAnswers, setCorrectAnswers] = useState<Record<number, boolean>>({});
   const [revealedQuestions, setRevealedQuestions] = useState<Record<number, boolean>>({});
+  /** Natija ekranidan "xatolarni ko'rib chiqish" ekraniga o'tilganmi. */
+  const [showMistakes, setShowMistakes] = useState(false);
   const storageKey = `testState_base_${dataSource}_${questionCount}_${user?.id ?? 'guest'}`;
   // Init from endsAt so refresh doesn't reset the timer
   const [timeRemaining, setTimeRemaining] = useState(() =>
@@ -463,7 +466,23 @@ export const TestInterfaceBase = ({
   if (showResults) {
     const stats = getTestStats();
     const timeTaken = getElapsedTestSeconds(testStartTime, timeLimit);
-    
+
+    /**
+     * Ko'rib chiqishga TUSHADIGAN savollar: xato qilinganlar VA javobsiz
+     * qolganlar. To'g'ri yechilgani kiritilmaydi — o'sha vaqtni qayta
+     * o'qishga sarflashning ma'nosi yo'q.
+     *
+     * `correctAnswers` kaliti savol raqami (1 dan), `q.id` ham shunday —
+     * shuning uchun to'g'ridan-to'g'ri solishtirish mumkin.
+     */
+    const mistakeItems = questions
+      .filter((q) => correctAnswers[q.id] !== true)
+      .map((q) => ({ question: q, answered: correctAnswers[q.id] === false }));
+
+    if (showMistakes) {
+      return <MistakesReview items={mistakeItems} onBack={() => setShowMistakes(false)} />;
+    }
+
     return (
       <TestResults
         totalQuestions={totalQuestions}
@@ -473,6 +492,8 @@ export const TestInterfaceBase = ({
         variant={variant}
         onBackToHome={handleExit}
         isDark={isDark}
+        mistakesCount={mistakeItems.length}
+        onReviewMistakes={() => setShowMistakes(true)}
         onTryAgain={async () => {
           clearTestState(storageKey);
           setSelectedAnswers({});
@@ -483,6 +504,7 @@ export const TestInterfaceBase = ({
           endsAtRef.current = Date.now() + timeLimit * 1000;
           setTimeRemaining(timeLimit);
           setShowResults(false);
+          setShowMistakes(false);
           setResultSaved(false);
           saveAttemptedRef.current = false;
           setActiveSessionId(null);

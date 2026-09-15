@@ -5,7 +5,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { CheckCircle, XCircle, Clock, Trophy, RotateCcw, Home, UserPlus, X } from "lucide-react";
+import { CheckCircle, XCircle, Clock, Trophy, RotateCcw, Home, UserPlus, X, MinusCircle, BookOpen } from "lucide-react";
 import { formatDurationSeconds } from "@/lib/testPersistence";
 
 interface TestResultsProps {
@@ -18,6 +18,13 @@ interface TestResultsProps {
   onBackToHome: () => void;
   onTryAgain: () => void;
   isDark?: boolean;
+  /**
+   * Xatolarni ko'rib chiqish. Berilmasa tugma umuman chiqmaydi — shu sababli
+   * hali ulanmagan test turlari (masalan real imtihon) o'zgarishsiz qoladi.
+   */
+  onReviewMistakes?: () => void;
+  /** Ko'rib chiqish mumkin bo'lgan savollar soni (xato + javobsiz). */
+  mistakesCount?: number;
 }
 
 export const TestResults = ({
@@ -29,10 +36,15 @@ export const TestResults = ({
   onBackToHome,
   onTryAgain,
   isDark = false,
+  onReviewMistakes,
+  mistakesCount = 0,
 }: TestResultsProps) => {
   const { t } = useLanguage();
   const { user } = useAuth();
   const navigate = useNavigate();
+
+  /** Javobsiz qolganlar — jamidan javob berilganlarni ayirib topiladi. */
+  const unanswered = Math.max(0, totalQuestions - correctAnswers - incorrectAnswers);
 
   const score = totalQuestions > 0 ? Math.round((correctAnswers / totalQuestions) * 100) : 0;
   const passed = score >= 90;
@@ -176,7 +188,16 @@ export const TestResults = ({
             </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
+          {/*
+            Javobsiz qolgan savollar ATAYLAB alohida ko'rsatkich.
+
+            Ilgari faqat "to'g'ri" va "noto'g'ri" bor edi: testni yarim
+            tashlab ketgan foydalanuvchi "0 to'g'ri, 1 noto'g'ri" ko'rib,
+            qolgan 19 ta savol qayerga ketganini tushunmasdi. Foiz esa
+            baribir umumiy savol soniga bo'linardi — ya'ni raqamlar
+            bir-biriga mos kelmasdi.
+          */}
+          <div className={`grid gap-2.5 sm:gap-3 ${unanswered > 0 ? "grid-cols-2 sm:grid-cols-4" : "grid-cols-3"}`}>
             <div className="text-center p-3 sm:p-3.5 bg-muted/30 rounded-lg">
               <CheckCircle className="w-6 h-6 sm:w-7 sm:h-7 text-green-500 mx-auto mb-1.5" />
               <div className="text-xl sm:text-2xl font-bold text-foreground">{correctAnswers}</div>
@@ -187,6 +208,13 @@ export const TestResults = ({
               <div className="text-xl sm:text-2xl font-bold text-foreground">{incorrectAnswers}</div>
               <p className="text-xs sm:text-sm text-muted-foreground leading-tight mt-0.5">{t("results.incorrect")}</p>
             </div>
+            {unanswered > 0 ? (
+              <div className="text-center p-3 sm:p-3.5 bg-muted/30 rounded-lg">
+                <MinusCircle className="w-6 h-6 sm:w-7 sm:h-7 text-muted-foreground mx-auto mb-1.5" />
+                <div className="text-xl sm:text-2xl font-bold text-foreground">{unanswered}</div>
+                <p className="text-xs sm:text-sm text-muted-foreground leading-tight mt-0.5">{t("results.unanswered")}</p>
+              </div>
+            ) : null}
             <div className="text-center p-3 sm:p-3.5 bg-muted/30 rounded-lg">
               <Clock className="w-6 h-6 sm:w-7 sm:h-7 text-primary mx-auto mb-1.5" />
               <div className="text-xl sm:text-2xl font-bold text-foreground">{formatDurationSeconds(timeTaken)}</div>
@@ -196,6 +224,23 @@ export const TestResults = ({
         </div>
 
         <div className="flex-shrink-0 border-t border-border p-4 sm:p-5 md:p-6 pt-3.5 sm:pt-4 bg-card">
+          {/*
+            Xatolarni ko'rib chiqish — tugmalar ustida va butun enida:
+            test tugagach eng foydali qadam shu, "Bosh sahifa" emas.
+          */}
+          {onReviewMistakes && mistakesCount > 0 ? (
+            <Button
+              variant="outline"
+              className="mb-2.5 h-12 w-full border-primary/40 text-base font-medium text-primary hover:bg-primary/5 sm:mb-3 sm:h-14"
+              onClick={onReviewMistakes}
+            >
+              <BookOpen className="w-5 h-5 mr-2 shrink-0" />
+              <span className="truncate">
+                {t("results.reviewMistakes").replace("{n}", String(mistakesCount))}
+              </span>
+            </Button>
+          ) : null}
+
           <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3">
             <Button
               variant="outline"
