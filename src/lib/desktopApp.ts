@@ -6,10 +6,25 @@ export function isMobileDevice(): boolean {
   );
 }
 
-/** Desktop ilova o'rnatuvchi fayli (Cloudflare R2) */
+/**
+ * Desktop ilova o'rnatuvchi fayli (Cloudflare R2).
+ *
+ * BREND ESLATMASI: fayl nomida hali eski "Avtotestlar.uz" turibdi, sayt esa
+ * "AvtoSmart" brendida. To'g'rilash uchun R2 ga fayl YANGI NOM bilan qayta
+ * yuklanishi va shu URL almashtirilishi kerak — faqat ko'rinadigan matnni
+ * o'zgartirish yaramaydi, chunki brauzer faylni R2 dagi haqiqiy nomi bilan
+ * saqlaydi (cross-origin da `<a download>` ishlamaydi, pastga qarang).
+ */
 export const DESKTOP_APP_DOWNLOAD_URL =
   "https://pub-ad116decdc154b0f90a4b452c72fa433.r2.dev/ilova/Avtotestlar.uz-Setup.exe";
-export const DESKTOP_APP_FILENAME = "Avtotestlar.uz-Setup.exe";
+
+/**
+ * Ko'rsatiladigan fayl nomi — URL dan OLINADI, qo'lda yozilmaydi.
+ * Shunda sahifadagi nom bilan yuklanadigan faylning nomi hech qachon
+ * bir-biridan ajralib ketmaydi.
+ */
+export const DESKTOP_APP_FILENAME =
+  DESKTOP_APP_DOWNLOAD_URL.split("/").pop() ?? "AvtoSmart-Setup.exe";
 export const DESKTOP_APP_SIZE_MB = 131;
 
 /**
