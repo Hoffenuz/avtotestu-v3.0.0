@@ -219,7 +219,9 @@
     "close": "Yopish",
     "pro": "PRO",
     "bepul": "Bepul",
-    "siteName": "AvtoSmart"
+    "siteName": "AvtoSmart",
+    "save": "Saqlash",
+    "cancel": "Bekor qilish"
   },
   "belgilar": {
     "title": "Yo'l belgilari 2026",
@@ -556,5 +558,35 @@
       "description": "Imtihonda tez-tez uchraydigan raqamli ma'lumotlar: tezlik chegaralari, to'xtash masofalari, gabaritlar va boshqa me'yorlar bir joyda.",
       "keywords": "yodlash kerak raqamlar, tezlik chegarasi, to'xtash masofasi, gabarit, YHQ me'yorlari"
     }
+  },
+  "readiness": {
+    "title": "Imtihonga tayyorgarlik",
+    "ringLabel": "tayyor",
+    "statusReady": "Imtihonga tayyorsiz",
+    "statusAlmost": "Deyarli tayyor — yana biroz mashq",
+    "statusMid": "O'rtacha — mashqni davom ettiring",
+    "statusLow": "Tayyorgarlik past — muntazam mashq qiling",
+    "accuracy": "Aniqlik",
+    "accuracyDetail": "so'nggi 20 test",
+    "coverage": "Bazani qamrash",
+    "mastery": "Mustahkamlik",
+    "variants": "Variantlar",
+    "reviewHint": "{n} ta savolda xato qilgansiz",
+    "reviewCta": "Ishlash",
+    "streak": "{n} kun",
+    "toNextLevel": "Keyingi darajagacha: {n} ta test",
+    "examDateAdd": "Imtihon sanasi",
+    "examDateLabel": "Imtihon sanasi",
+    "examInDays": "Imtihonga {n} kun",
+    "examToday": "Imtihon bugun",
+    "examDatePast": "Imtihon o'tdi",
+    "emptyHint": "Birinchi testni ishlang — tayyorgarlik foizingiz shu yerda chiqadi",
+    "emptyCta": "Boshlash",
+    "level1": "Yo'lovchi",
+    "level2": "Velosipedchi",
+    "level3": "Avtomaktab o'quvchisi",
+    "level4": "Amaliyotchi haydovchi",
+    "level5": "Tajribali haydovchi",
+    "level6": "Yo'l ustasi"
   }
 }

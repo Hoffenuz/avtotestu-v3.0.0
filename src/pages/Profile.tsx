@@ -34,6 +34,7 @@ import { emailToPhoneDisplay } from '@/lib/phone';
 import { formatTestTime } from '@/lib/testPersistence';
 import { BottomNav } from '@/components/layout/BottomNav';
 import { ProfileSection } from '@/components/profile/ProfileSection';
+import ReadinessCard from '@/components/ReadinessCard';
 import { trackEvent } from '@/lib/track';
 
 interface TestResult {
@@ -431,6 +432,13 @@ useEffect(() => {
         shuning uchun doim ochiq.
       */}
       <main className="max-w-5xl mx-auto w-full px-4 md:px-6 py-6 md:py-8 -mt-4">
+        {/*
+          Tayyorgarlik — profilda SODDA ko'rinish (halqa + daraja + streak).
+          To'rtta komponentning tafsiloti bosh sahifada ko'rsatiladi; bu yerda
+          takrorlash sahifani uzaytirardi va e'tiborni bo'lardi.
+        */}
+        <ReadinessCard variant="compact" className="mb-4" />
+
         {/* Natijalar — doim ochiq */}
         <Card className="p-4 md:p-5">
           <h2 className="text-base font-semibold text-foreground mb-3 flex items-center gap-2">

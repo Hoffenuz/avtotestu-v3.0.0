@@ -27,6 +27,7 @@ import { fetchSectionCounts } from "@/lib/questionState";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { SiteNotificationBanner } from "@/components/SiteNotificationBanner";
 import HomeTopBanner from "@/components/HomeTopBanner";
+import ReadinessCard from "@/components/ReadinessCard";
 
 
 
@@ -243,6 +244,22 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/*
+        Tayyorgarlik indikatori — qahramon blokdan KEYIN, tezkor amallardan OLDIN.
+
+        Nega aynan shu yer: bu foydalanuvchining O'Z holati, ya'ni u sahifaga
+        qaytganda birinchi ko'rmoqchi bo'ladigan narsa. Mehmonga (kirmagan
+        foydalanuvchiga) komponent NULL qaytaradi — SEO uchun muhim bo'lgan
+        sahifa tuzilishi va maketi umuman o'zgarmaydi.
+      */}
+      {user && (
+        <section className="pt-8 pb-2 bg-background">
+          <div className="max-w-4xl mx-auto px-4">
+            <ReadinessCard />
+          </div>
+        </section>
+      )}
 
       {/*
         Tezkor amallar — afzalliklardan YUQORIDA.
