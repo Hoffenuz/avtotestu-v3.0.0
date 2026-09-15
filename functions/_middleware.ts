@@ -112,6 +112,12 @@ function seoSnapshotPath(pathname: string): string | null {
   const clean = cleanPath(pathname);
   if (SEO_EXACT.includes(clean)) return `/_seo${clean}/`;
   if (clean.startsWith('/savol/')) return `/_seo${clean}/`;
+  /*
+    Yo'l belgilari — har bir belgi uchun alohida snapshot.
+    Odam kelsa SPA (Belgilar sahifasi o'sha belgi bo'yicha filtrlangan)
+    ochiladi; bot esa statik nusxani oladi.
+  */
+  if (clean.startsWith('/belgilar/')) return `/_seo${clean}/`;
   return null;
 }
 

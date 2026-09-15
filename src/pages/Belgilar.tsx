@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
+import { useParams } from "react-router-dom";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEO } from "@/components/SEO";
 import { Card, CardContent } from "@/components/ui/card";
@@ -50,7 +51,25 @@ export default function Belgilar() {
     src: "",
     title: null,
   });
-  const [searchQuery, setSearchQuery] = useState("");
+  /*
+    /belgilar/{slug} — Google natijasidan kelgan odam uchun.
+
+    ALOHIDA SAHIFA QURILMAYDI: shu sahifaning O'ZI o'sha belgi bo'yicha
+    filtrlangan holda ochiladi. Ya'ni dizayn o'zgarmaydi, foydalanuvchi
+    tanish ko'rinishni ko'radi va yonidagi qidiruvni tozalab boshqa
+    belgilarni ham ko'ra oladi.
+
+    Slug ko'rinishi: "3-24-eng-katta-tezlikni-cheklash" -> kod "3.24".
+  */
+  const { slug: signSlug } = useParams<{ slug?: string }>();
+  const initialQuery = useMemo(() => {
+    if (!signSlug) return "";
+    const m = signSlug.match(/^(\d{1,2})(?:-(\d{1,2}))?(?:-(\d{1,2}))?/);
+    if (!m) return "";
+    return [m[1], m[2], m[3]].filter(Boolean).join(".");
+  }, [signSlug]);
+
+  const [searchQuery, setSearchQuery] = useState(initialQuery);
   const modalTitle = modal.title ? pickText(modal.title, contentLang) : "";
 
   useEffect(() => {

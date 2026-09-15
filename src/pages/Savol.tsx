@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEO } from "@/components/SEO";
@@ -30,18 +30,74 @@ interface SavolItem {
   globalIdPath: string;
 }
 
-const questions = savolIndex.questions as SavolItem[];
+const bundled = savolIndex.questions as SavolItem[];
 
-function findQuestion(param: string | undefined): SavolItem | undefined {
+function findIn(list: SavolItem[], param: string | undefined): SavolItem | undefined {
   if (!param) return undefined;
-  const bySlug = questions.find((q) => q.slug === param);
-  if (bySlug) return bySlug;
-  return questions.find((q) => q.globalId === param);
+  return list.find((q) => q.slug === param) ?? list.find((q) => q.globalId === param);
+}
+
+/**
+ * To'liq savol ro'yxati BUNDLE'GA KIRITILMAGAN — u ish vaqtida, faqat
+ * shu sahifa ochilganda yuklanadi.
+ *
+ * Nega: ro'yxat 300+ savoldan iborat (~350 KB) va o'sishda davom etadi.
+ * Bundle'ga qo'shilsa, u SAYTGA KIRGAN HAR BIR ODAMGA yuklanardi —
+ * holbuki /savol/ sahifalariga faqat Google orqali kelinadi.
+ *
+ * Variant 59 savollari bundle'da qoladi (21 ta, ~30 KB): ular
+ * /savol/variant-59 ro'yxati uchun baribir kerak va shu sababli
+ * darhol ochiladi.
+ */
+function useFullIndex(needed: boolean) {
+  const [extra, setExtra] = useState<SavolItem[] | null>(null);
+
+  useEffect(() => {
+    if (!needed || extra) return;
+    let cancelled = false;
+    void (async () => {
+      try {
+        const res = await fetch("/data/savol-index.json");
+        if (!res.ok) return;
+        const data = (await res.json()) as { questions?: SavolItem[] };
+        if (!cancelled && Array.isArray(data.questions)) setExtra(data.questions);
+      } catch {
+        /* tarmoq xatosi — bundle'dagi ro'yxat bilan davom etamiz */
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [needed, extra]);
+
+  return extra;
 }
 
 export default function Savol() {
   const { slug } = useParams<{ slug: string }>();
-  const question = useMemo(() => findQuestion(slug), [slug]);
+
+  const fromBundle = useMemo(() => findIn(bundled, slug), [slug]);
+  const extra = useFullIndex(!fromBundle);
+  const question = useMemo(
+    () => fromBundle ?? (extra ? findIn(extra, slug) : undefined),
+    [fromBundle, extra, slug],
+  );
+
+  /** Ro'yxat hali yuklanmoqda — "topilmadi" deyish erta bo'lardi. */
+  const stillLoading = !question && !fromBundle && extra === null;
+
+  /** Yonma-yon o'tish faqat bir manbadagi savollar orasida ishlaydi. */
+  const questions = fromBundle ? bundled : extra ?? bundled;
+
+  if (stillLoading) {
+    return (
+      <MainLayout>
+        <div className="flex min-h-[60vh] items-center justify-center" role="status">
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+        </div>
+      </MainLayout>
+    );
+  }
 
   if (!question) {
     return (
