@@ -221,10 +221,15 @@ export function MainLayout({ children }: MainLayoutProps) {
               {/*
                 LOGOTIP IKKI VARIANTDA — `<picture>` orqali.
 
-                Mobilda faqat ikonka: to'liq logotip tor ekranda joy
-                yetmasdan siqilardi. Desktopda esa gorizontal logotip — u
-                "AvtoSmart" yozuvini o'z ichiga oladi, shuning uchun yonida
-                alohida matn YOZILMAYDI (aks holda nom ikki marta chiqardi).
+                MOBILDA LOGOTIP UMUMAN KO'RSATILMAYDI: telefonda header
+                tor va unda til, tema, PRO va menyu tugmalari bor edi —
+                logotip qo'shilganda hammasi siqilib, to'lib ketardi.
+                Bosh sahifaga o'tish uchun hamburger menyu va pastki
+                navigatsiya bor, ya'ni hech qanday yo'l yo'qolmaydi.
+
+                Desktopda gorizontal logotip qoladi — u "AvtoSmart"
+                yozuvini o'z ichiga oladi, shuning uchun yonida alohida
+                matn YOZILMAYDI (aks holda nom ikki marta chiqardi).
 
                 NEGA IKKI `<img>` EMAS, `<picture>`: `display:none` qilingan
                 rasmni ham brauzer YUKLAB OLADI — ya'ni har bir tashrifchi
@@ -237,23 +242,15 @@ export function MainLayout({ children }: MainLayoutProps) {
               <Link
                 to="/"
                 aria-label="AvtoSmart — Bosh sahifa"
-                className="flex items-center ml-2 sm:ml-4"
+                className="hidden items-center ml-2 sm:ml-4 md:flex"
               >
-                <picture>
-                  <source
-                    media="(min-width: 768px)"
-                    srcSet="/avtosmart-logo-white-notag.webp"
-                    width="600"
-                    height="154"
-                  />
-                  <img
-                    src="/avtosmart-icon-white.webp"
-                    alt="AvtoSmart"
-                    className="h-8 w-8 object-contain md:h-9 md:w-auto"
-                    width="128"
-                    height="128"
-                  />
-                </picture>
+                <img
+                  src="/avtosmart-logo-white-notag.webp"
+                  alt="AvtoSmart"
+                  className="h-9 w-auto object-contain"
+                  width="600"
+                  height="154"
+                />
               </Link>
             </div>
 
@@ -400,11 +397,16 @@ export function MainLayout({ children }: MainLayoutProps) {
               </Link>
               
               {user ? (
+                /*
+                  Profil ikonkasi MOBILDA YASHIRILGAN: header tor va profilga
+                  hamburger menyu hamda pastki navigatsiya orqali kirish
+                  mumkin — ya'ni takroriy tugma faqat joy egallardi.
+                */
                 <Button
                   variant="ghost"
                   size="icon"
                   onClick={() => navigate('/profile')}
-                  className="text-primary-foreground h-8 w-8 sm:h-9 sm:w-9 ml-1"
+                  className="hidden text-primary-foreground h-8 w-8 sm:h-9 sm:w-9 ml-1 md:inline-flex"
                 >
                   <Avatar className="h-7 w-7 sm:h-8 sm:w-8 bg-[hsl(var(--cta-orange))]">
                     <AvatarFallback className="bg-[hsl(var(--cta-orange))] text-white text-xs sm:text-sm font-semibold">

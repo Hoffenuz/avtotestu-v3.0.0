@@ -144,6 +144,12 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/test-ishlash" element={<TestIshlash />} />
               <Route path="/belgilar" element={<Belgilar />} />
+              {/*
+                Bitta belgi manzili — SEO uchun (har bir belgi Google da
+                alohida sahifa). Odamga xuddi shu Belgilar sahifasi
+                ochiladi, faqat o'sha belgi bo'yicha filtrlangan holda.
+              */}
+              <Route path="/belgilar/:slug" element={<Belgilar />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/darslik" element={<Darslik />} />
               <Route path="/qoshimcha" element={<Qoshimcha />} />

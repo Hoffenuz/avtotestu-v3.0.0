@@ -85,7 +85,10 @@ export interface SectionItem {
  */
 export const SECTION_ITEMS: readonly SectionItem[] = [
   { to: "/xatolar-testi", titleKey: "sections.xatolarTesti", descKey: "sections.xatolarTestiDesc", icon: Brain, accent: "rose", requiresPro: true },
-  { to: "/xatolarim", titleKey: "sections.xatolarim", descKey: "sections.xatolarimDesc", icon: XCircle, accent: "amber", requiresPro: true },
+  // Xatolarni KO'RISH bepul (faqat kirish kerak) — o'z xatosini ko'ra
+  // olmaslik foydalanuvchini saytdan uzoqlashtiradi. Ular USTIDA ISHLASH
+  // (test yechish, /xatolar-testi) esa PRO bo'lib qoladi.
+  { to: "/xatolarim", titleKey: "sections.xatolarim", descKey: "sections.xatolarimDesc", icon: XCircle, accent: "amber", requiresAuth: true },
   { to: "/saqlangan", titleKey: "sections.saqlangan", descKey: "sections.saqlanganDesc", icon: Bookmark, accent: "violet", requiresAuth: true },
   { to: "/qidirish", titleKey: "sections.qidirish", descKey: "sections.qidirishDesc", icon: Search, accent: "cyan" , requiresPro: true },
   { to: "/belgilar", titleKey: "sections.belgilar", descKey: "sections.belgilarDesc", icon: Signpost, accent: "emerald" },

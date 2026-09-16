@@ -27,6 +27,7 @@ import { fetchSectionCounts } from "@/lib/questionState";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { SiteNotificationBanner } from "@/components/SiteNotificationBanner";
 import HomeTopBanner from "@/components/HomeTopBanner";
+import ReadinessCard from "@/components/ReadinessCard";
 
 
 
@@ -165,7 +166,16 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-brand/95 via-brand/90 to-brand/85 backdrop-blur-[2px]" />
 
         {/* Content */}
-        <div className="relative w-full max-w-7xl mx-auto px-4 py-16">
+        {/*
+          YUQORI BO'SHLIQ ATAYLAB KAMAYTIRILGAN (64px o'rniga: mobil 52px,
+          desktop 44px).
+
+          Sabab: yuqoriga tayyorgarlik tasmasi qo'shilgach, qahramon blok
+          pastga surilib, ekranning birinchi ko'rinishida pastroq turib
+          qoldi. Pastki bo'shliq (`pb-16`) o'zgarmadi — keyingi bo'lim
+          bilan orasidagi masofa saqlanishi kerak.
+        */}
+        <div className="relative w-full max-w-7xl mx-auto px-4 pt-[52px] pb-16 md:pt-11">
           <div className="max-w-4xl mx-auto bg-brand/80 backdrop-blur-md rounded-[2rem] p-8 md:p-12 text-center shadow-2xl">
 
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white/95 text-sm font-medium mb-6 border border-white/10">
@@ -256,6 +266,23 @@ export default function Home() {
           <SectionGrid items={QUICK_ITEMS} badges={quickBadges} signedIn={!!user} />
         </div>
       </section>
+
+      {/*
+        Tayyorgarlik indikatori — tezkor amallardan (real imtihon va yonidagi
+        tugmalar) KEYIN.
+
+        Nega pastda: yuqoridagi uch tugma — foydalanuvchi shu yerga nima uchun
+        kelganini bildiradigan HARAKAT. Indikator esa natija/holat, ya'ni
+        harakatdan keyin o'qiladi. Mehmonga umuman ko'rsatilmaydi — bosh
+        sahifaning SEO maketi o'zgarmaydi.
+      */}
+      {user && (
+        <section className="border-t border-border bg-muted/30 py-8 md:py-10">
+          <div className="max-w-4xl mx-auto px-4">
+            <ReadinessCard />
+          </div>
+        </section>
+      )}
 
       {/*
         Platformaning afzalliklari.
