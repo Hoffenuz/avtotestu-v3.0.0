@@ -1,67 +1,34 @@
 /**
- * TelegramLoginButton — rasmiy Telegram Login Widget.
+ * TelegramLoginButton — Telegram orqali PAROLSIZ kirish, DEEP-LINK asosida.
  *
- * Turnstile'dan FARQI: Telegram vidjeti imperativ API (`window.turnstile.render()`)
- * bermaydi — u DEKLARATIV: sahifaga aynan shu data-atributli `<script>` tegi
- * qo'yilsa, Telegram'ning o'zi uni o'qib, o'rniga tugma (iframe) chizadi.
- * Shuning uchun bu yerda React elementi emas, xom DOM script elementi
- * qo'lda yaratiladi va konteynerga qo'shiladi.
+ * NEGA RASMIY WIDGET (iframe) ISHLATILMAYDI: Telegram Login Widget
+ * `oauth.telegram.org` ni iframe sifatida chizadi. Bu KENG TANILGAN muammo
+ * (Telegram'ning o'z ekotizimida hujjatlashtirilgan) — Safari uchinchi tomon
+ * cookie'larini STANDART holatda bloklaydi (ITP), Chrome/Firefox maxfiylik
+ * rejimlari ham xuddi shunday. Natijada iframe HECH QACHON chizilmaydi va
+ * hech qanday xato ham chiqmaydi — kodda TUZATIB BO'LMAYDIGAN muammo,
+ * chunki brauzerning o'zi bloklaydi.
  *
- * Tugmaning KO'RINISHINI o'zgartirib bo'lmaydi — u Telegram domenidagi
- * iframe (Google/Apple tugmalari kabi qat'iy). Dizayn shuning uchun uni
- * O'RAB turgan panel orqali beriladi.
- *
- * Oqim:
- *  1. Foydalanuvchi tugmani bosadi, Telegram popup'da tasdiqlaydi.
- *  2. Telegram global callback'ni chaqiradi (imzolangan ma'lumot bilan).
- *  3. Ma'lumot `telegram-login` Edge Function'ga `auth` maydonida yuboriladi
- *     (imzo aynan Telegram maydonlari ustidan hisoblangani uchun ular
- *     xizmat maydonlari bilan ARALASHTIRILMAYDI).
- *  4. "login" rejimida OTP qaytadi va `verifyOtp()` sessiyaga almashtiradi;
- *     "link" rejimida esa hisobga biriktirilgani tasdiqlanadi.
+ * Shuning uchun iframe/cookie MUTLAQO ishlatilmaydi. O'rniga:
+ *  1. "Telegram orqali kirish" tugmasi bosiladi — bu ODDIY React tugmasi,
+ *     dizaynini to'liq nazorat qilamiz (widget bilan FARQI shu).
+ *  2. Bir martalik token so'raladi, foydalanuvchi `t.me/<bot>?start=login_
+ *     <token>` havolasiga o'tadi (oddiy navigatsiya — iframe yo'q, cookie
+ *     yo'q, hech qachon buzilmaydi; mobil qurilmada to'g'ridan-to'g'ri
+ *     Telegram ilovasini ochadi).
+ *  3. Telegram'da /start bosiladi, VPS'dagi bot buni tasdiqlaydi.
+ *  4. Bu sahifa token holatini so'raydi (polling). Tasdiqlangach OTP
+ *     qaytadi, `supabase.auth.verifyOtp()` bilan sessiyaga almashtiriladi.
  */
-import { useCallback, useEffect, useId, useRef, useState } from "react";
-import { AlertCircle } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ExternalLink, Loader2, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { getTelegramLoginBotUsername, isTelegramLoginConfigured } from "@/lib/telegramLogin";
+import { isMobileDevice } from "@/lib/desktopApp";
 
-const SCRIPT_SRC = "https://telegram.org/js/telegram-widget.js?22";
-
-/** Telegram tugmasining o'lchami — skelet ham aynan shuncha joy egallaydi. */
-const WIDGET_HEIGHT_PX = 40;
-
-/**
- * Skript `onload` chaqirilgandan keyin tugma (iframe) shuncha vaqt ichida
- * PAYDO BO'LMASA, "failed" holatiga o'tamiz.
- *
- * NEGA KERAK: ko'plab reklama-bloklovchilar (uBlock, Brave Shields va h.k.)
- * `telegram-widget.js` so'rovini tarmoq xatosi bilan emas, BO'SH 200 javob
- * bilan bloklaydi — bu holda `onerror` HECH QACHON chaqirilmaydi, `onload`
- * esa "muvaffaqiyatli" ishlaydi, lekin iframe hech qachon paydo bo'lmaydi.
- * Natijada foydalanuvchi xato xabarisiz, faqat bo'sh joy ko'radi — aynan
- * shu sabab "tugma bosilmayapti" deb tushunilgan.
- */
-const RENDER_TIMEOUT_MS = 4000;
-
-/** Telegram'dan keladigan xom obyekt. */
-interface TelegramAuthUser {
-  id: number;
-  first_name?: string;
-  last_name?: string;
-  username?: string;
-  photo_url?: string;
-  auth_date: number;
-  hash: string;
-}
-
-declare global {
-  interface Window {
-    // Kalit nomi Telegram tomonidan belgilanadi (widget shu nomni chaqiradi)
-    // va bir nechta widget nusxasi orasida ziddiyat bo'lmasligi uchun
-    // funksiya nomi component ID'siga bog'langan (pastga qarang).
-    [key: `onTelegramAuth_${string}`]: ((user: TelegramAuthUser) => void) | undefined;
-  }
-}
+/** Token qancha vaqt tasdiqlanishini kutamiz — undan keyin "vaqt tugadi". */
+const POLL_TIMEOUT_MS = 3 * 60 * 1000;
+const POLL_INTERVAL_MS = 2000;
 
 interface Props {
   /**
@@ -74,6 +41,26 @@ interface Props {
   /** Xato bo'lsa xabar matni bilan chaqiriladi. */
   onError: (message: string) => void;
   className?: string;
+}
+
+type Phase = "idle" | "waiting" | "timeout";
+
+/** Server xato kodlarini foydalanuvchi tilidagi xabarga aylantiradi. */
+function messageForError(code: string | undefined, mode: "login" | "link"): string {
+  switch (code) {
+    case "telegram_already_linked":
+      return "Bu Telegram hisobi boshqa profilga bog'langan.";
+    case "not_authenticated":
+      return "Sessiya tugagan. Sahifani yangilab, qayta urinib ko'ring.";
+    case "not_configured":
+      return "Telegram orqali kirish hozircha sozlanmagan.";
+    case "expired":
+      return "Havola muddati tugadi. Qayta urinib ko'ring.";
+    default:
+      return mode === "link"
+        ? "Telegramni bog'lashda xatolik. Qayta urinib ko'ring."
+        : "Telegram orqali kirishda xatolik. Qayta urinib ko'ring.";
+  }
 }
 
 /**
@@ -92,230 +79,178 @@ export function TelegramLogo({ className = "h-5 w-5" }: { className?: string }) 
   );
 }
 
-/** Server xato kodlarini foydalanuvchi tilidagi xabarga aylantiradi. */
-function messageForError(code: string | undefined, mode: "login" | "link"): string {
-  switch (code) {
-    case "telegram_already_linked":
-      return "Bu Telegram hisobi boshqa profilga bog'langan.";
-    case "not_authenticated":
-      return "Sessiya tugagan. Sahifani yangilab, qayta urinib ko'ring.";
-    case "not_configured":
-      return "Telegram orqali kirish hozircha sozlanmagan.";
-    case "invalid_signature":
-    case "auth_expired":
-      return "Telegram tasdig'i eskirgan. Qayta urinib ko'ring.";
-    default:
-      return mode === "link"
-        ? "Telegramni bog'lashda xatolik. Qayta urinib ko'ring."
-        : "Telegram orqali kirishda xatolik. Qayta urinib ko'ring.";
-  }
-}
-
 export function TelegramLoginButton({
   mode = "login",
   onSuccess,
   onError,
   className,
 }: Props) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const onSuccessRef = useRef(onSuccess);
-  const onErrorRef = useRef(onError);
-  const modeRef = useRef(mode);
-  const [busy, setBusy] = useState(false);
-  /**
-   * Vidjet holati. `failed` MUHIM: avval skript yuklanmasa (CSP bloklasa
-   * yoki tarmoq uzilsa) sarlavha ostida JIM bo'sh joy qolardi — foydalanuvchi
-   * bosadigan narsa yo'qligini tushunmasdi. Endi aniq xabar chiqadi.
-   */
-  const [widgetState, setWidgetState] = useState<"loading" | "ready" | "failed">("loading");
-  // O'zgarganda widget qaytadan yaratiladi — "Qayta urinish" tugmasi shuni ishlatadi.
-  const [retryToken, setRetryToken] = useState(0);
+  const [phase, setPhase] = useState<Phase>("idle");
+  const stopRef = useRef(false);
 
-  // Har bir komponent nusxasi o'z global callback nomiga ega bo'lsin —
-  // bir nechta joyda ishlatilsa ham bir-birini bosib qolmaydi.
-  const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
-  const callbackName = `onTelegramAuth_${uid}` as const;
-
-  useEffect(() => {
-    onSuccessRef.current = onSuccess;
-    onErrorRef.current = onError;
-    modeRef.current = mode;
-  }, [onSuccess, onError, mode]);
-
-  const handleAuth = useCallback(
-    async (user: TelegramAuthUser) => {
-      const currentMode = modeRef.current;
-      setBusy(true);
-      try {
-        const { data, error } = await supabase.functions.invoke<{
-          ok?: boolean;
-          email?: string;
-          otp?: string;
-          linked?: boolean;
-          telegram_username?: string | null;
-          error?: string;
-        }>("telegram-login", { body: { mode: currentMode, auth: user } });
-
-        let result = data;
-        if (error) {
-          // Edge Function xato statusi qaytarsa, tafsilot `context` ichida
-          // keladi — aks holda sabab yo'qoladi va hamma xato "noma'lum" bo'ladi.
-          const ctx = (error as { context?: Response }).context;
-          if (ctx && typeof ctx.json === "function") {
-            try {
-              result = await ctx.json();
-            } catch {
-              /* javob JSON emas — pastdagi umumiy xabar ishlatiladi */
-            }
-          }
-        }
-
-        if (!result?.ok) {
-          onErrorRef.current(messageForError(result?.error, currentMode));
-          return;
-        }
-
-        if (currentMode === "link") {
-          onSuccessRef.current(result.telegram_username ?? user.username ?? null);
-          return;
-        }
-
-        if (!result.email || !result.otp) {
-          onErrorRef.current(messageForError(undefined, currentMode));
-          return;
-        }
-
-        const { error: otpErr } = await supabase.auth.verifyOtp({
-          email: result.email,
-          token: result.otp,
-          type: "email",
-        });
-
-        if (otpErr) {
-          onErrorRef.current("Sessiya ochilmadi. Qayta urinib ko'ring.");
-          return;
-        }
-
-        onSuccessRef.current(user.username ?? null);
-      } catch {
-        onErrorRef.current("Internet aloqasi uzildi. Qayta urinib ko'ring.");
-      } finally {
-        setBusy(false);
-      }
-    },
-    [],
-  );
-
-  useEffect(() => {
-    if (!isTelegramLoginConfigured()) return;
-
-    setWidgetState("loading");
-
-    // Telegram widget callback'ni kutmaydi (Promise qaytarmaydi), shuning
-    // uchun natija shu yerda ushlanadi.
-    window[callbackName] = (user: TelegramAuthUser) => {
-      void handleAuth(user);
-    };
-
-    const container = containerRef.current;
-    let settled = false;
-
-    // Konteynerni KUZATAMIZ: Telegram tugmani iframe sifatida qo'shadi.
-    // Reklama-bloklovchilar ko'pincha skriptni tarmoq xatosiz, BO'SH javob
-    // bilan "muvaffaqiyatli" yuklaydi — shu holatda `onerror` chaqirilmaydi
-    // va iframe HECH QACHON paydo bo'lmaydi. Shuning uchun haqiqiy natija
-    // (`onload` emas) — konteynerda iframe borligi.
-    const observer = new MutationObserver(() => {
-      if (container?.querySelector("iframe")) {
-        settled = true;
-        observer.disconnect();
-        setWidgetState("ready");
-      }
-    });
-    if (container) observer.observe(container, { childList: true });
-
-    const timeoutId = window.setTimeout(() => {
-      if (!settled) {
-        observer.disconnect();
-        setWidgetState("failed");
-      }
-    }, RENDER_TIMEOUT_MS);
-
-    const script = document.createElement("script");
-    script.src = SCRIPT_SRC;
-    script.async = true;
-    script.setAttribute("data-telegram-login", getTelegramLoginBotUsername());
-    script.setAttribute("data-size", "large");
-    script.setAttribute("data-radius", "10");
-    script.setAttribute("data-onauth", `${callbackName}(user)`);
-    script.setAttribute("data-request-access", "write");
-    // Haqiqiy tarmoq xatosi (masalan DNS/CSP) bo'lsa buni kutmasdan darhol
-    // ko'rsatamiz — yuqoridagi kuzatuvchi esa "jim blok" holatini ushlaydi.
-    script.onerror = () => {
-      if (!settled) {
-        settled = true;
-        observer.disconnect();
-        window.clearTimeout(timeoutId);
-        setWidgetState("failed");
-      }
-    };
-    container?.appendChild(script);
-
-    return () => {
-      observer.disconnect();
-      window.clearTimeout(timeoutId);
-      // `replaceChildren()` argumentsiz — xavfsiz tozalash, `innerHTML`
-      // orqali emas (bo'sh qiymat bo'lsa ham, statik tekshiruvchilar
-      // `innerHTML` yozuvini har doim shubhali deb belgilaydi).
-      container?.replaceChildren();
-      delete window[callbackName];
-    };
-    // `callbackName` (useId dan) barqaror — widget shu sabab qayta chizilmaydi.
-    // `retryToken` o'zgarsa effekt qaytadan ishlaydi — "Qayta urinish" shu orqali.
-  }, [callbackName, handleAuth, retryToken]);
+  // Komponent yo'q qilinsa (masalan foydalanuvchi sahifadan chiqib ketsa)
+  // polling darhol to'xtasin.
+  useEffect(() => () => {
+    stopRef.current = true;
+  }, []);
 
   if (!isTelegramLoginConfigured()) return null;
 
+  const pollUntilDone = async (token: string, deadline: number) => {
+    while (!stopRef.current) {
+      if (Date.now() > deadline) {
+        if (!stopRef.current) setPhase("timeout");
+        return;
+      }
+      await new Promise((r) => setTimeout(r, POLL_INTERVAL_MS));
+      if (stopRef.current) return;
+
+      const { data, error } = await supabase.functions.invoke<{
+        ok?: boolean;
+        status?: "pending" | "done";
+        email?: string;
+        otp?: string;
+        telegram_username?: string | null;
+        error?: string;
+      }>("telegram-login?action=poll", { body: { token } });
+
+      if (stopRef.current) return;
+
+      let result = data;
+      if (error) {
+        const ctx = (error as { context?: Response }).context;
+        if (ctx && typeof ctx.json === "function") {
+          try {
+            result = await ctx.json();
+          } catch {
+            /* pastdagi umumiy xabar ishlatiladi */
+          }
+        }
+      }
+
+      if (!result?.ok) {
+        setPhase("idle");
+        onError(messageForError(result?.error, mode));
+        return;
+      }
+      if (result.status === "pending") continue;
+
+      // status === "done"
+      if (mode === "link") {
+        setPhase("idle");
+        onSuccess(result.telegram_username ?? null);
+        return;
+      }
+
+      if (!result.email || !result.otp) {
+        setPhase("idle");
+        onError(messageForError(undefined, mode));
+        return;
+      }
+
+      const { error: otpErr } = await supabase.auth.verifyOtp({
+        email: result.email,
+        token: result.otp,
+        type: "email",
+      });
+      setPhase("idle");
+      if (otpErr) {
+        onError("Sessiya ochilmadi. Qayta urinib ko'ring.");
+        return;
+      }
+      onSuccess(null);
+      return;
+    }
+  };
+
+  const handleClick = async () => {
+    // Yangi oyna DARHOL, sinxron ochiladi — token so'rovi tugaguncha
+    // kutilsa, brauzer buni "popup" deb bloklashi mumkin (foydalanuvchi
+    // bosishi bilan bevosita bog'liq bo'lmagan `window.open` chaqiruvlari
+    // ko'plab brauzerlarda avtomatik bloklanadi).
+    const isMobile = isMobileDevice();
+    const popup = isMobile ? null : window.open("", "_blank");
+
+    setPhase("waiting");
+    stopRef.current = false;
+
+    const { data, error } = await supabase.functions.invoke<{ ok?: boolean; token?: string; error?: string }>(
+      "telegram-login?action=start",
+      { body: { mode } },
+    );
+
+    if (stopRef.current) return;
+
+    if (error || !data?.ok || !data.token) {
+      popup?.close();
+      setPhase("idle");
+      onError(messageForError(data?.error, mode));
+      return;
+    }
+
+    const deepLink = `https://t.me/${getTelegramLoginBotUsername()}?start=login_${data.token}`;
+    if (isMobile) {
+      window.location.href = deepLink;
+    } else if (popup) {
+      popup.location.href = deepLink;
+    } else {
+      // Popup ham bloklangan — to'liq sahifa navigatsiyasi hamma vaqt ishlaydi.
+      window.location.href = deepLink;
+    }
+
+    await pollUntilDone(data.token, Date.now() + POLL_TIMEOUT_MS);
+  };
+
+  const handleCancel = () => {
+    stopRef.current = true;
+    setPhase("idle");
+  };
+
+  if (phase === "waiting") {
+    return (
+      <div className={className}>
+        <div className="flex items-center justify-between gap-3 rounded-xl border border-[#2AABEE]/30 bg-[#2AABEE]/[0.08] px-3.5 py-3">
+          <span className="flex items-center gap-2 text-[13px] font-medium text-foreground">
+            <Loader2 className="h-4 w-4 shrink-0 animate-spin text-[#2AABEE]" />
+            Telegram'da tasdiqlashni kuting...
+          </span>
+          <button
+            type="button"
+            onClick={handleCancel}
+            aria-label="Bekor qilish"
+            className="shrink-0 rounded-lg p-1 text-muted-foreground hover:bg-muted hover:text-foreground"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        </div>
+        <p className="mt-1.5 text-center text-[11px] text-muted-foreground">
+          Telegram ochilmadimi?{" "}
+          <button
+            type="button"
+            onClick={() => void handleClick()}
+            className="font-medium underline underline-offset-2"
+          >
+            Qayta urinish
+          </button>
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className={className}>
-      <div className="relative" style={{ minHeight: WIDGET_HEIGHT_PX }}>
-        {/*
-          Skelet vidjet KELGUNCHA aynan o'sha joyni egallaydi — tugma
-          chizilganda sahifa sakramaydi (layout shift bo'lmaydi).
-        */}
-        {widgetState === "loading" && (
-          <div
-            className="absolute inset-0 animate-pulse rounded-[10px] bg-[#2AABEE]/15"
-            aria-hidden="true"
-          />
-        )}
-        <div
-          ref={containerRef}
-          className="relative flex justify-center"
-          style={{ minHeight: WIDGET_HEIGHT_PX }}
-        />
-      </div>
-
-      {widgetState === "failed" && (
-        <div className="mt-2 flex items-start gap-1.5 text-xs text-destructive">
-          <AlertCircle className="mt-px h-3.5 w-3.5 shrink-0" />
-          <p>
-            Telegram tugmasi yuklanmadi. Reklama bloklovchi kengaytma yoki
-            brauzerning maxfiylik sozlamasi sabab bo'lishi mumkin.{" "}
-            <button
-              type="button"
-              onClick={() => setRetryToken((v) => v + 1)}
-              className="font-semibold underline underline-offset-2"
-            >
-              Qayta urinish
-            </button>
-          </p>
-        </div>
-      )}
-
-      {busy && (
-        <p className="mt-2 text-center text-xs text-muted-foreground">
-          {mode === "link" ? "Bog'lanmoqda..." : "Kirilmoqda..."}
+      <button
+        type="button"
+        onClick={() => void handleClick()}
+        className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#2AABEE] px-4 py-2.5 text-[14px] font-semibold text-white shadow-sm shadow-[#2AABEE]/25 transition-colors hover:bg-[#229ED9]"
+      >
+        <TelegramLogo className="h-[18px] w-[18px]" />
+        {mode === "link" ? "Telegramni bog'lash" : "Telegram orqali kirish"}
+        <ExternalLink className="h-3.5 w-3.5 opacity-70" />
+      </button>
+      {phase === "timeout" && (
+        <p className="mt-2 text-center text-xs text-destructive">
+          Vaqt tugadi — tasdiqlanmadi. Yuqoridagi tugmani qayta bosing.
         </p>
       )}
     </div>
