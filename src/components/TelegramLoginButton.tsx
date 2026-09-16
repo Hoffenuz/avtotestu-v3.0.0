@@ -30,6 +30,19 @@ const SCRIPT_SRC = "https://telegram.org/js/telegram-widget.js?22";
 /** Telegram tugmasining o'lchami — skelet ham aynan shuncha joy egallaydi. */
 const WIDGET_HEIGHT_PX = 40;
 
+/**
+ * Skript `onload` chaqirilgandan keyin tugma (iframe) shuncha vaqt ichida
+ * PAYDO BO'LMASA, "failed" holatiga o'tamiz.
+ *
+ * NEGA KERAK: ko'plab reklama-bloklovchilar (uBlock, Brave Shields va h.k.)
+ * `telegram-widget.js` so'rovini tarmoq xatosi bilan emas, BO'SH 200 javob
+ * bilan bloklaydi — bu holda `onerror` HECH QACHON chaqirilmaydi, `onload`
+ * esa "muvaffaqiyatli" ishlaydi, lekin iframe hech qachon paydo bo'lmaydi.
+ * Natijada foydalanuvchi xato xabarisiz, faqat bo'sh joy ko'radi — aynan
+ * shu sabab "tugma bosilmayapti" deb tushunilgan.
+ */
+const RENDER_TIMEOUT_MS = 4000;
+
 /** Telegram'dan keladigan xom obyekt. */
 interface TelegramAuthUser {
   id: number;
@@ -115,6 +128,8 @@ export function TelegramLoginButton({
    * bosadigan narsa yo'qligini tushunmasdi. Endi aniq xabar chiqadi.
    */
   const [widgetState, setWidgetState] = useState<"loading" | "ready" | "failed">("loading");
+  // O'zgarganda widget qaytadan yaratiladi — "Qayta urinish" tugmasi shuni ishlatadi.
+  const [retryToken, setRetryToken] = useState(0);
 
   // Har bir komponent nusxasi o'z global callback nomiga ega bo'lsin —
   // bir nechta joyda ishlatilsa ham bir-birini bosib qolmaydi.
@@ -194,6 +209,8 @@ export function TelegramLoginButton({
   useEffect(() => {
     if (!isTelegramLoginConfigured()) return;
 
+    setWidgetState("loading");
+
     // Telegram widget callback'ni kutmaydi (Promise qaytarmaydi), shuning
     // uchun natija shu yerda ushlanadi.
     window[callbackName] = (user: TelegramAuthUser) => {
@@ -201,6 +218,29 @@ export function TelegramLoginButton({
     };
 
     const container = containerRef.current;
+    let settled = false;
+
+    // Konteynerni KUZATAMIZ: Telegram tugmani iframe sifatida qo'shadi.
+    // Reklama-bloklovchilar ko'pincha skriptni tarmoq xatosiz, BO'SH javob
+    // bilan "muvaffaqiyatli" yuklaydi — shu holatda `onerror` chaqirilmaydi
+    // va iframe HECH QACHON paydo bo'lmaydi. Shuning uchun haqiqiy natija
+    // (`onload` emas) — konteynerda iframe borligi.
+    const observer = new MutationObserver(() => {
+      if (container?.querySelector("iframe")) {
+        settled = true;
+        observer.disconnect();
+        setWidgetState("ready");
+      }
+    });
+    if (container) observer.observe(container, { childList: true });
+
+    const timeoutId = window.setTimeout(() => {
+      if (!settled) {
+        observer.disconnect();
+        setWidgetState("failed");
+      }
+    }, RENDER_TIMEOUT_MS);
+
     const script = document.createElement("script");
     script.src = SCRIPT_SRC;
     script.async = true;
@@ -209,11 +249,21 @@ export function TelegramLoginButton({
     script.setAttribute("data-radius", "10");
     script.setAttribute("data-onauth", `${callbackName}(user)`);
     script.setAttribute("data-request-access", "write");
-    script.onload = () => setWidgetState("ready");
-    script.onerror = () => setWidgetState("failed");
+    // Haqiqiy tarmoq xatosi (masalan DNS/CSP) bo'lsa buni kutmasdan darhol
+    // ko'rsatamiz — yuqoridagi kuzatuvchi esa "jim blok" holatini ushlaydi.
+    script.onerror = () => {
+      if (!settled) {
+        settled = true;
+        observer.disconnect();
+        window.clearTimeout(timeoutId);
+        setWidgetState("failed");
+      }
+    };
     container?.appendChild(script);
 
     return () => {
+      observer.disconnect();
+      window.clearTimeout(timeoutId);
       // `replaceChildren()` argumentsiz — xavfsiz tozalash, `innerHTML`
       // orqali emas (bo'sh qiymat bo'lsa ham, statik tekshiruvchilar
       // `innerHTML` yozuvini har doim shubhali deb belgilaydi).
@@ -221,7 +271,8 @@ export function TelegramLoginButton({
       delete window[callbackName];
     };
     // `callbackName` (useId dan) barqaror — widget shu sabab qayta chizilmaydi.
-  }, [callbackName, handleAuth]);
+    // `retryToken` o'zgarsa effekt qaytadan ishlaydi — "Qayta urinish" shu orqali.
+  }, [callbackName, handleAuth, retryToken]);
 
   if (!isTelegramLoginConfigured()) return null;
 
@@ -246,13 +297,20 @@ export function TelegramLoginButton({
       </div>
 
       {widgetState === "failed" && (
-        <p className="mt-2 flex items-start gap-1.5 text-xs text-destructive">
+        <div className="mt-2 flex items-start gap-1.5 text-xs text-destructive">
           <AlertCircle className="mt-px h-3.5 w-3.5 shrink-0" />
-          <span>
-            Telegram tugmasi yuklanmadi. Reklama bloklovchi yoki tarmoq
-            cheklovi sabab bo'lishi mumkin.
-          </span>
-        </p>
+          <p>
+            Telegram tugmasi yuklanmadi. Reklama bloklovchi kengaytma yoki
+            brauzerning maxfiylik sozlamasi sabab bo'lishi mumkin.{" "}
+            <button
+              type="button"
+              onClick={() => setRetryToken((v) => v + 1)}
+              className="font-semibold underline underline-offset-2"
+            >
+              Qayta urinish
+            </button>
+          </p>
+        </div>
       )}
 
       {busy && (
