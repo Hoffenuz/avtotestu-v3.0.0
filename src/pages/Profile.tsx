@@ -30,6 +30,7 @@ import {
 import { toast } from 'sonner';
 import { DeviceLicenseCard } from '@/components/DeviceLicenseCard';
 import { PasswordSection } from '@/components/PasswordSection';
+import { TelegramLinkSection } from '@/components/TelegramLinkSection';
 import { emailToPhoneDisplay } from '@/lib/phone';
 import { formatTestTime } from '@/lib/testPersistence';
 import { BottomNav } from '@/components/layout/BottomNav';
@@ -670,8 +671,9 @@ useEffect(() => {
               </div>
             )}
 
-            {/* Parol — tahrirlash rejimida emas, ma'lumotlar ostida ixcham bo'lim */}
+            {/* Parol va Telegram — tahrirlash rejimida emas, ixcham bo'limlar */}
             {!isEditing && <PasswordSection />}
+            {!isEditing && <TelegramLinkSection />}
           </div>
         </ProfileSection>
 

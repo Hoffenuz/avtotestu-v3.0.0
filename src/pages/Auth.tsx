@@ -15,7 +15,7 @@ import { isNetworkError, NETWORK_ERROR_MESSAGE_UZ } from '@/lib/networkError';
 import { SIGNUP_FN_TIMEOUT_MS, withTimeout } from '@/lib/withTimeout';
 import { Turnstile } from '@/components/Turnstile';
 import { isTurnstileConfigured } from '@/lib/turnstile';
-import { TelegramLoginButton } from '@/components/TelegramLoginButton';
+import { TelegramLoginButton, TelegramLogo } from '@/components/TelegramLoginButton';
 import { isTelegramLoginConfigured } from '@/lib/telegramLogin';
 import { peekPendingPlan } from '@/lib/pendingPlan';
 import {
@@ -582,20 +582,26 @@ const Auth = () => {
             uchun "chiroyliroq" ko'rinish atrofidagi blok orqali beriladi.
           */}
           {isTelegramLoginConfigured() && (
-            <div className="mb-3 rounded-2xl border border-[#2AABEE]/25 bg-[#2AABEE]/[0.06] p-3.5">
-              <div className="mb-2.5 flex items-center gap-2">
-                <svg className="h-5 w-5 shrink-0" viewBox="0 0 240 240" fill="none">
-                  <circle cx="120" cy="120" r="120" fill="#2AABEE"/>
-                  <path fill="#fff" d="M55 118l125-48c6-2 11 1 9 10l-21 100c-2 8-7 10-14 6l-38-28-18 17c-2 2-4 4-8 4l3-40 73-66c3-3-1-5-5-2l-90 57-39-12c-8-3-8-9 2-12z"/>
-                </svg>
-                <span className="text-[13px] font-semibold text-foreground">
-                  {t('auth.telegramTitle')}
+            <div className="mb-3 overflow-hidden rounded-2xl border border-[#2AABEE]/30 bg-gradient-to-b from-[#2AABEE]/[0.09] to-transparent">
+              <div className="flex items-center gap-2.5 px-3.5 pt-3.5">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[#2AABEE]/15">
+                  <TelegramLogo className="h-[18px] w-[18px]" />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block text-[13px] font-semibold leading-tight text-foreground">
+                    {t('auth.telegramTitle')}
+                  </span>
+                  <span className="block text-[11px] leading-tight text-muted-foreground">
+                    {t('auth.telegramHint')}
+                  </span>
                 </span>
               </div>
-              <TelegramLoginButton
-                onSuccess={() => navigate(returnTo, { replace: true })}
-                onError={(message) => setError(message)}
-              />
+              <div className="px-3.5 pb-3.5 pt-3">
+                <TelegramLoginButton
+                  onSuccess={() => navigate(returnTo, { replace: true })}
+                  onError={(message) => setError(message)}
+                />
+              </div>
             </div>
           )}
 

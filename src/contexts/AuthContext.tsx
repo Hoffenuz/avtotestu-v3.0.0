@@ -28,6 +28,9 @@ interface Profile {
   full_name: string | null;
   avatar_url: string | null;
   created_at: string;
+  /** Telegram bog'lami — faqat server (Edge Function) yozadi, mijoz o'qiydi. */
+  telegram_id: number | null;
+  telegram_username: string | null;
 }
 
 interface AuthContextType {
@@ -173,7 +176,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       const { data, error } = await withTimeout(
         supabase
           .from('profiles')
-          .select('id, username, full_name, avatar_url, created_at')
+          .select('id, username, full_name, avatar_url, created_at, telegram_id, telegram_username')
           .eq('id', userId)
           .single(),
         PROFILE_TIMEOUT_MS,

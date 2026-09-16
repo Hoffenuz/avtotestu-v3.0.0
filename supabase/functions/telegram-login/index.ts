@@ -23,6 +23,12 @@
  * yerda ortiqcha.
  *
  * verify_jwt = false: hali sessiyasi yo'q foydalanuvchi chaqiradi.
+ *
+ * IKKI REJIM (`mode` maydoni):
+ *  - "login" (standart) — yuqoridagi oqim: hisobga kiradi yoki yangi ochadi.
+ *  - "link" — foydalanuvchi ALLAQACHON kirgan (profil sahifasi): mavjud
+ *    hisobga Telegram biriktiriladi, sessiya berilmaydi. Bu rejimda
+ *    Authorization sarlavhasidagi token SHU YERDA tekshiriladi.
  */
 
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
@@ -141,6 +147,25 @@ async function verifyTelegramAuth(
   return diff === 0;
 }
 
+/**
+ * Telegram maydonlarini so'rov tanasidan ajratib oladi.
+ *
+ * MUHIM: imzo (`hash`) Telegram yuborgan maydonlarning AYNAN o'zi ustidan
+ * hisoblanadi. Agar biz qo'shgan xizmat maydoni (`mode`) shu ro'yxatga tushib
+ * qolsa, data-check-string o'zgarib, imzo HAR DOIM noto'g'ri chiqadi.
+ * Shuning uchun Telegram ma'lumoti alohida `auth` obyektida yuboriladi.
+ */
+function extractAuthPayload(body: Record<string, unknown>): Record<string, unknown> {
+  const nested = body.auth;
+  if (nested && typeof nested === "object" && !Array.isArray(nested)) {
+    return nested as Record<string, unknown>;
+  }
+  // Frontend'ning eski nusxasi Telegram maydonlarini to'g'ridan-to'g'ri
+  // tanaga qo'yardi — keshda qolgan bundle ishlayotgan bo'lsa ham sinmasin.
+  const { mode: _mode, auth: _auth, ...rest } = body;
+  return rest;
+}
+
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") return optionsResponse();
   if (req.method !== "POST") {
@@ -162,8 +187,11 @@ Deno.serve(async (req: Request) => {
       return jsonResponse({ ok: false, error: "invalid_body" }, 400);
     }
 
-    const telegramId = Number(body.id);
-    const authDate = Number(body.auth_date);
+    const mode = body.mode === "link" ? "link" : "login";
+    const authPayload = extractAuthPayload(body);
+
+    const telegramId = Number(authPayload.id);
+    const authDate = Number(authPayload.auth_date);
     if (!Number.isFinite(telegramId) || telegramId <= 0) {
       return jsonResponse({ ok: false, error: "invalid_payload" }, 400);
     }
@@ -177,14 +205,65 @@ Deno.serve(async (req: Request) => {
       return jsonResponse({ ok: false, error: "auth_expired" }, 403);
     }
 
-    const validSignature = await verifyTelegramAuth(body, botToken);
+    const validSignature = await verifyTelegramAuth(authPayload, botToken);
     if (!validSignature) {
       console.warn(`[telegram-login] noto'g'ri imzo: id=${telegramId}`);
       return jsonResponse({ ok: false, error: "invalid_signature" }, 403);
     }
 
-    const firstName = typeof body.first_name === "string" ? body.first_name : null;
-    const username = typeof body.username === "string" ? body.username : null;
+    const firstName = typeof authPayload.first_name === "string" ? authPayload.first_name : null;
+    const username = typeof authPayload.username === "string" ? authPayload.username : null;
+
+    /*
+      BOG'LASH REJIMI — foydalanuvchi ALLAQACHON kirgan (profil sahifasidan).
+      Yangi hisob yaratilmaydi va sessiya berilmaydi: faqat mavjud hisobga
+      Telegram biriktiriladi.
+
+      verify_jwt = false bo'lgani uchun tokenni SHU YERDA o'zimiz
+      tekshiramiz — `getUser(token)` imzoni Supabase Auth'da tasdiqlaydi.
+    */
+    if (mode === "link") {
+      const authHeader = req.headers.get("Authorization") ?? "";
+      const token = authHeader.startsWith("Bearer ") ? authHeader.slice(7).trim() : "";
+      if (!token) {
+        return jsonResponse({ ok: false, error: "not_authenticated" }, 401);
+      }
+
+      const { data: userData, error: userErr } = await supabase.auth.getUser(token);
+      if (userErr || !userData?.user) {
+        return jsonResponse({ ok: false, error: "not_authenticated" }, 401);
+      }
+      const userId = userData.user.id;
+
+      const { data: owner, error: ownerErr } = await supabase
+        .from("profiles")
+        .select("id")
+        .eq("telegram_id", telegramId)
+        .maybeSingle();
+
+      if (ownerErr) {
+        console.error("[telegram-login] link lookup:", ownerErr.message);
+        return jsonResponse({ ok: false, error: "internal_error" }, 500);
+      }
+
+      // Bir Telegram hisobi bitta profilga tegishli (unique indeks ham bor) —
+      // boshqasiga biriktirishga urinish aniq xato bilan rad etiladi.
+      if (owner && (owner as { id: string }).id !== userId) {
+        return jsonResponse({ ok: false, error: "telegram_already_linked" }, 409);
+      }
+
+      const { error: bindErr } = await supabase
+        .from("profiles")
+        .update({ telegram_id: telegramId, telegram_username: username })
+        .eq("id", userId);
+
+      if (bindErr) {
+        console.error("[telegram-login] bind:", bindErr.message);
+        return jsonResponse({ ok: false, error: "internal_error" }, 500);
+      }
+
+      return jsonResponse({ ok: true, linked: true, telegram_username: username });
+    }
 
     // 1) Bu Telegram hisobi allaqachon bog'langanmi?
     const { data: existing, error: lookupErr } = await supabase
@@ -203,6 +282,17 @@ Deno.serve(async (req: Request) => {
     if (existing) {
       // Mavjud hisob — qayta kiritamiz.
       email = (existing as { email: string }).email;
+
+      // Telegram'da @username o'zgarishi mumkin — profildagi ko'rsatuv
+      // ma'lumotini har kirishda yangilab turamiz (xato bo'lsa ham kirishga
+      // to'sqinlik qilmaydi, bu shunchaki ko'rsatuv maydoni).
+      const { error: refreshErr } = await supabase
+        .from("profiles")
+        .update({ telegram_username: username })
+        .eq("id", (existing as { id: string }).id);
+      if (refreshErr) {
+        console.warn("[telegram-login] username yangilanmadi:", refreshErr.message);
+      }
     } else {
       // Yangi hisob — sun'iy email, PAROLSIZ (tasodifiy, hech qachon
       // ishlatilmaydigan parol — Supabase Auth parol maydonini talab qiladi,
@@ -230,7 +320,7 @@ Deno.serve(async (req: Request) => {
 
       const { error: linkErr } = await supabase
         .from("profiles")
-        .update({ telegram_id: telegramId })
+        .update({ telegram_id: telegramId, telegram_username: username })
         .eq("id", created.user!.id);
 
       if (linkErr) {
