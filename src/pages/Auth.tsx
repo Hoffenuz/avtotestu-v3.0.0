@@ -16,6 +16,7 @@ import { SIGNUP_FN_TIMEOUT_MS, withTimeout } from '@/lib/withTimeout';
 import { Turnstile } from '@/components/Turnstile';
 import { isTurnstileConfigured } from '@/lib/turnstile';
 import { TelegramLoginButton } from '@/components/TelegramLoginButton';
+import { isTelegramLoginConfigured } from '@/lib/telegramLogin';
 import { peekPendingPlan } from '@/lib/pendingPlan';
 import {
   formatLoginInput,
@@ -554,7 +555,8 @@ const Auth = () => {
 
           {/*
             Google formadan KEYIN: asosiy yo'l telefon raqam bilan
-            ro'yxatdan o'tish, Google esa muqobil variant sifatida pastda.
+            ro'yxatdan o'tish, Google va Telegram muqobil variant sifatida
+            pastda.
           */}
           <div className="relative my-4">
             <div className="absolute inset-0 flex items-center">
@@ -564,6 +566,38 @@ const Auth = () => {
               <span className="bg-card px-2 text-xs text-muted-foreground">{t('auth.or')}</span>
             </div>
           </div>
+
+          {/*
+            TELEGRAM — Google'dan OLDIN va ko'zga aniqroq.
+
+            Nega birinchi: bu auditoriya uchun Telegram allaqachon tanish
+            muhit (guruh, botlar) — Google'dan ko'ra ko'proq odam shu orqali
+            kirishni tanlaydi deb kutiladi. Shuning uchun oddiy tugma emas,
+            yengil ko'k rangdagi ajratilgan blok ichida, sarlavha bilan —
+            Google esa pastda oddiy ikkinchi darajali tugma bo'lib qoladi.
+
+            Vidjetning O'ZI (Telegram tomonidan chiziladigan tugma) rangini
+            o'zgartirib bo'lmaydi — bu Telegram tomonidan qat'iy belgilangan
+            (ishonch uchun, xuddi Google/Apple tugmalari kabi). Shuning
+            uchun "chiroyliroq" ko'rinish atrofidagi blok orqali beriladi.
+          */}
+          {isTelegramLoginConfigured() && (
+            <div className="mb-3 rounded-2xl border border-[#2AABEE]/25 bg-[#2AABEE]/[0.06] p-3.5">
+              <div className="mb-2.5 flex items-center gap-2">
+                <svg className="h-5 w-5 shrink-0" viewBox="0 0 240 240" fill="none">
+                  <circle cx="120" cy="120" r="120" fill="#2AABEE"/>
+                  <path fill="#fff" d="M55 118l125-48c6-2 11 1 9 10l-21 100c-2 8-7 10-14 6l-38-28-18 17c-2 2-4 4-8 4l3-40 73-66c3-3-1-5-5-2l-90 57-39-12c-8-3-8-9 2-12z"/>
+                </svg>
+                <span className="text-[13px] font-semibold text-foreground">
+                  {t('auth.telegramTitle')}
+                </span>
+              </div>
+              <TelegramLoginButton
+                onSuccess={() => navigate(returnTo, { replace: true })}
+                onError={(message) => setError(message)}
+              />
+            </div>
+          )}
 
           <Button
             type="button"
@@ -589,19 +623,6 @@ const Auth = () => {
               </>
             )}
           </Button>
-
-          {/*
-            Telegram — Google'dan KEYIN, bir xil qatordagi muqobil kirish
-            usuli. Kirish HAM, ro'yxatdan o'tish HAM (yangi va mavjud
-            Telegram hisobi bir xil tugma orqali farqlanadi — server
-            tomonda hal qilinadi), shuning uchun ikkala rejimda ham
-            ko'rsatiladi.
-          */}
-          <TelegramLoginButton
-            className="mt-3"
-            onSuccess={() => navigate(returnTo, { replace: true })}
-            onError={(message) => setError(message)}
-          />
 
           {/*
             Turnstile ENG PASTDA — Google tugmasidan ham keyin.
