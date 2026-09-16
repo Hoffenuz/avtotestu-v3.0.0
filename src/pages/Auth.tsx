@@ -15,6 +15,7 @@ import { isNetworkError, NETWORK_ERROR_MESSAGE_UZ } from '@/lib/networkError';
 import { SIGNUP_FN_TIMEOUT_MS, withTimeout } from '@/lib/withTimeout';
 import { Turnstile } from '@/components/Turnstile';
 import { isTurnstileConfigured } from '@/lib/turnstile';
+import { TelegramLoginButton } from '@/components/TelegramLoginButton';
 import { peekPendingPlan } from '@/lib/pendingPlan';
 import {
   formatLoginInput,
@@ -588,6 +589,19 @@ const Auth = () => {
               </>
             )}
           </Button>
+
+          {/*
+            Telegram — Google'dan KEYIN, bir xil qatordagi muqobil kirish
+            usuli. Kirish HAM, ro'yxatdan o'tish HAM (yangi va mavjud
+            Telegram hisobi bir xil tugma orqali farqlanadi — server
+            tomonda hal qilinadi), shuning uchun ikkala rejimda ham
+            ko'rsatiladi.
+          */}
+          <TelegramLoginButton
+            className="mt-3"
+            onSuccess={() => navigate(returnTo, { replace: true })}
+            onError={(message) => setError(message)}
+          />
 
           {/*
             Turnstile ENG PASTDA — Google tugmasidan ham keyin.
