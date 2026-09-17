@@ -8,34 +8,28 @@
  * chizilmaydi va hech qanday xato ham chiqmaydi — koddan tuzatib bo'lmaydi.
  *
  * OQIM (iframe/cookie MUTLAQO ishlatilmaydi):
- *  1. "start" — bir martalik token + 4 belgili TASDIQLASH KODI yaratiladi.
- *     Sayt kodni ekranda ko'rsatadi.
- *  2. Foydalanuvchi `t.me/<bot>?start=login_<token>` ga o'tadi.
- *  3. Bot "lookup" bilan kodni oladi va foydalanuvchiga KO'RSATADI:
- *     "Saytda shu kod turibdimi? [Tasdiqlash] [Bekor qilish]".
- *  4. Tasdiqlansa bot "confirm" chaqiradi.
- *  5. Sayt "poll" bilan holatni so'raydi va OTP ni oladi.
+ *  1. "start" — bir martalik token yaratiladi (5 daqiqa amal qiladi).
+ *  2. Foydalanuvchi `t.me/<bot>?start=login_<token>` ga o'tadi va "Start"
+ *     bosadi — boshqa hech narsa qilishi shart emas.
+ *  3. Bot darhol "confirm" chaqiradi va "kirdingiz" deb javob beradi.
+ *  4. Sayt "poll" bilan holatni so'raydi va OTP ni oladi.
  *
- * ── XAVFSIZLIK (xavfsizlik tekshiruvi topgan kamchiliklar yopildi) ────────
+ * ── XAVFSIZLIK ───────────────────────────────────────────────────────────
  *
- * a) TASDIQLASH KODI — hujumchi o'zi token olib, havolani qurbonga yuborsa,
- *    qurbon botda o'ziga NOTANISH kod ko'radi va bekor qiladi. Busiz qurbon
- *    "Start" bosishi bilan hujumchi uning hisobiga kirib olardi.
- *
- * b) MIJOZGA BOG'LASH (client_hash) — tokenni faqat uni YARATGAN brauzer
+ * a) MIJOZGA BOG'LASH (client_hash) — tokenni faqat uni YARATGAN brauzer
  *    poll qila oladi. Busiz hujumchi o'zi tasdiqlagan tokenni qurbonning
  *    brauzeriga "sovg'a qilib", uni o'z hisobiga kiritib qo'yishi mumkin edi
  *    (TikTok'da topilgan "session donation CSRF" hujumi).
  *
- * c) ATOMAR CLAIM — `confirmed`/`consumed` shartli UPDATE bilan olinadi
+ * b) ATOMAR CLAIM — `confirmed`/`consumed` shartli UPDATE bilan olinadi
  *    (`.eq(..., false)`), shuning uchun bir vaqtda kelgan ikkita so'rov
  *    ikkita hisob yaratmaydi va OTP ikki marta berilmaydi (TOCTOU).
  *
- * d) IMZO SOHASI + VAQT — bot imzosi endi maqsad nomi va vaqt belgisini
+ * c) IMZO SOHASI + VAQT — bot imzosi endi maqsad nomi va vaqt belgisini
  *    ham qamrab oladi, shuning uchun bir endpoint uchun imzolangan so'rovni
  *    boshqasiga qayta ishlatib bo'lmaydi va eski so'rov takrorlanmaydi.
  *
- * e) CORS — OTP qaytaradigan endpoint endi ixtiyoriy saytga emas, faqat
+ * d) CORS — OTP qaytaradigan endpoint endi ixtiyoriy saytga emas, faqat
  *    o'z domenlarimizga javob beradi.
  */
 
@@ -148,21 +142,19 @@ async function verifyBotSignature(
   return constantTimeEquals(computed, signature);
 }
 
-/** Token: 32 bayt (256 bit) tasodifiy. */
-function generateToken(): string {
-  return toHex(crypto.getRandomValues(new Uint8Array(32)).buffer);
-}
-
 /**
- * Tasdiqlash kodi — 4 belgi, chalkashadigan harflar (0/O, 1/I) OLIB
- * TASHLANGAN: foydalanuvchi ikkita kodni ko'zi bilan solishtiradi.
+ * Token: 24 bayt (192 bit) tasodifiy → 48 ta hex belgi.
+ *
+ * NEGA 32 EMAS, 24 BAYT: token Telegram deep-link'ida
+ * `?start=login_<token>` ko'rinishida uzatiladi, `start` parametri esa
+ * QAT'IY 64 belgi bilan cheklangan va undan uzuni JIMGINA tashlab
+ * yuboriladi (xato ham chiqmaydi). 32 bayt = 64 belgi + "login_" = 70
+ * belgi bo'lib, aynan shu sabab bot hech qanday payload olmasdi.
+ * Hozir: 6 + 48 = 54 belgi — chegaradan ancha past.
+ * 192 bit bir martalik, 5 daqiqalik token uchun ortig'i bilan yetarli.
  */
-const CODE_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-function generateVerificationCode(): string {
-  const bytes = crypto.getRandomValues(new Uint8Array(4));
-  return Array.from(bytes)
-    .map((b) => CODE_ALPHABET[b % CODE_ALPHABET.length])
-    .join("");
+function generateToken(): string {
+  return toHex(crypto.getRandomValues(new Uint8Array(24)).buffer);
 }
 
 const TELEGRAM_EMAIL_DOMAIN = "tg.avtotestu.uz";
@@ -178,7 +170,6 @@ type TokenRow = {
   telegram_username: string | null;
   result_email: string | null;
   result_otp: string | null;
-  verification_code: string | null;
   client_hash: string | null;
   error: string | null;
   expires_at: string;
@@ -205,13 +196,11 @@ async function handleStart(req: Request, supabase: ReturnType<typeof admin>, bod
   }
 
   const loginToken = generateToken();
-  const code = generateVerificationCode();
 
   const { error } = await supabase.from("telegram_login_tokens").insert({
     token: loginToken,
     mode,
     linking_user_id: linkingUserId,
-    verification_code: code,
     client_hash: clientHash,
   });
   if (error) {
@@ -226,7 +215,7 @@ async function handleStart(req: Request, supabase: ReturnType<typeof admin>, bod
     .lt("expires_at", new Date(Date.now() - 60_000).toISOString())
     .then(() => {});
 
-  return jsonResponse(req, { ok: true, token: loginToken, code });
+  return jsonResponse(req, { ok: true, token: loginToken });
 }
 
 async function handlePoll(req: Request, supabase: ReturnType<typeof admin>, body: Record<string, unknown>) {
@@ -281,29 +270,6 @@ async function handlePoll(req: Request, supabase: ReturnType<typeof admin>, body
     return jsonResponse(req, { ok: true, status: "done", telegram_username: data.telegram_username });
   }
   return jsonResponse(req, { ok: true, status: "done", email: data.result_email, otp: data.result_otp });
-}
-
-/**
- * Bot deep-link'ni ochgan zahoti chaqiradi: foydalanuvchiga KO'RSATISH uchun
- * tasdiqlash kodini qaytaradi. Hech narsani o'zgartirmaydi.
- */
-async function handleLookup(req: Request, supabase: ReturnType<typeof admin>, rawBody: string) {
-  const body = JSON.parse(rawBody) as Record<string, unknown>;
-  const token = typeof body.token === "string" ? body.token : "";
-  if (!token) return jsonResponse(req, { ok: false, error: "invalid_payload" }, 400);
-
-  const { data } = await supabase
-    .from("telegram_login_tokens")
-    .select("mode, verification_code, confirmed, expires_at")
-    .eq("token", token)
-    .maybeSingle<Pick<TokenRow, "mode" | "verification_code" | "confirmed" | "expires_at">>();
-
-  if (!data || new Date(data.expires_at).getTime() < Date.now()) {
-    return jsonResponse(req, { ok: false, error: "expired" }, 404);
-  }
-  if (data.confirmed) return jsonResponse(req, { ok: false, error: "already_used" }, 409);
-
-  return jsonResponse(req, { ok: true, mode: data.mode, code: data.verification_code });
 }
 
 async function handleConfirm(req: Request, supabase: ReturnType<typeof admin>, rawBody: string) {
@@ -430,7 +396,7 @@ async function handleConfirm(req: Request, supabase: ReturnType<typeof admin>, r
 }
 
 /** Bot chaqiradigan amallar — imzo talab qiladi. */
-const BOT_ACTIONS = new Set(["lookup", "confirm"]);
+const BOT_ACTIONS = new Set(["confirm"]);
 
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") return new Response(null, { status: 204, headers: corsHeaders(req) });
@@ -453,9 +419,7 @@ Deno.serve(async (req: Request) => {
         return jsonResponse(req, { ok: false, error: "invalid_signature" }, 403);
       }
       try {
-        return action === "lookup"
-          ? await handleLookup(req, supabase, rawBody)
-          : await handleConfirm(req, supabase, rawBody);
+        return await handleConfirm(req, supabase, rawBody);
       } catch {
         return jsonResponse(req, { ok: false, error: "invalid_body" }, 400);
       }

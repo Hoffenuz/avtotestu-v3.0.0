@@ -108,8 +108,6 @@ export function TelegramLoginButton({
   className,
 }: Props) {
   const [phase, setPhase] = useState<Phase>("idle");
-  // Telegram'dagi xabar bilan solishtirish uchun ekranda ko'rsatiladigan kod.
-  const [code, setCode] = useState<string | null>(null);
   const stopRef = useRef(false);
 
   // Komponent yo'q qilinsa (masalan foydalanuvchi sahifadan chiqib ketsa)
@@ -154,14 +152,12 @@ export function TelegramLoginButton({
 
       if (!result?.ok) {
         setPhase("idle");
-        setCode(null);
         onError(messageForError(result?.error, mode));
         return;
       }
       if (result.status === "pending") continue;
 
       // status === "done"
-      setCode(null);
       if (mode === "link") {
         setPhase("idle");
         onSuccess(result.telegram_username ?? null);
@@ -198,7 +194,6 @@ export function TelegramLoginButton({
     const popup = isMobile ? null : window.open("", "_blank");
 
     setPhase("waiting");
-    setCode(null);
     stopRef.current = false;
 
     const clientSecret = createClientSecret();
@@ -207,7 +202,6 @@ export function TelegramLoginButton({
     const { data, error } = await supabase.functions.invoke<{
       ok?: boolean;
       token?: string;
-      code?: string;
       error?: string;
     }>("telegram-login?action=start", { body: { mode, client_hash: clientHash } });
 
@@ -219,8 +213,6 @@ export function TelegramLoginButton({
       onError(messageForError(data?.error, mode));
       return;
     }
-
-    setCode(data.code ?? null);
 
     const deepLink = `https://t.me/${getTelegramLoginBotUsername()}?start=login_${data.token}`;
     if (isMobile) {
@@ -238,7 +230,6 @@ export function TelegramLoginButton({
   const handleCancel = () => {
     stopRef.current = true;
     setPhase("idle");
-    setCode(null);
   };
 
   if (phase === "waiting") {
@@ -260,24 +251,10 @@ export function TelegramLoginButton({
             </button>
           </div>
 
-          {/*
-            Tasdiqlash kodi — foydalanuvchi buni Telegram'dagi xabardagi kod
-            bilan SOLISHTIRADI. Bu soxta havoladan himoya qiladi: begona
-            so'rovda kod mos kelmaydi va foydalanuvchi bekor qiladi.
-          */}
-          {code && (
-            <div className="mt-3 border-t border-[#2AABEE]/20 pt-3 text-center">
-              <p className="text-[11px] text-muted-foreground">
-                Telegram'da shu kod ko'rsatilishi kerak:
-              </p>
-              <p className="mt-1 font-mono text-2xl font-bold tracking-[0.3em] text-foreground">
-                {code}
-              </p>
-              <p className="mt-1 text-[11px] text-muted-foreground">
-                Kod boshqacha bo'lsa — tasdiqlamang.
-              </p>
-            </div>
-          )}
+          <p className="mt-2 text-[11px] leading-snug text-muted-foreground">
+            Ochilgan Telegram oynasida <b>«Start»</b> tugmasini bosing —
+            shu yerga avtomatik qaytadi.
+          </p>
         </div>
         <p className="mt-1.5 text-center text-[11px] text-muted-foreground">
           Telegram ochilmadimi?{" "}
