@@ -45,6 +45,28 @@ interface Props {
 
 type Phase = "idle" | "waiting" | "timeout";
 
+/**
+ * Mijoz maxfiy qiymati — tokenni AYNAN SHU brauzerga bog'laydi.
+ *
+ * Nega kerak: busiz hujumchi o'zi tasdiqlagan tokenni birovning brauzeriga
+ * "sovg'a qilib", uni o'z hisobiga kiritib qo'yishi mumkin edi (OWASP:
+ * login CSRF / "session donation"). Server faqat SHA-256 ini biladi, shuning
+ * uchun hatto baza sizib chiqsa ham bu qiymat tiklanmaydi.
+ */
+function createClientSecret(): string {
+  const bytes = crypto.getRandomValues(new Uint8Array(32));
+  return Array.from(bytes)
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+async function sha256Hex(value: string): Promise<string> {
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(value));
+  return Array.from(new Uint8Array(digest))
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
+}
+
 /** Server xato kodlarini foydalanuvchi tilidagi xabarga aylantiradi. */
 function messageForError(code: string | undefined, mode: "login" | "link"): string {
   switch (code) {
@@ -86,6 +108,8 @@ export function TelegramLoginButton({
   className,
 }: Props) {
   const [phase, setPhase] = useState<Phase>("idle");
+  // Telegram'dagi xabar bilan solishtirish uchun ekranda ko'rsatiladigan kod.
+  const [code, setCode] = useState<string | null>(null);
   const stopRef = useRef(false);
 
   // Komponent yo'q qilinsa (masalan foydalanuvchi sahifadan chiqib ketsa)
@@ -96,7 +120,7 @@ export function TelegramLoginButton({
 
   if (!isTelegramLoginConfigured()) return null;
 
-  const pollUntilDone = async (token: string, deadline: number) => {
+  const pollUntilDone = async (token: string, clientSecret: string, deadline: number) => {
     while (!stopRef.current) {
       if (Date.now() > deadline) {
         if (!stopRef.current) setPhase("timeout");
@@ -112,7 +136,7 @@ export function TelegramLoginButton({
         otp?: string;
         telegram_username?: string | null;
         error?: string;
-      }>("telegram-login?action=poll", { body: { token } });
+      }>("telegram-login?action=poll", { body: { token, client_secret: clientSecret } });
 
       if (stopRef.current) return;
 
@@ -130,12 +154,14 @@ export function TelegramLoginButton({
 
       if (!result?.ok) {
         setPhase("idle");
+        setCode(null);
         onError(messageForError(result?.error, mode));
         return;
       }
       if (result.status === "pending") continue;
 
       // status === "done"
+      setCode(null);
       if (mode === "link") {
         setPhase("idle");
         onSuccess(result.telegram_username ?? null);
@@ -172,12 +198,18 @@ export function TelegramLoginButton({
     const popup = isMobile ? null : window.open("", "_blank");
 
     setPhase("waiting");
+    setCode(null);
     stopRef.current = false;
 
-    const { data, error } = await supabase.functions.invoke<{ ok?: boolean; token?: string; error?: string }>(
-      "telegram-login?action=start",
-      { body: { mode } },
-    );
+    const clientSecret = createClientSecret();
+    const clientHash = await sha256Hex(clientSecret);
+
+    const { data, error } = await supabase.functions.invoke<{
+      ok?: boolean;
+      token?: string;
+      code?: string;
+      error?: string;
+    }>("telegram-login?action=start", { body: { mode, client_hash: clientHash } });
 
     if (stopRef.current) return;
 
@@ -187,6 +219,8 @@ export function TelegramLoginButton({
       onError(messageForError(data?.error, mode));
       return;
     }
+
+    setCode(data.code ?? null);
 
     const deepLink = `https://t.me/${getTelegramLoginBotUsername()}?start=login_${data.token}`;
     if (isMobile) {
@@ -198,30 +232,52 @@ export function TelegramLoginButton({
       window.location.href = deepLink;
     }
 
-    await pollUntilDone(data.token, Date.now() + POLL_TIMEOUT_MS);
+    await pollUntilDone(data.token, clientSecret, Date.now() + POLL_TIMEOUT_MS);
   };
 
   const handleCancel = () => {
     stopRef.current = true;
     setPhase("idle");
+    setCode(null);
   };
 
   if (phase === "waiting") {
     return (
       <div className={className}>
-        <div className="flex items-center justify-between gap-3 rounded-xl border border-[#2AABEE]/30 bg-[#2AABEE]/[0.08] px-3.5 py-3">
-          <span className="flex items-center gap-2 text-[13px] font-medium text-foreground">
-            <Loader2 className="h-4 w-4 shrink-0 animate-spin text-[#2AABEE]" />
-            Telegram'da tasdiqlashni kuting...
-          </span>
-          <button
-            type="button"
-            onClick={handleCancel}
-            aria-label="Bekor qilish"
-            className="shrink-0 rounded-lg p-1 text-muted-foreground hover:bg-muted hover:text-foreground"
-          >
-            <X className="h-4 w-4" />
-          </button>
+        <div className="rounded-xl border border-[#2AABEE]/30 bg-[#2AABEE]/[0.08] px-3.5 py-3">
+          <div className="flex items-center justify-between gap-3">
+            <span className="flex items-center gap-2 text-[13px] font-medium text-foreground">
+              <Loader2 className="h-4 w-4 shrink-0 animate-spin text-[#2AABEE]" />
+              Telegram'da tasdiqlang
+            </span>
+            <button
+              type="button"
+              onClick={handleCancel}
+              aria-label="Bekor qilish"
+              className="shrink-0 rounded-lg p-1 text-muted-foreground hover:bg-muted hover:text-foreground"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </div>
+
+          {/*
+            Tasdiqlash kodi — foydalanuvchi buni Telegram'dagi xabardagi kod
+            bilan SOLISHTIRADI. Bu soxta havoladan himoya qiladi: begona
+            so'rovda kod mos kelmaydi va foydalanuvchi bekor qiladi.
+          */}
+          {code && (
+            <div className="mt-3 border-t border-[#2AABEE]/20 pt-3 text-center">
+              <p className="text-[11px] text-muted-foreground">
+                Telegram'da shu kod ko'rsatilishi kerak:
+              </p>
+              <p className="mt-1 font-mono text-2xl font-bold tracking-[0.3em] text-foreground">
+                {code}
+              </p>
+              <p className="mt-1 text-[11px] text-muted-foreground">
+                Kod boshqacha bo'lsa — tasdiqlamang.
+              </p>
+            </div>
+          )}
         </div>
         <p className="mt-1.5 text-center text-[11px] text-muted-foreground">
           Telegram ochilmadimi?{" "}

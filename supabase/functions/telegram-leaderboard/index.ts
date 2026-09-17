@@ -19,7 +19,7 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const corsHeaders: Record<string, string> = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-bot-signature",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-bot-signature, x-bot-timestamp",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
 
@@ -44,9 +44,30 @@ function toHex(bytes: ArrayBuffer): string {
     .join("");
 }
 
-/** Imzoni bot tokenidan hosil qilingan kalit bilan tekshiradi. */
-async function verifyBotSignature(rawBody: string, signature: string, botToken: string): Promise<boolean> {
-  if (!signature) return false;
+/** Bot imzosi eskirgan deb hisoblanadigan vaqt. */
+const SIGNATURE_MAX_AGE_SECONDS = 300;
+
+/**
+ * Imzoni bot tokenidan hosil qilingan kalit bilan tekshiradi.
+ *
+ * Imzolanadigan matn: `${purpose}\n${timestamp}\n${rawBody}`.
+ * `purpose` (endpoint nomi) SHART: `telegram-login` bilan bir xil kalit
+ * ishlatilgani uchun, u bo'lmasa bir endpoint uchun imzolangan so'rovni
+ * ikkinchisiga qayta yuborish mumkin edi. `timestamp` esa eski so'rovni
+ * takrorlashdan himoya qiladi.
+ */
+async function verifyBotSignature(req: Request, rawBody: string, botToken: string): Promise<boolean> {
+  const signature = (req.headers.get("X-Bot-Signature") ?? "").trim().toLowerCase();
+  const timestamp = (req.headers.get("X-Bot-Timestamp") ?? "").trim();
+  if (!signature || !timestamp) return false;
+
+  const ts = Number(timestamp);
+  if (!Number.isFinite(ts)) return false;
+  if (Math.abs(Date.now() / 1000 - ts) > SIGNATURE_MAX_AGE_SECONDS) {
+    console.warn("[telegram-leaderboard] imzo vaqti eskirgan");
+    return false;
+  }
+
   const enc = new TextEncoder();
   const secretKey = await crypto.subtle.digest("SHA-256", enc.encode(botToken));
   const hmacKey = await crypto.subtle.importKey(
@@ -56,7 +77,9 @@ async function verifyBotSignature(rawBody: string, signature: string, botToken: 
     false,
     ["sign"],
   );
-  const computed = toHex(await crypto.subtle.sign("HMAC", hmacKey, enc.encode(rawBody)));
+  const computed = toHex(
+    await crypto.subtle.sign("HMAC", hmacKey, enc.encode(`telegram-leaderboard\n${timestamp}\n${rawBody}`)),
+  );
 
   // Vaqt-doimiy solishtirish.
   if (computed.length !== signature.length) return false;
@@ -88,9 +111,8 @@ Deno.serve(async (req: Request) => {
     // Imzo XOM tana ustidan hisoblanadi — JSON qayta seriyalanganda
     // maydonlar tartibi o'zgarib, imzo buzilmasligi uchun.
     const rawBody = await req.text();
-    const signature = (req.headers.get("X-Bot-Signature") ?? "").trim().toLowerCase();
 
-    if (!(await verifyBotSignature(rawBody, signature, botToken))) {
+    if (!(await verifyBotSignature(req, rawBody, botToken))) {
       console.warn("[telegram-leaderboard] noto'g'ri imzo");
       return jsonResponse({ ok: false, error: "invalid_signature" }, 403);
     }
