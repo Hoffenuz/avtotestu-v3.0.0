@@ -215,17 +215,28 @@
     <!--
       Favicon — AvtoSmart brend to'plami.
 
-      GOOGLE QIDIRUVI uchun favicon kvadrat va 48px ga karrali bo'lishi
-      kerak. Bu ikki yo'l bilan ta'minlangan:
-        1) `favicon.svg` — SVG uchun o'lcham sharti yo'q (Google hujjati);
-        2) `favicon.ico` ichida 48x48 varianti bor.
+      SVG E'LONI ATAYLAB YO'Q (2026-09). Ilgari ICO `sizes="any"` bilan
+      e'lon qilinib, yoniga `favicon.svg` qo'yilgandi — bu "SVG birinchi,
+      ICO zaxira" deb ataladigan mashhur usul. `sizes="any"` aynan brauzer
+      ICO ni O'TKAZIB YUBORIB, SVG ni tanlashi uchun qo'yiladi.
+
+      Bizda u teskari ishladi. `favicon.svg` — 512px li TO'LIQ logotip
+      (disk, tezlik yoyi, asfalt fakturasi). Brauzer uni 16px li tabga
+      siqqanda harflar bo'tqaga aylanardi, ICO esa har o'lcham uchun
+      ALOHIDA chizilgan 6 ta tasvirni saqlaydi (16/32/48/64/128/256) va
+      16px da toza "S" beradi. Ba'zi holatlarda ICO, ba'zilarida SVG
+      ishlatilgani uchun tabdagi ikonka o'zgarib turardi.
+
+      Endi manba faqat ICO va unga mos PNG lar — natija bir xil bo'ladi.
+      Google qidiruvi uchun 48px talabi ham qanoatlantiriladi: ICO ichida
+      48, 128 va 256 px variantlari bor.
+
       192x192 PNG `<link>` da ATAYLAB YO'Q: brauzer uni har tashrifda
       yuklab, 23 KB behuda sarflardi. U `site.webmanifest` da qoladi —
       Android'da "ekranga qo'shish" uchun o'sha yerdan olinadi.
       https://developers.google.com/search/docs/appearance/favicon-in-search
     -->
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48 64x64 128x128 256x256">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
