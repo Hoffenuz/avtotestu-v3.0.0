@@ -283,7 +283,7 @@ export default function DarslikModul() {
   if (!findModule(moduleId)) return <Navigate to="/darslik" replace />;
 
   return (
-    <DarslikGate returnPath={`/darslik/${moduleId ?? ""}`}>
+    <DarslikGate>
       <ModuleContent moduleId={moduleId ?? ""} />
     </DarslikGate>
   );

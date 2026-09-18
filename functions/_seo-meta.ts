@@ -99,18 +99,18 @@ export const SEO_META: Record<string, Record<string, SeoMeta>> = {
   },
   "/darslik": {
     "uz-lat": {
-      "title": "Video Darslik — YHQ bo'yicha 209 ta video",
-      "description": "YHQ bo'yicha 11 bob va 209 ta video darslik: belgilar, chiziqlar, chorrahalar va imtihon mavzulari.",
+      "title": "Video darslik — YHQ bo'yicha 209 ta video, bepul",
+      "description": "YHQ bo'yicha 11 modul va 209 ta video dars: yo'l belgilari, chiziqlar va imtihon mavzulari. Bepul, ro'yxatdan o'tmasdan.",
       "keywords": "YHQ darslik, video darslar, haydovchilik kursi, avto darslik, prava video"
     },
     "uz": {
-      "title": "Видео дарслик — ЙҲҚ бўйича 209 та видео",
-      "description": "ЙҲҚ бўйича 11 боб ва 209 та видео дарслик: белгилар, чизиқлар, чорраҳалар ва имтиҳон мавзулари.",
+      "title": "Видео дарслик — ЙҲҚ бўйича 209 та видео, бепул",
+      "description": "ЙҲҚ бўйича 11 модул ва 209 та видео дарс: йўл белгилари, чизиқлар ва имтиҳон мавзулари. Бепул, рўйхатдан ўтмасдан.",
       "keywords": "ЙҲҚ дарслик, видео дарслар, ҳайдовчилик курси, авто дарслик, права видео"
     },
     "ru": {
-      "title": "Видеоуроки ПДД — 209 видео",
-      "description": "11 глав и 209 видеоуроков по ПДД: знаки, разметка, перекрёстки и экзаменационные темы.",
+      "title": "Видеоуроки ПДД — 209 видео, бесплатно",
+      "description": "11 модулей и 209 видеоуроков по ПДД: дорожные знаки, разметка и экзаменационные темы. Бесплатно, без регистрации.",
       "keywords": "уроки ПДД, видеоуроки, автошкола онлайн, обучение вождению, ПДД видео"
     }
   },
@@ -202,18 +202,18 @@ export const SEO_META: Record<string, Record<string, SeoMeta>> = {
   "/pro": {
     "uz-lat": {
       "title": "PRO obuna — cheksiz test va to'liq izohlar",
-      "description": "PRO obuna bilan cheksiz test, 1250+ savol, 63 ta variant, to'liq va tushunarli izohlar hamda reklamasiz o'rganish — atigi 35 000 so'm/oy.",
-      "keywords": "pro obuna, premium, avtosmart pro, savol izohlari, prava test premium, 1250 savol"
+      "description": "PRO obuna: 1260 ta savol, 63 ta variant, mavzuli testlar va har bir savolga izoh. Oyiga 35 000 so'm.",
+      "keywords": "pro obuna, premium, avtosmart pro, savol izohlari, prava test premium, 1260 savol"
     },
     "uz": {
       "title": "PRO обуна — чексиз тест ва тўлиқ изоҳлар",
-      "description": "PRO обуна билан чексиз тест, 1250+ савол, 63 та вариант, тўлиқ ва тушунарли изоҳлар ҳамда рекламасиз ўрганиш — атиги 35 000 сўм/ой.",
-      "keywords": "pro обуна, premium, avtosmart pro, савол изоҳлари, права тест premium, 1250 савол"
+      "description": "PRO обуна: 1260 та савол, 63 та вариант, мавзули тестлар ва ҳар бир саволга изоҳ. Ойига 35 000 сўм.",
+      "keywords": "pro обуна, премиум, avtosmart pro, савол изоҳлари, права тест премиум, 1260 савол"
     },
     "ru": {
       "title": "PRO подписка — безлимитные тесты и полные объяснения",
-      "description": "С PRO подпиской: безлимитные тесты, 1250+ вопросов, 63 варианта, полные и понятные объяснения и обучение без рекламы — всего 35 000 сум/мес.",
-      "keywords": "pro подписка, premium, avtosmart pro, объяснения вопросов, тест на права premium, 1250 вопросов"
+      "description": "Подписка PRO: 1260 вопросов, 63 варианта, тесты по темам и пояснение к каждому вопросу. 35 000 сумов в месяц.",
+      "keywords": "pro подписка, премиум, avtosmart pro, пояснения к вопросам, права тест премиум, 1260 вопросов"
     }
   },
   "/qidirish": {

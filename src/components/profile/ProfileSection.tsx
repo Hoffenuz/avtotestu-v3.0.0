@@ -40,6 +40,15 @@ interface ProfileSectionProps {
   defaultOpen?: boolean;
   /** Berilsa, ochiqlik holati shu kalit bilan eslab qolinadi. */
   storageKey?: string;
+  /**
+   * Boshqariladigan rejim: berilsa, ochiqlikni OTA komponent belgilaydi.
+   *
+   * "Profil ma'lumotlari" uchun kerak — u sahifaning tepasidagi
+   * tahrirlash tugmasi bilan ham ochiladi, ya'ni holat ikki joydan
+   * boshqariladi va bo'lim ichida yashirin turolmaydi.
+   */
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
   children: React.ReactNode;
 }
 
@@ -60,24 +69,27 @@ export function ProfileSection({
   tone = "indigo",
   defaultOpen = false,
   storageKey,
+  open: controlledOpen,
+  onOpenChange,
   children,
 }: ProfileSectionProps) {
-  const [open, setOpen] = useState(() => readStored(storageKey, defaultOpen));
+  const [uncontrolledOpen, setUncontrolledOpen] = useState(() => readStored(storageKey, defaultOpen));
+  const isControlled = controlledOpen !== undefined;
+  const open = isControlled ? controlledOpen : uncontrolledOpen;
   const panelId = useId();
 
   const toggle = useCallback(() => {
-    setOpen((prev) => {
-      const next = !prev;
-      if (storageKey) {
-        try {
-          localStorage.setItem(storageKey, next ? "1" : "0");
-        } catch {
-          /* private rejim — holat shunchaki eslab qolinmaydi */
-        }
+    const next = !open;
+    if (storageKey) {
+      try {
+        localStorage.setItem(storageKey, next ? "1" : "0");
+      } catch {
+        /* private rejim — holat shunchaki eslab qolinmaydi */
       }
-      return next;
-    });
-  }, [storageKey]);
+    }
+    if (isControlled) onOpenChange?.(next);
+    else setUncontrolledOpen(next);
+  }, [isControlled, onOpenChange, open, storageKey]);
 
   return (
     <section className="overflow-hidden rounded-xl border border-border bg-card">

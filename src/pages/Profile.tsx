@@ -25,10 +25,8 @@ import {
   FileText,
   History,
   ExternalLink,
-  Monitor,
 } from 'lucide-react';
 import { toast } from 'sonner';
-import { DeviceLicenseCard } from '@/components/DeviceLicenseCard';
 import { PasswordSection } from '@/components/PasswordSection';
 import { TelegramLinkSection } from '@/components/TelegramLinkSection';
 import { TelegramLogo } from '@/components/TelegramLoginButton';
@@ -101,6 +99,14 @@ const Profile = () => {
   const [results, setResults] = useState<TestResult[]>([]);
   const [loadingResults, setLoadingResults] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
+  /**
+   * "Profil ma'lumotlari" bo'limi ochiqmi.
+   *
+   * Holat SAHIFA darajasida: bo'limni tepadagi tahrirlash tugmasi ham
+   * ochadi. Bo'lim ichida qolsa, tugma unga yeta olmasdi.
+   */
+  const [infoOpen, setInfoOpen] = useState(false);
+  const infoRef = useRef<HTMLDivElement>(null);
   const [editUsername, setEditUsername] = useState('');
   const [editFullName, setEditFullName] = useState('');
   const [isSaving, setIsSaving] = useState(false);
@@ -438,6 +444,35 @@ useEffect(() => {
                 <p className="text-primary-foreground/60 text-sm">@{profile.username}</p>
               )}
             </div>
+
+            {/*
+              TAHRIRLASH — hisob ma'lumotining O'NG YONIDA.
+
+              Ilgari bu tugma sahifaning o'rtasidagi yig'ilgan bo'lim
+              ichida turardi: foydalanuvchi avval bo'limni topib, ochib,
+              keyin ichidan tugmani qidirishi kerak edi. Ismini
+              o'zgartirmoqchi bo'lgan odam uni aynan ismining yonida
+              qidiradi — o'rni shu yer.
+
+              Yangi sahifa OCHILMAYDI: bo'lim shu sahifaning o'zida
+              ochiladi va ko'rinishga suriladi.
+            */}
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => {
+                setInfoOpen(true);
+                // Ochilish renderidan keyin suramiz, aks holda mo'ljal
+                // hali sahifada yo'q bo'ladi.
+                requestAnimationFrame(() =>
+                  infoRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }),
+                );
+              }}
+              className="shrink-0 self-start border-brand-foreground/30 bg-brand-foreground/10 text-brand-foreground hover:bg-brand-foreground/20 hover:text-brand-foreground"
+            >
+              <Edit2 className="h-4 w-4 sm:mr-2" />
+              <span className="hidden sm:inline">Tahrirlash</span>
+            </Button>
           </div>
         </div>
       </header>
@@ -498,11 +533,18 @@ useEffect(() => {
           `items-start` — ochilgan bo'lim qo'shnisini cho'zib yubormaydi.
         */}
         <div className="mt-3 grid grid-cols-1 items-start gap-3 lg:grid-cols-2">
+        {/*
+          `ref` ProfileSection ga BERILMAYDI: u oddiy funksiya komponenti,
+          React 18 da `forwardRef` siz `ref` ishlamaydi (jimgina yo'qoladi).
+          Suriladigan mo'ljal shu o'rovchi `div` da.
+        */}
+        <div ref={infoRef}>
         <ProfileSection
           icon={User}
           title="Profil ma'lumotlari"
           tone="indigo"
-          storageKey="profile.section.info"
+          open={infoOpen}
+          onOpenChange={setInfoOpen}
         >
           <div>
             <div className="flex items-center justify-end mb-4 gap-2">
@@ -703,24 +745,20 @@ useEffect(() => {
             {!isEditing && <TelegramLinkSection />}
           </div>
         </ProfileSection>
+        </div>
 
-        <ProfileSection
-          icon={Monitor}
-          title="Aktivatsiya qilish"
-          tone="emerald"
-          storageKey="profile.section.license"
-        >
-          {/*
-            `className` bo'sh berilgan: standart qiymati `mb-6` va ichki
-            ramka — bo'lim allaqachon ramka ichida bo'lgani uchun ular
-            ikkilangan chegara hosil qilardi.
-          */}
-          <DeviceLicenseCard
-            isPremium={isPremium}
-            subscriptionExpiresAt={subscriptionExpiresAt}
-            className="p-0 border-0 bg-transparent shadow-none"
-          />
-        </ProfileSection>
+        {/*
+          "AKTIVATSIYA QILISH" BU YERDAN OLIB TASHLANDI (2026-09).
+
+          Kompyuter ilovasiga hisob orqali kirish qo'shilgach, litsenziya
+          kaliti asosiy yo'l bo'lmay qoldi — u endi faqat zaxira usul.
+          Profilda turgani esa uni asosiy amaldek ko'rsatib, har kirgan
+          foydalanuvchini "nimadir aktivatsiya qilish kerakmi?" degan
+          savolga duchor qilardi.
+
+          O'rni — `/desktop`: kalit aynan o'sha ilova uchun kerak va
+          foydalanuvchi u yerga ilovani yuklab olish uchun boradi.
+        */}
 
         {/* Variant bo'yicha test natijalari */}
         <ProfileSection

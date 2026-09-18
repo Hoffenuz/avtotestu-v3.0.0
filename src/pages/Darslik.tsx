@@ -253,7 +253,7 @@ function DarslikContent() {
 
 export default function Darslik() {
   return (
-    <DarslikGate returnPath="/darslik">
+    <DarslikGate>
       <DarslikContent />
     </DarslikGate>
   );

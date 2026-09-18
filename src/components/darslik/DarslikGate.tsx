@@ -1,81 +1,47 @@
 /**
- * Darslik bo'limining kirish shartlari — BITTA joyda.
+ * Darslik bo'limining umumiy qobig'i: maket + sinov rejimi xabari.
  *
- * Darslik endi ikki sahifadan iborat (modullar ro'yxati va modul ichi).
- * Gate mantiqi ikkalasida ayri yozilsa, biri PRO tekshiruvini o'tkazib
- * yuborishi mumkin edi — ya'ni pullik bo'lim havolani bilgan har kimga
- * ochilib qolardi. Shuning uchun ikkala sahifa ham shu qobiqdan o'tadi.
+ * KIRISH SHARTI YO'Q (2026-09):
+ *   Ilgari bu yerda PRO tekshiruvi turardi. Bo'lim hozir ochiq sinovda —
+ *   yangi pleyer, yangi dars nomlari va progress hisobi haqiqiy
+ *   foydalanuvchilarda sinalishi kerak, PRO devori esa sinovchilar sonini
+ *   keskin kamaytirardi. Kirish ham talab qilinmaydi: progress brauzerda
+ *   saqlanadi, ya'ni mehmon ham darslardan to'liq foydalana oladi.
+ *
+ *   QAYTARISH OSON: PRO talabini tiklash uchun shu faylga `useProAccess`
+ *   va `ProAccessGate` ni qaytarish kifoya — sahifalar tegilmaydi,
+ *   ikkalasi ham shu qobiqdan o'tadi.
+ *
+ * Ikkala darslik sahifasi (modullar ro'yxati va modul ichi) shu qobiqdan
+ * o'tadi, shuning uchun sinov xabari ikki joyda ayri yozilmaydi.
  */
 import type { ReactNode } from "react";
+import { FlaskConical } from "lucide-react";
 import { MainLayout } from "@/components/layout/MainLayout";
-import { ProAccessGate } from "@/components/ProAccessGate";
-import { SEO } from "@/components/SEO";
-import { useAccessState } from "@/hooks/useAccessState";
-import { useAuth } from "@/contexts/AuthContext";
-import { useProAccess } from "@/hooks/useProAccess";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-interface DarslikGateProps {
-  /** Kirish tiklangandan keyin qaytiladigan manzil. */
-  returnPath: string;
-  children: ReactNode;
-}
-
-export function DarslikGate({ returnPath, children }: DarslikGateProps) {
+export function DarslikGate({ children }: { children: ReactNode }) {
   const { t } = useLanguage();
-  const { user, isLoading } = useAuth();
-  const { hasAccess, loading: accessLoading } = useProAccess({
-    redirectPath: "/pro",
-    redirectGuestsToAuth: false,
-    redirectWithoutAccess: false,
-  });
-  const { backendConfirmed, refresh } = useAccessState();
 
-  const seo = (
-    <SEO
-      title={t("seo.darslik.title")}
-      description={t("seo.darslik.description")}
-      path="/darslik"
-      keywords={t("seo.darslik.keywords")}
-    />
-  );
-
-  if (isLoading || accessLoading) {
-    return (
-      <MainLayout>
-        <div className="grid min-h-[60vh] place-items-center">
-          <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent" />
+  return (
+    <MainLayout>
+      {/*
+        Xabar sahifaning eng tepasida, kontentdan OLDIN: foydalanuvchi
+        nosozlikka duch kelgandan keyin emas, undan oldin bilishi kerak.
+        Rang — `warning` tokeni, qizil emas: bu ogohlantirish, xato emas.
+      */}
+      <div className="border-b border-warning/25 bg-warning/10">
+        <div className="mx-auto flex max-w-7xl items-start gap-2.5 px-4 py-2.5">
+          <FlaskConical className="mt-0.5 h-4 w-4 shrink-0 text-warning" aria-hidden="true" />
+          <p className="text-xs leading-snug text-foreground/80 sm:text-[13px]">
+            <span className="font-semibold text-foreground">{t("darslik.betaTitle")}</span>
+            {" — "}
+            {t("darslik.betaText")}
+          </p>
         </div>
-      </MainLayout>
-    );
-  }
+      </div>
 
-  if (!user) {
-    return (
-      <MainLayout>
-        {seo}
-        <ProAccessGate section="darslik" reason="guest" returnPath={returnPath} />
-      </MainLayout>
-    );
-  }
-
-  if (!backendConfirmed) {
-    return (
-      <MainLayout>
-        {seo}
-        <ProAccessGate section="darslik" reason="backend" returnPath={returnPath} onRetry={refresh} />
-      </MainLayout>
-    );
-  }
-
-  if (!hasAccess) {
-    return (
-      <MainLayout>
-        {seo}
-        <ProAccessGate section="darslik" reason="no_pro" returnPath={returnPath} />
-      </MainLayout>
-    );
-  }
-
-  return <MainLayout>{children}</MainLayout>;
+      {children}
+    </MainLayout>
+  );
 }

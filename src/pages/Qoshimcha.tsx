@@ -22,7 +22,9 @@ import { SEO } from "@/components/SEO";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { BookOpen, FileText, Lightbulb, ListChecks, Play, Target } from "lucide-react";
+import { ArrowRight, BookOpen, Check, FileText, Lightbulb, ListChecks, Minus, Play, Target } from "lucide-react";
+import { GuideMedia } from "@/components/GuideMedia";
+import { QOLLANMA_COMPARE, QOLLANMA_STEPS } from "@/data/qollanmaQadamlar";
 
 /**
  * Kartochkalar — matn emas, TARJIMA KALITLARI bilan.
@@ -42,6 +44,39 @@ const TIP_KEYS = [
   "qollanma.tip4",
   "qollanma.tip5",
 ] as const;
+
+/**
+ * Taqqoslash katakchasi: "bor"/"yo'q" yoki aniq qiymat.
+ *
+ * Belgilar rangsiz (`foreground` / `muted-foreground`): yashil-qizil juftlik
+ * bepul versiyani "yomon" qilib ko'rsatardi, holbuki u to'liq ishlaydigan
+ * mahsulot. Ekran o'quvchi uchun matn `sr-only` da beriladi.
+ */
+function CompareCell({ value }: { value: boolean | string }) {
+  const { t } = useLanguage();
+
+  if (typeof value === "string") {
+    return (
+      <td className="px-2 py-2.5 text-center font-medium text-foreground sm:px-3">{t(value)}</td>
+    );
+  }
+
+  return (
+    <td className="px-2 py-2.5 text-center sm:px-3">
+      {value ? (
+        <>
+          <Check className="mx-auto h-4 w-4 text-foreground" aria-hidden="true" />
+          <span className="sr-only">{t("qollanma.yes")}</span>
+        </>
+      ) : (
+        <>
+          <Minus className="mx-auto h-4 w-4 text-muted-foreground/60" aria-hidden="true" />
+          <span className="sr-only">{t("qollanma.no")}</span>
+        </>
+      )}
+    </td>
+  );
+}
 
 export default function Qoshimcha() {
   const { t } = useLanguage();
@@ -90,6 +125,125 @@ export default function Qoshimcha() {
                 <BookOpen className="h-5 w-5" />
                 {t("qollanma.ctaDarslik")}
               </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Saytdan foydalanish — qadamlar */}
+      <section className="bg-background py-12 md:py-16">
+        <div className="mx-auto max-w-4xl px-4">
+          <h2
+            className="text-2xl font-bold text-foreground md:text-3xl"
+            style={{ fontFamily: "'Segoe UI', system-ui, -apple-system, sans-serif" }}
+          >
+            {t("qollanma.stepsTitle")}
+          </h2>
+          <p className="mt-1.5 text-sm text-muted-foreground md:text-base">{t("qollanma.stepsLead")}</p>
+
+          <ol className="mt-7 space-y-5 md:space-y-7">
+            {QOLLANMA_STEPS.map((step, index) => {
+              const Icon = step.icon;
+              const title = t(step.titleKey);
+              return (
+                <li
+                  key={step.titleKey}
+                  className="rounded-xl border border-border bg-card p-4 sm:p-5"
+                >
+                  <div className="flex items-start gap-3 sm:gap-4">
+                    <span
+                      className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary sm:h-10 sm:w-10"
+                      aria-hidden="true"
+                    >
+                      <Icon className="h-[18px] w-[18px] sm:h-5 sm:w-5" />
+                    </span>
+
+                    <div className="min-w-0 flex-1">
+                      <h3 className="text-[15px] font-bold text-foreground sm:text-base">
+                        <span className="text-muted-foreground">{index + 1}. </span>
+                        {title}
+                      </h3>
+                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                        {t(step.textKey)}
+                      </p>
+
+                      <Link
+                        to={step.to}
+                        className="mt-2.5 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
+                      >
+                        {t("darslik.startCta")}
+                        <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* Rasm/video — fayl qo'shilgandan keyin o'zi paydo bo'ladi */}
+                  <div className="mt-4 empty:mt-0">
+                    <GuideMedia media={step.media} alt={title} />
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
+      </section>
+
+      {/*
+        BEPUL VA PRO TAQQOSLASH.
+
+        ATAYLAB BEZAKSIZ: PRO sahifasida bu jadval oltin gradient, toj va
+        qizil chizilgan qatorlar bilan chiziladi — u yerda maqsad sotish.
+        Bu yerda maqsad TUSHUNTIRISH, shuning uchun faqat tema ranglari:
+        odam farqni ko'rish uchun keladi, reklama ko'rish uchun emas.
+      */}
+      <section className="border-t border-border bg-muted/20 py-12 md:py-16">
+        <div className="mx-auto max-w-4xl px-4">
+          <h2
+            className="text-2xl font-bold text-foreground md:text-3xl"
+            style={{ fontFamily: "'Segoe UI', system-ui, -apple-system, sans-serif" }}
+          >
+            {t("qollanma.compareTitle")}
+          </h2>
+          <p className="mt-1.5 text-sm text-muted-foreground md:text-base">{t("qollanma.compareLead")}</p>
+
+          <div className="mt-6 overflow-hidden rounded-xl border border-border bg-card">
+            <table className="w-full border-collapse text-sm">
+              <caption className="sr-only">{t("qollanma.compareTitle")}</caption>
+              <thead>
+                <tr className="border-b border-border bg-muted/40">
+                  <th scope="col" className="px-3 py-2.5 text-left font-semibold text-foreground sm:px-4">
+                    {t("qollanma.compareFeature")}
+                  </th>
+                  <th scope="col" className="w-[26%] px-2 py-2.5 text-center font-semibold text-muted-foreground sm:w-[22%] sm:px-3">
+                    {t("qollanma.compareFree")}
+                  </th>
+                  <th scope="col" className="w-[26%] px-2 py-2.5 text-center font-semibold text-foreground sm:w-[22%] sm:px-3">
+                    {t("qollanma.comparePro")}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {QOLLANMA_COMPARE.map((row) => (
+                  <tr key={row.labelKey} className="border-b border-border last:border-0">
+                    <th scope="row" className="px-3 py-2.5 text-left font-normal text-foreground sm:px-4">
+                      {t(row.labelKey)}
+                    </th>
+                    <CompareCell value={row.free} />
+                    <CompareCell value={row.pro} />
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
+            <p className="text-xs text-muted-foreground">{t("qollanma.compareNote")}</p>
+            <Link
+              to="/pro"
+              className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline"
+            >
+              {t("qollanma.compareCta")}
+              <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
             </Link>
           </div>
         </div>
