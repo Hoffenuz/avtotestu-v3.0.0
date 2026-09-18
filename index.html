@@ -215,24 +215,29 @@
     <!--
       Favicon — AvtoSmart brend to'plami.
 
-      SVG E'LONI ATAYLAB YO'Q (2026-09). Ilgari ICO `sizes="any"` bilan
-      e'lon qilinib, yoniga `favicon.svg` qo'yilgandi — bu "SVG birinchi,
-      ICO zaxira" deb ataladigan mashhur usul. `sizes="any"` aynan brauzer
-      ICO ni O'TKAZIB YUBORIB, SVG ni tanlashi uchun qo'yiladi.
+      BITTA ICO, ICHIDA OLTITA TASVIR. Brend paketida ikkita ikonka oilasi
+      bor va ikkalasi ham kerak:
+        16, 32 px        — sodda variant: ko'k disk ustida oq "S".
+        48..256 px       — asosiy logotip: "S" + yo'l chiziqlari + moviy yoy.
 
-      Bizda u teskari ishladi. `favicon.svg` — 512px li TO'LIQ logotip
-      (disk, tezlik yoyi, asfalt fakturasi). Brauzer uni 16px li tabga
-      siqqanda harflar bo'tqaga aylanardi, ICO esa har o'lcham uchun
-      ALOHIDA chizilgan 6 ta tasvirni saqlaydi (16/32/48/64/128/256) va
-      16px da toza "S" beradi. Ba'zi holatlarda ICO, ba'zilarida SVG
-      ishlatilgani uchun tabdagi ikonka o'zgarib turardi.
+      NEGA AJRATILGAN (o'lchab tekshirilgan): asosiy logotipni 16px ga
+      siqqanda "S" ichidagi yo'l chiziqlari qo'shilib ketadi va harf
+      kulrang dog'ga aylanadi. O'tkirlashtirish, kontrast va unsharp mask
+      ham qutqarmadi. ICO formati aynan shuning uchun — har o'lcham uchun
+      alohida chizilgan tasvir.
 
-      Endi manba faqat ICO va unga mos PNG lar — natija bir xil bo'ladi.
-      Google qidiruvi uchun 48px talabi ham qanoatlantiriladi: ICO ichida
-      48, 128 va 256 px variantlari bor.
+      SVG E'LONI YO'Q. Ilgari ICO `sizes="any"` bilan e'lon qilinib,
+      yoniga `favicon.svg` qo'yilgandi — bu "SVG birinchi, ICO zaxira"
+      usuli, `sizes="any"` aynan brauzer ICO ni o'tkazib yuborishi uchun
+      qo'yiladi. Natijada tab 512px li logotipni siqib ko'rsatardi va
+      ikonka holatga qarab o'zgarib turardi. SVG fayli ham o'chirildi.
+
+      Google qidiruvi 48px ga karrali kvadrat rasm talab qiladi — ICO
+      ichidagi 48, 128 va 256 px variantlari buni qoplaydi va u yerda
+      ASOSIY logotip ko'rinadi.
 
       192x192 PNG `<link>` da ATAYLAB YO'Q: brauzer uni har tashrifda
-      yuklab, 23 KB behuda sarflardi. U `site.webmanifest` da qoladi —
+      yuklab, behuda trafik sarflardi. U `site.webmanifest` da qoladi —
       Android'da "ekranga qo'shish" uchun o'sha yerdan olinadi.
       https://developers.google.com/search/docs/appearance/favicon-in-search
     -->
