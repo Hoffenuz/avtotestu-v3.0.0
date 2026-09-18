@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { PRO_COMPARISON } from "@/lib/proComparison";
 import { useAccessState } from "@/hooks/useAccessState";
 import { supabase } from "@/integrations/supabase/client";
 import {
@@ -494,32 +495,33 @@ export default function Pro() {
                   {t("pro.comparisonVs")}
                 </div>
 
+                {/*
+                  Ikkala ustun ham YAGONA manbadan (`PRO_COMPARISON`)
+                  chiziladi. Ilgari o'nta qator qo'lda yozilgandi va
+                  `/qoshimcha` dagi taqqoslash bilan bir-biriga mos
+                  kelmasdi — foydalanuvchi ikki sahifada ikki xil va'dani
+                  o'qirdi.
+                */}
+
                 {/* Oddiy Versiya */}
                 <Card className="border-border bg-muted/20 shadow-none hover:shadow-sm transition-shadow">
                   <CardHeader className="pb-3 pt-5 border-b border-border/50 text-center bg-muted/30">
                     <CardTitle className="text-base text-muted-foreground font-semibold">{t("pro.comparisonTitle")}</CardTitle>
                   </CardHeader>
                   <CardContent className="pt-5 space-y-4">
-                    <div className="flex items-start gap-2.5">
-                      <Check className="w-5 h-5 text-green-500 shrink-0" />
-                      <span className="text-sm text-foreground font-medium mt-0.5">{t("pro.comparisonBasic1")}</span>
-                    </div>
-                    <div className="flex items-start gap-2.5 text-muted-foreground opacity-60">
-                      <X className="w-5 h-5 text-red-400 shrink-0" />
-                      <span className="text-sm line-through mt-0.5">{t("pro.comparisonBasic2")}</span>
-                    </div>
-                    <div className="flex items-start gap-2.5 text-muted-foreground opacity-60">
-                      <X className="w-5 h-5 text-red-400 shrink-0" />
-                      <span className="text-sm line-through mt-0.5">{t("pro.comparisonBasic3")}</span>
-                    </div>
-                    <div className="flex items-start gap-2.5 text-muted-foreground opacity-60">
-                      <X className="w-5 h-5 text-red-400 shrink-0" />
-                      <span className="text-sm line-through mt-0.5">{t("pro.comparisonBasic4")}</span>
-                    </div>
-                    <div className="flex items-start gap-2.5 text-muted-foreground opacity-60">
-                      <X className="w-5 h-5 text-red-400 shrink-0" />
-                      <span className="text-sm line-through mt-0.5">{t("pro.comparisonBasic5")}</span>
-                    </div>
+                    {PRO_COMPARISON.map((row) =>
+                      row.inFree ? (
+                        <div key={row.freeKey} className="flex items-start gap-2.5">
+                          <Check className="w-5 h-5 text-green-500 shrink-0" />
+                          <span className="text-sm text-foreground font-medium mt-0.5">{t(row.freeKey)}</span>
+                        </div>
+                      ) : (
+                        <div key={row.freeKey} className="flex items-start gap-2.5 text-muted-foreground opacity-60">
+                          <X className="w-5 h-5 text-red-400 shrink-0" />
+                          <span className="text-sm line-through mt-0.5">{t(row.freeKey)}</span>
+                        </div>
+                      ),
+                    )}
                   </CardContent>
                 </Card>
 
@@ -532,26 +534,12 @@ export default function Pro() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="pt-5 space-y-4 relative z-10">
-                    <div className="flex items-start gap-2.5">
-                      <Check className="w-5 h-5 text-amber-500 shrink-0" />
-                      <span className="text-sm font-semibold text-foreground mt-0.5">{t("pro.comparisonPro1")}</span>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <Check className="w-5 h-5 text-amber-500 shrink-0" />
-                      <span className="text-sm font-semibold text-foreground mt-0.5">{t("pro.comparisonPro2")}</span>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <Check className="w-5 h-5 text-amber-500 shrink-0" />
-                      <span className="text-sm font-semibold text-foreground mt-0.5">{t("pro.comparisonPro3")}</span>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <Check className="w-5 h-5 text-amber-500 shrink-0" />
-                      <span className="text-sm font-semibold text-foreground mt-0.5">{t("pro.comparisonPro4")}</span>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <Check className="w-5 h-5 text-amber-500 shrink-0" />
-                      <span className="text-sm font-semibold text-foreground mt-0.5">{t("pro.comparisonPro5")}</span>
-                    </div>
+                    {PRO_COMPARISON.map((row) => (
+                      <div key={row.proKey} className="flex items-start gap-2.5">
+                        <Check className="w-5 h-5 text-amber-500 shrink-0" />
+                        <span className="text-sm font-semibold text-foreground mt-0.5">{t(row.proKey)}</span>
+                      </div>
+                    ))}
                   </CardContent>
                 </Card>
               </div>
