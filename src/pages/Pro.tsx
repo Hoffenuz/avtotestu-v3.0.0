@@ -387,7 +387,7 @@ export default function Pro() {
               </div>
               <button
                 onClick={() => navigate('/')}
-                className="ml-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white text-xs font-bold shadow-md transition-all hover:scale-[1.03] flex-shrink-0"
+                className="ml-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-amber-950 text-xs font-bold shadow-md transition-all hover:scale-[1.03] flex-shrink-0"
               >
                 Bosh sahifa →
               </button>
@@ -420,7 +420,7 @@ export default function Pro() {
                       }`}
                     >
                       {plan.highlighted && (
-                        <div className="absolute -top-2.5 right-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full shadow-sm">
+                        <div className="absolute -top-2.5 right-3 bg-gradient-to-r from-amber-600 to-orange-600 text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full shadow-sm">
                           {t("pro.planPopular")}
                         </div>
                       )}
@@ -452,7 +452,7 @@ export default function Pro() {
                       <Button
                         className={`w-full h-10 text-sm font-bold rounded-lg ${
                           plan.highlighted 
-                            ? "bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white border-0 shadow-sm" 
+                            ? "bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white border-0 shadow-sm" 
                             : "bg-muted hover:bg-muted/80"
                         }`}
                         variant={plan.buttonVariant}
@@ -585,7 +585,7 @@ export default function Pro() {
                       }`}
                     >
                       {plan.highlighted && (
-                        <div className="absolute -top-2.5 right-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full shadow-sm">
+                        <div className="absolute -top-2.5 right-3 bg-gradient-to-r from-amber-600 to-orange-600 text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full shadow-sm">
                           {t("pro.planPopular")}
                         </div>
                       )}
@@ -617,7 +617,7 @@ export default function Pro() {
                       <Button
                         className={`w-full h-10 text-sm font-bold rounded-lg ${
                           plan.highlighted 
-                            ? "bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white border-0 shadow-sm" 
+                            ? "bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white border-0 shadow-sm" 
                             : "bg-muted hover:bg-muted/80"
                         }`}
                         variant={plan.buttonVariant}

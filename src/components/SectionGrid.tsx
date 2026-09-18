@@ -126,7 +126,7 @@ export function SectionGrid({
     if (item.requiresPro && !isPremium && proBadgeReady) {
       return (
         <span
-          className="flex items-center gap-1 rounded-full bg-gradient-to-r from-amber-500 to-yellow-500 px-2 py-0.5 text-[11px] font-bold text-white shadow-sm"
+          className="flex items-center gap-1 rounded-full bg-gradient-to-r from-amber-500 to-yellow-500 px-2 py-0.5 text-[11px] font-bold text-amber-950 shadow-sm"
           title={t("sections.proOnly")}
         >
           <Crown className="h-3 w-3" aria-hidden="true" />

@@ -199,7 +199,7 @@ export default function Home() {
              {/* Test ishlash */}
 <div className="relative w-full md:w-auto">
   {user && isPremium && (
-    <span className="absolute -top-2 -right-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full z-10 shadow-sm">
+    <span className="absolute -top-2 -right-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-amber-950 text-xs font-bold px-2.5 py-0.5 rounded-full z-10 shadow-sm">
       {t("common.pro")}
     </span>
   )}
@@ -230,7 +230,7 @@ export default function Home() {
               {/* Variantlar */}
               <div className="relative w-full md:w-auto">
                 {isPremium && (
-                  <span className="absolute -top-2 -right-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full z-10 shadow-sm">
+                  <span className="absolute -top-2 -right-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-amber-950 text-xs font-bold px-2.5 py-0.5 rounded-full z-10 shadow-sm">
                     {t("common.pro")}
                   </span>
                 )}
@@ -248,7 +248,7 @@ export default function Home() {
               {/* Mavzuli testlar — kirgan userlar (mobile + desktop) */}
               {user && (
                 <div className="relative w-full md:w-auto">
-                  <span className="absolute -top-2 -right-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full z-10 shadow-sm">
+                  <span className="absolute -top-2 -right-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-amber-950 text-xs font-bold px-2.5 py-0.5 rounded-full z-10 shadow-sm">
                     {t("common.pro")}
                   </span>
                   <Link to="/mavzuli" className="w-full md:w-auto group block">

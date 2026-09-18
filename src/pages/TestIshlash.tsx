@@ -364,7 +364,7 @@ export default function TestIshlash() {
               tabIndex={accessLoading ? -1 : undefined}
               className={`group flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 bg-card border-2 border-orange-400 rounded-2xl px-4 py-3 sm:px-5 sm:py-4 hover:border-orange-500 hover:bg-orange-50/30 dark:hover:bg-orange-950/20 transition-all active:scale-[0.99] shadow-sm hover:shadow-md${accessLoading ? " invisible" : ""}`}
             >
-              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center flex-shrink-0 shadow-sm">
+              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-amber-600 to-orange-600 flex items-center justify-center flex-shrink-0 shadow-sm">
                <Crown className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
               </div>
               <div className="flex-1 min-w-0">

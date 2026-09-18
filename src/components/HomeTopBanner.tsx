@@ -175,7 +175,7 @@ export function HomeTopBanner() {
     : t("pro.renewSubDefault");
 
   return (
-    <div className="relative z-10 w-full bg-gradient-to-r from-amber-500 to-orange-500 text-white">
+    <div className="relative z-10 w-full bg-gradient-to-r from-amber-600 to-orange-600 text-white">
       <div className="flex items-center gap-1 px-2 lg:px-3 py-2 max-w-7xl mx-auto">
         <button
           type="button"
