@@ -215,30 +215,17 @@ export default function Home() {
 </div>
 
               {/*
-                VARIANTLAR va MAVZULAR — IKKILAMCHI tugmalar.
+                VARIANTLAR va MAVZULAR — BIR XIL rangda, to'ldirilgan.
 
-                Ilgari uchala tugma ham to'ldirilgan edi: yashil, to'q
-                sariq, to'q sariq. Ikkita bir xil rangdagi tugma yonma-yon
-                turgani uchun ko'z qayerdan boshlashni bilmasdi — muammo
-                rangda emas, IERARXIYA yo'qligida edi.
+                Ikkalasi ham bitta amalning ikki yo'li (test yechish),
+                shuning uchun ular bir-biridan ajralib turmasligi kerak.
+                Rang `--cta-orange` tokenidan olinadi — header'dagi
+                "Kirish" ham shu tokendan, ya'ni saytda bitta to'q sariq
+                bo'ladi va joyma-joy farq qilib qolmaydi.
 
-                Endi bitta asosiy amal (yashil "Test ishlash" — bepul,
-                ro'yxatsiz, to'siqsiz) va ikkita tinchroq tugma. Ikkalasi
-                ham bir xil o'lchamda qoladi: ular "kichikroq" emas,
-                shunchaki jimroq.
-
-                NEGA TO'LIQ SHAFFOF EMAS: rangsiz tugma tugmaga o'xshamay
-                qoladi va bosilishi kamayadi. Shu sabab 2px oq ramka (fondan
-                3.70:1 ajraladi) va oz miqdorda to'ldirish qoldirildi —
-                chegarasi aniq ko'rinadi, ustiga borilganda esa to'ladi.
-
-                YON FOYDA — O'QILISHI: oq matn to'q sariq ustida 2.66:1 edi
-                (WCAG katta matn chegarasi 3:1 dan past), bu yerda 12.62:1.
-
-                DIQQAT: shaffoflik qiymatlari Tailwind shkalasidan olingan
-                (10/20/40/60). /12 yoki /22 kabi oraliq qiymatlar CSS ga
-                UMUMAN tushmaydi — sinf yozilgan bo'lsa ham jimgina
-                ishlamaydi.
+                Shishasimon (shaffof) variant sinab ko'rilgan va rad
+                etilgan: o'qilishi a'lo edi, lekin tugma tugmaga
+                o'xshamay qolardi.
               */}
               {/* Variantlar */}
               <div className="relative w-full md:w-auto">
@@ -250,7 +237,7 @@ export default function Home() {
                 <Link to="/variant" className="w-full md:w-auto group block">
                   <Button
                     size="lg"
-                    className="w-full md:w-auto md:min-w-[150px] bg-white/10 hover:bg-white/20 border-2 border-white/40 hover:border-white/60 text-white gap-2 text-base md:text-lg px-6 py-5 md:py-6 rounded-2xl font-bold backdrop-blur-sm transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-black/20"
+                    className="w-full md:w-auto md:min-w-[150px] bg-cta-orange hover:bg-cta-orange-hover text-white gap-2 text-base md:text-lg px-6 py-5 md:py-6 rounded-2xl shadow-md shadow-cta-orange/30 font-bold border-0 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-cta-orange/45"
                   >
                     <Play className="w-5 h-5 flex-shrink-0 fill-current" />
                     <span>{t("home.btnVariantlar")}</span>
@@ -267,7 +254,7 @@ export default function Home() {
                   <Link to="/mavzuli" className="w-full md:w-auto group block">
                     <Button
                       size="lg"
-                      className="w-full md:w-auto md:min-w-[150px] bg-white/10 hover:bg-white/20 border-2 border-white/40 hover:border-white/60 text-white gap-2 text-base md:text-lg px-6 py-5 md:py-6 rounded-2xl font-bold backdrop-blur-sm transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-black/20"
+                      className="w-full md:w-auto md:min-w-[150px] bg-cta-orange hover:bg-cta-orange-hover text-white gap-2 text-base md:text-lg px-6 py-5 md:py-6 rounded-2xl shadow-md shadow-cta-orange/30 font-bold border-0 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-cta-orange/45"
                     >
                       <BookOpen className="w-5 h-5 flex-shrink-0" />
                       <span>{t("home.btnMavzuli")}</span>
