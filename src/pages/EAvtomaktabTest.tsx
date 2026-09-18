@@ -149,7 +149,7 @@ export default function EAvtomaktabTest() {
         </p>
 
         {/* ── BOSHLASH — birinchi ekranda ──────────────────────────── */}
-        <Card className="mt-5 overflow-hidden border-2 border-[hsl(var(--cta-green))]/50">
+        <Card className="mt-5 overflow-hidden border-2 border-cta-green/50">
           <div className="p-5">
             <dl className="grid grid-cols-2 gap-2 sm:grid-cols-4">
               {IMTIHON_FAKTLARI.map((f) => (
@@ -164,7 +164,7 @@ export default function EAvtomaktabTest() {
               onClick={boshla}
               disabled={starting}
               size="lg"
-              className="mt-5 h-12 w-full gap-2 bg-[hsl(var(--cta-green))] text-base font-bold text-white hover:bg-[hsl(var(--cta-green-hover))]"
+              className="mt-5 h-12 w-full gap-2 bg-cta-green text-base font-bold text-white hover:bg-cta-green-hover"
             >
               {starting
                 ? <Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" />

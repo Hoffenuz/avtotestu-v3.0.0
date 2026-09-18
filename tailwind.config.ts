@@ -76,6 +76,25 @@ export default {
         "question-bg": "hsl(var(--question-bg))",
         "answer-hover": "hsl(var(--answer-hover))",
         "image-border": "hsl(var(--image-border))",
+        /**
+         * CTA tugmalari — YAGONA manba.
+         *
+         * Nega config'da: `bg-[hsl(var(--cta-orange))]` ko'rinishidagi uzun
+         * yozuv qo'l bilan qattiq hex yozishga undardi va natijada bir xil
+         * vazifadagi tugmalar (header "Kirish" va hero "Variantlar") ikki
+         * xil to'q sariqda chiqib qolgandi. Qisqa `bg-cta-orange` shaklida
+         * chetga chiqishning sababi qolmaydi.
+         */
+        cta: {
+          orange: "hsl(var(--cta-orange) / <alpha-value>)",
+          "orange-hover": "hsl(var(--cta-orange-hover) / <alpha-value>)",
+          green: "hsl(var(--cta-green) / <alpha-value>)",
+          "green-hover": "hsl(var(--cta-green-hover) / <alpha-value>)",
+          red: "hsl(var(--cta-red) / <alpha-value>)",
+          "red-hover": "hsl(var(--cta-red-hover) / <alpha-value>)",
+          blue: "hsl(var(--cta-blue) / <alpha-value>)",
+          "blue-hover": "hsl(var(--cta-blue-hover) / <alpha-value>)",
+        },
         pro: {
           DEFAULT: "hsl(var(--pro))",
           hover: "hsl(var(--pro-hover))",

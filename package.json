@@ -32,7 +32,8 @@
     "questions:sync:mavzuli": "node scripts/question-tools/sync-mavzuli-from-canonical.cjs",
     "questions:sync:free-tier": "node scripts/generate-free-tier.cjs",
     "questions:qiyin": "node scripts/generate-qiyin-savollar.cjs",
-    "seo:meta": "node scripts/generate-seo-meta.cjs"
+    "seo:meta": "node scripts/generate-seo-meta.cjs",
+    "darslik:build": "node scripts/generate-darslik-katalog.cjs"
   },
   "dependencies": {
     "@noble/ed25519": "^2.3.0",

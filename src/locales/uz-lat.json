@@ -10,17 +10,13 @@
     "home": "Bosh sahifa",
     "contact": "Aloqa",
     "darslik": "Darslik",
-    "qoshimcha": "Qo'shimcha",
     "getPro": "Pro olish",
     "login": "Kirish",
     "user": "Foydalanuvchi",
-    "map": "Xarita",
     "langLatin": "UZ (Lotin)",
     "langCyrillic": "ЎЗ (Kirill)",
     "langRussian": "RU (Rus)",
     "desktopApp": "Kompyuter ilova",
-    "roadSigns": "Yo'l belgilari",
-    "info": "Ma'lumotlar",
     "news": "Yangiliklar",
     "sections": "Bo'limlar",
     "test": "Test",
@@ -94,9 +90,6 @@
     "correct": "To'g'ri javoblar",
     "incorrect": "Noto'g'ri javoblar",
     "unanswered": "Javob berilmagan",
-    "reviewMistakes": "Xatolarni ko'rib chiqish ({n} ta)",
-    "reviewTitle": "Xatolar ustida ishlash — {n} ta savol",
-    "backToResults": "Natijaga qaytish",
     "score": "Ball",
     "passed": "O'tdingiz!",
     "failed": "O'tmadingiz",
@@ -230,7 +223,8 @@
     "seoTitle": "Yo'l belgilari 2026 — rasm va izoh",
     "seoDescription": "O'zbekiston YHQ yo'l belgilarining to'liq ro'yxati: ogohlantiruvchi, taqiqlovchi, buyuruvchi va axborot belgilari — rasm va izoh bilan.",
     "seoKeywords": "yo'l belgilari 2026, ogohlantiruvchi belgilar, taqiqlovchi belgilar, buyuruvchi belgilar, yo'l chiziqlari",
-    "countLabel": "{count} ta belgi"
+    "countLabel": "{count} ta belgi",
+    "notFound": "\"{query}\" bo'yicha belgi topilmadi"
   },
   "pro": {
     "seoTitle": "PRO obuna — cheksiz test va to'liq izohlar",
@@ -356,7 +350,7 @@
     "belgilar": "Yo'l belgilari",
     "avtodrom": "Avtodrom",
     "yodlashKerak": "Yodlash kerak",
-    "realImtihon": "Real imtihon boshlash",
+    "realImtihon": "Real imtihon",
     "locked": "Kirish talab qilinadi",
     "xatolarTestiDesc": "Xato qilgan savollaringizdan test tuziladi",
     "xatolarimDesc": "Eng ko'p xato qilgan savollaringiz ro'yxati",
@@ -368,7 +362,11 @@
     "realImtihonDesc": "Imtihon shartlarida test ishlang",
     "proOnly": "Faqat PRO obuna bilan",
     "qiyinSavollar": "Qiyin savollar",
-    "qiyinSavollarDesc": "Eng ko'p xato qilinadigan savollar, 50 tadan"
+    "qiyinSavollarDesc": "Eng ko'p xato qilinadigan savollar, 50 tadan",
+    "groupLearn": "O'rganish",
+    "qollanma": "Qo'llanma",
+    "groupPractice": "Imtihon va takrorlash",
+    "qollanmaShort": "Imtihonga tayyorgarlik bo'yicha maslahatlar"
   },
   "pages": {
     "back": "Orqaga",
@@ -425,7 +423,12 @@
     "qiyinSavollarQator": "{n} ta savol · {x} marta xato qilingan",
     "qiyinSavollarIzoh": "Bo'limni bossangiz test darhol boshlanadi. Xato qilgan savolingiz avtomatik saqlanadi.",
     "qiyinSavollarXato": "Ma'lumotni yuklab bo'lmadi. Sahifani yangilang.",
-    "solveMistakes": "Yechish"
+    "solveMistakes": "Yechish",
+    "bolimlarSubtitle": "Barcha testlar, mashqlar va o'quv materiallari bir joyda",
+    "desktopCardTitle": "Kompyuter ilovasi",
+    "desktopCardDesc": "Windows uchun ilova — internetsiz ham test yeching",
+    "desktopCardCta": "Yuklab olish",
+    "startAction": "Boshlash"
   },
   "exam": {
     "intro": "Haqiqiy imtihon shartlarida sinov",
@@ -502,8 +505,8 @@
       "keywords": "bo'limlar, mavzuli testlar, yo'l belgilari, darslik, variantlar"
     },
     "darslik": {
-      "title": "Video Darslik — YHQ bo'yicha 211 ta video",
-      "description": "YHQ bo'yicha 11 bob va 211 ta video darslik: belgilar, chiziqlar, chorrahalar va imtihon mavzulari.",
+      "title": "Video Darslik — YHQ bo'yicha 209 ta video",
+      "description": "YHQ bo'yicha 11 bob va 209 ta video darslik: belgilar, chiziqlar, chorrahalar va imtihon mavzulari.",
       "keywords": "YHQ darslik, video darslar, haydovchilik kursi, avto darslik, prava video"
     },
     "desktop": {
@@ -599,5 +602,48 @@
     "levelsHow4": "Mustahkamlik — to'g'ri javoblaringiz xatolardan ko'p bo'lgan savollar",
     "tests": "Yechilgan testlar",
     "levelsHow5": "Yechilgan testlar — umumiy mashq hajmingiz"
+  },
+  "qollanma": {
+    "h1": "Test tayyorgarligi qo'llanmasi",
+    "lead": "Imtihonga qanday tayyorlanish kerak — tuzilma, usullar va amaliy maslahatlar.",
+    "ctaTests": "Testlarni boshlash",
+    "ctaDarslik": "Video darslik",
+    "cardStructureTitle": "Test tuzilishi",
+    "cardStructureDesc": "Test savollari mavzular bo'yicha guruhlangan: belgilar, qoidalar, harakatlanish holatlari va birinchi yordamga oid savollar. Har bir savol bitta to'g'ri javobga ega.",
+    "cardStrategyTitle": "O'rganish strategiyalari",
+    "cardStrategyDesc": "Belgilarni vizual tarzda yodlash, testlarni mashaqqat bilan yechish va noto'g'ri javoblarni alohida qayta ko'rib chiqish muvaffaqiyatni oshiradi.",
+    "cardPracticeTitle": "Amaliy mashqlar",
+    "cardPracticeDesc": "20 va 50 savollik mashqlar mavjud — boshlanish uchun 20 savol rejimidan boshlash tavsiya etiladi. Har bir mashq sizga xatolaringizni ko'rsatadi.",
+    "cardResourcesTitle": "Resurslar",
+    "cardResourcesDesc": "Grafik materiallar, rasmlar va video qo'llanmalar yordamida murakkab vaziyatlarni osonroq tushunishingiz mumkin.",
+    "tipsTitle": "Tez maslahatlar",
+    "tip1": "Kuzatuvchi belgilarni diqqat bilan o'qing.",
+    "tip2": "Har bir savolga 30-45 soniya ajrating.",
+    "tip3": "Amaliy savollarni qayta ko'rib, xatolarni tahlil qiling.",
+    "tip4": "Kuniga kamida 1-2 ta variant yechib boring.",
+    "tip5": "Yo'l belgilarini tasvirlar bilan birga yodlang."
+  },
+  "darslik": {
+    "pageTitle": "Video darslik",
+    "pageLead": "YHQ bo'yicha bosqichma-bosqich video kurs",
+    "modules": "modul",
+    "lessons": "dars",
+    "progressLabel": "Ko'rilgan darslar",
+    "continueCta": "Davom ettirish",
+    "startCta": "Boshlash",
+    "allDone": "Kursni to'liq tugatdingiz",
+    "allDoneHint": "Xohlagan modulni qayta ko'rishingiz mumkin.",
+    "notStarted": "Boshlanmagan",
+    "inProgress": "Davom etmoqda",
+    "done": "Tugallandi",
+    "backToModules": "Modullar",
+    "lessonListTitle": "Darslar",
+    "lessonOf": "{n}-dars / {total}",
+    "nextLesson": "Keyingi",
+    "moduleDone": "Modul tugallandi",
+    "nextModule": "Keyingi modul",
+    "watched": "Ko'rilgan",
+    "emptyModule": "Bu modulda hali video yo'q.",
+    "markingNote": "Bu darslar chiziq kodlari bo'yicha nomlangan."
   }
 }

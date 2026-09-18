@@ -21,3 +21,19 @@ export function isTelegramLoginConfigured(): boolean {
 export function getTelegramLoginBotUsername(): string {
   return (BOT_USERNAME ?? "").trim().replace(/^@/, "");
 }
+
+/**
+ * `telegram-login` Edge Function bilan BIR XIL bo'lishi SHART
+ * (supabase/functions/telegram-login/index.ts: TELEGRAM_EMAIL_DOMAIN).
+ */
+const TELEGRAM_EMAIL_DOMAIN = "tg.avtotestu.uz";
+
+/**
+ * Manzil Telegram orqali (parolsiz) yaratilganmi — bunday hisobda email
+ * sun'iy (`tg_<id>@tg.avtotestu.uz`) va foydalanuvchiga ko'rsatilmasligi
+ * kerak (phone.ts dagi `isPhoneEmail` bilan bir xil g'oya).
+ */
+export function isTelegramEmail(email: string | null | undefined): boolean {
+  if (!email) return false;
+  return email.trim().toLowerCase().endsWith(`@${TELEGRAM_EMAIL_DOMAIN}`);
+}

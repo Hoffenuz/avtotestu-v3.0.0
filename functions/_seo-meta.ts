@@ -99,18 +99,18 @@ export const SEO_META: Record<string, Record<string, SeoMeta>> = {
   },
   "/darslik": {
     "uz-lat": {
-      "title": "Video Darslik — YHQ bo'yicha 211 ta video",
-      "description": "YHQ bo'yicha 11 bob va 211 ta video darslik: belgilar, chiziqlar, chorrahalar va imtihon mavzulari.",
+      "title": "Video Darslik — YHQ bo'yicha 209 ta video",
+      "description": "YHQ bo'yicha 11 bob va 209 ta video darslik: belgilar, chiziqlar, chorrahalar va imtihon mavzulari.",
       "keywords": "YHQ darslik, video darslar, haydovchilik kursi, avto darslik, prava video"
     },
     "uz": {
-      "title": "Видео дарслик — ЙҲҚ бўйича 211 та видео",
-      "description": "ЙҲҚ бўйича 11 боб ва 211 та видео дарслик: белгилар, чизиқлар, чорраҳалар ва имтиҳон мавзулари.",
+      "title": "Видео дарслик — ЙҲҚ бўйича 209 та видео",
+      "description": "ЙҲҚ бўйича 11 боб ва 209 та видео дарслик: белгилар, чизиқлар, чорраҳалар ва имтиҳон мавзулари.",
       "keywords": "ЙҲҚ дарслик, видео дарслар, ҳайдовчилик курси, авто дарслик, права видео"
     },
     "ru": {
-      "title": "Видеоуроки ПДД — 211 видео",
-      "description": "11 глав и 211 видеоуроков по ПДД: знаки, разметка, перекрёстки и экзаменационные темы.",
+      "title": "Видеоуроки ПДД — 209 видео",
+      "description": "11 глав и 209 видеоуроков по ПДД: знаки, разметка, перекрёстки и экзаменационные темы.",
       "keywords": "уроки ПДД, видеоуроки, автошкола онлайн, обучение вождению, ПДД видео"
     }
   },

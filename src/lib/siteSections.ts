@@ -1,22 +1,27 @@
 // ============================================================================
 // siteSections — /bolimlar sahifasidagi bo'limlar ro'yxati
 // ----------------------------------------------------------------------------
-// NIMA KIRADI VA NIMA KIRMAYDI:
-//   Bu yerda faqat SAVOL BILAN ISHLASH bo'limlari turadi — foydalanuvchi
-//   test yechish, xatolarini takrorlash yoki savol izlash uchun keladi.
+// NIMA UCHUN GURUHLANGAN:
+//   Guruh sarlavhalari ro'yxatni ikkita MAQSADGA bo'ladi: mashq qilaman /
+//   o'rganaman. Ko'z avval maqsadni tanlaydi, keyin ichidan 4-5 tasini
+//   ko'radi — bu to'qqizta bir xil plitkadan tanlashdan yengilroq.
 //
-//   Darslik, Qo'shimcha va Yangiliklar ATAYLAB kiritilmagan: ular o'quv/
-//   axborot materiallari va header menyusida allaqachon bor. Ularni bu yerga
-//   qo'shish ro'yxatni suyultirib, asosiy bo'limlarni ko'zdan yashiradi.
+// NIMA KIRADI VA NIMA KIRMAYDI:
+//   Kiradi — foydalanuvchi BAJARADIGAN amallar.
+//   Kirmaydi — Darslik va Yangiliklar: ular header'da o'z bandiga ega,
+//   takrorlash katalogni suyultirardi. Kompyuter ilova ham kirmaydi: u
+//   bo'lim emas, YUKLAB OLINADIGAN mahsulot — `/bolimlar` pastida alohida,
+//   kengroq kartochkada turadi (aks holda 13 ta bir xil plitka orasida
+//   ko'zdan yo'qolardi).
 //
 // DIQQAT: faqat MAVJUD marshrutlar. Ishlamaydigan havola — yomon tajriba.
 // ============================================================================
 
 import {
+  AlertTriangle,
   Bookmark,
   Brain,
   Hash,
-  AlertTriangle,
   Search,
   Signpost,
   Timer,
@@ -33,6 +38,28 @@ import {
  * (`bg-${color}-500/10` kabi) Tailwind build paytida topa olmaydi.
  */
 export type SectionAccent = "rose" | "amber" | "sky" | "violet" | "emerald" | "cyan" | "orange" | "indigo" | "teal";
+
+/**
+ * Bosh sahifadagi tezkor plitkalar uchun ramka rangi.
+ *
+ * NEGA KERAK: plitkalar oddiy kulrang ramkada edi va sahifaning qolgan
+ * oq kartochkalaridan farq qilmasdi — ko'z ularni "yana bir ro'yxat" deb
+ * o'tkazib yuborardi. Ramkani plitkaning O'Z rangiga bo'yash ularni
+ * ajratadi, lekin bo'yoq qo'shmaydi: rang allaqachon ikonkada bor.
+ *
+ * Faqat STATIK sinf nomlari — Tailwind dinamik yasalganini topa olmaydi.
+ */
+export const ACCENT_EDGE_CLASS: Record<SectionAccent, string> = {
+  rose: "border-rose-500/50 hover:border-rose-500/80",
+  amber: "border-amber-500/50 hover:border-amber-500/80",
+  sky: "border-sky-500/50 hover:border-sky-500/80",
+  violet: "border-violet-500/50 hover:border-violet-500/80",
+  emerald: "border-emerald-500/50 hover:border-emerald-500/80",
+  cyan: "border-cyan-500/50 hover:border-cyan-500/80",
+  orange: "border-orange-500/50 hover:border-orange-500/80",
+  indigo: "border-indigo-500/50 hover:border-indigo-500/80",
+  teal: "border-teal-500/50 hover:border-teal-500/80",
+};
 
 export const ACCENT_CLASS: Record<SectionAccent, string> = {
   rose: "bg-rose-500/10 text-rose-500",
@@ -78,24 +105,51 @@ export interface SectionItem {
   requiresPro?: boolean;
 }
 
+export interface SectionGroup {
+  /** Tarjima kaliti (`sections.group*`). */
+  titleKey: string;
+  items: readonly SectionItem[];
+}
+
 /**
- * "Mavzuli testlar" va "Variantlar" bu yerda ATAYLAB YO'Q: ikkalasi ham bosh
- * sahifadagi asosiy tugmalarda turadi. Bir xil havolani ikki joyda takrorlash
- * ro'yxatni uzaytirib, aynan shu bo'limga xos amallarni ko'zdan yashirardi.
+ * Katalog — ikkita maqsad bo'yicha guruhlangan.
+ *
+ * TEST REJIMLARI (Test ishlash, Variantlar, Mavzuli testlar) BU YERDA YO'Q:
+ * ular bosh sahifadagi asosiy tugmalarda turadi va u yerdan boshlanadi.
+ * Katalogda takrorlanishi ro'yxatni uzaytirib, aynan shu sahifaga xos
+ * amallarni ko'zdan yashirardi.
+ *
+ * "Real imtihon" esa ATAYLAB QOLDIRILGAN: u oddiy test emas, alohida
+ * shartlardagi imtihon rejimi va bosh sahifada har doim ham ko'rinmaydi —
+ * katalogdan tushib qolsa, unga doimiy yo'l qolmasdi.
  */
-export const SECTION_ITEMS: readonly SectionItem[] = [
-  { to: "/xatolar-testi", titleKey: "sections.xatolarTesti", descKey: "sections.xatolarTestiDesc", icon: Brain, accent: "rose", requiresPro: true },
-  // Xatolarni KO'RISH bepul (faqat kirish kerak) — o'z xatosini ko'ra
-  // olmaslik foydalanuvchini saytdan uzoqlashtiradi. Ular USTIDA ISHLASH
-  // (test yechish, /xatolar-testi) esa PRO bo'lib qoladi.
-  { to: "/xatolarim", titleKey: "sections.xatolarim", descKey: "sections.xatolarimDesc", icon: XCircle, accent: "amber", requiresAuth: true },
-  { to: "/saqlangan", titleKey: "sections.saqlangan", descKey: "sections.saqlanganDesc", icon: Bookmark, accent: "violet", requiresAuth: true },
-  { to: "/qidirish", titleKey: "sections.qidirish", descKey: "sections.qidirishDesc", icon: Search, accent: "cyan" , requiresPro: true },
-  { to: "/belgilar", titleKey: "sections.belgilar", descKey: "sections.belgilarDesc", icon: Signpost, accent: "emerald" },
-  { to: "/avtodrom", titleKey: "sections.avtodrom", descKey: "sections.avtodromDesc", icon: TrafficCone, accent: "amber" },
-  { to: "/yodlash-kerak", titleKey: "sections.yodlashKerak", descKey: "sections.yodlashKerakDesc", icon: Hash, accent: "indigo" },
-  { to: "/qiyin-savollar", titleKey: "sections.qiyinSavollar", descKey: "sections.qiyinSavollarDesc", icon: AlertTriangle, accent: "amber", requiresPro: true },
+export const SECTION_GROUPS: readonly SectionGroup[] = [
+  {
+    titleKey: "sections.groupPractice",
+    items: [
+      { to: "/real-imtihon", titleKey: "sections.realImtihon", descKey: "sections.realImtihonDesc", icon: Timer, accent: "emerald" },
+      { to: "/xatolar-testi", titleKey: "sections.xatolarTesti", descKey: "sections.xatolarTestiDesc", icon: Brain, accent: "rose", requiresPro: true },
+      // Xatolarni KO'RISH bepul (faqat kirish kerak) — o'z xatosini ko'ra
+      // olmaslik foydalanuvchini saytdan uzoqlashtiradi. Ular USTIDA ISHLASH
+      // (test yechish, /xatolar-testi) esa PRO bo'lib qoladi.
+      { to: "/xatolarim", titleKey: "sections.xatolarim", descKey: "sections.xatolarimDesc", icon: XCircle, accent: "amber", requiresAuth: true },
+      { to: "/saqlangan", titleKey: "sections.saqlangan", descKey: "sections.saqlanganDesc", icon: Bookmark, accent: "violet", requiresAuth: true },
+      { to: "/qiyin-savollar", titleKey: "sections.qiyinSavollar", descKey: "sections.qiyinSavollarDesc", icon: AlertTriangle, accent: "amber", requiresPro: true },
+    ],
+  },
+  {
+    titleKey: "sections.groupLearn",
+    items: [
+      { to: "/belgilar", titleKey: "sections.belgilar", descKey: "sections.belgilarDesc", icon: Signpost, accent: "emerald" },
+      { to: "/avtodrom", titleKey: "sections.avtodrom", descKey: "sections.avtodromDesc", icon: TrafficCone, accent: "amber" },
+      { to: "/yodlash-kerak", titleKey: "sections.yodlashKerak", descKey: "sections.yodlashKerakDesc", icon: Hash, accent: "indigo" },
+      { to: "/qidirish", titleKey: "sections.qidirish", descKey: "sections.qidirishDesc", icon: Search, accent: "cyan", requiresPro: true },
+    ],
+  },
 ];
+
+/** Guruhlardan qat'i nazar kerak bo'ladigan yassi ro'yxat. */
+export const SECTION_ITEMS: readonly SectionItem[] = SECTION_GROUPS.flatMap((g) => g.items);
 
 /**
  * Bosh sahifada ko'rsatiladigan TEZKOR amallar.
@@ -114,13 +168,17 @@ export const SECTION_ITEMS: readonly SectionItem[] = [
  * Ro'yxat ko'rinishi `/bolimlar` da saqlanib qolgan.
  *
  */
-export const QUICK_ITEMS: readonly SectionItem[] = [
-  {
-    to: "/real-imtihon",
-    titleKey: "sections.realImtihon",
-    descKey: "sections.realImtihonDesc",
-    icon: Timer,
-    accent: "emerald",
-  },
-  ...SECTION_ITEMS.filter((item) => ["/xatolar-testi", "/qiyin-savollar"].includes(item.to)),
-];
+const QUICK_PATHS = ["/real-imtihon", "/xatolar-testi", "/qiyin-savollar"] as const;
+
+/**
+ * Katalogdan OLINADI, qayta yozilmaydi.
+ *
+ * Ilgari "Real imtihon" bu yerda alohida, qo'lda yozilgan edi va uning
+ * rangi katalogdagisidan farq qilardi — bir xil bo'lim ikki sahifada ikki
+ * xil ko'rinardi. Endi manba bitta.
+ */
+export const QUICK_ITEMS: readonly SectionItem[] = QUICK_PATHS.map((to) => {
+  const item = SECTION_ITEMS.find((candidate) => candidate.to === to);
+  if (!item) throw new Error(`QUICK_ITEMS: "${to}" katalogda topilmadi`);
+  return item;
+});

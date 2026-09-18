@@ -199,14 +199,14 @@ export default function Home() {
              {/* Test ishlash */}
 <div className="relative w-full md:w-auto">
   {user && isPremium && (
-    <span className="absolute -top-2 -right-2 bg-[#f38d31] text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full z-10 shadow-sm border border-white/10 uppercase">
+    <span className="absolute -top-2 -right-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full z-10 shadow-sm">
       {t("common.pro")}
     </span>
   )}
   <Link to="/test-ishlash" className="w-full md:w-auto group">
     <Button
       size="lg"
-      className="w-full md:w-auto md:min-w-[150px] bg-[#10b981] hover:bg-[#059669] text-white gap-2 text-base md:text-lg px-6 py-5 md:py-6 rounded-2xl shadow-md shadow-[#10b981]/30 font-bold border-0 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-[#10b981]/45"
+      className="w-full md:w-auto md:min-w-[150px] bg-cta-green hover:bg-cta-green-hover text-white gap-2 text-base md:text-lg px-6 py-5 md:py-6 rounded-2xl shadow-md shadow-cta-green/30 font-bold border-0 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-cta-green/45"
     >
       <Play className="w-5 h-5 flex-shrink-0 fill-current" />
       <span>{t("home.btnTest")}</span>
@@ -224,7 +224,7 @@ export default function Home() {
                 <Link to="/variant" className="w-full md:w-auto group block">
                   <Button
                     size="lg"
-                    className="w-full md:w-auto md:min-w-[150px] bg-[#FF4D00] hover:bg-[#E64500] text-white gap-2 text-base md:text-lg px-6 py-5 md:py-6 rounded-2xl shadow-md shadow-[#FF4D00]/30 font-bold border-0 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-[#FF4D00]/45"
+                    className="w-full md:w-auto md:min-w-[150px] bg-cta-orange hover:bg-cta-orange-hover text-white gap-2 text-base md:text-lg px-6 py-5 md:py-6 rounded-2xl shadow-md shadow-cta-orange/30 font-bold border-0 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-cta-orange/45"
                   >
                     <Play className="w-5 h-5 flex-shrink-0 fill-current" />
                     <span>{t("home.btnVariantlar")}</span>
@@ -241,7 +241,7 @@ export default function Home() {
                   <Link to="/mavzuli" className="w-full md:w-auto group block">
                     <Button
                       size="lg"
-                      className="w-full md:w-auto md:min-w-[150px] bg-[#FF4D00] hover:bg-[#E64500] text-white gap-2 text-base md:text-lg px-6 py-5 md:py-6 rounded-2xl shadow-md shadow-[#FF4D00]/30 font-bold border-0 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-[#FF4D00]/45"
+                      className="w-full md:w-auto md:min-w-[150px] bg-cta-orange hover:bg-cta-orange-hover text-white gap-2 text-base md:text-lg px-6 py-5 md:py-6 rounded-2xl shadow-md shadow-cta-orange/30 font-bold border-0 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-cta-orange/45"
                     >
                       <BookOpen className="w-5 h-5 flex-shrink-0" />
                       <span>{t("home.btnMavzuli")}</span>

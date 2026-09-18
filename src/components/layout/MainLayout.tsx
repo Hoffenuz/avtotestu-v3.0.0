@@ -1,8 +1,8 @@
 import { BottomNav } from "./BottomNav";
 import { useDarkMode } from "@/hooks/useDarkMode";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useState, useEffect, useMemo, useCallback, useRef } from "react";
-import { Menu, X, User, LogIn, Crown, Globe, ChevronDown, Home, Phone, BookOpen, Info, Monitor, Newspaper, type LucideIcon, LayoutGrid, Moon, Sun } from "lucide-react";
+import { useState, useEffect, useMemo, useCallback } from "react";
+import { Menu, X, User, LogIn, Crown, Globe, ChevronDown, Home, BookOpen, BookMarked, LayoutGrid, Moon, Sun } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
@@ -57,20 +57,10 @@ interface MainLayoutProps {
   children: React.ReactNode;
 }
 
-interface QoshimchaLink {
-  path: string;
-  label: string;
-  icon: LucideIcon;
-  external?: boolean;
-}
-
 export function MainLayout({ children }: MainLayoutProps) {
   const { isDark, toggle: toggleDark } = useDarkMode();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
-  const [qoshimchaOpen, setQoshimchaOpen] = useState(false);
-  const [mobileQoshimchaOpen, setMobileQoshimchaOpen] = useState(false);
-  const qoshimchaMenuRef = useRef<HTMLDivElement>(null);
   const { language, setLanguage, t } = useLanguage();
 
   const location = useLocation();
@@ -91,58 +81,54 @@ export function MainLayout({ children }: MainLayoutProps) {
     return () => { document.body.style.overflow = originalOverflow; };
   }, [mobileMenuOpen]);
 
+  /**
+   * Asosiy navigatsiya — DESKTOP va MOBIL uchun YAGONA manba.
+   *
+   * TO'RTTA BAND, har biri boshqa vazifada: kirish nuqtasi → mahsulot →
+   * o'rganish → yangi kontent.
+   *
+   * Nima olib tashlandi va nega:
+   *   * "Aloqa" — qo'llab-quvvatlash havolasi, mahsulot bo'limi emas.
+   *     Footer'da allaqachon bor edi, ya'ni menyuda takrorlanardi va
+   *     to'rtta eng qimmat joydan bittasini egallardi.
+   *   * "Qo'shimcha" ochiluvchi menyusi — nomi ichida nima borligini
+   *     aytmasdi va uchta bog'lanmagan narsani (Yangiliklar, Kompyuter
+   *     ilova, Ma'lumotlar) bir qopga solgandi. "Ma'lumotlar" "Qo'llanma"
+   *     nomi bilan shu yerda o'z bandiga chiqdi; Kompyuter ilova
+   *     `/bolimlar` pastidagi alohida kartochkaga va footer'ga.
+   *   * "Yangiliklar" — bo'lim doimiy yangilanib turishini talab qiladi,
+   *     amalda esa unga material qo'yishga vaqt yo'q. Eskirgan bo'lim
+   *     menyuda turgani saytga ishonchni tushiradi. Sahifa o'zi qoldi
+   *     (indekslangan) — unga endi footer'dan boriladi.
+   *
+   * Ilgari mobil menyu qo'lda, alohida yozilgan edi va tartibi desktopnikidan
+   * farq qilardi — bir foydalanuvchi ikki qurilmada ikki xil tartibni
+   * ko'rardi. Endi ikkalasi ham shu ro'yxatdan chiziladi.
+   */
   const navLinks = useMemo(() => [
-    { path: "/", label: t("nav.home") },
-    { path: "/bolimlar", label: t("nav.sections") },
-    { path: "/contact", label: t("nav.contact") },
-    { path: "/darslik", label: t("nav.darslik") },
+    { path: "/", label: t("nav.home"), icon: Home },
+    { path: "/bolimlar", label: t("nav.sections"), icon: LayoutGrid },
+    { path: "/darslik", label: t("nav.darslik"), icon: BookOpen },
+    { path: "/qoshimcha", label: t("sections.qollanma"), icon: BookMarked },
   ], [t]);
 
-  // "Yo'l belgilari" bu yerdan olib tashlandi — u `/bolimlar` ro'yxatida
-  // turadi va ikki joyda takrorlanishi menyuni behuda uzaytirardi.
-  const qoshimchaLinks = useMemo<QoshimchaLink[]>(() => [
-    { path: "/yangiliklar", label: t("nav.news"), icon: Newspaper },
-    { path: "/desktop", label: t("nav.desktopApp"), icon: Monitor },
-    { path: "/qoshimcha", label: t("nav.info"), icon: Info },
-  ], [t]);
-
-  const isQoshimchaActive = useMemo(
-    () => qoshimchaLinks.some((item) => {
-      if (item.external) return false;
-      return location.pathname === item.path || location.pathname.startsWith(`${item.path}/`);
-    }),
-    [qoshimchaLinks, location.pathname]
-  );
-
-  const toggleQoshimchaMenu = useCallback(() => {
-    setQoshimchaOpen((v) => !v);
-  }, []);
-
-  useEffect(() => {
-    if (!qoshimchaOpen) return;
-
-    const handleClickOutside = (e: MouseEvent) => {
-      if (qoshimchaMenuRef.current && !qoshimchaMenuRef.current.contains(e.target as Node)) {
-        setQoshimchaOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [qoshimchaOpen]);
-
+  /**
+   * Footer havolalari — asosiy menyuga sig'magan, lekin YO'QOLMASLIGI
+   * kerak bo'lgan sahifalar shu yerda turadi.
+   *
+   * Aloqa, Yangiliklar va Kompyuter ilova aynan shu sababdan bu ro'yxatda:
+   * ular header'dan olib tashlandi, demak doimiy yo'l faqat shu yerda
+   * qoladi. (Kompyuter ilovaga ikkinchi, ko'zga tashlanadigan yo'l
+   * `/bolimlar` sahifasining pastida ham bor.)
+   */
   const footerLinks = useMemo(() => [
-    { path: "/", label: t("nav.home") },
     { path: "/bolimlar", label: t("nav.sections") },
+    { path: "/darslik", label: t("nav.darslik") },
+    { path: "/qoshimcha", label: t("sections.qollanma") },
+    { path: "/yangiliklar", label: t("nav.news") },
+    { path: "/desktop", label: t("nav.desktopApp") },
     { path: "/contact", label: t("nav.contact") },
   ], [t]);
-
-  const qoshimchaLinkClass = (isActive: boolean) =>
-    `flex items-center gap-2.5 px-3.5 py-2 text-sm transition-colors ${
-      isActive
-        ? "bg-primary/10 text-primary font-semibold"
-        : "text-foreground hover:bg-muted font-medium"
-    }`;
 
   const languages = useMemo(() => [
     { code: "uz-lat" as const, display: "UZ", label: t("nav.langLatin") },
@@ -263,7 +249,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                     to={item.path}
                     className={`px-2.5 py-1.5 text-sm md:text-[15px] font-medium transition-colors duration-200 rounded-md ${
                       isActive
-                        ? "text-[hsl(var(--cta-green))]"
+                        ? "text-cta-green"
                         : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/5"
                     }`}
                   >
@@ -272,62 +258,6 @@ export function MainLayout({ children }: MainLayoutProps) {
                 );
               })}
 
-              {/* Qo'shimcha — bosish orqali ochiladi/yopiladi */}
-              <div className="relative" ref={qoshimchaMenuRef}>
-                <button
-                  type="button"
-                  onClick={toggleQoshimchaMenu}
-                  aria-expanded={qoshimchaOpen}
-                  className={`flex items-center gap-1 px-2.5 py-1.5 text-sm md:text-[15px] font-medium transition-colors duration-200 rounded-md ${
-                    isQoshimchaActive || qoshimchaOpen
-                      ? "text-[hsl(var(--cta-green))]"
-                      : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/5"
-                  }`}
-                >
-                  {t("nav.qoshimcha")}
-                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${qoshimchaOpen ? "rotate-180" : ""}`} />
-                </button>
-
-                <div
-                  className={`absolute top-full left-0 mt-1 w-52 bg-card rounded-xl shadow-xl border border-border py-1.5 z-50 overflow-hidden origin-top transition-all duration-200 ease-out ${
-                    qoshimchaOpen
-                      ? "opacity-100 scale-100 translate-y-0 pointer-events-auto"
-                      : "opacity-0 scale-95 -translate-y-1 pointer-events-none"
-                  }`}
-                >
-                  {qoshimchaLinks.map((item) => {
-                    const Icon = item.icon;
-                    const isActive = !item.external && location.pathname === item.path;
-                    if (item.external) {
-                      return (
-                        <a
-                          key={item.path}
-                          href={item.path}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={() => setQoshimchaOpen(false)}
-                          className={qoshimchaLinkClass(false)}
-                        >
-                          <Icon className="w-4 h-4 shrink-0 opacity-70" />
-                          {item.label}
-                        </a>
-                      );
-                    }
-                    return (
-                      <Link
-                        key={item.path}
-                        to={item.path}
-                        onClick={() => setQoshimchaOpen(false)}
-                        className={qoshimchaLinkClass(isActive)}
-                      >
-                        <Icon className="w-4 h-4 shrink-0 opacity-70" />
-                        {item.label}
-                      </Link>
-                    );
-                  })}
-                </div>
-              </div>
-              
               {/* Dark mode — istalgan sahifada almashtiriladi */}
               <Button
                 variant="ghost"
@@ -341,7 +271,7 @@ export function MainLayout({ children }: MainLayoutProps) {
               </Button>
 
               <Link to="/pro">
-                <Button size="sm" className="ml-1.5 bg-[hsl(var(--cta-green))] hover:bg-[hsl(var(--cta-green-hover))] text-white font-semibold px-3.5 h-8">
+                <Button size="sm" className="ml-1.5 bg-cta-green hover:bg-cta-green-hover text-white font-semibold px-3.5 h-8">
                   <Crown className="w-3.5 h-3.5 mr-1" />
                   {t("nav.getPro")}
                 </Button>
@@ -354,7 +284,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                   onClick={() => navigate('/profile')}
                   className="ml-1 flex items-center gap-1.5 text-primary-foreground hover:bg-primary-foreground/10 h-8 px-2"
                 >
-                  <div className="h-7 w-7 rounded-full bg-[hsl(var(--cta-orange))] flex items-center justify-center flex-shrink-0">
+                  <div className="h-7 w-7 rounded-full bg-cta-orange flex items-center justify-center flex-shrink-0">
                     <User className="w-3.5 h-3.5 text-white" />
                   </div>
                   <span className="hidden xl:block text-sm font-medium">
@@ -365,7 +295,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                 <Button
                   size="sm"
                   onClick={() => navigate('/auth')}
-                  className="ml-1 bg-[hsl(var(--cta-orange))] hover:bg-[hsl(var(--cta-orange-hover))] text-white font-semibold h-8 px-3"
+                  className="ml-1 bg-cta-orange hover:bg-cta-orange-hover text-white font-semibold h-8 px-3"
                 >
                   <LogIn className="w-3.5 h-3.5 mr-1" />
                   {t("nav.login")}
@@ -389,7 +319,7 @@ export function MainLayout({ children }: MainLayoutProps) {
               <Link to="/pro">
                 <Button 
                   size="sm"
-                  className="bg-[hsl(var(--cta-green))] hover:bg-[hsl(var(--cta-green-hover))] text-white font-semibold px-3 h-8 sm:h-9 flex items-center gap-1.5"
+                  className="bg-cta-green hover:bg-cta-green-hover text-white font-semibold px-3 h-8 sm:h-9 flex items-center gap-1.5"
                 >
                   <Crown className="w-4 h-4" />
                   <span className="text-xs sm:text-sm">PRO</span>
@@ -408,8 +338,8 @@ export function MainLayout({ children }: MainLayoutProps) {
                   onClick={() => navigate('/profile')}
                   className="hidden text-primary-foreground h-8 w-8 sm:h-9 sm:w-9 ml-1 md:inline-flex"
                 >
-                  <Avatar className="h-7 w-7 sm:h-8 sm:w-8 bg-[hsl(var(--cta-orange))]">
-                    <AvatarFallback className="bg-[hsl(var(--cta-orange))] text-white text-xs sm:text-sm font-semibold">
+                  <Avatar className="h-7 w-7 sm:h-8 sm:w-8 bg-cta-orange">
+                    <AvatarFallback className="bg-cta-orange text-white text-xs sm:text-sm font-semibold">
                       {getInitials(profile?.full_name || profile?.username)}
                     </AvatarFallback>
                   </Avatar>
@@ -418,7 +348,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                 <Button
                   size="sm"
                   onClick={() => navigate('/auth')}
-                  className="bg-[hsl(var(--cta-orange))] hover:bg-[hsl(var(--cta-orange-hover))] text-white font-semibold px-3 h-8 sm:h-9 flex items-center gap-1.5"
+                  className="bg-cta-orange hover:bg-cta-orange-hover text-white font-semibold px-3 h-8 sm:h-9 flex items-center gap-1.5"
                 >
                   <LogIn className="w-4 h-4" />
                   <span className="text-xs sm:text-sm">{t("nav.login")}</span>
@@ -465,8 +395,8 @@ export function MainLayout({ children }: MainLayoutProps) {
               {user && profile && (
                 <div className="p-4 border-b border-border bg-muted/30">
                   <div className="flex items-center gap-3">
-                    <Avatar className="h-12 w-12 bg-[hsl(var(--cta-orange))]">
-                      <AvatarFallback className="bg-[hsl(var(--cta-orange))] text-white font-semibold">
+                    <Avatar className="h-12 w-12 bg-cta-orange">
+                      <AvatarFallback className="bg-cta-orange text-white font-semibold">
                         {getInitials(profile?.full_name || profile?.username)}
                       </AvatarFallback>
                     </Avatar>
@@ -489,106 +419,24 @@ export function MainLayout({ children }: MainLayoutProps) {
               )}
 
               <div className="p-4 space-y-1 overflow-y-auto max-h-[calc(100vh-200px)]">
-                <Link
-                  to="/"
-                  className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors ${
-                    location.pathname === '/' 
-                      ? 'bg-primary text-primary-foreground' 
-                      : 'text-foreground hover:bg-muted'
-                  }`}
-                >
-                  <Home className="w-5 h-5" />
-                  {t("nav.home")}
-                </Link>
-                
-                <Link
-                  to="/contact"
-                  className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors ${
-                    location.pathname === '/contact'
-                      ? 'bg-primary text-primary-foreground'
-                      : 'text-foreground hover:bg-muted'
-                  }`}
-                >
-                  <Phone className="w-5 h-5" />
-                  {t("nav.contact")}
-                </Link>
-                
-                <Link
-                  to="/darslik"
-                  className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors ${
-                    location.pathname === '/darslik' 
-                      ? 'bg-primary text-primary-foreground' 
-                      : 'text-foreground hover:bg-muted'
-                  }`}
-                >
-                  <BookOpen className="w-5 h-5" />
-                  {t("nav.darslik")}
-                </Link>
-
-                <Link
-                  to="/bolimlar"
-                  className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors ${
-                    location.pathname === '/bolimlar'
-                      ? 'bg-primary text-primary-foreground'
-                      : 'text-foreground hover:bg-muted'
-                  }`}
-                >
-                  <LayoutGrid className="w-5 h-5" />
-                  {t("nav.sections")}
-                </Link>
-                
-                <div>
-                  <button
-                    type="button"
-                    onClick={() => setMobileQoshimchaOpen((v) => !v)}
-                    className={`w-full flex items-center justify-between gap-3 px-4 py-3 rounded-lg font-medium transition-colors ${
-                      isQoshimchaActive
-                        ? 'bg-primary text-primary-foreground'
-                        : 'text-foreground hover:bg-muted'
-                    }`}
-                  >
-                    <span className="flex items-center gap-3">
-                      <Info className="w-5 h-5" />
-                      {t("nav.qoshimcha")}
-                    </span>
-                    <ChevronDown className={`w-4 h-4 transition-transform ${mobileQoshimchaOpen ? 'rotate-180' : ''}`} />
-                  </button>
-                  <div
-                    className={`ml-4 overflow-hidden border-l-2 border-border pl-3 transition-all duration-200 ease-out ${
-                      mobileQoshimchaOpen ? 'max-h-64 opacity-100 mt-1' : 'max-h-0 opacity-0 mt-0'
-                    }`}
-                  >
-                    <div className="space-y-0.5 pb-1">
-                      {qoshimchaLinks.map((item) => {
-                        const Icon = item.icon;
-                        const isActive = !item.external && location.pathname === item.path;
-                        const className = `flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                          isActive ? 'bg-primary/10 text-primary' : 'text-foreground hover:bg-muted'
-                        }`;
-                        if (item.external) {
-                          return (
-                            <a
-                              key={item.path}
-                              href={item.path}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className={className}
-                            >
-                              <Icon className="w-4 h-4 opacity-70" />
-                              {item.label}
-                            </a>
-                          );
-                        }
-                        return (
-                          <Link key={item.path} to={item.path} className={className}>
-                            <Icon className="w-4 h-4 opacity-70" />
-                            {item.label}
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
+                {navLinks.map((item) => {
+                  const Icon = item.icon;
+                  const isActive = location.pathname === item.path;
+                  return (
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors ${
+                        isActive
+                          ? 'bg-primary text-primary-foreground'
+                          : 'text-foreground hover:bg-muted'
+                      }`}
+                    >
+                      <Icon className="w-5 h-5" />
+                      {item.label}
+                    </Link>
+                  );
+                })}
 
                 <div className="pt-2 mt-2 border-t border-border">
                   <Link
@@ -604,7 +452,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                   <div className="pt-2">
                     <Button
                       onClick={() => navigate('/auth')}
-                      className="w-full gap-2 bg-[hsl(var(--cta-orange))] hover:bg-[hsl(var(--cta-orange-hover))]"
+                      className="w-full gap-2 bg-cta-orange hover:bg-cta-orange-hover"
                     >
                       <LogIn className="w-4 h-4" />
                       {t("nav.login")}

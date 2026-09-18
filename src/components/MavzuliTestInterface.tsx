@@ -2,7 +2,6 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { QuestionNavigation } from "./QuestionNavigation";
 import { TestResults } from "./TestResults";
-import { MistakesReview } from "./MistakesReview";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useTestActive } from "@/hooks/useTestActive";
 import { useQuestionKeyboardNav } from "@/hooks/useQuestionKeyboardNav";
@@ -132,8 +131,6 @@ export const MavzuliTestInterface = ({
   );
   const [showFinishDialog, setShowFinishDialog] = useState(false);
   const [showResults, setShowResults] = useState(false);
-  /** Natija ekranidan "xatolarni ko'rib chiqish" ekraniga o'tilganmi. */
-  const [showMistakes, setShowMistakes] = useState(false);
   // Test ketayotganda pastki navigatsiya yashiriladi — test ekranida
   // o'z savol navigatsiyasi bor, ikkitasi chalkashtiradi.
   useTestActive(!showResults);
@@ -513,15 +510,6 @@ export const MavzuliTestInterface = ({
     const stats = getTestStats();
     const timeTaken = getWallElapsedSeconds(testStartTime);
 
-    // Xato qilingan VA javobsiz qolgan savollar (`TestInterfaceBase` bilan bir xil).
-    const mistakeItems = questions
-      .filter((q) => correctAnswers[q.id] !== true)
-      .map((q) => ({ question: q, answered: correctAnswers[q.id] === false }));
-
-    if (showMistakes) {
-      return <MistakesReview items={mistakeItems} onBack={() => setShowMistakes(false)} />;
-    }
-
     return (
       <TestResults
         totalQuestions={totalQuestions}
@@ -531,8 +519,6 @@ export const MavzuliTestInterface = ({
         variant={0}
         onBackToHome={onExit}
         isDark={isDark}
-        mistakesCount={mistakeItems.length}
-        onReviewMistakes={() => setShowMistakes(true)}
         onTryAgain={() => {
           clearTestState(storageKey);
           setSelectedAnswers({});
@@ -543,7 +529,6 @@ export const MavzuliTestInterface = ({
           setTestStartTime(now);
           setElapsedSeconds(0);
           setShowResults(false);
-          setShowMistakes(false);
           setResultSaved(false);
           saveAttemptedRef.current = false;
           setActiveSessionId(null);

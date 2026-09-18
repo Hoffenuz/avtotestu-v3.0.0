@@ -90,6 +90,7 @@ const Saqlangan = lazyWithRetry(() => import("./pages/Saqlangan"));
 const Belgilar = lazyWithRetry(() => import("./pages/Belgilar"));
 const Contact = lazyWithRetry(() => import("./pages/Contact"));
 const Darslik = lazyWithRetry(() => import("./pages/Darslik"));
+const DarslikModul = lazyWithRetry(() => import("./pages/DarslikModul"));
 const Yangiliklar = lazyWithRetry(() => import("./pages/Yangiliklar"));
 const YangilikDetail = lazyWithRetry(() => import("./pages/YangilikDetail"));
 const Qoshimcha = lazyWithRetry(() => import("./pages/Qoshimcha"));
@@ -152,6 +153,7 @@ const App = () => {
               <Route path="/belgilar/:slug" element={<Belgilar />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/darslik" element={<Darslik />} />
+              <Route path="/darslik/:moduleId" element={<DarslikModul />} />
               <Route path="/qoshimcha" element={<Qoshimcha />} />
               <Route path="/yangiliklar" element={<Yangiliklar />} />
               <Route path="/yangiliklar/:slug" element={<YangilikDetail />} />

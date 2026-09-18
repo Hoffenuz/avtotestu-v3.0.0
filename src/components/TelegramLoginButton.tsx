@@ -88,16 +88,21 @@ function messageForError(code: string | undefined, mode: "login" | "link"): stri
 /**
  * Telegram nishoni — kirish paneli va profil bo'limida bir xil ko'rinsin
  * uchun shu yerda bir marta yoziladi (lucide'da Telegram logotipi yo'q).
+ *
+ * Rasm 64x64 (2.8 KB, shaffof fonli) — ko'rsatiladigan eng katta o'lcham
+ * 18px bo'lgani uchun bu retina ekranlarga ham yetarli.
  */
 export function TelegramLogo({ className = "h-5 w-5" }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 240 240" fill="none" aria-hidden="true">
-      <circle cx="120" cy="120" r="120" fill="#2AABEE" />
-      <path
-        fill="#fff"
-        d="M55 118l125-48c6-2 11 1 9 10l-21 100c-2 8-7 10-14 6l-38-28-18 17c-2 2-4 4-8 4l3-40 73-66c3-3-1-5-5-2l-90 57-39-12c-8-3-8-9 2-12z"
-      />
-    </svg>
+    <img
+      src="/telegram.webp"
+      alt=""
+      aria-hidden="true"
+      width={64}
+      height={64}
+      decoding="async"
+      className={className}
+    />
   );
 }
 
@@ -109,11 +114,27 @@ export function TelegramLoginButton({
 }: Props) {
   const [phase, setPhase] = useState<Phase>("idle");
   const stopRef = useRef(false);
+  /**
+   * Telegram ochilgan oyna. Kirish tugagach uni O'ZIMIZ yopamiz: aks holda
+   * foydalanuvchi brauzerga qaytganda sayt emas, t.me sahifasi ustida
+   * turardi va nima bo'lganini tushunmasdi.
+   */
+  const popupRef = useRef<Window | null>(null);
+
+  const closePopup = () => {
+    try {
+      popupRef.current?.close();
+    } catch {
+      /* boshqa domenga o'tgan oynani yopib bo'lmasligi mumkin — muhim emas */
+    }
+    popupRef.current = null;
+  };
 
   // Komponent yo'q qilinsa (masalan foydalanuvchi sahifadan chiqib ketsa)
-  // polling darhol to'xtasin.
+  // polling darhol to'xtasin va ochilgan oyna ortda qolmasin.
   useEffect(() => () => {
     stopRef.current = true;
+    closePopup();
   }, []);
 
   if (!isTelegramLoginConfigured()) return null;
@@ -121,6 +142,7 @@ export function TelegramLoginButton({
   const pollUntilDone = async (token: string, clientSecret: string, deadline: number) => {
     while (!stopRef.current) {
       if (Date.now() > deadline) {
+        closePopup();
         if (!stopRef.current) setPhase("timeout");
         return;
       }
@@ -151,13 +173,17 @@ export function TelegramLoginButton({
       }
 
       if (!result?.ok) {
+        closePopup();
         setPhase("idle");
         onError(messageForError(result?.error, mode));
         return;
       }
       if (result.status === "pending") continue;
 
-      // status === "done"
+      // status === "done" — Telegram oynasi endi keraksiz, foydalanuvchi
+      // brauzerga qaytganda saytni ko'rsin.
+      closePopup();
+
       if (mode === "link") {
         setPhase("idle");
         onSuccess(result.telegram_username ?? null);
@@ -192,6 +218,7 @@ export function TelegramLoginButton({
     // ko'plab brauzerlarda avtomatik bloklanadi).
     const isMobile = isMobileDevice();
     const popup = isMobile ? null : window.open("", "_blank");
+    popupRef.current = popup;
 
     setPhase("waiting");
     stopRef.current = false;
@@ -208,7 +235,7 @@ export function TelegramLoginButton({
     if (stopRef.current) return;
 
     if (error || !data?.ok || !data.token) {
-      popup?.close();
+      closePopup();
       setPhase("idle");
       onError(messageForError(data?.error, mode));
       return;
@@ -229,6 +256,7 @@ export function TelegramLoginButton({
 
   const handleCancel = () => {
     stopRef.current = true;
+    closePopup();
     setPhase("idle");
   };
 

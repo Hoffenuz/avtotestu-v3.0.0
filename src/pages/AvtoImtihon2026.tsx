@@ -132,7 +132,7 @@ export default function AvtoImtihon2026() {
         </ol>
 
         {/* ── Testga o'tish ────────────────────────────────────────── */}
-        <Card className="mt-4 overflow-hidden border-2 border-[hsl(var(--cta-green))]/40">
+        <Card className="mt-4 overflow-hidden border-2 border-cta-green/40">
           <Link
             to="/e-avtomaktab-test"
             className="flex items-center gap-4 p-4 transition-colors hover:bg-muted/50"
@@ -141,7 +141,7 @@ export default function AvtoImtihon2026() {
               <span className="block font-bold text-foreground">{t("eav.ctaTitle")}</span>
               <span className="mt-0.5 block text-sm text-muted-foreground">{t("eav.ctaDesc")}</span>
             </span>
-            <ArrowRight className="h-5 w-5 flex-none text-[hsl(var(--cta-green))]" aria-hidden="true" />
+            <ArrowRight className="h-5 w-5 flex-none text-cta-green" aria-hidden="true" />
           </Link>
         </Card>
 

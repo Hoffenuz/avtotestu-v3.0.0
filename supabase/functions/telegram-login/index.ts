@@ -14,6 +14,11 @@
  *  3. Bot darhol "confirm" chaqiradi va "kirdingiz" deb javob beradi.
  *  4. Sayt "poll" bilan holatni so'raydi va OTP ni oladi.
  *
+ * ALOHIDA OQIM — "webapp": sayt bot ICHIDA (Telegram Mini App) ochilganda
+ * yuqoridagi oqim ishlamaydi (Telegram allaqachon ochiq va WebView'ning
+ * saqlash joyi brauzernikidan ajratilgan). U yerda Telegram'ning o'zi bergan
+ * imzolangan `initData` tekshiriladi va sessiya darhol beriladi.
+ *
  * ── XAVFSIZLIK ───────────────────────────────────────────────────────────
  *
  * a) MIJOZGA BOG'LASH (client_hash) — tokenni faqat uni YARATGAN brauzer
@@ -158,6 +163,147 @@ function generateToken(): string {
 }
 
 const TELEGRAM_EMAIL_DOMAIN = "tg.avtotestu.uz";
+
+/** E.164 chegarasi: mamlakat kodi bilan birga eng ko'p 15 raqam. */
+function normalizePhone(raw: string): string | null {
+  const digits = raw.replace(/\D/g, "");
+  if (digits.length < 7 || digits.length > 15) return null;
+  return `+${digits}`;
+}
+
+/**
+ * Mini App `initData` shuncha vaqtdan keyin qabul qilinmaydi.
+ *
+ * Telegram `initData` ni Mini App HAR ishga tushganda yangidan yaratadi,
+ * biz esa uni sahifa ochilishining o'zida ishlatamiz — ya'ni amalda u doim
+ * bir necha soniyalik bo'ladi. Oyna soatlab ochiq tursa ham muammo yo'q:
+ * sessiya birinchi yuklanishdayoq olingan bo'ladi. Shuning uchun oyna qisqa
+ * — o'g'irlangan `initData` ning qiymati shuncha kam bo'ladi.
+ */
+const INIT_DATA_MAX_AGE_SECONDS = 3600;
+
+async function hmacRaw(keyBytes: Uint8Array, message: string): Promise<Uint8Array> {
+  const key = await crypto.subtle.importKey("raw", keyBytes, { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
+  return new Uint8Array(await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(message)));
+}
+
+/**
+ * Telegram Mini App `initData` sini tekshiradi (rasmiy algoritm).
+ *
+ *   secret_key     = HMAC_SHA256(key: "WebAppData", data: <bot_token>)
+ *   data_check_str = `hash` dan boshqa barcha maydonlar "kalit=qiymat"
+ *                    ko'rinishida, alifbo tartibida, qator tashlash bilan ulangan
+ *   hash           = HEX(HMAC_SHA256(key: secret_key, data: data_check_str))
+ *
+ * Imzo bot tokeni bilan hisoblangani uchun, u to'g'ri chiqsa foydalanuvchi
+ * kimligiga ISHONISH mumkin — hech qanday qo'shimcha tasdiqlash kerak emas.
+ *
+ * Muvaffaqiyatda maydonlar obyekti, aks holda `null` qaytadi.
+ */
+async function verifyInitData(initData: string, botToken: string): Promise<Record<string, string> | null> {
+  // Oqilona chegara: haqiqiy initData bir necha yuz bayt bo'ladi.
+  if (!initData || initData.length > 4096) return null;
+
+  const params = new URLSearchParams(initData);
+  const hash = (params.get("hash") ?? "").toLowerCase();
+  if (!/^[0-9a-f]{64}$/.test(hash)) return null;
+
+  const authDate = Number(params.get("auth_date"));
+  if (!Number.isFinite(authDate)) return null;
+  if (Math.abs(Date.now() / 1000 - authDate) > INIT_DATA_MAX_AGE_SECONDS) {
+    console.warn("[telegram-login] initData eskirgan");
+    return null;
+  }
+
+  const secretKey = await hmacRaw(new TextEncoder().encode("WebAppData"), botToken);
+
+  /**
+   * `signature` maydoni (Ed25519, uchinchi tomon tekshiruvi uchun) keyinroq
+   * qo'shilgan va uni imzolanadigan matnga KIRITISH kerakmi degan savolda
+   * mijozlar/kutubxonalar bir xil emas. Ikkala variantni ham sinaymiz —
+   * aks holda kirish foydalanuvchining Telegram versiyasiga qarab
+   * tasodifan ishlamay qolardi.
+   */
+  for (const skipSignature of [true, false]) {
+    const pairs: string[] = [];
+    for (const [key, value] of params) {
+      if (key === "hash") continue;
+      if (skipSignature && key === "signature") continue;
+      pairs.push(`${key}=${value}`);
+    }
+    pairs.sort();
+    const computed = toHex((await hmacRaw(secretKey, pairs.join("\n"))).buffer);
+    if (constantTimeEquals(computed, hash)) return Object.fromEntries(params.entries());
+  }
+
+  return null;
+}
+
+type TelegramAccount = { email: string; hasPhone: boolean };
+
+/**
+ * Telegram ID bo'yicha hisobni topadi, bo'lmasa yaratadi.
+ *
+ * Ikkala kirish yo'li — saytdagi deep-link (`confirm`) va bot ichidagi
+ * Mini App (`webapp`) — SHU yerdan o'tadi, shunda hisob yaratish qoidalari
+ * ikki joyda ayri-ayri o'zgarib ketmaydi.
+ */
+async function getOrCreateTelegramAccount(
+  supabase: ReturnType<typeof admin>,
+  telegramId: number,
+  username: string | null,
+  firstName: string | null,
+): Promise<TelegramAccount | null> {
+  const lookup = async () =>
+    await supabase.from("profiles").select("id, email, phone").eq("telegram_id", telegramId).maybeSingle();
+
+  const { data: existing, error: lookupErr } = await lookup();
+  if (lookupErr) {
+    console.error("[telegram-login] profil qidiruvi:", lookupErr.message);
+    return null;
+  }
+
+  if (existing) {
+    const row = existing as { id: string; email: string; phone: string | null };
+    await supabase.from("profiles").update({ telegram_username: username }).eq("id", row.id);
+    return { email: row.email, hasPhone: Boolean(row.phone) };
+  }
+
+  const email = `tg_${telegramId}@${TELEGRAM_EMAIL_DOMAIN}`;
+  const { data: created, error: createErr } = await supabase.auth.admin.createUser({
+    email,
+    password: crypto.randomUUID() + crypto.randomUUID(),
+    email_confirm: true,
+    user_metadata: {
+      signup_method: "telegram",
+      telegram_id: telegramId,
+      telegram_username: username,
+      full_name: firstName,
+    },
+  });
+
+  if (createErr) {
+    /**
+     * Bir vaqtda kelgan ikkinchi so'rov shu yerga tushadi: hisob endigina
+     * yaratilgan bo'lsa `createUser` "already registered" beradi. Ikkinchi
+     * hisob yaratishga urinmaymiz — mavjudini qaytadan o'qiymiz.
+     */
+    const { data: retry } = await lookup();
+    if (retry) {
+      const row = retry as { email: string; phone: string | null };
+      return { email: row.email, hasPhone: Boolean(row.phone) };
+    }
+    console.error("[telegram-login] createUser:", createErr.message);
+    return null;
+  }
+
+  await supabase
+    .from("profiles")
+    .update({ telegram_id: telegramId, telegram_username: username })
+    .eq("id", created.user!.id);
+
+  return { email, hasPhone: false };
+}
 
 type TokenRow = {
   token: string;
@@ -347,39 +493,9 @@ async function handleConfirm(req: Request, supabase: ReturnType<typeof admin>, r
   }
 
   // mode === "login"
-  const { data: existing, error: lookupErr } = await supabase
-    .from("profiles")
-    .select("id, email")
-    .eq("telegram_id", telegramId)
-    .maybeSingle();
-
-  if (lookupErr) {
-    console.error("[telegram-login] confirm lookup profiles:", lookupErr.message);
-    return await fail("internal_error");
-  }
-
-  let email: string;
-  if (existing) {
-    email = (existing as { email: string }).email;
-    await supabase.from("profiles").update({ telegram_username: username }).eq("id", (existing as { id: string }).id);
-  } else {
-    email = `tg_${telegramId}@${TELEGRAM_EMAIL_DOMAIN}`;
-    const randomPassword = crypto.randomUUID() + crypto.randomUUID();
-    const { data: created, error: createErr } = await supabase.auth.admin.createUser({
-      email,
-      password: randomPassword,
-      email_confirm: true,
-      user_metadata: { signup_method: "telegram", telegram_id: telegramId, telegram_username: username, full_name: firstName },
-    });
-    if (createErr) {
-      console.error("[telegram-login] confirm createUser:", createErr.message);
-      return await fail("internal_error");
-    }
-    await supabase
-      .from("profiles")
-      .update({ telegram_id: telegramId, telegram_username: username })
-      .eq("id", created.user!.id);
-  }
+  const account = await getOrCreateTelegramAccount(supabase, telegramId, username, firstName);
+  if (!account) return await fail("internal_error");
+  const { email, hasPhone } = account;
 
   const { data: linkData, error: linkGenErr } = await supabase.auth.admin.generateLink({ type: "magiclink", email });
   if (linkGenErr || !linkData?.properties?.email_otp) {
@@ -392,11 +508,99 @@ async function handleConfirm(req: Request, supabase: ReturnType<typeof admin>, r
     .update({ result_email: email, result_otp: linkData.properties.email_otp, result_ready: true })
     .eq("token", token);
 
-  return jsonResponse(req, { ok: true, mode: "login" });
+  return jsonResponse(req, { ok: true, mode: "login", has_phone: hasPhone });
+}
+
+/**
+ * Bot Telegram'ning `request_contact` tugmasi orqali olingan raqamni
+ * shu yerga yozadi — faqat allaqachon bog'langan (`telegram_id` bor)
+ * profilga, boshqa hech narsani o'zgartirmasdan.
+ */
+async function handlePhone(req: Request, supabase: ReturnType<typeof admin>, rawBody: string) {
+  const body = JSON.parse(rawBody) as Record<string, unknown>;
+  const telegramId = Number(body.telegram_id);
+  const phone = normalizePhone(typeof body.phone === "string" ? body.phone : "");
+
+  if (!Number.isFinite(telegramId) || telegramId <= 0 || !phone) {
+    return jsonResponse(req, { ok: false, error: "invalid_payload" }, 400);
+  }
+
+  const { data, error } = await supabase
+    .from("profiles")
+    .update({ phone })
+    .eq("telegram_id", telegramId)
+    .select("id");
+
+  if (error) {
+    console.error("[telegram-login] phone update:", error.message);
+    return jsonResponse(req, { ok: false, error: "internal_error" }, 500);
+  }
+  if (!data || data.length === 0) {
+    return jsonResponse(req, { ok: false, error: "not_linked" }, 404);
+  }
+
+  return jsonResponse(req, { ok: true });
+}
+
+/**
+ * Bot ichidagi sayt (Mini App) uchun AVTOMATIK kirish.
+ *
+ * NEGA KERAK: Telegram Mini App ni o'z WebView'ida ochadi va uning
+ * saqlash joyi (localStorage) brauzernikidan butunlay ajratilgan. Ya'ni
+ * foydalanuvchi saytga Chrome'da kirgan bo'lsa ham, bot ichidagi oynada
+ * MEHMON bo'lib qolardi va u yerdan qayta kirishning qulay yo'li yo'q —
+ * deep-link oqimi Telegram ichidan ishlamaydi.
+ *
+ * Telegram bu holat uchun `initData` beradi: bot tokeni bilan imzolangan
+ * foydalanuvchi ma'lumoti. Imzo to'g'ri bo'lsa — kim ekani isbotlangan.
+ */
+async function handleWebApp(req: Request, supabase: ReturnType<typeof admin>, body: Record<string, unknown>) {
+  const initData = typeof body.init_data === "string" ? body.init_data : "";
+  if (!initData) return jsonResponse(req, { ok: false, error: "invalid_payload" }, 400);
+
+  const botToken = await loadBotToken(supabase);
+  if (!botToken) {
+    console.error("[telegram-login] TELEGRAM_LOGIN_BOT_TOKEN Vault'da topilmadi");
+    return jsonResponse(req, { ok: false, error: "not_configured" }, 500);
+  }
+
+  const fields = await verifyInitData(initData, botToken);
+  if (!fields) return jsonResponse(req, { ok: false, error: "invalid_init_data" }, 403);
+
+  let tgUser: Record<string, unknown>;
+  try {
+    tgUser = JSON.parse(fields.user ?? "");
+  } catch {
+    return jsonResponse(req, { ok: false, error: "invalid_init_data" }, 403);
+  }
+
+  const telegramId = Number(tgUser.id);
+  if (!Number.isFinite(telegramId) || telegramId <= 0) {
+    return jsonResponse(req, { ok: false, error: "invalid_init_data" }, 403);
+  }
+
+  const account = await getOrCreateTelegramAccount(
+    supabase,
+    telegramId,
+    typeof tgUser.username === "string" ? tgUser.username : null,
+    typeof tgUser.first_name === "string" ? tgUser.first_name : null,
+  );
+  if (!account) return jsonResponse(req, { ok: false, error: "internal_error" }, 500);
+
+  const { data: linkData, error: linkErr } = await supabase.auth.admin.generateLink({
+    type: "magiclink",
+    email: account.email,
+  });
+  if (linkErr || !linkData?.properties?.email_otp) {
+    console.error("[telegram-login] webapp generateLink:", linkErr?.message);
+    return jsonResponse(req, { ok: false, error: "internal_error" }, 500);
+  }
+
+  return jsonResponse(req, { ok: true, email: account.email, otp: linkData.properties.email_otp });
 }
 
 /** Bot chaqiradigan amallar — imzo talab qiladi. */
-const BOT_ACTIONS = new Set(["confirm"]);
+const BOT_ACTIONS = new Set(["confirm", "phone"]);
 
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") return new Response(null, { status: 204, headers: corsHeaders(req) });
@@ -419,7 +623,8 @@ Deno.serve(async (req: Request) => {
         return jsonResponse(req, { ok: false, error: "invalid_signature" }, 403);
       }
       try {
-        return await handleConfirm(req, supabase, rawBody);
+        if (action === "confirm") return await handleConfirm(req, supabase, rawBody);
+        return await handlePhone(req, supabase, rawBody);
       } catch {
         return jsonResponse(req, { ok: false, error: "invalid_body" }, 400);
       }
@@ -435,6 +640,7 @@ Deno.serve(async (req: Request) => {
 
     if (action === "start") return await handleStart(req, supabase, body);
     if (action === "poll") return await handlePoll(req, supabase, body);
+    if (action === "webapp") return await handleWebApp(req, supabase, body);
 
     return jsonResponse(req, { ok: false, error: "unknown_action" }, 400);
   } catch (err) {

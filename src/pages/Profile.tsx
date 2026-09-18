@@ -31,7 +31,9 @@ import { toast } from 'sonner';
 import { DeviceLicenseCard } from '@/components/DeviceLicenseCard';
 import { PasswordSection } from '@/components/PasswordSection';
 import { TelegramLinkSection } from '@/components/TelegramLinkSection';
-import { emailToPhoneDisplay } from '@/lib/phone';
+import { TelegramLogo } from '@/components/TelegramLoginButton';
+import { emailToPhoneDisplay, formatUzPhoneDisplay } from '@/lib/phone';
+import { isTelegramEmail } from '@/lib/telegramLogin';
 import { formatTestTime } from '@/lib/testPersistence';
 import { BottomNav } from '@/components/layout/BottomNav';
 import { ProfileSection } from '@/components/profile/ProfileSection';
@@ -87,6 +89,11 @@ const Profile = () => {
 
   /** Telefon orqali ochilgan hisobda sun'iy email o'rniga raqam ko'rsatiladi. */
   const phoneFromEmail = emailToPhoneDisplay(user?.email);
+  /**
+   * Telegram orqali ochilgan hisobda email ham sun'iy
+   * (`tg_<id>@tg.avtotestu.uz`) — ko'rsatish o'rniga shuni bildiramiz.
+   */
+  const isTelegramAccount = isTelegramEmail(user?.email);
   const navigate = useNavigate();
   const registrationDays = useRegistrationAge();
   const { isPremium, expiresAt: subscriptionExpiresAt, refresh: refreshAccessState } = useAccessState();
@@ -413,8 +420,19 @@ useEffect(() => {
             </div>
             <div className="flex-1">
               <h1 className="text-2xl md:text-3xl font-bold">{displayName}</h1>
-              <p className="text-primary-foreground/80 text-sm md:text-base">
-                {phoneFromEmail ?? user.email ?? user.phone}
+              <p className="text-primary-foreground/80 text-sm md:text-base flex items-center gap-1.5">
+                {isTelegramAccount ? (
+                  <>
+                    <TelegramLogo className="h-4 w-4 shrink-0" />
+                    {profile?.phone
+                      ? formatUzPhoneDisplay(profile.phone)
+                      : profile?.telegram_username
+                        ? `@${profile.telegram_username}`
+                        : "Telegram orqali kirilgan"}
+                  </>
+                ) : (
+                  phoneFromEmail ?? user.email ?? user.phone
+                )}
               </p>
               {profile?.username && profile?.full_name && (
                 <p className="text-primary-foreground/60 text-sm">@{profile.username}</p>
@@ -578,6 +596,15 @@ useEffect(() => {
                   <div>
                     <p className="text-sm text-muted-foreground">Telefon raqam</p>
                     <p className="font-medium text-foreground">{phoneFromEmail}</p>
+                  </div>
+                ) : isTelegramAccount ? (
+                  <div>
+                    <p className="text-sm text-muted-foreground">Telefon raqam</p>
+                    {profile?.phone ? (
+                      <p className="font-medium text-foreground">{formatUzPhoneDisplay(profile.phone)}</p>
+                    ) : (
+                      <p className="font-medium text-muted-foreground/70 italic">Kiritilmagan</p>
+                    )}
                   </div>
                 ) : (
                   <div>

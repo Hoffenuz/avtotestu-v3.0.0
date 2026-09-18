@@ -74,6 +74,18 @@
           if (!inTelegram) return;
 
           /**
+           * `initData` ni ham SHU YERDA ilib olamiz — Telegram uni URL
+           * fragmentiga qo'yadi va bu uning butun bo'lgan yagona payti.
+           * Mini App ichida avtomatik kirish (telegramMiniAppAuth.ts) shu
+           * qiymatdan foydalanadi; SDK yuklanib bo'lgach quyida u yanada
+           * ishonchli manba bilan almashtiriladi.
+           */
+          try {
+            var m = /[?&#]tgWebAppData=([^&]*)/.exec(window.location.href);
+            if (m && m[1]) window.__tgInitData = decodeURIComponent(m[1]);
+          } catch (e) { /* ignore */ }
+
+          /**
            * Telegram'da `BottomNav` umuman chizilmaydi (Telegram o'z pastki
            * interfeysini ko'rsatadi), LEKIN `.has-bottom-nav` klassi u uchun
            * joy ajratishda davom etardi — har sahifa pastida 56px bo'sh
@@ -89,6 +101,8 @@
           s.onload = function () {
             var wa = window.Telegram && window.Telegram.WebApp;
             if (!wa) return;
+            // SDK dagi nusxa eng ishonchlisi — bo'lsa uni ustun qo'yamiz.
+            try { if (wa.initData) window.__tgInitData = wa.initData; } catch (e) { /* ignore */ }
             // Telegram'ga "tayyor" signali — yuklanish ekrani yopiladi.
             try { wa.ready(); } catch (e) { /* eski mijoz */ }
             // Yarim paneldan to'liq balandlikka. Desktopda ta'sirsiz.
