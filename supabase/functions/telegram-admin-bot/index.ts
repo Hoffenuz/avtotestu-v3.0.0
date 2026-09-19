@@ -15,6 +15,11 @@
  *   2. `telegram_admins` jadvali (faqat tanilgan Telegram hisoblari)
  *   3. Rol tekshiruvi (parol uchun super_admin talab qilinadi)
  *
+ * DIQQAT — `verify_jwt` FALSE bo'lishi SHART. Telegram webhook so'rovida
+ * hech qanday JWT yo'q; uni yoqib qo'ysak Supabase har bir so'rovni 401
+ * bilan qaytaradi va bot butunlay jim bo'lib qoladi. Kirishni yuqoridagi
+ * `x-telegram-bot-api-secret-token` sarlavhasi himoya qiladi.
+ *
  * Har bir o'zgartiruvchi amal `audit_logs` ga yoziladi.
  * Parol MATNI hech qayerga yozilmaydi — na logga, na bazaga.
  */
@@ -52,7 +57,20 @@ async function tg(method: string, payload: unknown): Promise<any> {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
   });
-  if (!r.ok) console.error(`[tg] ${method} xatosi:`, await r.clone().text());
+  if (!r.ok) {
+    const txt = await r.clone().text();
+    /*
+      "message is not modified" — bu XATO EMAS. Admin "🔄 Yangilash"ni
+      bosgan, lekin xabar matni avvalgidek qolgan: Telegram bir xil matnni
+      qayta yozishdan bosh tortadi va 400 qaytaradi. Xabar joyida turadi.
+      Buni error sifatida yozish loglarni chalg'itadi.
+    */
+    if (txt.includes("message is not modified")) {
+      console.log(`[tg] ${method}: matn o'zgarmadi`);
+    } else {
+      console.error(`[tg] ${method} xatosi:`, txt);
+    }
+  }
   return r.json().catch(() => null);
 }
 
@@ -96,6 +114,46 @@ function sana(iso: string | null): string {
 const PLAN: Record<string, string> = {
   weekly: "Haftalik", monthly: "Oylik", quarterly: "3 oylik", basic: "Admin bergan",
 };
+
+/**
+ * Hozirgi Toshkent vaqti, SONIYAGACHA: "19.09.2026 12:45:03".
+ *
+ * NEGA soniya ham kerak: bu qator hisobot ekranlarining pastiga qo'yiladi.
+ * Ilgari hisobot matni faqat raqamlardan iborat edi — yangi to'lov
+ * bo'lmagan payt "🔄 Yangilash" bosilsa matn AYNAN avvalgidek chiqardi,
+ * Telegram esa bir xil matnni qayta yozmaydi ("message is not modified").
+ * Natijada tugma bosilardi-yu, ekranda hech narsa o'zgarmasdi — admin
+ * uchun bot qotib qolgandek ko'rinardi. Soniyali vaqt har bosishda
+ * o'zgaradi: xabar albatta yangilanadi va admin ma'lumot QACHONGI
+ * holatga tegishli ekanini ko'radi.
+ *
+ * `formatToParts` + qo'lda yig'ish ataylab: `format()` natijasi ICU
+ * versiyasiga qarab turlicha chiqadi ("19.09.2026" / "9/19/2026").
+ */
+function hozir(): string {
+  const p = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Asia/Tashkent",
+    day: "2-digit", month: "2-digit", year: "numeric",
+    hour: "2-digit", minute: "2-digit", second: "2-digit",
+    hour12: false,
+  }).formatToParts(new Date());
+  const g = (t: string) => p.find((x) => x.type === t)?.value ?? "";
+  return `${g("day")}.${g("month")}.${g("year")} ${g("hour")}:${g("minute")}:${g("second")}`;
+}
+
+/** Hisobot ekranlarining pastki qatori. */
+const footer = () => `\n\n🕒 <i>${hozir()} holatiga</i>`;
+
+/**
+ * Hisobot olinmaganda ko'rsatiladigan matn.
+ *
+ * NEGA KERAK: ilgari `const { data } = await db.rpc(...)` yozilgan edi —
+ * `error` umuman o'qilmasdi. RPC ishlamay qolsa `data` `null` bo'lardi,
+ * ro'yxat bo'sh chiqardi va Telegram'ga deyarli bo'sh matn ketardi.
+ * Ya'ni admin XATONI ko'rmasdi: ekran shunchaki eski holida qolardi.
+ */
+const hisobotXato = (nima: string, xabar: string) =>
+  `❌ <b>${esc(nima)} olinmadi</b>\n\n<code>${esc(xabar)}</code>${footer()}`;
 
 // ── Tarif tugash sanasi ────────────────────────────────────────────────────
 /**
@@ -265,7 +323,9 @@ Deno.serve(async (req) => {
               ? new Date(Date.now() + 3_600_000).toISOString() : null,
           }, { onConflict: "telegram_id" });
           console.warn(`[bot] kirish rad etildi, telegram_id=${tid}, urinish=${fails}`);
-          await send(chatId, `❌ Email yoki parol noto'g'ri. (${fails}/5)`);
+          await send(chatId,
+            `❌ Email yoki parol noto'g'ri. (${fails}/5)\n\n` +
+            `<i>Saytga (<b>avtotestu.uz</b>) kiradigan email va parolni yozing.</i>`);
           return new Response("ok");
         }
 
@@ -286,11 +346,7 @@ Deno.serve(async (req) => {
           { telegram_id: tid, username: from.username });
 
         await send(chatId,
-          `✅ <b>Tanildingiz</b>
-
-${esc(ko(r0.email))} · ${esc(r0.role)}
-
-` +
+          `✅ <b>Tanildingiz</b>\n\n${esc(ko(r0.email))} · ${esc(r0.role)}\n\n` +
           `Endi qayta kirish shart emas — Telegram hisobingiz eslab qolindi.`,
           mainMenu(r0.role === "super_admin"));
         return new Response("ok");
@@ -354,32 +410,45 @@ ${esc(ko(r0.email))} · ${esc(r0.role)}
         return new Response("ok");
       }
       if (d === "p:stats") {
-        const { data } = await db.rpc("admin_payment_stats");
+        const nav: Btn[][] = [[{ text: "🔄 Yangilash", callback_data: "p:stats" }], ...BACK];
+        const { data, error } = await db.rpc("admin_payment_stats");
+        if (error) {
+          await edit(chatId, msgId, hisobotXato("Statistika", error.message), nav);
+          return new Response("ok");
+        }
         const lines = (data ?? []).map((r: any) =>
           `${esc(r.davr)}\n  <b>${som(r.som)}</b> so'm · ${r.tolov} ta · ${r.userlar} user`);
-        await edit(chatId, msgId, "📊 <b>To'lov statistikasi</b>\n\n" + lines.join("\n\n"), [
-          [{ text: "🔄 Yangilash", callback_data: "p:stats" }], ...BACK,
-        ]);
+        await edit(chatId, msgId,
+          "📊 <b>To'lov statistikasi</b>\n\n" +
+          (lines.join("\n\n") || "Ma'lumot yo'q") + footer(), nav);
         return new Response("ok");
       }
       if (d === "p:daily") {
-        const { data } = await db.rpc("admin_payment_daily", { p_days: 7 });
+        const nav: Btn[][] = [[{ text: "🔄 Yangilash", callback_data: "p:daily" }], ...BACK];
+        const { data, error } = await db.rpc("admin_payment_daily", { p_days: 7 });
+        if (error) {
+          await edit(chatId, msgId, hisobotXato("Kunlik hisobot", error.message), nav);
+          return new Response("ok");
+        }
         const lines = (data ?? []).map((r: any) =>
           `<code>${esc(r.kun)}</code>  ${String(r.tolov).padStart(2)} ta · <b>${som(r.som)}</b>`);
         await edit(chatId, msgId,
-          "📅 <b>Oxirgi 7 kun</b>\n\n" + (lines.join("\n") || "Ma'lumot yo'q"), [
-          [{ text: "🔄 Yangilash", callback_data: "p:daily" }], ...BACK,
-        ]);
+          "📅 <b>Oxirgi 7 kun</b>\n\n" +
+          (lines.join("\n") || "Ma'lumot yo'q") + footer(), nav);
         return new Response("ok");
       }
       if (d === "p:recent") {
-        const { data } = await db.rpc("admin_payment_recent", { p_limit: 10 });
+        const nav: Btn[][] = [[{ text: "🔄 Yangilash", callback_data: "p:recent" }], ...BACK];
+        const { data, error } = await db.rpc("admin_payment_recent", { p_limit: 10 });
+        if (error) {
+          await edit(chatId, msgId, hisobotXato("Oxirgi to'lovlar", error.message), nav);
+          return new Response("ok");
+        }
         const lines = (data ?? []).map((r: any) =>
           `${esc(sana(r.sana))}\n  ${esc(ko(r.email ?? "—"))}\n  ${esc(PLAN[r.tarif] ?? r.tarif)} · <b>${som(r.som)}</b> so'm`);
         await edit(chatId, msgId,
-          "🧾 <b>Oxirgi to'lovlar</b>\n\n" + (lines.join("\n\n") || "Ma'lumot yo'q"), [
-          [{ text: "🔄 Yangilash", callback_data: "p:recent" }], ...BACK,
-        ]);
+          "🧾 <b>Oxirgi to'lovlar</b>\n\n" +
+          (lines.join("\n\n") || "Ma'lumot yo'q") + footer(), nav);
         return new Response("ok");
       }
 
@@ -580,12 +649,19 @@ async function applyPro(
     return new Response("ok");
   }
 
-  await db.from("subscriptions").insert({
+  /*
+    Obuna yozuvi — hisob-kitob uchun. `profiles` allaqachon yangilangan,
+    ya'ni foydalanuvchi PRO ni OLDI. Agar shu yozuv tushmasa, PRO bor-u
+    tarixda izi yo'q bo'lib qoladi — statistika va tekshiruv chalg'iydi.
+    Shuning uchun xatoni yutib yubormaymiz: adminga aytamiz.
+  */
+  const { error: sErr } = await db.from("subscriptions").insert({
     user_id: userId, plan_name: "basic", status: "active",
     started_at: nowIso, expires_at: endDate, tariff_days: days,
     is_trial: false, assigned_by: adminId,
     note: `Telegram bot orqali (${mode === "add" ? "qo'shildi" : "almashtirildi"})`,
   });
+  if (sErr) console.error("[pro] obuna yozuvi tushmadi:", sErr.message);
 
   await audit(db, adminId!, "pro_grant", {
     target_user: userId, email, days, mode,
@@ -597,7 +673,9 @@ async function applyPro(
     `✅ <b>PRO berildi</b>\n\n` +
     `👤 ${esc(ko(email))}\n` +
     `📅 ${days} kun (${mode === "add" ? "ustiga qo'shildi" : "almashtirildi"})\n` +
-    `⏰ Tugaydi: <b>${esc(sana(endDate))}</b>`, BACK);
+    `⏰ Tugaydi: <b>${esc(sana(endDate))}</b>` +
+    (sErr ? `\n\n⚠️ <i>Obuna tarixiga yozilmadi — PRO berildi, lekin hisobotda ko'rinmasligi mumkin.</i>` : ""),
+    BACK);
   return new Response("ok");
 }
 
