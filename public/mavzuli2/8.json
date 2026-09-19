@@ -2893,83 +2893,6 @@
     },
     {
         "task_info": {
-            "global_id": "t_15_q_13",
-            "global_id2": "t_15_q_13",
-            "ticket_num": 15,
-            "order": 37,
-            "remapped_from": "t_52_q_1"
-        },
-        "media_url": "u168uz.webp",
-        "content": {
-            "uz_lat": {
-                "text": "Mazkur yo'l belgisi:",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Mavsumiy belgi hisoblanadi",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Doimiy belgi hisoblanadi",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Vaqtinchalik belgi hisoblanadi",
-                        "is_correct": true
-                    }
-                ]
-            },
-            "uz_cyr": {
-                "text": "Мазкур йўл белгиси:",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Мавсумий белги ҳисобланади",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Доимий белги ҳисобланади",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Вақтинчалик белги ҳисобланади",
-                        "is_correct": true
-                    }
-                ]
-            },
-            "ru": {
-                "text": "Этот дорожный знак:",
-                "options": [
-                    {
-                        "id": 1,
-                        "text": "Сезонный знак",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 2,
-                        "text": "Постоянный знак",
-                        "is_correct": false
-                    },
-                    {
-                        "id": 3,
-                        "text": "Временный знак",
-                        "is_correct": true
-                    }
-                ]
-            }
-        },
-        "izoh": {
-            "uz_lat": "Yo‘l harakati qoidalari 1 – ilovasi, izoh qismiga asosan, 1,8 1.15, 1.16, 1.31, 1.17, 1.18.1 — 1.18.3, 1.21, 1.30, 2.6, 2.7, 3.1, 3.2, 3.11 — 3.16, 3.18.1 — 3.18.25 yo‘l belgilari vaqtincha yo‘l belgilari sifatida belgilanishi mumkin. Vaqtincha yo‘l belgilari sariq rangda bo‘ladi.",
-            "uz_cyr": "Йўл ҳаракати қоидалари 1 – иловаси, изоҳ қисмига асосан, 1,8 1.15, 1.16, 1.31, 1.17, 1.18.1 — 1.18.3, 1.21, 1.30, 2.6, 2.7, 3.1, 3.2, 3.11 — 3.16, 3.18.1 — 3.18.25 йўл белгилари вақтинча йўл белгилари сифатида белгиланиши мумкин. Вақтинча йўл белгилари сариқ рангда бўлади.",
-            "ru": "ПДД 1 - приложение, на основе комментариев, 1.8 1.15, 1.16, 1.31, 1.17, 1.18.1 — 1.18.3, 1.21, 1.30, 2.6, 2.7, 3.1, 3.2, 3.11 — 3.16, 3.18.1 — 3.18.25 дорожные знаки могут обозначаться как временные дорожные знаки. Временные дорожные знаки будут желтыми."
-        }
-    },
-    {
-        "task_info": {
             "global_id": "t_44_q_3",
             "global_id2": "t_44_q_3",
             "ticket_num": 44,
@@ -3120,6 +3043,98 @@
             "uz_lat": "YHQga 1-ILOVA 7.5.1 bandiga asosan: 7.5.1. «Shanba, yakshanba va bayram kunlari».",
             "uz_cyr": "YHQга 1-ИЛОВА 7.5.1 бандига асосан: 7.5.1. «Шанба, якшанба ва байрам кунлари».",
             "ru": "Согласно пункту 7.5.1 приложения 1 к ПДД: 7.5.1 «Суббота, воскресенье и праздничные дни»."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_64_q_14",
+            "global_id2": "t_64_q_14",
+            "ticket_num": 64,
+            "order": 39,
+            "remapped_from": null
+        },
+        "media_url": "u64-14.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ushbu vaziyatda qaysi avtomobil to'xtash qoidasini buzdi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Hech biri buzmadi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ko'k avtomobil",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Har ikkisi buzdi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Qizil avtomobil",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ушбу вазиятда қайси автомобиль тўхташ қоидасини бузди?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ҳеч бири бузмади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Кўк автомобиль",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ҳар иккиси бузди",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Қизил автомобиль",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какой автомобиль нарушил правило остановки в данной ситуации?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ни один не нарушил",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Синий автомобиль",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Оба нарушили",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Красный автомобиль",
+                        "is_correct": true
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "Rasmda 'To'xtash taqiqlanadi' belgisi va uning ostida qo'shimcha 7.2.3-\"Ta'sir oralig'i\" belgisi (pastga qaragan strelka) o'rnatilgan — bu taqiqlovchi belgi shu joygacha (strelka ko'rsatgan nuqtagacha) amal qilishini bildiradi. Qizil avtomobil aynan shu ta'sir oralig'i ichida to'xtab turgani uchun qoidani buzgan, ko'k avtomobil esa bu oraliqdan tashqarida to'xtagani sababli qoidani buzmagan.",
+            "uz_cyr": "Расмда 'Тўхташ тақиқланади' белгиси ва унинг остида қўшимча 7.2.3-\"Таъсир оралиғи\" белгиси (пастга қараган стрелка) ўрнатилган — бу тақиқловчи белги шу жойгача (стрелка кўрсатган нуқтагача) амал қилишини билдиради. Қизил автомобиль айнан шу таъсир оралиғи ичида тўхтаб тургани учун қоидани бузган, кўк автомобиль эса бу оралиқдан ташқарида тўхтагани сабабли қоидани бузмаган.",
+            "ru": "На рисунке установлен знак «Остановка запрещена» с дополнительной табличкой 7.2.3 «Зона действия» (стрелка вниз) под ним — она показывает, что запрещающий знак действует до этой точки. Красный автомобиль остановился именно в пределах этой зоны действия, тем самым нарушив правило, а синий автомобиль остановился за пределами зоны действия и правило не нарушил."
         }
     }
 ]

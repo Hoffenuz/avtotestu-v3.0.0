@@ -3354,5 +3354,82 @@
             "uz_cyr": "YHQ 14-боби 97-бандига асосан, ҳайдовчи тирбандлик туфайли мажбурий тўхтаб, кўндаланг йўналишдаги транспорт воситаларининг ҳаракатланишига тўсқинлик туғдирадиган бўлса, чорраҳага кириши, агар тўхташ чизиғи ёки 5.33 йўл белгисидан ўтиб бўлган ҳайдовчига эса қатнов қисмлари кесишмасига кириши тақиқланади.",
             "ru": "Согласно главе 14 статьи 97 ПДД, если водитель вынужден остановиться из-за дорожного движения и препятствует движению транспортных средств в поперечном направлении, ему запрещается выезд на перекресток, а если водитель проехал стоп-линию или дорожный знак 5.33, ему запрещается выезд на пересечение участков движения."
         }
+    },
+    {
+        "task_info": {
+            "global_id": "t_64_q_1",
+            "global_id2": "t_64_q_1",
+            "ticket_num": 64,
+            "order": 44,
+            "remapped_from": null
+        },
+        "media_url": "u64-1.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ko'k-qizil chiroq mayoqchasi va maxsus tovushli ishorasi yoqilgan maxsus transport vositasi, sidirg'a oq chiziq bilan ajratilgan, belgilangan yo'nalishli tranport vositalari uchun ajratilgan tasma bo'yicha harakatlanishga ruxsat beriladimi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Faqat belgilangan yo'nalishli tranport vositalari yo'q bo'lganda ruxsat etiladi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ruxsat etiladi",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Taqiqlanadi",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Кўк-қизил чироқ маёқчаси ва махсус товушли ишораси ёқилган махсус транспорт воситаси, сидирға оқ чизиқ билан ажратилган, белгиланган йўналишли транпорт воситалари учун ажратилган тасма бўйича ҳаракатланишга рухсат бериладими?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Фақат белгиланган йўналишли транпорт воситалари йўқ бўлганда рухсат этилади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Рухсат этилади",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Тақиқланади",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Разрешено ли движение специальному транспортному средству с включёнными проблесковым маячком сине-красного цвета и специальным звуковым сигналом по полосе, отведённой для маршрутных транспортных средств и отделённой сплошной белой линией?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Разрешается только при отсутствии маршрутных транспортных средств",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Разрешается",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 3,
+                        "text": "Запрещается",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "Ko'k-qizil chiroq mayoqchasi va maxsus tovushli signal yoqilgan maxsus transport vositasi (tez yordam, yong'in xavfsizligi, politsiya va h.k.) YHQ talablariga ko'ra ustuvor huquqqa ega bo'ladi. Xizmat vazifasini bajarish bilan bog'liq zaruriy holatlarda u chiziq bilan ajratilgan, yo'nalishli transport vositalari (avtobus/tramvay) uchun mo'ljallangan alohida tasmadan ham foydalanishga haqli. Shu sababli bunday harakatlanishga ruxsat etiladi.",
+            "uz_cyr": "Кўк-қизил чироқ маёқчаси ва махсус товушли сигнал ёқилган махсус транспорт воситаси (тез ёрдам, ёнғин хавфсизлиги, полиция ва ҳ.к.) YHQ талабларига кўра устувор ҳуқуққа эга бўлади. Хизмат вазифасини бажариш билан боғлиқ зарурий ҳолатларда у чизиқ билан ажратилган, йўналишли транспорт воситалари (автобус/трамвай) учун мўлжалланган алоҳида тасмадан ҳам фойдаланишга ҳақли. Шу сабабли бундай ҳаракатланишга рухсат этилади.",
+            "ru": "Специальное транспортное средство (скорая помощь, пожарная охрана, полиция и т.д.) с включённым проблесковым маячком сине-красного цвета и специальным звуковым сигналом пользуется преимущественным правом проезда согласно ПДД. При выполнении неотложного служебного задания оно вправе также использовать полосу, отведённую для маршрутных транспортных средств (автобусов, трамваев). Поэтому такое движение разрешается."
+        }
     }
 ]

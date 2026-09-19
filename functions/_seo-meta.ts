@@ -202,18 +202,18 @@ export const SEO_META: Record<string, Record<string, SeoMeta>> = {
   "/pro": {
     "uz-lat": {
       "title": "PRO obuna — cheksiz test va to'liq izohlar",
-      "description": "PRO obuna: 1260 ta savol, 64 ta variant, mavzuli testlar va har bir savolga izoh. Oyiga 35 000 so'm.",
-      "keywords": "pro obuna, premium, avtosmart pro, savol izohlari, prava test premium, 1260 savol"
+      "description": "PRO obuna: 1275 ta savol, 64 ta variant, mavzuli testlar va har bir savolga izoh. Oyiga 35 000 so'm.",
+      "keywords": "pro obuna, premium, avtosmart pro, savol izohlari, prava test premium, 1275 savol"
     },
     "uz": {
       "title": "PRO обуна — чексиз тест ва тўлиқ изоҳлар",
-      "description": "PRO обуна: 1260 та савол, 64 та вариант, мавзули тестлар ва ҳар бир саволга изоҳ. Ойига 35 000 сўм.",
-      "keywords": "pro обуна, премиум, avtosmart pro, савол изоҳлари, права тест премиум, 1260 савол"
+      "description": "PRO обуна: 1275 та савол, 64 та вариант, мавзули тестлар ва ҳар бир саволга изоҳ. Ойига 35 000 сўм.",
+      "keywords": "pro обуна, премиум, avtosmart pro, савол изоҳлари, права тест премиум, 1275 савол"
     },
     "ru": {
       "title": "PRO подписка — безлимитные тесты и полные объяснения",
-      "description": "Подписка PRO: 1260 вопросов, 64 варианта, тесты по темам и пояснение к каждому вопросу. 35 000 сумов в месяц.",
-      "keywords": "pro подписка, премиум, avtosmart pro, пояснения к вопросам, права тест премиум, 1260 вопросов"
+      "description": "Подписка PRO: 1275 вопросов, 64 варианта, тесты по темам и пояснение к каждому вопросу. 35 000 сумов в месяц.",
+      "keywords": "pro подписка, премиум, avtosmart pro, пояснения к вопросам, права тест премиум, 1275 вопросов"
     }
   },
   "/qidirish": {

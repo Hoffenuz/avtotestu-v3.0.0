@@ -2704,5 +2704,97 @@
             "uz_cyr": "YHQнинг 13-боб. 88-банд 1-хатбошига асосан: 88. Транспорт воситаларига йўлнинг ўнг томонида йўл ёқасида, у бўлмаганда эса қатнов қисмининг четида ва Қоидаларнинг 89-бандида кўрсатилган ҳолларда тротуарда тўхташ ва тўхтаб туришга рухсат этилади.",
             "ru": "Глава 13 ПДД. Согласно абзацу 1 пункта 88: 88. Транспортные средства разрешается останавливать и парковать с правой стороны дороги на обочине, а при ее отсутствии - на краю проезжей части и на тротуаре в случаях, предусмотренных пунктом 89 Правил."
         }
+    },
+    {
+        "task_info": {
+            "global_id": "t_64_q_14",
+            "global_id2": "t_64_q_14",
+            "ticket_num": 64,
+            "order": 34,
+            "remapped_from": null
+        },
+        "media_url": "u64-14.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ushbu vaziyatda qaysi avtomobil to'xtash qoidasini buzdi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Hech biri buzmadi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Ko'k avtomobil",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Har ikkisi buzdi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Qizil avtomobil",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Ушбу вазиятда қайси автомобиль тўхташ қоидасини бузди?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ҳеч бири бузмади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Кўк автомобиль",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ҳар иккиси бузди",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Қизил автомобиль",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какой автомобиль нарушил правило остановки в данной ситуации?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ни один не нарушил",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Синий автомобиль",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Оба нарушили",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Красный автомобиль",
+                        "is_correct": true
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "Rasmda 'To'xtash taqiqlanadi' belgisi va uning ostida qo'shimcha 7.2.3-\"Ta'sir oralig'i\" belgisi (pastga qaragan strelka) o'rnatilgan — bu taqiqlovchi belgi shu joygacha (strelka ko'rsatgan nuqtagacha) amal qilishini bildiradi. Qizil avtomobil aynan shu ta'sir oralig'i ichida to'xtab turgani uchun qoidani buzgan, ko'k avtomobil esa bu oraliqdan tashqarida to'xtagani sababli qoidani buzmagan.",
+            "uz_cyr": "Расмда 'Тўхташ тақиқланади' белгиси ва унинг остида қўшимча 7.2.3-\"Таъсир оралиғи\" белгиси (пастга қараган стрелка) ўрнатилган — бу тақиқловчи белги шу жойгача (стрелка кўрсатган нуқтагача) амал қилишини билдиради. Қизил автомобиль айнан шу таъсир оралиғи ичида тўхтаб тургани учун қоидани бузган, кўк автомобиль эса бу оралиқдан ташқарида тўхтагани сабабли қоидани бузмаган.",
+            "ru": "На рисунке установлен знак «Остановка запрещена» с дополнительной табличкой 7.2.3 «Зона действия» (стрелка вниз) под ним — она показывает, что запрещающий знак действует до этой точки. Красный автомобиль остановился именно в пределах этой зоны действия, тем самым нарушив правило, а синий автомобиль остановился за пределами зоны действия и правило не нарушил."
+        }
     }
 ]

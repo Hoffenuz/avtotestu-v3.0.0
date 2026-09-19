@@ -47,13 +47,13 @@ const DEFAULT_DATA_FILE = "free-uz-lat.json";
 const RETIRED_DATA_FILES = new Set(["600.json", "barcha.json"]);
 
 /**
- * To'liq (PRO) korpus fayllari — 1260 ta savol, izohlari bilan.
+ * To'liq (PRO) korpus fayllari — 1275 ta savol, izohlari bilan.
  * FREE korpus (`free-*.json`) esa 1009 ta va izohsiz.
  *
  * NEGA RO'YXAT KERAK: tugallanmagan test `localStorage` da o'z `dataFile`i
  * bilan saqlanadi va qaytib kelganda o'sha fayl bilan tiklanadi. Agar
  * oraliqda PRO muddati tugagan bo'lsa, eski sessiya PRO korpusni ochiq
- * qoldirardi — obuna tugagan foydalanuvchi 1260 ta savolni izohlari bilan
+ * qoldirardi — obuna tugagan foydalanuvchi 1275 ta savolni izohlari bilan
  * ishlashda davom etaverardi. `localStorage` ni brauzerdan qo'lda
  * tahrirlab ham xuddi shu natijaga erishish mumkin edi.
  */

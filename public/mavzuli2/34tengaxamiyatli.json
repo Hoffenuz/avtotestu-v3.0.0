@@ -3558,5 +3558,189 @@
             "uz_cyr": "ЙҲҚнинг 16-боб 105-бандига асосан, тенг аҳамиятли йўллар кесишган чорраҳада рельссиз транспорт воситаси ҳайдовчиси ўнг томондан яқинлашиб келаётган транспорт воситасига йўл бериши шарт. Бу ерда қизил автомобиль яшил автомобилнинг ўнг томонидан келаётгани учун, яшил автомобиль ҳайдовчиси қизил автомобильга йўл бериши керак.",
             "ru": "Согласно пункту 105 главы 16 ПДД, на перекрёстке равнозначных дорог водитель безрельсового транспортного средства обязан уступить дорогу транспортному средству, приближающемуся справа. В данном случае красный автомобиль находится справа от зелёного, поэтому водитель зелёного автомобиля должен уступить дорогу красному."
         }
+    },
+    {
+        "task_info": {
+            "global_id": "t_64_q_2",
+            "global_id2": "t_64_q_2",
+            "ticket_num": 64,
+            "order": 49,
+            "remapped_from": null
+        },
+        "media_url": "u64-2.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Qaysi transport vositasi oxirgi bo'lib harakatlanadi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Yengil avtomobil",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Avtobus",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Yuk avtomobili",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Barchasi bir vaqtda harakatlanadi",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Қайси транспорт воситаси охирги бўлиб ҳаракатланади?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Енгил автомобиль",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Автобус",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Юк автомобили",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Барчаси бир вақтда ҳаракатланади",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какое транспортное средство движется последним?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Легковой автомобиль",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Автобус",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Грузовой автомобиль",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Все двигаются одновременно",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 16-bob 105-bandiga asosan, teng ahamiyatli yo'llar kesishgan tartibga solinmagan chorrahada haydovchi o'ng tomondan yaqinlashayotgan transport vositasiga yo'l berishi shart (bu qoida amalda \"o'ng qo'l qoidasi\" deb ham yuritiladi). Rasmda ko'rsatilgan joylashuvga ko'ra, ushbu tartibda yengil avtomobil boshqalarga nisbatan eng oxirida harakatlanadi.",
+            "uz_cyr": "YHQнинг 16-боб 105-бандига асосан, тенг аҳамиятли йўллар кесишган тартибга солинмаган чорраҳада ҳайдовчи ўнг томондан яқинлашаётган транспорт воситасига йўл бериши шарт (бу қоида амалда \"ўнг қўл қоидаси\" деб ҳам юритилади). Расмда кўрсатилган жойлашувга кўра, ушбу тартибда енгил автомобиль бошқаларга нисбатан энг охирида ҳаракатланади.",
+            "ru": "Согласно пункту 105 главы 16 ПДД, на нерегулируемом перекрёстке равнозначных дорог водитель обязан уступить дорогу транспортному средству, приближающемуся справа (это правило на практике также называют «правилом правой руки»). Согласно расположению на рисунке, в таком порядке легковой автомобиль движется последним из всех участников."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_64_q_9",
+            "global_id2": "t_64_q_9",
+            "ticket_num": 64,
+            "order": 50,
+            "remapped_from": null
+        },
+        "media_url": "u64-9.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Yashil avtomobil qaysi transport vositasiga yo'l berishi kerak?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Har ikki avtomobilga",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Faqat sariq avtomobilga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Faqat ko'k avtomobilga",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Hech qaysi biriga",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Яшил автомобиль қайси транспорт воситасига йўл бериши керак?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ҳар икки автомобильга",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Фақат сариқ автомобильга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Фақат кўк автомобильга",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Ҳеч қайси бирига",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какому транспортному средству должен уступить дорогу зелёный автомобиль?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Обоим автомобилям",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Только жёлтому автомобилю",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Только синему автомобилю",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Ни одному из них",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "Tartibga solinmagan teng ahamiyatli yo'llar kesishmasida yashil avtomobil o'ngdan kelayotgan transport vositalariga yo'l berishi shart. Rasmga ko'ra yashil avtomobilning o'ng tomonidan ikkala transport vositasi ham kelayotgani sababli, u har ikkisiga ham yo'l berishi kerak.",
+            "uz_cyr": "Тартибга солинмаган тенг аҳамиятли йўллар кесишмасида яшил автомобиль ўнгдан келаётган транспорт воситаларига йўл бериши шарт. Расмга кўра яшил автомобилнинг ўнг томонидан иккала транспорт воситаси ҳам келаётгани сабабли, у ҳар иккисига ҳам йўл бериши керак.",
+            "ru": "На нерегулируемом перекрёстке равнозначных дорог зелёный автомобиль обязан уступить дорогу транспортным средствам, приближающимся справа. Так как оба транспортных средства на рисунке приближаются справа от зелёного автомобиля, он должен уступить дорогу обоим."
+        }
     }
 ]
