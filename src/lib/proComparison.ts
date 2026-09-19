@@ -13,7 +13,7 @@
  * RAQAMLAR HAQIQIY BAZADAN OLINGAN (o'zgartirishdan oldin sanab ko'ring):
  *   bepul  public/free-*.json   = 1009 savol
  *   PRO    public/barcha-*.json = 1260 savol  (farqi 251)
- *   variantlar: src/components/TestStartPage.tsx -> TOTAL_VARIANTS = 64
+ *   variantlar: src/components/TestStartPage.tsx -> TOTAL_VARIANTS = 63
  *   bepul variant: src/lib/variantAccess.ts -> FREE_VARIANT_UI = 1
  * Noto'g'ri raqam bu yerda reklama da'vosiga aylanadi.
  */

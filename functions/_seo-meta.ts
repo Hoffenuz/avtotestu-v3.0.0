@@ -66,17 +66,17 @@ export const SEO_META: Record<string, Record<string, SeoMeta>> = {
   "/bolimlar": {
     "uz-lat": {
       "title": "Bo'limlar — testlar, belgilar, darslik",
-      "description": "Avtotestu.uz barcha bo'limlari bir joyda: mavzuli testlar, 64 variant, yo'l belgilari, darslik va qo'shimcha materiallar.",
+      "description": "Avtotestu.uz barcha bo'limlari bir joyda: mavzuli testlar, 63 variant, yo'l belgilari, darslik va qo'shimcha materiallar.",
       "keywords": "bo'limlar, mavzuli testlar, yo'l belgilari, darslik, variantlar"
     },
     "uz": {
       "title": "Бўлимлар — тестлар, белгилар, дарслик",
-      "description": "Avtotestu.uz барча бўлимлари бир жойда: мавзули тестлар, 64 вариант, йўл белгилари, дарслик ва қўшимча материаллар.",
+      "description": "Avtotestu.uz барча бўлимлари бир жойда: мавзули тестлар, 63 вариант, йўл белгилари, дарслик ва қўшимча материаллар.",
       "keywords": "бўлимлар, мавзули тестлар, йўл белгилари, дарслик, вариантлар"
     },
     "ru": {
       "title": "Разделы — тесты, знаки, видеоуроки",
-      "description": "Все разделы Avtotestu.uz в одном месте: тематические тесты, 64 варианта, дорожные знаки, видеоуроки и дополнительные материалы.",
+      "description": "Все разделы Avtotestu.uz в одном месте: тематические тесты, 63 варианта, дорожные знаки, видеоуроки и дополнительные материалы.",
       "keywords": "разделы, тематические тесты, дорожные знаки, видеоуроки, варианты"
     }
   },
@@ -168,17 +168,17 @@ export const SEO_META: Record<string, Record<string, SeoMeta>> = {
   "/": {
     "uz-lat": {
       "title": "Avto test — Prava test va YHQ testlar 2026",
-      "description": "Avto test 2026: prava test va YHQ testlar, yo'l belgilari, 64 variant. Bepul onlayn — AvtoSmart.",
+      "description": "Avto test 2026: prava test va YHQ testlar, yo'l belgilari, 63 variant. Bepul onlayn — AvtoSmart.",
       "keywords": ""
     },
     "uz": {
       "title": "Авто тест — Права тест ва ЙҲҚ тестлар 2026",
-      "description": "Авто тест 2026: права тест ва ЙҲҚ тестлар, йўл белгилари, 64 вариант. Бепул онлайн — AvtoSmart.",
+      "description": "Авто тест 2026: права тест ва ЙҲҚ тестлар, йўл белгилари, 63 вариант. Бепул онлайн — AvtoSmart.",
       "keywords": ""
     },
     "ru": {
       "title": "Avto test — Права и ПДД тесты 2026",
-      "description": "Avto test 2026: тест на права и ПДД, дорожные знаки, 64 варианта. Бесплатно онлайн — AvtoSmart.",
+      "description": "Avto test 2026: тест на права и ПДД, дорожные знаки, 63 варианта. Бесплатно онлайн — AvtoSmart.",
       "keywords": ""
     }
   },
@@ -202,17 +202,17 @@ export const SEO_META: Record<string, Record<string, SeoMeta>> = {
   "/pro": {
     "uz-lat": {
       "title": "PRO obuna — cheksiz test va to'liq izohlar",
-      "description": "PRO obuna: 1260 ta savol, 64 ta variant, mavzuli testlar va har bir savolga izoh. Oyiga 35 000 so'm.",
+      "description": "PRO obuna: 1260 ta savol, 63 ta variant, mavzuli testlar va har bir savolga izoh. Oyiga 35 000 so'm.",
       "keywords": "pro obuna, premium, avtosmart pro, savol izohlari, prava test premium, 1260 savol"
     },
     "uz": {
       "title": "PRO обуна — чексиз тест ва тўлиқ изоҳлар",
-      "description": "PRO обуна: 1260 та савол, 64 та вариант, мавзули тестлар ва ҳар бир саволга изоҳ. Ойига 35 000 сўм.",
+      "description": "PRO обуна: 1260 та савол, 63 та вариант, мавзули тестлар ва ҳар бир саволга изоҳ. Ойига 35 000 сўм.",
       "keywords": "pro обуна, премиум, avtosmart pro, савол изоҳлари, права тест премиум, 1260 савол"
     },
     "ru": {
       "title": "PRO подписка — безлимитные тесты и полные объяснения",
-      "description": "Подписка PRO: 1260 вопросов, 64 варианта, тесты по темам и пояснение к каждому вопросу. 35 000 сумов в месяц.",
+      "description": "Подписка PRO: 1260 вопросов, 63 варианта, тесты по темам и пояснение к каждому вопросу. 35 000 сумов в месяц.",
       "keywords": "pro подписка, премиум, avtosmart pro, пояснения к вопросам, права тест премиум, 1260 вопросов"
     }
   },
@@ -303,19 +303,19 @@ export const SEO_META: Record<string, Record<string, SeoMeta>> = {
   },
   "/variant": {
     "uz-lat": {
-      "title": "64 ta test varianti 2026 — bepul",
-      "description": "64 ta YHQ test varianti, har birida 20 ta savol — xuddi haqiqiy imtihondagidek. Bepul onlayn ishlang va prava olishga to'liq tayyorlaning.",
-      "keywords": "test varianti, prava test, imtihon savollari, YHQ test, 64 variant"
+      "title": "63 ta test varianti 2026 — bepul",
+      "description": "63 ta YHQ test varianti, har birida 20 ta savol — xuddi haqiqiy imtihondagidek. Bepul onlayn ishlang va prava olishga to'liq tayyorlaning.",
+      "keywords": "test varianti, prava test, imtihon savollari, YHQ test, 63 variant"
     },
     "uz": {
-      "title": "64 та тест варианти 2026 — бепул",
-      "description": "64 та ЙҲҚ тест варианти, ҳар бирида 20 та савол — худди ҳақиқий имтиҳондагидек. Бепул онлайн ишланг ва права олишга тўлиқ тайёрланинг.",
-      "keywords": "тест варианти, права тест, имтиҳон саволлари, ЙҲҚ тест, 64 вариант"
+      "title": "63 та тест варианти 2026 — бепул",
+      "description": "63 та ЙҲҚ тест варианти, ҳар бирида 20 та савол — худди ҳақиқий имтиҳондагидек. Бепул онлайн ишланг ва права олишга тўлиқ тайёрланинг.",
+      "keywords": "тест варианти, права тест, имтиҳон саволлари, ЙҲҚ тест, 63 вариант"
     },
     "ru": {
-      "title": "64 варианта тестов 2026 — бесплатно",
-      "description": "64 варианта тестов ПДД, в каждом по 20 вопросов — как на настоящем экзамене. Решайте онлайн бесплатно и полностью подготовьтесь к получению прав.",
-      "keywords": "варианты тестов, билеты ПДД, экзаменационные вопросы, тесты ПДД, 64 варианта"
+      "title": "63 варианта тестов 2026 — бесплатно",
+      "description": "63 варианта тестов ПДД, в каждом по 20 вопросов — как на настоящем экзамене. Решайте онлайн бесплатно и полностью подготовьтесь к получению прав.",
+      "keywords": "варианты тестов, билеты ПДД, экзаменационные вопросы, тесты ПДД, 63 варианта"
     }
   },
   "/yodlash-kerak": {
