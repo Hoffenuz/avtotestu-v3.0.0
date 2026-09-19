@@ -5,13 +5,19 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useAccessState } from "@/hooks/useAccessState";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
-import { formatTiyinPerDayAsSum } from "@/lib/payme";
 import { trackEvent } from "@/lib/track";
 import MobileAppBanner from "@/components/MobileAppBanner";
 import ReadinessStrip from "@/components/ReadinessStrip";
 
-/** Obuna tugashiga shuncha kun qolganda banner ko'rinadi. */
-const RENEW_WINDOW_DAYS = 3;
+/**
+ * Obuna tugashiga shuncha kun qolganda banner ko'rinadi.
+ *
+ * ILGARI 3 EDI: foydalanuvchiga 3 kun oldin ko'rsatilishi haligacha
+ * "shoshilinch emas" tuyulib, e'tiborsiz qoldirilardi. 1 kun — obuna
+ * chindan ham tugash arafasida bo'lgandagina ko'rinadi, shu payt xabar
+ * ham dolzarbroq, ham kamroq zerikarli takrorlanadi.
+ */
+const RENEW_WINDOW_DAYS = 1;
 const DAY_MS = 24 * 60 * 60 * 1000;
 
 /** Haftalik deb hisoblanadigan eng katta muddat (7 kun + admin qo'lda bergan 8 kun). */
@@ -27,8 +33,6 @@ const DISMISS_KEY = "pro-renew-banner-dismissed";
 interface UpgradeOffer {
   /** Oylik tarif haftalikka nisbatan necha foiz arzon (kunlik narx bo'yicha). */
   percent: number;
-  /** Oylik tarifning kunlik narxi, formatlangan: "1 167". */
-  perDay: string;
 }
 
 /**
@@ -36,7 +40,7 @@ interface UpgradeOffer {
  *
  * Bu slotda BITTA element ko'rsatiladi, ustuvorlik bo'yicha:
  *
- *   1. Obunasi 3 kun ichida tugaydigan foydalanuvchi → uzaytirish taklifi
+ *   1. Obunasi 1 kun ichida tugaydigan foydalanuvchi → uzaytirish taklifi
  *      (bitta o'zi, chunki bu vaqtga bog'liq va eng muhim xabar).
  *   2. Aks holda: mobil ilova banneri (faqat telefonda) va uning OSTIDA
  *      kirgan foydalanuvchi uchun tayyorgarlik tasmasi.
@@ -126,7 +130,6 @@ export function HomeTopBanner() {
 
       setOffer({
         percent: Math.round((1 - monthlyPerDay / weeklyPerDay) * 100),
-        perDay: formatTiyinPerDayAsSum(monthly.amount_tiyin, monthly.tariff_days),
       });
     })();
 
@@ -169,9 +172,7 @@ export function HomeTopBanner() {
       ? t("pro.renewTitleToday")
       : t("pro.renewTitleDays").replace("{n}", String(daysLeft));
   const subtitle = offer
-    ? t("pro.renewSubWeekly")
-        .replace("{p}", String(offer.percent))
-        .replace("{price}", offer.perDay)
+    ? t("pro.renewSubWeekly").replace("{p}", String(offer.percent))
     : t("pro.renewSubDefault");
 
   return (
