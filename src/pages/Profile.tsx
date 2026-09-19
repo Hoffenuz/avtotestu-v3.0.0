@@ -48,9 +48,9 @@ interface TestResult {
   question_source?: string | null;
 }
 
-/** Exam tickets (v1–v63). Mavzuli/practice banklarini "Variant N" deb ko'rsatmaymiz. */
+/** Exam tickets (v1–v64). Mavzuli/practice banklarini "Variant N" deb ko'rsatmaymiz. */
 function isExamTicketResult(r: TestResult): boolean {
-  if (r.variant < 1 || r.variant > 63) return false;
+  if (r.variant < 1 || r.variant > 64) return false;
   const src = (r.question_source || '').trim();
   if (/^v\d+\.json$/i.test(src)) return true;
   // Legacy + session-siz saqlangan 20 savollik variantlar

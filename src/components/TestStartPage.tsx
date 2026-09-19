@@ -18,16 +18,16 @@ const languages = [
   { id: "ru" as const, label: "Русский" },
 ];
 
-const TOTAL_VARIANTS = 63;
+const TOTAL_VARIANTS = 64;
 const variants = Array.from({ length: TOTAL_VARIANTS }, (_, i) => i + 1);
 
 function ProPromoCard({ language }: { language: string }) {
   const title =
     language === "ru"
-      ? "Откройте все 63 варианта"
+      ? "Откройте все 64 варианта"
       : language === "uz"
-        ? "Барча 63 вариантни очинг"
-        : "Barcha 63 variantni oching";
+        ? "Барча 64 вариантни очинг"
+        : "Barcha 64 variantni oching";
   const subtitle =
     language === "ru"
       ? "Оформите PRO — все варианты и тематические тесты без ограничений"

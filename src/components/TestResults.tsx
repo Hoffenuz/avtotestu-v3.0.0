@@ -13,7 +13,7 @@ interface TestResultsProps {
   correctAnswers: number;
   incorrectAnswers: number;
   timeTaken: number; // in seconds
-  /** Real ticket 1–63. Practice / mavzuli (0 or 99) — label yashirinadi */
+  /** Real ticket 1–64. Practice / mavzuli (0 or 99) — label yashirinadi */
   variant: number;
   onBackToHome: () => void;
   onTryAgain: () => void;
@@ -39,7 +39,7 @@ export const TestResults = ({
 
   const score = totalQuestions > 0 ? Math.round((correctAnswers / totalQuestions) * 100) : 0;
   const passed = score >= 90;
-  const showVariantLabel = Number.isInteger(variant) && variant >= 1 && variant <= 63;
+  const showVariantLabel = Number.isInteger(variant) && variant >= 1 && variant <= 64;
 
   /*
     ── Mehmon uchun ro'yxatga chaqiruv — TOAST sifatida ──────────────────
