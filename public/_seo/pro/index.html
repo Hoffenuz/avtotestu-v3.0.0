@@ -3,9 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--
+    /pro — BOT snapshot'i. Foydalanuvchi React sahifasini (src/pages/Pro.tsx)
+    ko'radi, bot esa shu faylni. Ikkalasining MAZMUNI bir xil bo'lishi shart:
+    botga boshqa va'da ko'rsatish Google qoidalari bo'yicha cloaking hisoblanadi.
+
+    Manbalar:
+      * matnlar     — src/locales/uz-lat.json → "pro.*"
+      * narx / kun  — Supabase `payme_plans` (15 000/7, 35 000/30, 83 000/90).
+                      Narx o'zgarsa SHU FAYL, JSON-LD va Pro.tsx dagi
+                      `fallbackPrice` birga yangilanadi.
+      * title / description / og:* — generate-main-pages.cjs build vaqtida
+                      functions/_seo-meta.ts dan qayta yozadi.
+
+    JSON-LD: Product + AggregateOffer — bitta mahsulot, uch muddat varianti
+    (Google "product snippet": name + offers.lowPrice + priceCurrency).
+    Reyting qo'shilmagan: sharhlar bu sahifada ko'rinmaydi, ko'rinmaydigan
+    narsani markup qilish mumkin emas.
+  -->
   <title>PRO obuna — 1275 savol, 64 variant va izohlar | AvtoSmart</title>
   <meta name="description" content="PRO obuna: 1275 ta savol, 64 ta variant, mavzuli testlar va har bir savolga izoh. Oyiga 35 000 so'm.">
-  <meta name="keywords" content="avtosmart pro, premium obuna, cheksiz test, prava tayyorgarlik, VIP test">
+  <meta name="keywords" content="avtosmart pro, pro obuna, prava test izohlari, 64 variant, mavzuli testlar, avto test obuna">
   <meta name="robots" content="index, follow">
   <meta name="language" content="uz">
   <meta name="geo.region" content="UZ">
@@ -25,45 +43,76 @@
   {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": "AvtoSmart Pro Obuna",
-    "description": "Premium imkoniyatlar - cheksiz testlar, statistika, reklama yo'q",
+    "name": "AvtoSmart PRO obuna",
+    "description": "YHQ imtihoniga tayyorgarlik: 1275 ta savol, barcha 64 variant, mavzuli testlar, har bir savolga izoh va kompyuter ilovasi litsenziyasi.",
+    "image": "https://www.avtotestu.uz/avtosmart-og.jpg",
+    "url": "https://www.avtotestu.uz/pro",
     "brand": {
       "@type": "Brand",
       "name": "AvtoSmart"
     },
     "offers": {
-      "@type": "Offer",
+      "@type": "AggregateOffer",
       "priceCurrency": "UZS",
-      "availability": "https://schema.org/InStock"
+      "lowPrice": 15000,
+      "highPrice": 83000,
+      "offerCount": 3,
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.avtotestu.uz/pro",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Haftalik obuna — 7 kun",
+          "price": 15000,
+          "priceCurrency": "UZS",
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.avtotestu.uz/pro"
+        },
+        {
+          "@type": "Offer",
+          "name": "Oylik obuna — 30 kun",
+          "price": 35000,
+          "priceCurrency": "UZS",
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.avtotestu.uz/pro"
+        },
+        {
+          "@type": "Offer",
+          "name": "3 oylik obuna — 90 kun",
+          "price": 83000,
+          "priceCurrency": "UZS",
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.avtotestu.uz/pro"
+        }
+      ]
     }
   }
   </script>
-
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: #1a202c; background: #f7fafc; }
     .header { background: #1a365d; color: white; padding: 16px 20px; }
-    .header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
     .logo { font-size: 20px; font-weight: 700; text-decoration: none; color: white; }
     nav a { color: rgba(255,255,255,0.9); text-decoration: none; margin-left: 24px; }
-    .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 20px; text-align: center; }
-    .hero h1 { font-size: 3rem; margin-bottom: 16px; }
-    .hero p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
-    .section { padding: 60px 20px; max-width: 1000px; margin: 0 auto; }
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-bottom: 60px; }
-    .feature { background: white; padding: 32px; border-radius: 16px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-    .feature-icon { font-size: 3rem; margin-bottom: 16px; }
-    .feature h3 { color: #1a365d; margin-bottom: 8px; }
-    .feature p { color: #718096; }
-    .pricing { background: white; padding: 48px; border-radius: 24px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
-    .pricing h2 { color: #1a365d; margin-bottom: 24px; font-size: 2rem; }
-    .price { font-size: 3rem; font-weight: 700; color: #667eea; margin-bottom: 24px; }
-    .price span { font-size: 1rem; color: #718096; font-weight: 400; }
-    .benefits { text-align: left; max-width: 400px; margin: 0 auto 32px; }
-    .benefits li { padding: 12px 0; border-bottom: 1px solid #edf2f7; color: #4a5568; display: flex; align-items: center; gap: 12px; }
-    .benefits li::before { content: "✓"; color: #48bb78; font-weight: bold; }
-    .btn { display: inline-block; padding: 16px 48px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 1.1rem; }
-    .footer { background: #1a365d; color: rgba(255,255,255,0.8); padding: 40px 20px; text-align: center; margin-top: 60px; }
+    .hero { padding: 48px 20px 24px; max-width: 1000px; margin: 0 auto; }
+    .hero h1 { font-size: 2rem; color: #1a202c; margin-bottom: 8px; }
+    .hero p { font-size: 1.1rem; color: #4a5568; }
+    .section { padding: 24px 20px; max-width: 1000px; margin: 0 auto; }
+    .section h2 { font-size: 1.4rem; color: #1a202c; margin-bottom: 16px; }
+    .plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .plan { background: white; border: 2px solid #e2e8f0; border-radius: 16px; padding: 20px; }
+    .plan.popular { border-color: #f59e0b; }
+    .plan h3 { font-size: 1.05rem; margin-bottom: 4px; }
+    .plan .price { font-size: 1.6rem; font-weight: 700; }
+    .plan .meta { color: #718096; font-size: 0.9rem; }
+    .badge { display: inline-block; margin-top: 8px; font-size: 0.8rem; font-weight: 700; color: #047857; background: #ecfdf5; border-radius: 999px; padding: 2px 10px; }
+    .pay { margin-top: 16px; color: #4a5568; }
+    .btn { display: inline-block; margin-top: 16px; padding: 14px 32px; background: #ea580c; color: white; text-decoration: none; border-radius: 12px; font-weight: 700; }
+    table { width: 100%; border-collapse: collapse; background: white; border-radius: 16px; overflow: hidden; }
+    th, td { padding: 12px 16px; border-bottom: 1px solid #edf2f7; text-align: left; }
+    td.c, th.c { text-align: center; width: 90px; }
+    .footer { background: #1a365d; color: rgba(255,255,255,0.8); padding: 32px 20px; text-align: center; margin-top: 48px; }
   </style>
 </head>
 <body>
@@ -72,61 +121,63 @@
       <a href="/" class="logo">AvtoSmart</a>
       <nav>
         <a href="/">Bosh sahifa</a>
-        <a href="/belgilar">Yo'l belgilari</a>
-        <a href="/variant">Variantlar</a>
+        <a href="/bolimlar">Bo'limlar</a>
         <a href="/darslik">Darslik</a>
-        <a href="/contact">Aloqa</a>
+        <a href="/qoshimcha">Qo'llanma</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
-    <h1>⭐ Pro Obuna</h1>
-    <p>Premium imkoniyatlar bilan YHQ imtihoniga tezroq va samaraliroq tayyorlaning</p>
-  </section>
+  <main>
+    <section class="hero">
+      <h1>PRO — to'liq savollar bazasi</h1>
+      <p>Bepul versiyada yopiq bo'lgan savollar, variantlar va izohlar — barchasi bitta obunada.</p>
+    </section>
 
-  <section class="section">
-    <div class="features">
-      <div class="feature">
-        <div class="feature-icon">♾️</div>
-        <h3>Cheksiz Testlar</h3>
-        <p>Istalgancha test ishlang, hech qanday cheklov yo'q</p>
+    <section class="section" aria-labelledby="tariflar">
+      <h2 id="tariflar">Tarifni tanlang</h2>
+      <div class="plans">
+        <div class="plan">
+          <h3>Haftalik obuna</h3>
+          <div class="price">15 000 so'm</div>
+          <div class="meta">7 kun</div>
+        </div>
+        <div class="plan popular">
+          <h3>Oylik obuna — eng mashhur</h3>
+          <div class="price">35 000 so'm</div>
+          <div class="meta">30 kun</div>
+          <span class="badge">Haftalikdan 46% arzon</span>
+        </div>
+        <div class="plan">
+          <h3>3 oylik obuna</h3>
+          <div class="price">83 000 so'm</div>
+          <div class="meta">90 kun</div>
+          <span class="badge">Haftalikdan 57% arzon</span>
+        </div>
       </div>
-      <div class="feature">
-        <div class="feature-icon">📊</div>
-        <h3>Batafsil Statistika</h3>
-        <p>O'z taraqqiyotingizni kuzating, kuchli va zaif tomonlarni aniqlang</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">🚫</div>
-        <h3>Reklama Yo'q</h3>
-        <p>Hech qanday reklama, to'liq diqqat o'rganishga</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">🎯</div>
-        <h3>Ustuvor Yordam</h3>
-        <p>Savollaringizga tezkor javoblar va yordam</p>
-      </div>
-    </div>
+      <p class="pay">To'lov usuli: Payme yoki Click. To'lovdan so'ng PRO avtomatik faollashadi.</p>
+      <a href="/pro" class="btn">PRO obunani olish</a>
+    </section>
 
-    <div class="pricing">
-      <h2>Obuna narxi</h2>
-      <div class="price">29,000 <span>so'm / oy</span></div>
-      <ul class="benefits">
-        <li>Cheksiz test topshirish</li>
-        <li>Barcha 64 ta variant</li>
-        <li>Batafsil statistika</li>
-        <li>Xatolar tahlili</li>
-        <li>Reklama yo'q</li>
-        <li>Ustuvor qo'llab-quvvatlash</li>
-        <li>Yangi funktsiyalarga birinchi kirish</li>
-      </ul>
-      <a href="/auth" class="btn">Pro obunani boshlash</a>
-    </div>
-  </section>
+    <section class="section" aria-labelledby="farq">
+      <h2 id="farq">Bepul va PRO farqi</h2>
+      <table>
+        <thead>
+          <tr><th>Imkoniyat</th><th class="c">Bepul</th><th class="c">PRO</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Savollar soni</td><td class="c">1000 ta</td><td class="c">1275 ta</td></tr>
+          <tr><td>Barcha 64 variant</td><td class="c">—</td><td class="c">✓</td></tr>
+          <tr><td>Mavzuli testlar</td><td class="c">—</td><td class="c">✓</td></tr>
+          <tr><td>Har bir savolga izoh</td><td class="c">—</td><td class="c">✓</td></tr>
+          <tr><td>Kompyuter ilovasi litsenziyasi</td><td class="c">—</td><td class="c">✓</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
 
   <footer class="footer">
-    <p>© 2026 AvtoSmart - O'zbekistonda haydovchilik guvohnomasi olish uchun YHQ testlari</p>
+    <p>© 2026 AvtoSmart — O'zbekistonda haydovchilik guvohnomasi olish uchun YHQ testlari</p>
   </footer>
 </body>
 </html>

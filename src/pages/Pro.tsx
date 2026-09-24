@@ -12,7 +12,6 @@ import { supabase } from "@/integrations/supabase/client";
 import {
   buildPaymeCheckoutUrl,
   formatTiyinAsSum,
-  formatTiyinPerDayAsSum,
   type PaymePlan,
 } from "@/lib/payme";
 import { buildClickPayUrl, isClickConfigured } from "@/lib/click";
@@ -25,8 +24,10 @@ import {
 } from "@/lib/pendingPlan";
 import { DB_READ_TIMEOUT_MS, withTimeout } from "@/lib/withTimeout";
 import { toast } from "sonner";
-import { Crown, Check, X, Star, ShieldCheck } from "lucide-react";
+import { Crown, Check, X, Star, ShieldCheck, ArrowRight } from "lucide-react";
 import { trackEvent } from "@/lib/track";
+import { TELEGRAM_ADMIN_URL } from "@/lib/telegram";
+import { TelegramLogo } from "@/components/TelegramLoginButton";
 
 /** `click_create_order` RPC javobi. */
 interface ClickOrderResult {
@@ -36,18 +37,30 @@ interface ClickOrderResult {
   amount_tiyin?: number;
 }
 
+/**
+ * CLICK belgisi — 45° burilgan superellips halqa (n = 2.8), rasmiy
+ * logotipdan o'lchangan nisbatlar bilan chizilgan: teshik tashqi uchning
+ * 0.4 qismi. Rasm emas, inline SVG — tashqi resurs yuklanmaydi va har
+ * o'lchamda tiniq.
+ */
+const CLICK_MARK_PATH =
+  "M19.37 19.37L17.34 21.26L15.92 22.29L14.59 22.97L13.29 23.37L12 23.5L10.71 23.37L9.41 22.97L8.08 22.29L6.66 21.26L4.63 19.37L2.74 17.34L1.71 15.92L1.03 14.59L0.63 13.29L0.5 12L0.63 10.71L1.03 9.41L1.71 8.08L2.74 6.66L4.63 4.63L6.66 2.74L8.08 1.71L9.41 1.03L10.71 0.63L12 0.5L13.29 0.63L14.59 1.03L15.92 1.71L17.34 2.74L19.37 4.63L21.26 6.66L22.29 8.08L22.97 9.41L23.37 10.71L23.5 12L23.37 13.29L22.97 14.59L22.29 15.92L21.26 17.34Z" +
+  "M14.92 14.92L14.12 15.67L13.55 16.07L13.03 16.35L12.51 16.5L12 16.55L11.49 16.5L10.97 16.35L10.45 16.07L9.88 15.67L9.08 14.92L8.33 14.12L7.93 13.55L7.65 13.03L7.5 12.51L7.45 12L7.5 11.49L7.65 10.97L7.93 10.45L8.33 9.88L9.08 9.08L9.88 8.33L10.45 7.93L10.97 7.65L11.49 7.5L12 7.45L12.51 7.5L13.03 7.65L13.55 7.93L14.12 8.33L14.92 9.08L15.67 9.88L16.07 10.45L16.35 10.97L16.5 11.49L16.55 12L16.5 12.51L16.35 13.03L16.07 13.55L15.67 14.12Z";
+
 /** To'lov tizimi tugmasidagi belgi (rasm emas — tashqi resurs yuklanmaydi). */
 function ProviderMark({ provider }: { provider: PaymentProvider }) {
   if (provider === "click") {
     return (
-      <span className="inline-flex items-center gap-1.5 text-[15px] font-extrabold tracking-tight text-[#1c8ed7]">
-        <span className="w-3.5 h-3.5 rounded-full bg-[#1c8ed7]" aria-hidden="true" />
+      <span className="inline-flex items-center gap-1.5 text-[15px] font-bold tracking-tight text-[#0164FD]">
+        <svg viewBox="0 0 24 24" className="w-[18px] h-[18px]" aria-hidden="true" focusable="false">
+          <path fill="currentColor" fillRule="evenodd" d={CLICK_MARK_PATH} />
+        </svg>
         click
       </span>
     );
   }
   return (
-    <span className="text-[15px] font-extrabold tracking-tight">
+    <span className="text-[15px] font-bold tracking-tight">
       <span className="text-foreground">pay</span>
       <span className="text-[#33cccc]">me</span>
     </span>
@@ -236,18 +249,14 @@ export default function Pro() {
   };
 
   /**
-   * Kunlik narx va haftalikka nisbatan arzonlik.
+   * Haftalikka nisbatan necha foiz arzon (0 — arzon emas yoki o'zi haftalik).
    *
    * Nega kerak: to'lovlarning ~63%i haftalik tarif, chunki 15 000 raqami
-   * 35 000 dan arzon ko'rinadi. Kunlik hisobda esa oylik ~46% arzon —
-   * bu farq hech qayerda ko'rsatilmagani uchun odam doim arzonini tanlaydi.
+   * 35 000 dan arzon ko'rinadi. Aslida oylik ~46% arzon — shu farq foiz
+   * bilan ko'rsatiladi. Kunlik narx ("2 143 so'm kuniga") ATAYLAB
+   * ko'rsatilmaydi: u mayda summani har kungi xarajat kabi his qildirib,
+   * foydalanuvchini cho'chitadi.
    */
-  const perDayOf = (plan: PlanCard): string => {
-    const { tiyin, days } = amountAndDays(plan);
-    return formatTiyinPerDayAsSum(tiyin, days);
-  };
-
-  /** Haftalikka nisbatan necha foiz arzon (0 — arzon emas yoki o'zi haftalik). */
   const cheaperThanWeeklyPercent = (plan: PlanCard): number => {
     if (plan.planName === "weekly") return 0;
     const weekly = PLANS.find((p) => p.planName === "weekly");
@@ -265,10 +274,6 @@ export default function Pro() {
   };
 
   // Allow both guests and logged-in users to view the Pro page.
-
-  const handleGetPro = () => {
-    window.open('https://t.me/avtosmart1', '_blank');
-  };
 
   /**
    * Tarif tugmasi — foydalanuvchini Payme to'lov sahifasiga olib boradi.
@@ -522,21 +527,21 @@ export default function Pro() {
       )}
 
       {/* Asosiy Qism: Ma'lumotlar va Narxlar */}
-      <section className="py-6 md:py-10 bg-background">
+      <section className="py-4 md:py-6 bg-background">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-x-10 lg:gap-y-5 items-start">
 
-            {/* CHAP TARAF: Ma'lumotlar va farqlar (8/12) */}
-            <div className="lg:col-span-8 space-y-6">
+            {/* CHAP TARAF: Ma'lumotlar va farqlar (7/12) */}
+            <div className="lg:col-span-7 space-y-5">
 
               {/* Sarlavha qismi */}
               <div>
-                <div className="inline-flex items-center gap-1.5 bg-amber-500/10 px-3 py-1 rounded-md mb-3 border border-amber-500/20">
+                <div className="inline-flex items-center gap-1.5 bg-amber-500/10 px-3 py-1 rounded-md mb-2.5 border border-amber-500/20">
                   <Crown className="w-4 h-4 text-amber-500" />
                   <span className="text-amber-600 font-bold uppercase text-xs tracking-wider">{t("pro.statusBadge")}</span>
                 </div>
-                <h1 className="text-xl md:text-2xl font-extrabold text-foreground mb-3 leading-tight" style={{ fontFamily: "'Segoe UI', system-ui, -apple-system, sans-serif" }}>
+                <h1 className="text-xl md:text-2xl font-extrabold text-foreground mb-2 leading-tight" style={{ fontFamily: "'Segoe UI', system-ui, -apple-system, sans-serif" }}>
                   {t("pro.heroTitle")}
                 </h1>
                 <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-2xl">
@@ -562,10 +567,10 @@ export default function Pro() {
 
                 {/* Oddiy Versiya */}
                 <Card className="border-border bg-muted/20 shadow-none hover:shadow-sm transition-shadow">
-                  <CardHeader className="pb-3 pt-5 border-b border-border/50 text-center bg-muted/30">
+                  <CardHeader className="pb-3 pt-4 border-b border-border/50 text-center bg-muted/30">
                     <CardTitle className="text-base text-muted-foreground font-semibold">{t("pro.comparisonTitle")}</CardTitle>
                   </CardHeader>
-                  <CardContent className="pt-5 space-y-4">
+                  <CardContent className="pt-4 space-y-3">
                     {PRO_COMPARISON.map((row) =>
                       row.inFree ? (
                         <div key={row.freeKey} className="flex items-start gap-2.5">
@@ -585,12 +590,12 @@ export default function Pro() {
                 {/* PRO Versiya */}
                 <Card className="border-2 border-amber-500/50 shadow-md shadow-amber-500/10 bg-gradient-to-br from-card to-amber-500/5 relative overflow-hidden z-0">
                   <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/10 blur-[25px] rounded-full pointer-events-none"></div>
-                  <CardHeader className="pb-3 pt-5 border-b border-amber-500/20 text-center bg-amber-500/10">
+                  <CardHeader className="pb-3 pt-4 border-b border-amber-500/20 text-center bg-amber-500/10">
                     <CardTitle className="text-base text-amber-600 font-bold flex items-center justify-center gap-2">
                       <Crown className="w-5 h-5" /> {t("pro.comparisonProTitle")}
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="pt-5 space-y-4 relative z-10">
+                  <CardContent className="pt-4 space-y-3 relative z-10">
                     {PRO_COMPARISON.map((row) => (
                       <div key={row.proKey} className="flex items-start gap-2.5">
                         <Check className="w-5 h-5 text-amber-500 shrink-0" />
@@ -604,17 +609,28 @@ export default function Pro() {
             </div>
 
             {/*
-              TARIFLAR VA TO'LOV (4/12) — bitta blok. Ilgari u mobil va desktop
+              TARIFLAR VA TO'LOV (5/12) — bitta blok. Ilgari u mobil va desktop
               uchun ikki marta chizilardi; endi bitta blok mobilda birinchi
               (`order-first`), desktopda o'ng ustunda (sticky) turadi.
+
+              Kengligi 4/12 dan 5/12 ga oshirildi: sahifaning asosiy harakati
+              shu yerda, tor ustunda narx va tarif nomi siqilib qolardi.
+
+              TARTIB: tarif → to'lov usuli → to'lash tugmasi. Tugma ataylab
+              OXIRIDA: u barcha tanlovni tasdiqlaydi, usul tanlovidan oldin
+              tursa foydalanuvchi usulni ko'rmay bosib yuborardi. Usul
+              standart holatda Payme (ko'pchilik shuni ishlatadi) va tanlagich
+              ixcham — narx va tugma diqqat markazida qoladi. Tugma ostidagi
+              izoh tanlangan tizim sahifasiga o'tilishini aytadi (Baymard:
+              uchinchi tomon to'lovida foydalanuvchi keyingi qadamni bilsin).
             */}
-            <aside className="order-first lg:order-none lg:col-span-4 lg:sticky lg:top-24">
+            <aside className="order-first lg:order-none lg:col-span-5 lg:row-span-2 lg:sticky lg:top-24">
               <div className="bg-card border border-border rounded-2xl p-4 md:p-5 shadow-sm">
-                <h2 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
+                <h2 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
                   <Star className="w-5 h-5 text-amber-500" /> {t("pro.plansTitle")}
                 </h2>
 
-                <div role="radiogroup" aria-label={t("pro.plansTitle")} className="space-y-3">
+                <div role="radiogroup" aria-label={t("pro.plansTitle")} className="space-y-2.5">
                   {PLANS.map((plan) => {
                     const active = plan.planName === selectedPlan;
                     const percent = cheaperThanWeeklyPercent(plan);
@@ -626,7 +642,7 @@ export default function Pro() {
                         role="radio"
                         aria-checked={active}
                         onClick={() => setSelectedPlan(plan.planName)}
-                        className={`relative w-full text-left p-3.5 rounded-xl border-2 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60 ${
+                        className={`relative w-full text-left px-4 py-3.5 rounded-xl border-2 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60 ${
                           active
                             ? "border-amber-500 bg-amber-500/5 shadow-sm shadow-amber-500/10"
                             : "border-border bg-background hover:border-amber-500/40"
@@ -650,16 +666,17 @@ export default function Pro() {
 
                           <div className="flex-1 min-w-0">
                             <div className="flex items-baseline justify-between gap-2">
-                              <span className="font-bold text-sm text-foreground">{t(plan.nameKey)}</span>
-                              <span className="text-lg font-extrabold text-foreground whitespace-nowrap">
-                                {priceOf(plan)} {t("pro.currency")}
+                              <span className="font-bold text-[15px] text-foreground">{t(plan.nameKey)}</span>
+                              {/* Summaning o'zi qalinroq, "so'm" — oddiy bold: ko'z raqamga tushadi */}
+                              <span className="text-lg sm:text-xl font-bold text-foreground whitespace-nowrap">
+                                <span className="font-extrabold">{priceOf(plan)}</span> {t("pro.currency")}
                               </span>
                             </div>
 
-                            {/* Muddat va kunlik narx — tariflarni HAQIQATAN taqqoslash mumkin bo'lgan o'lchov */}
+                            {/* Faqat muddat — kunlik narx ataylab yo'q (yuqoridagi izohga qarang) */}
                             <div className="flex items-center gap-x-2 gap-y-1 flex-wrap mt-1">
                               <span className="text-[12px] text-muted-foreground">
-                                {t("pro.planDays").replace("{n}", String(days))} · {perDayOf(plan)} {t("pro.currency")} {t("pro.perDay")}
+                                {t("pro.planDays").replace("{n}", String(days))}
                               </span>
                               {percent > 0 && (
                                 <span className="text-[11px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/25 px-2 py-0.5 rounded-full">
@@ -676,8 +693,8 @@ export default function Pro() {
 
                 {/* To'lov tizimi — standart holatda Payme; Click sozlangan bo'lsagina ko'rinadi */}
                 {clickAvailable && (
-                  <div className="mt-5">
-                    <p className="text-xs font-semibold text-muted-foreground mb-2">{t("pro.paymentMethod")}</p>
+                  <div className="mt-4">
+                    <p className="text-xs font-semibold text-muted-foreground mb-1.5">{t("pro.paymentMethod")}</p>
                     <div role="radiogroup" aria-label={t("pro.paymentMethod")} className="grid grid-cols-2 gap-2">
                       {(["payme", "click"] as const).map((id) => {
                         const active = provider === id;
@@ -689,7 +706,7 @@ export default function Pro() {
                             aria-checked={active}
                             aria-label={id === "payme" ? "Payme" : "Click"}
                             onClick={() => setProviderChoice(id)}
-                            className={`relative h-12 rounded-xl border-2 flex items-center justify-center transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60 ${
+                            className={`relative h-11 rounded-xl border-2 flex items-center justify-center transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60 ${
                               active
                                 ? "border-amber-500 bg-amber-500/5 shadow-sm"
                                 : "border-border bg-background hover:border-amber-500/40"
@@ -709,7 +726,7 @@ export default function Pro() {
                 )}
 
                 <Button
-                  className="w-full h-12 mt-4 text-base font-bold rounded-xl bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white border-0 shadow-sm"
+                  className="w-full h-14 mt-4 text-lg font-bold rounded-xl bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white border-0 shadow-md shadow-orange-600/20"
                   disabled={redirecting}
                   onClick={() => handleBuyPlan(selectedPlan, provider)}
                 >
@@ -721,16 +738,42 @@ export default function Pro() {
                       )}
                 </Button>
 
-                <p className="flex items-center justify-center gap-1.5 text-center text-[12px] text-muted-foreground mt-2.5">
-                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                  {t("pro.autoActivation")}
-                </p>
-
-                <p className="text-center text-[11px] text-muted-foreground mt-3 px-2 leading-relaxed">
-                  {t("pro.planContactText")} <button onClick={handleGetPro} className="text-blue-500 hover:underline font-medium">{t("pro.planContactLink")}</button>.
+                {/* Belgi matn ICHIDA: flex bilan matn ikki qatorga bo'linganda belgi chetga qochib qolardi */}
+                <p className="text-center text-[12px] leading-snug text-muted-foreground mt-2.5">
+                  <ShieldCheck className="inline w-3.5 h-3.5 mr-1 -mt-0.5 text-emerald-600" aria-hidden="true" />
+                  {t("pro.autoActivation").replace("{provider}", provider === "click" ? "Click" : "Payme")}
                 </p>
               </div>
             </aside>
+
+            {/*
+              ADMIN YORDAMI — bitta oddiy qator, sahifa uslubida (neytral
+              karta, rangli fon va katta tugmasiz). Maqsad — "savol bersam
+              bo'ladi" degan xotirjamlik, diqqatni to'lovdan tortib olish emas.
+
+              Joyi:
+                * mobilda — to'lov blokining DARHOL ostida (`order-first`,
+                  DOMda aside dan keyin turgani uchun undan keyin chiziladi);
+                * desktopda — chap ustunda, taqqoslash blokining ostida
+                  (aside `lg:row-span-2`, bu qator 2-qatorga tushadi).
+              `<a>` — oddiy havola: yangi oynada ochish, nusxalash ishlaydi.
+            */}
+            <section className="order-first lg:order-none lg:col-span-7">
+              <a
+                href={TELEGRAM_ADMIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackEvent("support_click", { place: "pro" })}
+                className="group flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 transition-colors hover:border-foreground/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60"
+              >
+                <TelegramLogo className="h-5 w-5 shrink-0" />
+                <span className="flex-1 min-w-0 text-sm text-muted-foreground">{t("pro.supportTitle")}</span>
+                <span className="inline-flex items-center gap-1 whitespace-nowrap text-sm font-semibold text-foreground">
+                  {t("pro.supportButton")}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                </span>
+              </a>
+            </section>
 
           </div>
         </div>

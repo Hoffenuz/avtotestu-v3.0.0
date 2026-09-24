@@ -15,7 +15,7 @@ import { isNetworkError, NETWORK_ERROR_MESSAGE_UZ } from '@/lib/networkError';
 import { SIGNUP_FN_TIMEOUT_MS, withTimeout } from '@/lib/withTimeout';
 import { Turnstile } from '@/components/Turnstile';
 import { isTurnstileConfigured } from '@/lib/turnstile';
-import { TelegramLoginButton, TelegramLogo } from '@/components/TelegramLoginButton';
+import { TelegramLoginButton } from '@/components/TelegramLoginButton';
 import { isTelegramLoginConfigured } from '@/lib/telegramLogin';
 import { peekPendingPlan } from '@/lib/pendingPlan';
 import {
@@ -568,41 +568,19 @@ const Auth = () => {
           </div>
 
           {/*
-            TELEGRAM — Google'dan OLDIN va ko'zga aniqroq.
-
-            Nega birinchi: bu auditoriya uchun Telegram allaqachon tanish
-            muhit (guruh, botlar) — Google'dan ko'ra ko'proq odam shu orqali
-            kirishni tanlaydi deb kutiladi. Shuning uchun oddiy tugma emas,
-            yengil ko'k rangdagi ajratilgan blok ichida, sarlavha bilan —
-            Google esa pastda oddiy ikkinchi darajali tugma bo'lib qoladi.
-
-            Vidjetning O'ZI (Telegram tomonidan chiziladigan tugma) rangini
-            o'zgartirib bo'lmaydi — bu Telegram tomonidan qat'iy belgilangan
-            (ishonch uchun, xuddi Google/Apple tugmalari kabi). Shuning
-            uchun "chiroyliroq" ko'rinish atrofidagi blok orqali beriladi.
+            TELEGRAM — Google'dan OLDIN: bu auditoriya uchun Telegram tanish
+            muhit (guruh, botlar), ko'proq odam shu orqali kiradi deb
+            kutiladi. Faqat tugmaning o'zi — ilgari atrofida sarlavha va
+            izohli blok bor edi, u ekranda so'zlarni ko'paytirib, asosiy
+            harakatni (tugmani) xiralashtirardi. Rang va Telegram belgisi
+            tugmaning o'zida yetarlicha ajralib turadi.
           */}
           {isTelegramLoginConfigured() && (
-            <div className="mb-3 overflow-hidden rounded-2xl border border-[#2AABEE]/30 bg-gradient-to-b from-[#2AABEE]/[0.09] to-transparent">
-              <div className="flex items-center gap-2.5 px-3.5 pt-3.5">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[#2AABEE]/15">
-                  <TelegramLogo className="h-[18px] w-[18px]" />
-                </span>
-                <span className="min-w-0 flex-1">
-                  <span className="block text-[13px] font-semibold leading-tight text-foreground">
-                    {t('auth.telegramTitle')}
-                  </span>
-                  <span className="block text-[11px] leading-tight text-muted-foreground">
-                    {t('auth.telegramHint')}
-                  </span>
-                </span>
-              </div>
-              <div className="px-3.5 pb-3.5 pt-3">
-                <TelegramLoginButton
-                  onSuccess={() => navigate(returnTo, { replace: true })}
-                  onError={(message) => setError(message)}
-                />
-              </div>
-            </div>
+            <TelegramLoginButton
+              className="mb-3"
+              onSuccess={() => navigate(returnTo, { replace: true })}
+              onError={(message) => setError(message)}
+            />
           )}
 
           <Button
