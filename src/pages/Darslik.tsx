@@ -107,7 +107,7 @@ function DarslikContent() {
             {next ? (
               <Link
                 to={`/darslik/${next.module.id}?dars=${encodeURIComponent(next.lesson.id)}`}
-                className="flex shrink-0 items-center gap-1.5 rounded-xl bg-cta-green px-3.5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-cta-green-hover md:px-5"
+                className="flex shrink-0 items-center gap-1.5 rounded-lg bg-white px-3.5 py-2.5 text-sm font-semibold text-[#131A45] transition-colors hover:bg-white/90 md:px-5"
               >
                 <Play className="h-4 w-4 fill-current" aria-hidden="true" />
                 <span className="hidden sm:inline">
