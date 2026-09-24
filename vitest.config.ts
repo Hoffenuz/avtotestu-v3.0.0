@@ -34,6 +34,9 @@ export default defineConfig({
      */
     env: {
       VITE_PAYME_MERCHANT_ID: "587f72c72cac0d162c722ae2",
+      // Namuna qiymatlar — Pro sahifasida Click tanlovi testlarda ham bo'lsin.
+      VITE_CLICK_SERVICE_ID: "1111",
+      VITE_CLICK_MERCHANT_ID: "2222",
     },
   },
 });

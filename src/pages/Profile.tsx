@@ -145,7 +145,9 @@ const Profile = () => {
   useEffect(() => {
     if (!user) return;
     const params = new URLSearchParams(window.location.search);
-    if (params.get('from') !== 'payme') return;
+    // Click ham xuddi shunday server-server tasdiqlaydi (?from=click).
+    const from = params.get('from');
+    if (from !== 'payme' && from !== 'click') return;
 
     // Sahifa yangilansa/orqaga qaytilsa qayta ishga tushmasin.
     window.history.replaceState(null, '', window.location.pathname);
