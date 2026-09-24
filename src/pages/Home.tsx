@@ -23,7 +23,6 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionGrid } from "@/components/SectionGrid";
-import { QuestionPreview } from "@/components/home/QuestionPreview";
 import { QUICK_ITEMS } from "@/lib/siteSections";
 import { fetchSectionCounts } from "@/lib/questionState";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -74,6 +73,18 @@ const HOME_FAQ_LD = {
 const HERO_TRUST_KEYS = ["home.trustFree", "home.trustNoSignup", "home.trustDevices"] as const;
 
 /**
+ * Hero tugmalari — katta (56px) va aniq; sahifadagi asosiy urg'u shular.
+ *   * asosiy     — siyoh (`bg-primary`), yengil siyoh soya;
+ *   * ikkilamchi — oq, qalin (2px) chegara: "zaif" ko'rinmasin.
+ * Mobilda to'liq kenglik, kattaroq ekranda bir xil minimal kenglik —
+ * tugmalar qatorda tekis turadi.
+ */
+const HERO_BTN_BASE =
+  "relative h-14 w-full gap-2.5 rounded-lg px-8 text-[17px] font-semibold sm:w-auto sm:min-w-[210px]";
+const HERO_BTN_PRIMARY = `${HERO_BTN_BASE} shadow-lg shadow-primary/25`;
+const HERO_BTN_SECONDARY = `${HERO_BTN_BASE} border-2 border-primary/15 bg-card text-foreground hover:border-primary/35 hover:bg-card hover:text-foreground`;
+
+/**
  * Tugma burchagidagi kichik "PRO" belgisi — kimga ochiqligini bildiradi,
  * baqirmaydi. Bosh sahifadagi plitkalar (SectionGrid) belgisi bilan bir xil.
  *
@@ -93,7 +104,7 @@ export default function Home() {
   const { user, profile, isLoading: authLoading } = useAuth();
   const { t } = useLanguage();
   const navigate = useNavigate();
-  const { isPremium } = useAccessState();
+  const { isPremium, loading: accessLoading, backendConfirmed } = useAccessState();
 
   /**
    * Birinchi renderda saqlangan sessiya bormi — faqat BIR MARTA hisoblanadi
@@ -138,6 +149,16 @@ export default function Home() {
    */
   const showProfilePanel = !!user || (authLoading && expectsSession);
 
+  /**
+   * Hero'dagi "Mavzular" tugmasi — faqat kirgan foydalanuvchiga. Profil
+   * paneli kabi: saqlangan sessiya bo'lsa joy birinchi renderdayoq band
+   * (aks holda tugma keyinroq paydo bo'lib pastdagini surardi).
+   */
+  const showMavzular = !!user || (authLoading && expectsSession);
+
+  /** Ishonch qatori — faqat yangi tashrifchiga (sessiyasiz). */
+  const showTrust = !user && !expectsSession;
+
   /** Haqiqiy ma'lumot tayyormi (yo'q bo'lsa — o'sha o'lchamdagi kulrang chiziq). */
   const profileReady = !!user;
 
@@ -173,18 +194,18 @@ export default function Home() {
       </Helmet>
 
       {/*
-        HERO — toza, yorug' fon + siyoh rang (brend: Ink 900 #131A45).
+        HERO — sodda, markazda: yorug' fon + siyoh rang (brend: Ink #131A45).
 
         Ilgari: to'liq ekranli foto, ustida quyuq shaffof "shisha" karta,
-        blur va yashil/to'q sariq tugmalar. Chiroyli ko'rinardi, lekin
-        o'qilishi og'ir, sahifa sekin (har sahifada 12–21 KB rasm preload)
-        va "shablon" taassuroti berardi. Endi:
+        blur va yashil/to'q sariq tugmalar — o'qilishi og'ir, sahifa sekin
+        (har sahifada 12–21 KB rasm preload). Endi:
           * fon — rasm emas, CSS: ingichka katak, tepada ko'rinib pastga
-            qarab so'nadi (dark rejimda `--border` tokeni orqali o'zi
-            moslashadi);
-          * matn chapda, desktopda o'ngda namunaviy savol kartasi;
-          * tugmalar — siyoh (asosiy) va oq-chegarali (ikkilamchi),
-            `rounded-lg`: aniq tugma, "tabletka" emas.
+            qarab so'nadi (dark rejimda `--border` tokeni orqali moslashadi);
+          * faqat eng kerakli narsa: sarlavha, qisqa matn, tugmalar.
+            Namunaviy savol kartasi sinab ko'rilib OLIB TASHLANDI: u haqiqiy
+            testga o'xshardi, lekin bosib bo'lmasdi (javobni bosgan odam
+            boshqa testga tushardi) va "Test ishlash" ni takrorlardi;
+          * sarlavha o'rtacha, TUGMALAR katta (56px) — urg'u harakatda.
 
         h1 matni O'ZGARMADI — "avto test" so'rovi bo'yicha 1-o'rin shu
         sarlavhaga bog'liq (docs: O-SISH-REJASI).
@@ -192,75 +213,94 @@ export default function Home() {
       <section className="relative overflow-hidden border-b border-border bg-background">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:44px_44px] opacity-60 [mask-image:radial-gradient(ellipse_80%_75%_at_50%_0%,#000_35%,transparent_100%)]"
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:44px_44px] opacity-60 [mask-image:radial-gradient(ellipse_70%_75%_at_50%_0%,#000_35%,transparent_100%)]"
         />
 
-        <div className="relative mx-auto grid w-full max-w-7xl items-center gap-10 px-4 pb-10 pt-8 sm:pt-12 md:px-6 md:pb-16 md:pt-14 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:pb-20 lg:pt-20">
-          <div className="lg:col-span-7">
-            <p className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-2.5 py-1 text-xs font-semibold text-muted-foreground shadow-sm sm:text-[13px]">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#2563EB]" aria-hidden="true" />
-              {t("home.badge")}
-            </p>
+        <div className="relative mx-auto flex w-full max-w-3xl flex-col items-center px-4 pb-10 pt-8 text-center sm:pt-12 md:pb-16 md:pt-16 lg:pb-20 lg:pt-20">
+          <p className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-2.5 py-1 text-xs font-semibold text-muted-foreground shadow-sm sm:text-[13px]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#2563EB]" aria-hidden="true" />
+            {t("home.badge")}
+          </p>
 
-            <h1 className="mt-4 text-[28px] font-extrabold leading-[1.15] tracking-tight text-brand dark:text-foreground sm:text-4xl lg:text-[44px] lg:leading-[1.1] xl:text-5xl">
-              {t("home.heroTitle")}
-            </h1>
+          <h1 className="mt-4 text-balance text-[26px] font-extrabold leading-[1.2] tracking-tight text-brand dark:text-foreground sm:mt-5 sm:text-[32px] lg:text-[40px] lg:leading-[1.15]">
+            {t("home.heroTitle")}
+          </h1>
 
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              {t("home.heroSubtitle")}
-            </p>
+          <p className="mt-3 max-w-2xl text-pretty text-[15px] leading-relaxed text-muted-foreground sm:mt-4 sm:text-lg">
+            {t("home.heroSubtitle")}
+          </p>
 
-            {/*
-              Tugmalar: asosiy — "Test ishlash" (siyoh), qolganlari oq.
-              `asChild` — ilgari `<a>` ichida `<button>` turardi (noto'g'ri
-              HTML, klaviaturada ikki marta fokus). Endi havolaning o'zi
-              tugma ko'rinishida.
+          {/*
+            TUGMALAR — urg'u shu yerda.
 
-              PRO belgisi — tugma ICHIDA kichik yozuv (ilgari burchakda
-              oltin gradient "tabletka" edi): kimga ochiqligini aytadi,
-              lekin e'tiborni tortib olmaydi. Qachon ko'rinishi avvalgidek.
-            */}
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Button asChild size="lg" className="relative h-12 gap-2 rounded-lg px-6 text-base font-semibold shadow-sm">
-                <Link to="/test-ishlash">
-                  <Play className="h-4 w-4 shrink-0 fill-current" aria-hidden="true" />
-                  <span>{t("home.btnTest")}</span>
-                  {user && isPremium && <ProTag />}
-                </Link>
-              </Button>
+            "Test ishlash" — har doim asosiy (siyoh, yengil soya).
 
+            "Variantlar" / "Mavzular" — PRO egasi uchun ular ham ASOSIY:
+            aynan u pul to'lagan imkoniyatlar, ya'ni ikkinchi darajali
+            ko'rinmasligi kerak. Siyoh tugma, ikonka o'rnida oltin toj —
+            "sizda ochiq". Bepul foydalanuvchida — oq, qalin chegarali.
+            "Mavzular" to'liq PRO: bepulda burchakda "PRO" belgisi.
+
+            Holat obuna ma'lumoti kelgach almashadi — faqat RANG va bir xil
+            o'lchamdagi ikonka o'zgaradi, tugma o'lchami emas (CLS yo'q).
+            "PRO" belgisi esa server tasdiqlaguncha chizilmaydi: aks holda
+            to'lagan mijoz bir lahza "PRO kerak" degan belgini ko'rardi.
+
+            `asChild` — havolaning o'zi tugma (ilgari <a> ichida <button>).
+          */}
+          <div className="mt-7 flex w-full flex-col gap-3 sm:mt-8 sm:w-auto sm:flex-row sm:flex-wrap sm:justify-center">
+            <Button asChild size="lg" className={HERO_BTN_PRIMARY}>
+              <Link to="/test-ishlash">
+                <Play className="h-5 w-5 shrink-0 fill-current" aria-hidden="true" />
+                <span>{t("home.btnTest")}</span>
+              </Link>
+            </Button>
+
+            <Button
+              asChild
+              size="lg"
+              variant={isPremium ? "default" : "outline"}
+              className={isPremium ? HERO_BTN_PRIMARY : HERO_BTN_SECONDARY}
+            >
+              <Link to="/variant">
+                {isPremium ? (
+                  <Crown className="h-5 w-5 shrink-0 text-amber-300" aria-hidden="true" />
+                ) : (
+                  <LayoutGrid className="h-5 w-5 shrink-0" aria-hidden="true" />
+                )}
+                <span>{t("home.btnVariantlar")}</span>
+              </Link>
+            </Button>
+
+            {/* Mavzuli testlar — kirgan userlar; joy sessiya tiklanguncha band (CLS) */}
+            {showMavzular && (
               <Button
                 asChild
                 size="lg"
-                variant="outline"
-                className="relative h-12 gap-2 rounded-lg border-foreground/15 bg-card px-6 text-base font-semibold text-foreground hover:bg-muted hover:text-foreground"
+                variant={isPremium ? "default" : "outline"}
+                className={isPremium ? HERO_BTN_PRIMARY : HERO_BTN_SECONDARY}
               >
-                <Link to="/variant">
-                  <LayoutGrid className="h-4 w-4 shrink-0" aria-hidden="true" />
-                  <span>{t("home.btnVariantlar")}</span>
-                  {isPremium && <ProTag />}
+                <Link to="/mavzuli">
+                  {isPremium ? (
+                    <Crown className="h-5 w-5 shrink-0 text-amber-300" aria-hidden="true" />
+                  ) : (
+                    <BookOpen className="h-5 w-5 shrink-0" aria-hidden="true" />
+                  )}
+                  <span>{t("home.btnMavzuli")}</span>
+                  {!isPremium && !accessLoading && backendConfirmed && <ProTag />}
                 </Link>
               </Button>
+            )}
+          </div>
 
-              {/* Mavzuli testlar — kirgan userlar (mobile + desktop) */}
-              {user && (
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="relative h-12 gap-2 rounded-lg border-foreground/15 bg-card px-6 text-base font-semibold text-foreground hover:bg-muted hover:text-foreground"
-                >
-                  <Link to="/mavzuli">
-                    <BookOpen className="h-4 w-4 shrink-0" aria-hidden="true" />
-                    <span>{t("home.btnMavzuli")}</span>
-                    <ProTag />
-                  </Link>
-                </Button>
-              )}
-            </div>
-
-            {/* Ishonch qatori — faqat tekshirilgan faktlar (1009 ta bepul savol, ro'yxatsiz test) */}
-            <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground">
+          {/*
+            Ishonch qatori — faqat YANGI tashrifchiga (1000+ bepul savol,
+            ro'yxatsiz test). Kirgan / qaytgan foydalanuvchiga bu reklama
+            kerak emas. `expectsSession` sinxron o'qiladi — qator birinchi
+            renderdayoq to'g'ri holatda, keyin yo'qolib maketni surmaydi.
+          */}
+          {showTrust && (
+            <ul className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
               {HERO_TRUST_KEYS.map((key) => (
                 <li key={key} className="flex items-center gap-1.5">
                   <Check className="h-4 w-4 shrink-0 text-[#2563EB] dark:text-[#60A5FA]" strokeWidth={2.5} aria-hidden="true" />
@@ -268,11 +308,7 @@ export default function Home() {
                 </li>
               ))}
             </ul>
-          </div>
-
-          <div className="hidden lg:col-span-5 lg:block">
-            <QuestionPreview />
-          </div>
+          )}
         </div>
       </section>
 
