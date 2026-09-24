@@ -14,14 +14,16 @@ import {
   BookOpen,
   Settings,
   Crown,
-  Zap,
   MonitorSmartphone,
   ShieldCheck,
-  Trophy
+  Trophy,
+  Check,
+  LayoutGrid,
+  ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { SectionGrid } from "@/components/SectionGrid";
+import { QuestionPreview } from "@/components/home/QuestionPreview";
 import { QUICK_ITEMS } from "@/lib/siteSections";
 import { fetchSectionCounts } from "@/lib/questionState";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -62,6 +64,30 @@ const HOME_FAQ_LD = {
     }
   ]
 } as const;
+
+/**
+ * Hero ostidagi ishonch qatori. Faqat TEKSHIRILGAN faktlar:
+ *   * bepul bazada 1009 ta savol (`free-*.json`) → "1000+";
+ *   * testni boshlash uchun ro'yxatdan o'tish shart emas (TestIshlash);
+ *   * sayt telefon va kompyuterda ishlaydi (+ desktop ilova).
+ */
+const HERO_TRUST_KEYS = ["home.trustFree", "home.trustNoSignup", "home.trustDevices"] as const;
+
+/**
+ * Tugma burchagidagi kichik "PRO" belgisi — kimga ochiqligini bildiradi,
+ * baqirmaydi. Bosh sahifadagi plitkalar (SectionGrid) belgisi bilan bir xil.
+ *
+ * `absolute` — ATAYLAB: belgi obuna holati yuklangandan keyin paydo
+ * bo'ladi. Tugma ichida tursa, tugma kengayib yonidagini surardi (CLS).
+ * Tugmaning o'zida `relative` bo'lishi shart.
+ */
+function ProTag() {
+  return (
+    <span className="pointer-events-none absolute -right-2 -top-2 rounded-md border border-amber-300/80 bg-amber-50 px-1.5 py-0.5 text-[10px] font-bold uppercase leading-none tracking-wide text-amber-800 shadow-sm dark:border-amber-400/30 dark:bg-amber-950 dark:text-amber-200">
+      PRO
+    </span>
+  );
+}
 
 export default function Home() {
   const { user, profile, isLoading: authLoading } = useAuth();
@@ -146,123 +172,106 @@ export default function Home() {
         <script type="application/ld+json">{JSON.stringify(HOME_FAQ_LD)}</script>
       </Helmet>
 
-      {/* Hero Section */}
-      <section className="relative min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
-        <img
-          srcSet="/hero-bg-640.webp 640w, /hero-bg-1024.webp 1024w, /hero-bg-1920.webp 1920w"
-          sizes="100vw"
-          src="/hero-bg-1920.webp"
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover"
-          /* React 18.3 `fetchPriority` (camelCase) ni tanimaydi (bu faqat
-             React 19 da qo'shildi) va har render'da konsolga ogohlantirish
-             yozadi. Kichik harf bilan yozilsa DOM'ga xuddi shunday
-             `fetchpriority="high"` bo'lib chiqadi, lekin ogohlantirishsiz. */
-          fetchpriority="high"
+      {/*
+        HERO — toza, yorug' fon + siyoh rang (brend: Ink 900 #131A45).
+
+        Ilgari: to'liq ekranli foto, ustida quyuq shaffof "shisha" karta,
+        blur va yashil/to'q sariq tugmalar. Chiroyli ko'rinardi, lekin
+        o'qilishi og'ir, sahifa sekin (har sahifada 12–21 KB rasm preload)
+        va "shablon" taassuroti berardi. Endi:
+          * fon — rasm emas, CSS: ingichka katak, tepada ko'rinib pastga
+            qarab so'nadi (dark rejimda `--border` tokeni orqali o'zi
+            moslashadi);
+          * matn chapda, desktopda o'ngda namunaviy savol kartasi;
+          * tugmalar — siyoh (asosiy) va oq-chegarali (ikkilamchi),
+            `rounded-lg`: aniq tugma, "tabletka" emas.
+
+        h1 matni O'ZGARMADI — "avto test" so'rovi bo'yicha 1-o'rin shu
+        sarlavhaga bog'liq (docs: O-SISH-REJASI).
+      */}
+      <section className="relative overflow-hidden border-b border-border bg-background">
+        <div
           aria-hidden="true"
-          width="1920"
-          height="1080"
+          className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:44px_44px] opacity-60 [mask-image:radial-gradient(ellipse_80%_75%_at_50%_0%,#000_35%,transparent_100%)]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand/95 via-brand/90 to-brand/85 backdrop-blur-[2px]" />
 
-        {/* Content */}
-        {/*
-          YUQORI BO'SHLIQ ATAYLAB KAMAYTIRILGAN (64px o'rniga: mobil 52px,
-          desktop 44px).
-
-          Sabab: yuqoriga tayyorgarlik tasmasi qo'shilgach, qahramon blok
-          pastga surilib, ekranning birinchi ko'rinishida pastroq turib
-          qoldi. Pastki bo'shliq (`pb-16`) o'zgarmadi — keyingi bo'lim
-          bilan orasidagi masofa saqlanishi kerak.
-        */}
-        <div className="relative w-full max-w-7xl mx-auto px-4 pt-[52px] pb-16 md:pt-11">
-          <div className="max-w-4xl mx-auto bg-brand/80 backdrop-blur-md rounded-[2rem] p-8 md:p-12 text-center shadow-2xl">
-
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white/95 text-sm font-medium mb-6 border border-white/10">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-              </span>
+        <div className="relative mx-auto grid w-full max-w-7xl items-center gap-10 px-4 pb-10 pt-8 sm:pt-12 md:px-6 md:pb-16 md:pt-14 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:pb-20 lg:pt-20">
+          <div className="lg:col-span-7">
+            <p className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-2.5 py-1 text-xs font-semibold text-muted-foreground shadow-sm sm:text-[13px]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#2563EB]" aria-hidden="true" />
               {t("home.badge")}
-            </div>
+            </p>
 
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary-foreground mb-4 leading-tight drop-shadow-sm" style={{ fontFamily: "'Segoe UI', system-ui, -apple-system, sans-serif" }}>
+            <h1 className="mt-4 text-[28px] font-extrabold leading-[1.15] tracking-tight text-brand dark:text-foreground sm:text-4xl lg:text-[44px] lg:leading-[1.1] xl:text-5xl">
               {t("home.heroTitle")}
             </h1>
-            <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               {t("home.heroSubtitle")}
             </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col md:flex-row md:flex-wrap justify-center gap-3 md:gap-4 max-w-md md:max-w-none mx-auto">
+            {/*
+              Tugmalar: asosiy — "Test ishlash" (siyoh), qolganlari oq.
+              `asChild` — ilgari `<a>` ichida `<button>` turardi (noto'g'ri
+              HTML, klaviaturada ikki marta fokus). Endi havolaning o'zi
+              tugma ko'rinishida.
 
-             {/* Test ishlash */}
-<div className="relative w-full md:w-auto">
-  {user && isPremium && (
-    <span className="absolute -top-2 -right-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-amber-950 text-xs font-bold px-2.5 py-0.5 rounded-full z-10 shadow-sm">
-      {t("common.pro")}
-    </span>
-  )}
-  <Link to="/test-ishlash" className="w-full md:w-auto group">
-    <Button
-      size="lg"
-      className="w-full md:w-auto md:min-w-[150px] bg-cta-green hover:bg-cta-green-hover text-white gap-2 text-base md:text-lg px-6 py-5 md:py-6 rounded-2xl shadow-md shadow-cta-green/30 font-bold border-0 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-cta-green/45"
-    >
-      <Play className="w-5 h-5 flex-shrink-0 fill-current" />
-      <span>{t("home.btnTest")}</span>
-    </Button>
-  </Link>
-</div>
-
-              {/*
-                VARIANTLAR va MAVZULAR — BIR XIL rangda, to'ldirilgan.
-
-                Ikkalasi ham bitta amalning ikki yo'li (test yechish),
-                shuning uchun ular bir-biridan ajralib turmasligi kerak.
-                Rang `--cta-orange` tokenidan olinadi — header'dagi
-                "Kirish" ham shu tokendan, ya'ni saytda bitta to'q sariq
-                bo'ladi va joyma-joy farq qilib qolmaydi.
-
-                Shishasimon (shaffof) variant sinab ko'rilgan va rad
-                etilgan: o'qilishi a'lo edi, lekin tugma tugmaga
-                o'xshamay qolardi.
-              */}
-              {/* Variantlar */}
-              <div className="relative w-full md:w-auto">
-                {isPremium && (
-                  <span className="absolute -top-2 -right-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-amber-950 text-xs font-bold px-2.5 py-0.5 rounded-full z-10 shadow-sm">
-                    {t("common.pro")}
-                  </span>
-                )}
-                <Link to="/variant" className="w-full md:w-auto group block">
-                  <Button
-                    size="lg"
-                    className="w-full md:w-auto md:min-w-[150px] bg-cta-orange hover:bg-cta-orange-hover text-white gap-2 text-base md:text-lg px-6 py-5 md:py-6 rounded-2xl shadow-md shadow-cta-orange/30 font-bold border-0 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-cta-orange/45"
-                  >
-                    <Play className="w-5 h-5 flex-shrink-0 fill-current" />
-                    <span>{t("home.btnVariantlar")}</span>
-                  </Button>
+              PRO belgisi — tugma ICHIDA kichik yozuv (ilgari burchakda
+              oltin gradient "tabletka" edi): kimga ochiqligini aytadi,
+              lekin e'tiborni tortib olmaydi. Qachon ko'rinishi avvalgidek.
+            */}
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Button asChild size="lg" className="relative h-12 gap-2 rounded-lg px-6 text-base font-semibold shadow-sm">
+                <Link to="/test-ishlash">
+                  <Play className="h-4 w-4 shrink-0 fill-current" aria-hidden="true" />
+                  <span>{t("home.btnTest")}</span>
+                  {user && isPremium && <ProTag />}
                 </Link>
-              </div>
+              </Button>
+
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="relative h-12 gap-2 rounded-lg border-foreground/15 bg-card px-6 text-base font-semibold text-foreground hover:bg-muted hover:text-foreground"
+              >
+                <Link to="/variant">
+                  <LayoutGrid className="h-4 w-4 shrink-0" aria-hidden="true" />
+                  <span>{t("home.btnVariantlar")}</span>
+                  {isPremium && <ProTag />}
+                </Link>
+              </Button>
 
               {/* Mavzuli testlar — kirgan userlar (mobile + desktop) */}
               {user && (
-                <div className="relative w-full md:w-auto">
-                  <span className="absolute -top-2 -right-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-amber-950 text-xs font-bold px-2.5 py-0.5 rounded-full z-10 shadow-sm">
-                    {t("common.pro")}
-                  </span>
-                  <Link to="/mavzuli" className="w-full md:w-auto group block">
-                    <Button
-                      size="lg"
-                      className="w-full md:w-auto md:min-w-[150px] bg-cta-orange hover:bg-cta-orange-hover text-white gap-2 text-base md:text-lg px-6 py-5 md:py-6 rounded-2xl shadow-md shadow-cta-orange/30 font-bold border-0 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-cta-orange/45"
-                    >
-                      <BookOpen className="w-5 h-5 flex-shrink-0" />
-                      <span>{t("home.btnMavzuli")}</span>
-                    </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="relative h-12 gap-2 rounded-lg border-foreground/15 bg-card px-6 text-base font-semibold text-foreground hover:bg-muted hover:text-foreground"
+                >
+                  <Link to="/mavzuli">
+                    <BookOpen className="h-4 w-4 shrink-0" aria-hidden="true" />
+                    <span>{t("home.btnMavzuli")}</span>
+                    <ProTag />
                   </Link>
-                </div>
+                </Button>
               )}
             </div>
+
+            {/* Ishonch qatori — faqat tekshirilgan faktlar (1009 ta bepul savol, ro'yxatsiz test) */}
+            <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted-foreground">
+              {HERO_TRUST_KEYS.map((key) => (
+                <li key={key} className="flex items-center gap-1.5">
+                  <Check className="h-4 w-4 shrink-0 text-[#2563EB] dark:text-[#60A5FA]" strokeWidth={2.5} aria-hidden="true" />
+                  {t(key)}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="hidden lg:col-span-5 lg:block">
+            <QuestionPreview />
           </div>
         </div>
       </section>
@@ -274,8 +283,9 @@ export default function Home() {
         (imtihon, xatolar ustida ishlash, qidiruv), keyin reklama matnini
         o'qiydi. Teskari tartibda foydali havolalar pastga surilib ketardi.
       */}
-      <section className="py-10 bg-background">
-        <div className="max-w-4xl mx-auto px-4">
+      <section className="bg-background py-8 md:py-12">
+        {/* Hero bilan bir xil kenglik va chekka — chap chiziq sahifa bo'ylab bitta */}
+        <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
           <SectionGrid items={QUICK_ITEMS} badges={quickBadges} signedIn={!!user} />
         </div>
       </section>
@@ -305,34 +315,27 @@ export default function Home() {
         o'qisin. Teskari tartibda reklama matni foydali havolalarni pastga
         surib yuborardi.
       */}
-      <section className="py-16 bg-muted/30 defer-paint">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2
-              className="text-3xl md:text-4xl font-bold text-foreground mb-4"
-              style={{ fontFamily: "'Segoe UI', system-ui, -apple-system, sans-serif" }}
-            >
-              {t("home.featuresTitle")}
-            </h2>
-          </div>
+      <section className="border-t border-border bg-card py-14 md:py-20 defer-paint">
+        <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+          <h2 className="max-w-2xl text-2xl font-bold tracking-tight text-foreground md:text-3xl">
+            {t("home.featuresTitle")}
+          </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {features.map((feature, index) => {
+          <div className="mt-8 grid grid-cols-1 gap-4 md:mt-10 md:grid-cols-3 md:gap-6">
+            {features.map((feature) => {
               const Icon = feature.icon;
               return (
-                <Card key={index} className="border border-border shadow-sm bg-card hover:shadow-md transition-all hover:-translate-y-1">
-                  <CardContent className="pt-8 pb-6 text-center">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-primary/10 rounded-2xl flex items-center justify-center" style={{ aspectRatio: '1' }}>
-                      <Icon className="w-8 h-8 text-primary" />
-                    </div>
-                    <h3 className="font-bold text-xl text-foreground mb-3" style={{ fontFamily: "'Segoe UI', system-ui, -apple-system, sans-serif" }}>
-                      {t(feature.titleKey)}
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {t(feature.descKey)}
-                    </p>
-                  </CardContent>
-                </Card>
+                <div key={feature.titleKey} className="rounded-xl border border-border bg-background p-6">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary dark:bg-primary/20">
+                    <Icon className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                  <h3 className="mt-4 text-lg font-semibold text-foreground">
+                    {t(feature.titleKey)}
+                  </h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                    {t(feature.descKey)}
+                  </p>
+                </div>
               );
             })}
           </div>
@@ -412,26 +415,36 @@ export default function Home() {
         </section>
       )}
 
-      {/* PRO Section — sodda */}
+      {/*
+        PRO — sahifaning yakuniy chaqirig'i: siyoh (brend) kartasi, oq tugma.
+        Ilgari kulrang tasma edi va footer ustida yo'qolib qolardi.
+      */}
       {!(user && isPremium) && (
-        <section className="py-10 md:py-12 bg-muted/30 border-t border-border defer-paint">
-          <div className="max-w-4xl mx-auto px-4">
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
-              <div className="flex-1">
-                <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground mb-1">PRO</p>
-                <h2 className="text-xl md:text-2xl font-semibold text-foreground mb-1.5">
+        <section className="border-t border-border bg-background py-12 md:py-16 defer-paint">
+          <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+            <div className="flex flex-col gap-6 rounded-2xl bg-brand px-6 py-8 text-brand-foreground sm:flex-row sm:items-center sm:justify-between md:px-10 md:py-10">
+              <div className="max-w-xl">
+                <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-amber-300">
+                  <Crown className="h-4 w-4" aria-hidden="true" />
+                  PRO
+                </p>
+                <h2 className="mt-2 text-2xl font-bold tracking-tight md:text-3xl">
                   {t("home.proSectionTitle")}
                 </h2>
-                <p className="text-sm text-muted-foreground max-w-xl">
+                <p className="mt-2 text-sm leading-relaxed text-white/75 md:text-base">
                   {t("home.proSectionDesc")}
                 </p>
               </div>
-              <Link to="/pro" className="shrink-0">
-                <Button size="lg" className="font-semibold gap-2 w-full sm:w-auto">
-                  <Zap className="w-4 h-4" />
-                  <span>{t("home.proGetButton")}</span>
-                </Button>
-              </Link>
+              <Button
+                asChild
+                size="lg"
+                className="h-12 w-full shrink-0 gap-2 rounded-lg bg-white px-6 text-base font-semibold text-[#131A45] hover:bg-white/90 sm:w-auto"
+              >
+                <Link to="/pro">
+                  {t("home.proGetButton")}
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </Button>
             </div>
           </div>
         </section>

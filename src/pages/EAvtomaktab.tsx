@@ -124,11 +124,11 @@ export default function EAvtomaktab() {
           Yashirish chalg'itish bo'lardi va qidiruv tizimi ham buni
           jazolaydi; ochiq qoldirish esa ishonch beradi.
         */}
-        <Card className="mt-5 overflow-hidden border-2 border-cta-green/50">
+        <Card className="mt-5 overflow-hidden border-2 border-primary/25">
           <div className="p-5">
             <div className="flex items-start gap-3">
               <Target
-                className="mt-0.5 h-5 w-5 flex-none text-cta-green"
+                className="mt-0.5 h-5 w-5 flex-none text-primary"
                 aria-hidden="true"
               />
               <div className="min-w-0">
@@ -152,7 +152,7 @@ export default function EAvtomaktab() {
             <Button
               asChild
               size="lg"
-              className="mt-4 h-14 w-full gap-2 bg-cta-green text-base font-bold text-white hover:bg-cta-green-hover"
+              className="mt-4 h-14 w-full gap-2 rounded-lg text-base font-bold"
             >
               <Link to="/test-ishlash">
                 <span className="min-w-0 truncate">{t("eav.mainBtn")}</span>

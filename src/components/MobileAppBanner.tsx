@@ -9,10 +9,17 @@ export function MobileAppBanner() {
       aria-label="AvtoSmart — Google Play"
       className="md:hidden block w-full"
     >
-      <div className="w-full bg-emerald-600 text-white rounded-none px-2 py-2 flex items-center justify-between gap-2">
-        <svg className="w-5 h-5 flex-shrink-0" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 2L20 12L3 22V2Z" />
-        </svg>
+      {/*
+        Bosh sahifa redizayni (2026-09): ilgari yorqin yashil (`emerald-600`)
+        tasma edi — siyoh header ostida ikkinchi "baqiruvchi" rang bo'lib,
+        hero'dagi asosiy "Test ishlash" tugmasidan e'tiborni tortardi. Endi
+        neytral tasma, siyoh belgi; Google Play belgisi o'zi tanish.
+        Ichki bo'shliq (`px-4`) sahifa chekkasi bilan bir xil.
+      */}
+      <div className="flex w-full items-center justify-between gap-2.5 border-b border-border bg-card px-4 py-2 text-foreground">
+        <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-brand text-white" aria-hidden="true">
+          <Play className="h-4 w-4 fill-current" />
+        </span>
 
         {/*
           MATN ATAYLAB QISQA — bitta qator.

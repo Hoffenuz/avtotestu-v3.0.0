@@ -90,10 +90,10 @@ export default function Bolimlar() {
         */}
         <Link
           to="/desktop"
-          className="group mt-7 flex items-center gap-4 rounded-xl border border-border bg-card px-4 py-4 transition-all hover:border-primary/40 hover:bg-accent hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:px-5 sm:py-5 md:mt-9"
+          className="group mt-7 flex items-center gap-4 rounded-xl border border-border bg-card px-4 py-4 transition-[border-color,box-shadow] hover:border-foreground/20 hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:px-5 sm:py-5 md:mt-9"
         >
           <span
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-cta-green/10 text-cta-green sm:h-12 sm:w-12"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary dark:bg-primary/20 sm:h-12 sm:w-12"
             aria-hidden="true"
           >
             <Monitor className="h-5 w-5 sm:h-6 sm:w-6" />
@@ -112,7 +112,7 @@ export default function Bolimlar() {
             </span>
           </span>
 
-          <span className="hidden shrink-0 items-center gap-1.5 rounded-lg bg-cta-green px-3.5 py-2 text-sm font-semibold text-white sm:flex">
+          <span className="hidden shrink-0 items-center gap-1.5 rounded-lg bg-primary px-3.5 py-2 text-sm font-semibold text-primary-foreground sm:flex">
             <Download className="h-4 w-4" aria-hidden="true" />
             {t("pages.desktopCardCta")}
           </span>

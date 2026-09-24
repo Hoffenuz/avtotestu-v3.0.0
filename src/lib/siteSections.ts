@@ -39,28 +39,6 @@ import {
  */
 export type SectionAccent = "rose" | "amber" | "sky" | "violet" | "emerald" | "cyan" | "orange" | "indigo" | "teal";
 
-/**
- * Bosh sahifadagi tezkor plitkalar uchun ramka rangi.
- *
- * NEGA KERAK: plitkalar oddiy kulrang ramkada edi va sahifaning qolgan
- * oq kartochkalaridan farq qilmasdi — ko'z ularni "yana bir ro'yxat" deb
- * o'tkazib yuborardi. Ramkani plitkaning O'Z rangiga bo'yash ularni
- * ajratadi, lekin bo'yoq qo'shmaydi: rang allaqachon ikonkada bor.
- *
- * Faqat STATIK sinf nomlari — Tailwind dinamik yasalganini topa olmaydi.
- */
-export const ACCENT_EDGE_CLASS: Record<SectionAccent, string> = {
-  rose: "border-rose-500/50 hover:border-rose-500/80",
-  amber: "border-amber-500/50 hover:border-amber-500/80",
-  sky: "border-sky-500/50 hover:border-sky-500/80",
-  violet: "border-violet-500/50 hover:border-violet-500/80",
-  emerald: "border-emerald-500/50 hover:border-emerald-500/80",
-  cyan: "border-cyan-500/50 hover:border-cyan-500/80",
-  orange: "border-orange-500/50 hover:border-orange-500/80",
-  indigo: "border-indigo-500/50 hover:border-indigo-500/80",
-  teal: "border-teal-500/50 hover:border-teal-500/80",
-};
-
 export const ACCENT_CLASS: Record<SectionAccent, string> = {
   rose: "bg-rose-500/10 text-rose-500",
   amber: "bg-amber-500/10 text-amber-500",

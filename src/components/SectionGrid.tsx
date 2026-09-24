@@ -17,7 +17,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight, Crown, Lock } from "lucide-react";
-import { ACCENT_CLASS, ACCENT_EDGE_CLASS, type SectionGroup, type SectionItem } from "@/lib/siteSections";
+import { ACCENT_CLASS, type SectionGroup, type SectionItem } from "@/lib/siteSections";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAccessState } from "@/hooks/useAccessState";
 import { hasStoredSession } from "@/lib/hasStoredSession";
@@ -126,7 +126,7 @@ export function SectionGrid({
     if (item.requiresPro && !isPremium && proBadgeReady) {
       return (
         <span
-          className="flex items-center gap-1 rounded-full bg-gradient-to-r from-amber-500 to-yellow-500 px-2 py-0.5 text-[11px] font-bold text-amber-950 shadow-sm"
+          className="flex items-center gap-1 rounded-md border border-amber-300/80 bg-amber-50 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-800 shadow-sm dark:border-amber-400/30 dark:bg-amber-950 dark:text-amber-200"
           title={t("sections.proOnly")}
         >
           <Crown className="h-3 w-3" aria-hidden="true" />
@@ -174,9 +174,9 @@ export function SectionGrid({
            egallamaydi — bu bosh sahifadagi hero tugmalarining PRO
            nishonchasi bilan ham bir xil ko'rinish.
 
-      RAMKA PLITKANING O'Z RANGIDA: avval hammasi bir xil kulrang edi va
-      sahifadagi boshqa oq kartochkalardan ajralmasdi. Yangi bo'yoq
-      qo'shilmadi — rang allaqachon ikonkada bor.
+      RAMKA NEYTRAL (bosh sahifa redizayni, 2026-09): ilgari ramka
+      plitkaning o'z rangida edi — yangi, tinch hero yonida uchta rangli
+      ramka ko'zni tortib olardi. Plitkani rangli IKONKA ajratib turadi.
     */
     return (
       <ul className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
@@ -194,24 +194,27 @@ export function SectionGrid({
                   // joylashsin. Belgi `li` da emas, aynan shu yerda turishi
                   // kerak: aks holda sichqoncha tekkanda kartochka
                   // ko'tarilardi-yu, belgi joyida qolib ketardi.
-                  "group relative flex h-full items-center gap-3.5 rounded-xl border bg-card px-4 py-4",
-                  "transition-all hover:-translate-y-0.5 hover:shadow-md",
+                  // Bosh sahifa redizayni (2026-09): rangli RAMKA olib
+                  // tashlandi — plitkalar hero tugmalari bilan e'tibor
+                  // talashmasin. Ikonka rangi QOLDI: /bolimlar va "Yodlash
+                  // kerak" sahifalarida ham bo'lim shu rang bilan taniladi.
+                  "group relative flex h-full items-center gap-3.5 rounded-xl border border-border bg-card px-4 py-4",
+                  "transition-[border-color,box-shadow] hover:border-foreground/20 hover:shadow-sm",
                   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                   "sm:px-5 sm:py-5",
-                  ACCENT_EDGE_CLASS[item.accent],
                 )}
               >
                 <span
                   className={cn(
-                    "flex h-12 w-12 shrink-0 items-center justify-center rounded-xl sm:h-14 sm:w-14",
+                    "flex h-11 w-11 shrink-0 items-center justify-center rounded-lg sm:h-12 sm:w-12",
                     ACCENT_CLASS[item.accent],
                   )}
                   aria-hidden="true"
                 >
-                  <Icon className="h-6 w-6 sm:h-7 sm:w-7" />
+                  <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
                 </span>
 
-                <span className="min-w-0 flex-1 text-base font-bold leading-snug text-foreground sm:text-lg">
+                <span className="min-w-0 flex-1 text-base font-semibold leading-snug text-foreground sm:text-[17px]">
                   {t(item.titleKey)}
                 </span>
 
@@ -241,15 +244,16 @@ export function SectionGrid({
               to={item.to}
               className={cn(
                 "group flex h-full items-center gap-4 rounded-xl border border-border bg-card px-4 py-4",
-                "transition-all",
-                "hover:border-primary/40 hover:bg-accent hover:shadow-md hover:-translate-y-0.5",
+                // Bosh sahifadagi plitkalar bilan bir xil: sakramaydi, faqat
+                // chegara to'qlashadi va yengil soya paydo bo'ladi.
+                "transition-[border-color,box-shadow] hover:border-foreground/20 hover:shadow-sm",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                 "sm:px-5 sm:py-5",
               )}
             >
               <span
                 className={cn(
-                  "flex h-11 w-11 shrink-0 items-center justify-center rounded-xl sm:h-12 sm:w-12",
+                  "flex h-11 w-11 shrink-0 items-center justify-center rounded-lg sm:h-12 sm:w-12",
                   ACCENT_CLASS[item.accent],
                 )}
                 aria-hidden="true"

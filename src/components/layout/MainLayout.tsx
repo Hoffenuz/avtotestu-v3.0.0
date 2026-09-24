@@ -1,8 +1,8 @@
 import { BottomNav } from "./BottomNav";
 import { useDarkMode } from "@/hooks/useDarkMode";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useState, useEffect, useMemo, useCallback } from "react";
-import { Menu, X, User, LogIn, Crown, Globe, ChevronDown, Home, BookOpen, BookMarked, LayoutGrid, Moon, Sun } from "lucide-react";
+import { useState, useEffect, useMemo, useCallback, useRef } from "react";
+import { Menu, X, LogIn, Crown, Globe, ChevronDown, ChevronRight, Home, BookOpen, BookMarked, LayoutGrid, Moon, Sun, Check } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
@@ -16,6 +16,18 @@ import { TelegramGroupNotice } from "@/components/TelegramGroupNotice";
  * `TELEGRAM_GROUP_URL`.
  */
 const telegramGroupHandle = `@${TELEGRAM_GROUP_URL.split("/").filter(Boolean).pop()}`;
+
+/**
+ * Header logotiplari — header SIYOH fonda, shuning uchun oq variantlar
+ * (footer bilan bir xil fayl):
+ *   * desktop (md+) — oq gorizontal logotip;
+ *   * mobil — faqat oq belgi: joy tor, u yerda til/PRO/kirish/menyu bor.
+ *
+ * `<picture>` — faqat ekranga MOS fayl yuklanadi (display:none bo'lgan
+ * `<img>` ni brauzer baribir yuklab oladi).
+ */
+const HEADER_LOGO = { src: "/avtosmart-logo-white-notag.webp", width: 600, height: 154 } as const;
+const HEADER_MARK = { src: "/avtosmart-icon-white.webp", width: 128, height: 128 } as const;
 
 /**
  * "Telegram: @nom" ko'rinishidagi matndan bosiladigan qator yasaydi.
@@ -80,6 +92,29 @@ export function MainLayout({ children }: MainLayoutProps) {
     }
     return () => { document.body.style.overflow = originalOverflow; };
   }, [mobileMenuOpen]);
+
+  /**
+   * Til menyusi tashqarisiga bosilganda yopiladi.
+   *
+   * Ilgari u faqat `onMouseLeave` bilan yopilardi — telefonda sichqoncha
+   * yo'q, ya'ni menyu tanlov qilinmaguncha ochiq qolib ketardi.
+   */
+  const langMenuRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!langMenuOpen) return;
+    const onPointerDown = (e: PointerEvent) => {
+      if (!langMenuRef.current?.contains(e.target as Node)) setLangMenuOpen(false);
+    };
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLangMenuOpen(false);
+    };
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [langMenuOpen]);
 
   /**
    * Asosiy navigatsiya — DESKTOP va MOBIL uchun YAGONA manba.
@@ -158,217 +193,174 @@ export function MainLayout({ children }: MainLayoutProps) {
   // taassurot. Endi barcha sahifalarda BITTA header.
   return (
     <div className="min-h-screen flex flex-col bg-background has-bottom-nav">
-      <nav className="sticky top-0 z-50 bg-brand shadow-lg">
-        {/*
-          `max-w-7xl mx-auto` SHART — footer va sahifa kontenti ham aynan
-          shu kenglikda. Ilgari header `w-full` edi va keng ekranda (yoki
-          brauzer masshtabi kichraytirilganda) `justify-between` elementlarni
-          ekranning eng chekkalariga surib yuborardi: yuqorida logotip
-          chap burchakda, tugmalar o'ng burchakda, o'rtada esa bo'sh joy —
-          pastdagi markazlashgan kontentdan uzilib qolardi.
-        */}
-        <div className="mx-auto w-full max-w-7xl px-2 sm:px-4 md:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-14 md:h-[60px]">
-            
-           <div className="flex items-center gap-3 sm:gap-6 md:gap-8">
-              
-              <div className="relative flex-shrink-0">
+      {/*
+        HEADER — SIYOH (brend rangi, Ink #131A45) — saytning tanish belgisi.
+        Footer va ichki sahifalarning siyoh bannerlari (Belgilar, Darslik,
+        Profil) bilan bir butun bo'lib qoladi.
+
+        Ilgari tugmalari yashil ("Pro olish") va to'q sariq ("Kirish") edi —
+        ikki xil yorqin rang siyoh fonda bir-biri bilan raqobatlashardi,
+        ustiga qalin soya. Endi:
+          * "Kirish" — oq tugma, siyoh matn: fondagi eng aniq element;
+          * PRO — yumshoq oltin: premiumligi bilinadi, lekin baqirmaydi;
+          * faol menyu bandi — oq matn + ostida akvamarin chiziq (brend
+            palitrasidagi urg'u rangi, logotipdagi "tezlik yoyi");
+          * soya o'rniga pastda ingichka chiziq.
+        Burchaklar `rounded-lg` (8px) — "tabletka" emas, aniq tugma.
+
+        `max-w-7xl mx-auto` SHART — footer va sahifa kontenti ham aynan
+        shu kenglikda (keng ekranda elementlar chetlarga qochib ketmasin).
+      */}
+      <nav className="sticky top-0 z-50 border-b border-white/10 bg-brand">
+        <div className="mx-auto w-full max-w-7xl px-3 sm:px-4 md:px-6 lg:px-8">
+          <div className="flex h-14 items-center justify-between gap-2 md:h-[60px]">
+
+            {/* CHAP: logotip + asosiy menyu (desktop) */}
+            <div className="flex min-w-0 items-center gap-6 xl:gap-10">
+              <Link
+                to="/"
+                aria-label="AvtoSmart — Bosh sahifa"
+                className="flex shrink-0 items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+              >
+                <picture>
+                  <source
+                    media="(min-width: 768px)"
+                    srcSet={HEADER_LOGO.src}
+                    width={HEADER_LOGO.width}
+                    height={HEADER_LOGO.height}
+                  />
+                  <img
+                    src={HEADER_MARK.src}
+                    alt="AvtoSmart"
+                    width={HEADER_MARK.width}
+                    height={HEADER_MARK.height}
+                    className="h-8 w-auto md:h-9"
+                  />
+                </picture>
+              </Link>
+
+              <div className="hidden items-center gap-0.5 lg:flex">
+                {navLinks.map((item) => {
+                  const isActive = location.pathname === item.path;
+                  return (
+                    <Link
+                      key={item.path}
+                      to={item.path}
+                      aria-current={isActive ? "page" : undefined}
+                      className={`relative rounded-md px-3 py-2 text-[15px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 ${
+                        isActive
+                          ? "font-semibold text-white after:absolute after:inset-x-3 after:-bottom-[11px] after:h-0.5 after:rounded-full after:bg-[#22D3EE]"
+                          : "font-medium text-white/70 hover:text-white"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* O'NG: til, tema (desktop), PRO, kirish/profil, menyu (mobil) */}
+            <div className="flex shrink-0 items-center gap-1 sm:gap-1.5">
+
+              <div ref={langMenuRef} className="relative">
                 <button
-                  onClick={() => setLangMenuOpen(!langMenuOpen)}
-                  className="flex items-center gap-1 text-primary-foreground/90 hover:text-primary-foreground py-2 text-xs sm:text-sm md:text-[15px] font-bold transition-colors rounded-md hover:bg-primary-foreground/10 px-1.5 sm:px-2"
+                  type="button"
+                  onClick={() => setLangMenuOpen((open) => !open)}
+                  aria-haspopup="menu"
+                  aria-expanded={langMenuOpen}
+                  aria-label={t("nav.language")}
+                  className="inline-flex h-9 items-center gap-1 rounded-lg px-2 text-sm font-semibold text-white/80 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
                 >
-                  <Globe className="w-4 h-4 sm:w-5 sm:h-5" />
-                  <span className="tracking-wide">{currentLangDisplay}</span>
-                  <ChevronDown className={`w-3 h-3 transition-transform ${langMenuOpen ? "rotate-180" : ""}`} />
+                  <Globe className="hidden h-4 w-4 sm:block" aria-hidden="true" />
+                  <span>{currentLangDisplay}</span>
+                  <ChevronDown className={`h-3.5 w-3.5 transition-transform ${langMenuOpen ? "rotate-180" : ""}`} aria-hidden="true" />
                 </button>
-                
+
                 {langMenuOpen && (
-                  <div 
-                    className="absolute top-full left-0 mt-1.5 w-36 bg-card rounded-xl shadow-xl border border-border py-1.5 z-50 overflow-hidden"
-                    onMouseLeave={() => setLangMenuOpen(false)}
+                  <div
+                    role="menu"
+                    className="absolute right-0 top-full z-50 mt-2 w-44 overflow-hidden rounded-lg border border-border bg-card py-1 shadow-lg"
                   >
                     {languages.map((l) => (
                       <button
                         key={l.code}
+                        type="button"
+                        role="menuitemradio"
+                        aria-checked={language === l.code}
                         onClick={() => handleLanguageChange(l.code)}
-                        className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${
-                          language === l.code 
-                            ? "bg-primary/10 text-primary font-bold" 
-                            : "text-foreground hover:bg-muted font-medium"
+                        className={`flex w-full items-center justify-between px-3.5 py-2.5 text-left text-sm transition-colors ${
+                          language === l.code
+                            ? "font-semibold text-foreground"
+                            : "font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
                         }`}
                       >
                         {l.label}
+                        {language === l.code && <Check className="h-4 w-4 text-primary" aria-hidden="true" />}
                       </button>
                     ))}
                   </div>
                 )}
               </div>
 
-              {/*
-                LOGOTIP IKKI VARIANTDA — `<picture>` orqali.
+              {/* Tema — desktopda shu yerda; mobilda menyu ichida (header tor) */}
+              <button
+                type="button"
+                onClick={toggleDark}
+                aria-label={isDark ? t("nav.lightMode") : t("nav.darkMode")}
+                title={isDark ? t("nav.lightMode") : t("nav.darkMode")}
+                className="hidden h-9 w-9 items-center justify-center rounded-lg text-white/80 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 lg:inline-flex"
+              >
+                {isDark ? <Sun className="h-[18px] w-[18px]" /> : <Moon className="h-[18px] w-[18px]" />}
+              </button>
 
-                MOBILDA LOGOTIP UMUMAN KO'RSATILMAYDI: telefonda header
-                tor va unda til, tema, PRO va menyu tugmalari bor edi —
-                logotip qo'shilganda hammasi siqilib, to'lib ketardi.
-                Bosh sahifaga o'tish uchun hamburger menyu va pastki
-                navigatsiya bor, ya'ni hech qanday yo'l yo'qolmaydi.
-
-                Desktopda gorizontal logotip qoladi — u "AvtoSmart"
-                yozuvini o'z ichiga oladi, shuning uchun yonida alohida
-                matn YOZILMAYDI (aks holda nom ikki marta chiqardi).
-
-                NEGA IKKI `<img>` EMAS, `<picture>`: `display:none` qilingan
-                rasmni ham brauzer YUKLAB OLADI — ya'ni har bir tashrifchi
-                o'ziga kerak bo'lmagan variantni ham tortardi. `<picture>`
-                da esa `media` shartiga mos MANBAGINA so'raladi.
-
-                `width`/`height` — CLS uchun: rasm kelmaguncha joyi band
-                bo'lsin. `<source>` dagilari desktop nisbatini beradi.
-              */}
               <Link
-                to="/"
-                aria-label="AvtoSmart — Bosh sahifa"
-                className="hidden items-center ml-2 sm:ml-4 md:flex"
+                to="/pro"
+                className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-amber-300/40 bg-amber-300/10 px-2.5 text-sm font-semibold text-amber-100 transition-colors hover:bg-amber-300/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 sm:px-3"
               >
-                <img
-                  src="/avtosmart-logo-white-notag.webp"
-                  alt="AvtoSmart"
-                  className="h-9 w-auto object-contain"
-                  width="600"
-                  height="154"
-                />
-              </Link>
-            </div>
-
-            <div className="hidden lg:flex items-center gap-0.5">
-              {navLinks.map((item) => {
-                const isActive = location.pathname === item.path;
-                return (
-                  <Link
-                    key={item.path}
-                    to={item.path}
-                    className={`px-2.5 py-1.5 text-sm md:text-[15px] font-medium transition-colors duration-200 rounded-md ${
-                      isActive
-                        ? "text-cta-green"
-                        : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/5"
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              })}
-
-              {/* Dark mode — istalgan sahifada almashtiriladi */}
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={toggleDark}
-                aria-label={isDark ? "Yorug' rejim" : "Qorong'i rejim"}
-                title={isDark ? "Yorug' rejim" : "Qorong'i rejim"}
-                className="h-8 w-8 p-0 text-primary-foreground hover:bg-primary-foreground/10"
-              >
-                {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-              </Button>
-
-              <Link to="/pro">
-                <Button size="sm" className="ml-1.5 bg-cta-green hover:bg-cta-green-hover text-white font-semibold px-3.5 h-8">
-                  <Crown className="w-3.5 h-3.5 mr-1" />
-                  {t("nav.getPro")}
-                </Button>
+                <Crown className="h-4 w-4 text-amber-300" aria-hidden="true" />
+                <span className="lg:hidden">PRO</span>
+                <span className="hidden lg:inline">{t("nav.getPro")}</span>
               </Link>
 
-              {user ? (
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => navigate('/profile')}
-                  className="ml-1 flex items-center gap-1.5 text-primary-foreground hover:bg-primary-foreground/10 h-8 px-2"
-                >
-                  <div className="h-7 w-7 rounded-full bg-cta-orange flex items-center justify-center flex-shrink-0">
-                    <User className="w-3.5 h-3.5 text-white" />
-                  </div>
-                  <span className="hidden xl:block text-sm font-medium">
-                    {t("nav.profile")}
-                  </span>
-                </Button>
-              ) : (
-                <Button
-                  size="sm"
-                  onClick={() => navigate('/auth')}
-                  className="ml-1 bg-cta-orange hover:bg-cta-orange-hover text-white font-semibold h-8 px-3"
-                >
-                  <LogIn className="w-3.5 h-3.5 mr-1" />
-                  {t("nav.login")}
-                </Button>
-              )}
-            </div>
-
-            <div className="lg:hidden flex items-center gap-1 sm:gap-2">
-              {/* Dark mode — istalgan sahifada almashtiriladi */}
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={toggleDark}
-                aria-label={isDark ? "Yorug' rejim" : "Qorong'i rejim"}
-                title={isDark ? "Yorug' rejim" : "Qorong'i rejim"}
-                className="h-8 w-8 p-0 text-primary-foreground hover:bg-primary-foreground/10"
-              >
-                {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-              </Button>
-
-              <Link to="/pro">
-                <Button 
-                  size="sm"
-                  className="bg-cta-green hover:bg-cta-green-hover text-white font-semibold px-3 h-8 sm:h-9 flex items-center gap-1.5"
-                >
-                  <Crown className="w-4 h-4" />
-                  <span className="text-xs sm:text-sm">PRO</span>
-                </Button>
-              </Link>
-              
               {user ? (
                 /*
-                  Profil ikonkasi MOBILDA YASHIRILGAN: header tor va profilga
-                  hamburger menyu hamda pastki navigatsiya orqali kirish
-                  mumkin — ya'ni takroriy tugma faqat joy egallardi.
+                  Profil tugmasi MOBILDA YASHIRILGAN: profilga hamburger
+                  menyu va pastki navigatsiya orqali kiriladi — takroriy
+                  tugma tor headerda faqat joy egallardi.
                 */
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => navigate('/profile')}
-                  className="hidden text-primary-foreground h-8 w-8 sm:h-9 sm:w-9 ml-1 md:inline-flex"
+                <button
+                  type="button"
+                  onClick={() => navigate("/profile")}
+                  aria-label={t("nav.profile")}
+                  className="hidden h-9 items-center gap-2 rounded-lg pl-1 pr-1 transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 md:inline-flex xl:pr-2.5"
                 >
-                  <Avatar className="h-7 w-7 sm:h-8 sm:w-8 bg-cta-orange">
-                    <AvatarFallback className="bg-cta-orange text-white text-xs sm:text-sm font-semibold">
+                  <Avatar className="h-7 w-7 bg-white">
+                    <AvatarFallback className="bg-white text-xs font-semibold text-[#131A45]">
                       {getInitials(profile?.full_name || profile?.username)}
                     </AvatarFallback>
                   </Avatar>
-                </Button>
+                  <span className="hidden text-sm font-medium text-white xl:block">{t("nav.profile")}</span>
+                </button>
               ) : (
                 <Button
                   size="sm"
-                  onClick={() => navigate('/auth')}
-                  className="bg-cta-orange hover:bg-cta-orange-hover text-white font-semibold px-3 h-8 sm:h-9 flex items-center gap-1.5"
+                  onClick={() => navigate("/auth")}
+                  className="h-9 gap-1.5 rounded-lg bg-white px-3 font-semibold text-[#131A45] hover:bg-white/90 focus-visible:ring-white/60 sm:px-4"
                 >
-                  <LogIn className="w-4 h-4" />
-                  <span className="text-xs sm:text-sm">{t("nav.login")}</span>
+                  <LogIn className="h-4 w-4 lg:hidden" aria-hidden="true" />
+                  <span className="max-[359px]:sr-only">{t("nav.login")}</span>
                 </Button>
               )}
-              {/*
-                `max-[359px]:` — 320px li eski telefonlarda bu qator 4px ga
-                toshib, BUTUN sahifada gorizontal scroll paydo qilardi
-                (pastki menyu ham 324px ga cho'zilardi). 360px va undan
-                kattalarda hech narsa o'zgarmaydi.
-              */}
+
               <button
+                type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label={mobileMenuOpen ? "Menyuni yopish" : "Menyuni ochish"}
                 aria-expanded={mobileMenuOpen}
-                className="p-1.5 max-[359px]:p-1 sm:p-2 rounded-lg text-primary-foreground hover:bg-primary-foreground/10 transition-colors ml-0.5"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 lg:hidden"
               >
-                {mobileMenuOpen
-                  ? <X className="w-7 h-7 max-[359px]:w-6 max-[359px]:h-6 sm:w-9 sm:h-9" />
-                  : <Menu className="w-7 h-7 max-[359px]:w-6 max-[359px]:h-6 sm:w-9 sm:h-9" />}
+                {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
             </div>
           </div>
@@ -376,49 +368,46 @@ export function MainLayout({ children }: MainLayoutProps) {
 
         {mobileMenuOpen && (
           <>
-            <div 
-              className="lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40 animate-in fade-in duration-300"
+            <div
+              className="fixed inset-0 z-40 bg-black/40 animate-in fade-in duration-200 lg:hidden"
               onClick={() => setMobileMenuOpen(false)}
             />
-            
-            <div className="lg:hidden fixed top-0 right-0 bottom-0 w-[280px] bg-card shadow-2xl z-50 animate-in slide-in-from-right duration-300">
-              <div className="flex items-center justify-between p-4 border-b border-border">
-                <h2 className="text-lg font-bold text-foreground">Menu</h2>
+
+            <div className="fixed inset-y-0 right-0 z-50 flex w-[288px] max-w-[85vw] flex-col bg-card shadow-2xl animate-in slide-in-from-right duration-300 lg:hidden">
+              <div className="flex h-14 shrink-0 items-center justify-between border-b border-border px-4">
+                <span className="text-base font-semibold text-foreground">{t("nav.menu")}</span>
                 <button
+                  type="button"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-2 rounded-lg hover:bg-muted transition-colors"
+                  aria-label="Menyuni yopish"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                 >
-                  <X className="w-5 h-5" />
+                  <X className="h-5 w-5" />
                 </button>
               </div>
 
-              {user && profile && (
-                <div className="p-4 border-b border-border bg-muted/30">
-                  <div className="flex items-center gap-3">
-                    <Avatar className="h-12 w-12 bg-cta-orange">
-                      <AvatarFallback className="bg-cta-orange text-white font-semibold">
-                        {getInitials(profile?.full_name || profile?.username)}
-                      </AvatarFallback>
-                    </Avatar>
-                    <div className="flex-1 min-w-0">
-                      <p className="font-semibold text-foreground truncate">
-                        {t("nav.profile")}
-                      </p>
-                    </div>
-                  </div>
-                  <Button
-                    onClick={() => navigate('/profile')}
-                    variant="outline"
-                    size="sm"
-                    className="w-full mt-3 gap-2"
-                  >
-                    <User className="w-4 h-4" />
-                    {t("nav.profile")}
-                  </Button>
-                </div>
+              {user && (
+                <button
+                  type="button"
+                  onClick={() => navigate("/profile")}
+                  className="flex shrink-0 items-center gap-3 border-b border-border px-4 py-3.5 text-left transition-colors hover:bg-muted/60"
+                >
+                  <Avatar className="h-10 w-10 bg-primary">
+                    <AvatarFallback className="bg-primary text-sm font-semibold text-primary-foreground">
+                      {getInitials(profile?.full_name || profile?.username)}
+                    </AvatarFallback>
+                  </Avatar>
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate text-sm font-semibold text-foreground">
+                      {profile?.full_name || profile?.username || t("nav.profile")}
+                    </span>
+                    <span className="block text-xs text-muted-foreground">{t("nav.profile")}</span>
+                  </span>
+                  <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+                </button>
               )}
 
-              <div className="p-4 space-y-1 overflow-y-auto max-h-[calc(100vh-200px)]">
+              <div className="flex-1 space-y-1 overflow-y-auto p-3">
                 {navLinks.map((item) => {
                   const Icon = item.icon;
                   const isActive = location.pathname === item.path;
@@ -426,40 +415,47 @@ export function MainLayout({ children }: MainLayoutProps) {
                     <Link
                       key={item.path}
                       to={item.path}
-                      className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-colors ${
+                      aria-current={isActive ? "page" : undefined}
+                      className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-[15px] transition-colors ${
                         isActive
-                          ? 'bg-primary text-primary-foreground'
-                          : 'text-foreground hover:bg-muted'
+                          ? "bg-muted font-semibold text-foreground"
+                          : "font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
                       }`}
                     >
-                      <Icon className="w-5 h-5" />
+                      <Icon className={`h-5 w-5 ${isActive ? "text-primary" : ""}`} aria-hidden="true" />
                       {item.label}
                     </Link>
                   );
                 })}
 
-                <div className="pt-2 mt-2 border-t border-border">
-                  <Link
-                    to="/pro"
-                    className="flex items-center gap-3 px-4 py-3 rounded-lg font-medium bg-gradient-to-r from-yellow-500/10 to-amber-500/10 border border-yellow-500/30 text-yellow-700 dark:text-yellow-500 hover:from-yellow-500/20 hover:to-amber-500/20 transition-colors"
-                  >
-                    <Crown className="w-5 h-5" />
-                    {t("nav.getPro")}
-                  </Link>
-                </div>
+                <div className="my-2 border-t border-border" />
 
-                {!user && (
-                  <div className="pt-2">
-                    <Button
-                      onClick={() => navigate('/auth')}
-                      className="w-full gap-2 bg-cta-orange hover:bg-cta-orange-hover"
-                    >
-                      <LogIn className="w-4 h-4" />
-                      {t("nav.login")}
-                    </Button>
-                  </div>
-                )}
+                <button
+                  type="button"
+                  onClick={toggleDark}
+                  className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-[15px] font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                >
+                  {isDark ? <Sun className="h-5 w-5" aria-hidden="true" /> : <Moon className="h-5 w-5" aria-hidden="true" />}
+                  {isDark ? t("nav.lightMode") : t("nav.darkMode")}
+                </button>
+
+                <Link
+                  to="/pro"
+                  className="flex items-center gap-3 rounded-lg border border-amber-300/80 bg-amber-50 px-3 py-2.5 text-[15px] font-semibold text-amber-900 transition-colors hover:bg-amber-100 dark:border-amber-400/30 dark:bg-amber-400/10 dark:text-amber-200 dark:hover:bg-amber-400/15"
+                >
+                  <Crown className="h-5 w-5 text-amber-600 dark:text-amber-300" aria-hidden="true" />
+                  {t("nav.getPro")}
+                </Link>
               </div>
+
+              {!user && (
+                <div className="shrink-0 border-t border-border p-3">
+                  <Button onClick={() => navigate("/auth")} className="h-11 w-full gap-2 rounded-lg font-semibold">
+                    <LogIn className="h-4 w-4" aria-hidden="true" />
+                    {t("nav.login")}
+                  </Button>
+                </div>
+              )}
             </div>
           </>
         )}

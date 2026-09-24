@@ -77,21 +77,27 @@ export default function Qoshimcha() {
             sahifaning mavzusiga umuman aloqador emasdi.
           */}
           <div className="flex flex-wrap justify-center gap-3">
-            <Link to="/variant">
-              <Button className="gap-2 rounded-full bg-cta-green px-6 py-5 font-semibold text-white hover:bg-cta-green-hover">
+            {/*
+              Siyoh fonda asosiy tugma — OQ, matn siyoh (header'dagi "Kirish"
+              bilan bir xil); ikkilamchisi — shaffof oq chegarali.
+              `asChild`: havolaning o'zi tugma (ilgari <a> ichida <button>).
+            */}
+            <Button asChild className="h-12 gap-2 rounded-lg bg-white px-6 font-semibold text-[#131A45] hover:bg-white/90">
+              <Link to="/variant">
                 <Play className="h-5 w-5" />
                 {t("qollanma.ctaTests")}
-              </Button>
-            </Link>
-            <Link to="/darslik">
-              <Button
-                variant="outline"
-                className="gap-2 rounded-full border-primary-foreground/20 bg-brand-foreground/10 px-6 py-5 font-semibold text-brand-foreground hover:bg-brand-foreground/20"
-              >
+              </Link>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              className="h-12 gap-2 rounded-lg border-white/25 bg-white/10 px-6 font-semibold text-brand-foreground hover:bg-white/15 hover:text-brand-foreground"
+            >
+              <Link to="/darslik">
                 <BookOpen className="h-5 w-5" />
                 {t("qollanma.ctaDarslik")}
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -219,7 +225,7 @@ export default function Qoshimcha() {
                 {TIP_KEYS.map((key, index) => (
                   <li key={key} className="flex items-start gap-4">
                     <span
-                      className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-cta-green text-sm font-bold text-white"
+                      className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground"
                       aria-hidden="true"
                     >
                       {index + 1}
