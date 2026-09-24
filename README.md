@@ -66,3 +66,9 @@ supabase/       Edge Functions (Telegram botlar va h.k.)
 public/         Savol JSON lari, rasmlar, bot suratkashlari
 docs/           Ichki hujjatlar
 ```
+
+## To'lov tizimlari
+
+PRO obuna Payme yoki Click orqali to'lanadi; PRO ni faqat server beradi.
+Click qanday qurilgani, qanday ishlashi va o'zgartirishda nimaga ehtiyot
+bo'lish kerakligi: [`docs/CLICK-INTEGRATION.md`](docs/CLICK-INTEGRATION.md).
