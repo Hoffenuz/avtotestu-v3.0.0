@@ -46,6 +46,23 @@ const DEFAULT_DATA_FILE = "free-uz-lat.json";
 /** Endi mavjud bo'lmagan monolit fayllar — eski localStorage sessiyalari uchun */
 const RETIRED_DATA_FILES = new Set(["600.json", "barcha.json"]);
 
+/**
+ * To'liq (PRO) korpus fayllari — 1275 ta savol, izohlari bilan.
+ * FREE korpus (`free-*.json`) esa 1009 ta va izohsiz.
+ *
+ * NEGA RO'YXAT KERAK: tugallanmagan test `localStorage` da o'z `dataFile`i
+ * bilan saqlanadi va qaytib kelganda o'sha fayl bilan tiklanadi. Agar
+ * oraliqda PRO muddati tugagan bo'lsa, eski sessiya PRO korpusni ochiq
+ * qoldirardi — obuna tugagan foydalanuvchi 1275 ta savolni izohlari bilan
+ * ishlashda davom etaverardi. `localStorage` ni brauzerdan qo'lda
+ * tahrirlab ham xuddi shu natijaga erishish mumkin edi.
+ */
+const PRO_DATA_FILES = new Set([
+  "barcha-uz-lat.json",
+  "barcha-uz-cyr.json",
+  "barcha-ru.json",
+]);
+
 const FREE_VARIANT = 99; // sentinel for free/practice test in DB (0..100 constraint)
 
 /**
@@ -123,6 +140,30 @@ export default function TestIshlash() {
     } catch (e) { /* ignore */ }
   }, [testIshlashStorageKey, testStarted, activeSession, questionCount]);
   const { state: accessState, isPremium, loading: accessLoading, backendConfirmed } = useAccessState();
+
+  /*
+    Tiklangan sessiyani joriy obuna holatiga solishtirish.
+
+    `getInitialState()` sessiyani `localStorage` dan tiklaydi, lekin u
+    `useState` initializer'ida ishlaydi — u paytda obuna holati hali
+    serverdan kelmagan. Shuning uchun tekshiruv shu yerda, javob kelgach.
+
+    `backendConfirmed` SHART: RPC javob bermaguncha `isPremium` boshlang'ich
+    `false` qiymatida turadi, va u holda haqiqiy PRO foydalanuvchining
+    tugallanmagan testini xato bilan o'chirib yuborardik.
+  */
+  useEffect(() => {
+    if (accessLoading || !backendConfirmed || isPremium) return;
+    const savedFile = activeSession?.dataFile;
+    if (!savedFile || !PRO_DATA_FILES.has(savedFile)) return;
+
+    try {
+      if (activeSession?.testStateKey) localStorage.removeItem(activeSession.testStateKey);
+      localStorage.removeItem(testIshlashStorageKey);
+    } catch (e) { /* ignore */ }
+    setTestStarted(false);
+    setActiveSession(null);
+  }, [accessLoading, backendConfirmed, isPremium, activeSession, testIshlashStorageKey]);
   const { isDark } = useDarkMode();
   const { starting, startSession } = useTestSession();
 
@@ -203,8 +244,16 @@ export default function TestIshlash() {
   };
 
   // ── Render: test in progress ───────────────────────────────────────────────
+  /*
+    Yuqoridagi `useEffect` sessiyani tozalaydi, lekin u render'dan KEYIN
+    ishlaydi — oradagi bitta render'da PRO fayl yuklanib ulgurishi mumkin.
+    Shuning uchun bu yerda ham tekshiriladi.
+  */
+  const savedFile = activeSession?.dataFile;
+  const savedFileHuquqli =
+    !savedFile || !PRO_DATA_FILES.has(savedFile) || isPremium || !backendConfirmed;
   const effectiveDataFile =
-    testStarted && activeSession ? activeSession.dataFile ?? dataFile : dataFile;
+    testStarted && activeSession && savedFileHuquqli ? savedFile ?? dataFile : dataFile;
   const dataSourcePath = `/${effectiveDataFile}`;
 
   if (testStarted && activeSession !== null) {
@@ -246,10 +295,10 @@ export default function TestIshlash() {
   return (
     <div className={isDark ? 'dark' : ''}>
       <SEO
-        title="Avto test ishlash 2026 — 20/50 savol"
-        description="Avto test online 2026: 1250+ YHQ savol. 20 yoki 50 ta tasodifiy savol, 25 daqiqa, 18/20 o'tish bali. Bepul, ro'yxatsiz — haqiqiy imtihon formatida."
+        title={t("seo.testIshlash.title")}
+        description={t("seo.testIshlash.description")}
         path="/test-ishlash"
-        keywords="test ishlash, onlayn test, prava test, YHQ savollari, avtotest, avtomaktab test, avto test ishlash 2026"
+        keywords={t("seo.testIshlash.keywords")}
       />
       <TestPageSchema />
 
@@ -260,8 +309,16 @@ export default function TestIshlash() {
       */}
       <div className="min-h-screen bg-background flex flex-col font-sans text-[#1E2350] dark:text-foreground has-bottom-nav">
 
-        <header className="w-full bg-background border-b border-border px-6 py-3 sticky top-0 z-20">
-          <div className="max-w-5xl mx-auto flex items-center justify-between">
+        {/*
+          Yon bo'shliqlar va til tugmalari kichik ekranda TORAYTIRILGAN.
+          Ilgari sarlavha `px-6`, tugmalar esa `px-4` edi va "Bosh sahifa"
+          bilan uchta til tugmasi bitta qatorga sig'masdi: 320px da 54px,
+          360px da 14px toshib, BUTUN sahifada gorizontal scroll paydo
+          qilardi. `flex-wrap` — zaxira: matn uzunroq tilda ham qator
+          ikkiga bo'linadi, lekin toshmaydi.
+        */}
+        <header className="w-full bg-background border-b border-border px-3 sm:px-6 py-3 sticky top-0 z-20">
+          <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-2">
             <Link to="/">
               <Button variant="ghost" size="sm" className="gap-2 font-bold text-[#1E2350] dark:text-foreground">
                 <Home className="w-4 h-4" /> Bosh sahifa
@@ -272,7 +329,7 @@ export default function TestIshlash() {
                 <button
                   key={lang.id}
                   onClick={() => setLanguage(lang.id)}
-                  className={`px-4 py-1.5 rounded-md text-xs font-bold transition-all ${
+                  className={`px-2.5 sm:px-4 py-1.5 rounded-md text-xs font-bold transition-all ${
                     language === lang.id
                       ? "bg-primary text-primary-foreground shadow-sm"
                       : "text-muted-foreground hover:text-foreground"
@@ -287,10 +344,27 @@ export default function TestIshlash() {
 
         <main className="flex-1 max-w-3xl mx-auto w-full px-4 py-8 flex flex-col gap-6">
 
-          {/* Pro Banner */}
-          {showProBanner && !accessLoading && (
-            <Link to="/pro" className="group flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 bg-card border-2 border-orange-400 rounded-2xl px-4 py-3 sm:px-5 sm:py-4 hover:border-orange-500 hover:bg-orange-50/30 dark:hover:bg-orange-950/20 transition-all active:scale-[0.99] shadow-sm hover:shadow-md">
-              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center flex-shrink-0 shadow-sm">
+          {/*
+            Pro Banner
+
+            `accessLoading` paytida banner YASHIRILADI, lekin O'RNI
+            saqlanadi (`invisible`). Ilgari u butunlay render qilinmasdi
+            va obuna holati aniqlangach paydo bo'lib, pastdagi hamma
+            narsani surardi — o'lchangan CLS 0.1463 edi.
+
+            `invisible` tanlandi, chunki bannerni darhol ko'rsatish ham
+            yaramaydi: PRO obunachiga bir lahza "PRO oling" deb turishi
+            noto'g'ri bo'lardi. Bu yerda joy band qilinadi, mazmun esa
+            holat aniqlangandan keyin ko'rinadi.
+          */}
+          {showProBanner && (
+            <Link
+              to="/pro"
+              aria-hidden={accessLoading || undefined}
+              tabIndex={accessLoading ? -1 : undefined}
+              className={`group flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 bg-card border-2 border-orange-400 rounded-2xl px-4 py-3 sm:px-5 sm:py-4 hover:border-orange-500 hover:bg-orange-50/30 dark:hover:bg-orange-950/20 transition-all active:scale-[0.99] shadow-sm hover:shadow-md${accessLoading ? " invisible" : ""}`}
+            >
+              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-amber-600 to-orange-600 flex items-center justify-center flex-shrink-0 shadow-sm">
                <Crown className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
               </div>
               <div className="flex-1 min-w-0">

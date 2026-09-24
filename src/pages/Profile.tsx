@@ -25,15 +25,18 @@ import {
   FileText,
   History,
   ExternalLink,
-  Monitor,
 } from 'lucide-react';
 import { toast } from 'sonner';
-import { DeviceLicenseCard } from '@/components/DeviceLicenseCard';
 import { PasswordSection } from '@/components/PasswordSection';
-import { emailToPhoneDisplay } from '@/lib/phone';
+import { TelegramLinkSection } from '@/components/TelegramLinkSection';
+import { TelegramLogo } from '@/components/TelegramLoginButton';
+import { emailToPhoneDisplay, formatUzPhoneDisplay } from '@/lib/phone';
+import { isTelegramEmail } from '@/lib/telegramLogin';
 import { formatTestTime } from '@/lib/testPersistence';
 import { BottomNav } from '@/components/layout/BottomNav';
 import { ProfileSection } from '@/components/profile/ProfileSection';
+import ReadinessCard from '@/components/ReadinessCard';
+import { trackEvent } from '@/lib/track';
 
 interface TestResult {
   id: string;
@@ -45,9 +48,9 @@ interface TestResult {
   question_source?: string | null;
 }
 
-/** Exam tickets (v1–v63). Mavzuli/practice banklarini "Variant N" deb ko'rsatmaymiz. */
+/** Exam tickets (v1–v64). Mavzuli/practice banklarini "Variant N" deb ko'rsatmaymiz. */
 function isExamTicketResult(r: TestResult): boolean {
-  if (r.variant < 1 || r.variant > 63) return false;
+  if (r.variant < 1 || r.variant > 64) return false;
   const src = (r.question_source || '').trim();
   if (/^v\d+\.json$/i.test(src)) return true;
   // Legacy + session-siz saqlangan 20 savollik variantlar
@@ -58,11 +61,37 @@ function isExamTicketResult(r: TestResult): boolean {
   return false;
 }
 
+/**
+ * Tarif nomini odam tilida: `weekly` → "Haftalik · 7 kun".
+ *
+ * Bazadagi nom texnik (`weekly`, `basic`) — foydalanuvchiga uni xom holda
+ * ko'rsatish hech narsa tushuntirmaydi. Kun soni ham qo'shiladi: shunda
+ * "haftalik" so'zi qancha muddatni anglatishi shubhasiz bo'ladi.
+ */
+const PLAN_LABELS: Record<string, string> = {
+  weekly: 'Haftalik',
+  monthly: 'Oylik',
+  quarterly: '3 oylik',
+  basic: 'Admin tarifi',
+};
+
+function formatPlanLabel(planName: string | null, tariffDays: number | null): string {
+  const label = PLAN_LABELS[(planName || '').toLowerCase()];
+  const days = tariffDays && tariffDays > 0 ? `${tariffDays} kun` : null;
+  if (label && days) return `${label} · ${days}`;
+  return label || days || 'Obuna';
+}
+
 const Profile = () => {
   const { user, profile, signOut, isLoading, refreshProfile } = useAuth();
 
   /** Telefon orqali ochilgan hisobda sun'iy email o'rniga raqam ko'rsatiladi. */
   const phoneFromEmail = emailToPhoneDisplay(user?.email);
+  /**
+   * Telegram orqali ochilgan hisobda email ham sun'iy
+   * (`tg_<id>@tg.avtotestu.uz`) — ko'rsatish o'rniga shuni bildiramiz.
+   */
+  const isTelegramAccount = isTelegramEmail(user?.email);
   const navigate = useNavigate();
   const registrationDays = useRegistrationAge();
   const { isPremium, expiresAt: subscriptionExpiresAt, refresh: refreshAccessState } = useAccessState();
@@ -70,6 +99,14 @@ const Profile = () => {
   const [results, setResults] = useState<TestResult[]>([]);
   const [loadingResults, setLoadingResults] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
+  /**
+   * "Profil ma'lumotlari" bo'limi ochiqmi.
+   *
+   * Holat SAHIFA darajasida: bo'limni tepadagi tahrirlash tugmasi ham
+   * ochadi. Bo'lim ichida qolsa, tugma unga yeta olmasdi.
+   */
+  const [infoOpen, setInfoOpen] = useState(false);
+  const infoRef = useRef<HTMLDivElement>(null);
   const [editUsername, setEditUsername] = useState('');
   const [editFullName, setEditFullName] = useState('');
   const [isSaving, setIsSaving] = useState(false);
@@ -108,7 +145,9 @@ const Profile = () => {
   useEffect(() => {
     if (!user) return;
     const params = new URLSearchParams(window.location.search);
-    if (params.get('from') !== 'payme') return;
+    // Click ham xuddi shunday server-server tasdiqlaydi (?from=click).
+    const from = params.get('from');
+    if (from !== 'payme' && from !== 'click') return;
 
     // Sahifa yangilansa/orqaga qaytilsa qayta ishga tushmasin.
     window.history.replaceState(null, '', window.location.pathname);
@@ -132,7 +171,7 @@ const Profile = () => {
          */
         toast.error(
           "To'lov tasdig'i kechikmoqda. Sahifani yangilang — o'zgarmasa " +
-            "Telegram orqali bog'laning: @avtotestu_ad",
+            "Telegram orqali bog'laning: @avtosmart1",
           { duration: 15000 },
         );
         return;
@@ -153,6 +192,11 @@ const Profile = () => {
       clearInterval(paymePollRef.current);
       paymePollRef.current = null;
       toast.success("PRO tarif faollashtirildi!");
+      // Voronka: to'lov CHINAKAM tasdiqlangan payt — `paymePollRef.current`
+      // faqat Payme'dan hozirgina qaytilganda faol bo'ladi, ya'ni bu
+      // allaqachon PRO bo'lgan foydalanuvchi shunchaki profilni ochishi
+      // bilan aralashmaydi.
+      trackEvent("payment_complete");
     }
   }, [isPremium]);
 // Eski (legacy) chek havolasini olish.
@@ -340,7 +384,7 @@ useEffect(() => {
     <>
     <SEO
       title="Profilim"
-      description="Avtotestlar.uz foydalanuvchi profili."
+      description="AvtoSmart foydalanuvchi profili."
       path="/profile"
       noIndex={true}
     />
@@ -364,7 +408,14 @@ useEffect(() => {
               size="sm"
               onClick={handleSignOut}
               disabled={signingOut}
-              className="bg-white text-black border-white hover:bg-gray-100 disabled:opacity-70"
+              /*
+                Ilgari `bg-white text-black border-white` edi — to'q ko'k
+                banner ustida oppoq blok bo'lib ko'zni qamashtirardi
+                (dark modeda ayniqsa). Endi yonidagi "Orqaga" bilan bir xil
+                `brand` tokenlaridan foydalanadi: banner qaysi rejimda
+                bo'lsa ham matn va ramka unga mos keladi.
+              */
+              className="border-brand-foreground/30 bg-brand-foreground/10 text-brand-foreground hover:bg-brand-foreground/20 hover:text-brand-foreground disabled:opacity-70"
             >
               <LogOut className="w-4 h-4 mr-2" />
               {signingOut ? 'Chiqilmoqda…' : 'Chiqish'}
@@ -377,13 +428,53 @@ useEffect(() => {
             </div>
             <div className="flex-1">
               <h1 className="text-2xl md:text-3xl font-bold">{displayName}</h1>
-              <p className="text-primary-foreground/80 text-sm md:text-base">
-                {phoneFromEmail ?? user.email ?? user.phone}
+              <p className="text-primary-foreground/80 text-sm md:text-base flex items-center gap-1.5">
+                {isTelegramAccount ? (
+                  <>
+                    <TelegramLogo className="h-4 w-4 shrink-0" />
+                    {profile?.phone
+                      ? formatUzPhoneDisplay(profile.phone)
+                      : profile?.telegram_username
+                        ? `@${profile.telegram_username}`
+                        : "Telegram orqali kirilgan"}
+                  </>
+                ) : (
+                  phoneFromEmail ?? user.email ?? user.phone
+                )}
               </p>
               {profile?.username && profile?.full_name && (
                 <p className="text-primary-foreground/60 text-sm">@{profile.username}</p>
               )}
             </div>
+
+            {/*
+              TAHRIRLASH — hisob ma'lumotining O'NG YONIDA.
+
+              Ilgari bu tugma sahifaning o'rtasidagi yig'ilgan bo'lim
+              ichida turardi: foydalanuvchi avval bo'limni topib, ochib,
+              keyin ichidan tugmani qidirishi kerak edi. Ismini
+              o'zgartirmoqchi bo'lgan odam uni aynan ismining yonida
+              qidiradi — o'rni shu yer.
+
+              Yangi sahifa OCHILMAYDI: bo'lim shu sahifaning o'zida
+              ochiladi va ko'rinishga suriladi.
+            */}
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => {
+                setInfoOpen(true);
+                // Ochilish renderidan keyin suramiz, aks holda mo'ljal
+                // hali sahifada yo'q bo'ladi.
+                requestAnimationFrame(() =>
+                  infoRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }),
+                );
+              }}
+              className="shrink-0 self-start border-brand-foreground/30 bg-brand-foreground/10 text-brand-foreground hover:bg-brand-foreground/20 hover:text-brand-foreground"
+            >
+              <Edit2 className="h-4 w-4 sm:mr-2" />
+              <span className="hidden sm:inline">Tahrirlash</span>
+            </Button>
           </div>
         </div>
       </header>
@@ -397,6 +488,13 @@ useEffect(() => {
         shuning uchun doim ochiq.
       */}
       <main className="max-w-5xl mx-auto w-full px-4 md:px-6 py-6 md:py-8 -mt-4">
+        {/*
+          Tayyorgarlik — profilda SODDA ko'rinish (halqa + daraja + streak).
+          To'rtta komponentning tafsiloti bosh sahifada ko'rsatiladi; bu yerda
+          takrorlash sahifani uzaytirardi va e'tiborni bo'lardi.
+        */}
+        <ReadinessCard variant="compact" className="mb-4" />
+
         {/* Natijalar — doim ochiq */}
         <Card className="p-4 md:p-5">
           <h2 className="text-base font-semibold text-foreground mb-3 flex items-center gap-2">
@@ -437,11 +535,18 @@ useEffect(() => {
           `items-start` — ochilgan bo'lim qo'shnisini cho'zib yubormaydi.
         */}
         <div className="mt-3 grid grid-cols-1 items-start gap-3 lg:grid-cols-2">
+        {/*
+          `ref` ProfileSection ga BERILMAYDI: u oddiy funksiya komponenti,
+          React 18 da `forwardRef` siz `ref` ishlamaydi (jimgina yo'qoladi).
+          Suriladigan mo'ljal shu o'rovchi `div` da.
+        */}
+        <div ref={infoRef}>
         <ProfileSection
           icon={User}
           title="Profil ma'lumotlari"
           tone="indigo"
-          storageKey="profile.section.info"
+          open={infoOpen}
+          onOpenChange={setInfoOpen}
         >
           <div>
             <div className="flex items-center justify-end mb-4 gap-2">
@@ -504,13 +609,27 @@ useEffect(() => {
               </div>
             ) : (
               <div className="space-y-3">
+                {/*
+                  Bo'sh maydon "-" emas: telefon orqali ro'yxatdan o'tganda
+                  ism ham, username ham SO'RALMAYDI, ya'ni bu maydonlar
+                  ko'pchilikda bo'sh. "-" xatoga o'xshab ko'rinardi —
+                  "Kiritilmagan" esa buni to'ldirish mumkinligini aytadi.
+                */}
                 <div>
                   <p className="text-sm text-muted-foreground">To'liq ism</p>
-                  <p className="font-medium text-foreground">{profile?.full_name || '-'}</p>
+                  {profile?.full_name ? (
+                    <p className="font-medium text-foreground">{profile.full_name}</p>
+                  ) : (
+                    <p className="font-medium text-muted-foreground/70 italic">Kiritilmagan</p>
+                  )}
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Foydalanuvchi nomi</p>
-                  <p className="font-medium text-foreground">{profile?.username ? `@${profile.username}` : '-'}</p>
+                  {profile?.username ? (
+                    <p className="font-medium text-foreground">@{profile.username}</p>
+                  ) : (
+                    <p className="font-medium text-muted-foreground/70 italic">Kiritilmagan</p>
+                  )}
                 </div>
                 {/*
                   Telefon orqali ro'yxatdan o'tganlarda email sun'iy
@@ -521,6 +640,15 @@ useEffect(() => {
                   <div>
                     <p className="text-sm text-muted-foreground">Telefon raqam</p>
                     <p className="font-medium text-foreground">{phoneFromEmail}</p>
+                  </div>
+                ) : isTelegramAccount ? (
+                  <div>
+                    <p className="text-sm text-muted-foreground">Telefon raqam</p>
+                    {profile?.phone ? (
+                      <p className="font-medium text-foreground">{formatUzPhoneDisplay(profile.phone)}</p>
+                    ) : (
+                      <p className="font-medium text-muted-foreground/70 italic">Kiritilmagan</p>
+                    )}
                   </div>
                 ) : (
                   <div>
@@ -556,70 +684,83 @@ useEffect(() => {
               </div>
             )}
 
-            {/* Parol — tahrirlash rejimida emas, ma'lumotlar ostida ixcham bo'lim */}
+            {/*
+              OBUNA TARIXI — ATAYLAB shu bo'lim ichida, ixcham ro'yxat.
+
+              Avval alohida "Obuna tarixi" bo'limi bor edi: ko'pchilik
+              foydalanuvchida u 1-2 qatordan iborat bo'lgani uchun butun
+              bo'limga arzimasdi va profil sahifasini uzaytirardi.
+              Bu ma'lumot hisobga tegishli — o'rni shu yer.
+            */}
+            {!isEditing && subscriptions.length > 0 && (
+              <div className="mt-4 border-t border-border pt-4">
+                <p className="mb-2 flex items-center gap-1.5 text-sm text-muted-foreground">
+                  <History className="h-3.5 w-3.5" />
+                  Obuna tarixi
+                  <span className="text-xs">({subscriptions.length} ta)</span>
+                </p>
+                <ul className="space-y-1.5">
+                  {subscriptions.map((sub) => {
+                    const isActive = new Date(sub.ends_at) > new Date();
+                    return (
+                      <li
+                        key={sub.id}
+                        className="flex items-center justify-between gap-2 rounded-lg border border-border bg-muted/30 px-2.5 py-2"
+                      >
+                        <span className="flex min-w-0 items-center gap-2">
+                          <span
+                            className={`h-1.5 w-1.5 shrink-0 rounded-full ${
+                              isActive ? "bg-green-500" : "bg-muted-foreground/40"
+                            }`}
+                            aria-hidden="true"
+                          />
+                          <span className="min-w-0">
+                            <span className="block truncate text-[13px] font-medium text-foreground">
+                              {formatPlanLabel(sub.plan_name, sub.tariff_days)}
+                            </span>
+                            {/*
+                              "boshlandi – tugadi" oralig'i EMAS: `ends_at`
+                              eski obuna USTIGA qo'shiladi, shuning uchun
+                              7 kunlik xarid "17.08 – 25.11" bo'lib chiqib
+                              chalkashlik tug'dirardi.
+                            */}
+                            <span className="block truncate text-[11px] text-muted-foreground">
+                              Xarid: {new Date(sub.started_at).toLocaleDateString("uz-UZ")} · PRO{" "}
+                              {new Date(sub.ends_at).toLocaleDateString("uz-UZ")} gacha
+                            </span>
+                          </span>
+                        </span>
+                        {sub.amount ? (
+                          <span className="shrink-0 text-[12px] font-medium text-muted-foreground">
+                            {sub.amount.toLocaleString()} {sub.currency}
+                          </span>
+                        ) : null}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
+
+            {/* Parol va Telegram — tahrirlash rejimida emas, ixcham bo'limlar */}
             {!isEditing && <PasswordSection />}
+            {!isEditing && <TelegramLinkSection />}
           </div>
         </ProfileSection>
+        </div>
 
-        <ProfileSection
-          icon={Monitor}
-          title="Aktivatsiya qilish"
-          tone="emerald"
-          storageKey="profile.section.license"
-        >
-          {/*
-            `className` bo'sh berilgan: standart qiymati `mb-6` va ichki
-            ramka — bo'lim allaqachon ramka ichida bo'lgani uchun ular
-            ikkilangan chegara hosil qilardi.
-          */}
-          <DeviceLicenseCard
-            isPremium={isPremium}
-            subscriptionExpiresAt={subscriptionExpiresAt}
-            className="p-0 border-0 bg-transparent shadow-none"
-          />
-        </ProfileSection>
+        {/*
+          "AKTIVATSIYA QILISH" BU YERDAN OLIB TASHLANDI (2026-09).
 
-        {/* Subscriptions History */}
-        {subscriptions.length > 0 && (
-          <ProfileSection
-            icon={History}
-            title="Obuna tarixi"
-            value={`${subscriptions.length} ta`}
-            tone="violet"
-            storageKey="profile.section.subs"
-          >
-            <div className="space-y-3">
-              {subscriptions.map((sub) => {
-                const isActive = new Date(sub.ends_at) > new Date();
-                return (
-                  <div key={sub.id} className="flex items-center justify-between p-3 rounded-lg bg-muted/30 border border-border">
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
-                          isActive ? 'bg-green-500/20 text-green-700' : 'bg-muted text-muted-foreground'
-                        }`}>
-                          {isActive ? 'Faol' : 'Tugagan'}
-                        </span>
-                        <span className="text-sm font-medium">
-                          {sub.plan_name || `${sub.tariff_days} kun`}
-                        </span>
-                      </div>
-                      <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
-                        <Calendar className="w-3 h-3" />
-                        {new Date(sub.started_at).toLocaleDateString('uz-UZ')} – {new Date(sub.ends_at).toLocaleDateString('uz-UZ')}
-                      </p>
-                    </div>
-                    {sub.amount && (
-                      <span className="text-sm font-medium text-muted-foreground">
-                        {sub.amount.toLocaleString()} {sub.currency}
-                      </span>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </ProfileSection>
-        )}
+          Kompyuter ilovasiga hisob orqali kirish qo'shilgach, litsenziya
+          kaliti asosiy yo'l bo'lmay qoldi — u endi faqat zaxira usul.
+          Profilda turgani esa uni asosiy amaldek ko'rsatib, har kirgan
+          foydalanuvchini "nimadir aktivatsiya qilish kerakmi?" degan
+          savolga duchor qilardi.
+
+          O'rni — `/desktop`: kalit aynan o'sha ilova uchun kerak va
+          foydalanuvchi u yerga ilovani yuklab olish uchun boradi.
+        */}
 
         {/* Variant bo'yicha test natijalari */}
         <ProfileSection

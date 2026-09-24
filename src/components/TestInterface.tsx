@@ -533,7 +533,7 @@ export const TestInterface = ({
   if (showResults) {
     const stats = getTestStats();
     const timeTaken = getElapsedTestSeconds(testStartTime, 25 * 60);
-    
+
     return (
       <TestResults
         totalQuestions={totalQuestions}

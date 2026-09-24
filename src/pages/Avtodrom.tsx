@@ -30,10 +30,10 @@ export default function Avtodrom() {
   return (
     <MainLayout>
       <SEO
-        title="Avtodrom — amaliy imtihon jarima ballari"
-        description="Haydovchilik amaliy imtihonida (avtodrom) beriladigan jarima ballari: kichik, o'rta va qo'pol xatoliklar to'liq ro'yxati."
+        title={t("seo.avtodrom.title")}
+        description={t("seo.avtodrom.description")}
         path="/avtodrom"
-        keywords="avtodrom, amaliy imtihon, jarima ballari, haydovchilik imtihoni"
+        keywords={t("seo.avtodrom.keywords")}
       />
 
       <div className="mx-auto w-full max-w-3xl px-4 py-6 md:py-10">

@@ -4,7 +4,6 @@
   # "no-store, public, ..." qilib aralashtirib CF Bypass qilardi.
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
-  X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
   # cloudflareinsights.com — Cloudflare Web Analytics beaconini Pages o'zi
@@ -12,9 +11,21 @@
   # yoqilgan, lekin bironta ham tashrif yozilmasdi.
   # telegram.org — Telegram Mini App SDK (telegram-web-app.js). Faqat sayt
   # Telegram ichida ochilganda dinamik yuklanadi; oddiy tashrifda so'ralmaydi.
-  # frame-ancestors: Telegram Mini App sahifani WebView da ochadi (iframe
-  # emas), shuning uchun 'none' o'zgarishsiz qoladi.
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://challenges.cloudflare.com https://static.cloudflareinsights.com https://telegram.org; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' https://pub-ad116decdc154b0f90a4b452c72fa433.r2.dev blob:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://pub-ad116decdc154b0f90a4b452c72fa433.r2.dev https://challenges.cloudflare.com https://cloudflareinsights.com https://static.cloudflareinsights.com https://telegram.org; font-src 'self'; frame-src https://challenges.cloudflare.com; frame-ancestors 'none'; object-src 'none'; base-uri 'self'
+  # frame-ancestors: Telegram Mini App MOBIL va DESKTOP mijozlarda WebView
+  # da ochiladi (iframe emas), LEKIN web.telegram.org (Web K / Web A) da u
+  # haqiqiy iframe ichida chiziladi. 'none' bo'lganda u yerda Mini App
+  # bo'm-bo'sh oyna bo'lib qotib qolardi. Shuning uchun faqat Telegram'ning
+  # o'z domenlariga ruxsat — boshqa hech kim sahifani ramkaga sola olmaydi.
+  #
+  # X-Frame-Options OLIB TASHLANDI: unda domen ro'yxati yo'q (faqat DENY /
+  # SAMEORIGIN), ya'ni bu ro'yxatni ifodalab bo'lmaydi. CSP spetsifikatsiyasi
+  # bo'yicha frame-ancestors mavjud bo'lsa, brauzer X-Frame-Options ni
+  # e'tiborsiz qoldiradi — ikkisini birga qoldirish faqat chalkashlik berardi.
+  # oauth.telegram.org ENDI KERAK EMAS: Telegram Login Widget (iframe)
+  # o'rniga t.me deep-link + polling ishlatiladi — iframe umuman
+  # yaratilmaydi (uchinchi tomon cookie bloklanishi tufayli ko'p brauzerda
+  # widget iframe hech qachon chizilmasdi, buni koddan tuzatib bo'lmasdi).
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://challenges.cloudflare.com https://static.cloudflareinsights.com https://telegram.org; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' https://pub-ad116decdc154b0f90a4b452c72fa433.r2.dev blob:; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://pub-ad116decdc154b0f90a4b452c72fa433.r2.dev https://challenges.cloudflare.com https://cloudflareinsights.com https://static.cloudflareinsights.com https://telegram.org; font-src 'self'; frame-src https://challenges.cloudflare.com; frame-ancestors https://web.telegram.org https://webk.telegram.org https://weba.telegram.org; object-src 'none'; base-uri 'self'
 
 # SPA shell — HECH QACHON eskisi ishlatilmasin, LEKIN no-store emas.
 #

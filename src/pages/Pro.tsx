@@ -6,13 +6,53 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { PRO_COMPARISON } from "@/lib/proComparison";
 import { useAccessState } from "@/hooks/useAccessState";
 import { supabase } from "@/integrations/supabase/client";
-import { buildPaymeCheckoutUrl, formatTiyinAsSum, type PaymePlan } from "@/lib/payme";
-import { clearPendingPlan, peekPendingPlan, setPendingPlan } from "@/lib/pendingPlan";
+import {
+  buildPaymeCheckoutUrl,
+  formatTiyinAsSum,
+  formatTiyinPerDayAsSum,
+  type PaymePlan,
+} from "@/lib/payme";
+import { buildClickPayUrl, isClickConfigured } from "@/lib/click";
+import {
+  clearPendingPlan,
+  peekPendingPlan,
+  peekPendingProvider,
+  setPendingPlan,
+  type PaymentProvider,
+} from "@/lib/pendingPlan";
 import { DB_READ_TIMEOUT_MS, withTimeout } from "@/lib/withTimeout";
 import { toast } from "sonner";
-import { Crown, Check, X, Star, Send } from "lucide-react";
+import { Crown, Check, X, Star, ShieldCheck } from "lucide-react";
+import { trackEvent } from "@/lib/track";
+
+/** `click_create_order` RPC javobi. */
+interface ClickOrderResult {
+  ok?: boolean;
+  error?: string;
+  order_id?: string;
+  amount_tiyin?: number;
+}
+
+/** To'lov tizimi tugmasidagi belgi (rasm emas — tashqi resurs yuklanmaydi). */
+function ProviderMark({ provider }: { provider: PaymentProvider }) {
+  if (provider === "click") {
+    return (
+      <span className="inline-flex items-center gap-1.5 text-[15px] font-extrabold tracking-tight text-[#1c8ed7]">
+        <span className="w-3.5 h-3.5 rounded-full bg-[#1c8ed7]" aria-hidden="true" />
+        click
+      </span>
+    );
+  }
+  return (
+    <span className="text-[15px] font-extrabold tracking-tight">
+      <span className="text-foreground">pay</span>
+      <span className="text-[#33cccc]">me</span>
+    </span>
+  );
+}
 
 /**
  * Faol tariflarni o'qiydi.
@@ -44,6 +84,33 @@ async function fetchActivePaymePlans(
     return null;
   }
 }
+
+/** Tarif kartalari. Narx va muddat DB dan olinadi, bu yerdagisi — zaxira. */
+const PLANS = [
+  {
+    planName: "weekly",
+    nameKey: "pro.planWeekly",
+    fallbackPrice: "15 000",
+    fallbackDays: 7,
+    highlighted: false,
+  },
+  {
+    planName: "monthly",
+    nameKey: "pro.planMonthly",
+    fallbackPrice: "35 000",
+    fallbackDays: 30,
+    highlighted: true,
+  },
+  {
+    planName: "quarterly",
+    nameKey: "pro.planQuarterly",
+    fallbackPrice: "83 000",
+    fallbackDays: 90,
+    highlighted: false,
+  },
+];
+
+type PlanCard = (typeof PLANS)[number];
 
 export default function Pro() {
   const navigate = useNavigate();
@@ -121,38 +188,34 @@ export default function Pro() {
     return () => controller.abort();
   }, []);
 
-  const plans = [
-    {
-      planName: "weekly",
-      nameKey: "pro.planWeekly",
-      fallbackPrice: "15 000",
-      periodKey: "pro.planWeeklyDesc",
-      descriptionKey: "pro.planWeeklyDesc",
-      highlighted: false,
-      buttonTextKey: "pro.planWeeklyButton",
-      buttonVariant: "outline" as const,
-    },
-    {
-      planName: "monthly",
-      nameKey: "pro.planMonthly",
-      fallbackPrice: "35 000",
-      periodKey: "pro.planMonthlyDesc",
-      descriptionKey: "pro.planMonthlyDesc",
-      highlighted: true,
-      buttonTextKey: "pro.planMonthlyButton",
-      buttonVariant: "default" as const,
-    },
-    {
-      planName: "quarterly",
-      nameKey: "pro.planQuarterly",
-      fallbackPrice: "83 000",
-      periodKey: "pro.planQuarterlyDesc",
-      descriptionKey: "pro.planQuarterlyDesc",
-      highlighted: false,
-      buttonTextKey: "pro.planQuarterlyButton",
-      buttonVariant: "outline" as const,
-    },
-  ];
+  /** Tanlangan tarif — standart holatda eng ommabopi (oylik). */
+  const [selectedPlan, setSelectedPlan] = useState("monthly");
+
+  /**
+   * To'lov tizimi — standart holatda Payme. Click faqat sozlangan bo'lsa
+   * (VITE_CLICK_*) tanlanadi, aks holda tanlagich umuman ko'rinmaydi.
+   */
+  const clickAvailable = isClickConfigured();
+  const [providerChoice, setProviderChoice] = useState<PaymentProvider>("payme");
+  const provider: PaymentProvider = clickAvailable ? providerChoice : "payme";
+
+  /**
+   * To'lov sahifasiga o'tish boshlandi — tugma qayta bosilmasin (Click da
+   * har bosishda yangi buyurtma yaratiladi).
+   */
+  const [redirecting, setRedirecting] = useState(false);
+
+  /**
+   * To'lov sahifasidan "Orqaga" bilan qaytilganda brauzer sahifani bfcache
+   * dan tiklaydi va `redirecting` true holida qolib, tugma qulflanib qolardi.
+   */
+  useEffect(() => {
+    const onPageShow = (e: PageTransitionEvent) => {
+      if (e.persisted) setRedirecting(false);
+    };
+    window.addEventListener("pageshow", onPageShow);
+    return () => window.removeEventListener("pageshow", onPageShow);
+  }, []);
 
   /** Ko'rsatiladigan narx — DB dagi haqiqiy summa (yuklanmasa zaxira qiymat). */
   const priceOf = (plan: { planName: string; fallbackPrice: string }): string => {
@@ -160,10 +223,51 @@ export default function Pro() {
     return dbPlan ? formatTiyinAsSum(dbPlan.amount_tiyin) : plan.fallbackPrice;
   };
 
+  /** Summa va muddat — DB dagi haqiqiy qiymat, yuklanmasa zaxira. */
+  const amountAndDays = (plan: PlanCard): { tiyin: number; days: number } => {
+    const dbPlan = paymePlans[plan.planName];
+    if (dbPlan?.tariff_days) {
+      return { tiyin: dbPlan.amount_tiyin, days: dbPlan.tariff_days };
+    }
+    return {
+      tiyin: Number(plan.fallbackPrice.replace(/\s/g, "")) * 100,
+      days: plan.fallbackDays,
+    };
+  };
+
+  /**
+   * Kunlik narx va haftalikka nisbatan arzonlik.
+   *
+   * Nega kerak: to'lovlarning ~63%i haftalik tarif, chunki 15 000 raqami
+   * 35 000 dan arzon ko'rinadi. Kunlik hisobda esa oylik ~46% arzon —
+   * bu farq hech qayerda ko'rsatilmagani uchun odam doim arzonini tanlaydi.
+   */
+  const perDayOf = (plan: PlanCard): string => {
+    const { tiyin, days } = amountAndDays(plan);
+    return formatTiyinPerDayAsSum(tiyin, days);
+  };
+
+  /** Haftalikka nisbatan necha foiz arzon (0 — arzon emas yoki o'zi haftalik). */
+  const cheaperThanWeeklyPercent = (plan: PlanCard): number => {
+    if (plan.planName === "weekly") return 0;
+    const weekly = PLANS.find((p) => p.planName === "weekly");
+    if (!weekly) return 0;
+
+    const weeklyInfo = amountAndDays(weekly);
+    const planInfo = amountAndDays(plan);
+    if (!weeklyInfo.days || !planInfo.days) return 0;
+
+    const weeklyPerDay = weeklyInfo.tiyin / weeklyInfo.days;
+    const planPerDay = planInfo.tiyin / planInfo.days;
+    if (!(planPerDay < weeklyPerDay)) return 0;
+
+    return Math.round((1 - planPerDay / weeklyPerDay) * 100);
+  };
+
   // Allow both guests and logged-in users to view the Pro page.
 
   const handleGetPro = () => {
-    window.open('https://t.me/avtotestu_ad', '_blank');
+    window.open('https://t.me/avtosmart1', '_blank');
   };
 
   /**
@@ -223,19 +327,94 @@ export default function Pro() {
       // allaqachon to'langan bo'lsa ham qayta /pro ga yuborib yuboradi.
       clearPendingPlan();
 
+      // Voronka: to'lov muvaffaqiyatli boshlandi — shu yerdan keyin
+      // foydalanuvchi saytdan chiqib Payme'ga ketadi, ya'ni bu SO'NGGI
+      // moment uni kuzata olamiz. Bekor qilingan/tugatilmagan tranzaksiya
+      // (avgustda 5.6%) shu bilan "boshlangan" hisoblarga solishtiriladi.
+      trackEvent("checkout_start", { plan: planName, provider: "payme" });
       window.location.href = checkoutUrl;
       return true;
     },
     [user, paymePlans, language],
   );
 
-  const handleBuyPlan = (planName: string) => {
+  /**
+   * Tarif tugmasi (Click) — avval serverda buyurtma yaratiladi, keyin
+   * foydalanuvchi CLICK to'lov sahifasiga yuboriladi.
+   *
+   * Summa klientdan olinmaydi: `click_create_order` uni `payme_plans` dan
+   * o'qib buyurtmaga yozadi, CLICK esa Prepare da aynan shu summani
+   * tekshiradi. PRO faqat CLICK ning imzolangan Complete so'rovidan keyin
+   * `click` Edge Function orqali beriladi.
+   */
+  const goToClick = useCallback(async (planName: string): Promise<boolean> => {
+    let order: ClickOrderResult | null = null;
+    try {
+      const { data, error } = await withTimeout(
+        supabase.rpc("click_create_order", { p_plan_name: planName }),
+        DB_READ_TIMEOUT_MS,
+      );
+      if (error) throw error;
+      order = data as ClickOrderResult | null;
+    } catch {
+      toast.error("To'lov havolasini yaratib bo'lmadi. Internetni tekshirib, qayta urinib ko'ring.");
+      return false;
+    }
+
+    if (!order?.ok) {
+      switch (order?.error) {
+        case "already_paid":
+          toast.info("Sizda faol PRO obuna mavjud. Muddati tugagach yangi obuna olishingiz mumkin.");
+          break;
+        case "plan_not_found":
+          toast.error("Tarif ma'lumoti yuklanmadi. Internetni tekshirib, qayta urinib ko'ring.");
+          break;
+        case "too_many_orders":
+          toast.error("Urinishlar soni ko'payib ketdi. Birozdan so'ng qayta urinib ko'ring.");
+          break;
+        default:
+          toast.error("To'lov havolasini yaratib bo'lmadi. Administrator bilan bog'laning.");
+      }
+      return false;
+    }
+
+    const payUrl = buildClickPayUrl({
+      orderId: order.order_id ?? "",
+      amountTiyin: Number(order.amount_tiyin),
+      // "?from=click" — /profile PRO holatini bir necha marta qayta so'raydi
+      // (CLICK Complete va brauzer qaytishi orasidagi race, Payme dagidek).
+      returnUrl: `${window.location.origin}/profile?from=click`,
+    });
+    if (!payUrl) {
+      toast.error("To'lov havolasini yaratib bo'lmadi. Administrator bilan bog'laning.");
+      return false;
+    }
+
+    clearPendingPlan();
+    trackEvent("checkout_start", { plan: planName, provider: "click" });
+    window.location.href = payUrl;
+    return true;
+  }, []);
+
+  const goToCheckout = useCallback(
+    async (planName: string, via: PaymentProvider): Promise<void> => {
+      setRedirecting(true);
+      const redirected = via === "click" ? await goToClick(planName) : await goToPayme(planName);
+      if (!redirected) setRedirecting(false);
+    },
+    [goToClick, goToPayme],
+  );
+
+  const handleBuyPlan = (planName: string, via: PaymentProvider) => {
+    if (redirecting) return;
+
     if (!user) {
       // Mehmonning aksariyati hali ro'yxatdan o'tmagan — uni "Kirish" emas,
       // to'g'ridan-to'g'ri "Ro'yxatdan o'tish" bo'limiga olib boramiz va
-      // tugagach shu sahifaga qaytaramiz. Tanlagan tarifi ham saqlanadi —
-      // ro'yxatdan o'tgach uni qaytadan izlashi shart emas.
-      setPendingPlan(planName);
+      // tugagach shu sahifaga qaytaramiz. Tanlagan tarifi va to'lov tizimi
+      // ham saqlanadi — ro'yxatdan o'tgach ularni qaytadan tanlashi shart emas.
+      trackEvent("guest_buy_click", { plan: planName, provider: via });
+      setPendingPlan(planName, via);
       toast.info("To'lov uchun avval ro'yxatdan o'ting — bir daqiqa vaqt oladi.");
       navigate('/auth', { state: { mode: 'signup', returnTo: '/pro' } });
       return;
@@ -249,7 +428,7 @@ export default function Pro() {
       return;
     }
 
-    void goToPayme(planName);
+    void goToCheckout(planName, via);
   };
 
   /**
@@ -276,6 +455,9 @@ export default function Pro() {
 
     const planName = peekPendingPlan();
     if (!planName) return;
+    // Click keyinchalik o'chirib qo'yilgan bo'lsa — Payme orqali davom etamiz.
+    const pendingProvider: PaymentProvider =
+      peekPendingProvider() === "click" && clickAvailable ? "click" : "payme";
 
     // Bu nuqtadan keyin tanlov har qanday holatda ham iste'mol qilinadi:
     // aks holda foydalanuvchi sahifaga har kirganda qayta yo'naltirilaverardi.
@@ -286,15 +468,17 @@ export default function Pro() {
       return;
     }
 
+    if (PLANS.some((p) => p.planName === planName)) setSelectedPlan(planName);
+    setProviderChoice(pendingProvider);
     toast.info("To'lov sahifasiga o'tkazilmoqda...");
-    void goToPayme(planName);
-  }, [isLoading, accessLoading, user, isPremium, plansSettled, goToPayme]);
+    void goToCheckout(planName, pendingProvider);
+  }, [isLoading, accessLoading, user, isPremium, plansSettled, clickAvailable, goToCheckout]);
 
 
   if (isLoading) {
     return (
       <MainLayout>
-        <div className="min-h-[60vh] flex items-center justify-center">
+        <div className="min-h-screen flex items-center justify-center">
           <div className="w-10 h-10 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
         </div>
       </MainLayout>
@@ -323,14 +507,14 @@ export default function Pro() {
                   {t("home.proStatusActive")}
                 </p>
                 <p className="text-xs text-muted-foreground mt-0.5">
-                  Barcha PRO imkoniyatlar faol — testlarni boshlang!
+                  {t("pro.activeSubtitle")}
                 </p>
               </div>
               <button
                 onClick={() => navigate('/')}
-                className="ml-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-white text-xs font-bold shadow-md transition-all hover:scale-[1.03] flex-shrink-0"
+                className="ml-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-amber-950 text-xs font-bold shadow-md transition-all hover:scale-[1.03] flex-shrink-0"
               >
-                Bosh sahifa →
+                {t("pro.activeHomeButton")} →
               </button>
             </div>
           </div>
@@ -340,68 +524,12 @@ export default function Pro() {
       {/* Asosiy Qism: Ma'lumotlar va Narxlar */}
       <section className="py-6 md:py-10 bg-background">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
-            
-            {/* MOBILE: Narxlar birinchi (lg:hidden) */}
-            <div className="lg:hidden space-y-4">
-              <div className="bg-card border border-border rounded-2xl p-4 md:p-5 shadow-sm">
-                <h2 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
-                  <Star className="w-5 h-5 text-amber-500" /> {t("pro.plansTitle")}
-                </h2>
-                
-                <div className="space-y-3">
-                  {plans.map((plan, index) => (
-                    <div 
-                      key={index}
-                      className={`relative p-4 rounded-xl border transition-all ${
-                        plan.highlighted 
-                          ? "border-amber-500 bg-amber-500/5 shadow-sm shadow-amber-500/10 border-2" 
-                          : "border-border bg-background hover:border-amber-500/40"
-                      }`}
-                    >
-                      {plan.highlighted && (
-                        <div className="absolute -top-2.5 right-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full shadow-sm">
-                          {t("pro.planPopular")}
-                        </div>
-                      )}
-                      
-                      <div className="flex justify-between items-start mb-2">
-                        <div>
-                          <h3 className="font-bold text-sm">{t(plan.nameKey)}</h3>
-                          <p className="text-[13px] text-muted-foreground mt-0.5">{t(plan.descriptionKey)}</p>
-                        </div>
-                      </div>
-                      
-                      <div className="flex items-end gap-1.5 mb-3.5">
-                        <span className="text-xl font-extrabold">{priceOf(plan)} so&apos;m</span>
-                        <span className="text-[13px] font-medium text-muted-foreground mb-1">{t(plan.periodKey)}</span>
-                      </div>
 
-                      <Button
-                        className={`w-full h-10 text-sm font-bold rounded-lg ${
-                          plan.highlighted 
-                            ? "bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white border-0 shadow-sm" 
-                            : "bg-muted hover:bg-muted/80"
-                        }`}
-                        variant={plan.buttonVariant}
-                        onClick={() => handleBuyPlan(plan.planName)}
-                      >
-                        {t(plan.buttonTextKey)}
-                      </Button>
-                    </div>
-                  ))}
-                </div>
-                
-                <p className="text-center text-[11px] text-muted-foreground mt-4 px-2 leading-relaxed">
-                  {t("pro.planContactText")} <button onClick={handleGetPro} className="text-blue-500 hover:underline font-medium">{t("pro.planContactLink")}</button>.
-                </p>
-              </div>
-            </div>
-            
-            {/* CHAP TARAF: Ma'lumotlar va Katta Farqlar (8/12) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
+
+            {/* CHAP TARAF: Ma'lumotlar va farqlar (8/12) */}
             <div className="lg:col-span-8 space-y-6">
-              
+
               {/* Sarlavha qismi */}
               <div>
                 <div className="inline-flex items-center gap-1.5 bg-amber-500/10 px-3 py-1 rounded-md mb-3 border border-amber-500/20">
@@ -418,11 +546,19 @@ export default function Pro() {
 
               {/* Taqqoslash Bloki (Oddiy vs PRO) */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 relative">
-                
+
                 {/* O'rtadagi VS belgisi */}
                 <div className="hidden sm:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-background border border-border rounded-full items-center justify-center z-10 font-bold text-muted-foreground text-xs shadow-sm">
                   {t("pro.comparisonVs")}
                 </div>
+
+                {/*
+                  Ikkala ustun ham YAGONA manbadan (`PRO_COMPARISON`)
+                  chiziladi. Ilgari o'nta qator qo'lda yozilgandi va
+                  `/qoshimcha` dagi taqqoslash bilan bir-biriga mos
+                  kelmasdi — foydalanuvchi ikki sahifada ikki xil va'dani
+                  o'qirdi.
+                */}
 
                 {/* Oddiy Versiya */}
                 <Card className="border-border bg-muted/20 shadow-none hover:shadow-sm transition-shadow">
@@ -430,26 +566,19 @@ export default function Pro() {
                     <CardTitle className="text-base text-muted-foreground font-semibold">{t("pro.comparisonTitle")}</CardTitle>
                   </CardHeader>
                   <CardContent className="pt-5 space-y-4">
-                    <div className="flex items-start gap-2.5">
-                      <Check className="w-5 h-5 text-green-500 shrink-0" />
-                      <span className="text-sm text-foreground font-medium mt-0.5">{t("pro.comparisonBasic1")}</span>
-                    </div>
-                    <div className="flex items-start gap-2.5 text-muted-foreground opacity-60">
-                      <X className="w-5 h-5 text-red-400 shrink-0" />
-                      <span className="text-sm line-through mt-0.5">{t("pro.comparisonBasic2")}</span>
-                    </div>
-                    <div className="flex items-start gap-2.5 text-muted-foreground opacity-60">
-                      <X className="w-5 h-5 text-red-400 shrink-0" />
-                      <span className="text-sm line-through mt-0.5">{t("pro.comparisonBasic3")}</span>
-                    </div>
-                    <div className="flex items-start gap-2.5 text-muted-foreground opacity-60">
-                      <X className="w-5 h-5 text-red-400 shrink-0" />
-                      <span className="text-sm line-through mt-0.5">{t("pro.comparisonBasic4")}</span>
-                    </div>
-                    <div className="flex items-start gap-2.5 text-muted-foreground opacity-60">
-                      <X className="w-5 h-5 text-red-400 shrink-0" />
-                      <span className="text-sm line-through mt-0.5">{t("pro.comparisonBasic5")}</span>
-                    </div>
+                    {PRO_COMPARISON.map((row) =>
+                      row.inFree ? (
+                        <div key={row.freeKey} className="flex items-start gap-2.5">
+                          <Check className="w-5 h-5 text-green-500 shrink-0" />
+                          <span className="text-sm text-foreground font-medium mt-0.5">{t(row.freeKey)}</span>
+                        </div>
+                      ) : (
+                        <div key={row.freeKey} className="flex items-start gap-2.5 text-muted-foreground opacity-60">
+                          <X className="w-5 h-5 text-red-400 shrink-0" />
+                          <span className="text-sm line-through mt-0.5">{t(row.freeKey)}</span>
+                        </div>
+                      ),
+                    )}
                   </CardContent>
                 </Card>
 
@@ -462,101 +591,146 @@ export default function Pro() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="pt-5 space-y-4 relative z-10">
-                    <div className="flex items-start gap-2.5">
-                      <Check className="w-5 h-5 text-amber-500 shrink-0" />
-                      <span className="text-sm font-semibold text-foreground mt-0.5">{t("pro.comparisonPro1")}</span>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <Check className="w-5 h-5 text-amber-500 shrink-0" />
-                      <span className="text-sm font-semibold text-foreground mt-0.5">{t("pro.comparisonPro2")}</span>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <Check className="w-5 h-5 text-amber-500 shrink-0" />
-                      <span className="text-sm font-semibold text-foreground mt-0.5">{t("pro.comparisonPro3")}</span>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <Check className="w-5 h-5 text-amber-500 shrink-0" />
-                      <span className="text-sm font-semibold text-foreground mt-0.5">{t("pro.comparisonPro4")}</span>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <Check className="w-5 h-5 text-amber-500 shrink-0" />
-                      <span className="text-sm font-semibold text-foreground mt-0.5">{t("pro.comparisonPro5")}</span>
-                    </div>
+                    {PRO_COMPARISON.map((row) => (
+                      <div key={row.proKey} className="flex items-start gap-2.5">
+                        <Check className="w-5 h-5 text-amber-500 shrink-0" />
+                        <span className="text-sm font-semibold text-foreground mt-0.5">{t(row.proKey)}</span>
+                      </div>
+                    ))}
                   </CardContent>
                 </Card>
               </div>
 
-              {/* Murojaat tugmasi (Farqlarning tagida) */}
-              <div className="flex sm:justify-start">
-                <Button
-                  size="lg"
-                  className="gap-2.5 px-6 h-11 font-semibold rounded-xl border-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-                  variant="outline"
-                  onClick={handleGetPro}
-                >
-                  <Send className="w-5 h-5" />
-                  {t("pro.contactButton")}
-                </Button>
-              </div>
-
             </div>
 
-            {/* O'NG TARAF: Ta'riflar / Narxlar (4/12) - Desktop only */}
-            <div className="hidden lg:block lg:col-span-4 lg:sticky lg:top-24 space-y-4">
+            {/*
+              TARIFLAR VA TO'LOV (4/12) — bitta blok. Ilgari u mobil va desktop
+              uchun ikki marta chizilardi; endi bitta blok mobilda birinchi
+              (`order-first`), desktopda o'ng ustunda (sticky) turadi.
+            */}
+            <aside className="order-first lg:order-none lg:col-span-4 lg:sticky lg:top-24">
               <div className="bg-card border border-border rounded-2xl p-4 md:p-5 shadow-sm">
                 <h2 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
                   <Star className="w-5 h-5 text-amber-500" /> {t("pro.plansTitle")}
                 </h2>
-                
-                <div className="space-y-3">
-                  {plans.map((plan, index) => (
-                    <div 
-                      key={index}
-                      className={`relative p-4 rounded-xl border transition-all ${
-                        plan.highlighted 
-                          ? "border-amber-500 bg-amber-500/5 shadow-sm shadow-amber-500/10 border-2" 
-                          : "border-border bg-background hover:border-amber-500/40"
-                      }`}
-                    >
-                      {plan.highlighted && (
-                        <div className="absolute -top-2.5 right-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full shadow-sm">
-                          {t("pro.planPopular")}
-                        </div>
-                      )}
-                      
-                      <div className="flex justify-between items-start mb-2">
-                        <div>
-                          <h3 className="font-bold text-sm">{t(plan.nameKey)}</h3>
-                          <p className="text-[13px] text-muted-foreground mt-0.5">{t(plan.descriptionKey)}</p>
-                        </div>
-                      </div>
-                      
-                      <div className="flex items-end gap-1.5 mb-3.5">
-                        <span className="text-xl font-extrabold">{priceOf(plan)} so&apos;m</span>
-                        <span className="text-[13px] font-medium text-muted-foreground mb-1">{t(plan.periodKey)}</span>
-                      </div>
 
-                      <Button
-                        className={`w-full h-10 text-sm font-bold rounded-lg ${
-                          plan.highlighted 
-                            ? "bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white border-0 shadow-sm" 
-                            : "bg-muted hover:bg-muted/80"
+                <div role="radiogroup" aria-label={t("pro.plansTitle")} className="space-y-3">
+                  {PLANS.map((plan) => {
+                    const active = plan.planName === selectedPlan;
+                    const percent = cheaperThanWeeklyPercent(plan);
+                    const { days } = amountAndDays(plan);
+                    return (
+                      <button
+                        key={plan.planName}
+                        type="button"
+                        role="radio"
+                        aria-checked={active}
+                        onClick={() => setSelectedPlan(plan.planName)}
+                        className={`relative w-full text-left p-3.5 rounded-xl border-2 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60 ${
+                          active
+                            ? "border-amber-500 bg-amber-500/5 shadow-sm shadow-amber-500/10"
+                            : "border-border bg-background hover:border-amber-500/40"
                         }`}
-                        variant={plan.buttonVariant}
-                        onClick={() => handleBuyPlan(plan.planName)}
                       >
-                        {t(plan.buttonTextKey)}
-                      </Button>
-                    </div>
-                  ))}
+                        {plan.highlighted && (
+                          <span className="absolute -top-2.5 right-3 bg-gradient-to-r from-amber-600 to-orange-600 text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full shadow-sm">
+                            {t("pro.planPopular")}
+                          </span>
+                        )}
+
+                        <div className="flex items-start gap-3">
+                          <span
+                            aria-hidden="true"
+                            className={`mt-0.5 w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors ${
+                              active ? "border-amber-500 bg-amber-500" : "border-muted-foreground/40"
+                            }`}
+                          >
+                            {active && <Check className="w-3 h-3 text-white" strokeWidth={3} />}
+                          </span>
+
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-baseline justify-between gap-2">
+                              <span className="font-bold text-sm text-foreground">{t(plan.nameKey)}</span>
+                              <span className="text-lg font-extrabold text-foreground whitespace-nowrap">
+                                {priceOf(plan)} {t("pro.currency")}
+                              </span>
+                            </div>
+
+                            {/* Muddat va kunlik narx — tariflarni HAQIQATAN taqqoslash mumkin bo'lgan o'lchov */}
+                            <div className="flex items-center gap-x-2 gap-y-1 flex-wrap mt-1">
+                              <span className="text-[12px] text-muted-foreground">
+                                {t("pro.planDays").replace("{n}", String(days))} · {perDayOf(plan)} {t("pro.currency")} {t("pro.perDay")}
+                              </span>
+                              {percent > 0 && (
+                                <span className="text-[11px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/25 px-2 py-0.5 rounded-full">
+                                  {t("pro.cheaperThanWeekly").replace("{p}", String(percent))}
+                                </span>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      </button>
+                    );
+                  })}
                 </div>
-                
-                <p className="text-center text-[11px] text-muted-foreground mt-4 px-2 leading-relaxed">
-                  {t("pro.planContactText")} <button onClick={handleGetPro} className="text-blue-500 hover:underline font-medium">{t("pro.planContactLink")}</button>.
+
+                {/* To'lov tizimi — standart holatda Payme; Click sozlangan bo'lsagina ko'rinadi */}
+                {clickAvailable && (
+                  <div className="mt-5">
+                    <p className="text-xs font-semibold text-muted-foreground mb-2">{t("pro.paymentMethod")}</p>
+                    <div role="radiogroup" aria-label={t("pro.paymentMethod")} className="grid grid-cols-2 gap-2">
+                      {(["payme", "click"] as const).map((id) => {
+                        const active = provider === id;
+                        return (
+                          <button
+                            key={id}
+                            type="button"
+                            role="radio"
+                            aria-checked={active}
+                            aria-label={id === "payme" ? "Payme" : "Click"}
+                            onClick={() => setProviderChoice(id)}
+                            className={`relative h-12 rounded-xl border-2 flex items-center justify-center transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/60 ${
+                              active
+                                ? "border-amber-500 bg-amber-500/5 shadow-sm"
+                                : "border-border bg-background hover:border-amber-500/40"
+                            }`}
+                          >
+                            <ProviderMark provider={id} />
+                            {active && (
+                              <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-amber-500 flex items-center justify-center">
+                                <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />
+                              </span>
+                            )}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                <Button
+                  className="w-full h-12 mt-4 text-base font-bold rounded-xl bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white border-0 shadow-sm"
+                  disabled={redirecting}
+                  onClick={() => handleBuyPlan(selectedPlan, provider)}
+                >
+                  {redirecting
+                    ? t("pro.paying")
+                    : t("pro.payButton").replace(
+                        "{price}",
+                        priceOf(PLANS.find((p) => p.planName === selectedPlan) ?? PLANS[1]),
+                      )}
+                </Button>
+
+                <p className="flex items-center justify-center gap-1.5 text-center text-[12px] text-muted-foreground mt-2.5">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  {t("pro.autoActivation")}
                 </p>
 
+                <p className="text-center text-[11px] text-muted-foreground mt-3 px-2 leading-relaxed">
+                  {t("pro.planContactText")} <button onClick={handleGetPro} className="text-blue-500 hover:underline font-medium">{t("pro.planContactLink")}</button>.
+                </p>
               </div>
-            </div>
+            </aside>
 
           </div>
         </div>

@@ -49,42 +49,43 @@ export function normalizeUzPhone(input: string): string | null {
   return UZ_CODE + local;
 }
 
-/** Kiritish maydoni uchun: "+998 90 123 45 67" ko'rinishida formatlaydi. */
-export function formatUzPhoneInput(input: string): string {
-  let digits = (input ?? '').replace(/\D/g, '');
-
-  // Foydalanuvchi 998 siz tersa ham to'g'ri joyga tushsin
-  if (digits.startsWith(UZ_CODE)) digits = digits.slice(UZ_CODE.length);
-  digits = digits.slice(0, LOCAL_DIGITS);
-
-  if (!digits) return '';
-
-  const parts = [
-    digits.slice(0, 2),
-    digits.slice(2, 5),
-    digits.slice(5, 7),
-    digits.slice(7, 9),
-  ].filter(Boolean);
-
-  return `+${UZ_CODE} ${parts.join(' ')}`.trimEnd();
-}
-
-/**
- * Kiritish maydoni uchun, `+998` prefiksisiz: "90 123 45 67".
- * Maydon yonida prefiks alohida chiqadi, shuning uchun foydalanuvchi faqat
- * 9 ta raqam yozadi. Nusxa ko'chirib qo'yilgan to'liq raqamdan 998 kesiladi.
- */
-export function formatUzLocalInput(input: string): string {
-  let digits = (input ?? '').replace(/\D/g, '');
-  if (digits.startsWith(UZ_CODE)) digits = digits.slice(UZ_CODE.length);
-  digits = digits.slice(0, LOCAL_DIGITS);
-
+/** Raqamlarni "90 123 45 67" ko'rinishida guruhlaydi. */
+function groupLocal(digits: string): string {
   return [
     digits.slice(0, 2),
     digits.slice(2, 5),
     digits.slice(5, 7),
     digits.slice(7, 9),
   ].filter(Boolean).join(' ');
+}
+
+/**
+ * Kiritish maydoni uchun erkin format — foydalanuvchi raqamni QANDAY yozsa
+ * ham qabul qiladi: `901234567`, `998901234567`, `+998901234567`.
+ *
+ * Mamlakat kodi FAQAT uzunlik bo'yicha ajratiladi, prefiks bo'yicha emas.
+ * Sabab: `99` ham amaldagi operator kodi, shuning uchun to'liq 9 xonali
+ * raqamning o'zi `998...` bilan boshlanishi mumkin (masalan 99 812 34 56).
+ * Eski kod bunday raqamlardan "998" ni kesib tashlar edi va egasi
+ * ro'yxatdan o'ta olmasdi.
+ *
+ * `+` bilan yozilayotganda kod aniq bo'lgunicha (10 xonagacha) matnga
+ * tegilmaydi — aks holda "+998" yozilishi bilan "+99 8" ga aylanib ketardi.
+ */
+export function formatUzPhoneLoose(input: string): string {
+  const raw = input ?? '';
+  const hadPlus = raw.trimStart().startsWith('+');
+
+  const digits = raw.replace(/\D/g, '').slice(0, UZ_CODE.length + LOCAL_DIGITS);
+  if (!digits) return hadPlus ? '+' : '';
+
+  if (digits.length > LOCAL_DIGITS && digits.startsWith(UZ_CODE)) {
+    return `+${UZ_CODE} ${groupLocal(digits.slice(UZ_CODE.length))}`.trimEnd();
+  }
+
+  // Kod hali noaniq — foydalanuvchi yozayotganini buzmaymiz
+  if (hadPlus) return `+${digits}`;
+  return groupLocal(digits.slice(0, LOCAL_DIGITS));
 }
 
 /** Ko'rsatish uchun: 998901234567 → "+998 90 123 45 67" */
@@ -129,4 +130,23 @@ export function loginIdentifierToEmail(input: string): string | null {
 
   const normalized = normalizeUzPhone(raw);
   return normalized ? phoneToEmail(normalized) : null;
+}
+
+/**
+ * Yagona kirish maydoni telefon raqam ham, email ham qabul qiladi.
+ * Faqat raqam/`+`/ajratgichlardan iborat matn telefon deb hisoblanadi.
+ */
+export function looksLikePhone(input: string): boolean {
+  const raw = (input ?? '').trim();
+  return raw.length > 0 && !/[^\d\s+()-]/.test(raw);
+}
+
+/**
+ * Yagona kirish maydoni uchun format: telefonga o'xshasa guruhlaydi,
+ * emailga tegmaydi (bo'sh joylar qo'shilib qolmasin).
+ */
+export function formatLoginInput(input: string): string {
+  const raw = input ?? '';
+  if (!raw) return '';
+  return looksLikePhone(raw) ? formatUzPhoneLoose(raw) : raw.trimStart();
 }

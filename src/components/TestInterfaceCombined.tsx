@@ -389,7 +389,7 @@ export const TestInterfaceCombined = ({
   if (showResults) {
     const stats = getTestStats();
     const timeTaken = getElapsedTestSeconds(testStartTime, timeLimit);
-    
+
     return (
       <TestResults
         totalQuestions={totalQuestions}

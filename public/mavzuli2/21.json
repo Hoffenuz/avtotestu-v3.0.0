@@ -1784,5 +1784,236 @@
             "uz_cyr": "Йўл ҳаракати қоидаларининг 126 бандига асосан, турар жой даҳаларидан чиқишда ҳайдовчилар бошқа ҳаракат қатнашчиларига йўл беришлари керак.",
             "ru": "Согласно статье 126 ПДД, водители обязаны уступать дорогу другим участникам дорожного движения при выезде из жилых помещений."
         }
+    },
+    {
+        "task_info": {
+            "global_id": "t_64_q_6",
+            "global_id2": "t_64_q_6",
+            "ticket_num": 64,
+            "order": 24,
+            "remapped_from": null
+        },
+        "media_url": "u64-6.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Tirbandlik sababli to'xtab turgan qaysi avtomobil qoidani buzmayapti?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Qizil avtomobil",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Yashil avtomobil",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Har ikkisi buzayapti",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Har ikkisi buzmayapti",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Тирбандлик сабабли тўхтаб турган қайси автомобиль қоидани бузмаяпти?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Қизил автомобиль",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Яшил автомобиль",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Ҳар иккиси бузаяпти",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Ҳар иккиси бузмаяпти",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Какой из остановившихся из-за затора автомобилей не нарушает правила?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Красный автомобиль",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Зелёный автомобиль",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Оба нарушают",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 4,
+                        "text": "Оба не нарушают",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQga ko'ra, tirbandlik yuzaga kelganda haydovchi piyodalar o'tish joyi yoki chorraha ichida to'xtab qolishiga olib keladigan tarzda harakatni davom ettirishi taqiqlanadi. Rasmda yashil avtomobil piyodalar o'tish joyini to'sib turgani uchun qoidani buzgan, qizil avtomobil esa piyodalar o'tish joyidan tashqarida to'xtagani uchun qoidani buzmagan.",
+            "uz_cyr": "YHQга кўра, тирбандлик юзага келганда ҳайдовчи пиёдалар ўтиш жойи ёки чорраҳа ичида тўхтаб қолишига олиб келадиган тарзда ҳаракатни давом эттириши тақиқланади. Расмда яшил автомобиль пиёдалар ўтиш жойини тўсиб тургани учун қоидани бузган, қизил автомобиль эса пиёдалар ўтиш жойидан ташқарида тўхтагани учун қоидани бузмаган.",
+            "ru": "Согласно ПДД, водителю запрещается продолжать движение, если это приведёт к остановке на пешеходном переходе или перекрёстке при заторе. На рисунке зелёный автомобиль остановился, перекрыв пешеходный переход, тем самым нарушив правило, а красный автомобиль остановился вне перехода и правило не нарушил."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_64_q_11",
+            "global_id2": "t_64_q_11",
+            "ticket_num": 64,
+            "order": 25,
+            "remapped_from": null
+        },
+        "media_url": "u64-11.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Ko'rsatilgan holatda avtomobil haydovchisiga oraqaga harakatlanishga ruxsat etiladimi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ruxsat etiladi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Piyodaga xalaqit bermasa ruxsat etiladi",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Taqiqlanadi",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Кўрсатилган ҳолатда автомобиль ҳайдовчисига орқага ҳаракатланишга рухсат этиладими?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Рухсат этилади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Пиёдага халақит бермаса рухсат этилади",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Тақиқланади",
+                        "is_correct": true
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Разрешено ли водителю автомобиля движение задним ходом в показанной ситуации?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Разрешается",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 2,
+                        "text": "Разрешается, если не создаёт помех пешеходу",
+                        "is_correct": false
+                    },
+                    {
+                        "id": 3,
+                        "text": "Запрещается",
+                        "is_correct": true
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQga ko'ra, piyodalar o'tish joylarida orqaga harakatlanish taqiqlanadi. Rasmda transport vositasi piyodalar o'tish joyi chegarasida turgani sababli, haydovchiga orqaga harakatlanish taqiqlanadi.",
+            "uz_cyr": "YHQга кўра, пиёдалар ўтиш жойларида орқага ҳаракатланиш тақиқланади. Расмда транспорт воситаси пиёдалар ўтиш жойи чегарасида тургани сабабли, ҳайдовчига орқага ҳаракатланиш тақиқланади.",
+            "ru": "Согласно ПДД, движение задним ходом на пешеходных переходах запрещено. Так как на рисунке транспортное средство находится в границах пешеходного перехода, водителю запрещено движение задним ходом."
+        }
+    },
+    {
+        "task_info": {
+            "global_id": "t_64_q_13",
+            "global_id2": "t_64_q_13",
+            "ticket_num": 64,
+            "order": 26,
+            "remapped_from": null
+        },
+        "media_url": "u64-13.webp",
+        "content": {
+            "uz_lat": {
+                "text": "Rasmda ko'rsatilgan vaziyatda avtomobil haydovchisi harakatni davom ettirishi mumkinmi?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ha",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Yo'q",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "uz_cyr": {
+                "text": "Расмда кўрсатилган вазиятда автомобиль ҳайдовчиси ҳаракатни давом эттириши мумкинми?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Ҳа",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Йўқ",
+                        "is_correct": false
+                    }
+                ]
+            },
+            "ru": {
+                "text": "Может ли водитель автомобиля продолжить движение в показанной на рисунке ситуации?",
+                "options": [
+                    {
+                        "id": 1,
+                        "text": "Да",
+                        "is_correct": true
+                    },
+                    {
+                        "id": 2,
+                        "text": "Нет",
+                        "is_correct": false
+                    }
+                ]
+            }
+        },
+        "izoh": {
+            "uz_lat": "YHQning 17-bobi 109-bandiga asosan, tartibga solinmagan piyodalar o'tish joyiga yaqinlashayotgan transport vositasi haydovchisi qatnov qismining shu (o'z harakat) yo'nalishini kesib o'tayotgan piyoda(lar)ga yo'l berishi shart. Rasmda piyoda avtomobil harakatlanayotgan yo'nalishdan uzoqlashib, qarama-qarshi tomonga o'tib ketayotgani ko'rsatilgan, ya'ni u shu yo'nalishda emas va haydovchiga xalaqit bermaydi. Shu sababli haydovchi ehtiyotkorlik bilan harakatni davom ettirishi mumkin.",
+            "uz_cyr": "YHQнинг 17-боби 109-бандига асосан, тартибга солинмаган пиёдалар ўтиш жойига яқинлашаётган транспорт воситаси ҳайдовчиси қатнов қисмининг шу (ўз ҳаракат) йўналишини кесиб ўтаётган пиёда(лар)га йўл бериши шарт. Расмда пиёда автомобиль ҳаракатланаётган йўналишдан узоқлашиб, қарама-қарши томонга ўтиб кетаётгани кўрсатилган, яъни у шу йўналишда эмас ва ҳайдовчига халақит бермайди. Шу сабабли ҳайдовчи эҳтиёткорлик билан ҳаракатни давом эттириши мумкин.",
+            "ru": "Согласно главе 17, пункту 109 ПДД, водитель транспортного средства, приближающегося к нерегулируемому пешеходному переходу, обязан уступить дорогу пешеходу(ам), пересекающему проезжую часть в направлении его движения. На рисунке пешеход удаляется от полосы движения автомобиля и переходит на противоположную сторону, то есть движется не в этом направлении и не создаёт помех водителю. Поэтому водитель может, соблюдая осторожность, продолжить движение."
+        }
     }
 ]

@@ -52,7 +52,7 @@ export default function YangilikDetail() {
   if (loading) {
     return (
       <MainLayout>
-        <div className="min-h-[50vh] flex items-center justify-center gap-2 text-muted-foreground">
+        <div className="min-h-screen flex items-center justify-center gap-2 text-muted-foreground">
           <Loader2 className="w-5 h-5 animate-spin" />
           {language === "ru" ? "Загрузка..." : "Yuklanmoqda..."}
         </div>
@@ -76,7 +76,7 @@ export default function YangilikDetail() {
         publishedAt={post.published_at || post.created_at}
         updatedAt={post.updated_at}
         ogImage={post.cover_image_url || undefined}
-        keywords="avtotestlar yangilik, YHQ, prava test, haydovchilik guvohnomasi"
+        keywords="avtosmart yangilik, YHQ, prava test, haydovchilik guvohnomasi"
       />
 
       <article className="py-8 md:py-12 bg-background">
@@ -98,12 +98,20 @@ export default function YangilikDetail() {
           </h1>
 
           {post.cover_image_url && (
-            <div className="mb-8 overflow-hidden rounded-2xl border border-border">
+            /*
+              `aspect-[16/9]` SHART — muqova rasmi admin panel orqali
+              yuklanadi, haqiqiy o'lchami oldindan noma'lum (savol rasmlari
+              kabi manifest yo'q). Qattiq nisbat rasm hali kelmagan bo'lsa
+              ham joyni zahiralaydi — aks holda pastdagi matn rasm
+              kelganda pastga surilardi (CLS).
+            */
+            <div className="mb-8 aspect-[16/9] overflow-hidden rounded-2xl border border-border bg-muted">
               <img
                 src={post.cover_image_url}
                 alt={localized.title}
-                className="w-full max-h-[420px] object-cover"
+                className="h-full w-full object-cover"
                 loading="lazy"
+                decoding="async"
               />
             </div>
           )}

@@ -2,8 +2,9 @@ import { Helmet } from "react-helmet-async";
 import { SEO } from "./SEO";
 
 const BASE_URL = "https://www.avtotestu.uz";
-const DEFAULT_OG_IMAGE = `${BASE_URL}/rasm1.webp`;
-const PUBLISHER_LOGO = `${BASE_URL}/rasm1.webp`;
+const DEFAULT_OG_IMAGE = `${BASE_URL}/avtosmart-og.jpg`;
+/* Google nashriyot logotipini OQ fonda ko'rsatadi — oq variant ko'rinmasdi. */
+const PUBLISHER_LOGO = `${BASE_URL}/avtosmart-logo.webp`;
 
 interface ArticleSEOProps {
   title: string;
@@ -35,11 +36,11 @@ export function ArticleSEO({
     image: [ogImage],
     author: {
       "@type": "Organization",
-      name: "Avtotestlar.uz",
+      name: "AvtoSmart",
     },
     publisher: {
       "@type": "Organization",
-      name: "Avtotestlar.uz",
+      name: "AvtoSmart",
       logo: {
         "@type": "ImageObject",
         url: PUBLISHER_LOGO,

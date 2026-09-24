@@ -786,6 +786,10 @@ export type Database = {
         Args: { p_user_id: string }
         Returns: undefined
       }
+      click_create_order: {
+        Args: { p_plan_name: string }
+        Returns: Json
+      }
       get_user_access_state: {
         Args: { user_id: string }
         Returns: {

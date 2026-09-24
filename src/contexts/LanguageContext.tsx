@@ -1,7 +1,9 @@
-import React, { createContext, useContext, useState, useEffect, useCallback, useMemo, ReactNode } from 'react';
+import React, { createContext, useContext, useEffect, useCallback, useMemo, ReactNode } from 'react';
+
 import uzLatTranslations from '@/locales/uz-lat.json';
 import uzTranslations from '@/locales/uz.json';
 import ruTranslations from '@/locales/ru.json';
+import { detectLangFromWindow, buildLangPath } from '@/lib/langUrl';
 
 export type Language = 'uz-lat' | 'uz' | 'ru';
 
@@ -38,22 +40,64 @@ const HTML_LANG: Record<Language, string> = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguageState] = useState<Language>(() => {
-    try {
-      const saved = localStorage.getItem('language');
-      return (saved === 'uz-lat' || saved === 'uz' || saved === 'ru') ? saved : 'uz-lat';
-    } catch {
-      return 'uz-lat';
-    }
-  });
+
+  /*
+    TIL MANBASI — MANZIL, `localStorage` EMAS.
+
+    Ilgari til faqat `localStorage` da saqlanardi va uchala til bitta
+    manzilda ko'rinardi. Google bir manzil uchun faqat bitta til
+    versiyasini indekslay oladi — shu sababli ruscha va kirillcha kontent
+    qidiruvda deyarli ko'rinmasdi (kirill so'rovlari oyiga 25 775
+    ko'rsatish beradi, mos sahifa esa yo'q edi).
+
+    Endi manzil hal qiladi: `/belgilar` lotin, `/cyr/belgilar` kirill,
+    `/ru/belgilar` ruscha. Bitta manzil — bitta til.
+  */
+  const { lang: language } = detectLangFromWindow();
 
   useEffect(() => {
-    try { localStorage.setItem('language', language); } catch { /* ignore quota/security errors */ }
+    /*
+      `localStorage` YOZILADI, lekin O'QILMAYDI. Sabab: uni o'qib tilni
+      tanlasak, bitta manzil yana ikki xil tilda ko'rinardi. Yozib
+      qo'yilishi esa foydali — kelajakda "sizning tilingiz" taklifini
+      ko'rsatish uchun asqotadi.
+    */
+    try { localStorage.setItem('language', language); } catch { /* kvota yoki maxfiy rejim */ }
     document.documentElement.lang = HTML_LANG[language];
   }, [language]);
 
+  /**
+   * Tilni almashtirish — SHU SAHIFANING boshqa tildagi manzeliga o'tish.
+   * Qidiruv so'rovi va lange saqlanadi, faqat prefiks almashadi.
+   */
   const setLanguage = useCallback((lang: Language) => {
-    setLanguageState(lang);
+    /*
+      TO'LIQ QAYTA YUKLASH, client-side navigate EMAS.
+
+      Til prefiksi Router ga `basename` sifatida berilgan va u faqat
+      Router yaratilganda o'qiladi. Client-side o'tishda `basename`
+      eski qiymatida qolib, barcha havolalar noto'g'ri prefiks olardi.
+
+      Til almashtirish kamdan-kam bo'ladigan amal, shuning uchun to'liq
+      yuklash sezilarli emas — buzuq navigatsiyadan esa ancha yaxshi.
+    */
+    if (typeof window === 'undefined') return;
+
+    /*
+      YO'L AYNAN SHU YERDA O'QILADI, render vaqtida EMAS.
+
+      Bu provider `<Routes>` dan yuqorida turadi va `useLocation()` ni
+      ishlatmaydi, ya'ni client-side o'tishlarda QAYTA RENDER BO'LMAYDI.
+      Yo'l render vaqtida o'qilganda u sahifa birinchi yuklangan
+      manzilda qotib qolardi: `/profile` da ochilgan sayt keyin
+      `/belgilar` ga o'tsa ham, til almashtirilganda foydalanuvchi
+      `/profile` ga qaytarib tashlanardi.
+
+      `window.location` esa har doim haqiqiy joriy manzilni beradi.
+    */
+    const { basePath } = detectLangFromWindow();
+    const yangi = buildLangPath(lang, basePath);
+    window.location.assign(`${yangi}${window.location.search}${window.location.hash}`);
   }, []);
 
   const t = useCallback((key: string): string => {

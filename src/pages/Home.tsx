@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MainLayout } from "@/components/layout/MainLayout";
+import { Helmet } from "react-helmet-async";
 import { SEO } from "@/components/SEO";
 import { useAuth } from "@/contexts/AuthContext";
 import { hasStoredSession } from "@/lib/hasStoredSession";
@@ -25,10 +26,42 @@ import { QUICK_ITEMS } from "@/lib/siteSections";
 import { fetchSectionCounts } from "@/lib/questionState";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { SiteNotificationBanner } from "@/components/SiteNotificationBanner";
-import MobileAppBanner from "@/components/MobileAppBanner";
-import DesktopAppBanner from "@/components/DesktopAppBanner";
-import ProGroupInvite from "@/components/ProGroupInvite";
+import HomeTopBanner from "@/components/HomeTopBanner";
+import ReadinessCard from "@/components/ReadinessCard";
 
+
+
+/** Bosh sahifa uchun FAQPage sxemasi (ilgari index.html da edi). */
+const HOME_FAQ_LD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Haydovchilik guvohnomasi olish uchun qanday tayyorlanish kerak?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AvtoSmart platformasida YHQ testlarini yechish, yo'l belgilarini o'rganish va variant testlarini topshirish orqali tayyorlanishingiz mumkin."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "YHQ testlarida nechta savol bo'ladi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Har bir test variantida 20 ta savol mavjud. Imtihondan o'tish uchun kamida 18 ta to'g'ri javob berish kerak."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "AvtoSmart bepulmi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ha, asosiy testlar va yo'l belgilari bepul. Pro obuna qo'shimcha imkoniyatlar beradi."
+      }
+    }
+  ]
+} as const;
 
 export default function Home() {
   const { user, profile, isLoading: authLoading } = useAuth();
@@ -96,14 +129,22 @@ export default function Home() {
   return (
     <MainLayout>
       <SiteNotificationBanner />
-      <MobileAppBanner />
-      <DesktopAppBanner />
+      <HomeTopBanner />
       <SEO
         title={t("home.seoTitle")}
         description={t("home.seoDescription")}
         path="/"
-        keywords="avto test, avtotest 2026, prava test, YHQ testlar, haydovchilik guvohnomasi, yo'l belgilari, avtotestu.uz"
+        keywords="avtosmart, avto smart, avtosmart uz, avto test, avtotest 2026, prava test, YHQ testlar, haydovchilik guvohnomasi, yo'l belgilari, avtotestu.uz"
       />
+
+      {/*
+        FAQPage sxemasi — ilgari `index.html` da turgan va shu sababli HAR
+        BIR sahifaga tarqagan edi. Savollar bosh sahifaga tegishli, shuning
+        uchun o'rni shu yer. Boshqa sahifalar o'z FAQ ini o'zi qo'yadi.
+      */}
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(HOME_FAQ_LD)}</script>
+      </Helmet>
 
       {/* Hero Section */}
       <section className="relative min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden">
@@ -113,7 +154,11 @@ export default function Home() {
           src="/hero-bg-1920.webp"
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
-          fetchPriority="high"
+          /* React 18.3 `fetchPriority` (camelCase) ni tanimaydi (bu faqat
+             React 19 da qo'shildi) va har render'da konsolga ogohlantirish
+             yozadi. Kichik harf bilan yozilsa DOM'ga xuddi shunday
+             `fetchpriority="high"` bo'lib chiqadi, lekin ogohlantirishsiz. */
+          fetchpriority="high"
           aria-hidden="true"
           width="1920"
           height="1080"
@@ -121,7 +166,16 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-brand/95 via-brand/90 to-brand/85 backdrop-blur-[2px]" />
 
         {/* Content */}
-        <div className="relative w-full max-w-7xl mx-auto px-4 py-16">
+        {/*
+          YUQORI BO'SHLIQ ATAYLAB KAMAYTIRILGAN (64px o'rniga: mobil 52px,
+          desktop 44px).
+
+          Sabab: yuqoriga tayyorgarlik tasmasi qo'shilgach, qahramon blok
+          pastga surilib, ekranning birinchi ko'rinishida pastroq turib
+          qoldi. Pastki bo'shliq (`pb-16`) o'zgarmadi — keyingi bo'lim
+          bilan orasidagi masofa saqlanishi kerak.
+        */}
+        <div className="relative w-full max-w-7xl mx-auto px-4 pt-[52px] pb-16 md:pt-11">
           <div className="max-w-4xl mx-auto bg-brand/80 backdrop-blur-md rounded-[2rem] p-8 md:p-12 text-center shadow-2xl">
 
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white/95 text-sm font-medium mb-6 border border-white/10">
@@ -145,14 +199,14 @@ export default function Home() {
              {/* Test ishlash */}
 <div className="relative w-full md:w-auto">
   {user && isPremium && (
-    <span className="absolute -top-2 -right-2 bg-[#f38d31] text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full z-10 shadow-sm border border-white/10 uppercase">
+    <span className="absolute -top-2 -right-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-amber-950 text-xs font-bold px-2.5 py-0.5 rounded-full z-10 shadow-sm">
       {t("common.pro")}
     </span>
   )}
   <Link to="/test-ishlash" className="w-full md:w-auto group">
     <Button
       size="lg"
-      className="w-full md:w-auto md:min-w-[150px] bg-[#10b981] hover:bg-[#059669] text-white gap-2 text-base md:text-lg px-6 py-5 md:py-6 rounded-2xl shadow-md shadow-[#10b981]/30 font-bold border-0 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-[#10b981]/45"
+      className="w-full md:w-auto md:min-w-[150px] bg-cta-green hover:bg-cta-green-hover text-white gap-2 text-base md:text-lg px-6 py-5 md:py-6 rounded-2xl shadow-md shadow-cta-green/30 font-bold border-0 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-cta-green/45"
     >
       <Play className="w-5 h-5 flex-shrink-0 fill-current" />
       <span>{t("home.btnTest")}</span>
@@ -160,17 +214,30 @@ export default function Home() {
   </Link>
 </div>
 
+              {/*
+                VARIANTLAR va MAVZULAR — BIR XIL rangda, to'ldirilgan.
+
+                Ikkalasi ham bitta amalning ikki yo'li (test yechish),
+                shuning uchun ular bir-biridan ajralib turmasligi kerak.
+                Rang `--cta-orange` tokenidan olinadi — header'dagi
+                "Kirish" ham shu tokendan, ya'ni saytda bitta to'q sariq
+                bo'ladi va joyma-joy farq qilib qolmaydi.
+
+                Shishasimon (shaffof) variant sinab ko'rilgan va rad
+                etilgan: o'qilishi a'lo edi, lekin tugma tugmaga
+                o'xshamay qolardi.
+              */}
               {/* Variantlar */}
               <div className="relative w-full md:w-auto">
                 {isPremium && (
-                  <span className="absolute -top-2 -right-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full z-10 shadow-sm">
+                  <span className="absolute -top-2 -right-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-amber-950 text-xs font-bold px-2.5 py-0.5 rounded-full z-10 shadow-sm">
                     {t("common.pro")}
                   </span>
                 )}
                 <Link to="/variant" className="w-full md:w-auto group block">
                   <Button
                     size="lg"
-                    className="w-full md:w-auto md:min-w-[150px] bg-[#FF4D00] hover:bg-[#E64500] text-white gap-2 text-base md:text-lg px-6 py-5 md:py-6 rounded-2xl shadow-md shadow-[#FF4D00]/30 font-bold border-0 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-[#FF4D00]/45"
+                    className="w-full md:w-auto md:min-w-[150px] bg-cta-orange hover:bg-cta-orange-hover text-white gap-2 text-base md:text-lg px-6 py-5 md:py-6 rounded-2xl shadow-md shadow-cta-orange/30 font-bold border-0 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-cta-orange/45"
                   >
                     <Play className="w-5 h-5 flex-shrink-0 fill-current" />
                     <span>{t("home.btnVariantlar")}</span>
@@ -181,13 +248,13 @@ export default function Home() {
               {/* Mavzuli testlar — kirgan userlar (mobile + desktop) */}
               {user && (
                 <div className="relative w-full md:w-auto">
-                  <span className="absolute -top-2 -right-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-white text-xs font-bold px-2.5 py-0.5 rounded-full z-10 shadow-sm">
+                  <span className="absolute -top-2 -right-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-amber-950 text-xs font-bold px-2.5 py-0.5 rounded-full z-10 shadow-sm">
                     {t("common.pro")}
                   </span>
                   <Link to="/mavzuli" className="w-full md:w-auto group block">
                     <Button
                       size="lg"
-                      className="w-full md:w-auto md:min-w-[150px] bg-[#FF4D00] hover:bg-[#E64500] text-white gap-2 text-base md:text-lg px-6 py-5 md:py-6 rounded-2xl shadow-md shadow-[#FF4D00]/30 font-bold border-0 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-[#FF4D00]/45"
+                      className="w-full md:w-auto md:min-w-[150px] bg-cta-orange hover:bg-cta-orange-hover text-white gap-2 text-base md:text-lg px-6 py-5 md:py-6 rounded-2xl shadow-md shadow-cta-orange/30 font-bold border-0 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-cta-orange/45"
                     >
                       <BookOpen className="w-5 h-5 flex-shrink-0" />
                       <span>{t("home.btnMavzuli")}</span>
@@ -197,13 +264,6 @@ export default function Home() {
               )}
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* PRO userlarga bir martalik guruh taklifi — hammaga ko'rinadigan guruh kartasi footerga ko'chirildi */}
-      <section className="py-8 bg-background">
-        <div className="max-w-4xl mx-auto px-4">
-          <ProGroupInvite />
         </div>
       </section>
 
@@ -219,6 +279,23 @@ export default function Home() {
           <SectionGrid items={QUICK_ITEMS} badges={quickBadges} signedIn={!!user} />
         </div>
       </section>
+
+      {/*
+        Tayyorgarlik indikatori — tezkor amallardan (real imtihon va yonidagi
+        tugmalar) KEYIN.
+
+        Nega pastda: yuqoridagi uch tugma — foydalanuvchi shu yerga nima uchun
+        kelganini bildiradigan HARAKAT. Indikator esa natija/holat, ya'ni
+        harakatdan keyin o'qiladi. Mehmonga umuman ko'rsatilmaydi — bosh
+        sahifaning SEO maketi o'zgarmaydi.
+      */}
+      {user && (
+        <section className="border-t border-border bg-muted/30 py-8 md:py-10">
+          <div className="max-w-4xl mx-auto px-4">
+            <ReadinessCard />
+          </div>
+        </section>
+      )}
 
       {/*
         Platformaning afzalliklari.

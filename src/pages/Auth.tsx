@@ -15,10 +15,15 @@ import { isNetworkError, NETWORK_ERROR_MESSAGE_UZ } from '@/lib/networkError';
 import { SIGNUP_FN_TIMEOUT_MS, withTimeout } from '@/lib/withTimeout';
 import { Turnstile } from '@/components/Turnstile';
 import { isTurnstileConfigured } from '@/lib/turnstile';
+import { TelegramLoginButton, TelegramLogo } from '@/components/TelegramLoginButton';
+import { isTelegramLoginConfigured } from '@/lib/telegramLogin';
 import { peekPendingPlan } from '@/lib/pendingPlan';
 import {
-  formatUzLocalInput,
+  formatLoginInput,
+  formatUzPhoneDisplay,
+  formatUzPhoneLoose,
   loginIdentifierToEmail,
+  looksLikePhone,
   normalizeUzPhone,
   phoneToEmail,
 } from '@/lib/phone';
@@ -29,8 +34,6 @@ import { z } from 'zod';
 const MIN_SIGNUP_PASSWORD = 8;
 
 type Mode = 'login' | 'signup';
-/** Kirishda qaysi ma'lumot bilan: telefon (asosiy) yoki eski email hisobi. */
-type LoginBy = 'phone' | 'email';
 
 const Auth = () => {
   const location = useLocation();
@@ -38,10 +41,15 @@ const Auth = () => {
   // Pro sahifasidan "obuna olish" bosilganda darhol ro'yxatdan o'tish ochiladi
   const requestedMode = (location.state as { mode?: Mode })?.mode;
   const [mode, setMode] = useState<Mode>(requestedMode === 'signup' ? 'signup' : 'login');
-  const [loginBy, setLoginBy] = useState<LoginBy>('phone');
 
+  /**
+   * Kirishda YAGONA maydon: telefon raqam ham, email ham shu yerga yoziladi
+   * (`loginIdentifierToEmail` o'zi ajratadi). Avval "telefon/email" tanlash
+   * tugmalari bor edi — foydalanuvchi noto'g'ri tabda turib "parol xato"
+   * degan xabar olardi.
+   */
+  const [login, setLogin] = useState('');
   const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -49,6 +57,8 @@ const Auth = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState('');
+  /** Tekshiruv widget'ini ko'rsatib bo'lmadi — forma baribir ochiladi. */
+  const [turnstileUnavailable, setTurnstileUnavailable] = useState(false);
 
   // ── Rate limiting UX (UX only — real limiting is server-side) ────────────
   const [failCount, setFailCount] = useState(0);
@@ -100,6 +110,9 @@ const Auth = () => {
   const switchMode = (next: Mode) => {
     setMode(next);
     setError('');
+    // Kirishdagi qiymat telefon bo'lsa ro'yxatdan o'tishga ko'chiramiz —
+    // foydalanuvchi raqamini ikki marta yozmasin.
+    if (next === 'signup' && looksLikePhone(login)) setPhone(formatUzPhoneLoose(login));
     setPassword('');
     setConfirmPassword('');
     setShowPassword(false);
@@ -108,6 +121,21 @@ const Auth = () => {
 
   const handleTurnstileVerify = useCallback((token: string) => {
     setTurnstileToken(token);
+    setTurnstileUnavailable(false);
+  }, []);
+
+  /**
+   * Cloudflare tekshiruvi chizilmadi (skript bloklangan, tarmoq sekin yoki
+   * widget qotib qoldi).
+   *
+   * Bu holatda formani BLOKLAMAYMIZ. Sabab: server tomonda captcha allaqachon
+   * majburiy emas — token kelmasa `phone-signup` himoyani IP bo'yicha chastota
+   * cheklovi (`register_signup_attempt`) zimmasiga o'tkazadi, va token yo'q
+   * bo'lgan so'rovga qattiqroq limit qo'llanadi. Ya'ni bu yerda odamni ushlab
+   * turishning yagona natijasi — haqiqiy foydalanuvchini yo'qotish.
+   */
+  const handleTurnstileUnavailable = useCallback(() => {
+    setTurnstileUnavailable(true);
   }, []);
 
   // ── Kirish ────────────────────────────────────────────────────────────────
@@ -116,11 +144,11 @@ const Auth = () => {
     setError('');
     if (isLoginBlocked) return;
 
-    const identifier = loginBy === 'phone' ? phone : email;
-    const loginEmail = loginIdentifierToEmail(identifier);
+    const loginEmail = loginIdentifierToEmail(login);
 
     if (!loginEmail) {
-      setError(loginBy === 'phone' ? t('auth.errPhoneIncomplete') : t('auth.errEmailInvalid'));
+      // Raqam yozgan bo'lsa — raqam to'liq emas; aks holda email noto'g'ri
+      setError(looksLikePhone(login) ? t('auth.errPhoneIncomplete') : t('auth.errEmailInvalid'));
       return;
     }
     if (!password) {
@@ -143,7 +171,7 @@ const Auth = () => {
 
       const msg = signInError.message || '';
       if (msg.includes('Invalid login credentials')) {
-        setError(loginBy === 'phone' ? t('auth.errPhoneOrPassword') : t('auth.errEmailOrPassword'));
+        setError(looksLikePhone(login) ? t('auth.errPhoneOrPassword') : t('auth.errEmailOrPassword'));
       } else if (msg.includes('Email not confirmed')) {
         setError(t('auth.errNotConfirmed'));
       } else {
@@ -180,7 +208,10 @@ const Auth = () => {
       setError(t('auth.errPasswordMismatch'));
       return;
     }
-    if (isTurnstileConfigured() && !turnstileToken) {
+    // Tekshiruv ishlayotgan bo'lsagina token talab qilinadi. Widget umuman
+    // chizilmagan bo'lsa (`turnstileUnavailable`) — server tomondagi chastota
+    // cheklovi yetarli, foydalanuvchi shu yerda qotib qolmasligi kerak.
+    if (isTurnstileConfigured() && !turnstileToken && !turnstileUnavailable) {
       setError(t('auth.errTurnstile'));
       return;
     }
@@ -197,7 +228,14 @@ const Auth = () => {
           error?: string;
           message?: string;
         }>('phone-signup', {
-          body: { phone: normalized, password, turnstileToken },
+          body: {
+            phone: normalized,
+            password,
+            turnstileToken,
+            // Serverda o'lchash uchun: captchasiz so'rov mobil ilovadanmi
+            // yoki saytda widget yuklanmaganidanmi — shu bilan ajratiladi.
+            captchaUnavailable: turnstileUnavailable,
+          },
         }),
         SIGNUP_FN_TIMEOUT_MS,
       );
@@ -257,6 +295,10 @@ const Auth = () => {
 
   const isSignup = mode === 'signup';
 
+  // Tushunilgan raqam (maydon ostida tasdiq sifatida ko'rsatiladi)
+  const normalizedSignupPhone = normalizeUzPhone(phone);
+  const normalizedLoginPhone = looksLikePhone(login) ? normalizeUzPhone(login) : null;
+
   /**
    * Telefon maydoni. `+998` doimiy prefiks sifatida chapda turadi —
    * foydalanuvchi faqat 9 ta raqam yozadi, mamlakat kodini har safar
@@ -265,24 +307,65 @@ const Auth = () => {
   const phoneField = (
     <div className="space-y-1.5">
       <Label htmlFor="auth-phone" className="text-sm">{t('auth.phone')}</Label>
-      <div className="flex items-stretch rounded-md border border-input bg-background focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 overflow-hidden">
-        <span className="flex items-center gap-1.5 px-3 bg-muted/60 border-r border-input text-sm font-medium text-foreground select-none">
-          <Phone className="w-4 h-4 text-muted-foreground" />
-          +998
-        </span>
-        <input
+      <div className="relative">
+        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+        <Input
           id="auth-phone"
           type="tel"
-          inputMode="numeric"
-          placeholder={t('auth.phonePlaceholder')}
+          inputMode="tel"
+          placeholder="+998 90 123 45 67"
           value={phone}
-          onChange={(e) => setPhone(formatUzLocalInput(e.target.value))}
+          onChange={(e) => setPhone(formatUzPhoneLoose(e.target.value))}
           disabled={isSubmitting}
-          autoComplete="tel-national"
-          maxLength={12}
-          className="flex-1 h-10 px-3 bg-transparent text-base sm:text-sm font-medium outline-none placeholder:text-muted-foreground placeholder:font-normal disabled:opacity-50"
+          autoComplete="tel"
+          className="h-10 pl-10 font-medium"
         />
       </div>
+      {/*
+        Raqam qanday yozilgan bo'lsa ham (+998…, 998…, yoki 90…) qabul
+        qilinadi. Tushunilgan raqamni ko'rsatib turamiz — foydalanuvchi
+        xato terganini yuborishdan OLDIN ko'rsin.
+      */}
+      {normalizedSignupPhone && (
+        <p className="text-xs text-emerald-600 dark:text-emerald-400">
+          {formatUzPhoneDisplay(normalizedSignupPhone)}
+        </p>
+      )}
+    </div>
+  );
+
+  /** Kirish uchun yagona maydon — telefon yoki email. */
+  const loginField = (
+    <div className="space-y-1.5">
+      <Label htmlFor="auth-login" className="text-sm">{t('auth.loginLabel')}</Label>
+      <div className="relative">
+        {looksLikePhone(login)
+          ? <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+          : <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />}
+        <Input
+          id="auth-login"
+          type="text"
+          /*
+            `email` klaviaturasi — harflar ham, raqamlar ham bor. `tel`
+            bo'lsa edi email egalari (383 ta hisob) harf yoza olmay qolardi.
+          */
+          inputMode="email"
+          autoCapitalize="none"
+          autoCorrect="off"
+          spellCheck={false}
+          placeholder={t('auth.loginPlaceholder')}
+          value={login}
+          onChange={(e) => setLogin(formatLoginInput(e.target.value))}
+          disabled={isSubmitting}
+          autoComplete="username"
+          className="h-10 pl-10"
+        />
+      </div>
+      {normalizedLoginPhone && (
+        <p className="text-xs text-emerald-600 dark:text-emerald-400">
+          {formatUzPhoneDisplay(normalizedLoginPhone)}
+        </p>
+      )}
     </div>
   );
 
@@ -389,57 +472,7 @@ const Auth = () => {
           )}
 
           <form onSubmit={isSignup ? handleSignup : handleLogin} className="space-y-3">
-            {!isSignup && (
-              <div className="flex gap-2">
-                <button
-                  type="button"
-                  onClick={() => { setLoginBy('phone'); setError(''); }}
-                  className={`flex-1 h-8 rounded-lg text-xs font-medium border transition-colors flex items-center justify-center gap-1.5 ${
-                    loginBy === 'phone'
-                      ? 'border-primary bg-primary/10 text-foreground'
-                      : 'border-border text-muted-foreground hover:text-foreground'
-                  }`}
-                >
-                  <Phone className="w-3.5 h-3.5" />
-                  {t('auth.phone')}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => { setLoginBy('email'); setError(''); }}
-                  className={`flex-1 h-8 rounded-lg text-xs font-medium border transition-colors flex items-center justify-center gap-1.5 ${
-                    loginBy === 'email'
-                      ? 'border-primary bg-primary/10 text-foreground'
-                      : 'border-border text-muted-foreground hover:text-foreground'
-                  }`}
-                >
-                  <Mail className="w-3.5 h-3.5" />
-                  {t('auth.email')}
-                </button>
-              </div>
-            )}
-
-            {isSignup || loginBy === 'phone' ? phoneField : (
-              <div className="space-y-1.5">
-                <Label htmlFor="auth-email" className="text-sm">{t('auth.email')}</Label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                  <Input
-                    id="auth-email"
-                    type="email"
-                    inputMode="email"
-                    placeholder={t('auth.emailPlaceholder')}
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    disabled={isSubmitting}
-                    autoComplete="email"
-                    className="h-10 pl-10"
-                  />
-                </div>
-                <p className="text-xs text-muted-foreground">
-                  {t('auth.emailHint')}
-                </p>
-              </div>
-            )}
+            {isSignup ? phoneField : loginField}
 
             {passwordField}
 
@@ -510,19 +543,20 @@ const Auth = () => {
             <p className="mt-3 text-center text-xs text-muted-foreground">
               {t('auth.resetPassword')} —{' '}
               <a
-                href="https://t.me/avtotestu_ad"
+                href="https://t.me/avtosmart1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:underline font-medium"
               >
-                @avtotestu_ad
+                @avtosmart1
               </a>
             </p>
           )}
 
           {/*
             Google formadan KEYIN: asosiy yo'l telefon raqam bilan
-            ro'yxatdan o'tish, Google esa muqobil variant sifatida pastda.
+            ro'yxatdan o'tish, Google va Telegram muqobil variant sifatida
+            pastda.
           */}
           <div className="relative my-4">
             <div className="absolute inset-0 flex items-center">
@@ -532,6 +566,44 @@ const Auth = () => {
               <span className="bg-card px-2 text-xs text-muted-foreground">{t('auth.or')}</span>
             </div>
           </div>
+
+          {/*
+            TELEGRAM — Google'dan OLDIN va ko'zga aniqroq.
+
+            Nega birinchi: bu auditoriya uchun Telegram allaqachon tanish
+            muhit (guruh, botlar) — Google'dan ko'ra ko'proq odam shu orqali
+            kirishni tanlaydi deb kutiladi. Shuning uchun oddiy tugma emas,
+            yengil ko'k rangdagi ajratilgan blok ichida, sarlavha bilan —
+            Google esa pastda oddiy ikkinchi darajali tugma bo'lib qoladi.
+
+            Vidjetning O'ZI (Telegram tomonidan chiziladigan tugma) rangini
+            o'zgartirib bo'lmaydi — bu Telegram tomonidan qat'iy belgilangan
+            (ishonch uchun, xuddi Google/Apple tugmalari kabi). Shuning
+            uchun "chiroyliroq" ko'rinish atrofidagi blok orqali beriladi.
+          */}
+          {isTelegramLoginConfigured() && (
+            <div className="mb-3 overflow-hidden rounded-2xl border border-[#2AABEE]/30 bg-gradient-to-b from-[#2AABEE]/[0.09] to-transparent">
+              <div className="flex items-center gap-2.5 px-3.5 pt-3.5">
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[#2AABEE]/15">
+                  <TelegramLogo className="h-[18px] w-[18px]" />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block text-[13px] font-semibold leading-tight text-foreground">
+                    {t('auth.telegramTitle')}
+                  </span>
+                  <span className="block text-[11px] leading-tight text-muted-foreground">
+                    {t('auth.telegramHint')}
+                  </span>
+                </span>
+              </div>
+              <div className="px-3.5 pb-3.5 pt-3">
+                <TelegramLoginButton
+                  onSuccess={() => navigate(returnTo, { replace: true })}
+                  onError={(message) => setError(message)}
+                />
+              </div>
+            </div>
+          )}
 
           <Button
             type="button"
@@ -567,6 +639,7 @@ const Auth = () => {
           {isSignup && (
             <Turnstile
               onVerify={handleTurnstileVerify}
+              onUnavailable={handleTurnstileUnavailable}
               action="signup"
               language={language}
               className="mt-4"

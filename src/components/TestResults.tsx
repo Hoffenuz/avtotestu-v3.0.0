@@ -1,7 +1,11 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
+import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { CheckCircle, XCircle, Clock, Trophy, RotateCcw, Home } from "lucide-react";
+import { CheckCircle, XCircle, Clock, Trophy, RotateCcw, Home, UserPlus, X, MinusCircle } from "lucide-react";
 import { formatDurationSeconds } from "@/lib/testPersistence";
 
 interface TestResultsProps {
@@ -9,7 +13,7 @@ interface TestResultsProps {
   correctAnswers: number;
   incorrectAnswers: number;
   timeTaken: number; // in seconds
-  /** Real ticket 1–63. Practice / mavzuli (0 or 99) — label yashirinadi */
+  /** Real ticket 1–64. Practice / mavzuli (0 or 99) — label yashirinadi */
   variant: number;
   onBackToHome: () => void;
   onTryAgain: () => void;
@@ -27,10 +31,112 @@ export const TestResults = ({
   isDark = false,
 }: TestResultsProps) => {
   const { t } = useLanguage();
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
+  /** Javobsiz qolganlar — jamidan javob berilganlarni ayirib topiladi. */
+  const unanswered = Math.max(0, totalQuestions - correctAnswers - incorrectAnswers);
 
   const score = totalQuestions > 0 ? Math.round((correctAnswers / totalQuestions) * 100) : 0;
   const passed = score >= 90;
-  const showVariantLabel = Number.isInteger(variant) && variant >= 1 && variant <= 63;
+  const showVariantLabel = Number.isInteger(variant) && variant >= 1 && variant <= 64;
+
+  /*
+    ── Mehmon uchun ro'yxatga chaqiruv — TOAST sifatida ──────────────────
+    Ilgari bu natija kartasi ICHIDA, pastki qismda turardi. Karta
+    balandligi cheklangan (`overflow-y-auto`) bo'lgani uchun bu blok
+    KO'RINMASDAN QOLARDI: desktopda karta ekranga sig'ib ketgani uchun
+    bloк "deyarli ko'rinmas" bo'lib qolardi, mobilda esa uni ko'rish
+    uchun natija ekranining o'zi ICHIDA yana bir marta pastga scroll
+    qilish kerak edi — foydalanuvchi buni sezmasdi.
+
+    Endi bu alohida, ekranning tepasidan tushadigan TOAST (`sonner`).
+    `duration: Infinity` — foydalanuvchi o'zi yopmaguncha yoki tugmani
+    bosmaguncha ekranda turadi, chunki bu vaqtinchalik bildirishnoma
+    emas: "natijangiz saqlanmadi" degan HAQIQIY YO'QOTISH haqida.
+  */
+  useEffect(() => {
+    if (user) return;
+
+    const id = toast.custom(
+      (tid) => (
+        /*
+          `dark` klassi shu yerda QO'LDA qo'yiladi. Toast `<Toaster />`
+          orqali App darajasida, ya'ni natija ekranining `dark` konteyneridan
+          TASHQARIDA render bo'ladi — `isDark` propi unga o'z-o'zidan
+          yetib bormaydi va toast oq, ekran qora bo'lib qolardi.
+        */
+        <div className={isDark ? "dark" : ""}>
+          {/*
+            Fon `bg-card/95` + blur, ramka esa `primary` tusida.
+
+            SABABI: natija kartasi ham `bg-card` — bir xil rang bo'lsa toast
+            uning ICHIDAGI blok kabi ko'rinadi, aynan shu narsa xunuk edi.
+            (`--popover` bu yerda yordam bermaydi: u `--card` bilan bir xil
+            qiymatga ega.) Rangli ramka, blur va chuqur soya toastni alohida,
+            ustida suzib turgan qatlam sifatida ajratadi.
+          */}
+          <div className="flex w-full flex-col gap-3 rounded-2xl border border-primary/25 bg-card/95 p-4 shadow-2xl shadow-black/25 backdrop-blur-md">
+            <div className="flex items-start gap-3">
+              <span className="mt-px flex h-9 w-9 flex-none items-center justify-center rounded-full bg-primary/10">
+                <UserPlus className="h-[18px] w-[18px] text-primary" aria-hidden="true" />
+              </span>
+
+              <div className="min-w-0 flex-1">
+                <p className="text-[15px] font-semibold leading-snug text-foreground">
+                  {incorrectAnswers > 0 ? t("results.guestTitle") : t("results.title")}
+                </p>
+                <p className="mt-1 text-[13px] leading-relaxed text-muted-foreground">
+                  {incorrectAnswers > 0
+                    ? t("results.guestText").replace("{n}", String(incorrectAnswers))
+                    : t("results.guestTextPerfect")}
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => toast.dismiss(tid)}
+                aria-label={t("common.close")}
+                className="-mr-1 -mt-1 flex h-7 w-7 flex-none items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                <X className="h-4 w-4" aria-hidden="true" />
+              </button>
+            </div>
+
+            <Button
+              className="h-11 w-full text-[15px] font-semibold"
+              onClick={() => {
+                toast.dismiss(tid);
+                navigate("/auth", { state: { returnTo: "/xatolarim", mode: "signup" } });
+              }}
+            >
+              {t("results.guestBtn")}
+            </Button>
+          </div>
+        </div>
+      ),
+      {
+        id: "guest-result-cta",
+        duration: Infinity,
+        position: "top-center",
+        /*
+          Kenglik sonner'ning o'z o'lchamidan (356px) kengroq — matn uchun
+          joy kerak. Tor ekranda esa chetlarda 1rem qoldirib moslashadi,
+          bu sonner'ning mobil chekinishi (16px) bilan aynan mos tushadi.
+
+          `unstyled` YOZILMAGAN: `toast.custom` da sonner fon va ramkani
+          o'zi qo'shmaydi (`data-styled=false`), lekin joylashuv va
+          animatsiya stillari saqlanadi — aynan kerakli holat.
+        */
+        style: { width: "min(26rem, calc(100vw - 2rem))" },
+      },
+    );
+
+    // Komponent yopilganda (masalan "Qayta urinish" bosilganda) toast ham
+    // yopiladi — aks holda u keyingi ekranda ham osilib qolardi.
+    return () => { toast.dismiss(id); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- faqat natija ekrani ochilganda bir marta
+  }, [user]);
 
   return (
     <div
@@ -73,7 +179,16 @@ export const TestResults = ({
             </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
+          {/*
+            Javobsiz qolgan savollar ATAYLAB alohida ko'rsatkich.
+
+            Ilgari faqat "to'g'ri" va "noto'g'ri" bor edi: testni yarim
+            tashlab ketgan foydalanuvchi "0 to'g'ri, 1 noto'g'ri" ko'rib,
+            qolgan 19 ta savol qayerga ketganini tushunmasdi. Foiz esa
+            baribir umumiy savol soniga bo'linardi — ya'ni raqamlar
+            bir-biriga mos kelmasdi.
+          */}
+          <div className={`grid gap-2.5 sm:gap-3 ${unanswered > 0 ? "grid-cols-2 sm:grid-cols-4" : "grid-cols-3"}`}>
             <div className="text-center p-3 sm:p-3.5 bg-muted/30 rounded-lg">
               <CheckCircle className="w-6 h-6 sm:w-7 sm:h-7 text-green-500 mx-auto mb-1.5" />
               <div className="text-xl sm:text-2xl font-bold text-foreground">{correctAnswers}</div>
@@ -84,6 +199,13 @@ export const TestResults = ({
               <div className="text-xl sm:text-2xl font-bold text-foreground">{incorrectAnswers}</div>
               <p className="text-xs sm:text-sm text-muted-foreground leading-tight mt-0.5">{t("results.incorrect")}</p>
             </div>
+            {unanswered > 0 ? (
+              <div className="text-center p-3 sm:p-3.5 bg-muted/30 rounded-lg">
+                <MinusCircle className="w-6 h-6 sm:w-7 sm:h-7 text-muted-foreground mx-auto mb-1.5" />
+                <div className="text-xl sm:text-2xl font-bold text-foreground">{unanswered}</div>
+                <p className="text-xs sm:text-sm text-muted-foreground leading-tight mt-0.5">{t("results.unanswered")}</p>
+              </div>
+            ) : null}
             <div className="text-center p-3 sm:p-3.5 bg-muted/30 rounded-lg">
               <Clock className="w-6 h-6 sm:w-7 sm:h-7 text-primary mx-auto mb-1.5" />
               <div className="text-xl sm:text-2xl font-bold text-foreground">{formatDurationSeconds(timeTaken)}</div>

@@ -2,8 +2,12 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEO } from "@/components/SEO";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { DeviceLicenseInstructions } from "@/components/DeviceLicenseInstructions";
+import { DeviceLicenseCard } from "@/components/DeviceLicenseCard";
+import { useAccessState } from "@/hooks/useAccessState";
+import { useAuth } from "@/contexts/AuthContext";
 import {
   Monitor,
   Download,
@@ -28,6 +32,9 @@ const perks = [
 ];
 
 export default function DesktopApp() {
+  const { t } = useLanguage();
+  const { user } = useAuth();
+  const { isPremium, expiresAt } = useAccessState();
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -37,10 +44,10 @@ export default function DesktopApp() {
   return (
     <MainLayout>
       <SEO
-        title="Desktop ilova — Offline YHQ test"
-        description="Avtotestlar.uz Windows desktop ilovasini yuklab oling. Internetsiz YHQ testlari, katta ekranda qulay o'rganish. Haydovchilik guvohnomasi imtihoniga offline tayyorgarlik."
+        title={t("seo.desktop.title")}
+        description={t("seo.desktop.description")}
         path="/desktop"
-        keywords="avtotestlar desktop, offline test, windows ilova, prava test offline"
+        keywords={t("seo.desktop.keywords")}
       />
 
       {isMobile ? (
@@ -86,7 +93,7 @@ export default function DesktopApp() {
                   Kompyuter uchun ilovamizni yuklab oling
                 </h1>
                 <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-xl">
-                  Avtotestlar desktop ilovasini o&apos;rnating va internetsiz ham
+                  AvtoSmart desktop ilovasini o&apos;rnating va internetsiz ham
                   test ishlashingiz mumkin. PRO uchun aktivatsiya kalitini{" "}
                   <Link to="/profile" className="text-primary hover:underline font-medium">
                     profil
@@ -166,11 +173,8 @@ export default function DesktopApp() {
                       <KeyRound className="w-4 h-4 text-foreground/60" />
                     </div>
                     <span className="text-muted-foreground text-xs leading-snug">
-                      PRO uchun{" "}
-                      <Link to="/profile" className="text-primary hover:underline">
-                        profildan
-                      </Link>{" "}
-                      kalit oling
+                      PRO uchun ilovaga hisobingiz bilan kiring — kalit
+                      faqat zaxira usul
                     </span>
                   </div>
                 </div>
@@ -183,6 +187,32 @@ export default function DesktopApp() {
         </div>
       </section>
       )}
+
+      {/*
+        AKTIVATSIYA — profildan SHU YERGA ko'chirildi (2026-09).
+
+        Ilovaga hisob orqali kirish qo'shilgach, litsenziya kaliti asosiy
+        yo'l bo'lmay qoldi. Profilda turgani uni asosiy amaldek ko'rsatib,
+        har bir foydalanuvchini keraksiz savolga duchor qilardi. Bu yerda
+        esa u aynan kerak bo'ladigan joyda: odam ilovani yuklab olish
+        uchun shu sahifaga keladi.
+
+        Faqat KIRGAN foydalanuvchiga: kalit hisobga bog'lanadi, mehmonga
+        ko'rsatish bo'sh kartochka bo'lardi.
+      */}
+      {user ? (
+        <section className="border-t border-border bg-background py-8 md:py-10">
+          <div className="mx-auto max-w-3xl px-4">
+            <div className="mb-4">
+              <h2 className="text-lg font-bold text-foreground md:text-xl">Aktivatsiya kaliti</h2>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Ilovaga hisobingiz bilan kira olmasangiz, shu kalit bilan faollashtiring.
+              </p>
+            </div>
+            <DeviceLicenseCard isPremium={isPremium} subscriptionExpiresAt={expiresAt} />
+          </div>
+        </section>
+      ) : null}
     </MainLayout>
   );
 }

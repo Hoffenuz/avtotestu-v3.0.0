@@ -54,9 +54,25 @@ function loadScript(): Promise<void> {
   });
 }
 
+/**
+ * Tekshiruv "yuklanmadi" deb hisoblanadigan vaqt.
+ *
+ * Cloudflare widget'i normal sharoitda 1-2 soniyada chiziladi. Agar shu
+ * muddatda token kelmasa — skript bloklangan, tarmoq sekin yoki widget
+ * qotib qolgan. Bunday holatda foydalanuvchini "men robot emasman" da
+ * abadiy ushlab turish mumkin emas: u shunchaki ketib qoladi.
+ */
+const UNAVAILABLE_AFTER_MS = 7000;
+
 interface Props {
   /** Token olinganda chaqiriladi. Bo'sh satr = token yo'q/eskirdi. */
   onVerify: (token: string) => void;
+  /**
+   * Tekshiruvni KO'RSATIB BO'LMADI (xato yoki {@link UNAVAILABLE_AFTER_MS}
+   * ichida token kelmadi). Chaqiruvchi shu paytda formani ochishi kerak —
+   * himoya serverdagi chastota cheklovi zimmasiga o'tadi.
+   */
+  onUnavailable?: () => void;
   /** Serverdagi log uchun belgi (masalan "signup"). */
   action?: string;
   /** Interfeys tili. */
@@ -68,17 +84,35 @@ export interface TurnstileHandle {
   reset: () => void;
 }
 
-export function Turnstile({ onVerify, action = 'signup', language, className }: Props) {
+export function Turnstile({ onVerify, onUnavailable, action = 'signup', language, className }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string | null>(null);
   const onVerifyRef = useRef(onVerify);
+  const onUnavailableRef = useRef(onUnavailable);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [failed, setFailed] = useState(false);
   const uid = useId();
 
   // Callback o'zgarsa widget qayta yaratilmasligi uchun ref orqali saqlaymiz
   useEffect(() => {
     onVerifyRef.current = onVerify;
-  }, [onVerify]);
+    onUnavailableRef.current = onUnavailable;
+  }, [onVerify, onUnavailable]);
+
+  /** Taymerni bekor qiladi — token kelgach yoki komponent yo'qolganda. */
+  const clearTimer = useCallback(() => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+  }, []);
+
+  /** Tekshiruvni ko'rsatib bo'lmadi: formani ochib yuborishni so'raymiz. */
+  const markUnavailable = useCallback(() => {
+    clearTimer();
+    setFailed(true);
+    onUnavailableRef.current?.();
+  }, [clearTimer]);
 
   /**
    * Cloudflare o'zbek tilini (`uz`) QO'LLAB-QUVVATLAMAYDI — uni uzatsak
@@ -97,6 +131,17 @@ export function Turnstile({ onVerify, action = 'signup', language, className }: 
 
     let cancelled = false;
 
+    /*
+      Taymer skriptni YUKLASHDAN OLDIN qo'yiladi — ataylab.
+      Eng yomon holat aynan skript umuman kelmasligi (tarmoq bloklagan yoki
+      juda sekin): u holda `.then()` ham, `.catch()` ham ishlamaydi va
+      hech qanday hodisa chiqmaydi. Taymer esa baribir ishga tushadi.
+    */
+    clearTimer();
+    timerRef.current = setTimeout(() => {
+      if (!cancelled) markUnavailable();
+    }, UNAVAILABLE_AFTER_MS);
+
     loadScript()
       .then(() => {
         if (cancelled || !containerRef.current || !window.turnstile) return;
@@ -110,28 +155,37 @@ export function Turnstile({ onVerify, action = 'signup', language, className }: 
           action,
           language: cfLang,
           theme: 'auto',
-          callback: (token: string) => onVerifyRef.current(token),
+          callback: (token: string) => {
+            // Token keldi — hammasi joyida, ogohlantirish kerak emas.
+            clearTimer();
+            setFailed(false);
+            onVerifyRef.current(token);
+          },
           'expired-callback': () => onVerifyRef.current(''),
-          'timeout-callback': () => onVerifyRef.current(''),
+          'timeout-callback': () => {
+            onVerifyRef.current('');
+            markUnavailable();
+          },
           'error-callback': () => {
             onVerifyRef.current('');
-            setFailed(true);
+            markUnavailable();
           },
         });
       })
       .catch(() => {
-        if (!cancelled) setFailed(true);
+        if (!cancelled) markUnavailable();
       });
 
     return () => {
       cancelled = true;
+      clearTimer();
       if (widgetIdRef.current && window.turnstile) {
         try { window.turnstile.remove(widgetIdRef.current); } catch { /* ignore */ }
         widgetIdRef.current = null;
       }
     };
     // uid — komponent nusxasi uchun barqaror kalit
-  }, [action, cfLang, uid]);
+  }, [action, cfLang, uid, clearTimer, markUnavailable]);
 
   const retry = useCallback(() => {
     setFailed(false);

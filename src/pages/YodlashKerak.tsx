@@ -22,10 +22,10 @@ export default function YodlashKerak() {
   return (
     <MainLayout>
       <SEO
-        title="Yodlash kerak raqamlar — tezlik, masofa va o'lcham me'yorlari"
-        description="Imtihonda tez-tez uchraydigan raqamli ma'lumotlar: tezlik chegaralari, to'xtash masofalari, gabaritlar va boshqa me'yorlar bir joyda."
+        title={t("seo.yodlashKerak.title")}
+        description={t("seo.yodlashKerak.description")}
         path="/yodlash-kerak"
-        keywords="yodlash kerak raqamlar, tezlik chegarasi, to'xtash masofasi, gabarit, YHQ me'yorlari"
+        keywords={t("seo.yodlashKerak.keywords")}
       />
 
       <div className="mx-auto w-full max-w-3xl px-4 py-6 md:py-10">

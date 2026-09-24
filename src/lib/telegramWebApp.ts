@@ -28,6 +28,8 @@
 const SDK_SRC = 'https://telegram.org/js/telegram-web-app.js';
 
 interface TelegramWebAppApi {
+  /** Bot tokeni bilan imzolangan ishga tushirish ma'lumoti (Mini App kirishi). */
+  initData?: string;
   ready?: () => void;
   expand?: () => void;
   requestFullscreen?: () => void;
@@ -44,6 +46,12 @@ declare global {
     TelegramWebviewProxy?: unknown;
     /** `index.html` dagi erta blok qo'yadi — eng ishonchli manba. */
     __inTelegram?: boolean;
+    /**
+     * `initData` ning erta nusxasi — `index.html` da, URL fragmenti hali
+     * butun paytda olinadi. SDK yuklanmasa yoki React Router fragmentni
+     * yo'qotsa ham Mini App kirishi shu manbadan ishlaydi.
+     */
+    __tgInitData?: string;
   }
 }
 

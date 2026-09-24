@@ -1,73 +1,68 @@
-# Welcome to your Lovable project
+# AvtoSmart (avtotestu.uz)
 
-## Project info
+O'zbekistonda haydovchilik guvohnomasi olish uchun YHQ (yo'l harakati
+qoidalari) testlariga tayyorgarlik platformasi — <https://www.avtotestu.uz>
 
-**URL**: https://lovable.dev/projects/00672a92-e109-452d-a890-3f25fb5ebe02
+Uch tilda ishlaydi: o'zbekcha (lotin), o'zbekcha (kirill) va ruscha.
 
-## How can I edit this code?
+## Texnologiyalar
 
-There are several ways of editing your application.
+| Qatlam | Nima ishlatiladi |
+| --- | --- |
+| Frontend | React 18, TypeScript, Vite 5, React Router, Tailwind CSS |
+| UI | shadcn/ui (faqat haqiqatan ishlatiladigan komponentlar) |
+| Backend | Supabase — Postgres, Auth, RLS, RPC, Edge Functions (Deno) |
+| Hosting | Cloudflare Pages + Pages Functions (`functions/_middleware.ts`) |
+| Testlar | Vitest + Testing Library |
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/00672a92-e109-452d-a890-3f25fb5ebe02) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## Ishga tushirish
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+npm install
+npm run dev          # http://localhost:8080
 ```
 
-**Edit a file directly in GitHub**
+Supabase kalitlari `.env` faylida kutiladi (repozitoriyga kirmaydi).
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Asosiy buyruqlar
 
-**Use GitHub Codespaces**
+```sh
+npm run build        # prebuild ham ishlaydi: SEO va savol ma'lumotlari
+npm run test:run     # butun test to'plami
+npm run typecheck    # tsc -b --force
+npm run lint         # eslint
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Savollar ma'lumoti
 
-## What technologies are used for this project?
+Savollar `public/` ichidagi JSON fayllarda saqlanadi (`barcha.json`,
+`free-*.json`, `data/variants/v*.json`, `mavzuli2/*.json`). Ular
+CDN da keshlanadi, shuning uchun kesh belgisi fayl MAZMUNIDAN
+hisoblanadi — `vite.config.ts` dagi `questionDataVersion()` ga qarang.
+JSON o'zgarsa belgi ham o'zgaradi, ya'ni tuzatilgan savol darhol
+yetib boradi.
 
-This project is built with:
+Bir savolning bir necha faylda takrorlanishi ATAYLAB: variantlar,
+mavzuli testlar va bepul to'plam bir xil savolni ulashadi.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## SEO
 
-## How can I deploy this project?
+Qidiruv botlari uchun statik suratkashlar `scripts/seo-templates/*.html`
+dan `public/_seo/{marshrut}/index.html` ga yaratiladi
+(`npm run seo:main`). Haqiqiy foydalanuvchiga har doim SPA beriladi;
+botni `functions/_middleware.ts` ajratadi.
 
-Simply open [Lovable](https://lovable.dev/projects/00672a92-e109-452d-a890-3f25fb5ebe02) and click on Share -> Publish.
+`_middleware.ts` dagi `SEO_EXACT` ro'yxati generator dagi `ROUTE_MAP`
+bilan mos bo'lishi shart — mos kelmasa `generate-main-pages.cjs`
+build ni to'xtatadi.
 
-## Can I connect a custom domain to my Lovable project?
+## Papkalar
 
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+```
+src/            React ilova
+scripts/        SEO, savol va ma'lumot generatorlari
+functions/      Cloudflare Pages Functions
+supabase/       Edge Functions (Telegram botlar va h.k.)
+public/         Savol JSON lari, rasmlar, bot suratkashlari
+docs/           Ichki hujjatlar
+```

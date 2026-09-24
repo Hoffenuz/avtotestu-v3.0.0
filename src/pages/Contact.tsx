@@ -12,7 +12,7 @@ export default function Contact() {
         title={t("contact.seoTitle")}
         description={t("contact.seoDescription")}
         path="/contact"
-        keywords="aloqa, bog'lanish, yordam, savol javob, avtotestlar.uz kontakt"
+        keywords="aloqa, bog'lanish, yordam, savol javob, avtosmart kontakt"
       />
       
       <section className="bg-background pt-8 pb-12 md:pt-12">

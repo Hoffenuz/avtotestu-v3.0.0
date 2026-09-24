@@ -99,3 +99,16 @@ export function formatTiyinAsSum(amountTiyin: number): string {
     .toString()
     .replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
+
+/**
+ * Tarifning KUNLIK narxi: 3500000 tiyin / 30 kun → "1 167".
+ *
+ * Tariflarni taqqoslash uchun kerak — umumiy summa (15 000 va 35 000) haftalikni
+ * arzon ko'rsatadi, kunlik narx esa aksincha (2 143 va 1 167).
+ */
+export function formatTiyinPerDayAsSum(amountTiyin: number, days: number): string {
+  if (!days || days <= 0) return formatTiyinAsSum(amountTiyin);
+  return Math.round(amountTiyin / 100 / days)
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}

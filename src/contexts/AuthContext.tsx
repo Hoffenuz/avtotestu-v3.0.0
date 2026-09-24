@@ -9,6 +9,7 @@ import { User, Session } from '@supabase/supabase-js';
  * imported module" xatosini keltirib chiqarardi.
  */
 import { clearAllUserData } from '@/lib/clearUserData';
+import { signInWithTelegramMiniApp } from '@/lib/telegramMiniAppAuth';
 import { resetSavedCache } from '@/lib/questionState';
 import { AUTH_RPC_TIMEOUT_MS, PROFILE_TIMEOUT_MS, SIGN_IN_TIMEOUT_MS, withTimeout } from '@/lib/withTimeout';
 
@@ -28,6 +29,11 @@ interface Profile {
   full_name: string | null;
   avatar_url: string | null;
   created_at: string;
+  /** Telegram bog'lami — faqat server (Edge Function) yozadi, mijoz o'qiydi. */
+  telegram_id: number | null;
+  telegram_username: string | null;
+  /** Telegram bot orqali ixtiyoriy ulashilgan raqam — faqat server yozadi. */
+  phone: string | null;
 }
 
 interface AuthContextType {
@@ -173,7 +179,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       const { data, error } = await withTimeout(
         supabase
           .from('profiles')
-          .select('id, username, full_name, avatar_url, created_at')
+          .select('id, username, full_name, avatar_url, created_at, telegram_id, telegram_username, phone')
           .eq('id', userId)
           .single(),
         PROFILE_TIMEOUT_MS,
@@ -284,6 +290,18 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           bootstrappedRef.current = true;
           applySession(currentSession);
           void loadUserState(currentSession.user.id);
+        } else if (!currentSession && !bootstrappedRef.current) {
+          /**
+           * Telegram Mini App: WebView'ning saqlash joyi brauzernikidan
+           * ajratilgan, shuning uchun bu yerda sessiya YO'Q bo'lib chiqadi —
+           * foydalanuvchi saytga brauzerda kirgan bo'lsa ham. Telegram
+           * bergan imzolangan `initData` bilan jimgina kiramiz.
+           *
+           * Telegram'dan tashqarida bu chaqiruv darhol `false` qaytaradi —
+           * oddiy tashrifga hech qanday qo'shimcha kutish qo'shilmaydi.
+           * Muvaffaqiyatda sessiyani quyidagi SIGNED_IN hodisasi qo'llaydi.
+           */
+          await signInWithTelegramMiniApp();
         }
       } catch (err) {
         if (!import.meta.env.PROD) console.error('Auth Error - Initialization:', err);

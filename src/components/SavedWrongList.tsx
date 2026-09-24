@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 import { Bookmark, BookmarkX, CheckCircle2, Loader2, Trash2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 import { QuestionReviewCard } from "@/components/QuestionReviewCard";
 import { SaveQuestionButton } from "@/components/SaveQuestionButton";
 import { ImageLightbox } from "@/components/ImageLightbox";
@@ -52,6 +53,31 @@ function corpusLangOf(questionLang: string): string {
   return questionLang === "oz" ? "uz-lat" : questionLang;
 }
 
+/**
+ * Ro'yxat uzunligini brauzerda eslab qolamiz — faqat skelet balandligi uchun.
+ * Maxfiy ma'lumot emas (shunchaki son) va yo'qolsa hech narsa buzilmaydi.
+ */
+const COUNT_KEY = (mode: ListMode) => `list-count:${mode}`;
+/** Skelet DOM ni shishirmasligi uchun yuqori chegara. */
+const MAX_SKELETONS = 6;
+
+/**
+ * Birinchi tashrifda ro'yxat uzunligi hali noma'lum. Bazadagi haqiqiy
+ * taqsimotga tayanamiz: xato savollar mediani 11 ta (ya'ni chegaraga
+ * tiraladi), saqlanganlar mediani esa 2 ta.
+ */
+const DEFAULT_SKELETONS: Record<ListMode, number> = { wrong: MAX_SKELETONS, saved: 2 };
+
+function readLastCount(mode: ListMode): number {
+  const fallback = DEFAULT_SKELETONS[mode];
+  try {
+    const n = Number(localStorage.getItem(COUNT_KEY(mode)));
+    return Number.isFinite(n) && n > 0 ? Math.min(n, MAX_SKELETONS) : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
 export function SavedWrongList({ mode }: SavedWrongListProps) {
   const { user } = useAuth();
   const { t, questionLang } = useLanguage();
@@ -59,6 +85,15 @@ export function SavedWrongList({ mode }: SavedWrongListProps) {
 
   const [questions, setQuestions] = useState<AppQuestion[]>([]);
   const [loading, setLoading] = useState(true);
+  /**
+   * Nechta skelet chizish kerakligi. Ro'yxat uzunligi ikki bosqichda
+   * ma'lum bo'ladi: avval `id` lar (tez), keyin savol matnlari (sekin).
+   * Shu oraliqda aniq sonni bilamiz va joyni ANIQ zahiralaymiz.
+   *
+   * Boshlang'ich qiymat — o'tgan safargi son (brauzerda saqlangan).
+   * Shu sababli takroriy tashrifda sahifa umuman sakramaydi.
+   */
+  const [expectedCount, setExpectedCount] = useState<number>(() => readLastCount(mode));
   const [zoomImage, setZoomImage] = useState<string | null>(null);
   const [removing, setRemoving] = useState<string | null>(null);
   const [clearingAll, setClearingAll] = useState(false);
@@ -76,6 +111,10 @@ export function SavedWrongList({ mode }: SavedWrongListProps) {
       const ids =
         mode === "wrong" ? await fetchWrongQuestionIds() : await fetchSavedQuestionIds();
       if (cancelled) return;
+
+      // Aniq son ma'lum bo'ldi — skelet endi ro'yxatga TENG joy egallaydi
+      setExpectedCount(Math.min(ids.length, MAX_SKELETONS));
+      try { localStorage.setItem(COUNT_KEY(mode), String(ids.length)); } catch { /* kvota */ }
 
       const tasks = await resolveQuestions(ids, corpusLangOf(questionLang), isPremium);
       if (cancelled) return;
@@ -140,11 +179,35 @@ export function SavedWrongList({ mode }: SavedWrongListProps) {
     );
   }
 
+  /*
+    Yuklanayotganda SKELET ko'rsatiladi, kichkina spinner emas.
+
+    Sabab tashqi ko'rinish emas, o'lchov: ilgari bu joy atigi ~128px
+    egallardi, keyin esa o'nlab savol kartasi paydo bo'lib footer'ni
+    minglab piksel pastga surardi. Brauzer buni "sahifa sakradi" deb
+    hisoblab, CLS ni 0.7 gacha ko'tarardi (me'yor 0.1).
+
+    Skeletlar SONI ro'yxat uzunligiga tenglashtiriladi (`expectedCount`).
+    Doim 3 ta chizilsa, atigi 1 ta saqlangan savoli bor foydalanuvchida
+    teskari muammo chiqardi: skelet ko'p joy egallab, keyin qisqarardi va
+    footer YUQORIGA sakrardi.
+  */
   if (loading) {
     return (
-      <div className="flex justify-center py-16" role="status" aria-live="polite">
-        <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" aria-hidden="true" />
+      <div className="space-y-4" role="status" aria-live="polite">
         <span className="sr-only">{t("pages.loading")}</span>
+        {Array.from({ length: expectedCount }, (_, i) => (
+          <Card key={i} aria-hidden="true">
+            <CardContent className="space-y-3 p-4">
+              <Skeleton className="h-4 w-24" />
+              <Skeleton className="h-5 w-full" />
+              <Skeleton className="h-5 w-3/4" />
+              <Skeleton className="h-40 w-full" />
+              <Skeleton className="h-10 w-full" />
+              <Skeleton className="h-10 w-full" />
+            </CardContent>
+          </Card>
+        ))}
       </div>
     );
   }

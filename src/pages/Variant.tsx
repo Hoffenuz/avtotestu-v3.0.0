@@ -3,6 +3,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useAccessState } from "@/hooks/useAccessState";
 import { useTestSession } from "@/hooks/useTestSession";
 import { SEO } from "@/components/SEO";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { TestStartPage } from "@/components/TestStartPage";
 import { TestInterface } from "@/components/TestInterface";
@@ -13,6 +14,7 @@ import {
 import { clearTestState } from "@/lib/testPersistence";
 
 export default function Variant() {
+  const { t } = useLanguage();
   const { user, isLoading } = useAuth();
   const { isPremium, loading: accessLoading, backendConfirmed } = useAccessState();
   const { starting, startSession } = useTestSession();
@@ -159,13 +161,13 @@ export default function Variant() {
   return (
     <MainLayout>
       <SEO
-        title="63 ta Test Varianti 2026 — Bepul YHQ Imtihon Testi"
-        description="63 ta YHQ test varianti, har birida 20 ta savol — xuddi haqiqiy imtihondagidek. Bepul onlayn ishlang va prava olishga to'liq tayyorlaning."
+        title={t("seo.variant.title")}
+        description={t("seo.variant.description")}
         path="/variant"
-        keywords="test varianti, prava test, imtihon savollari, YHQ test, 63 variant"
+        keywords={t("seo.variant.keywords")}
       />
       {starting ? (
-        <div className="flex min-h-[60vh] items-center justify-center">
+        <div className="flex min-h-screen items-center justify-center">
           <div className="w-10 h-10 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
         </div>
       ) : (

@@ -18,16 +18,16 @@ const languages = [
   { id: "ru" as const, label: "Русский" },
 ];
 
-const TOTAL_VARIANTS = 63;
+const TOTAL_VARIANTS = 64;
 const variants = Array.from({ length: TOTAL_VARIANTS }, (_, i) => i + 1);
 
 function ProPromoCard({ language }: { language: string }) {
   const title =
     language === "ru"
-      ? "Откройте все 63 варианта"
+      ? "Откройте все 64 варианта"
       : language === "uz"
-        ? "Барча 63 вариантни очинг"
-        : "Barcha 63 variantni oching";
+        ? "Барча 64 вариантни очинг"
+        : "Barcha 64 variantni oching";
   const subtitle =
     language === "ru"
       ? "Оформите PRO — все варианты и тематические тесты без ограничений"
@@ -124,7 +124,7 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
       return "bg-muted/30 text-muted-foreground/60 border-border/60 opacity-50 cursor-pointer hover:opacity-70";
     }
     if (isFree && !isSelected) {
-      return 'bg-emerald-50 text-emerald-700 border-emerald-300 hover:bg-emerald-100 dark:bg-emerald-950/40 dark:text-emerald-300 dark:border-emerald-800';
+      return 'bg-blue-50 text-blue-700 border-blue-300 hover:bg-blue-100 dark:bg-blue-950/40 dark:text-blue-300 dark:border-blue-800';
     }
     if (status === 'success') {
       return isSelected
@@ -259,7 +259,7 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
               >
                 {isLocked(v) && <Lock className="w-3 h-3 absolute top-1 right-1 opacity-70" />}
                 {!isLocked(v) && !hasProAccess && v === FREE_VARIANT_UI && (
-                  <span className="absolute -top-1 -right-1 text-[8px] font-bold bg-emerald-500 text-white px-1 rounded">✓</span>
+                  <span className="absolute -top-1 -right-1 text-[8px] font-bold bg-blue-500 text-white px-1 rounded">✓</span>
                 )}
                 {v}
               </Button>
@@ -434,7 +434,7 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
                 >
                   {isLocked(v) && <Lock className="w-3 h-3 absolute top-1 right-1 opacity-70" />}
                   {!isLocked(v) && !hasProAccess && v === FREE_VARIANT_UI && (
-                    <span className="absolute -top-1 -right-1 text-[8px] font-bold bg-emerald-500 text-white px-1 rounded">✓</span>
+                    <span className="absolute -top-1 -right-1 text-[8px] font-bold bg-blue-500 text-white px-1 rounded">✓</span>
                   )}
                   {v}
                 </Button>

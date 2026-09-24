@@ -509,7 +509,7 @@ export const MavzuliTestInterface = ({
   if (showResults) {
     const stats = getTestStats();
     const timeTaken = getWallElapsedSeconds(testStartTime);
-    
+
     return (
       <TestResults
         totalQuestions={totalQuestions}

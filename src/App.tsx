@@ -1,10 +1,11 @@
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { detectLangFromWindow } from "@/lib/langUrl";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { AuthProvider } from "@/contexts/AuthContext";
+import { RouteTracker } from "@/components/RouteTracker";
 import { Suspense, Component, ReactNode } from "react";
 import { lazyWithRetry } from "@/lib/lazyWithRetry";
 import Home from "./pages/Home";
@@ -78,13 +79,18 @@ const Qidirish = lazyWithRetry(() => import("./pages/Qidirish"));
 const XatolarTesti = lazyWithRetry(() => import("./pages/XatolarTesti"));
 const Avtodrom = lazyWithRetry(() => import("./pages/Avtodrom"));
 const RealImtihon = lazyWithRetry(() => import("./pages/RealImtihon"));
+const QiyinSavollar = lazyWithRetry(() => import("./pages/QiyinSavollar"));
 const YodlashKerak = lazyWithRetry(() => import("./pages/YodlashKerak"));
+const EAvtomaktab = lazyWithRetry(() => import("./pages/EAvtomaktab"));
+const EAvtomaktabTest = lazyWithRetry(() => import("./pages/EAvtomaktabTest"));
+const AvtoImtihon2026 = lazyWithRetry(() => import("./pages/AvtoImtihon2026"));
 const YodlashKerakMavzu = lazyWithRetry(() => import("./pages/YodlashKerakMavzu"));
 const Xatolarim = lazyWithRetry(() => import("./pages/Xatolarim"));
 const Saqlangan = lazyWithRetry(() => import("./pages/Saqlangan"));
 const Belgilar = lazyWithRetry(() => import("./pages/Belgilar"));
 const Contact = lazyWithRetry(() => import("./pages/Contact"));
 const Darslik = lazyWithRetry(() => import("./pages/Darslik"));
+const DarslikModul = lazyWithRetry(() => import("./pages/DarslikModul"));
 const Yangiliklar = lazyWithRetry(() => import("./pages/Yangiliklar"));
 const YangilikDetail = lazyWithRetry(() => import("./pages/YangilikDetail"));
 const Qoshimcha = lazyWithRetry(() => import("./pages/Qoshimcha"));
@@ -97,8 +103,6 @@ const DesktopApp = lazyWithRetry(() => import("./pages/DesktopApp"));
 const Savol = lazyWithRetry(() => import("./pages/Savol"));
 const SavolVariantList = lazyWithRetry(() => import("./pages/SavolVariantList"));
 
-const queryClient = new QueryClient();
-
 const App = () => {
   return (
   /**
@@ -107,48 +111,80 @@ const App = () => {
    * yuzaga kelgan xato hech kim tomonidan ushlanmay oq ekran berardi.
    */
   <ErrorBoundary>
-  <BrowserRouter>
-    <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <LanguageProvider>
-          <TooltipProvider>
-            <Toaster />
-            <Sonner />
-            <Suspense fallback={<div style={{minHeight:'100vh',display:'flex',alignItems:'center',justifyContent:'center'}}><div style={{width:'40px',height:'40px',border:'3px solid #e5e7eb',borderTopColor:'#1e3a8a',borderRadius:'50%',animation:'spin 0.6s linear infinite'}}></div></div>}>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/test-ishlash" element={<TestIshlash />} />
-                <Route path="/belgilar" element={<Belgilar />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/darslik" element={<Darslik />} />
-                <Route path="/qoshimcha" element={<Qoshimcha />} />
-                <Route path="/yangiliklar" element={<Yangiliklar />} />
-                <Route path="/yangiliklar/:slug" element={<YangilikDetail />} />
-                <Route path="/variant" element={<Variant />} />
-                <Route path="/mavzuli" element={<MavzuliTestlar />} />
-                <Route path="/bolimlar" element={<Bolimlar />} />
-                <Route path="/xatolarim" element={<Xatolarim />} />
-                <Route path="/saqlangan" element={<Saqlangan />} />
-                <Route path="/qidirish" element={<Qidirish />} />
-                <Route path="/xatolar-testi" element={<XatolarTesti />} />
-                <Route path="/avtodrom" element={<Avtodrom />} />
-                <Route path="/real-imtihon" element={<RealImtihon />} />
-                <Route path="/yodlash-kerak" element={<YodlashKerak />} />
-                <Route path="/yodlash-kerak/:mavzu" element={<YodlashKerakMavzu />} />
-                <Route path="/pro" element={<Pro />} />
-                <Route path="/auth" element={<Auth />} />
-                <Route path="/auth/callback" element={<AuthCallback />} />
-                <Route path="/profile" element={<Profile />} />
-                <Route path="/desktop" element={<DesktopApp />} />
-                <Route path="/savol/variant-59" element={<SavolVariantList />} />
-                <Route path="/savol/:slug" element={<Savol />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </Suspense>
-          </TooltipProvider>
-        </LanguageProvider>
-      </AuthProvider>
-    </QueryClientProvider>
+  {/*
+    TIL PREFIKSI `basename` ORQALI
+
+      /belgilar        o'zbekcha (lotin)   <- asosiy, o'zgarmagan
+      /cyr/belgilar    o'zbekcha (kirill)
+      /ru/belgilar     ruscha
+
+    NEGA `basename`, marshrutlarni uch marta yozish EMAS:
+    `basename` berilganda Router prefiksni yo'ldan kesib tashlaydi VA
+    har bir `<Link>` / `navigate()` ga uni qaytarib qo'shadi. Ya'ni
+    saytdagi yuzlab ichki havolaning birortasini ham o'zgartirish
+    kerak emas — ular avtomatik o'z tilida qoladi.
+
+    Marshrutlarni uch marta ulash usuli sinab ko'rildi va shu sababdan
+    rad etildi: sahifalar ochilardi, lekin ichki havola bosilganda
+    prefiks tushib qolib, foydalanuvchi o'zbekchaga qaytarib tashlanardi
+    (o'lchovda `/ru/profile` -> `/auth` shunday buzilgan edi).
+
+    Prefiks sahifa yuklanishida bir marta o'qiladi. Til almashtirilganda
+    to'liq qayta yuklash bo'ladi (`LanguageContext`) — shunda yangi
+    `basename` kuchga kiradi.
+  */}
+  <BrowserRouter basename={detectLangFromWindow().prefix || undefined}>
+    <RouteTracker />
+    <AuthProvider>
+      <LanguageProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <Suspense fallback={<div style={{minHeight:'100vh',display:'flex',alignItems:'center',justifyContent:'center'}}><div style={{width:'40px',height:'40px',border:'3px solid #e5e7eb',borderTopColor:'#1e3a8a',borderRadius:'50%',animation:'spin 0.6s linear infinite'}}></div></div>}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/test-ishlash" element={<TestIshlash />} />
+              <Route path="/belgilar" element={<Belgilar />} />
+              {/*
+                Bitta belgi manzili — SEO uchun (har bir belgi Google da
+                alohida sahifa). Odamga xuddi shu Belgilar sahifasi
+                ochiladi, faqat o'sha belgi bo'yicha filtrlangan holda.
+              */}
+              <Route path="/belgilar/:slug" element={<Belgilar />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/darslik" element={<Darslik />} />
+              <Route path="/darslik/:moduleId" element={<DarslikModul />} />
+              <Route path="/qoshimcha" element={<Qoshimcha />} />
+              <Route path="/yangiliklar" element={<Yangiliklar />} />
+              <Route path="/yangiliklar/:slug" element={<YangilikDetail />} />
+              <Route path="/variant" element={<Variant />} />
+              <Route path="/mavzuli" element={<MavzuliTestlar />} />
+              <Route path="/bolimlar" element={<Bolimlar />} />
+              <Route path="/xatolarim" element={<Xatolarim />} />
+              <Route path="/saqlangan" element={<Saqlangan />} />
+              <Route path="/qidirish" element={<Qidirish />} />
+              <Route path="/xatolar-testi" element={<XatolarTesti />} />
+              <Route path="/avtodrom" element={<Avtodrom />} />
+              <Route path="/real-imtihon" element={<RealImtihon />} />
+              <Route path="/qiyin-savollar" element={<QiyinSavollar />} />
+              <Route path="/e-avtomaktab" element={<EAvtomaktab />} />
+              <Route path="/e-avtomaktab-test" element={<EAvtomaktabTest />} />
+              <Route path="/avtoimtihon-2026" element={<AvtoImtihon2026 />} />
+              <Route path="/yodlash-kerak" element={<YodlashKerak />} />
+              <Route path="/yodlash-kerak/:mavzu" element={<YodlashKerakMavzu />} />
+              <Route path="/pro" element={<Pro />} />
+              <Route path="/auth" element={<Auth />} />
+              <Route path="/auth/callback" element={<AuthCallback />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/desktop" element={<DesktopApp />} />
+              <Route path="/savol/variant-59" element={<SavolVariantList />} />
+              <Route path="/savol/:slug" element={<Savol />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
+        </TooltipProvider>
+      </LanguageProvider>
+    </AuthProvider>
   </BrowserRouter>
   </ErrorBoundary>
   );

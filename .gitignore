@@ -104,9 +104,6 @@ supabase/migrations/*.sql
 # ---------------------------------------------------------------------------
 *.md
 !README.md
-!QUICK_START.md
-!LOYIHA-TAHLILI.md
-!STARTUP-GOYALAR.md
 !docs/*.md
 !scripts/VARIANT-QUALITY-AUDIT.md
 
@@ -115,3 +112,9 @@ supabase/migrations/*.sql
 #  lekin niyat aniq bo'lishi uchun alohida yozilgan.)
 TUZATILGAN-SOZLAR.md
 SAYT-AUDIT-*.md
+
+# Live test vositasi (lokal, repoga kirmaydi)
+tools/live-test/
+
+# Sinov hisobotlari (lokal)
+TOPILGAN-XATOLAR*.md

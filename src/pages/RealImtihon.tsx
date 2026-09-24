@@ -97,10 +97,10 @@ export default function RealImtihon() {
   return (
     <MainLayout>
       <SEO
-        title="Real imtihon — YHQ imtihon sinovi 2026"
-        description="Haqiqiy imtihon shartlarida sinov: 20 ta tasodifiy savol, 25 daqiqa, izohsiz. Rasmiy imtihon dasturi ko'rinishida."
+        title={t("seo.realImtihon.title")}
+        description={t("seo.realImtihon.description")}
         path="/real-imtihon"
-        keywords="real imtihon, YHQ imtihon, prava imtihon sinovi, imtihon dasturi"
+        keywords={t("seo.realImtihon.keywords")}
       />
 
       <div className="mx-auto w-full max-w-md px-4 py-10 md:py-16">

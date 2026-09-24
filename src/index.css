@@ -44,9 +44,22 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    /* CTA buttons */
-    --cta-orange: 28 100% 50%;
-    --cta-orange-hover: 28 100% 45%;
+    /*
+      CTA buttons
+
+      TO'Q SARIQ QIZG'ISH TOMONDA (ton 18, ton 28 emas).
+
+      Ton 28 (#FF7700) sarg'ishroq edi va siyohrang fon ustida oq matn
+      bilan atigi 2.66:1 kontrast berardi — WCAG ning katta matn uchun
+      chegarasi 3:1 dan ham PAST. Ton 18 (#FF4D00) esa 3.33:1 beradi va
+      fondan ham kuchliroq ajraladi (5.04:1 / 6.30:1 emas, lekin oq matn
+      muhimroq).
+
+      Ya'ni bu yerda go'zallik va o'qilishi bir tomonda: qizg'ish variant
+      ikkalasida ham yutadi.
+    */
+    --cta-orange: 18 100% 50%;
+    --cta-orange-hover: 18 100% 45%;
     --cta-green: 142 71% 45%;
     --cta-green-hover: 142 71% 40%;
     --cta-red: 0 84% 60%;

@@ -24,6 +24,7 @@ import { useDeferredValue, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Crown, Lock, Search, X } from "lucide-react";
 import { MainLayout } from "@/components/layout/MainLayout";
+import { ProSectionGate } from "@/components/ProSectionGate";
 import { SEO } from "@/components/SEO";
 import { PageHeader } from "@/components/PageHeader";
 import { Card, CardContent } from "@/components/ui/card";
@@ -109,15 +110,17 @@ export default function Qidirish() {
   const trimmed = query.trim();
   const tooShort = trimmed.length > 0 && trimmed.length < MIN_QUERY;
 
+  // MainLayout gate'dan TASHQARIDA — izohi `ProSectionGate` da.
   return (
     <MainLayout>
       <SEO
-        title="Savol qidirish — YHQ testlari"
-        description="1250 ta YHQ savoli ichidan matn bo'yicha qidiring: savol matni yoki javob varianti bo'yicha."
+        title={t("seo.qidirish.title")}
+        description={t("seo.qidirish.description")}
         path="/qidirish"
-        keywords="savol qidirish, YHQ savollari, test qidiruv"
+        keywords={t("seo.qidirish.keywords")}
       />
 
+      <ProSectionGate section="qidirish" returnPath="/qidirish">
       <div className="mx-auto w-full max-w-3xl px-4 py-6 md:py-10">
         <PageHeader
           title={t("sections.qidirish")}
@@ -223,6 +226,7 @@ export default function Qidirish() {
       </div>
 
       <ImageLightbox imageUrl={zoomImage} onClose={() => setZoomImage(null)} />
+      </ProSectionGate>
     </MainLayout>
   );
 }

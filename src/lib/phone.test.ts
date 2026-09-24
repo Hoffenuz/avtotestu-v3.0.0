@@ -8,11 +8,12 @@
 import { describe, expect, it } from 'vitest';
 import {
   emailToPhoneDisplay,
-  formatUzLocalInput,
+  formatLoginInput,
   formatUzPhoneDisplay,
-  formatUzPhoneInput,
+  formatUzPhoneLoose,
   isPhoneEmail,
   loginIdentifierToEmail,
+  looksLikePhone,
   normalizeUzPhone,
   phoneToEmail,
 } from './phone';
@@ -38,40 +39,64 @@ describe('normalizeUzPhone', () => {
   });
 });
 
-describe('formatUzPhoneInput', () => {
-  it('yozilayotganda bosqichma-bosqich formatlaydi', () => {
-    expect(formatUzPhoneInput('')).toBe('');
-    expect(formatUzPhoneInput('90')).toBe('+998 90');
-    expect(formatUzPhoneInput('90123')).toBe('+998 90 123');
-    expect(formatUzPhoneInput('901234567')).toBe('+998 90 123 45 67');
+describe('formatUzPhoneLoose', () => {
+  it('998 siz yozilganda darhol guruhlaydi', () => {
+    expect(formatUzPhoneLoose('')).toBe('');
+    expect(formatUzPhoneLoose('90')).toBe('90');
+    expect(formatUzPhoneLoose('90123')).toBe('90 123');
+    expect(formatUzPhoneLoose('901234567')).toBe('90 123 45 67');
   });
 
-  it('998 ni ikki marta qo\'shmaydi va ortiqcha raqamni kesadi', () => {
-    expect(formatUzPhoneInput('998901234567')).toBe('+998 90 123 45 67');
-    expect(formatUzPhoneInput('+998901234567')).toBe('+998 90 123 45 67');
-    expect(formatUzPhoneInput('9012345678999')).toBe('+998 90 123 45 67');
-  });
-});
-
-describe('formatUzLocalInput', () => {
-  it("+998 prefiksisiz formatlaydi (maydonda prefiks alohida turadi)", () => {
-    expect(formatUzLocalInput('')).toBe('');
-    expect(formatUzLocalInput('90')).toBe('90');
-    expect(formatUzLocalInput('90123')).toBe('90 123');
-    expect(formatUzLocalInput('901234567')).toBe('90 123 45 67');
+  it("to'liq raqamdan mamlakat kodini ajratadi", () => {
+    expect(formatUzPhoneLoose('998901234567')).toBe('+998 90 123 45 67');
+    expect(formatUzPhoneLoose('+998901234567')).toBe('+998 90 123 45 67');
+    expect(formatUzPhoneLoose('+998 90 123 45 67')).toBe('+998 90 123 45 67');
   });
 
-  it("to'liq raqam nusxa ko'chirilsa 998 ni kesib tashlaydi", () => {
-    expect(formatUzLocalInput('998901234567')).toBe('90 123 45 67');
-    expect(formatUzLocalInput('+998 90 123 45 67')).toBe('90 123 45 67');
+  it("`+` bilan yozayotganda kod aniq bo'lgunicha tegmaydi", () => {
+    expect(formatUzPhoneLoose('+')).toBe('+');
+    expect(formatUzPhoneLoose('+998')).toBe('+998');
+    expect(formatUzPhoneLoose('+99890')).toBe('+99890');
+    // 10-xonada kod aniq bo'ladi va chiroyli shaklga o'tadi
+    expect(formatUzPhoneLoose('+9989012345')).toBe('+998 90 123 45');
   });
 
-  it('ortiqcha raqamni qabul qilmaydi', () => {
-    expect(formatUzLocalInput('9012345678999')).toBe('90 123 45 67');
+  it("REGRESSIYA: 99 operator kodli 998... raqamni buzmaydi", () => {
+    // 99 812 34 56 — haqiqiy raqam. Eski kod undan "998" ni kesib
+    // tashlar edi va egasi ro'yxatdan o'ta olmasdi.
+    expect(formatUzPhoneLoose('998123456')).toBe('99 812 34 56');
+    expect(normalizeUzPhone(formatUzPhoneLoose('998123456'))).toBe('998998123456');
+  });
+
+  it('ortiqcha raqamni kesadi', () => {
+    // Mamlakat kodi yo'q (998 bilan boshlanmaydi) — birinchi 9 xona olinadi
+    expect(formatUzPhoneLoose('9012345678999')).toBe('90 123 45 67');
+    expect(formatUzPhoneLoose('99890123456789')).toBe('+998 90 123 45 67');
   });
 
   it('natijasi normalizatsiyadan muvaffaqiyatli o\'tadi', () => {
-    expect(normalizeUzPhone(formatUzLocalInput('901234567'))).toBe('998901234567');
+    expect(normalizeUzPhone(formatUzPhoneLoose('901234567'))).toBe('998901234567');
+    expect(normalizeUzPhone(formatUzPhoneLoose('998901234567'))).toBe('998901234567');
+  });
+});
+
+describe('formatLoginInput', () => {
+  it('telefonni formatlaydi', () => {
+    expect(formatLoginInput('901234567')).toBe('90 123 45 67');
+    expect(formatLoginInput('+998901234567')).toBe('+998 90 123 45 67');
+  });
+
+  it('emailga tegmaydi', () => {
+    expect(formatLoginInput('user@gmail.com')).toBe('user@gmail.com');
+    expect(formatLoginInput('07amir@mail.ru')).toBe('07amir@mail.ru');
+    expect(formatLoginInput('  user@gmail.com')).toBe('user@gmail.com');
+  });
+
+  it('telefonmi yoki emailmi — to\'g\'ri ajratadi', () => {
+    expect(looksLikePhone('+998 90 123 45 67')).toBe(true);
+    expect(looksLikePhone('901234567')).toBe(true);
+    expect(looksLikePhone('user@gmail.com')).toBe(false);
+    expect(looksLikePhone('')).toBe(false);
   });
 });
 

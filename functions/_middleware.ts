@@ -15,6 +15,8 @@
  *   https://developers.cloudflare.com/pages/functions/api-reference/
  */
 
+import { SEO_META } from './_seo-meta';
+
 const BOT_UA =
   /googlebot|adsbot-google|google-inspectiontool|bingbot|msnbot|yandexbot|baiduspider|duckduckbot|slurp|teoma|ia_archiver|archive\.org_bot|facebookexternalhit|facebot|meta-externalagent|twitterbot|telegrambot|slackbot|linkedinbot|whatsapp|applebot|semrushbot|ahrefsbot|mj12bot|dotbot|petalbot|bytespider|360spider|sogou|exabot|netcraft|gptbot|oai-searchbot|claudebot|cohere-ai|anthropic-ai|perplexitybot|youbot|diffbot/i;
 
@@ -42,9 +44,18 @@ const SPA_PREFIXES: string[] = [
   '/qidirish',
   '/avtodrom',
   '/yodlash-kerak',
+  '/qiyin-savollar',
   '/xatolarim',
   '/saqlangan',
   '/xatolar-testi',
+  // E-avtomaktab klasteri (2026-09)
+  '/e-avtomaktab',
+  '/e-avtomaktab-test',
+  '/avtoimtihon-2026',
+  // Til prefikslari (2026-09): /ru/... va /cyr/... barcha sahifalarni
+  // qamrab oladi, shuning uchun har bir marshrutni takrorlash shart emas.
+  '/ru',
+  '/cyr',
 ];
 
 const SEO_EXACT: string[] = [
@@ -57,6 +68,17 @@ const SEO_EXACT: string[] = [
   '/pro',
   '/contact',
   '/desktop',
+  // Bu ro'yxat `scripts/generate-main-pages.cjs` dagi ROUTE_MAP bilan
+  // MOS bo'lishi shart — aks holda bot mavjud bo'lmagan snapshot so'raydi.
+  '/bolimlar',
+  '/avtodrom',
+  '/yodlash-kerak',
+  '/qiyin-savollar',
+  '/real-imtihon',
+  '/qidirish',
+  '/e-avtomaktab',
+  '/e-avtomaktab-test',
+  '/avtoimtihon-2026',
 ];
 
 const SPA_NO_STORE_HEADERS: Record<string, string> = {
@@ -69,7 +91,7 @@ const SPA_NO_STORE_HEADERS: Record<string, string> = {
 
 /** Faqat haqiqiy fayl kengaytmalari — /belgilar/1.3.1 kabi belgi kodlari emas */
 function isStaticAsset(pathname: string): boolean {
-  return /\.(html?|css|js|mjs|json|png|jpe?g|webp|gif|svg|ico|woff2?|ttf|eot|txt|xml|map|pdf|avif|mp4|webm|wasm)$/i.test(
+  return /\.(html?|css|js|mjs|json|webmanifest|png|jpe?g|webp|gif|svg|ico|woff2?|ttf|eot|txt|xml|map|pdf|avif|mp4|webm|wasm)$/i.test(
     pathname,
   );
 }
@@ -90,6 +112,12 @@ function seoSnapshotPath(pathname: string): string | null {
   const clean = cleanPath(pathname);
   if (SEO_EXACT.includes(clean)) return `/_seo${clean}/`;
   if (clean.startsWith('/savol/')) return `/_seo${clean}/`;
+  /*
+    Yo'l belgilari — har bir belgi uchun alohida snapshot.
+    Odam kelsa SPA (Belgilar sahifasi o'sha belgi bo'yicha filtrlangan)
+    ochiladi; bot esa statik nusxani oladi.
+  */
+  if (clean.startsWith('/belgilar/')) return `/_seo${clean}/`;
   return null;
 }
 
@@ -154,6 +182,154 @@ function withHtmlHeaders(
  * Avvalo ASSETS `/` — ikkinchi next() kerak emas.
  * 503 qaytarmaymiz (Observatory CF 5xx shishmasin) — next() HTML ni uzatamiz.
  */
+/**
+ * Til prefikslari — `src/lib/langUrl.ts` bilan MOS bo'lishi SHART.
+ * U yerda prefiks o'zgarsa, bu yerda ham o'zgarishi kerak.
+ */
+const LANG_PREFIXES: Array<[string, string]> = [
+  ['/ru', 'ru'],
+  ['/cyr', 'uz'],
+];
+
+/** Uchala til uchun [prefiks, hreflang kodi] — `src/lib/langUrl.ts` dagi bilan bir xil. */
+const ALL_LANGS: Array<[string, string]> = [
+  ['', 'uz-Latn'],
+  ['/cyr', 'uz-Cyrl'],
+  ['/ru', 'ru'],
+];
+
+/** `href` atributiga xom satr sifatida qo'yilishidan oldin xavfsiz qilish. */
+function escapeAttr(qiymat: string): string {
+  return qiymat.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+}
+
+const HTML_LANG: Record<string, string> = {
+  'uz-lat': 'uz-Latn',
+  uz: 'uz-Cyrl',
+  ru: 'ru',
+};
+
+const OG_LOCALE: Record<string, string> = {
+  'uz-lat': 'uz_UZ',
+  uz: 'uz_UZ',
+  ru: 'ru_RU',
+};
+
+const SITE_ORIGIN = 'https://www.avtotestu.uz';
+
+/**
+ * `HTMLRewriter` Cloudflare runtime'ida global. `@cloudflare/workers-types`
+ * bu loyihada o'rnatilmagan, shuning uchun kerakli qismi shu yerda
+ * e'lon qilinadi — fayldagi `PagesContext` va `PagesFetcher` kabi.
+ */
+interface RewriterElement {
+  setAttribute(name: string, value: string): void;
+  setInnerContent(content: string): void;
+  append(content: string, options?: { html?: boolean }): void;
+}
+
+interface RewriterInstance {
+  on(selector: string, handler: { element(el: RewriterElement): void }): RewriterInstance;
+  transform(response: Response): Response;
+}
+
+declare const HTMLRewriter: { new (): RewriterInstance };
+
+function parseLangPath(pathname: string): { lang: string; basePath: string; prefix: string } {
+  for (const [prefix, lang] of LANG_PREFIXES) {
+    if (pathname === prefix || pathname.startsWith(prefix + '/')) {
+      const qolgan = pathname.slice(prefix.length);
+      return { lang, basePath: qolgan === '' ? '/' : qolgan, prefix };
+    }
+  }
+  return { lang: 'uz-lat', basePath: pathname || '/', prefix: '' };
+}
+
+/**
+ * Til prefiksli manzilda SPA qobig'ining meta teglarini o'sha tilga moslaydi.
+ *
+ * NEGA KERAK: `/ru/belgilar` ham, `/belgilar` ham BITTA `index.html` ni
+ * oladi va undagi meta teglar o'zbekcha (lotin). Brauzerda JavaScript
+ * yuklangach Helmet ularni to'g'rilaydi, lekin JS ishlatmaydigan
+ * o'quvchilar — Telegram, Facebook va boshqa ulashish botlari — o'sha
+ * o'zbekcha matnni ko'radi. Natijada ruscha havola ulashilganda preview
+ * o'zbekcha chiqardi.
+ *
+ * FAQAT BOT UCHUN EMAS, HAMMA UCHUN: bot bilan odamga boshqa-boshqa
+ * sahifa berish (cloaking) qidiruv tizimlari uchun qoidabuzarlik. Bu
+ * yerda ikkalasi ham bir xil javob oladi — brauzerda Helmet keyin
+ * xuddi shu qiymatlarni qo'yadi, ya'ni farq yo'q.
+ */
+function localizeSpaMeta(res: Response, pathname: string): Response {
+  const { lang, basePath, prefix } = parseLangPath(cleanPath(pathname));
+  if (!prefix) return res; // asosiy til — qobiq allaqachon shu tilda
+
+  const meta = SEO_META[basePath]?.[lang];
+  if (!meta) return res;
+
+  const url = SITE_ORIGIN + prefix + (basePath === '/' ? '' : basePath);
+  // Sarlavha `src/components/SEO.tsx` dagi qoida bilan bir xil yasaladi.
+  // `src/components/SEO.tsx` dagi qoida bilan BIR XIL: brend har doim oxirida.
+  const title = meta.title + ' | AvtoSmart';
+
+  const kontent = (qiymat: string) => ({
+    element(el: RewriterElement) {
+      el.setAttribute('content', qiymat);
+    },
+  });
+
+  let rw = new HTMLRewriter()
+    .on('html', {
+      element(el: RewriterElement) {
+        el.setAttribute('lang', HTML_LANG[lang]);
+      },
+    })
+    .on('title', {
+      element(el: RewriterElement) {
+        el.setInnerContent(title);
+      },
+    })
+    .on('meta[name="description"]', kontent(meta.description))
+    .on('meta[property="og:title"]', kontent(title))
+    .on('meta[property="og:description"]', kontent(meta.description))
+    .on('meta[property="og:url"]', kontent(url))
+    .on('meta[property="og:locale"]', kontent(OG_LOCALE[lang]))
+    .on('meta[name="twitter:title"]', kontent(title))
+    .on('meta[name="twitter:description"]', kontent(meta.description));
+
+  // Bo'sh `keywords` qo'yishdan ko'ra tegilmagani yaxshi.
+  if (meta.keywords) rw = rw.on('meta[name="keywords"]', kontent(meta.keywords));
+
+  /*
+    CANONICAL VA HREFLANG — statik qobiqda ULUMAN YO'Q edi (faqat brauzerda
+    Helmet qo'yardi). JS ishlatmaydigan o'quvchi (ko'p SEO vositalari,
+    Bing'ning cheklangan render qilishi, ba'zi ulashish botlari) uchun bu
+    sahifaning "rasmiy manzili qaysi" va "boshqa til versiyalari qayerda"
+    degan signal umuman yo'q edi. `src/components/SEO.tsx` dagi mantiq
+    bilan bir xil qiymatlar shu yerda ham qo'yiladi.
+
+    `data-rh="true"` SHART: brauzerda Helmet ishga tushganda faqat shu
+    atributli `<link>` teglarni "eski" deb hisoblab ular bilan solishtiradi
+    (`react-helmet-async` manbasi, `updateTags`). Bu belgisiz Helmet bu
+    teglarni "begona" deb qoldirib, USTIGA YANA BIR TO'PLAM qo'shardi —
+    xuddi ilgari meta teglar uchun tuzatilgan duplikat xatosi kabi.
+  */
+  const yollar = ALL_LANGS.map(
+    ([pfx, hreflang]) =>
+      `<link rel="alternate" hreflang="${hreflang}" href="${escapeAttr(SITE_ORIGIN + pfx + (basePath === '/' ? '' : basePath))}" data-rh="true">`,
+  ).join('');
+  const xDefault = `<link rel="alternate" hreflang="x-default" href="${escapeAttr(SITE_ORIGIN + (basePath === '/' ? '' : basePath))}" data-rh="true">`;
+  const canonical = `<link rel="canonical" href="${escapeAttr(url)}" data-rh="true">`;
+
+  rw = rw.on('head', {
+    element(el: RewriterElement) {
+      el.append(canonical + yollar + xDefault, { html: true });
+    },
+  });
+
+  return rw.transform(res);
+}
+
 async function serveSpaShell(ctx: PagesContext): Promise<Response> {
   const viaAssets = await fetchAsset(ctx, '/');
   if (viaAssets?.ok) {
@@ -282,7 +458,7 @@ async function handleRequest(ctx: PagesContext): Promise<Response> {
           });
         }
         if (needsSpaFallback(res.status)) {
-          return spaFromAssetsOnly(ctx);
+          return localizeSpaMeta(await spaFromAssetsOnly(ctx), path);
         }
         return withHtmlHeaders(res, {
           ...SPA_NO_STORE_HEADERS,
@@ -291,11 +467,11 @@ async function handleRequest(ctx: PagesContext): Promise<Response> {
       }
     }
 
-    return serveSpaShell(ctx);
+    return localizeSpaMeta(await serveSpaShell(ctx), path);
   }
 
   if (isSpaRoute(path)) {
-    return serveSpaShell(ctx);
+    return localizeSpaMeta(await serveSpaShell(ctx), path);
   }
 
   return next();

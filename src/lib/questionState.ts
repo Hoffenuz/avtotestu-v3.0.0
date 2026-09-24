@@ -138,17 +138,29 @@ export async function fetchWrongQuestionIds(limit = 200): Promise<string[]> {
  * Ammo `.gt('wrong_count', 0)` qo'yilgan: tegishsiz qatorlarni bekorga
  * yangilamaslik uchun.
  *
- * @param globalId berilsa faqat o'sha savol, berilmasa BARCHASI
+ * @param globalId bitta savol, savollar RO'YXATI yoki berilmasa BARCHASI
  * @returns muvaffaqiyatli bo'ldimi
  */
-export async function clearWrongQuestions(globalId?: string): Promise<boolean> {
+export async function clearWrongQuestions(
+  globalId?: string | string[],
+): Promise<boolean> {
   try {
     let q = supabase
       .from('user_question_state')
       .update({ wrong_count: 0 })
       .gt('wrong_count', 0);
 
-    if (globalId) q = q.eq('global_id', globalId);
+    /*
+      Ro'yxat ham qabul qilinadi: "Xatolar ustida ishlash" testidan keyin
+      to'g'ri yechilgan savollar BITTA so'rov bilan tozalanadi. Har biriga
+      alohida so'rov yuborish 20 tagacha chaqiruv demak bo'lardi.
+    */
+    if (Array.isArray(globalId)) {
+      if (globalId.length === 0) return true;
+      q = q.in('global_id', globalId);
+    } else if (globalId) {
+      q = q.eq('global_id', globalId);
+    }
 
     const { error } = await q;
     if (error) {

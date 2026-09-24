@@ -21,7 +21,7 @@ const STATIC_SRC = path.join(ROOT, "scripts/seo-templates");
 const PUBLIC = path.join(ROOT, "public");
 const INDEX_HTML = path.join(ROOT, "index.html");
 const BASE_URL = "https://www.avtotestu.uz";
-const BRAND = "Avtotestlar.uz";
+const BRAND = "AvtoSmart";
 
 const ROUTE_MAP = {
   "test-ishlash.html": "test-ishlash",
@@ -32,6 +32,19 @@ const ROUTE_MAP = {
   "qoshimcha.html": "qoshimcha",
   "pro.html": "pro",
   "contact.html": "contact",
+  // Yangi bo'limlar — bularsiz Googlebot xom HTML da bosh sahifaning
+  // sarlavhasini ko'rardi va sahifalar takror deb baholanardi.
+  "bolimlar.html": "bolimlar",
+  "avtodrom.html": "avtodrom",
+  "yodlash-kerak.html": "yodlash-kerak",
+  "real-imtihon.html": "real-imtihon",
+  "qidirish.html": "qidirish",
+  "qiyin-savollar.html": "qiyin-savollar",
+  // E-avtomaktab klasteri: "e avtomaktab" so'rovlari 28 kunda 81 792 marta
+  // ko'rsatilgan, CTR 0,4%. Bu sahifalar aynan o'sha niyatga javob beradi.
+  "e-avtomaktab.html": "e-avtomaktab",
+  "e-avtomaktab-test.html": "e-avtomaktab-test",
+  "avtoimtihon-2026.html": "avtoimtihon-2026",
 };
 
 function applyContentFixes(html) {
@@ -50,8 +63,61 @@ function applyContentFixes(html) {
     .replace(/6[12] ta variant/gi, "63 ta variant")
     .replace(/6[12] ta to'liq variant/gi, "63 ta to'liq variant")
     .replace(/6[12] ta test varianti/gi, "63 ta test varianti")
-    .replace(/Avtotestu/g, "Avtotestlar.uz")
-    .replace(/og:site_name" content="Avtotestlar"/g, `og:site_name" content="${BRAND}"`);
+    .replace(/Avtotestu/g, "AvtoSmart")
+    .replace(/og:site_name" content="Avtotestlar(?:\.uz)?"/g, `og:site_name" content="${BRAND}"`);
+}
+
+/**
+ * Bot snapshot'ining sarlavha va tavsifini React ilova ishlatadigan
+ * MATNGA moslaydi.
+ *
+ * NEGA KERAK: shablonlar qo'lda yozilgan, React esa matnni
+ * `src/locales/*.json` dan oladi. Ikki manba vaqt o'tib bir-biridan
+ * uzoqlashdi — 18 sahifadan 13 tasida Google BOSHQA sarlavhani,
+ * foydalanuvchi BOSHQA sarlavhani ko'rardi. Endi manba bitta:
+ * `functions/_seo-meta.ts` (u ham locale'lardan yasaladi).
+ *
+ * Qo'shimcha qoida `src/components/SEO.tsx` dagi bilan bir xil.
+ */
+function readSeoMeta() {
+  const p = path.join(ROOT, "functions/_seo-meta.ts");
+  if (!fs.existsSync(p)) return null;
+  const src = fs.readFileSync(p, "utf-8");
+  const boshi = src.indexOf("= {") + 2;
+  const oxiri = src.lastIndexOf("};") + 1;
+  try {
+    return JSON.parse(src.slice(boshi, oxiri));
+  } catch {
+    return null;
+  }
+}
+
+const SEO_META = readSeoMeta();
+
+/** `"` va `&` atribut ichida xavfsiz bo'lishi uchun. */
+function escAttr(s) {
+  return s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+}
+
+function syncTitleAndDescription(html, route) {
+  const meta = SEO_META?.[`/${route}`]?.["uz-lat"];
+  if (!meta) return html;
+
+  const title = `${meta.title} | ${BRAND}`;
+  return html
+    .replace(/<title>[\s\S]*?<\/title>/, `<title>${title}</title>`)
+    .replace(
+      /<meta\s+name="description"\s+content="[^"]*"\s*\/?>/,
+      `<meta name="description" content="${escAttr(meta.description)}">`,
+    )
+    .replace(
+      /<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/,
+      `<meta property="og:title" content="${escAttr(title)}">`,
+    )
+    .replace(
+      /<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/,
+      `<meta property="og:description" content="${escAttr(meta.description)}">`,
+    );
 }
 
 function copyRoutePages() {
@@ -62,6 +128,7 @@ function copyRoutePages() {
       continue;
     }
     let html = applyContentFixes(fs.readFileSync(src, "utf-8"));
+    html = syncTitleAndDescription(html, route);
     const outDir = path.join(PUBLIC, "_seo", route);
     fs.mkdirSync(outDir, { recursive: true });
     fs.writeFileSync(path.join(outDir, "index.html"), html, "utf-8");
@@ -83,7 +150,7 @@ function writeDesktopPage() {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Desktop ilova | ${BRAND} — Offline test</title>
-  <meta name="description" content="Avtotestlar.uz Windows desktop ilovasini yuklab oling. Internetsiz YHQ testlari, katta ekranda qulay o'rganish va tez mahalliy ilova. Haydovchilik guvohnomasi imtihoniga tayyorlaning.">
+  <meta name="description" content="Windows uchun offline YHQ test ilovasi: internetsiz test ishlang, katta ekranda qulay o'rganing. Bepul yuklab oling.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="${BASE_URL}/desktop">
   <meta property="og:type" content="website">
@@ -91,7 +158,7 @@ function writeDesktopPage() {
   <meta property="og:title" content="Desktop ilova | ${BRAND}">
   <meta property="og:description" content="Windows uchun offline YHQ test ilovasi. Internet bo'lmasa ham test ishlang.">
   <meta property="og:site_name" content="${BRAND}">
-  <meta property="og:image" content="${BASE_URL}/rasm1.webp">
+  <meta property="og:image" content="${BASE_URL}/avtosmart-og.jpg">
   <style>
     body { font-family: system-ui, sans-serif; line-height: 1.65; color: #1a202c; background: #f7fafc; margin: 0; }
     .wrap { max-width: 760px; margin: 0 auto; padding: 32px 16px 48px; }
@@ -100,7 +167,7 @@ function writeDesktopPage() {
 <body>
   <div class="wrap">
     <nav style="margin-bottom:20px;font-size:14px"><a href="/">Bosh sahifa</a> · <a href="/test-ishlash">Test ishlash</a></nav>
-    <h1 style="color:#1E2350">Avtotestlar Desktop ilova</h1>
+    <h1 style="color:#1E2350">AvtoSmart Desktop ilova</h1>
     <p>Windows kompyuter uchun mahalliy ilova. Internet bo'lmasa ham YHQ testlarini ishlang, katta ekranda qulay o'rganing.</p>
     <h2 style="color:#1E2350;font-size:1.1rem;margin-top:24px">Afzalliklar</h2>
     <ul>
@@ -116,7 +183,14 @@ function writeDesktopPage() {
 </html>`;
   const outDir = path.join(PUBLIC, "_seo", "desktop");
   fs.mkdirSync(outDir, { recursive: true });
-  fs.writeFileSync(path.join(outDir, "index.html"), html, "utf-8");
+  // Sarlavha/tavsif React ilova bilan bitta manbadan bo'lsin — shablonli
+  // sahifalarda `copyRoutePages` shuni qiladi, bu sahifa esa kod ichida
+  // yasalgani uchun bu yerda alohida o'tkaziladi.
+  fs.writeFileSync(
+    path.join(outDir, "index.html"),
+    syncTitleAndDescription(html, "desktop"),
+    "utf-8",
+  );
   console.log("✅ /_seo/desktop/index.html");
 
   const legacy = path.join(PUBLIC, "desktop", "index.html");
@@ -142,12 +216,12 @@ function patchHomeNoscript() {
   const noscriptBlock = `<noscript>
         <div style="font-family:system-ui,sans-serif;color:#1a202c">
           <header style="padding:20px;background:#1a365d;color:#fff;text-align:center">
-            <h1>Avtotestlar.uz — Haydovchilik guvohnomasi uchun YHQ testlari</h1>
+            <h1>AvtoSmart — Haydovchilik guvohnomasi uchun YHQ testlari</h1>
             <p style="margin-top:8px;opacity:.9">2026 yil yangilangan savollar, yo'l belgilari va onlayn testlar</p>
           </header>
           ${simplified}
           <footer style="padding:20px;background:#f7fafc;text-align:center;margin-top:32px">
-            <p>© ${new Date().getFullYear()} Avtotestlar.uz — O'zbekistonda haydovchilik guvohnomasi uchun YHQ testlari</p>
+            <p>© ${new Date().getFullYear()} AvtoSmart — O'zbekistonda haydovchilik guvohnomasi uchun YHQ testlari</p>
           </footer>
         </div>
       </noscript>`;
@@ -158,8 +232,45 @@ function patchHomeNoscript() {
   console.log("✅ index.html noscript yangilandi");
 }
 
+/**
+ * `functions/_middleware.ts` dagi SEO_EXACT bilan solishtiradi.
+ *
+ * Ikki ro'yxat ajralib ketsa xato JIMGINA sodir bo'ladi: middleware botni
+ * mavjud bo'lmagan `/_seo/...` ga yuboradi yoki aksincha, tayyor snapshot
+ * hech qachon ishlatilmaydi. Ikkalasi ham faqat productionda bilinadi.
+ */
+function assertMiddlewareInSync() {
+  const mwPath = path.join(ROOT, "functions/_middleware.ts");
+  if (!fs.existsSync(mwPath)) return;
+
+  const block = fs.readFileSync(mwPath, "utf-8").match(/SEO_EXACT[^=]*=\s*\[([\s\S]*?)\]/);
+  if (!block) return;
+
+  // Izohlarni olib tashlaymiz — o'zbekcha matndagi apostrof qator
+  // chegarasi deb o'qilib, xato "marshrut" hosil qilardi.
+  const body = block[1].replace(/\/\/[^\n]*/g, "").replace(/\/\*[\s\S]*?\*\//g, "");
+  const inMiddleware = [...body.matchAll(/'([^']+)'/g)].map((m) => m[1]);
+  const generated = [...Object.values(ROUTE_MAP), "desktop"].map((r) => `/${r}`);
+
+  const missing = inMiddleware.filter((r) => !generated.includes(r));
+  const unused = generated.filter((r) => !inMiddleware.includes(r));
+
+  if (missing.length || unused.length) {
+    console.error("\n❌ SEO_EXACT va ROUTE_MAP mos emas:");
+    if (missing.length) {
+      console.error(`   _middleware.ts da bor, snapshot YO'Q: ${missing.join(", ")}`);
+    }
+    if (unused.length) {
+      console.error(`   snapshot bor, _middleware.ts da YO'Q: ${unused.join(", ")}`);
+    }
+    process.exit(1);
+  }
+  console.log(`✅ _middleware.ts bilan mos (${generated.length} ta marshrut)`);
+}
+
 console.log("🔧 Asosiy sahifalar statik HTML yaratilmoqda...\n");
 copyRoutePages();
 writeDesktopPage();
+assertMiddlewareInSync();
 patchHomeNoscript();
 console.log("\n✨ Tayyor!");

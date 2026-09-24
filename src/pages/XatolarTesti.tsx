@@ -18,6 +18,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AlertCircle, CheckCircle2, Play, Loader2 } from "lucide-react";
 import { MainLayout } from "@/components/layout/MainLayout";
+import { ProSectionGate } from "@/components/ProSectionGate";
 import { SEO } from "@/components/SEO";
 import { PageHeader } from "@/components/PageHeader";
 import { Button } from "@/components/ui/button";
@@ -27,7 +28,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAccessState } from "@/hooks/useAccessState";
 import { useTestSession } from "@/hooks/useTestSession";
-import { fetchWrongQuestionIds } from "@/lib/questionState";
+import { clearWrongQuestions, fetchWrongQuestionIds } from "@/lib/questionState";
 import { loadCorpusIndex } from "@/lib/questionCorpus";
 
 /** DB dagi `variant` ustuni 0..100 oralig'ida — xatolar rejimi uchun ajratilgan qiymat. */
@@ -89,8 +90,14 @@ export default function XatolarTesti() {
     setStarted(true);
   };
 
+  /*
+    Test ekrani ham gate ICHIDA: `started` faqat gate ortidagi tugmadan
+    yoqiladi, lekin obuna test davomida tugab qolsa (yoki holat boshqa
+    yo'l bilan qayta tiklansa) ekran ochiq qolib ketmasligi kerak.
+  */
   if (started) {
     return (
+      <ProSectionGate section="xatolarTesti" returnPath="/xatolar-testi">
       <TestInterfaceBase
         onExit={() => {
           setStarted(false);
@@ -107,12 +114,27 @@ export default function XatolarTesti() {
         variant={MISTAKES_VARIANT}
         sessionId={sessionId}
         isPremiumSession={isPremium}
+        /*
+          TO'G'RI YECHILGAN SAVOL XATOLAR RO'YXATIDAN CHIQADI.
+
+          Avval bunday emasdi: `record_question_answers` faqat
+          `correct_count` ni oshirardi, `wrong_count` esa o'sha holicha
+          qolardi. Natijada bir marta xato qilingan savol keyin necha
+          marta to'g'ri yechilsa ham "Xato savollarim" da abadiy turardi
+          va ro'yxat hech qachon kamaymasdi.
+        */
+        onAnswersRecorded={(answers) => {
+          const solved = answers.filter((a) => a.isCorrect).map((a) => a.globalId);
+          if (solved.length) void clearWrongQuestions(solved);
+        }}
       />
+      </ProSectionGate>
     );
   }
 
   const count = wrongIds?.length ?? 0;
 
+  // MainLayout gate'dan TASHQARIDA — izohi `ProSectionGate` da.
   return (
     <MainLayout>
       <SEO
@@ -122,6 +144,7 @@ export default function XatolarTesti() {
         noIndex
       />
 
+      <ProSectionGate section="xatolarTesti" returnPath="/xatolar-testi">
       <div className="mx-auto w-full max-w-2xl px-4 py-6 md:py-10">
         <PageHeader
           title={t("sections.xatolarTesti")}
@@ -193,6 +216,7 @@ export default function XatolarTesti() {
           </Card>
         )}
       </div>
+      </ProSectionGate>
     </MainLayout>
   );
 }
