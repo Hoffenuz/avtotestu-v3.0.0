@@ -4,6 +4,7 @@ import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
+import { authState } from "@/lib/authEntry";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { PRO_COMPARISON } from "@/lib/proComparison";
@@ -414,14 +415,14 @@ export default function Pro() {
     if (redirecting) return;
 
     if (!user) {
-      // Mehmonning aksariyati hali ro'yxatdan o'tmagan — uni "Kirish" emas,
-      // to'g'ridan-to'g'ri "Ro'yxatdan o'tish" bo'limiga olib boramiz va
-      // tugagach shu sahifaga qaytaramiz. Tanlagan tarifi va to'lov tizimi
-      // ham saqlanadi — ro'yxatdan o'tgach ularni qaytadan tanlashi shart emas.
+      // Tab `authEntry` qaroriga ko'ra: yangi qurilmada "Ro'yxatdan o'tish",
+      // avval kirilgan qurilmada "Kirish" (hisobi bor odam ro'yxatdan o'tish
+      // formasiga tushib, "raqam band" xatosini olmasin). Tugagach shu
+      // sahifaga qaytadi; tanlagan tarifi va to'lov tizimi ham saqlanadi.
       trackEvent("guest_buy_click", { plan: planName, provider: via });
       setPendingPlan(planName, via);
       toast.info("To'lov uchun avval ro'yxatdan o'ting — bir daqiqa vaqt oladi.");
-      navigate('/auth', { state: { mode: 'signup', returnTo: '/pro' } });
+      navigate('/auth', { state: authState('/pro') });
       return;
     }
 

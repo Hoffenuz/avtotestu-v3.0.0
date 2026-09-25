@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useTestResults } from "@/hooks/useTestResults";
 import { Button } from "@/components/ui/button";
-import { Play, AlertTriangle, Lock, Crown, Home } from "lucide-react";
+import { Play, AlertTriangle, Lock } from "lucide-react";
 import { ProUpsell } from "@/components/ProUpsell";
-import { FREE_VARIANT_UI, isVariantLocked as checkVariantLocked } from "@/lib/variantAccess";
+import { FREE_VARIANT_UI, isFreeVariantUi, isVariantLocked as checkVariantLocked } from "@/lib/variantAccess";
 
 interface TestStartPageProps {
   onStartTest: (variant: number) => void;
@@ -45,13 +44,6 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
         ? "Барча вариантларни очиш учун PRO обунага обуна бўлинг."
         : "Barcha variantlarni ochish uchun PRO obunaga obuna bo'ling.";
 
-  const freeHintMessage =
-    language === "ru"
-      ? "Бесплатно: только вариант 1. Остальные — по PRO."
-      : language === "uz"
-        ? "Бепул: фақат 1-вариант. Қолганлари PRO билан."
-        : "Bepul: faqat 1-variant. Qolganlari PRO bilan.";
-
   const handleVariantSelect = (v: number) => {
     if (isLocked(v)) {
       setProNotice(proRequiredMessage);
@@ -80,7 +72,7 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
     const locked = isLocked(v);
     const status = getVariantStatus(v);
     const isSelected = selectedVariant === v;
-    const isFree = !hasProAccess && v === FREE_VARIANT_UI;
+    const isFree = isFreeVariantUi(v, hasProAccess);
 
     if (locked) {
       return "bg-muted/30 text-muted-foreground/60 border-border/60 opacity-50 cursor-pointer hover:opacity-70";
@@ -107,16 +99,6 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
     <div className="bg-gradient-to-br from-background via-background to-primary/5">
       {/* Mobile Layout */}
       <div className="lg:hidden bg-background pb-4">
-        {/* Mobilda ham chiqish yo'li ko'rinib tursin */}
-        <div className="px-4 pt-3">
-          <Link to="/">
-            <Button variant="outline" size="sm" className="gap-2">
-              <Home className="w-4 h-4" />
-              {t("nav.home")}
-            </Button>
-          </Link>
-        </div>
-
         {/*
           "Bosh sahifa / Profil / Kirish" tugmalari BU YERDAN OLIB TASHLANDI —
           uchalasi ham sayt headerida bor va ikkinchi qatorda takrorlanishi
@@ -177,12 +159,6 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
               <p className="text-xs text-red-700 dark:text-red-300">{startError}</p>
             </div>
           )}
-          {!hasProAccess && (
-            <div className="mt-2 flex items-start gap-2 bg-amber-500/10 border border-amber-500/25 rounded-lg px-3 py-2">
-              <Crown className="w-4 h-4 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
-              <p className="text-xs text-amber-900 dark:text-amber-200">{freeHintMessage}</p>
-            </div>
-          )}
           {proNotice && (
             <div className="mt-2 flex items-center gap-2 bg-orange-500/10 border border-orange-500/25 rounded-lg px-3 py-2">
               <Lock className="w-4 h-4 text-orange-600 dark:text-orange-400 flex-shrink-0" />
@@ -220,7 +196,7 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
                 onClick={() => handleMobileVariantTap(v)}
               >
                 {isLocked(v) && <Lock className="w-3 h-3 absolute top-1 right-1 opacity-70" />}
-                {!isLocked(v) && !hasProAccess && v === FREE_VARIANT_UI && (
+                {isFreeVariantUi(v, hasProAccess) && (
                   <span className="absolute -top-1 -right-1 text-[8px] font-bold bg-blue-500 text-white px-1 rounded">✓</span>
                 )}
                 {v}
@@ -258,18 +234,11 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
         <div className="w-[30%] bg-card border-r border-border p-6 flex flex-col overflow-y-auto">
           <div className="flex-1 flex flex-col">
             {/*
-              Bosh sahifaga qaytish. Sayt headerida ham havola bor, lekin bu
-              ekran to'liq balandlikdagi ikki panelli "ilova" ko'rinishida —
-              foydalanuvchi tepadagi menyuni izlamasligi uchun chiqish yo'li
-              shu yerda, ko'z oldida turadi.
+              SODDALASHTIRILDI (2026-09): "Bosh sahifa" tugmasi (sayt headerida
+              bor), "Bepul: faqat 1-variant" xabari (qulf belgilari va pastdagi
+              PRO kartasi aytib turibdi) va "Ko'rsatmalar" bloki (uchinchi
+              bandi statistikadagi 90% ni takrorlardi) olib tashlandi.
             */}
-            <Link to="/" className="mb-4 self-start">
-              <Button variant="outline" size="sm" className="gap-2">
-                <Home className="w-4 h-4" />
-                {t("nav.home")}
-              </Button>
-            </Link>
-
             {/* Language Selection */}
             <div className="mb-4">
               <h3 className="text-[10px] font-medium text-muted-foreground mb-1.5">{t("test.selectLanguage")}</h3>
@@ -331,12 +300,6 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
                 <p className="text-xs text-red-700 dark:text-red-300">{startError}</p>
               </div>
             )}
-            {!hasProAccess && (
-              <div className="mb-2 flex items-start gap-2 bg-amber-500/10 border border-amber-500/25 rounded-lg px-3 py-2">
-                <Crown className="w-4 h-4 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
-                <p className="text-xs text-amber-900 dark:text-amber-200">{freeHintMessage}</p>
-              </div>
-            )}
             {proNotice && (
               <div className="mb-2 flex items-center gap-2 bg-orange-500/10 border border-orange-500/25 rounded-lg px-3 py-2">
                 <Lock className="w-4 h-4 text-orange-600 dark:text-orange-400 flex-shrink-0" />
@@ -345,35 +308,13 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
             )}
             <Button
               size="lg"
-              className="w-full mb-3 gap-2 h-12 text-sm font-semibold shadow-lg hover:shadow-xl transition-all"
+              className="w-full gap-2 h-12 text-sm font-semibold shadow-lg hover:shadow-xl transition-all"
               onClick={handleStartTest}
               disabled={selectedVariant === null}
             >
               <Play className="w-4 h-4" />
               {selectedVariant ? t("test.startTest") : t("test.selectVariantFirst")}
             </Button>
-
-            {/* Instructions */}
-            <div className="p-3 bg-gradient-to-br from-muted/50 to-muted/30 rounded-lg border border-border">
-              <h3 className="text-[10px] font-semibold text-foreground mb-1.5 flex items-center gap-1.5">
-                <div className="w-1 h-1 rounded-full bg-primary" />
-                {t("test.instructions")}
-              </h3>
-              <div className="text-[10px] text-muted-foreground space-y-1">
-                <div className="flex items-start gap-1.5">
-                  <span className="text-primary mt-0.5">•</span>
-                  <span>{t("test.instruction1")}</span>
-                </div>
-                <div className="flex items-start gap-1.5">
-                  <span className="text-primary mt-0.5">•</span>
-                  <span>{t("test.instruction2")}</span>
-                </div>
-                <div className="flex items-start gap-1.5">
-                  <span className="text-primary mt-0.5">•</span>
-                  <span>{t("test.instruction3")}</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -396,7 +337,7 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
                   onClick={() => handleVariantSelect(v)}
                 >
                   {isLocked(v) && <Lock className="w-3 h-3 absolute top-1 right-1 opacity-70" />}
-                  {!isLocked(v) && !hasProAccess && v === FREE_VARIANT_UI && (
+                  {isFreeVariantUi(v, hasProAccess) && (
                     <span className="absolute -top-1 -right-1 text-[8px] font-bold bg-blue-500 text-white px-1 rounded">✓</span>
                   )}
                   {v}

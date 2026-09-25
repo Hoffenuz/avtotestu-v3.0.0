@@ -12,6 +12,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthRequiredPrompt } from "@/components/AuthRequiredPrompt";
 import { Bookmark, BookmarkX, CheckCircle2, Loader2, Trash2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -168,12 +169,7 @@ export function SavedWrongList({ mode }: SavedWrongListProps) {
     return (
       <Card>
         <CardContent className="py-10 text-center">
-          <p className="text-muted-foreground">
-            {t("pages.signInRequired")}
-          </p>
-          <Button asChild className="mt-4">
-            <Link to="/auth">{t("pages.signIn")}</Link>
-          </Button>
+          <AuthRequiredPrompt />
         </CardContent>
       </Card>
     );

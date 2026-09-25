@@ -14,7 +14,7 @@
  *   bepul  public/free-*.json   = 1009 savol
  *   PRO    public/barcha-*.json = 1275 savol  (farqi 266)
  *   variantlar: src/components/TestStartPage.tsx -> TOTAL_VARIANTS = 64
- *   bepul variant: src/lib/variantAccess.ts -> FREE_VARIANT_UI = 1
+ *   bepul variantlar: src/lib/variantAccess.ts -> FREE_VARIANTS_UI = [1, 2, 3]
  * Noto'g'ri raqam bu yerda reklama da'vosiga aylanadi.
  */
 export interface ProComparisonRow {

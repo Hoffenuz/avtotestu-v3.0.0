@@ -18,6 +18,7 @@ import { isTurnstileConfigured } from '@/lib/turnstile';
 import { TelegramLoginButton } from '@/components/TelegramLoginButton';
 import { isTelegramLoginConfigured } from '@/lib/telegramLogin';
 import { peekPendingPlan } from '@/lib/pendingPlan';
+import { defaultAuthMode, type AuthMode } from '@/lib/authEntry';
 import {
   formatLoginInput,
   formatUzPhoneDisplay,
@@ -33,14 +34,21 @@ import { z } from 'zod';
 /** Yangi hisoblar uchun qat'iyroq talab (eski 6 belgili parollar kirishda ishlayveradi). */
 const MIN_SIGNUP_PASSWORD = 8;
 
-type Mode = 'login' | 'signup';
+type Mode = AuthMode;
 
 const Auth = () => {
   const location = useLocation();
 
-  // Pro sahifasidan "obuna olish" bosilganda darhol ro'yxatdan o'tish ochiladi
+  /*
+    Qaysi tab ochiladi — `authEntry.defaultAuthMode`: shu qurilmada hech qachon
+    hisobga kirilmagan bo'lsa RO'YXATDAN O'TISH, aks holda KIRISH. Ilgari
+    doim "Kirish" ochilardi va yangi odam hisob ochish yo'lini izlashi kerak
+    edi. Chaqiruvchi aniq rejim bersa — u ustun.
+  */
   const requestedMode = (location.state as { mode?: Mode })?.mode;
-  const [mode, setMode] = useState<Mode>(requestedMode === 'signup' ? 'signup' : 'login');
+  const [mode, setMode] = useState<Mode>(() =>
+    requestedMode === 'signup' || requestedMode === 'login' ? requestedMode : defaultAuthMode()
+  );
 
   /**
    * Kirishda YAGONA maydon: telefon raqam ham, email ham shu yerga yoziladi
@@ -246,6 +254,24 @@ const Auth = () => {
         if (ctx && typeof ctx.json === 'function') {
           try { result = await ctx.json(); } catch { /* ignore */ }
         }
+      }
+
+      /*
+        Raqam allaqachon ro'yxatdan o'tgan — bu odamning hisobi BOR (odatda
+        yangi qurilmadan kelgan). Xato ko'rsatib qoldirmaymiz: o'zimiz
+        "Kirish" tabiga o'tkazamiz va raqamni yozib qo'yamiz — faqat parol
+        qoladi.
+      */
+      if (result?.error === 'phone_taken') {
+        setMode('login');
+        setLogin(formatUzPhoneDisplay(normalized));
+        setPassword('');
+        setConfirmPassword('');
+        setShowPassword(false);
+        setTurnstileToken('');
+        setError(t('auth.phoneTakenLogin'));
+        setIsSubmitting(false);
+        return;
       }
 
       if (!result?.ok) {
@@ -463,6 +489,16 @@ const Auth = () => {
               {t('auth.tabSignup')}
             </button>
           </div>
+
+          {/*
+            Ro'yxatdan o'tish nima beradi — BITTA qisqa qator. Hisob ochish
+            sababini bilmagan odam formani to'ldirmaydi.
+          */}
+          {isSignup && !error && (
+            <p className="-mt-1 mb-3 text-center text-xs leading-snug text-muted-foreground">
+              {t('auth.signupBenefit')}
+            </p>
+          )}
 
           {error && (
             <div className="mb-3 p-2.5 rounded-lg bg-destructive/10 border border-destructive/30 flex items-start gap-2">

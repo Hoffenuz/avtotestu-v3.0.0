@@ -13,7 +13,7 @@
 // ============================================================================
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { AuthRequiredPrompt } from "@/components/AuthRequiredPrompt";
 import { Loader2, RotateCcw } from "lucide-react";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEO } from "@/components/SEO";
@@ -110,10 +110,7 @@ export default function RealImtihon() {
           <CardContent className="py-10 text-center">
             {!user && !authLoading ? (
               <>
-                <p className="text-sm text-muted-foreground">{t("pages.signInRequired")}</p>
-                <Button asChild className="mt-4">
-                  <Link to="/auth">{t("pages.signIn")}</Link>
-                </Button>
+                <AuthRequiredPrompt textClassName="text-sm text-muted-foreground" />
               </>
             ) : failed ? (
               <>

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { authState } from "@/lib/authEntry";
 import { toast } from "sonner";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -107,7 +108,7 @@ export const TestResults = ({
               className="h-11 w-full text-[15px] font-semibold"
               onClick={() => {
                 toast.dismiss(tid);
-                navigate("/auth", { state: { returnTo: "/xatolarim", mode: "signup" } });
+                navigate("/auth", { state: authState("/xatolarim") });
               }}
             >
               {t("results.guestBtn")}

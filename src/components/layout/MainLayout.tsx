@@ -1,6 +1,7 @@
 import { BottomNav } from "./BottomNav";
 import { useDarkMode } from "@/hooks/useDarkMode";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { authState } from "@/lib/authEntry";
 import { useState, useEffect, useMemo, useCallback, useRef } from "react";
 import { Menu, X, LogIn, Crown, Globe, ChevronDown, ChevronRight, Home, BookOpen, BookMarked, LayoutGrid, Moon, Sun, Check } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
@@ -350,7 +351,7 @@ export function MainLayout({ children }: MainLayoutProps) {
               ) : (
                 <Button
                   size="sm"
-                  onClick={() => navigate("/auth")}
+                  onClick={() => navigate("/auth", { state: authState(location.pathname + location.search) })}
                   className="h-9 gap-1.5 rounded-lg bg-white px-3 font-semibold text-[#131A45] hover:bg-white/90 focus-visible:ring-white/60 sm:px-4"
                 >
                   <LogIn className="h-4 w-4 lg:hidden" aria-hidden="true" />
@@ -455,7 +456,7 @@ export function MainLayout({ children }: MainLayoutProps) {
 
               {!user && (
                 <div className="shrink-0 border-t border-border p-3">
-                  <Button onClick={() => navigate("/auth")} className="h-11 w-full gap-2 rounded-lg font-semibold">
+                  <Button onClick={() => navigate("/auth", { state: authState(location.pathname + location.search) })} className="h-11 w-full gap-2 rounded-lg font-semibold">
                     <LogIn className="h-4 w-4" aria-hidden="true" />
                     {t("nav.login")}
                   </Button>
