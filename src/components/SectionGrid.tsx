@@ -2,11 +2,14 @@
 // SectionGrid — bo'lim plitkalari
 // ----------------------------------------------------------------------------
 // DIZAYN QARORLARI:
-//   * Ixcham plitka: rangli ikonka + qisqa nom. Uzun tavsifli katta
+//   * Ixcham plitka: ikonka + qisqa nom. Uzun tavsifli katta
 //     kartochkalarni ko'z ketma-ket o'qishga majbur bo'ladi, ixchamlarini
 //     esa bir qarashda skanerlaydi.
-//   * Har bir plitka o'z rangida — bir xil rangli to'r bir tekis "devor"
-//     bo'lib ko'rinadi va elementlar ajralmaydi.
+//   * SAYT USLUBIDA (2026-09): ikonka SIYOH rangda, shakl tugmalar bilan
+//     bir xil (`rounded-lg`), sichqoncha tekkanda chegara siyohga
+//     aylanadi va ikonka to'la siyoh bo'ladi. Ilgari har plitka o'z
+//     rangida edi (yashil, qizil, sariq...) — siyoh brend yonida sayt
+//     rang-barang ko'rinardi; plitkalarni endi ikonka SHAKLI ajratadi.
 //   * Kirish talab qiladigan bo'limlar kirmagan foydalanuvchiga ham
 //     ko'rsatiladi, lekin QULF belgisi bilan. Yashirish "sayt kambag'al"
 //     degan taassurot qoldirardi.
@@ -17,11 +20,29 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight, Crown, Lock } from "lucide-react";
-import { ACCENT_CLASS, type SectionGroup, type SectionItem } from "@/lib/siteSections";
+import type { SectionGroup, SectionItem } from "@/lib/siteSections";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAccessState } from "@/hooks/useAccessState";
 import { hasStoredSession } from "@/lib/hasStoredSession";
 import { cn } from "@/lib/utils";
+
+/** Plitka — ikkala ko'rinishda umumiy. */
+const TILE = cn(
+  "group flex h-full items-center rounded-lg border border-border bg-card shadow-sm",
+  // Sakramaydi: faqat chegara siyohga aylanadi (ikonka ham to'ladi).
+  "transition-colors hover:border-primary dark:hover:border-primary/70",
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+);
+
+/** Ikonka qutisi — och siyoh fon, hover'da to'la siyoh (asosiy tugma kabi). */
+const ICON_BOX = cn(
+  "flex h-11 w-11 shrink-0 items-center justify-center rounded-lg sm:h-12 sm:w-12",
+  "bg-primary/[0.07] text-primary transition-colors dark:bg-white/10 dark:text-foreground",
+  "group-hover:bg-primary group-hover:text-primary-foreground",
+);
+
+const CHEVRON =
+  "shrink-0 text-muted-foreground transition-[color,transform] group-hover:translate-x-0.5 group-hover:text-primary dark:group-hover:text-foreground";
 
 interface SectionGridProps {
   items: readonly SectionItem[];
@@ -174,9 +195,8 @@ export function SectionGrid({
            egallamaydi — bu bosh sahifadagi hero tugmalarining PRO
            nishonchasi bilan ham bir xil ko'rinish.
 
-      RAMKA NEYTRAL (bosh sahifa redizayni, 2026-09): ilgari ramka
-      plitkaning o'z rangida edi — yangi, tinch hero yonida uchta rangli
-      ramka ko'zni tortib olardi. Plitkani rangli IKONKA ajratib turadi.
+      Ko'rinish (ramka, siyoh ikonka) — fayl boshidagi `TILE` / `ICON_BOX`,
+      /bolimlar dagi plitkalar bilan bir xil.
     */
     return (
       <ul className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
@@ -189,28 +209,13 @@ export function SectionGrid({
             <li key={item.to}>
               <Link
                 to={item.to}
-                className={cn(
-                  // `relative` — burchakdagi belgi SHU elementga nisbatan
-                  // joylashsin. Belgi `li` da emas, aynan shu yerda turishi
-                  // kerak: aks holda sichqoncha tekkanda kartochka
-                  // ko'tarilardi-yu, belgi joyida qolib ketardi.
-                  // Bosh sahifa redizayni (2026-09): rangli RAMKA olib
-                  // tashlandi — plitkalar hero tugmalari bilan e'tibor
-                  // talashmasin. Ikonka rangi QOLDI: /bolimlar va "Yodlash
-                  // kerak" sahifalarida ham bo'lim shu rang bilan taniladi.
-                  "group relative flex h-full items-center gap-3.5 rounded-xl border border-border bg-card px-4 py-4",
-                  "transition-[border-color,box-shadow] hover:border-foreground/20 hover:shadow-sm",
-                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-                  "sm:px-5 sm:py-5",
-                )}
+                // `relative` — burchakdagi belgi SHU elementga nisbatan
+                // joylashsin. Belgi `li` da emas, aynan shu yerda turishi
+                // kerak: aks holda sichqoncha tekkanda kartochka
+                // ko'tarilardi-yu, belgi joyida qolib ketardi.
+                className={cn(TILE, "relative gap-3.5 px-4 py-4 sm:px-5 sm:py-5")}
               >
-                <span
-                  className={cn(
-                    "flex h-11 w-11 shrink-0 items-center justify-center rounded-lg sm:h-12 sm:w-12",
-                    ACCENT_CLASS[item.accent],
-                  )}
-                  aria-hidden="true"
-                >
+                <span className={ICON_BOX} aria-hidden="true">
                   <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
                 </span>
 
@@ -218,10 +223,7 @@ export function SectionGrid({
                   {t(item.titleKey)}
                 </span>
 
-                <ChevronRight
-                  className="h-5 w-5 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5"
-                  aria-hidden="true"
-                />
+                <ChevronRight className={cn("h-5 w-5", CHEVRON)} aria-hidden="true" />
 
                 {corner ? <span className="absolute -right-1.5 -top-1.5">{corner}</span> : null}
               </Link>
@@ -242,22 +244,9 @@ export function SectionGrid({
           <li key={item.to}>
             <Link
               to={item.to}
-              className={cn(
-                "group flex h-full items-center gap-4 rounded-xl border border-border bg-card px-4 py-4",
-                // Bosh sahifadagi plitkalar bilan bir xil: sakramaydi, faqat
-                // chegara to'qlashadi va yengil soya paydo bo'ladi.
-                "transition-[border-color,box-shadow] hover:border-foreground/20 hover:shadow-sm",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-                "sm:px-5 sm:py-5",
-              )}
+              className={cn(TILE, "gap-4 px-4 py-4 sm:px-5 sm:py-5")}
             >
-              <span
-                className={cn(
-                  "flex h-11 w-11 shrink-0 items-center justify-center rounded-lg sm:h-12 sm:w-12",
-                  ACCENT_CLASS[item.accent],
-                )}
-                aria-hidden="true"
-              >
+              <span className={ICON_BOX} aria-hidden="true">
                 <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
               </span>
 
@@ -272,10 +261,7 @@ export function SectionGrid({
 
               {marker(item, locked, badges?.[item.to])}
 
-              <ChevronRight
-                className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5"
-                aria-hidden="true"
-              />
+              <ChevronRight className={cn("h-4 w-4", CHEVRON)} aria-hidden="true" />
             </Link>
           </li>
         );

@@ -23,7 +23,6 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionGrid } from "@/components/SectionGrid";
-import { SampleQuestionCard } from "@/components/home/SampleQuestionCard";
 import { MainTestButtons } from "@/components/home/MainTestButtons";
 import { QUICK_ITEMS } from "@/lib/siteSections";
 import { fetchSectionCounts } from "@/lib/questionState";
@@ -150,17 +149,21 @@ export default function Home() {
       </Helmet>
 
       {/*
-        HERO — ikki ustun: chapda sarlavha va TUGMALAR (urg'u shu yerda),
-        o'ngda (mobilda pastda) haqiqiy namunaviy savol.
+        HERO — birinchi ekranni TO'LIQ egallaydi: sarlavha va TUGMALAR, boshqa
+        hech narsa. Pastdagi plitkalar hero ichiga "mo'ralab" turmaydi —
+        ular faqat pastga surilganda ko'rinadi.
 
-        Ilgari: to'liq ekranli foto, ustida quyuq shaffof "shisha" karta,
-        blur va yashil/to'q sariq tugmalar — o'qilishi og'ir, sahifa sekin
-        (har sahifada 12–21 KB rasm preload). Endi:
-          * fon — rasm emas, CSS: ingichka katak, tepada ko'rinib pastga
-            qarab so'nadi (dark rejimda `--border` tokeni orqali moslashadi);
-          * sarlavha o'rtacha, tugmalar katta (60px) — ko'z avval harakatga;
-          * namunaviy savol — javob berib bo'ladigan HAQIQIY savol
-            (`SampleQuestionCard`), soxta taymer/hisoblagichsiz.
+        Balandlik = ekran − yuqoridagi doimiy qismlar:
+          * mobil: header (56) + ilova banneri (52) + pastki menyu (56) = 164px;
+          * md+:   faqat header (60px) — banner va pastki menyu u yerda yo'q.
+        Yuqorida qo'shimcha xabar (obuna tugashi va h.k.) chiqsa hero biroz
+        pastga suriladi — plitkalar baribir birinchi ekranga kirmaydi.
+
+        Namunaviy savol kartasi OLIB TASHLANDI (2026-09): yangi kelgan odamni
+        asosiy harakatdan — "Test ishlash" dan — chalg'itardi.
+
+        Fon — rasm emas, CSS: ingichka katak, tepada ko'rinib pastga qarab
+        so'nadi (dark rejimda `--border` tokeni orqali moslashadi).
 
         h1 matni O'ZGARMADI — "avto test" so'rovi bo'yicha 1-o'rin shu
         sarlavhaga bog'liq (docs: O-SISH-REJASI).
@@ -171,8 +174,8 @@ export default function Home() {
           className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:44px_44px] opacity-60 [mask-image:radial-gradient(ellipse_80%_75%_at_50%_0%,#000_35%,transparent_100%)]"
         />
 
-        <div className="relative mx-auto grid w-full max-w-7xl items-start gap-8 px-4 pb-10 pt-8 sm:pt-12 md:px-6 md:pb-14 md:pt-14 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:pb-20 lg:pt-16">
-          <div className="lg:col-span-7">
+        <div className="relative mx-auto flex min-h-[calc(100svh-164px)] w-full max-w-7xl flex-col justify-center px-4 py-10 md:min-h-[calc(100svh-60px)] md:px-6 md:py-14 lg:px-8">
+          <div className="max-w-3xl">
             <p className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-2.5 py-1 text-xs font-semibold text-muted-foreground shadow-sm sm:text-[13px]">
               <span className="h-1.5 w-1.5 rounded-full bg-[#2563EB]" aria-hidden="true" />
               {t("home.badge")}
@@ -188,15 +191,10 @@ export default function Home() {
 
             {/*
               TUGMALAR — sahifaning asosiy urg'usi (60px). Mantiq va qoidalar
-              `MainTestButtons` da: /bolimlar sarlavhasida ham aynan shular.
-              Ishonch qatori ("1000+ bepul savol" va h.k.) olib tashlandi —
-              tugmalar atrofidagi ortiqcha matn e'tiborni bo'lardi.
+              `MainTestButtons` da. Ishonch qatori ("1000+ bepul savol" va
+              h.k.) olib tashlangan — ortiqcha matn e'tiborni bo'lardi.
             */}
-            <MainTestButtons size="lg" className="mt-7 sm:mt-8" />
-          </div>
-
-          <div className="lg:col-span-5">
-            <SampleQuestionCard />
+            <MainTestButtons className="mt-7 sm:mt-8" />
           </div>
         </div>
       </section>

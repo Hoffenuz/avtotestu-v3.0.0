@@ -31,8 +31,8 @@ import {
 } from "lucide-react";
 
 /**
- * Ikonka foni uchun rang. Har bir bo'lim o'z rangiga ega bo'lsa, ko'z
- * plitkalarni tezroq ajratadi — bir xil rangli to'r o'qilmaydi.
+ * Ikonka foni uchun rang — "Yodlash kerak" mavzulari uchun (har mavzu o'z
+ * rangida). Bo'lim plitkalari (`SectionGrid`) endi rangsiz, siyoh ikonkada.
  *
  * Faqat STATIK Tailwind sinflari. Dinamik yasalgan sinf nomini
  * (`bg-${color}-500/10` kabi) Tailwind build paytida topa olmaydi.
@@ -65,7 +65,6 @@ export interface SectionItem {
    */
   descKey: string;
   icon: LucideIcon;
-  accent: SectionAccent;
   /**
    * Hisobga kirish talab qilinadi.
    *
@@ -105,23 +104,23 @@ export const SECTION_GROUPS: readonly SectionGroup[] = [
   {
     titleKey: "sections.groupPractice",
     items: [
-      { to: "/real-imtihon", titleKey: "sections.realImtihon", descKey: "sections.realImtihonDesc", icon: Timer, accent: "emerald" },
-      { to: "/xatolar-testi", titleKey: "sections.xatolarTesti", descKey: "sections.xatolarTestiDesc", icon: Brain, accent: "rose", requiresPro: true },
+      { to: "/real-imtihon", titleKey: "sections.realImtihon", descKey: "sections.realImtihonDesc", icon: Timer },
+      { to: "/xatolar-testi", titleKey: "sections.xatolarTesti", descKey: "sections.xatolarTestiDesc", icon: Brain, requiresPro: true },
       // Xatolarni KO'RISH bepul (faqat kirish kerak) — o'z xatosini ko'ra
       // olmaslik foydalanuvchini saytdan uzoqlashtiradi. Ular USTIDA ISHLASH
       // (test yechish, /xatolar-testi) esa PRO bo'lib qoladi.
-      { to: "/xatolarim", titleKey: "sections.xatolarim", descKey: "sections.xatolarimDesc", icon: XCircle, accent: "amber", requiresAuth: true },
-      { to: "/saqlangan", titleKey: "sections.saqlangan", descKey: "sections.saqlanganDesc", icon: Bookmark, accent: "violet", requiresAuth: true },
-      { to: "/qiyin-savollar", titleKey: "sections.qiyinSavollar", descKey: "sections.qiyinSavollarDesc", icon: AlertTriangle, accent: "amber", requiresPro: true },
+      { to: "/xatolarim", titleKey: "sections.xatolarim", descKey: "sections.xatolarimDesc", icon: XCircle, requiresAuth: true },
+      { to: "/saqlangan", titleKey: "sections.saqlangan", descKey: "sections.saqlanganDesc", icon: Bookmark, requiresAuth: true },
+      { to: "/qiyin-savollar", titleKey: "sections.qiyinSavollar", descKey: "sections.qiyinSavollarDesc", icon: AlertTriangle, requiresPro: true },
     ],
   },
   {
     titleKey: "sections.groupLearn",
     items: [
-      { to: "/belgilar", titleKey: "sections.belgilar", descKey: "sections.belgilarDesc", icon: Signpost, accent: "emerald" },
-      { to: "/avtodrom", titleKey: "sections.avtodrom", descKey: "sections.avtodromDesc", icon: TrafficCone, accent: "amber" },
-      { to: "/yodlash-kerak", titleKey: "sections.yodlashKerak", descKey: "sections.yodlashKerakDesc", icon: Hash, accent: "indigo" },
-      { to: "/qidirish", titleKey: "sections.qidirish", descKey: "sections.qidirishDesc", icon: Search, accent: "cyan", requiresPro: true },
+      { to: "/belgilar", titleKey: "sections.belgilar", descKey: "sections.belgilarDesc", icon: Signpost },
+      { to: "/avtodrom", titleKey: "sections.avtodrom", descKey: "sections.avtodromDesc", icon: TrafficCone },
+      { to: "/yodlash-kerak", titleKey: "sections.yodlashKerak", descKey: "sections.yodlashKerakDesc", icon: Hash },
+      { to: "/qidirish", titleKey: "sections.qidirish", descKey: "sections.qidirishDesc", icon: Search, requiresPro: true },
     ],
   },
 ];

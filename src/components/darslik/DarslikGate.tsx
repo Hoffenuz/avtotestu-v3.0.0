@@ -29,14 +29,14 @@ export function DarslikGate({ children }: { children: ReactNode }) {
         Xabar sahifaning eng tepasida, kontentdan OLDIN: foydalanuvchi
         nosozlikka duch kelgandan keyin emas, undan oldin bilishi kerak.
         Rang — `warning` tokeni, qizil emas: bu ogohlantirish, xato emas.
+        Matn faqat "Test rejimida" — uzun izoh (bepul, nosozlik haqida
+        yozing) ortiqcha edi.
       */}
       <div className="border-b border-warning/25 bg-warning/10">
-        <div className="mx-auto flex max-w-7xl items-start gap-2.5 px-4 py-2.5">
-          <FlaskConical className="mt-0.5 h-4 w-4 shrink-0 text-warning" aria-hidden="true" />
-          <p className="text-xs leading-snug text-foreground/80 sm:text-[13px]">
-            <span className="font-semibold text-foreground">{t("darslik.betaTitle")}</span>
-            {" — "}
-            {t("darslik.betaText")}
+        <div className="mx-auto flex max-w-7xl items-center gap-2 px-4 py-2">
+          <FlaskConical className="h-4 w-4 shrink-0 text-warning" aria-hidden="true" />
+          <p className="text-xs font-semibold leading-snug text-foreground sm:text-[13px]">
+            {t("darslik.betaTitle")}
           </p>
         </div>
       </div>
