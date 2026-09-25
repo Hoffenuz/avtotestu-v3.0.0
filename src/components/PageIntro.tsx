@@ -1,9 +1,9 @@
 // ============================================================================
-// PageIntro — asosiy bo'lim sahifalarining sarlavha tasmasi
+// PageIntro — katalog sahifasining sarlavha tasmasi (hozir /bolimlar)
 // ----------------------------------------------------------------------------
-// Bo'limlar, Test ishlash, Variantlar va Mavzular — BIR XIL sarlavha:
-// siyoh ikonka qutisi + ixcham h1 + bitta qator izoh, fonda bosh sahifa
-// hero'sidagi ingichka katak.
+// Siyoh ikonka qutisi + ixcham h1 + bitta qator izoh, fonda bosh sahifa
+// hero'sidagi ingichka katak. Test boshlash sahifalari (/test-ishlash,
+// /variant, /mavzuli) o'z tanish maketida qoldi — ularga qo'llanmaydi.
 //
 // IXCHAM ATAYLAB: sarlavha sahifaning maqsadini aytadi, xolos — asosiy
 // narsa (plitkalar, variantlar, tugma) birinchi ekranda ko'rinishi kerak.

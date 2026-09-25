@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useProAccess } from "@/hooks/useProAccess";
 import { useAccessState } from "@/hooks/useAccessState";
@@ -8,18 +9,8 @@ import { SEO } from "@/components/SEO";
 import { ProAccessGate } from "@/components/ProAccessGate";
 import { MavzuliTestInterface } from "@/components/MavzuliTestInterface";
 import { Button } from "@/components/ui/button";
-import { BookOpen } from "lucide-react";
+import { Play, AlertTriangle, Home } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { PageIntro } from "@/components/PageIntro";
-import {
-  OPTION_BASE,
-  OPTION_IDLE,
-  OPTION_SELECTED,
-  StartButton,
-  StartNotice,
-  TestLangPicker,
-} from "@/components/test-start/TestStartParts";
-import { cn } from "@/lib/utils";
 import {
   topicCategories,
   topics,
@@ -28,13 +19,15 @@ import {
   type TopicCategory,
 } from "@/lib/mavzuNomlari";
 
-/** Mobil (lg dan kichik) — tanlangan mavzuni qayta bosish testni boshlaydi. */
-const isCompactScreen = () =>
-  typeof window !== "undefined" && window.matchMedia("(max-width: 1023.98px)").matches;
+const languages = [
+  { id: "uz-lat" as const, label: "O'zbekcha" },
+  { id: "uz" as const, label: "Ўзбекча" },
+  { id: "ru" as const, label: "Русский" },
+];
 
 export default function MavzuliTestlar() {
   const { user, isLoading } = useAuth();
-  const { language, t } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
 
   // Storage keys are user-specific to prevent test state leaking across users on the same device.
   const mavzuliStorageKey = `mavzuli_activeTest_${user?.id ?? 'guest'}`;
@@ -118,26 +111,32 @@ export default function MavzuliTestlar() {
     setTestStarted(true);
   };
 
-  // Mobilda: birinchi bosish tanlaydi, ikkinchisi boshlaydi (tugma yuqorida,
-  // barmoq esa pastda). Desktopda bosish faqat tanlaydi.
-  const handleTopicTap = async (topicId: string) => {
-    if (selectedTopic === topicId && isCompactScreen()) {
+  // Double-tap to start on mobile: first tap selects topic, second tap starts test
+  const handleMobileTopicTap = async (topicId: string) => {
+    if (selectedTopic === topicId) {
       await handleStartTest();
     } else {
       setSelectedTopic(topicId);
     }
   };
 
+  const getTopicButtonClass = (topicId: string) => {
+    const isSelected = selectedTopic === topicId;
+    return isSelected
+      ? 'bg-primary/10 text-primary border-primary'
+      : 'bg-background text-foreground border-border hover:border-primary/50';
+  };
+
   // Auth / first access check only — never infinite spin when RPC fails.
   // Sayt headeri bilan: yuklanish paytida header yo'qolib, keyin birdan
-  // paydo bo'lmasin.
+  // paydo bo'lib sahifani surmasin.
   if (isLoading || accessLoading) {
     return (
       <MainLayout>
         <div className="flex min-h-[60vh] items-center justify-center" role="status">
           <div className="text-center">
-            <div className="mx-auto mb-3 h-10 w-10 animate-spin rounded-full border-4 border-primary/30 border-t-primary" />
-            <p className="text-sm font-medium text-muted-foreground">{t("testStart.loading")}</p>
+            <div className="w-10 h-10 border-4 border-primary/30 border-t-primary rounded-full animate-spin mx-auto mb-3" />
+            <p className="text-sm text-muted-foreground font-medium">{t("testStart.loading")}</p>
           </div>
         </div>
       </MainLayout>
@@ -192,9 +191,9 @@ export default function MavzuliTestlar() {
     if (!topic) {
       return (
         <MainLayout>
-          <div className="flex min-h-[60vh] items-center justify-center p-4">
+          <div className="min-h-screen bg-background flex items-center justify-center p-4">
             <div className="text-center space-y-4">
-              <p className="text-muted-foreground">{t("testStart.topicNotFound")}</p>
+              <p className="text-muted-foreground">Mavzu topilmadi.</p>
               <Button
                 onClick={() => {
                   setTestStarted(false);
@@ -202,7 +201,7 @@ export default function MavzuliTestlar() {
                   setSessionId(null);
                 }}
               >
-                {t("pages.back")}
+                Orqaga
               </Button>
             </div>
           </div>
@@ -225,23 +224,6 @@ export default function MavzuliTestlar() {
     );
   }
 
-  const selectedTopicName = (() => {
-    const topic = selectedTopic ? topics.find((item) => item.id === selectedTopic) : undefined;
-    return topic ? getTopicName(topic) : null;
-  })();
-
-  /*
-    TUZILISH — /variant bilan bir xil: `PageIntro` sarlavhasi, chapda savollar
-    tili va mavzular, o'ngda (lg+) yopishqoq panel: tanlangan mavzu va
-    "Testni boshlash". Mobilda tugma header ostida yopishib turadi.
-
-    Olib tashlangan takrorlar: "Bosh sahifa" tugmasi (header va pastki
-    menyuda bor), "O'ng tomondan mavzu tanlang" bilan "Mavzuni tanlang"
-    tugmasi (bir gap ikki marta), "Ko'rsatmalar" bloki.
-
-    Balandlik ekranga (vh) bog'lanmagan — ilgari `100vh` li qotirilgan ikki
-    panel past ekranda chap panelni kesib qo'yardi.
-  */
   return (
     <MainLayout>
       <SEO
@@ -250,72 +232,241 @@ export default function MavzuliTestlar() {
         path="/mavzuli"
         keywords="mavzuli test, YHQ mavzulari, yo'l qoidalari, chorrahalar, tezlik qoidalari"
       />
+      <div className="bg-background">
+        {/* Mobile Layout */}
+        <div className="lg:hidden bg-background pb-4">
+          {/* Mobilda ham chiqish yo'li ko'rinib tursin */}
+          <div className="px-4 pt-3">
+            <Link to="/">
+              <Button variant="outline" size="sm" className="gap-2">
+                <Home className="w-4 h-4" />
+                {t("nav.home")}
+              </Button>
+            </Link>
+          </div>
 
-      <PageIntro
-        icon={BookOpen}
-        title={t("home.btnMavzuli")}
-        subtitle={t("testStart.topicsSubtitle").replace("{n}", String(topics.length))}
-      />
+          {/*
+            "Bosh sahifa / Profil / Kirish" tugmalari BU YERDAN OLIB TASHLANDI —
+            uchalasi ham sayt headerida bor edi va ikkinchi qatorda
+            takrorlanishi ekranning yuqori qismini bekorga egallardi.
 
-      {/* Mobil: boshlash tugmasi header ostida yopishib turadi */}
-      <div className="sticky top-14 z-30 border-b border-border bg-card/95 px-4 py-2.5 backdrop-blur-sm md:top-[60px] lg:hidden">
-        <StartButton onClick={handleStartTest} disabled={selectedTopic === null} loading={starting} className="h-12">
-          {selectedTopic ? t("test.startTest") : t("test.selectTopicFirst")}
-        </StartButton>
-      </div>
+            Til tanlash QOLDIRILDI: bu yerda u "test qaysi tilda bo'ladi"
+            degan ma'noni bildiradi va desktop yon panelida ham shu turadi.
+          */}
+          <div className="flex gap-2 border-b border-border bg-card px-4 py-3">
+            {languages.map((lang) => (
+              <Button
+                key={lang.id}
+                variant="outline"
+                size="sm"
+                className={`flex-1 text-xs ${language === lang.id ? "bg-primary text-primary-foreground border-primary" : ""}`}
+                onClick={() => setLanguage(lang.id)}
+              >
+                {lang.label}
+              </Button>
+            ))}
+          </div>
 
-      <div className="mx-auto grid w-full max-w-6xl gap-6 px-4 py-5 md:px-6 md:py-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start lg:gap-8">
-        <div className="min-w-0 space-y-7">
-          <div className="space-y-4">
-            <TestLangPicker className="lg:max-w-sm" />
+          {/* Sticky: faqat boshlash tugmasi — sayt headeri ostiga yopishadi */}
+          <div className="sticky top-14 z-30 bg-card/95 backdrop-blur-sm border-b border-border px-4 py-2.5 shadow-sm md:top-[60px]">
+            <Button
+              size="lg"
+              className="w-full gap-2.5 h-14 text-[15px] font-semibold rounded-xl"
+              onClick={handleStartTest}
+              disabled={selectedTopic === null || starting}
+            >
+              {starting ? (
+                <div className="w-5 h-5 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+              ) : (
+                <Play className="w-5 h-5" />
+              )}
+              {selectedTopic ? t("test.startTest") : t("test.selectTopicFirst")}
+            </Button>
+          </div>
+
+          <div className="bg-card border-b border-border p-4">
+            {selectedTopic ? (
+              <div className="p-4 bg-primary/5 rounded-lg border border-primary/20 text-center">
+                <div className="text-sm font-semibold text-primary">
+                  {(() => {
+                    const topic = topics.find(t => t.id === selectedTopic);
+                    return topic ? getTopicName(topic) : selectedTopic;
+                  })()}
+                </div>
+              </div>
+            ) : (
+              <div className="p-4 bg-muted/30 rounded-lg border border-border text-center">
+                <div className="text-sm text-muted-foreground">
+                  {language === 'ru' ? 'Выберите тему ниже' : language === 'uz' ? 'Қуйидан мавзу танланг' : 'Quyidan mavzu tanlang'}
+                </div>
+              </div>
+            )}
             {startError && (
-              <div className="lg:hidden">
-                <StartNotice>{startError}</StartNotice>
+              <div className="mt-2 flex items-center gap-2 bg-red-500/10 border border-red-500/25 rounded-lg px-3 py-2">
+                <AlertTriangle className="w-4 h-4 text-red-500 flex-shrink-0" />
+                <p className="text-xs text-red-700 dark:text-red-300">{startError}</p>
               </div>
             )}
           </div>
-
-          {topicCategories.map((cat) => (
-            <section key={cat.key}>
-              <h2 className="mb-3 border-b border-border pb-2 text-base font-bold tracking-tight text-foreground md:text-lg">
-                {getCategoryTitle(cat)}
-              </h2>
-              <div className="grid gap-2.5 sm:grid-cols-2">
-                {cat.topics.map((topic) => (
-                  <button
-                    key={topic.id}
-                    type="button"
-                    aria-pressed={selectedTopic === topic.id}
-                    onClick={() => handleTopicTap(topic.id)}
-                    className={cn(
-                      OPTION_BASE,
-                      "flex min-h-[52px] w-full items-center px-4 py-3 text-left text-[15px] font-medium leading-snug",
-                      selectedTopic === topic.id ? OPTION_SELECTED : OPTION_IDLE,
-                    )}
-                  >
-                    {getTopicName(topic)}
-                  </button>
-                ))}
-              </div>
-            </section>
-          ))}
+          <div className="p-4">
+            <h2 className="text-lg font-bold text-foreground mb-3">{language === 'ru' ? 'Темы' : language === 'uz' ? 'Мавзулар' : 'Mavzular'}</h2>
+            <div className="space-y-5">
+              {topicCategories.map((cat) => (
+                <div key={cat.key}>
+                  <h3 className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground mb-2 px-0.5">
+                    {getCategoryTitle(cat)}
+                  </h3>
+                  <div className="space-y-2">
+                    {cat.topics.map((topic) => (
+                      <Button
+                        key={topic.id}
+                        variant="outline"
+                        className={`w-full justify-start text-left h-auto py-3 px-4 ${getTopicButtonClass(topic.id)}`}
+                        onClick={() => handleMobileTopicTap(topic.id)}
+                      >
+                        <span className="text-sm font-medium">{getTopicName(topic)}</span>
+                      </Button>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        {/* Desktop: yopishqoq boshlash paneli */}
-        <aside className="hidden lg:sticky lg:top-[84px] lg:block">
-          <div className="space-y-4 rounded-xl border border-border bg-card p-5 shadow-sm">
-            <div>
-              <p className="text-sm font-semibold text-foreground">{t("testStart.selected")}</p>
-              <p className="mt-1 text-lg font-bold leading-snug text-brand dark:text-foreground">
-                {selectedTopicName ?? "—"}
-              </p>
+        {/*
+          Desktop: ikki panelli "ilova" ko'rinishi.
+
+          Balandlik `100vh - header` — ilgari to'liq `h-screen` edi va sayt
+          headeri yo'q deb hisoblanardi. Header qaytarilgach, o'sha balandlik
+          ekrandan oshib ketardi.
+
+          "Bosh sahifa / Profil" tugmalari olib tashlandi — header da bor.
+        */}
+        <div className="hidden h-[calc(100vh-60px)] overflow-hidden bg-background text-foreground lg:flex">
+          {/* `overflow-y-auto`: past ekranda (yoki brauzer zoom 125%+) panel pastki qismi kesilmasin */}
+          <div className="w-[30%] bg-card border-r border-border p-6 flex flex-col overflow-y-auto">
+            <div className="flex-1 flex flex-col">
+              {/*
+                Bosh sahifaga qaytish. Sayt headerida ham havola bor, lekin bu
+                ekran to'liq balandlikdagi ikki panelli "ilova" ko'rinishida —
+                chiqish yo'li ko'z oldida turishi kerak.
+              */}
+              <Link to="/" className="mb-4 self-start">
+                <Button variant="outline" size="sm" className="gap-2">
+                  <Home className="w-4 h-4" />
+                  {t("nav.home")}
+                </Button>
+              </Link>
+
+              <div className="mb-4">
+                <h3 className="text-xs font-medium text-muted-foreground mb-2">{t("test.selectLanguage")}</h3>
+                <div className="flex gap-2">
+                  {languages.map((lang) => (
+                    <Button
+                      key={lang.id}
+                      variant="outline"
+                      size="sm"
+                      className={`flex-1 text-sm h-11 rounded-lg font-medium ${language === lang.id ? "bg-primary text-primary-foreground border-primary shadow-sm" : "hover:border-primary/40"}`}
+                      onClick={() => setLanguage(lang.id)}
+                    >
+                      {lang.label}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+              {selectedTopic ? (
+                <div className="mb-5 p-4 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border-2 border-primary/20 shadow-sm">
+                  <div className="text-center">
+                    <div className="text-sm font-bold text-primary leading-tight">
+                      {(() => {
+                        const topic = topics.find(t => t.id === selectedTopic);
+                        return topic ? getTopicName(topic) : selectedTopic;
+                      })()}
+                    </div>
+                    <div className="text-[10px] text-muted-foreground mt-1">{language === 'ru' ? 'Выбранная тема' : language === 'uz' ? 'Танланган мавзу' : 'Tanlangan mavzu'}</div>
+                  </div>
+                </div>
+              ) : (
+                <div className="mb-5 p-4 bg-muted/20 rounded-xl border-2 border-dashed border-border">
+                  <div className="text-center text-muted-foreground text-xs">
+                    {language === 'ru' ? 'Выберите тему справа' : language === 'uz' ? 'Ўнг томондан мавзу танланг' : 'O\'ng tomondan mavzu tanlang'}
+                  </div>
+                </div>
+              )}
+              {startError && (
+                <div className="mb-3 flex items-center gap-2 bg-red-500/10 border border-red-500/25 rounded-lg px-3 py-2">
+                  <AlertTriangle className="w-4 h-4 text-red-500 flex-shrink-0" />
+                  <p className="text-xs text-red-700 dark:text-red-300">{startError}</p>
+                </div>
+              )}
+              <Button
+                size="lg"
+                className="w-full mb-4 gap-2.5 h-14 text-base font-semibold rounded-xl shadow-md hover:shadow-lg transition-all"
+                onClick={handleStartTest}
+                disabled={selectedTopic === null || starting}
+              >
+                {starting ? (
+                  <div className="w-5 h-5 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+                ) : (
+                  <Play className="w-5 h-5" />
+                )}
+                {selectedTopic ? t("test.startTest") : t("test.selectTopicFirst")}
+              </Button>
+              <div className="p-3.5 bg-gradient-to-br from-muted/50 to-muted/30 rounded-xl border border-border">
+                <h3 className="text-xs font-semibold text-foreground mb-2 flex items-center gap-1.5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  Ko'rsatmalar
+                </h3>
+                <div className="text-xs text-muted-foreground space-y-1.5">
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-primary mt-0.5">•</span>
+                    <span>Mavzu bo'yicha barcha savollar beriladi</span>
+                  </div>
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-primary mt-0.5">•</span>
+                    <span>Har bir savol uchun javob tanlang</span>
+                  </div>
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-primary mt-0.5">•</span>
+                    <span>Test tugagach natijani ko'ring</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            {startError && <StartNotice>{startError}</StartNotice>}
-            <StartButton onClick={handleStartTest} disabled={selectedTopic === null} loading={starting}>
-              {selectedTopic ? t("test.startTest") : t("test.selectTopicFirst")}
-            </StartButton>
           </div>
-        </aside>
+          <div className="w-[70%] bg-background p-8 overflow-y-auto">
+            <div className="max-w-5xl">
+              <div className="mb-6">
+                <h1 className="text-2xl font-bold text-foreground mb-1">{language === 'ru' ? 'Темы' : language === 'uz' ? 'Мавзулар' : 'Mavzular'}</h1>
+                <p className="text-sm text-muted-foreground">
+                  {language === 'ru' ? 'Проверьте свои знания по темам' : language === 'uz' ? 'Мавзу бўйича билимингизни синанг' : 'Mavzu bo\'yicha bilimingizni sinang'}
+                </p>
+              </div>
+              <div className="space-y-6">
+                {topicCategories.map((cat) => (
+                  <div key={cat.key}>
+                    <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2.5">
+                      {getCategoryTitle(cat)}
+                    </h3>
+                    <div className="grid grid-cols-2 gap-3">
+                      {cat.topics.map((topic) => (
+                        <Button
+                          key={topic.id}
+                          variant="outline"
+                          className={`h-auto min-h-[3.25rem] py-4 px-5 text-left justify-start rounded-xl transition-all ${getTopicButtonClass(topic.id)}`}
+                          onClick={() => setSelectedTopic(topic.id)}
+                        >
+                          <span className="text-[15px] font-medium leading-snug">{getTopicName(topic)}</span>
+                        </Button>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </MainLayout>
   );
