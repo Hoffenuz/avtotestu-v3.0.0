@@ -12,15 +12,18 @@
 //     turganda u ko'zdan butunlay yo'qolardi.
 //   * Kenglik `max-w-6xl`, plitkalar 2 ustunda. 3 ustun sinab ko'rilgan:
 //     plitka torayib, nom ikki qatorga bo'linar, PRO belgisi matnni siqardi.
-//   * Redizayn (2026-09): sarlavha bosh sahifa uslubida, kompyuter
-//     ilovasi — siyoh karta. Asosiy test tugmalari (Test ishlash,
-//     Variantlar) bu yerda YO'Q: sahifa faqat bo'limlar uchun.
+//   * Redizayn (2026-09): ixcham `PageIntro` sarlavhasi (Test ishlash,
+//     Variantlar, Mavzular bilan bir xil), kompyuter ilovasi — siyoh
+//     karta. Asosiy test tugmalari bu yerda YO'Q: sahifa faqat bo'limlar
+//     uchun. Katta (32px) sarlavha va keng bo'shliq plitkalarni pastga
+//     surardi — endi ular birinchi ekranda.
 // ============================================================================
 
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Download, Monitor, WifiOff } from "lucide-react";
+import { Download, LayoutGrid, Monitor, WifiOff } from "lucide-react";
 import { MainLayout } from "@/components/layout/MainLayout";
+import { PageIntro } from "@/components/PageIntro";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SEO } from "@/components/SEO";
 import { SectionGroupList } from "@/components/SectionGrid";
@@ -71,27 +74,10 @@ export default function Bolimlar() {
         qolardi. `min-h` uni kamida ekran pastiga suradi (60px — header).
       */}
       <div className="md:min-h-[calc(100vh-60px)]">
-        {/*
-          SARLAVHA — bosh sahifa hero'si bilan BIR USLUBDA: yorug' fon +
-          ingichka katak, siyoh sarlavha. Test tugmalari ATAYLAB yo'q —
-          ular bosh sahifada; bu sahifa faqat bo'limlar katalogi.
-        */}
-        <section className="relative overflow-hidden border-b border-border bg-background">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:44px_44px] opacity-60 [mask-image:radial-gradient(ellipse_80%_90%_at_50%_0%,#000_30%,transparent_100%)]"
-          />
-          <div className="relative mx-auto w-full max-w-6xl px-4 pb-8 pt-8 md:px-6 md:pb-10 md:pt-12">
-            <h1 className="text-balance text-[26px] font-extrabold leading-tight tracking-tight text-brand dark:text-foreground sm:text-[32px]">
-              {t("pages.bolimlarTitle")}
-            </h1>
-            <p className="mt-2 max-w-2xl text-pretty text-[15px] leading-relaxed text-muted-foreground sm:text-base">
-              {t("pages.bolimlarSubtitle")}
-            </p>
-          </div>
-        </section>
+        {/* Ikonka — pastki menyudagi "Bo'limlar" bilan bir xil */}
+        <PageIntro icon={LayoutGrid} title={t("pages.bolimlarTitle")} subtitle={t("pages.bolimlarSubtitle")} />
 
-        <div className="mx-auto w-full max-w-6xl px-4 py-8 md:px-6 md:py-12">
+        <div className="mx-auto w-full max-w-6xl px-4 py-5 md:px-6 md:py-6">
           <SectionGroupList groups={SECTION_GROUPS} badges={badges} signedIn={signedIn} />
 
           {/*

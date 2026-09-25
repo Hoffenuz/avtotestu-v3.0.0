@@ -135,10 +135,17 @@ export default {
             height: "0",
           },
         },
+        /** Bosh sahifa hero'sidagi "pastga" chizig'i: nuqta tepadan pastga oqadi. */
+        "scroll-hint": {
+          "0%": { transform: "translateY(-12px)", opacity: "0" },
+          "30%": { opacity: "1" },
+          "100%": { transform: "translateY(40px)", opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "scroll-hint": "scroll-hint 1.8s ease-in-out infinite",
       },
     },
   },

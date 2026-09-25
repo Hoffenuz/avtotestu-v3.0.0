@@ -8,7 +8,6 @@ import { hasStoredSession } from "@/lib/hasStoredSession";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAccessState } from "@/hooks/useAccessState";
 import {
-  Play,
   User,
   BarChart3,
   BookOpen,
@@ -17,8 +16,6 @@ import {
   MonitorSmartphone,
   ShieldCheck,
   Trophy,
-  Check,
-  LayoutGrid,
   ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -149,21 +146,24 @@ export default function Home() {
       </Helmet>
 
       {/*
-        HERO — birinchi ekranni TO'LIQ egallaydi: sarlavha va TUGMALAR, boshqa
-        hech narsa. Pastdagi plitkalar hero ichiga "mo'ralab" turmaydi —
-        ular faqat pastga surilganda ko'rinadi.
+        HERO — sarlavha va TUGMALAR, boshqa hech narsa.
 
-        Balandlik = ekran − yuqoridagi doimiy qismlar:
-          * mobil: header (56) + ilova banneri (52) + pastki menyu (56) = 164px;
-          * md+:   faqat header (60px) — banner va pastki menyu u yerda yo'q.
-        Yuqorida qo'shimcha xabar (obuna tugashi va h.k.) chiqsa hero biroz
-        pastga suriladi — plitkalar baribir birinchi ekranga kirmaydi.
+        BALANDLIK EKRANGA (vh/svh) BOG'LANMAGAN. Bir muddat hero "ekran
+        balandligi" edi — brauzer kichraytirilganda (zoom 50–80%) u ulkan
+        bo'sh maydonga aylanar, kontent mayda bo'lib o'rtada osilib qolardi.
+        Endi desktopda qotirilgan `min-h-[560px]`: 1366×~600 li noutbukda
+        (egasining ekrani) hero birinchi ekranni to'ldiradi va pastdagi
+        plitkalar unga "mo'ralamaydi"; baland ekranda va zoomda esa sahifa
+        oddiy tartibda, bir xil nisbatda ko'rinadi. Kontent TEPAGA
+        tekislangan — tugmalar har qanday balandlikda bir joyda.
 
         Namunaviy savol kartasi OLIB TASHLANDI (2026-09): yangi kelgan odamni
         asosiy harakatdan — "Test ishlash" dan — chalg'itardi.
 
         Fon — rasm emas, CSS: ingichka katak, tepada ko'rinib pastga qarab
-        so'nadi (dark rejimda `--border` tokeni orqali moslashadi).
+        so'nadi (dark rejimda `--border` tokeni orqali moslashadi). Desktopda
+        o'ng tepada juda xira ko'k-moviy nur — keng ekranda bo'sh o'ng tomon
+        "tugallanmagan" ko'rinmasin; kontent qo'shilmaydi.
 
         h1 matni O'ZGARMADI — "avto test" so'rovi bo'yicha 1-o'rin shu
         sarlavhaga bog'liq (docs: O-SISH-REJASI).
@@ -173,8 +173,30 @@ export default function Home() {
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:44px_44px] opacity-60 [mask-image:radial-gradient(ellipse_80%_75%_at_50%_0%,#000_35%,transparent_100%)]"
         />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-48 -top-48 hidden h-[720px] w-[720px] bg-[radial-gradient(closest-side,rgba(37,99,235,0.10),rgba(34,211,238,0.05)_55%,transparent)] dark:bg-[radial-gradient(closest-side,rgba(99,102,241,0.20),rgba(34,211,238,0.06)_55%,transparent)] lg:block"
+        />
 
-        <div className="relative mx-auto flex min-h-[calc(100svh-164px)] w-full max-w-7xl flex-col justify-center px-4 py-10 md:min-h-[calc(100svh-60px)] md:px-6 md:py-14 lg:px-8">
+        {/*
+          "Pastga" chizig'i — pastda davomi borligini bildiradi va bosilsa
+          tezkor bo'limlarga o'tadi. FAQAT pastki kontent birinchi ekranga
+          sig'maydigan (past) desktop ekranlarda: balandligi 700px dan katta
+          ekranda plitkalar o'zi ko'rinib turadi va chiziq ortiqcha bo'lardi.
+          Harakat `motion-safe` — "harakatni kamaytirish" yoqilganda to'xtaydi.
+        */}
+        <button
+          type="button"
+          aria-label={t("home.scrollDown")}
+          onClick={() => document.getElementById("tezkor-bolimlar")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+          className="group absolute bottom-5 left-1/2 z-10 hidden -translate-x-1/2 p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring lg:block lg:[@media(min-height:700px)]:hidden"
+        >
+          <span className="relative block h-10 w-[2px] overflow-hidden rounded-full bg-border transition-colors group-hover:bg-muted-foreground/40">
+            <span className="absolute left-0 top-0 h-3 w-[2px] rounded-full bg-[#2563EB] motion-safe:animate-scroll-hint dark:bg-[#22D3EE]" />
+          </span>
+        </button>
+
+        <div className="relative mx-auto w-full max-w-7xl px-4 pb-10 pt-8 sm:pt-12 md:px-6 md:pb-14 md:pt-14 lg:min-h-[560px] lg:px-8 lg:pb-20 lg:pt-16">
           <div className="max-w-3xl">
             <p className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-2.5 py-1 text-xs font-semibold text-muted-foreground shadow-sm sm:text-[13px]">
               <span className="h-1.5 w-1.5 rounded-full bg-[#2563EB]" aria-hidden="true" />
@@ -206,7 +228,7 @@ export default function Home() {
         (imtihon, xatolar ustida ishlash, qidiruv), keyin reklama matnini
         o'qiydi. Teskari tartibda foydali havolalar pastga surilib ketardi.
       */}
-      <section className="bg-background py-8 md:py-12">
+      <section id="tezkor-bolimlar" className="scroll-mt-16 bg-background py-8 md:py-12">
         {/* Hero bilan bir xil kenglik va chekka — chap chiziq sahifa bo'ylab bitta */}
         <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
           <SectionGrid items={QUICK_ITEMS} badges={quickBadges} signedIn={!!user} />
