@@ -80,6 +80,11 @@ type QuestionCount = keyof typeof QUESTION_COUNTS;
 const PRIMARY_COUNTS = [20, 50] as const;
 const EXTRA_COUNTS = [75, 100] as const;
 
+/** Haqiqiy imtihon formati — tanlovda "Imtihon" belgisi bilan ajratiladi. */
+const EXAM_COUNT: QuestionCount = 20;
+/** O'tish chegarasi (imtihondagidek 90%) — sarlavhada ko'rsatiladi. */
+const PASS_PERCENT = 90;
+
 function isQuestionCount(v: unknown): v is QuestionCount {
   return typeof v === 'number' && v in QUESTION_COUNTS;
 }
@@ -342,10 +347,17 @@ export default function TestIshlash() {
           </div>
         </header>
 
-        <main className="flex-1 max-w-3xl mx-auto w-full px-4 py-8 flex flex-col gap-6">
+        <main className="flex-1 max-w-3xl mx-auto w-full px-4 py-4 sm:py-8 flex flex-col gap-4 sm:gap-6">
 
           {/*
             Pro Banner
+
+            JOYI: mobilda (< md) — asosiy kartadan KEYIN (`order-last`),
+            desktopda — tepada. Ilgari mobilda u eng tepada 3 qatorli blok
+            bo'lib turardi va "Testni boshlash" tugmasini ekrandan pastga
+            itarardi: yangi foydalanuvchi testni boshlash uchun avval
+            scroll qilishi kerak edi. Endi tugma birinchi ekranda, banner
+            esa uning ostida — bitta ixcham qatorda.
 
             `accessLoading` paytida banner YASHIRILADI, lekin O'RNI
             saqlanadi (`invisible`). Ilgari u butunlay render qilinmasdi
@@ -362,7 +374,7 @@ export default function TestIshlash() {
               to="/pro"
               aria-hidden={accessLoading || undefined}
               tabIndex={accessLoading ? -1 : undefined}
-              className={`group flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 bg-card border-2 border-orange-400 rounded-2xl px-4 py-3 sm:px-5 sm:py-4 hover:border-orange-500 hover:bg-orange-50/30 dark:hover:bg-orange-950/20 transition-all active:scale-[0.99] shadow-sm hover:shadow-md${accessLoading ? " invisible" : ""}`}
+              className={`order-last md:order-none group flex items-center gap-3 sm:gap-4 bg-card border-2 border-orange-400 rounded-2xl px-3.5 py-3 sm:px-5 sm:py-4 hover:border-orange-500 hover:bg-orange-50/30 dark:hover:bg-orange-950/20 transition-all active:scale-[0.99] shadow-sm hover:shadow-md${accessLoading ? " invisible" : ""}`}
             >
               <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-amber-600 to-orange-600 flex items-center justify-center flex-shrink-0 shadow-sm">
                <Crown className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
@@ -371,7 +383,7 @@ export default function TestIshlash() {
                <p className="text-orange-600 font-bold text-sm sm:text-base leading-tight">{t("pro.testBannerTitle")} <span className="text-orange-400">✦</span></p>
                <p className="text-slate-500 text-[11px] sm:text-sm mt-0.5 leading-snug">{t("pro.testBannerSubtitle")}</p>
               </div>
-              <div className="flex items-center gap-1.5 text-[11px] sm:text-xs font-semibold text-orange-600 sm:ml-auto whitespace-nowrap self-start sm:self-center">
+              <div className="flex items-center gap-1 text-[11px] sm:text-xs font-semibold text-orange-600 whitespace-nowrap shrink-0">
                 <span>{t("nav.getPro")}</span>
                 <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
               </div>
@@ -396,47 +408,75 @@ export default function TestIshlash() {
             </div>
           )}
 
-          {/* Main card */}
+          {/*
+            Asosiy karta — ekran o'lchamiga qarab IKKI xil joylashuv:
+
+            * Desktop (md+): ikki ustun — chapda savol soni, o'ngda
+              statistika kartochkalari va "Testni boshlash". Bu kenglikda
+              hammasi bir ekranga sig'adi va qulay (egasi tasdiqlagan).
+            * Mobil: bitta ustun — tanlash, darhol ostida tugma.
+              Statistika kartochkalari YASHIRILADI: ilgari ular ustunlar
+              ustma-ust tushganda tugmani ekrandan pastga itarardi va
+              yangi foydalanuvchi testni boshlash uchun scroll qilishi
+              kerak edi. Ularning yagona yangi ma'lumoti (o'tish 90%)
+              mobilda sarlavhada ko'rsatiladi.
+          */}
           <div className="bg-card rounded-3xl border border-border overflow-hidden">
-            <div className="px-8 py-6 border-b border-border flex items-center gap-4 bg-slate-50 dark:bg-muted">
-              <div className="w-11 h-11 rounded-2xl bg-[#1E2350] flex items-center justify-center">
+            <div className="px-5 py-4 sm:px-8 sm:py-6 border-b border-border flex items-center gap-3 sm:gap-4 bg-slate-50 dark:bg-muted">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-[#1E2350] flex items-center justify-center shrink-0">
                 <Play className="w-5 h-5 text-white fill-current" />
               </div>
-              <div>
-                <h1 className="text-2xl font-black tracking-tight text-[#1E2350] dark:text-foreground">Test ishlash</h1>
-                <p className="text-slate-500 dark:text-muted-foreground text-sm font-semibold">
+              <div className="min-w-0">
+                <h1 className="text-xl sm:text-2xl font-black tracking-tight text-[#1E2350] dark:text-foreground">Test ishlash</h1>
+                <p className="text-slate-500 dark:text-muted-foreground text-xs sm:text-sm font-semibold">
                   {questionCount} ta tasodifiy savol • {QUESTION_COUNTS[questionCount]} daqiqa
+                  {/* Desktopda o'tish chegarasi statistika kartochkasida bor */}
+                  <span className="md:hidden"> • o'tish {PASS_PERCENT}%</span>
                 </p>
               </div>
             </div>
 
-            <div className="p-6 flex flex-col md:flex-row gap-6">
-              {/* Question count */}
-              <div className="flex-1">
-                <p className="text-xs font-bold text-slate-600 dark:text-muted-foreground uppercase tracking-widest mb-3 text-center">
+            <div className="p-4 sm:p-6 flex flex-col md:flex-row gap-4 sm:gap-5 md:gap-6">
+              {/* Savollar soni */}
+              <div role="radiogroup" aria-label="Savollar soni" className="md:flex-1">
+                <p className="text-xs font-bold text-slate-600 dark:text-muted-foreground uppercase tracking-widest mb-4 text-center">
                   Savollar sonini tanlang
                 </p>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
                   {PRIMARY_COUNTS.map((num) => (
                     <button
                       key={num}
+                      type="button"
+                      role="radio"
+                      aria-checked={questionCount === num}
                       onClick={() => setQuestionCount(num)}
-                      className={`relative py-6 rounded-2xl border-2 transition-all flex flex-col items-center justify-center gap-0.5 ${
+                      className={`relative py-3.5 sm:py-5 md:py-6 rounded-2xl border-2 transition-all flex flex-col items-center justify-center ${
                         questionCount === num
                           ? "border-[#1E2350] dark:border-primary bg-[#1E2350]/5 dark:bg-primary/10 shadow-sm"
                           : "border-slate-200 dark:border-border bg-slate-50 dark:bg-muted hover:border-slate-300 dark:hover:border-border/70 hover:bg-slate-100 dark:hover:bg-muted/70"
                       }`}
                     >
+                      {/*
+                        20 — haqiqiy imtihon formati: yangi foydalanuvchi qaysini
+                        tanlashni bilsin. Belgi chegara USTIDA (Pro sahifasidagi
+                        "Eng mashhur" kabi) — ichkarida raqamni to'sib qo'yardi.
+                      */}
+                      {num === EXAM_COUNT && (
+                        <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-emerald-600 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white shadow-sm">
+                          Imtihon formati
+                        </span>
+                      )}
                       {questionCount === num && (
-                        <div className="absolute top-2.5 right-2.5 w-5 h-5 rounded-full bg-[#1E2350] flex items-center justify-center">
+                        <div className="absolute top-2 right-2 w-5 h-5 rounded-full bg-[#1E2350] flex items-center justify-center">
                           <CheckCircle className="w-3 h-3 text-white" />
                         </div>
                       )}
-                      <span className={`text-4xl font-black leading-none ${questionCount === num ? "text-[#1E2350] dark:text-primary" : "text-slate-400 dark:text-muted-foreground"}`}>
+                      <span className={`text-3xl sm:text-4xl font-black leading-none ${questionCount === num ? "text-[#1E2350] dark:text-primary" : "text-slate-400 dark:text-muted-foreground"}`}>
                         {num}
                       </span>
-                      <span className="text-sm font-semibold text-slate-500 dark:text-muted-foreground mt-1">savollar</span>
-                      <span className="text-sm text-slate-400 dark:text-muted-foreground/70">{QUESTION_COUNTS[num]} daqiqa</span>
+                      <span className="text-xs sm:text-sm font-semibold text-slate-500 dark:text-muted-foreground mt-1.5">
+                        savol · {QUESTION_COUNTS[num]} daqiqa
+                      </span>
                     </button>
                   ))}
                 </div>
@@ -451,8 +491,10 @@ export default function TestIshlash() {
                   {EXTRA_COUNTS.map((num) => (
                     <button
                       key={num}
+                      type="button"
+                      role="radio"
+                      aria-checked={questionCount === num}
                       onClick={() => setQuestionCount(num)}
-                      aria-pressed={questionCount === num}
                       className={`flex items-center justify-center gap-1.5 rounded-xl border py-2.5 text-sm transition-all ${
                         questionCount === num
                           ? "border-[#1E2350] dark:border-primary bg-[#1E2350]/5 dark:bg-primary/10 font-bold text-[#1E2350] dark:text-primary"
@@ -467,13 +509,13 @@ export default function TestIshlash() {
                 </div>
               </div>
 
-              {/* Stats + button */}
-              <div className="flex-1 flex flex-col gap-4">
-                <div className="grid grid-cols-3 gap-2">
+              {/* Statistika + boshlash. Mobilda — tanlovning darhol ostida, desktopda — o'ng ustun */}
+              <div className="md:flex-1 flex flex-col gap-2 md:gap-4">
+                <div className="hidden md:grid grid-cols-3 gap-2">
                   {[
                     { icon: HelpCircle, value: questionCount, label: "Savollar" },
                     { icon: Clock, value: QUESTION_COUNTS[questionCount], label: "Daqiqa" },
-                    { icon: CheckCircle, value: "90%", label: "O'tish", green: true },
+                    { icon: CheckCircle, value: `${PASS_PERCENT}%`, label: "O'tish", green: true },
                   ].map(({ icon: Icon, value, label, green }) => (
                     <div key={label} className="flex flex-col items-center gap-2 bg-slate-100/80 dark:bg-muted rounded-2xl py-4">
                       <div className="w-8 h-8 rounded-xl bg-white dark:bg-muted-foreground/20 shadow-sm flex items-center justify-center">
@@ -491,7 +533,7 @@ export default function TestIshlash() {
                   onClick={handleStart}
                   disabled={starting || accessLoading}
                   style={{ backgroundColor: brandColor }}
-                  className="w-full h-14 rounded-xl text-white text-base font-black hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-3 mt-auto disabled:opacity-60"
+                  className="w-full h-14 rounded-xl text-white text-base font-black hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-3 md:mt-auto disabled:opacity-60"
                 >
                   {(starting || accessLoading)
                     ? <Loader2 className="w-5 h-5 animate-spin" />
@@ -499,11 +541,15 @@ export default function TestIshlash() {
                   }
                   {starting ? "Yuklanmoqda..." : "Testni boshlash"}
                 </Button>
+                {/* Mobilda tugma ostida; desktopda kartadan tashqarida (pastda) — tugma chap ustun bilan tekis tursin */}
+                <p className="md:hidden text-center text-xs text-slate-400">
+                  Ro'yxatdan o'tish shart emas
+                </p>
               </div>
             </div>
           </div>
 
-          <p className="text-center text-xs text-slate-400">
+          <p className="hidden md:block text-center text-xs text-slate-400">
             Testni boshlash uchun ro'yxatdan o'tish shart emas
           </p>
         </main>

@@ -14,14 +14,19 @@ const KEY = 'pending_pro_plan';
 /** Yarim soatdan keyin tanlov eskirgan hisoblanadi. */
 const MAX_AGE_MS = 30 * 60 * 1000;
 
+/** To'lov tizimi. Standart — Payme. */
+export type PaymentProvider = 'payme' | 'click';
+
 interface Stored {
   plan: string;
   at: number;
+  /** Eski yozuvlarda bo'lmaydi — ular Payme deb o'qiladi. */
+  provider?: PaymentProvider;
 }
 
-export function setPendingPlan(planName: string): void {
+export function setPendingPlan(planName: string, provider: PaymentProvider = 'payme'): void {
   try {
-    const value: Stored = { plan: planName, at: Date.now() };
+    const value: Stored = { plan: planName, at: Date.now(), provider };
     sessionStorage.setItem(KEY, JSON.stringify(value));
   } catch {
     // Private rejim yoki storage to'la — bu shunchaki qulaylik, to'lovning
@@ -54,6 +59,21 @@ export function peekPendingPlan(): string | null {
   } catch {
     clearPendingPlan();
     return null;
+  }
+}
+
+/**
+ * Saqlangan tanlovdagi to'lov tizimi. Faqat `peekPendingPlan()` tarif
+ * qaytargandan keyin ma'noga ega; noma'lum qiymat Payme deb olinadi.
+ */
+export function peekPendingProvider(): PaymentProvider {
+  try {
+    const raw = sessionStorage.getItem(KEY);
+    if (!raw) return 'payme';
+    const parsed = JSON.parse(raw) as Partial<Stored>;
+    return parsed?.provider === 'click' ? 'click' : 'payme';
+  } catch {
+    return 'payme';
   }
 }
 

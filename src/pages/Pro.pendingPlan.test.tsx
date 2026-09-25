@@ -59,6 +59,9 @@ vi.mock('sonner', () => ({
 import Pro from './Pro';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import { setPendingPlan, peekPendingPlan } from '@/lib/pendingPlan';
+import { supabase } from '@/integrations/supabase/client';
+
+const CLICK_ORDER_ID = '3f2b8c1e-5d4a-4e6f-9a7b-1c2d3e4f5a6b';
 
 /** window.location.href ga yozilganini ushlab qolamiz. */
 let hrefWrites: string[] = [];
@@ -173,6 +176,42 @@ describe('Pro — ro\'yxatdan o\'tgach to\'lovni davom ettirish', () => {
 
     await renderPro();
 
+    expect(hrefWrites).toEqual([]);
+  });
+
+  it('Click tanlangan bo\'lsa serverda buyurtma yaratib CLICK ga o\'tkazadi', async () => {
+    vi.mocked(supabase.rpc).mockResolvedValue({
+      data: { ok: true, order_id: CLICK_ORDER_ID, amount_tiyin: 1500000 },
+      error: null,
+    } as never);
+    setPendingPlan('weekly', 'click');
+    mockAuth.user = { email: '998887928005@pro.com' };
+
+    await renderPro();
+
+    await waitFor(() => expect(hrefWrites.length).toBe(1), WAIT);
+    expect(supabase.rpc).toHaveBeenCalledWith('click_create_order', { p_plan_name: 'weekly' });
+
+    const url = new URL(hrefWrites[0]);
+    expect(url.hostname).toBe('my.click.uz');
+    // Summa klientdan emas, server buyurtmasidan olinadi
+    expect(url.searchParams.get('amount')).toBe('15000.00');
+    expect(url.searchParams.get('transaction_param')).toBe(CLICK_ORDER_ID);
+    expect(url.searchParams.get('return_url')).toBe('https://www.avtotestu.uz/profile?from=click');
+    expect(peekPendingPlan()).toBeNull();
+  });
+
+  it('server Click buyurtmasini rad etsa (already_paid) to\'lovga YUBORMAYDI', async () => {
+    vi.mocked(supabase.rpc).mockResolvedValue({
+      data: { ok: false, error: 'already_paid' },
+      error: null,
+    } as never);
+    setPendingPlan('weekly', 'click');
+    mockAuth.user = { email: '998887928005@pro.com' };
+
+    await renderPro();
+
+    await waitFor(() => expect(toastCalls.some((m) => m.includes('PRO obuna mavjud'))).toBe(true), WAIT);
     expect(hrefWrites).toEqual([]);
   });
 
