@@ -24,7 +24,7 @@ vi.mock("@/contexts/LanguageContext", () => ({
 const trackEvent = vi.fn();
 vi.mock("@/lib/track", () => ({ trackEvent: (...a: unknown[]) => trackEvent(...a) }));
 
-import { SampleQuestionCard } from "./SampleQuestionCard";
+import { SampleQuestionCard, SAMPLE_DONE_KEY } from "./SampleQuestionCard";
 
 function chiqar() {
   return render(
@@ -42,6 +42,7 @@ describe("SampleQuestionCard", () => {
   beforeEach(() => {
     joriyTil = "oz";
     trackEvent.mockClear();
+    localStorage.clear();
   });
 
   it("birinchi savol va uning variantlari ko'rsatiladi, maslahat bor", () => {
@@ -96,5 +97,32 @@ describe("SampleQuestionCard", () => {
         for (const o of q.options) expect(o[k].length).toBeGreaterThan(0);
       }
     }
+  });
+  it("5 ta savoldan keyin natija, 'Yakunlash' — karta yopiladi va eslab qolinadi", async () => {
+    const { container } = chiqar();
+    // Juft tartibdagi savollarga to'g'ri, toqlariga noto'g'ri javob beramiz.
+    const togri = Math.ceil(HOME_SAMPLE_QUESTIONS.length / 2);
+    for (let i = 0; i < HOME_SAMPLE_QUESTIONS.length; i++) {
+      const q = HOME_SAMPLE_QUESTIONS[i];
+      const tanlov = i % 2 === 0 ? q.correct : (q.correct + 1) % q.options.length;
+      await userEvent.click(variantTugmasi(q.options[tanlov].uz_lat));
+      if (i < HOME_SAMPLE_QUESTIONS.length - 1) {
+        await userEvent.click(screen.getByRole("button", { name: /home\.sampleNext/ }));
+      }
+    }
+
+    // Oxirgi savolda: natija va "Yakunlash"
+    expect(screen.getByText("home.sampleScore")).toBeInTheDocument();
+    await userEvent.click(screen.getByRole("button", { name: "home.sampleFinish" }));
+
+    expect(container).toBeEmptyDOMElement();
+    expect(localStorage.getItem(SAMPLE_DONE_KEY)).toBe("1");
+    expect(trackEvent).toHaveBeenCalledWith("home_sample_done", { score: togri, total: HOME_SAMPLE_QUESTIONS.length });
+  });
+
+  it("avval yakunlangan bo'lsa karta umuman chizilmaydi", () => {
+    localStorage.setItem(SAMPLE_DONE_KEY, "1");
+    const { container } = chiqar();
+    expect(container).toBeEmptyDOMElement();
   });
 });

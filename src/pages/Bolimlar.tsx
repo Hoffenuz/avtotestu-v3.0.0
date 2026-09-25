@@ -10,18 +10,20 @@
 //   * Kompyuter ilovasi PLITKA EMAS, alohida kengroq kartochka. U bo'lim
 //     emas — yuklab olinadigan mahsulot. 13 ta bir xil plitka orasida
 //     turganda u ko'zdan butunlay yo'qolardi.
-//   * Kenglik `max-w-5xl` bilan cheklangan: keng monitorda plitkalar
-//     chetlarga tarqalib ketsa, ko'z bir plitkadan ikkinchisiga uzoq yo'l
-//     bosadi.
+//   * Kenglik `max-w-6xl`, plitkalar 2 ustunda. 3 ustun sinab ko'rilgan:
+//     plitka torayib, nom ikki qatorga bo'linar, PRO belgisi matnni siqardi.
+//   * Redizayn (2026-09): sarlavha bosh sahifa uslubida + asosiy test
+//     tugmalari (`MainTestButtons`), kompyuter ilovasi — siyoh karta.
 // ============================================================================
 
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ChevronRight, Download, Monitor, WifiOff } from "lucide-react";
+import { Download, Monitor, WifiOff } from "lucide-react";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SEO } from "@/components/SEO";
 import { SectionGroupList } from "@/components/SectionGrid";
+import { MainTestButtons } from "@/components/home/MainTestButtons";
 import { useAuth } from "@/contexts/AuthContext";
 import { SECTION_GROUPS } from "@/lib/siteSections";
 import { fetchSectionCounts } from "@/lib/questionState";
@@ -68,60 +70,66 @@ export default function Bolimlar() {
         Balandlik: kontent kalta bo'lganda footer ekran o'rtasida osilib
         qolardi. `min-h` uni kamida ekran pastiga suradi (60px — header).
       */}
-      <div className="mx-auto w-full max-w-5xl px-4 py-6 md:min-h-[calc(100vh-60px)] md:px-6 md:py-10">
-        <header className="mb-6 md:mb-8">
-          <h1 className="text-lg font-semibold text-foreground md:text-2xl">
-            {t("pages.bolimlarTitle")}
-          </h1>
-          <p className="mt-1 text-sm text-muted-foreground md:text-[15px]">
-            {t("pages.bolimlarSubtitle")}
-          </p>
-        </header>
-
-        <SectionGroupList groups={SECTION_GROUPS} badges={badges} signedIn={signedIn} />
-
+      <div className="md:min-h-[calc(100vh-60px)]">
         {/*
-          Kompyuter ilovasi — katalogdan KEYIN, alohida ko'rinishda.
+          SARLAVHA — bosh sahifa hero'si bilan BIR USLUBDA: yorug' fon +
+          ingichka katak, siyoh sarlavha va o'sha asosiy test tugmalari.
 
-          Header'dagi "Qo'shimcha" menyusi olib tashlangach, ilovaga yagona
-          doimiy yo'l footer bo'lib qolardi va u amalda ko'rinmas edi. Bu
-          yerda u boshqa plitkalarga o'xshamaydigan, kengroq kartochka —
-          ya'ni ro'yxat ichida yo'qolmaydi.
+          Tugmalar NEGA shu yerda: katalogda asosiy test turlari (Test
+          ishlash, Variantlar, Mavzular) yo'q — ular faqat bosh sahifada
+          edi. "Bo'limlar"ga kelgan odam avvalo shularni izlaydi.
         */}
-        <Link
-          to="/desktop"
-          className="group mt-7 flex items-center gap-4 rounded-xl border border-border bg-card px-4 py-4 transition-[border-color,box-shadow] hover:border-foreground/20 hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:px-5 sm:py-5 md:mt-9"
-        >
-          <span
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary dark:bg-primary/20 sm:h-12 sm:w-12"
+        <section className="relative overflow-hidden border-b border-border bg-background">
+          <div
             aria-hidden="true"
-          >
-            <Monitor className="h-5 w-5 sm:h-6 sm:w-6" />
-          </span>
-
-          <span className="min-w-0 flex-1">
-            <span className="block text-[15px] font-semibold text-foreground sm:text-base">
-              {t("pages.desktopCardTitle")}
-            </span>
-            <span className="mt-0.5 block text-xs leading-snug text-muted-foreground sm:text-[13px]">
-              {t("pages.desktopCardDesc")}
-            </span>
-            <span className="mt-1.5 flex items-center gap-1 text-[11px] text-muted-foreground/80">
-              <WifiOff className="h-3 w-3" aria-hidden="true" />
-              Windows 10/11
-            </span>
-          </span>
-
-          <span className="hidden shrink-0 items-center gap-1.5 rounded-lg bg-primary px-3.5 py-2 text-sm font-semibold text-primary-foreground sm:flex">
-            <Download className="h-4 w-4" aria-hidden="true" />
-            {t("pages.desktopCardCta")}
-          </span>
-
-          <ChevronRight
-            className="h-4 w-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 sm:hidden"
-            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:44px_44px] opacity-60 [mask-image:radial-gradient(ellipse_80%_90%_at_50%_0%,#000_30%,transparent_100%)]"
           />
-        </Link>
+          <div className="relative mx-auto w-full max-w-6xl px-4 pb-8 pt-8 md:px-6 md:pb-10 md:pt-12">
+            <h1 className="text-balance text-[26px] font-extrabold leading-tight tracking-tight text-brand dark:text-foreground sm:text-[32px]">
+              {t("pages.bolimlarTitle")}
+            </h1>
+            <p className="mt-2 max-w-2xl text-pretty text-[15px] leading-relaxed text-muted-foreground sm:text-base">
+              {t("pages.bolimlarSubtitle")}
+            </p>
+            <MainTestButtons size="md" className="mt-6" />
+          </div>
+        </section>
+
+        <div className="mx-auto w-full max-w-6xl px-4 py-8 md:px-6 md:py-12">
+          <SectionGroupList groups={SECTION_GROUPS} badges={badges} signedIn={signedIn} />
+
+          {/*
+            Kompyuter ilovasi — katalogdan KEYIN, SIYOH karta (bosh
+            sahifadagi PRO kartasi bilan bir uslub): u bo'lim emas,
+            yuklab olinadigan mahsulot — plitkalar orasida yo'qolmasin.
+            Siyoh fonda asosiy tugma oq (sayt qoidasi).
+          */}
+          <Link
+            to="/desktop"
+            className="group mt-10 flex flex-col gap-4 rounded-2xl bg-brand px-5 py-6 text-brand-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 sm:flex-row sm:items-center sm:gap-5 sm:px-8 sm:py-7 md:mt-12"
+          >
+            <span
+              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-white/10 text-white"
+              aria-hidden="true"
+            >
+              <Monitor className="h-6 w-6" />
+            </span>
+
+            <span className="min-w-0 flex-1">
+              <span className="block text-lg font-bold tracking-tight">{t("pages.desktopCardTitle")}</span>
+              <span className="mt-1 block text-sm leading-snug text-white/75">{t("pages.desktopCardDesc")}</span>
+              <span className="mt-2 flex items-center gap-1.5 text-xs text-white/60">
+                <WifiOff className="h-3.5 w-3.5" aria-hidden="true" />
+                Windows 10/11
+              </span>
+            </span>
+
+            <span className="inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-lg bg-white px-5 text-sm font-semibold text-[#131A45] transition-colors group-hover:bg-white/90">
+              <Download className="h-4 w-4" aria-hidden="true" />
+              {t("pages.desktopCardCta")}
+            </span>
+          </Link>
+        </div>
       </div>
     </MainLayout>
   );
