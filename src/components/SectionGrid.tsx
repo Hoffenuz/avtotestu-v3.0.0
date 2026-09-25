@@ -75,7 +75,7 @@ export function SectionGrid({
     if (item.requiresPro && !isPremium && proBadgeReady) {
       return (
         <span
-          className="flex shrink-0 items-center gap-1 rounded-full bg-amber-500/15 px-2 py-0.5 text-[11px] font-bold text-amber-600 dark:text-amber-400"
+          className="flex shrink-0 items-center gap-1 rounded-md border border-amber-300/80 bg-amber-50 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-amber-800 dark:border-amber-400/30 dark:bg-amber-950 dark:text-amber-200"
           title={t("sections.proOnly")}
         >
           <Crown className="h-3 w-3" aria-hidden="true" />
@@ -307,12 +307,18 @@ export function SectionGroupList({
   const { t } = useLanguage();
 
   return (
-    <div className="space-y-7 md:space-y-9">
+    <div className="space-y-9 md:space-y-12">
       {groups.map((group) => (
         <section key={group.titleKey}>
-          <h2 className="mb-3 text-xs font-bold uppercase tracking-wider text-muted-foreground md:mb-3.5 md:text-[13px]">
-            {t(group.titleKey)}
-          </h2>
+          {/*
+            Guruh sarlavhasi — aniq (siyoh, katta), ostida chiziq va bo'limlar
+            soni. Ilgari mayda kulrang katta harflar edi va plitkalar orasida
+            ko'zga tushmasdi.
+          */}
+          <div className="mb-4 flex items-baseline gap-2 border-b border-border pb-2.5">
+            <h2 className="text-lg font-bold tracking-tight text-foreground md:text-xl">{t(group.titleKey)}</h2>
+            <span className="text-sm tabular-nums text-muted-foreground">{group.items.length}</span>
+          </div>
           <SectionGrid items={group.items} badges={badges} signedIn={signedIn} showDescription />
         </section>
       ))}
