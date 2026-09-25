@@ -6,6 +6,7 @@ import { useAccessState } from "@/hooks/useAccessState";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
 import { trackEvent } from "@/lib/track";
+import { hasStoredSession } from "@/lib/hasStoredSession";
 import MobileAppBanner from "@/components/MobileAppBanner";
 import ReadinessStrip from "@/components/ReadinessStrip";
 
@@ -50,9 +51,18 @@ interface UpgradeOffer {
  * havolasi menyuda va "Qo'shimcha" bo'limida qoldi.
  */
 export function HomeTopBanner() {
-  const { user } = useAuth();
+  const { user, isLoading: authLoading } = useAuth();
   const { isPremium, expiresAt } = useAccessState();
   const { t } = useLanguage();
+
+  /**
+   * Tayyorgarlik tasmasi uchun joy BIRINCHI RENDERDA zahiralanadi: `user`
+   * sessiya o'qilguncha `null`, shu sababli ilgari tasma kechikib paydo
+   * bo'lib hero'ni pastga surardi. Saqlangan sessiya bo'lsa — darhol skelet
+   * (Home dagi profil paneli bilan bir xil qoida, `hasStoredSession`).
+   */
+  const [expectsSession] = useState(hasStoredSession);
+  const showStrip = !!user || (authLoading && expectsSession);
 
   const [dismissedFor, setDismissedFor] = useState<string | null>(() => {
     try {
@@ -148,7 +158,7 @@ export function HomeTopBanner() {
     return (
       <>
         <MobileAppBanner />
-        {user && <ReadinessStrip />}
+        {showStrip && <ReadinessStrip pending={!user} />}
       </>
     );
   }
@@ -177,7 +187,8 @@ export function HomeTopBanner() {
 
   return (
     <div className="relative z-10 w-full bg-gradient-to-r from-amber-600 to-orange-600 text-white">
-      <div className="flex items-center gap-1 px-2 lg:px-3 py-2 max-w-7xl mx-auto">
+      {/* `min-h-14` — tayyorgarlik tasmasi bilan bir xil: almashganda hero surilmaydi */}
+      <div className="flex min-h-14 items-center gap-1 px-2 lg:px-3 py-2 max-w-7xl mx-auto">
         <button
           type="button"
           onClick={handleDismiss}
