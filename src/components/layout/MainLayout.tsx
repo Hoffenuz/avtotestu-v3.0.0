@@ -29,6 +29,9 @@ const telegramGroupHandle = `@${TELEGRAM_GROUP_URL.split("/").filter(Boolean).po
 const HEADER_LOGO = { src: "/avtosmart-logo-white-notag.webp", width: 600, height: 154 } as const;
 const HEADER_MARK = { src: "/avtosmart-icon-white.webp", width: 128, height: 128 } as const;
 
+/** Footer'dagi yil — modul yuklanganda bir marta hisoblanadi. */
+const FOOTER_YEAR = new Date().getFullYear();
+
 /**
  * "Telegram: @nom" ko'rinishidagi matndan bosiladigan qator yasaydi.
  *
@@ -148,18 +151,20 @@ export function MainLayout({ children }: MainLayoutProps) {
   ], [t]);
 
   /**
-   * Footer havolalari — asosiy menyuga sig'magan, lekin YO'QOLMASLIGI
-   * kerak bo'lgan sahifalar shu yerda turadi.
+   * Footer havolalari — FAQAT asosiy menyuga sig'magan, lekin YO'QOLMASLIGI
+   * kerak bo'lgan sahifalar.
    *
    * Aloqa, Yangiliklar va Kompyuter ilova aynan shu sababdan bu ro'yxatda:
    * ular header'dan olib tashlandi, demak doimiy yo'l faqat shu yerda
    * qoladi. (Kompyuter ilovaga ikkinchi, ko'zga tashlanadigan yo'l
    * `/bolimlar` sahifasining pastida ham bor.)
+   *
+   * Bo'limlar, Darslik va Qo'llanma OLIB TASHLANDI (2026-09): ular header
+   * menyusida (telefonda — menyu va pastki navigatsiyada) doim turadi.
+   * Footerda takrorlanib ro'yxatni ikki barobar uzaytirardi, telefonda esa
+   * footer uzun ustunga aylanardi.
    */
   const footerLinks = useMemo(() => [
-    { path: "/bolimlar", label: t("nav.sections") },
-    { path: "/darslik", label: t("nav.darslik") },
-    { path: "/qoshimcha", label: t("sections.qollanma") },
     { path: "/yangiliklar", label: t("nav.news") },
     { path: "/desktop", label: t("nav.desktopApp") },
     { path: "/contact", label: t("nav.contact") },
@@ -466,10 +471,16 @@ export function MainLayout({ children }: MainLayoutProps) {
       {/* Guruh xabarnomasi — har foydalanuvchiga bir marta, footer ustida */}
       <TelegramGroupNotice />
 
-      <footer className="bg-brand text-brand-foreground py-10">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
+      {/*
+        FOOTER — ixcham. Chekkalar header va sahifa kontenti bilan bir xil
+        (`px-4 md:px-6 lg:px-8`), telefonda ikkala ro'yxat YONMA-YON (ilgari
+        uch blok ustma-ust tushib, footer ekrandan uzun bo'lardi). Ustun
+        sarlavhalari kichik va xira — ko'z havolalarning o'ziga tushadi.
+      */}
+      <footer className="bg-brand text-brand-foreground">
+        <div className="mx-auto max-w-7xl px-4 pb-6 pt-10 md:px-6 lg:px-8">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-[1.6fr_1fr_1fr]">
+            <div className="col-span-2 md:col-span-1">
               {/* Logotip wordmark'ni o'z ichiga oladi — yonida matn takrorlanmaydi. */}
               <img
                 src="/avtosmart-logo-white-notag.webp"
@@ -484,23 +495,27 @@ export function MainLayout({ children }: MainLayoutProps) {
               </p>
             </div>
 
-            <div>
-              <h3 className="font-semibold text-lg mb-4">{t("footer.quickLinksTitle")}</h3>
+            <nav aria-label={t("footer.quickLinksTitle")}>
+              <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-primary-foreground/50">
+                {t("footer.quickLinksTitle")}
+              </h3>
               <div className="space-y-2">
                 {footerLinks.map((item) => (
                   <Link
                     key={item.path}
                     to={item.path}
-                    className="block text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm"
+                    className="block text-[13px] text-primary-foreground/75 transition-colors hover:text-primary-foreground sm:text-sm"
                   >
                     {item.label}
                   </Link>
                 ))}
               </div>
-            </div>
+            </nav>
 
             <div>
-              <h3 className="font-semibold text-lg mb-4">{t("footer.contactTitle")}</h3>
+              <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-primary-foreground/50">
+                {t("footer.contactTitle")}
+              </h3>
               {/*
                 Uchala aloqa qatori BIR XIL ko'rinishda: "nomi: @manzil".
                 Ilgari guruh alohida katta kartochka edi va u qolgan ikki
@@ -509,7 +524,7 @@ export function MainLayout({ children }: MainLayoutProps) {
                 Manzil `TELEGRAM_GROUP_URL` dan olinadi — qo'lda yozilsa
                 havola bilan matn ajralib ketishi mumkin edi.
               */}
-              <div className="space-y-1.5 text-sm text-primary-foreground/70">
+              <div className="space-y-2 break-words text-[13px] text-primary-foreground/75 sm:text-sm">
                 <p>
                   <a
                     href={TELEGRAM_GROUP_URL}
@@ -525,6 +540,10 @@ export function MainLayout({ children }: MainLayoutProps) {
               </div>
             </div>
           </div>
+
+          <p className="mt-8 border-t border-white/10 pt-5 text-xs text-primary-foreground/50">
+            © {FOOTER_YEAR} AvtoSmart
+          </p>
         </div>
       </footer>
 

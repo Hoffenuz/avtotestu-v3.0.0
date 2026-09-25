@@ -7,6 +7,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { hasStoredSession } from "@/lib/hasStoredSession";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAccessState } from "@/hooks/useAccessState";
+import { useReadiness } from "@/hooks/useReadiness";
 import {
   User,
   BarChart3,
@@ -67,6 +68,7 @@ export default function Home() {
   const { t } = useLanguage();
   const navigate = useNavigate();
   const { isPremium } = useAccessState();
+  const { data: readiness } = useReadiness();
 
   /**
    * Birinchi renderda saqlangan sessiya bormi — faqat BIR MARTA hisoblanadi
@@ -243,8 +245,13 @@ export default function Home() {
         kelganini bildiradigan HARAKAT. Indikator esa natija/holat, ya'ni
         harakatdan keyin o'qiladi. Mehmonga umuman ko'rsatilmaydi — bosh
         sahifaning SEO maketi o'zgarmaydi.
+
+        Hali test ishlamagan foydalanuvchiga karta KO'RSATILMAYDI: "birinchi
+        testni ishlang" taklifi tepadagi tasmada allaqachon turadi, bu yerda
+        aynan o'sha matn takrorlanardi. (`useReadiness` umumiy — qo'shimcha
+        so'rov yo'q.)
       */}
-      {user && (
+      {user && readiness?.hasData !== false && (
         <section className="border-t border-border bg-muted/30 py-8 md:py-10">
           <div className="max-w-4xl mx-auto px-4">
             <ReadinessCard />
