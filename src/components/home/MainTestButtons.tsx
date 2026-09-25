@@ -1,8 +1,9 @@
 /**
- * Asosiy test tugmalari: "Test ishlash", "Variantlar", "Mavzular".
+ * Bosh sahifa hero'sidagi asosiy test tugmalari: "Test ishlash",
+ * "Variantlar", "Mavzular".
  *
- * Bosh sahifa hero'si va /bolimlar sarlavhasida BIR XIL — mantiq bitta
- * joyda (ikki nusxa vaqt o'tib bir-biridan ajralib ketardi).
+ * /bolimlar da BU TUGMALAR YO'Q (2026-09): u sahifa faqat bo'limlar
+ * katalogi, test rejimlari bosh sahifadan boshlanadi.
  *
  * RANG VA SHAKL QOIDASI (sayt bo'ylab):
  *   * asosiy     — to'la siyoh (`bg-primary`), siyoh soya;
@@ -29,12 +30,8 @@ import { useAccessState } from "@/hooks/useAccessState";
 import { hasStoredSession } from "@/lib/hasStoredSession";
 import { cn } from "@/lib/utils";
 
-const SIZE = {
-  /** Bosh sahifa hero'si — sahifaning asosiy urg'usi. */
-  lg: "h-[60px] w-full gap-2.5 px-8 text-lg sm:w-auto sm:min-w-[210px] [&_svg]:size-[22px]",
-  /** Ichki sahifa sarlavhasi — bir pog'ona kichik. */
-  md: "h-12 w-full gap-2 px-6 text-base sm:w-auto sm:min-w-[170px] [&_svg]:size-5",
-} as const;
+/** 60px — sahifaning asosiy urg'usi. `[&_svg]:size-*` Button'ning `size-4` ini bosadi. */
+const SIZE = "h-[60px] w-full gap-2.5 px-8 text-lg sm:w-auto sm:min-w-[210px] [&_svg]:size-[22px]";
 
 const PRIMARY = "shadow-lg shadow-primary/30 hover:bg-primary/90";
 const OUTLINE =
@@ -49,14 +46,14 @@ function ProTag() {
   );
 }
 
-export function MainTestButtons({ size = "lg", className }: { size?: keyof typeof SIZE; className?: string }) {
+export function MainTestButtons({ className }: { className?: string }) {
   const { user, isLoading: authLoading } = useAuth();
   const { t } = useLanguage();
   const { isPremium, loading: accessLoading, backendConfirmed } = useAccessState();
   const [expectsSession] = useState(hasStoredSession);
 
   const showMavzular = !!user || (authLoading && expectsSession);
-  const base = cn("relative rounded-lg font-semibold", SIZE[size]);
+  const base = cn("relative rounded-lg font-semibold", SIZE);
   const secondary = cn(base, isPremium ? PRIMARY : OUTLINE);
 
   return (

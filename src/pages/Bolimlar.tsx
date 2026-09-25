@@ -12,8 +12,9 @@
 //     turganda u ko'zdan butunlay yo'qolardi.
 //   * Kenglik `max-w-6xl`, plitkalar 2 ustunda. 3 ustun sinab ko'rilgan:
 //     plitka torayib, nom ikki qatorga bo'linar, PRO belgisi matnni siqardi.
-//   * Redizayn (2026-09): sarlavha bosh sahifa uslubida + asosiy test
-//     tugmalari (`MainTestButtons`), kompyuter ilovasi — siyoh karta.
+//   * Redizayn (2026-09): sarlavha bosh sahifa uslubida, kompyuter
+//     ilovasi — siyoh karta. Asosiy test tugmalari (Test ishlash,
+//     Variantlar) bu yerda YO'Q: sahifa faqat bo'limlar uchun.
 // ============================================================================
 
 import { useEffect, useState } from "react";
@@ -23,7 +24,6 @@ import { MainLayout } from "@/components/layout/MainLayout";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SEO } from "@/components/SEO";
 import { SectionGroupList } from "@/components/SectionGrid";
-import { MainTestButtons } from "@/components/home/MainTestButtons";
 import { useAuth } from "@/contexts/AuthContext";
 import { SECTION_GROUPS } from "@/lib/siteSections";
 import { fetchSectionCounts } from "@/lib/questionState";
@@ -73,11 +73,8 @@ export default function Bolimlar() {
       <div className="md:min-h-[calc(100vh-60px)]">
         {/*
           SARLAVHA — bosh sahifa hero'si bilan BIR USLUBDA: yorug' fon +
-          ingichka katak, siyoh sarlavha va o'sha asosiy test tugmalari.
-
-          Tugmalar NEGA shu yerda: katalogda asosiy test turlari (Test
-          ishlash, Variantlar, Mavzular) yo'q — ular faqat bosh sahifada
-          edi. "Bo'limlar"ga kelgan odam avvalo shularni izlaydi.
+          ingichka katak, siyoh sarlavha. Test tugmalari ATAYLAB yo'q —
+          ular bosh sahifada; bu sahifa faqat bo'limlar katalogi.
         */}
         <section className="relative overflow-hidden border-b border-border bg-background">
           <div
@@ -91,7 +88,6 @@ export default function Bolimlar() {
             <p className="mt-2 max-w-2xl text-pretty text-[15px] leading-relaxed text-muted-foreground sm:text-base">
               {t("pages.bolimlarSubtitle")}
             </p>
-            <MainTestButtons size="md" className="mt-6" />
           </div>
         </section>
 
