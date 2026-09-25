@@ -12,11 +12,10 @@
 //     turganda u ko'zdan butunlay yo'qolardi.
 //   * Kenglik `max-w-6xl`, plitkalar 2 ustunda. 3 ustun sinab ko'rilgan:
 //     plitka torayib, nom ikki qatorga bo'linar, PRO belgisi matnni siqardi.
-//   * Redizayn (2026-09): ixcham `PageIntro` sarlavhasi (Test ishlash,
-//     Variantlar, Mavzular bilan bir xil), kompyuter ilovasi — siyoh
-//     karta. Asosiy test tugmalari bu yerda YO'Q: sahifa faqat bo'limlar
-//     uchun. Katta (32px) sarlavha va keng bo'shliq plitkalarni pastga
-//     surardi — endi ular birinchi ekranda.
+//   * Redizayn (2026-09): ixcham `PageIntro` sarlavhasi, kompyuter ilovasi
+//     — oq karta (plitkalar bilan bir oila). Asosiy test tugmalari bu
+//     yerda YO'Q: sahifa faqat bo'limlar uchun. Katta (32px) sarlavha va
+//     keng bo'shliq plitkalarni pastga surardi — endi ular birinchi ekranda.
 // ============================================================================
 
 import { useEffect, useState } from "react";
@@ -81,32 +80,35 @@ export default function Bolimlar() {
           <SectionGroupList groups={SECTION_GROUPS} badges={badges} signedIn={signedIn} />
 
           {/*
-            Kompyuter ilovasi — katalogdan KEYIN, SIYOH karta (bosh
-            sahifadagi PRO kartasi bilan bir uslub): u bo'lim emas,
-            yuklab olinadigan mahsulot — plitkalar orasida yo'qolmasin.
-            Siyoh fonda asosiy tugma oq (sayt qoidasi).
+            Kompyuter ilovasi — katalogdan KEYIN, alohida kengroq karta: u
+            bo'lim emas, yuklab olinadigan mahsulot.
+
+            OQ FON (2026-09): siyoh karta plitkalardan ham ko'proq e'tibor
+            tortib, sahifaning asosiy mazmuni — bo'limlarni — soyada
+            qoldirardi. Endi plitkalar bilan bir oila: oq fon, ingichka
+            chegara, siyoh ikonka; tugma ikkilamchi (chegarali).
           */}
           <Link
             to="/desktop"
-            className="group mt-10 flex flex-col gap-4 rounded-2xl bg-brand px-5 py-6 text-brand-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 sm:flex-row sm:items-center sm:gap-5 sm:px-8 sm:py-7 md:mt-12"
+            className="group mt-10 flex flex-col gap-4 rounded-xl border border-border bg-card px-5 py-5 shadow-sm transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 dark:hover:border-primary/70 sm:flex-row sm:items-center sm:gap-5 sm:px-6 md:mt-12"
           >
             <span
-              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-white/10 text-white"
+              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/[0.07] text-primary dark:bg-white/10 dark:text-foreground"
               aria-hidden="true"
             >
               <Monitor className="h-6 w-6" />
             </span>
 
             <span className="min-w-0 flex-1">
-              <span className="block text-lg font-bold tracking-tight">{t("pages.desktopCardTitle")}</span>
-              <span className="mt-1 block text-sm leading-snug text-white/75">{t("pages.desktopCardDesc")}</span>
-              <span className="mt-2 flex items-center gap-1.5 text-xs text-white/60">
+              <span className="block text-base font-bold tracking-tight text-foreground sm:text-lg">{t("pages.desktopCardTitle")}</span>
+              <span className="mt-0.5 block text-sm leading-snug text-muted-foreground">{t("pages.desktopCardDesc")}</span>
+              <span className="mt-1.5 flex items-center gap-1.5 text-xs text-muted-foreground">
                 <WifiOff className="h-3.5 w-3.5" aria-hidden="true" />
                 Windows 10/11
               </span>
             </span>
 
-            <span className="inline-flex h-11 shrink-0 items-center justify-center gap-2 rounded-lg bg-white px-5 text-sm font-semibold text-[#131A45] transition-colors group-hover:bg-white/90">
+            <span className="inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-lg border border-border bg-background px-4 text-sm font-semibold text-foreground transition-colors group-hover:border-primary">
               <Download className="h-4 w-4" aria-hidden="true" />
               {t("pages.desktopCardCta")}
             </span>

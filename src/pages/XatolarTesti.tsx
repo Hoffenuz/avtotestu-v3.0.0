@@ -16,6 +16,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthRequiredPrompt } from "@/components/AuthRequiredPrompt";
 import { AlertCircle, CheckCircle2, Play, Loader2 } from "lucide-react";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { ProSectionGate } from "@/components/ProSectionGate";
@@ -154,12 +155,7 @@ export default function XatolarTesti() {
         {!user ? (
           <Card>
             <CardContent className="py-10 text-center">
-              <p className="text-muted-foreground">
-                {t("pages.signInRequired")}
-              </p>
-              <Button asChild className="mt-4">
-                <Link to="/auth">{t("pages.signIn")}</Link>
-              </Button>
+              <AuthRequiredPrompt />
             </CardContent>
           </Card>
         ) : wrongIds === null ? (

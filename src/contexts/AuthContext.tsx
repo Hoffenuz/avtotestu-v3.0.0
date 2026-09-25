@@ -11,6 +11,7 @@ import { User, Session } from '@supabase/supabase-js';
 import { clearAllUserData } from '@/lib/clearUserData';
 import { signInWithTelegramMiniApp } from '@/lib/telegramMiniAppAuth';
 import { resetSavedCache } from '@/lib/questionState';
+import { rememberKnownAccount } from '@/lib/authEntry';
 import { AUTH_RPC_TIMEOUT_MS, PROFILE_TIMEOUT_MS, SIGN_IN_TIMEOUT_MS, withTimeout } from '@/lib/withTimeout';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -169,6 +170,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setSession(next);
     setUser(next?.user ?? null);
     userIdRef.current = next?.user?.id ?? null;
+    // Har qanday yo'l bilan kirilganda (parol, Telegram, Google) — qurilma
+    // "hisobi bor" deb eslanadi: keyingi safar /auth KIRISH tabida ochiladi.
+    if (next?.user) rememberKnownAccount();
   }, []);
 
   const fetchProfileData = useCallback(async (userId: string): Promise<Profile | null> => {

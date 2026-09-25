@@ -1,11 +1,12 @@
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
-import { Crown, Home, LogIn, Lock, ServerCrash } from "lucide-react";
+import { Crown, Home, LogIn, Lock, ServerCrash, UserPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SECTION_LABEL, type GateSection } from "@/lib/gateSections";
 import { trackEvent } from "@/lib/track";
+import { authState, defaultAuthMode } from "@/lib/authEntry";
 
 /* Eski import yo'llari ishlashda davom etsin. */
 export type { GateSection };
@@ -49,7 +50,9 @@ export function GateShell({
 
 export function ProAccessGate({ section, reason, returnPath, onRetry }: ProAccessGateProps) {
   const navigate = useNavigate();
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
+  /** Mehmon tugmasi: yangi qurilmada "Ro'yxatdan o'tish", aks holda "Kirish" (`authEntry`). */
+  const [authMode] = useState(defaultAuthMode);
 
   /*
     Voronka: "cheklovga urildi" — hozirgacha hech qayerda o'lchanmagan
@@ -133,10 +136,10 @@ export function ProAccessGate({ section, reason, returnPath, onRetry }: ProAcces
           <Button
             variant="outline"
             className="gap-2"
-            onClick={() => navigate("/auth", { state: { returnTo: returnPath } })}
+            onClick={() => navigate("/auth", { state: authState(returnPath) })}
           >
-            <LogIn className="w-4 h-4" />
-            {language === "ru" ? "Войти" : language === "uz" ? "Кirish" : "Kirish"}
+            {authMode === "signup" ? <UserPlus className="w-4 h-4" /> : <LogIn className="w-4 h-4" />}
+            {authMode === "signup" ? t("auth.tabSignup") : t("pages.signIn")}
           </Button>
         )}
         <Button variant="outline" className="gap-2" onClick={() => navigate("/")}>
