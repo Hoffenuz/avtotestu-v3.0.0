@@ -293,21 +293,30 @@ export function SectionGroupList({
   const { t } = useLanguage();
 
   return (
-    <div className="space-y-9 md:space-y-12">
-      {groups.map((group) => (
-        <section key={group.titleKey}>
-          {/*
-            Guruh sarlavhasi — aniq (siyoh, katta), ostida chiziq va bo'limlar
-            soni. Ilgari mayda kulrang katta harflar edi va plitkalar orasida
-            ko'zga tushmasdi.
-          */}
-          <div className="mb-4 flex items-baseline gap-2 border-b border-border pb-2.5">
-            <h2 className="text-lg font-bold tracking-tight text-foreground md:text-xl">{t(group.titleKey)}</h2>
-            <span className="text-sm tabular-nums text-muted-foreground">{group.items.length}</span>
-          </div>
-          <SectionGrid items={group.items} badges={badges} signedIn={signedIn} showDescription />
-        </section>
-      ))}
+    <div className="space-y-8 md:space-y-10">
+      {groups.map((group) => {
+        const GroupIcon = group.icon;
+        return (
+          <section key={group.titleKey}>
+            {/*
+              Guruh sarlavhasi — siyoh ikonka, nom va bo'limlar soni, ostida
+              chiziq. Ilgari mayda kulrang katta harflar edi va plitkalar
+              orasida ko'zga tushmasdi.
+            */}
+            <div className="mb-3.5 flex items-center gap-2.5 border-b border-border pb-2.5">
+              <span
+                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-primary/[0.07] text-primary dark:bg-white/10 dark:text-foreground"
+                aria-hidden="true"
+              >
+                <GroupIcon className="h-4 w-4" />
+              </span>
+              <h2 className="text-base font-bold tracking-tight text-foreground md:text-lg">{t(group.titleKey)}</h2>
+              <span className="text-sm tabular-nums text-muted-foreground">{group.items.length}</span>
+            </div>
+            <SectionGrid items={group.items} badges={badges} signedIn={signedIn} showDescription />
+          </section>
+        );
+      })}
     </div>
   );
 }

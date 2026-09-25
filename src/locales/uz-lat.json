@@ -152,7 +152,8 @@
     "seoTitle": "Avto test — Prava test va YHQ testlar 2026",
     "seoDescription": "Avto test 2026: prava test va YHQ testlar, yo'l belgilari, 64 variant. Bepul onlayn — AvtoSmart.",
     "sectionsTitle": "Bo'limlar",
-    "sectionsSubtitle": "Barcha materiallar va test turlari"
+    "sectionsSubtitle": "Barcha materiallar va test turlari",
+    "scrollDown": "Bo'limlarga o'tish"
   },
   "contact": {
     "seoTitle": "Aloqa va yordam",
@@ -637,5 +638,24 @@
     "emptyModule": "Bu modulda hali video yo'q.",
     "markingNote": "Bu darslar chiziq kodlari bo'yicha nomlangan.",
     "betaTitle": "Test rejimida"
+  },
+  "testStart": {
+    "random": "Tasodifiy savollar",
+    "chooseCount": "Savollar sonini tanlang",
+    "questionWord": "savol",
+    "examBadge": "Imtihon formati",
+    "minutes": "{n} daqiqa",
+    "passShort": "o'tish {n}%",
+    "passLabel": "O'tish",
+    "noSignup": "Ro'yxatdan o'tish shart emas",
+    "noSignupLong": "Testni boshlash uchun ro'yxatdan o'tish shart emas",
+    "loading": "Yuklanmoqda…",
+    "errServer": "Serverga ulanib bo'lmadi. Sahifani yangilang.",
+    "errProRequired": "Bu test uchun PRO obuna kerak.",
+    "errLogin": "Avval tizimga kiring.",
+    "errConnection": "Serverga ulanishda xatolik. Qayta urinib ko'ring.",
+    "offlineFree": "Server bilan aloqa yo'q. Bepul rejimda test ishlash mumkin.",
+    "variantsSubtitle": "{n} ta variant, har birida 20 ta savol",
+    "lockedVariant": "Bu variant PRO obunada ochiladi."
   }
 }

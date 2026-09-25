@@ -102,8 +102,8 @@ export default function MavzuliTestlar() {
     if (!result.ok) {
       setStartError(
         result.error === 'no_premium_access'
-          ? 'Bu mavzuni boshlash uchun PRO obuna kerak.'
-          : 'Serverga ulanishda xatolik. Qayta urinib ko\'ring.'
+          ? t("testStart.errProRequired")
+          : t("testStart.errConnection")
       );
       return;
     }
@@ -128,14 +128,18 @@ export default function MavzuliTestlar() {
   };
 
   // Auth / first access check only — never infinite spin when RPC fails.
+  // Sayt headeri bilan: yuklanish paytida header yo'qolib, keyin birdan
+  // paydo bo'lib sahifani surmasin.
   if (isLoading || accessLoading) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-10 h-10 border-4 border-primary/30 border-t-primary rounded-full animate-spin mx-auto mb-3" />
-          <p className="text-sm text-muted-foreground font-medium">Yuklanmoqda...</p>
+      <MainLayout>
+        <div className="flex min-h-[60vh] items-center justify-center" role="status">
+          <div className="text-center">
+            <div className="w-10 h-10 border-4 border-primary/30 border-t-primary rounded-full animate-spin mx-auto mb-3" />
+            <p className="text-sm text-muted-foreground font-medium">{t("testStart.loading")}</p>
+          </div>
         </div>
-      </div>
+      </MainLayout>
     );
   }
 
@@ -340,7 +344,8 @@ export default function MavzuliTestlar() {
           "Bosh sahifa / Profil" tugmalari olib tashlandi — header da bor.
         */}
         <div className="hidden h-[calc(100vh-60px)] overflow-hidden bg-background text-foreground lg:flex">
-          <div className="w-[30%] bg-card border-r border-border p-6 flex flex-col">
+          {/* `overflow-y-auto`: past ekranda (yoki brauzer zoom 125%+) panel pastki qismi kesilmasin */}
+          <div className="w-[30%] bg-card border-r border-border p-6 flex flex-col overflow-y-auto">
             <div className="flex-1 flex flex-col">
               {/*
                 Bosh sahifaga qaytish. Sayt headerida ham havola bor, lekin bu

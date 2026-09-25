@@ -1,28 +1,24 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useAccessState } from "@/hooks/useAccessState";
 import { useTestSession } from "@/hooks/useTestSession";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useDarkMode } from "@/hooks/useDarkMode";
 import { SEO } from "@/components/SEO";
 import { TestPageSchema } from "@/components/TestPageSchema";
 import { Button } from "@/components/ui/button";
 import {
-  Home,
   Play,
   Clock,
   HelpCircle,
   CheckCircle,
-  Crown,
   Loader2,
   AlertTriangle,
   ServerCrash,
-  ArrowRight
 } from "lucide-react";
 import { TestInterfaceBase } from "@/components/TestInterfaceBase";
 import { TestInterfaceCombined } from "@/components/TestInterfaceCombined";
-import { BottomNav } from "@/components/layout/BottomNav";
+import { MainLayout } from "@/components/layout/MainLayout";
+import { ProUpsell } from "@/components/ProUpsell";
 
 /**
  * Bitta til = bitta fayl, ham free ham PRO uchun (ilgari free 5.9 MB'lik
@@ -169,7 +165,6 @@ export default function TestIshlash() {
     setTestStarted(false);
     setActiveSession(null);
   }, [accessLoading, backendConfirmed, isPremium, activeSession, testIshlashStorageKey]);
-  const { isDark } = useDarkMode();
   const { starting, startSession } = useTestSession();
 
   const brandColor = "#1E2350";
@@ -202,7 +197,7 @@ export default function TestIshlash() {
     if (isPremium) {
       // Premium test: backend session is REQUIRED
       if (!backendConfirmed) {
-        setSessionError('Serverga ulanib bo\'lmadi. Iltimos, sahifani yangilang.');
+        setSessionError(t("testStart.errServer"));
         return;
       }
 
@@ -214,11 +209,11 @@ export default function TestIshlash() {
 
       if (!result.ok) {
         if (result.error === 'no_premium_access') {
-          setSessionError('Premium test uchun PRO obuna kerak.');
+          setSessionError(t("testStart.errProRequired"));
         } else if (result.error === 'not_authenticated') {
-          setSessionError('Iltimos, avval tizimga kiring.');
+          setSessionError(t("testStart.errLogin"));
         } else {
-          setSessionError('Serverga ulanishda xatolik. Qayta urinib ko\'ring.');
+          setSessionError(t("testStart.errConnection"));
         }
         return;
       }
@@ -297,8 +292,14 @@ export default function TestIshlash() {
   }
 
   // ── Render: start page ─────────────────────────────────────────────────────
+  /*
+    Sayt headeri (MainLayout) bilan — /variant va /mavzuli kabi. Ilgari bu
+    sahifada o'z oq "Bosh sahifa + til" qatori bor edi va u saytning qolgan
+    qismidan ajralib turardi. Til tugmalari karta sarlavhasiga ko'chdi
+    ("test qaysi tilda" — shu kartaning sozlamasi). Qolgan tuzilish o'zgarmadi.
+  */
   return (
-    <div className={isDark ? 'dark' : ''}>
+    <MainLayout>
       <SEO
         title={t("seo.testIshlash.title")}
         description={t("seo.testIshlash.description")}
@@ -307,47 +308,8 @@ export default function TestIshlash() {
       />
       <TestPageSchema />
 
-      {/*
-        `has-bottom-nav` — pastki panel uchun joy. Bu FAQAT boshlash ekrani:
-        test boshlangach yuqoridagi `TestInterfaceBase` shohobchasi ishlaydi
-        va u panelni `body.test-active` orqali yashiradi.
-      */}
-      <div className="min-h-screen bg-background flex flex-col font-sans text-[#1E2350] dark:text-foreground has-bottom-nav">
-
-        {/*
-          Yon bo'shliqlar va til tugmalari kichik ekranda TORAYTIRILGAN.
-          Ilgari sarlavha `px-6`, tugmalar esa `px-4` edi va "Bosh sahifa"
-          bilan uchta til tugmasi bitta qatorga sig'masdi: 320px da 54px,
-          360px da 14px toshib, BUTUN sahifada gorizontal scroll paydo
-          qilardi. `flex-wrap` — zaxira: matn uzunroq tilda ham qator
-          ikkiga bo'linadi, lekin toshmaydi.
-        */}
-        <header className="w-full bg-background border-b border-border px-3 sm:px-6 py-3 sticky top-0 z-20">
-          <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-2">
-            <Link to="/">
-              <Button variant="ghost" size="sm" className="gap-2 font-bold text-[#1E2350] dark:text-foreground">
-                <Home className="w-4 h-4" /> Bosh sahifa
-              </Button>
-            </Link>
-            <div className="flex bg-muted rounded-lg p-1 border border-border">
-              {languages.map((lang) => (
-                <button
-                  key={lang.id}
-                  onClick={() => setLanguage(lang.id)}
-                  className={`px-2.5 sm:px-4 py-1.5 rounded-md text-xs font-bold transition-all ${
-                    language === lang.id
-                      ? "bg-primary text-primary-foreground shadow-sm"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  {lang.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        </header>
-
-        <main className="flex-1 max-w-3xl mx-auto w-full px-4 py-4 sm:py-8 flex flex-col gap-4 sm:gap-6">
+      <div className="font-sans text-[#1E2350] dark:text-foreground">
+        <div className="max-w-3xl mx-auto w-full px-4 py-4 sm:py-8 flex flex-col gap-4 sm:gap-6">
 
           {/*
             Pro Banner
@@ -370,24 +332,11 @@ export default function TestIshlash() {
             holat aniqlangandan keyin ko'rinadi.
           */}
           {showProBanner && (
-            <Link
-              to="/pro"
-              aria-hidden={accessLoading || undefined}
-              tabIndex={accessLoading ? -1 : undefined}
-              className={`order-last md:order-none group flex items-center gap-3 sm:gap-4 bg-card border-2 border-orange-400 rounded-2xl px-3.5 py-3 sm:px-5 sm:py-4 hover:border-orange-500 hover:bg-orange-50/30 dark:hover:bg-orange-950/20 transition-all active:scale-[0.99] shadow-sm hover:shadow-md${accessLoading ? " invisible" : ""}`}
-            >
-              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-amber-600 to-orange-600 flex items-center justify-center flex-shrink-0 shadow-sm">
-               <Crown className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-              </div>
-              <div className="flex-1 min-w-0">
-               <p className="text-orange-600 font-bold text-sm sm:text-base leading-tight">{t("pro.testBannerTitle")} <span className="text-orange-400">✦</span></p>
-               <p className="text-slate-500 text-[11px] sm:text-sm mt-0.5 leading-snug">{t("pro.testBannerSubtitle")}</p>
-              </div>
-              <div className="flex items-center gap-1 text-[11px] sm:text-xs font-semibold text-orange-600 whitespace-nowrap shrink-0">
-                <span>{t("nav.getPro")}</span>
-                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
-              </div>
-            </Link>
+            <ProUpsell
+              description={t("pro.testBannerSubtitle")}
+              pending={accessLoading}
+              className="order-last md:order-none"
+            />
           )}
 
           {/* Backend unavailable warning (only for premium users) */}
@@ -395,7 +344,7 @@ export default function TestIshlash() {
             <div className="flex items-center gap-3 bg-yellow-500/10 border border-yellow-500/30 rounded-xl px-4 py-3">
               <ServerCrash className="w-4 h-4 text-yellow-600 flex-shrink-0" />
               <p className="text-sm text-yellow-800 dark:text-yellow-200">
-                Server bilan aloqa yo'q. Bepul rejimda test ishlash mumkin.
+                {t("testStart.offlineFree")}
               </p>
             </div>
           )}
@@ -422,25 +371,52 @@ export default function TestIshlash() {
               mobilda sarlavhada ko'rsatiladi.
           */}
           <div className="bg-card rounded-3xl border border-border overflow-hidden">
-            <div className="px-5 py-4 sm:px-8 sm:py-6 border-b border-border flex items-center gap-3 sm:gap-4 bg-slate-50 dark:bg-muted">
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-[#1E2350] flex items-center justify-center shrink-0">
+            {/*
+              Sarlavha: savol soni va vaqt bu yerda YOZILMAYDI — desktopda
+              ular statistika kartochkalarida, soni esa tanlovda bor. Mobilda
+              kartochkalar yashirin, shuning uchun vaqt va o'tish bali shu
+              qatorda (faqat mobilda).
+            */}
+            <div className="px-5 py-4 sm:px-8 sm:py-6 border-b border-border flex flex-wrap items-center gap-3 sm:gap-4 bg-slate-50 dark:bg-muted">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-[#1E2350] dark:bg-primary flex items-center justify-center shrink-0">
                 <Play className="w-5 h-5 text-white fill-current" />
               </div>
-              <div className="min-w-0">
-                <h1 className="text-xl sm:text-2xl font-black tracking-tight text-[#1E2350] dark:text-foreground">Test ishlash</h1>
+              <div className="min-w-0 flex-1">
+                <h1 className="text-xl sm:text-2xl font-black tracking-tight text-[#1E2350] dark:text-foreground">{t("home.btnTest")}</h1>
                 <p className="text-slate-500 dark:text-muted-foreground text-xs sm:text-sm font-semibold">
-                  {questionCount} ta tasodifiy savol • {QUESTION_COUNTS[questionCount]} daqiqa
-                  {/* Desktopda o'tish chegarasi statistika kartochkasida bor */}
-                  <span className="md:hidden"> • o'tish {PASS_PERCENT}%</span>
+                  {t("testStart.random")}
+                  <span className="md:hidden">
+                    {" • "}{t("testStart.minutes").replace("{n}", String(QUESTION_COUNTS[questionCount]))}
+                    {" • "}{t("testStart.passShort").replace("{n}", String(PASS_PERCENT))}
+                  </span>
                 </p>
+              </div>
+              {/* Savollar tili — ilgari sahifaning alohida oq headerida edi */}
+              <div className="flex w-full sm:w-auto bg-muted dark:bg-background rounded-lg p-1 border border-border" role="radiogroup" aria-label={t("test.selectLanguage")}>
+                {languages.map((lang) => (
+                  <button
+                    key={lang.id}
+                    type="button"
+                    role="radio"
+                    aria-checked={language === lang.id}
+                    onClick={() => setLanguage(lang.id)}
+                    className={`flex-1 sm:flex-none px-2.5 sm:px-4 py-1.5 rounded-md text-xs font-bold transition-all ${
+                      language === lang.id
+                        ? "bg-primary text-primary-foreground shadow-sm"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {lang.label}
+                  </button>
+                ))}
               </div>
             </div>
 
             <div className="p-4 sm:p-6 flex flex-col md:flex-row gap-4 sm:gap-5 md:gap-6">
               {/* Savollar soni */}
-              <div role="radiogroup" aria-label="Savollar soni" className="md:flex-1">
+              <div role="radiogroup" aria-label={t("testStart.chooseCount")} className="md:flex-1">
                 <p className="text-xs font-bold text-slate-600 dark:text-muted-foreground uppercase tracking-widest mb-4 text-center">
-                  Savollar sonini tanlang
+                  {t("testStart.chooseCount")}
                 </p>
                 <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
                   {PRIMARY_COUNTS.map((num) => (
@@ -462,8 +438,8 @@ export default function TestIshlash() {
                         "Eng mashhur" kabi) — ichkarida raqamni to'sib qo'yardi.
                       */}
                       {num === EXAM_COUNT && (
-                        <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-emerald-600 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white shadow-sm">
-                          Imtihon formati
+                        <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#2563EB] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white shadow-sm">
+                          {t("testStart.examBadge")}
                         </span>
                       )}
                       {questionCount === num && (
@@ -475,7 +451,7 @@ export default function TestIshlash() {
                         {num}
                       </span>
                       <span className="text-xs sm:text-sm font-semibold text-slate-500 dark:text-muted-foreground mt-1.5">
-                        savol · {QUESTION_COUNTS[num]} daqiqa
+                        {t("testStart.questionWord")}
                       </span>
                     </button>
                   ))}
@@ -502,8 +478,7 @@ export default function TestIshlash() {
                       }`}
                     >
                       <span className="font-black">{num}</span>
-                      <span className="font-medium">savol</span>
-                      <span className="opacity-60">· {QUESTION_COUNTS[num]} daq</span>
+                      <span className="font-medium">{t("testStart.questionWord")}</span>
                     </button>
                   ))}
                 </div>
@@ -513,9 +488,9 @@ export default function TestIshlash() {
               <div className="md:flex-1 flex flex-col gap-2 md:gap-4">
                 <div className="hidden md:grid grid-cols-3 gap-2">
                   {[
-                    { icon: HelpCircle, value: questionCount, label: "Savollar" },
-                    { icon: Clock, value: QUESTION_COUNTS[questionCount], label: "Daqiqa" },
-                    { icon: CheckCircle, value: `${PASS_PERCENT}%`, label: "O'tish", green: true },
+                    { icon: HelpCircle, value: questionCount, label: t("test.questions") },
+                    { icon: Clock, value: QUESTION_COUNTS[questionCount], label: t("test.minutes") },
+                    { icon: CheckCircle, value: `${PASS_PERCENT}%`, label: t("testStart.passLabel"), green: true },
                   ].map(({ icon: Icon, value, label, green }) => (
                     <div key={label} className="flex flex-col items-center gap-2 bg-slate-100/80 dark:bg-muted rounded-2xl py-4">
                       <div className="w-8 h-8 rounded-xl bg-white dark:bg-muted-foreground/20 shadow-sm flex items-center justify-center">
@@ -539,27 +514,21 @@ export default function TestIshlash() {
                     ? <Loader2 className="w-5 h-5 animate-spin" />
                     : <Play className="w-4 h-4 fill-current" />
                   }
-                  {starting ? "Yuklanmoqda..." : "Testni boshlash"}
+                  {starting ? t("testStart.loading") : t("test.startTest")}
                 </Button>
                 {/* Mobilda tugma ostida; desktopda kartadan tashqarida (pastda) — tugma chap ustun bilan tekis tursin */}
                 <p className="md:hidden text-center text-xs text-slate-400">
-                  Ro'yxatdan o'tish shart emas
+                  {t("testStart.noSignup")}
                 </p>
               </div>
             </div>
           </div>
 
           <p className="hidden md:block text-center text-xs text-slate-400">
-            Testni boshlash uchun ro'yxatdan o'tish shart emas
+            {t("testStart.noSignupLong")}
           </p>
-        </main>
-
-        {/*
-          Pastki navigatsiya boshlash ekranida ham turadi: u yerdan
-          "Profil" yoki "Bo'limlar" ga o'tib bo'lmasligi noqulay edi.
-        */}
-        <BottomNav />
+        </div>
       </div>
-    </div>
+    </MainLayout>
   );
 }

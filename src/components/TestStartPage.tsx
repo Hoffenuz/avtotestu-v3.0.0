@@ -4,6 +4,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useTestResults } from "@/hooks/useTestResults";
 import { Button } from "@/components/ui/button";
 import { Play, AlertTriangle, Lock, Crown, Home } from "lucide-react";
+import { ProUpsell } from "@/components/ProUpsell";
 import { FREE_VARIANT_UI, isVariantLocked as checkVariantLocked } from "@/lib/variantAccess";
 
 interface TestStartPageProps {
@@ -20,45 +21,6 @@ const languages = [
 
 const TOTAL_VARIANTS = 64;
 const variants = Array.from({ length: TOTAL_VARIANTS }, (_, i) => i + 1);
-
-function ProPromoCard({ language }: { language: string }) {
-  const title =
-    language === "ru"
-      ? "Откройте все 64 варианта"
-      : language === "uz"
-        ? "Барча 64 вариантни очинг"
-        : "Barcha 64 variantni oching";
-  const subtitle =
-    language === "ru"
-      ? "Оформите PRO — все варианты и тематические тесты без ограничений"
-      : language === "uz"
-        ? "PRO обуна — барча вариантлар ва мавзули тестлар чексиз"
-        : "PRO obuna — barcha variantlar va mavzuli testlar cheksiz";
-  const cta = language === "ru" ? "Получить PRO" : language === "uz" ? "PRO olish" : "PRO olish";
-
-  return (
-    <Link
-      to="/pro"
-      className="block mt-4 p-4 rounded-xl border-2 border-amber-300/80 bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 dark:from-amber-950/40 dark:via-yellow-950/30 dark:to-orange-950/20 dark:border-amber-700/50 hover:shadow-md transition-all group"
-    >
-      <div className="flex items-start gap-3">
-        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-yellow-500 flex items-center justify-center flex-shrink-0 shadow-sm">
-          <Crown className="w-5 h-5 text-white" />
-        </div>
-        <div className="flex-1 min-w-0">
-          <h3 className="font-bold text-foreground text-sm mb-0.5 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">
-            {title}
-          </h3>
-          <p className="text-xs text-muted-foreground leading-relaxed">{subtitle}</p>
-          <span className="inline-flex items-center gap-1 mt-2 text-xs font-semibold text-amber-700 dark:text-amber-400">
-            {cta}
-            <span aria-hidden>→</span>
-          </span>
-        </div>
-      </div>
-    </Link>
-  );
-}
 
 export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: TestStartPageProps) => {
   const [selectedVariant, setSelectedVariant] = useState<number | null>(
@@ -199,7 +161,7 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
           {selectedVariant ? (
             <div className="mb-0 p-4 bg-primary/5 rounded-lg border border-primary/20 text-center">
               <div className="text-5xl font-bold text-primary mb-1">{selectedVariant}</div>
-              <div className="text-xs text-muted-foreground">{t("test.variant")} {selectedVariant}</div>
+              <div className="text-xs text-muted-foreground">{t("test.variant")}</div>
             </div>
           ) : (
             <div className="mb-0 p-4 bg-muted/30 rounded-lg border border-border text-center">
@@ -266,7 +228,7 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
             ))}
           </div>
 
-          {!hasProAccess && <ProPromoCard language={language} />}
+          {!hasProAccess && <ProUpsell description={t("pro.testBannerSubtitle")} className="my-4" />}
 
           <div className="flex items-center gap-3 text-xs text-muted-foreground">
             <div className="flex items-center gap-1.5">
@@ -292,7 +254,8 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
       */}
       <div className="hidden h-[calc(100vh-60px)] overflow-hidden bg-background text-foreground lg:flex">
         {/* Left Side - Test Start Section (30%) */}
-        <div className="w-[30%] bg-card border-r border-border p-6 flex flex-col">
+        {/* `overflow-y-auto`: past ekranda (yoki brauzer zoom 125%+) panel pastki qismi kesilmasin */}
+        <div className="w-[30%] bg-card border-r border-border p-6 flex flex-col overflow-y-auto">
           <div className="flex-1 flex flex-col">
             {/*
               Bosh sahifaga qaytish. Sayt headerida ham havola bor, lekin bu
@@ -334,7 +297,7 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
               <div className="mb-4 p-6 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border-2 border-primary/20 shadow-sm">
                 <div className="text-center">
                   <div className="text-6xl font-bold text-primary mb-1">{selectedVariant}</div>
-                  <div className="text-[11px] font-medium text-muted-foreground">{t("test.variant")} {selectedVariant}</div>
+                  <div className="text-[11px] font-medium text-muted-foreground">{t("test.variant")}</div>
                 </div>
               </div>
             ) : (
@@ -347,17 +310,17 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-2 mb-4">
-              <div className="text-center p-2.5 bg-gradient-to-br from-blue-50 to-blue-100/50 dark:from-blue-950 dark:to-blue-900/50 rounded-lg border border-blue-200 dark:border-blue-800">
-                <div className="text-xl font-bold text-blue-600 dark:text-blue-400">20</div>
-                <div className="text-[9px] text-blue-600/70 dark:text-blue-400/70 mt-0.5">{t("test.questions")}</div>
+              <div className="text-center p-2.5 bg-muted/50 rounded-lg border border-border">
+                <div className="text-xl font-bold text-foreground">20</div>
+                <div className="text-[10px] text-muted-foreground mt-0.5">{t("test.questions")}</div>
               </div>
-              <div className="text-center p-2.5 bg-gradient-to-br from-purple-50 to-purple-100/50 dark:from-purple-950 dark:to-purple-900/50 rounded-lg border border-purple-200 dark:border-purple-800">
-                <div className="text-xl font-bold text-purple-600 dark:text-purple-400">25</div>
-                <div className="text-[9px] text-purple-600/70 dark:text-purple-400/70 mt-0.5">{t("test.minutes")}</div>
+              <div className="text-center p-2.5 bg-muted/50 rounded-lg border border-border">
+                <div className="text-xl font-bold text-foreground">25</div>
+                <div className="text-[10px] text-muted-foreground mt-0.5">{t("test.minutes")}</div>
               </div>
-              <div className="text-center p-2.5 bg-gradient-to-br from-green-50 to-green-100/50 dark:from-green-950 dark:to-green-900/50 rounded-lg border border-green-200 dark:border-green-800">
-                <div className="text-xl font-bold text-green-600 dark:text-green-400">90%</div>
-                <div className="text-[9px] text-green-600/70 dark:text-green-400/70 mt-0.5">{t("test.passingScore")}</div>
+              <div className="text-center p-2.5 bg-muted/50 rounded-lg border border-border">
+                <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400">90%</div>
+                <div className="text-[10px] text-muted-foreground mt-0.5">{t("test.passingScore")}</div>
               </div>
             </div>
 
@@ -420,7 +383,7 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
             <div className="mb-6">
               <h1 className="text-2xl font-bold text-foreground mb-1">{t("test.selectVariant")}</h1>
               <p className="text-sm text-muted-foreground">
-                {language === 'ru' ? 'Выберите вариант теста для начала' : language === 'uz' ? 'Тест вариантини танланг' : 'Test variantini tanlang'}
+                {t("testStart.variantsSubtitle").replace("{n}", String(TOTAL_VARIANTS))}
               </p>
             </div>
 
@@ -441,7 +404,7 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
               ))}
             </div>
 
-            {!hasProAccess && <ProPromoCard language={language} />}
+            {!hasProAccess && <ProUpsell description={t("pro.testBannerSubtitle")} className="my-4" />}
 
             <div className="flex items-center gap-4 text-xs text-muted-foreground">
               <div className="flex items-center gap-2">

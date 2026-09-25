@@ -21,6 +21,8 @@ import {
   AlertTriangle,
   Bookmark,
   Brain,
+  ClipboardCheck,
+  GraduationCap,
   Hash,
   Search,
   Signpost,
@@ -85,6 +87,8 @@ export interface SectionItem {
 export interface SectionGroup {
   /** Tarjima kaliti (`sections.group*`). */
   titleKey: string;
+  /** Guruh sarlavhasi yonidagi ikonka. */
+  icon: LucideIcon;
   items: readonly SectionItem[];
 }
 
@@ -103,6 +107,7 @@ export interface SectionGroup {
 export const SECTION_GROUPS: readonly SectionGroup[] = [
   {
     titleKey: "sections.groupPractice",
+    icon: ClipboardCheck,
     items: [
       { to: "/real-imtihon", titleKey: "sections.realImtihon", descKey: "sections.realImtihonDesc", icon: Timer },
       { to: "/xatolar-testi", titleKey: "sections.xatolarTesti", descKey: "sections.xatolarTestiDesc", icon: Brain, requiresPro: true },
@@ -116,6 +121,7 @@ export const SECTION_GROUPS: readonly SectionGroup[] = [
   },
   {
     titleKey: "sections.groupLearn",
+    icon: GraduationCap,
     items: [
       { to: "/belgilar", titleKey: "sections.belgilar", descKey: "sections.belgilarDesc", icon: Signpost },
       { to: "/avtodrom", titleKey: "sections.avtodrom", descKey: "sections.avtodromDesc", icon: TrafficCone },

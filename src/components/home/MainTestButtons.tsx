@@ -22,7 +22,7 @@
  */
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { BookOpen, Crown, LayoutGrid, Play } from "lucide-react";
+import { BookOpen, Crown, Grid3x3, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -70,7 +70,7 @@ export function MainTestButtons({ className }: { className?: string }) {
           {isPremium ? (
             <Crown className="shrink-0 text-amber-300" aria-hidden="true" />
           ) : (
-            <LayoutGrid className="shrink-0" aria-hidden="true" />
+            <Grid3x3 className="shrink-0" aria-hidden="true" />
           )}
           <span>{t("home.btnVariantlar")}</span>
         </Link>

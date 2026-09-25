@@ -89,14 +89,18 @@ export default function Variant() {
   }, [isLoading, accessLoading, backendConfirmed, testStarted, selectedVariant, isPremium]);
 
   // Auth init OR first PRO check only. Do not blank the page on later refreshes.
+  // Sayt headeri bilan — ilgari yuklanish paytida header yo'q edi va keyin
+  // birdan paydo bo'lib, butun sahifani pastga surardi.
   if (isLoading || (accessLoading && !backendConfirmed)) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center">
-          <div className="w-10 h-10 border-4 border-primary/30 border-t-primary rounded-full animate-spin mx-auto mb-3" />
-          <p className="text-sm text-muted-foreground font-medium">Yuklanmoqda...</p>
+      <MainLayout>
+        <div className="flex min-h-[60vh] items-center justify-center" role="status">
+          <div className="text-center">
+            <div className="mx-auto mb-3 h-10 w-10 animate-spin rounded-full border-4 border-primary/30 border-t-primary" />
+            <p className="text-sm font-medium text-muted-foreground">{t("testStart.loading")}</p>
+          </div>
         </div>
-      </div>
+      </MainLayout>
     );
   }
 
@@ -122,7 +126,7 @@ export default function Variant() {
     setStartError(null);
 
     if (isVariantLocked(variant, isPremium)) {
-      setStartError("Barcha variantlarni ochish uchun PRO obuna oling.");
+      setStartError(t("testStart.lockedVariant"));
       return;
     }
 
@@ -136,9 +140,9 @@ export default function Variant() {
 
     if (!result.ok) {
       if (result.error === "no_premium_access") {
-        setStartError("Bu variantni boshlash uchun PRO obuna kerak.");
+        setStartError(t("testStart.errProRequired"));
       } else {
-        setStartError("Serverga ulanishda xatolik. Qayta urinib ko'ring.");
+        setStartError(t("testStart.errConnection"));
       }
       return;
     }
@@ -167,8 +171,8 @@ export default function Variant() {
         keywords={t("seo.variant.keywords")}
       />
       {starting ? (
-        <div className="flex min-h-screen items-center justify-center">
-          <div className="w-10 h-10 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
+        <div className="flex min-h-[60vh] items-center justify-center" role="status" aria-label={t("testStart.loading")}>
+          <div className="h-10 w-10 animate-spin rounded-full border-4 border-primary/30 border-t-primary" />
         </div>
       ) : (
         <TestStartPage
