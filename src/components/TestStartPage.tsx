@@ -196,9 +196,6 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
                 onClick={() => handleMobileVariantTap(v)}
               >
                 {isLocked(v) && <Lock className="w-3 h-3 absolute top-1 right-1 opacity-70" />}
-                {isFreeVariantUi(v, hasProAccess) && (
-                  <span className="absolute -top-1 -right-1 text-[8px] font-bold bg-blue-500 text-white px-1 rounded">✓</span>
-                )}
                 {v}
               </Button>
             ))}
@@ -337,9 +334,6 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
                   onClick={() => handleVariantSelect(v)}
                 >
                   {isLocked(v) && <Lock className="w-3 h-3 absolute top-1 right-1 opacity-70" />}
-                  {isFreeVariantUi(v, hasProAccess) && (
-                    <span className="absolute -top-1 -right-1 text-[8px] font-bold bg-blue-500 text-white px-1 rounded">✓</span>
-                  )}
                   {v}
                 </Button>
               ))}

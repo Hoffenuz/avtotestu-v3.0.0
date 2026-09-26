@@ -497,6 +497,7 @@ function updateSitemap(questions) {
     ["/e-avtomaktab", "weekly", "0.85"],
     ["/e-avtomaktab-test", "weekly", "0.85"],
     ["/avtoimtihon-2026", "monthly", "0.8"],
+    ["/prava-olish", "monthly", "0.85"],
     ["/darslik", "weekly", "0.8"],
     ["/qoshimcha", "monthly", "0.7"],
     ["/pro", "monthly", "0.75"],

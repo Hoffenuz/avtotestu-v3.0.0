@@ -45,6 +45,9 @@ const ROUTE_MAP = {
   "e-avtomaktab.html": "e-avtomaktab",
   "e-avtomaktab-test.html": "e-avtomaktab-test",
   "avtoimtihon-2026.html": "avtoimtihon-2026",
+  // "prava olish narxi / tartibi 2026" — saytda narx va muddat haqida
+  // ma'lumot yo'q edi, bu savollarga boshqa saytlar javob berardi.
+  "prava-olish.html": "prava-olish",
 };
 
 function applyContentFixes(html) {

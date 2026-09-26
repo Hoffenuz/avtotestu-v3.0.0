@@ -199,6 +199,23 @@ export const SEO_META: Record<string, Record<string, SeoMeta>> = {
       "keywords": "тематические тесты, темы ПДД, тесты на права, тест дорожные знаки"
     }
   },
+  "/prava-olish": {
+    "uz-lat": {
+      "title": "Prava olish 2026 — narxi, imtihon to'lovi va muddatlar",
+      "description": "2026-yilda prava olish narxi: avtomaktab (B) o'rtacha 5,5 mln, imtihon 1,5 + 1,5 mln so'm, qayta topshirish 1,6 mln. Avtomaktabsiz bo'ladimi? Bosqichlar va muddatlar.",
+      "keywords": "prava olish narxi 2026, prava olish, avtomaktab narxi, prava imtihon narxi, haydovchilik guvohnomasi olish, avtomaktabsiz prava, prava olish tartibi"
+    },
+    "uz": {
+      "title": "Права олиш 2026 — нархи, имтиҳон тўлови ва муддатлар",
+      "description": "2026 йилда права олиш нархи: автомактаб (B) ўртача 5,5 млн, имтиҳон 1,5 + 1,5 млн сўм, қайта топшириш 1,6 млн. Автомактабсиз бўладими? Босқичлар ва муддатлар.",
+      "keywords": "права олиш нархи 2026, права олиш, автомактаб нархи, права имтиҳон нархи, ҳайдовчилик гувоҳномаси олиш, автомактабсиз права"
+    },
+    "ru": {
+      "title": "Права в Узбекистане 2026 — стоимость, экзамен и сроки",
+      "description": "Сколько стоит получить права в 2026: автошкола (B) в среднем 5,5 млн, экзамены 1,5 + 1,5 млн сум, пересдача 1,6 млн. Можно ли без автошколы? Этапы и сроки.",
+      "keywords": "получить права узбекистан 2026, стоимость прав, цена автошколы, стоимость экзамена на права, права без автошколы, порядок получения прав"
+    }
+  },
   "/pro": {
     "uz-lat": {
       "title": "PRO obuna — 1275 savol, 64 variant va izohlar",
