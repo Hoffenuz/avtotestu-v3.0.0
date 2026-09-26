@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useTestResults } from "@/hooks/useTestResults";
 import { Button } from "@/components/ui/button";
-import { Play, AlertTriangle, Lock } from "lucide-react";
+import { Play, AlertTriangle, Lock, Home } from "lucide-react";
 import { ProUpsell } from "@/components/ProUpsell";
 import { FREE_VARIANT_UI, isFreeVariantUi, isVariantLocked as checkVariantLocked } from "@/lib/variantAccess";
 
@@ -99,6 +100,21 @@ export const TestStartPage = ({ onStartTest, startError, hasProAccess = true }: 
     <div className="bg-gradient-to-br from-background via-background to-primary/5">
       {/* Mobile Layout */}
       <div className="lg:hidden bg-background pb-4">
+        {/*
+          Mobilda bosh sahifaga qaytish — /mavzuli dagi bilan bir xil joy va
+          ko'rinish. Telefonda header'da "Bosh sahifa" havolasi yo'q (faqat
+          menyu ichida), shuning uchun chiqish yo'li shu yerda ko'z oldida.
+          Desktopda kerak emas — header'da bor.
+        */}
+        <div className="px-4 pt-3">
+          <Link to="/">
+            <Button variant="outline" size="sm" className="gap-2">
+              <Home className="w-4 h-4" />
+              {t("nav.home")}
+            </Button>
+          </Link>
+        </div>
+
         {/*
           "Bosh sahifa / Profil / Kirish" tugmalari BU YERDAN OLIB TASHLANDI —
           uchalasi ham sayt headerida bor va ikkinchi qatorda takrorlanishi
