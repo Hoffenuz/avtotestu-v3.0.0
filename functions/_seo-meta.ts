@@ -99,18 +99,18 @@ export const SEO_META: Record<string, Record<string, SeoMeta>> = {
   },
   "/darslik": {
     "uz-lat": {
-      "title": "Video darslik — YHQ bo'yicha 209 ta video, bepul",
-      "description": "YHQ bo'yicha 11 modul va 209 ta video dars: yo'l belgilari, chiziqlar va imtihon mavzulari. Bepul, ro'yxatdan o'tmasdan.",
+      "title": "Video Darslik — YHQ bo'yicha 209 ta video",
+      "description": "YHQ bo'yicha 11 bob va 209 ta video darslik: belgilar, chiziqlar, chorrahalar va imtihon mavzulari.",
       "keywords": "YHQ darslik, video darslar, haydovchilik kursi, avto darslik, prava video"
     },
     "uz": {
-      "title": "Видео дарслик — ЙҲҚ бўйича 209 та видео, бепул",
-      "description": "ЙҲҚ бўйича 11 модул ва 209 та видео дарс: йўл белгилари, чизиқлар ва имтиҳон мавзулари. Бепул, рўйхатдан ўтмасдан.",
+      "title": "Видео дарслик — ЙҲҚ бўйича 209 та видео",
+      "description": "ЙҲҚ бўйича 11 боб ва 209 та видео дарслик: белгилар, чизиқлар, чорраҳалар ва имтиҳон мавзулари.",
       "keywords": "ЙҲҚ дарслик, видео дарслар, ҳайдовчилик курси, авто дарслик, права видео"
     },
     "ru": {
-      "title": "Видеоуроки ПДД — 209 видео, бесплатно",
-      "description": "11 модулей и 209 видеоуроков по ПДД: дорожные знаки, разметка и экзаменационные темы. Бесплатно, без регистрации.",
+      "title": "Видеоуроки ПДД — 209 видео",
+      "description": "11 глав и 209 видеоуроков по ПДД: знаки, разметка, перекрёстки и экзаменационные темы.",
       "keywords": "уроки ПДД, видеоуроки, автошкола онлайн, обучение вождению, ПДД видео"
     }
   },
