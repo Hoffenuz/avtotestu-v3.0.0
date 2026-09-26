@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useAccessState } from "@/hooks/useAccessState";
 import { useTestSession } from "@/hooks/useTestSession";
@@ -19,6 +20,7 @@ import { TestInterfaceBase } from "@/components/TestInterfaceBase";
 import { TestInterfaceCombined } from "@/components/TestInterfaceCombined";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { ProUpsell } from "@/components/ProUpsell";
+import { AUTO_START_COUNT, wantsAutoStart } from "@/lib/testAutoStart";
 
 /**
  * Bitta til = bitta fayl, ham free ham PRO uchun (ilgari free 5.9 MB'lik
@@ -176,7 +178,12 @@ export default function TestIshlash() {
   const showProBanner = !isPremium && accessState !== 'active_pro';
 
   // ── Start handler ──────────────────────────────────────────────────────────
-  const handleStart = async () => {
+  /**
+   * `count` — ARGUMENT, holatdan o'qilmaydi: "darhol boshlash" (bosh sahifadan)
+   * 20 talikni so'raydi, holatda esa oldingi tanlov (masalan 50) turgan
+   * bo'lishi mumkin — `setQuestionCount` shu renderda hali qo'llanmagan.
+   */
+  const handleStart = async (count: QuestionCount = questionCount) => {
     setSessionError(null);
 
     // Compute the localStorage key that the test component will use
@@ -190,9 +197,9 @@ export default function TestIshlash() {
     // Shart yuqoridagi render tarmog'i bilan AYNAN bir xil bo'lishi kerak
     // (20 -> Base, qolgani -> Combined), aks holda yangilashdan keyin
     // boshlangan test topilmay yo'qoladi.
-    const testStateKey = questionCount !== 20
-      ? `testState_combined_/${dataFile}_${questionCount}_${userId}`
-      : `testState_base_/${dataFile}_${questionCount}_${userId}`;
+    const testStateKey = count !== 20
+      ? `testState_combined_/${dataFile}_${count}_${userId}`
+      : `testState_base_/${dataFile}_${count}_${userId}`;
 
     if (isPremium) {
       // Premium test: backend session is REQUIRED
@@ -240,8 +247,44 @@ export default function TestIshlash() {
       }
     }
 
+    setQuestionCount(count);
     setTestStarted(true);
   };
+
+  /*
+    DARHOL BOSHLASH — bosh sahifadagi "Sinab ko'ring" kartasidan "Testni
+    davom ettirish" (`testAutoStart`). Boshlash sahifasi ko'rsatilmaydi,
+    20 talik test o'zi boshlanadi.
+
+    * Obuna holati kelguncha KUTILADI: `handleStart` bepul yoki PRO bazani
+      shunga qarab tanlaydi.
+    * `location.state` darhol tozalanadi — sahifani yangilash yoki orqaga
+      qaytish testni QAYTA boshlamasin.
+    * Tugallanmagan test bo'lsa (yuqorida tiklangan) — o'sha ochiladi,
+      yangisi boshlanmaydi.
+    * Kutish paytida boshlash sahifasi emas, yuklanish belgisi chiqadi —
+      sahifa bir lahza ko'rinib, keyin almashib qolmasin. Xato bo'lsa
+      (masalan server) boshlash sahifasi xabar bilan ochiladi.
+  */
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [autoStartPending, setAutoStartPending] = useState(
+    () => wantsAutoStart(location.state) && !initial.testStarted,
+  );
+  const autoStartFiredRef = useRef(false);
+  // Eng so'nggi `handleStart` (u har renderda qayta yaratiladi — effekt
+  // bog'liqligiga qo'yilsa, har renderda qayta ishlardi).
+  const handleStartRef = useRef(handleStart);
+  useEffect(() => {
+    handleStartRef.current = handleStart;
+  });
+
+  useEffect(() => {
+    if (!autoStartPending || autoStartFiredRef.current || accessLoading) return;
+    autoStartFiredRef.current = true;
+    navigate(location.pathname, { replace: true, state: null });
+    void handleStartRef.current(AUTO_START_COUNT).finally(() => setAutoStartPending(false));
+  }, [autoStartPending, accessLoading, navigate, location.pathname]);
 
   // ── Render: test in progress ───────────────────────────────────────────────
   /*
@@ -288,6 +331,16 @@ export default function TestIshlash() {
         sessionId={activeSession.sessionId}
         isPremiumSession={activeSession.isPremium}
       />
+    );
+  }
+
+  if (autoStartPending) {
+    return (
+      <MainLayout>
+        <div className="flex min-h-[60vh] items-center justify-center" role="status" aria-label={t("testStart.loading")}>
+          <Loader2 className="h-8 w-8 animate-spin text-primary" aria-hidden="true" />
+        </div>
+      </MainLayout>
     );
   }
 
@@ -505,7 +558,7 @@ export default function TestIshlash() {
                 </div>
 
                 <Button
-                  onClick={handleStart}
+                  onClick={() => void handleStart()}
                   disabled={starting || accessLoading}
                   style={{ backgroundColor: brandColor }}
                   className="w-full h-14 rounded-xl text-white text-base font-black hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-3 md:mt-auto disabled:opacity-60"
