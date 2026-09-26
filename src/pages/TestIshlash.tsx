@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useAccessState } from "@/hooks/useAccessState";
 import { useTestSession } from "@/hooks/useTestSession";
@@ -8,6 +8,7 @@ import { SEO } from "@/components/SEO";
 import { TestPageSchema } from "@/components/TestPageSchema";
 import { Button } from "@/components/ui/button";
 import {
+  Home,
   Play,
   Clock,
   HelpCircle,
@@ -363,6 +364,18 @@ export default function TestIshlash() {
 
       <div className="font-sans text-[#1E2350] dark:text-foreground">
         <div className="max-w-3xl mx-auto w-full px-4 py-4 sm:py-8 flex flex-col gap-4 sm:gap-6">
+          {/*
+            Mobilda bosh sahifaga qaytish — /mavzuli va /variant dagi bilan
+            bir xil. Desktopda kerak emas — header'da "Bosh sahifa" bor.
+          */}
+          <div className="lg:hidden">
+            <Link to="/">
+              <Button variant="outline" size="sm" className="gap-2">
+                <Home className="w-4 h-4" />
+                {t("nav.home")}
+              </Button>
+            </Link>
+          </div>
 
           {/*
             Pro Banner
