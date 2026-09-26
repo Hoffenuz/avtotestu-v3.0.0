@@ -21,10 +21,23 @@ vi.mock("@/contexts/LanguageContext", () => ({
   }),
 }));
 
+/** Kirish holati: `null` — mehmon. */
+let joriyUser: { id: string } | null = null;
+let authYuklanmoqda = false;
+vi.mock("@/contexts/AuthContext", () => ({
+  useAuth: () => ({ user: joriyUser, isLoading: authYuklanmoqda }),
+}));
+
 const trackEvent = vi.fn();
 vi.mock("@/lib/track", () => ({ trackEvent: (...a: unknown[]) => trackEvent(...a) }));
 
-import { SampleQuestionCard, SAMPLE_DONE_KEY } from "./SampleQuestionCard";
+import { SampleQuestionCard } from "./SampleQuestionCard";
+import { localDay, sampleDoneKey } from "@/lib/sampleVisibility";
+
+const USER = { id: "u-1" };
+const BUGUN = localDay();
+/** Kirgan foydalanuvchi uchun yozilgan "bugun tugatdi" belgisi. */
+const belgi = () => localStorage.getItem(sampleDoneKey(USER.id));
 
 function chiqar() {
   return render(
@@ -43,6 +56,8 @@ describe("SampleQuestionCard", () => {
     joriyTil = "oz";
     trackEvent.mockClear();
     localStorage.clear();
+    joriyUser = null;
+    authYuklanmoqda = false;
   });
 
   it("birinchi savol va uning variantlari ko'rsatiladi, maslahat bor", () => {
@@ -98,7 +113,8 @@ describe("SampleQuestionCard", () => {
       }
     }
   });
-  it("5 ta savoldan keyin natija, 'Yakunlash' — karta yopiladi va eslab qolinadi", async () => {
+  it("kirgan: 5 ta savoldan keyin natija, 'Yakunlash' — karta yopiladi, bugunga eslanadi", async () => {
+    joriyUser = USER;
     const { container } = chiqar();
     // Juft tartibdagi savollarga to'g'ri, toqlariga noto'g'ri javob beramiz.
     const togri = Math.ceil(HOME_SAMPLE_QUESTIONS.length / 2);
@@ -116,12 +132,51 @@ describe("SampleQuestionCard", () => {
     await userEvent.click(screen.getByRole("button", { name: "home.sampleFinish" }));
 
     expect(container).toBeEmptyDOMElement();
-    expect(localStorage.getItem(SAMPLE_DONE_KEY)).toBe("1");
+    expect(belgi()).toBe(BUGUN);
     expect(trackEvent).toHaveBeenCalledWith("home_sample_done", { score: togri, total: HOME_SAMPLE_QUESTIONS.length });
   });
 
-  it("avval yakunlangan bo'lsa karta umuman chizilmaydi", () => {
-    localStorage.setItem(SAMPLE_DONE_KEY, "1");
+  it("kirgan: bugun tugatgan bo'lsa karta chizilmaydi", () => {
+    joriyUser = USER;
+    localStorage.setItem(sampleDoneKey(USER.id), BUGUN);
+    const { container } = chiqar();
+    expect(container).toBeEmptyDOMElement();
+  });
+
+  it("kirgan: kecha tugatgan bo'lsa bugun yana chiqadi", () => {
+    joriyUser = USER;
+    localStorage.setItem(sampleDoneKey(USER.id), "2000-01-01");
+    chiqar();
+    expect(screen.getByText(birinchi.text.uz_lat)).toBeInTheDocument();
+  });
+
+  it("boshqa akkaunt tugatgani bu foydalanuvchidan yashirmaydi", () => {
+    joriyUser = USER;
+    localStorage.setItem(sampleDoneKey("boshqa"), BUGUN);
+    chiqar();
+    expect(screen.getByText(birinchi.text.uz_lat)).toBeInTheDocument();
+  });
+
+  it("mehmon: tugatsa ham hech narsa eslanmaydi — keyingi safar yana chiqadi", async () => {
+    const birinchiMarta = chiqar();
+    for (let i = 0; i < HOME_SAMPLE_QUESTIONS.length; i++) {
+      const q = HOME_SAMPLE_QUESTIONS[i];
+      await userEvent.click(variantTugmasi(q.options[q.correct].uz_lat));
+      if (i < HOME_SAMPLE_QUESTIONS.length - 1) {
+        await userEvent.click(screen.getByRole("button", { name: /home\.sampleNext/ }));
+      }
+    }
+    await userEvent.click(screen.getByRole("button", { name: "home.sampleFinish" }));
+    expect(birinchiMarta.container).toBeEmptyDOMElement();
+    expect(localStorage.length).toBe(0);
+
+    birinchiMarta.unmount();
+    chiqar();
+    expect(screen.getByText(birinchi.text.uz_lat)).toBeInTheDocument();
+  });
+
+  it("kirish holati aniqlanguncha karta chizilmaydi (paydo bo'lib yo'qolmasin)", () => {
+    authYuklanmoqda = true;
     const { container } = chiqar();
     expect(container).toBeEmptyDOMElement();
   });
@@ -137,6 +192,8 @@ describe("SampleQuestionCard — testni davom ettirish", () => {
     joriyTil = "oz";
     trackEvent.mockClear();
     localStorage.clear();
+    joriyUser = null;
+    authYuklanmoqda = false;
   });
 
   function QayergaOtdi() {
@@ -161,10 +218,11 @@ describe("SampleQuestionCard — testni davom ettirish", () => {
     expect(screen.getByTestId("manzil").textContent).toBe('/test-ishlash|{"autoStart":20}');
     expect(trackEvent).toHaveBeenCalledWith("home_sample_continue", { question: 1, answered: false });
     // O'rtada bosilgan — karta keyingi safar yana chiqadi
-    expect(localStorage.getItem(SAMPLE_DONE_KEY)).toBeNull();
+    expect(localStorage.length).toBe(0);
   });
 
-  it("oxirgi savolga javobdan keyin bosilsa — karta tugagan deb eslanadi", async () => {
+  it("kirgan: oxirgi savolga javobdan keyin bosilsa — bugunga tugagan deb eslanadi", async () => {
+    joriyUser = USER;
     chiqarYollar();
     for (let i = 0; i < HOME_SAMPLE_QUESTIONS.length; i++) {
       const q = HOME_SAMPLE_QUESTIONS[i];
@@ -175,6 +233,6 @@ describe("SampleQuestionCard — testni davom ettirish", () => {
     }
     await userEvent.click(screen.getByRole("button", { name: /home\.sampleContinue/ }));
     expect(screen.getByTestId("manzil").textContent).toBe('/test-ishlash|{"autoStart":20}');
-    expect(localStorage.getItem(SAMPLE_DONE_KEY)).toBe("1");
+    expect(belgi()).toBe(BUGUN);
   });
 });
