@@ -1,0 +1,22 @@
+#!/bin/sh
+# Savol fayllariga tegadigan commitdan keyin: "ilovalarni sinxronlang".
+# Yoqish (bir marta): npm run hooks:install
+changed=$(git diff-tree --root --no-commit-id --name-only -r HEAD -- \
+  public/barcha.json 'public/barcha-*.json' 'public/free-*.json' public/600.json \
+  public/data/variants public/mavzuli2 public/data/free-question-ids.json \
+  public/data/belgilar.json public/images 2>/dev/null)
+[ -z "$changed" ] && exit 0
+
+count=$(printf '%s\n' "$changed" | wc -l | tr -d ' ')
+cat <<MSG
+
+  ==================================================================
+   Savollar o'zgardi ($count fayl) — ILOVALARNI SINXRONLANG
+  ==================================================================
+  1) node scripts/question-tools/generate-questions-version.cjs
+  2) mobil:     python ../projects/lar/avtotest_app/tools/gen_data.py
+  3) kompyuter: node ../projects/desktop-ilova/scripts/sync-questions-from-site.mjs
+  4) tekshiruv: node scripts/question-tools/audit-cross-app-sync.cjs  (0 farq)
+
+MSG
+exit 0
