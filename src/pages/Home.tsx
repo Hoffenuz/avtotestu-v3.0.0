@@ -22,6 +22,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { SectionGrid } from "@/components/SectionGrid";
 import { MainTestButtons } from "@/components/home/MainTestButtons";
+import { SampleQuestionCard } from "@/components/home/SampleQuestionCard";
 import { QUICK_ITEMS } from "@/lib/siteSections";
 import { fetchSectionCounts } from "@/lib/questionState";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -148,7 +149,8 @@ export default function Home() {
       </Helmet>
 
       {/*
-        HERO — sarlavha va TUGMALAR, boshqa hech narsa.
+        HERO — chapda sarlavha va TUGMALAR (asosiy urg'u), o'ngda "Sinab
+        ko'ring" kartasi.
 
         BALANDLIK EKRANGA (vh/svh) BOG'LANMAGAN. Bir muddat hero "ekran
         balandligi" edi — brauzer kichraytirilganda (zoom 50–80%) u ulkan
@@ -159,8 +161,11 @@ export default function Home() {
         oddiy tartibda, bir xil nisbatda ko'rinadi. Kontent TEPAGA
         tekislangan — tugmalar har qanday balandlikda bir joyda.
 
-        Namunaviy savol kartasi OLIB TASHLANDI (2026-09): yangi kelgan odamni
-        asosiy harakatdan — "Test ishlash" dan — chalg'itardi.
+        "SINAB KO'RING" KARTASI (o'ngda, mobilda tugmalardan KEYIN) — IKKINCHI
+        DARAJALI: soyasiz, yarim shaffof, kichik shrift, tor; o'z tugmalari
+        kichik va chegarali. E'tibor chapdagi 60px siyoh tugmalarda qoladi.
+        Hero tepaga tekislangan (`items-start`) — karta yopilganda (5 savoldan
+        keyin) tugmalar joyidan qimirlamaydi.
 
         Fon — rasm emas, CSS: ingichka katak, tepada ko'rinib pastga qarab
         so'nadi (dark rejimda `--border` tokeni orqali moslashadi). Desktopda
@@ -198,8 +203,8 @@ export default function Home() {
           </span>
         </button>
 
-        <div className="relative mx-auto w-full max-w-7xl px-4 pb-10 pt-8 sm:pt-12 md:px-6 md:pb-14 md:pt-14 lg:min-h-[560px] lg:px-8 lg:pb-20 lg:pt-16">
-          <div className="max-w-3xl">
+        <div className="relative mx-auto grid w-full max-w-7xl items-start gap-8 px-4 pb-10 pt-8 sm:pt-12 md:px-6 md:pb-14 md:pt-14 lg:min-h-[560px] lg:grid-cols-12 lg:gap-12 lg:px-8 lg:pb-20 lg:pt-16">
+          <div className="lg:col-span-7">
             <p className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-2.5 py-1 text-xs font-semibold text-muted-foreground shadow-sm sm:text-[13px]">
               <span className="h-1.5 w-1.5 rounded-full bg-[#2563EB]" aria-hidden="true" />
               {t("home.badge")}
@@ -219,6 +224,10 @@ export default function Home() {
               h.k.) olib tashlangan — ortiqcha matn e'tiborni bo'lardi.
             */}
             <MainTestButtons className="mt-7 sm:mt-8" />
+          </div>
+
+          <div className="lg:col-span-5">
+            <SampleQuestionCard />
           </div>
         </div>
       </section>
