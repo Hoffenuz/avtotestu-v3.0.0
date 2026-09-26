@@ -13,7 +13,8 @@ export type GateSection =
   | "qidirish"
   | "xatolarim"
   | "xatolarTesti"
-  | "qiyinSavollar";
+  | "qiyinSavollar"
+  | "realImtihon";
 
 /** Bo'lim nomi uch tilda — gate matnining ichiga qo'yiladi. */
 export const SECTION_LABEL: Record<GateSection, { uz_lat: string; uz_cyr: string; ru: string }> = {
@@ -26,6 +27,7 @@ export const SECTION_LABEL: Record<GateSection, { uz_lat: string; uz_cyr: string
     uz_cyr: "Хатолар устида ишлаш",
     ru: "Работа над ошибками",
   },
+  realImtihon: { uz_lat: "Real imtihon", uz_cyr: "Реал имтиҳон", ru: "Реальный экзамен" },
   qiyinSavollar: {
     uz_lat: "Qiyin savollar",
     uz_cyr: "Қийин саволлар",

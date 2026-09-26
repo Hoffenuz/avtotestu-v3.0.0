@@ -16,6 +16,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { AuthRequiredPrompt } from "@/components/AuthRequiredPrompt";
 import { Loader2, RotateCcw } from "lucide-react";
 import { MainLayout } from "@/components/layout/MainLayout";
+import { ProSectionGate } from "@/components/ProSectionGate";
 import { SEO } from "@/components/SEO";
 import { PageHeader } from "@/components/PageHeader";
 import { Button } from "@/components/ui/button";
@@ -69,12 +70,13 @@ export default function RealImtihon() {
     setStarted(true);
   }, [startSession, dataFile, isPremium]);
 
-  // Kirish holati aniqlangach — darhol boshlaymiz
+  // Kirish holati aniqlangach — darhol boshlaymiz. Real imtihon PRO
+  // (2026-09-26): PRO bo'lmasa sessiya so'ralmaydi — sahifada to'siq turadi.
   useEffect(() => {
-    if (authLoading || accessLoading || !user || requestedRef.current) return;
+    if (authLoading || accessLoading || !user || !isPremium || requestedRef.current) return;
     requestedRef.current = true;
     void begin();
-  }, [authLoading, accessLoading, user, begin]);
+  }, [authLoading, accessLoading, user, isPremium, begin]);
 
   if (started) {
     return (
@@ -103,6 +105,7 @@ export default function RealImtihon() {
         keywords={t("seo.realImtihon.keywords")}
       />
 
+      <ProSectionGate section="realImtihon" returnPath="/real-imtihon">
       <div className="mx-auto w-full max-w-md px-4 py-10 md:py-16">
         <PageHeader title={t("sections.realImtihon")} description={t("exam.intro")} />
 
@@ -137,6 +140,7 @@ export default function RealImtihon() {
           </CardContent>
         </Card>
       </div>
+      </ProSectionGate>
     </MainLayout>
   );
 }

@@ -9,6 +9,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { SEO } from "@/components/SEO";
 import { PageHeader } from "@/components/PageHeader";
 import { SavedWrongList } from "@/components/SavedWrongList";
+import { ProSectionGate } from "@/components/ProSectionGate";
 
 export default function Xatolarim() {
   const { t } = useLanguage();
@@ -23,15 +24,11 @@ export default function Xatolarim() {
       />
 
       {/*
-        PRO TO'SIG'I YO'Q — ataylab.
-
-        Foydalanuvchi O'Z xatosini ko'ra olishi kerak: buni yopish
-        "to'lamasang, nimani bilmasliging ham aytmayman" degani bo'lardi.
-        PRO esa ular USTIDA ISHLASHDA (`/xatolar-testi` — xatolar bo'yicha
-        test yechish) talab qilinadi; qiymat o'sha yerda.
-
-        Mehmon holatini `SavedWrongList` o'zi hal qiladi (kirish taklifi).
+        PRO (2026-09-26, egasining qarori): xatolarni ko'rish ham, ular ustida
+        ishlash ham PRO. MainLayout gate'dan TASHQARIDA — holat almashganda
+        layout qayta qurilmasin (footer sakramasin).
       */}
+      <ProSectionGate section="xatolarim" returnPath="/xatolarim">
       <div className="container mx-auto max-w-4xl px-4 py-8 md:py-12">
         <PageHeader
           title={t("sections.xatolarim")}
@@ -39,8 +36,8 @@ export default function Xatolarim() {
           /*
             Sarlavha qatorining o'ng tarafida — "xatolarni yechish".
 
-            Bu sahifa ro'yxatni KO'RSATADI (bepul), yechish esa
-            /xatolar-testi da bo'ladi va PRO talab qiladi. Tugma shu
+            Bu sahifa ro'yxatni KO'RSATADI, yechish esa /xatolar-testi da
+            bo'ladi (ikkalasi ham PRO). Tugma shu
             yerda turishi mantiqiy: odam xatolarini ko'rib turib, darhol
             ular ustida ishlay oladi.
           */
@@ -59,6 +56,7 @@ export default function Xatolarim() {
 
         <SavedWrongList mode="wrong" />
       </div>
+      </ProSectionGate>
     </MainLayout>
   );
 }

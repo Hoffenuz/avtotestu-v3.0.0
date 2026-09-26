@@ -109,12 +109,10 @@ export const SECTION_GROUPS: readonly SectionGroup[] = [
     titleKey: "sections.groupPractice",
     icon: ClipboardCheck,
     items: [
-      { to: "/real-imtihon", titleKey: "sections.realImtihon", descKey: "sections.realImtihonDesc", icon: Timer },
+      { to: "/real-imtihon", titleKey: "sections.realImtihon", descKey: "sections.realImtihonDesc", icon: Timer, requiresPro: true },
       { to: "/xatolar-testi", titleKey: "sections.xatolarTesti", descKey: "sections.xatolarTestiDesc", icon: Brain, requiresPro: true },
-      // Xatolarni KO'RISH bepul (faqat kirish kerak) — o'z xatosini ko'ra
-      // olmaslik foydalanuvchini saytdan uzoqlashtiradi. Ular USTIDA ISHLASH
-      // (test yechish, /xatolar-testi) esa PRO bo'lib qoladi.
-      { to: "/xatolarim", titleKey: "sections.xatolarim", descKey: "sections.xatolarimDesc", icon: XCircle, requiresAuth: true },
+      // Xato savollarim va Real imtihon — PRO (2026-09-26, egasining qarori).
+      { to: "/xatolarim", titleKey: "sections.xatolarim", descKey: "sections.xatolarimDesc", icon: XCircle, requiresPro: true },
       { to: "/saqlangan", titleKey: "sections.saqlangan", descKey: "sections.saqlanganDesc", icon: Bookmark, requiresAuth: true },
       { to: "/qiyin-savollar", titleKey: "sections.qiyinSavollar", descKey: "sections.qiyinSavollarDesc", icon: AlertTriangle, requiresPro: true },
     ],
