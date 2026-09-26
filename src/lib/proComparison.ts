@@ -37,7 +37,8 @@ export const PRO_COMPARISON: readonly ProComparisonRow[] = [
   { freeKey: "pro.comparisonBasic3", proKey: "pro.comparisonPro3", inFree: false },
   { freeKey: "pro.comparisonBasic4", proKey: "pro.comparisonPro4", inFree: false },
   { freeKey: "pro.comparisonBasic5", proKey: "pro.comparisonPro5", inFree: false },
-  // 2026-09-26: video darslik, real imtihon va xato savollarim PRO ichida.
+  // 2026-09-26: video darslik, real imtihon va xatolar ustida ishlash PRO ichida
+  // (xatolarni KO'RISH bepul).
   { freeKey: "pro.comparisonBasic6", proKey: "pro.comparisonPro6", inFree: false },
   { freeKey: "pro.comparisonBasic7", proKey: "pro.comparisonPro7", inFree: false },
   { freeKey: "pro.comparisonBasic8", proKey: "pro.comparisonPro8", inFree: false },

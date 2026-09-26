@@ -162,11 +162,11 @@ export default function Home() {
         oddiy tartibda, bir xil nisbatda ko'rinadi. Kontent TEPAGA
         tekislangan — tugmalar har qanday balandlikda bir joyda.
 
-        "SINAB KO'RING" KARTASI (o'ngda, mobilda tugmalardan KEYIN) — IKKINCHI
-        DARAJALI: soyasiz, yarim shaffof, kichik shrift, tor; o'z tugmalari
-        kichik va chegarali. E'tibor chapdagi 60px siyoh tugmalarda qoladi.
-        Hero tepaga tekislangan (`items-start`) — karta yopilganda (5 savoldan
-        keyin) tugmalar joyidan qimirlamaydi.
+        "SINAB KO'RING" KARTASI (o'ngda, FAQAT desktopda) — IKKINCHI DARAJALI:
+        soyasiz, xira, kichik shrift, tor; o'z tugmalari kichik va chegarali.
+        E'tibor chapdagi 60px siyoh tugmalarda qoladi. Kimga va qachon
+        chiqishi — `sampleVisibility.ts`. Hero tepaga tekislangan
+        (`items-start`) — karta yopilganda tugmalar joyidan qimirlamaydi.
 
         Fon — rasm emas, CSS: ingichka katak, tepada ko'rinib pastga qarab
         so'nadi (dark rejimda `--border` tokeni orqali moslashadi). Desktopda
@@ -227,7 +227,8 @@ export default function Home() {
             <MainTestButtons className="mt-7 sm:mt-8" />
           </div>
 
-          <div className="lg:col-span-5">
+          {/* Mobilda YO'Q — kichik ekranda tugmalardan keyin ortiqcha uzunlik. */}
+          <div className="hidden lg:col-span-5 lg:block">
             <SampleQuestionCard />
           </div>
         </div>

@@ -111,8 +111,11 @@ export const SECTION_GROUPS: readonly SectionGroup[] = [
     items: [
       { to: "/real-imtihon", titleKey: "sections.realImtihon", descKey: "sections.realImtihonDesc", icon: Timer, requiresPro: true },
       { to: "/xatolar-testi", titleKey: "sections.xatolarTesti", descKey: "sections.xatolarTestiDesc", icon: Brain, requiresPro: true },
-      // Xato savollarim va Real imtihon — PRO (2026-09-26, egasining qarori).
-      { to: "/xatolarim", titleKey: "sections.xatolarim", descKey: "sections.xatolarimDesc", icon: XCircle, requiresPro: true },
+      // Xatolarni KO'RISH bepul (faqat kirish kerak) — xatolar Telegram
+      // bot bilan ham bog'langan, o'z xatosini ko'ra olmaslik foydalanuvchini
+      // saytdan uzoqlashtiradi. Ular USTIDA ISHLASH (/xatolar-testi) — PRO.
+      // Real imtihon — PRO (2026-09-26, egasining qarori).
+      { to: "/xatolarim", titleKey: "sections.xatolarim", descKey: "sections.xatolarimDesc", icon: XCircle, requiresAuth: true },
       { to: "/saqlangan", titleKey: "sections.saqlangan", descKey: "sections.saqlanganDesc", icon: Bookmark, requiresAuth: true },
       { to: "/qiyin-savollar", titleKey: "sections.qiyinSavollar", descKey: "sections.qiyinSavollarDesc", icon: AlertTriangle, requiresPro: true },
     ],
