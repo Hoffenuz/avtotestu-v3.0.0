@@ -226,6 +226,7 @@ export default function EAvtomaktabTest() {
           {[
             { to: "/e-avtomaktab", label: t("eav.linkGuide") },
             { to: "/avtoimtihon-2026", label: t("eav.linkExam") },
+            { to: "/prava-olish", label: t("home.info1Title") },
             { to: "/real-imtihon", label: t("sections.realImtihon") },
             { to: "/belgilar", label: t("sections.belgilar") },
           ].map((l) => (

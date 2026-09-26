@@ -19,7 +19,6 @@ import {
   Trophy,
   ArrowRight,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { SectionGrid } from "@/components/SectionGrid";
 import { MainTestButtons } from "@/components/home/MainTestButtons";
 import { SampleQuestionCard } from "@/components/home/SampleQuestionCard";
@@ -28,6 +27,8 @@ import { fetchSectionCounts } from "@/lib/questionState";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { SiteNotificationBanner } from "@/components/SiteNotificationBanner";
 import HomeTopBanner from "@/components/HomeTopBanner";
+import { ProUpsell } from "@/components/ProUpsell";
+import { TelegramGroupNotice } from "@/components/TelegramGroupNotice";
 import ReadinessCard from "@/components/ReadinessCard";
 
 
@@ -247,6 +248,41 @@ export default function Home() {
       </section>
 
       {/*
+        FOYDALI MA'LUMOT — prava olish bo'yicha uch sahifaga ixcham havola.
+        Odamlar Google'da "prava olish narxi", "imtihon qoidalari" deb
+        qidiradi — bu sahifalar aynan shunga javob beradi, bosh sahifadan
+        ularga to'g'ridan-to'g'ri yo'l esa ularni qidiruvda ham kuchaytiradi.
+        Kichik matn, katta karta emas: asosiy mazmun baribir testlar.
+      */}
+      <section className="bg-background pb-8 md:pb-12" aria-labelledby="home-info-title">
+        <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+          <h2 id="home-info-title" className="mb-3 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+            {t("home.infoTitle")}
+          </h2>
+          <ul className="grid gap-2.5 sm:grid-cols-3">
+            {[
+              { to: "/prava-olish", title: t("home.info1Title"), desc: t("home.info1Desc") },
+              { to: "/avtoimtihon-2026", title: t("home.info2Title"), desc: t("home.info2Desc") },
+              { to: "/e-avtomaktab", title: t("home.info3Title"), desc: t("home.info3Desc") },
+            ].map((item) => (
+              <li key={item.to}>
+                <Link
+                  to={item.to}
+                  className="group flex h-full items-center gap-3 rounded-lg border border-border bg-card px-4 py-3 transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring dark:hover:border-primary/70"
+                >
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-sm font-semibold text-foreground">{item.title}</span>
+                    <span className="mt-0.5 block text-xs leading-snug text-muted-foreground">{item.desc}</span>
+                  </span>
+                  <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition-[color,transform] group-hover:translate-x-0.5 group-hover:text-primary dark:group-hover:text-foreground" aria-hidden="true" />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/*
         Tayyorgarlik indikatori — tezkor amallardan (real imtihon va yonidagi
         tugmalar) KEYIN.
 
@@ -276,7 +312,7 @@ export default function Home() {
         o'qisin. Teskari tartibda reklama matni foydali havolalarni pastga
         surib yuborardi.
       */}
-      <section className="border-t border-border bg-card py-14 md:py-20 defer-paint">
+      <section className="border-t border-border bg-card py-14 md:py-20">
         <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
           <h2 className="max-w-2xl text-2xl font-bold tracking-tight text-foreground md:text-3xl">
             {t("home.featuresTitle")}
@@ -317,7 +353,7 @@ export default function Home() {
         mehmonlar uchun esa hech narsa o'zgarmadi: bo'lim umuman chizilmaydi.
       */}
       {showProfilePanel && (
-        <section className="py-10 md:py-12 bg-background border-t border-border defer-paint">
+        <section className="py-10 md:py-12 bg-background border-t border-border">
           <div className="max-w-4xl mx-auto px-4">
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-6">
               <Avatar className="h-14 w-14 bg-primary/10 text-primary shrink-0" style={{ aspectRatio: "1" }}>
@@ -377,39 +413,20 @@ export default function Home() {
       )}
 
       {/*
-        PRO — sahifaning yakuniy chaqirig'i: siyoh (brend) kartasi, oq tugma.
-        Ilgari kulrang tasma edi va footer ustida yo'qolib qolardi.
+        PRO — ixcham OQ karta (`ProUpsell`, test sahifalaridagi bilan bir xil).
+        Ilgari katta siyoh karta edi va sahifa oxirida hamma narsadan ko'proq
+        e'tibor tortardi.
       */}
       {!(user && isPremium) && (
-        <section className="border-t border-border bg-background py-12 md:py-16 defer-paint">
+        <section className="border-t border-border bg-background py-8 md:py-10">
           <div className="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
-            <div className="flex flex-col gap-6 rounded-2xl bg-brand px-6 py-8 text-brand-foreground sm:flex-row sm:items-center sm:justify-between md:px-10 md:py-10">
-              <div className="max-w-xl">
-                <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-amber-300">
-                  <Crown className="h-4 w-4" aria-hidden="true" />
-                  PRO
-                </p>
-                <h2 className="mt-2 text-2xl font-bold tracking-tight md:text-3xl">
-                  {t("home.proSectionTitle")}
-                </h2>
-                <p className="mt-2 text-sm leading-relaxed text-white/75 md:text-base">
-                  {t("home.proSectionDesc")}
-                </p>
-              </div>
-              <Button
-                asChild
-                size="lg"
-                className="h-12 w-full shrink-0 gap-2 rounded-lg bg-white px-6 text-base font-semibold text-[#131A45] hover:bg-white/90 sm:w-auto"
-              >
-                <Link to="/pro">
-                  {t("home.proGetButton")}
-                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </Link>
-              </Button>
-            </div>
+            <ProUpsell description={t("home.proSectionDesc")} />
           </div>
         </section>
       )}
+
+      {/* Telegram guruh xabarnomasi — FAQAT bosh sahifada (bir marta, yopilguncha) */}
+      <TelegramGroupNotice />
     </MainLayout>
   );
 }

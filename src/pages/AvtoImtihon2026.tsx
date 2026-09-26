@@ -187,6 +187,7 @@ export default function AvtoImtihon2026() {
             { to: "/e-avtomaktab-test", label: t("eav.linkTest") },
             { to: "/avtodrom", label: t("sections.avtodrom") },
             { to: "/real-imtihon", label: t("sections.realImtihon") },
+            { to: "/prava-olish", label: t("home.info1Title") },
           ].map((l) => (
             <Button key={l.to} asChild variant="outline" className="justify-start">
               <Link to={l.to}>

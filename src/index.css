@@ -323,27 +323,6 @@ html.tg-app .has-bottom-nav {
 }
 
 /* ---------------------------------------------------------------------------
-   EKRANDAN PASTDAGI BO'LIMLARNI KECHIKTIRIB CHIZISH.
-
-   `content-visibility: auto` brauzerga "bu blok ekranda ko'rinmaguncha
-   uning ichini hisoblama" deydi — maket (layout), stil va bo'yash ishi
-   o'tkazib yuboriladi. Bosh sahifada ekrandan pastda bir necha uzun bo'lim
-   bor va ular birinchi ochilishda bekorga hisoblanardi. Kuchsiz
-   telefonlarda sezilarli farq beradi.
-
-   `contain-intrinsic-size: auto 600px` — chizilmagan blokning taxminiy
-   balandligi. `auto` kalit so'zi tufayli brauzer bir marta chizgandan keyin
-   HAQIQIY balandlikni eslab qoladi, ya'ni surish paytida sakrash bo'lmaydi.
-
-   Qo'llab-quvvatlamaydigan brauzerlar qatorni e'tiborsiz qoldiradi —
-   sahifa avvalgidek ishlayveradi.
---------------------------------------------------------------------------- */
-.defer-paint {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 600px;
-}
-
-/* ---------------------------------------------------------------------------
    GORIZONTAL SURILISHNING OLDINI OLISH (mobil).
 
    Kenglikdan bitta piksel oshgan element ham butun sahifani yon tomonga

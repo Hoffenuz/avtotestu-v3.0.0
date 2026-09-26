@@ -52,6 +52,8 @@ const SPA_PREFIXES: string[] = [
   '/e-avtomaktab',
   '/e-avtomaktab-test',
   '/avtoimtihon-2026',
+  // Prava olish: narxlar, muddatlar, tartib (2026-09)
+  '/prava-olish',
   // Til prefikslari (2026-09): /ru/... va /cyr/... barcha sahifalarni
   // qamrab oladi, shuning uchun har bir marshrutni takrorlash shart emas.
   '/ru',
@@ -79,6 +81,7 @@ const SEO_EXACT: string[] = [
   '/e-avtomaktab',
   '/e-avtomaktab-test',
   '/avtoimtihon-2026',
+  '/prava-olish',
 ];
 
 const SPA_NO_STORE_HEADERS: Record<string, string> = {

@@ -336,7 +336,7 @@ export default function TestIshlash() {
 
   if (autoStartPending) {
     return (
-      <MainLayout>
+      <MainLayout hideFooter>
         <div className="flex min-h-[60vh] items-center justify-center" role="status" aria-label={t("testStart.loading")}>
           <Loader2 className="h-8 w-8 animate-spin text-primary" aria-hidden="true" />
         </div>
@@ -352,7 +352,7 @@ export default function TestIshlash() {
     ("test qaysi tilda" — shu kartaning sozlamasi). Qolgan tuzilish o'zgarmadi.
   */
   return (
-    <MainLayout>
+    <MainLayout hideFooter>
       <SEO
         title={t("seo.testIshlash.title")}
         description={t("seo.testIshlash.description")}

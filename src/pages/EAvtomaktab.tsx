@@ -291,6 +291,7 @@ export default function EAvtomaktab() {
           {[
             { to: "/e-avtomaktab-test", label: t("eav.linkTest") },
             { to: "/avtoimtihon-2026", label: t("eav.linkExam") },
+            { to: "/prava-olish", label: t("home.info1Title") },
             { to: "/avtodrom", label: t("sections.avtodrom") },
             { to: "/belgilar", label: t("sections.belgilar") },
           ].map((l) => (

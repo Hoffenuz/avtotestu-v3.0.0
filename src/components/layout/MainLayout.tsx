@@ -9,7 +9,6 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { TELEGRAM_GROUP_URL } from "@/lib/telegram";
-import { TelegramGroupNotice } from "@/components/TelegramGroupNotice";
 
 /**
  * Guruh manzilining "@nom" ko'rinishi — footerda qolgan aloqa qatorlari
@@ -71,9 +70,16 @@ function TelegramQatori({ label }: { label: string }) {
 
 interface MainLayoutProps {
   children: React.ReactNode;
+  /**
+   * Footer chizilmasin. Qisqa "harakat" sahifalari uchun (/test-ishlash
+   * boshlash ekrani): telefonda kontent kalta bo'lib, footer ekranning
+   * o'rtasidan boshlanib qolardi — sahifa "tugab qolgan" ko'rinardi.
+   * Navigatsiya header va pastki menyuda baribir bor.
+   */
+  hideFooter?: boolean;
 }
 
-export function MainLayout({ children }: MainLayoutProps) {
+export function MainLayout({ children, hideFooter = false }: MainLayoutProps) {
   const { isDark, toggle: toggleDark } = useDarkMode();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
@@ -469,8 +475,11 @@ export function MainLayout({ children }: MainLayoutProps) {
 
       <main className="flex-1">{children}</main>
 
-      {/* Guruh xabarnomasi — har foydalanuvchiga bir marta, footer ustida */}
-      <TelegramGroupNotice />
+      {/*
+        Telegram guruh xabarnomasi BU YERDA EMAS (2026-09): layout ichida u
+        HAR sahifada — test boshlash ekranida ham — chiqib turardi. Endi
+        faqat bosh sahifaning oxirida (`Home.tsx`).
+      */}
 
       {/*
         FOOTER — ixcham. Chekkalar header va sahifa kontenti bilan bir xil
@@ -478,6 +487,7 @@ export function MainLayout({ children }: MainLayoutProps) {
         uch blok ustma-ust tushib, footer ekrandan uzun bo'lardi). Ustun
         sarlavhalari kichik va xira — ko'z havolalarning o'ziga tushadi.
       */}
+      {!hideFooter && (
       <footer className="bg-brand text-brand-foreground">
         <div className="mx-auto max-w-7xl px-4 pb-6 pt-10 md:px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-[1.6fr_1fr_1fr]">
@@ -547,6 +557,7 @@ export function MainLayout({ children }: MainLayoutProps) {
           </p>
         </div>
       </footer>
+      )}
 
       <BottomNav />
     </div>
