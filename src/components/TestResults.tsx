@@ -1,6 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { authState } from "@/lib/authEntry";
+import { recordGuestTestDone } from "@/lib/guestResultNudge";
 import { toast } from "sonner";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -32,8 +33,10 @@ export const TestResults = ({
   isDark = false,
 }: TestResultsProps) => {
   const { t } = useLanguage();
-  const { user } = useAuth();
+  const { user, isLoading: authLoading } = useAuth();
   const navigate = useNavigate();
+  /** Shu natija ekrani uchun taklif qarori — test BIR MARTA sanalsin. */
+  const nudgeDecision = useRef<boolean | null>(null);
 
   /** Javobsiz qolganlar — jamidan javob berilganlarni ayirib topiladi. */
   const unanswered = Math.max(0, totalQuestions - correctAnswers - incorrectAnswers);
@@ -55,9 +58,16 @@ export const TestResults = ({
     `duration: Infinity` — foydalanuvchi o'zi yopmaguncha yoki tugmani
     bosmaguncha ekranda turadi, chunki bu vaqtinchalik bildirishnoma
     emas: "natijangiz saqlanmadi" degan HAQIQIY YO'QOTISH haqida.
+
+    QACHON: birinchi testdan keyin EMAS — yangi kelgan odamni chalg'itardi.
+    2-testdan keyin, so'ng har 3-testda (`guestResultNudge.ts`). Qaror
+    `useRef` da: StrictMode effektni ikki marta ishlatganda ham test bir
+    marta sanaladi.
   */
   useEffect(() => {
-    if (user) return;
+    if (authLoading || user) return;
+    if (nudgeDecision.current === null) nudgeDecision.current = recordGuestTestDone();
+    if (!nudgeDecision.current) return;
 
     const id = toast.custom(
       (tid) => (
@@ -137,7 +147,7 @@ export const TestResults = ({
     // yopiladi — aks holda u keyingi ekranda ham osilib qolardi.
     return () => { toast.dismiss(id); };
     // eslint-disable-next-line react-hooks/exhaustive-deps -- faqat natija ekrani ochilganda bir marta
-  }, [user]);
+  }, [user, authLoading]);
 
   return (
     <div
