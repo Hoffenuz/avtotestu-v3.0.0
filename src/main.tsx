@@ -3,6 +3,8 @@ import { HelmetProvider } from "react-helmet-async";
 import App from "./App.tsx";
 import { initTelegramWebApp } from "./lib/telegramWebApp";
 import { initDarkMode } from "./hooks/useDarkMode";
+import { preloadTranslations } from "./contexts/LanguageContext";
+import { detectLangFromWindow } from "./lib/langUrl";
 import "./index.css";
 
 // Apex ↔ www localStorage ajraladi — sessiya "yo'qoladi". Brauzerda ham www ga majburan.
@@ -27,11 +29,19 @@ if (typeof window !== "undefined" && window.location.hostname === "avtotestu.uz"
   // bu chaqiruv JS holatini shu bilan moslashtiradi.
   initDarkMode();
 
-  createRoot(document.getElementById("root")!).render(
-    <HelmetProvider>
-      <App />
-    </HelmetProvider>
-  );
+  const mount = () =>
+    createRoot(document.getElementById("root")!).render(
+      <HelmetProvider>
+        <App />
+      </HelmetProvider>
+    );
+
+  // Kirill/rus sahifada lug'at alohida chunk — avval uni yuklab, keyin
+  // chizamiz (matn kalit ko'rinishida miltillamasin). Lotinda darhol.
+  // Yuklanmasa ham ilova ochiladi (lotin lug'ati bilan).
+  preloadTranslations(detectLangFromWindow().lang)
+    .catch((err) => console.error("[i18n] lug'at yuklanmadi", err))
+    .finally(mount);
 
   /**
    * ISHGA TUSHISH TIKLANISHINI O'CHIRAMIZ.
