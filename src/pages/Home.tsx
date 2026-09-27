@@ -163,7 +163,10 @@ export default function Home() {
         tekislangan — tugmalar har qanday balandlikda bir joyda.
 
         "SINAB KO'RING" KARTASI (o'ngda, FAQAT desktopda) — IKKINCHI DARAJALI:
-        soyasiz, xira, kichik shrift, tor; o'z tugmalari kichik va chegarali.
+        yengil soya, kichik shrift, tor; o'z tugmalari kichik va chegarali.
+        Karta o'z ustunining CHAP chetida (o'ng chetga yopishtirilmagan):
+        o'ngga surilganda matn bilan karta orasida ~400px bo'sh "teshik"
+        qolib, hero o'rtasi bo'sh ko'rinardi (egasi, 2026-09-27).
         E'tibor chapdagi 60px siyoh tugmalarda qoladi. Kimga va qachon
         chiqishi — `sampleVisibility.ts`. Hero tepaga tekislangan
         (`items-start`) — karta yopilganda tugmalar joyidan qimirlamaydi.
