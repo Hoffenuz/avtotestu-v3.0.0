@@ -1,8 +1,6 @@
 import React, { createContext, useContext, useEffect, useCallback, useMemo, ReactNode } from 'react';
 
 import uzLatTranslations from '@/locales/uz-lat.json';
-import uzTranslations from '@/locales/uz.json';
-import ruTranslations from '@/locales/ru.json';
 import { detectLangFromWindow, buildLangPath } from '@/lib/langUrl';
 
 export type Language = 'uz-lat' | 'uz' | 'ru';
@@ -16,11 +14,35 @@ interface LanguageContextType {
   questionLang: 'oz' | 'uz' | 'ru';
 }
 
-const translations: Record<Language, Translations> = {
+/**
+ * LUG'ATLAR — faqat ASOSIY til (lotin) bosh bundle ichida.
+ *
+ * Ilgari uchala lug'at (~140 KB) har bir sahifada birga yuklanardi, lekin
+ * sahifa faqat BITTA tilda ochiladi: til manzildan olinadi, almashtirish esa
+ * to'liq qayta yuklash. Kirill va rus lug'ati endi alohida chunk —
+ * `main.tsx` ilovani chizishdan OLDIN `preloadTranslations` bilan yuklaydi,
+ * shuning uchun matn hech qachon kalit ko'rinishida "miltillamaydi".
+ * Lotin tilidagi (asosiy) tashrifchi ortiqcha ~100 KB ni umuman yuklamaydi.
+ */
+const translations: Partial<Record<Language, Translations>> = {
   'uz-lat': uzLatTranslations,
-  uz: uzTranslations,
-  ru: ruTranslations,
 };
+
+const LOADERS: Record<Exclude<Language, 'uz-lat'>, () => Promise<{ default: Translations }>> = {
+  uz: () => import('@/locales/uz.json'),
+  ru: () => import('@/locales/ru.json'),
+};
+
+/**
+ * Tilning lug'atini oldindan yuklaydi (ilova chizilishidan oldin).
+ * Yuklanmasa (tarmoq uzildi) — xato tashlaydi; chaqiruvchi baribir ilovani
+ * ochadi, `t()` esa lotin lug'atiga tushadi: bo'sh ekrandan yaxshi.
+ */
+export async function preloadTranslations(lang: Language): Promise<void> {
+  if (lang === 'uz-lat' || translations[lang]) return;
+  const mod = await LOADERS[lang]();
+  translations[lang] = mod.default;
+}
 
 /**
  * `<html lang>` uchun BCP-47 kodlari.
@@ -102,7 +124,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
   const t = useCallback((key: string): string => {
     const keys = key.split('.');
-    let result: unknown = translations[language];
+    let result: unknown = translations[language] ?? translations['uz-lat'];
 
     for (const k of keys) {
       if (result && typeof result === 'object' && k in result) {
