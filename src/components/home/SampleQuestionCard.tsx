@@ -6,7 +6,9 @@
  * OSISH-REJASI, 1.1).
  *
  * IKKINCHI DARAJALI ELEMENT — asosiy urg'u chapdagi tugmalarda:
- *   * soyasiz, yarim shaffof karta, kichikroq shrift, desktopda tor;
+ *   * oq karta, lekin juda yengil soya, kichikroq shrift, desktopda tor.
+ *     Yarim shaffof (bg-card/40, xira matn) variant sinab ko'rilgan —
+ *     katak fon ustida o'qish qiyin bo'lib qoldi (egasi, 2026-09-27);
  *   * o'z tugmalari kichik va chegarali — hero'dagi 60px siyoh tugmalar
  *     bilan e'tibor talashmaydi;
  *   * soxta element yo'q (taymer, "7/20" hisoblagich).
@@ -109,7 +111,7 @@ export function SampleQuestionCard() {
   return (
     <section
       aria-labelledby="sample-question-text"
-      className="rounded-xl border border-border/70 bg-card/40 p-4 sm:p-5 lg:ml-auto lg:max-w-[360px]"
+      className="rounded-xl border border-border bg-card p-4 shadow-sm sm:p-5 lg:max-w-[380px]"
     >
       <div className="flex items-center justify-between gap-3">
         <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{t("home.sampleLabel")}</p>
@@ -118,7 +120,7 @@ export function SampleQuestionCard() {
         </span>
       </div>
 
-      <p id="sample-question-text" className="mt-2.5 text-sm font-semibold leading-snug text-foreground/85">
+      <p id="sample-question-text" className="mt-2.5 text-[15px] font-semibold leading-snug text-foreground">
         {question.text[lang]}
       </p>
 
@@ -136,12 +138,12 @@ export function SampleQuestionCard() {
                 "flex w-full items-center gap-2.5 rounded-lg border px-3 py-2 text-left text-[13px] transition-colors",
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                 state === "idle" &&
-                  "border-border/80 bg-transparent text-foreground/85 hover:border-primary/40 hover:bg-primary/[0.04]",
+                  "border-border bg-background text-foreground hover:border-primary/40 hover:bg-primary/[0.04]",
                 state === "correct" &&
                   "border-emerald-500/60 bg-emerald-50 font-semibold text-emerald-900 dark:bg-emerald-500/10 dark:text-emerald-200",
                 state === "wrong" &&
                   "border-red-400/70 bg-red-50 text-red-900 dark:bg-red-500/10 dark:text-red-200",
-                state === "muted" && "border-border/80 bg-transparent text-muted-foreground",
+                state === "muted" && "border-border bg-background text-muted-foreground",
               )}
             >
               <span
@@ -208,7 +210,7 @@ export function SampleQuestionCard() {
       <button
         type="button"
         onClick={continueTest}
-        className="mt-3 flex h-9 w-full items-center justify-center gap-1.5 rounded-lg border border-border/80 bg-transparent text-[13px] font-semibold text-foreground/85 transition-colors hover:border-primary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        className="mt-3 flex h-9 w-full items-center justify-center gap-1.5 rounded-lg border border-border bg-background text-[13px] font-semibold text-foreground transition-colors hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       >
         <Play className="h-3.5 w-3.5 fill-current" aria-hidden="true" />
         {t("home.sampleContinue")}
