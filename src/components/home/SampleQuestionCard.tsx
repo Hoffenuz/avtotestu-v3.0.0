@@ -17,55 +17,110 @@
  * to'liq testga olib o'tadi: /test-ishlash boshlash sahifasini ko'rsatmay,
  * imtihon formatidagi 20 talik testni DARHOL boshlaydi (`testAutoStart`).
  *
- * 5 ta savol tugagach natija ko'rsatiladi va "Yakunlash" bosilganda karta
- * YOPILADI. Kimga va qachon qayta chiqishi — `sampleVisibility.ts` (mehmonga
- * har safar, kirganga kuniga bir marta). Kirish holati aniqlanguncha karta
- * chizilmaydi — paydo bo'lib keyin yo'qolmasin. Hero tepaga tekislangan
- * (`items-start`), shuning uchun karta yopilganda chapdagi tugmalar joyidan
- * qimirlamaydi.
+ * KIMGA, QAYSI SAVOLLAR — `sampleVisibility.ts`:
+ *   * mehmon — doimiy 5 ta savol (`homeSampleQuestions.ts`, bosh bundle
+ *     ichida — birinchi tashrifda qo'shimcha so'rov yo'q); yechib bo'lgach
+ *     karta unga qaytib chiqmaydi;
+ *   * kirgan — har kuni hovuzdan boshqa 5 ta (`homeSamplePool.ts`). Hovuz
+ *     ALOHIDA chunk: faqat kirgan foydalanuvchiga va faqat karta chiqadigan
+ *     bo'lsa yuklanadi. Yuklanguncha karta chizilmaydi (savollar ko'z oldida
+ *     almashmasin); yuklanmasa — doimiy 5 ta savol.
+ * Har javob darhol saqlanadi: o'rtada chiqib ketgan odam keyingi safar
+ * KEYINGI savoldan davom etadi. Kirish holati aniqlanguncha karta
+ * chizilmaydi. Hero tepaga tekislangan (`items-start`), shuning uchun karta
+ * yo'qolganda chapdagi tugmalar joyidan qimirlamaydi.
  *
- * Savollar bepul bazaning o'zidan (`homeSampleQuestions.ts`), sayt tilida
- * (`questionLang` — testlardagi kabi). Noto'g'ri javobda to'g'risi matn bilan
- * ham aytiladi (faqat rangga tayanmaslik uchun).
+ * Savollar sayt tilida (`questionLang` — testlardagi kabi). Noto'g'ri
+ * javobda to'g'risi matn bilan ham aytiladi (faqat rangga tayanmaslik uchun).
  */
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowRight, Check, Play, X } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { contentKeyFromQuestionLang } from "@/lib/pickLangContent";
-import { HOME_SAMPLE_QUESTIONS } from "@/data/homeSampleQuestions";
+import { HOME_SAMPLE_QUESTIONS, type HomeSampleQuestion } from "@/data/homeSampleQuestions";
 import { trackEvent } from "@/lib/track";
 import { AUTO_START_STATE } from "@/lib/testAutoStart";
-import { markSampleDone, shouldShowSample } from "@/lib/sampleVisibility";
+import { dailySet, isSampleDone, localDay, readProgress, saveProgress } from "@/lib/sampleVisibility";
 import { cn } from "@/lib/utils";
 
 type OptionState = "idle" | "correct" | "wrong" | "muted";
 
+/**
+ * Kunlik hovuz — faqat `enabled` bo'lganda yuklanadi.
+ * `undefined` — yuklanmoqda, `null` — yuklanmadi (tarmoq).
+ */
+function useSamplePool(enabled: boolean): readonly HomeSampleQuestion[] | null | undefined {
+  const [pool, setPool] = useState<readonly HomeSampleQuestion[] | null | undefined>(undefined);
+  useEffect(() => {
+    if (!enabled || pool !== undefined) return;
+    let alive = true;
+    import("@/data/homeSamplePool")
+      .then((m) => alive && setPool(m.HOME_SAMPLE_POOL))
+      .catch(() => alive && setPool(null));
+    return () => {
+      alive = false;
+    };
+  }, [enabled, pool]);
+  return pool;
+}
+
 export function SampleQuestionCard() {
-  const { t, questionLang } = useLanguage();
-  const navigate = useNavigate();
   const { user, isLoading } = useAuth();
   const userId = user?.id ?? null;
+  // Sana sahifa ochilganda bir marta olinadi — yarim tunda karta ko'z
+  // oldida boshqa to'plamga almashib ketmasin.
+  const [today] = useState(localDay);
+
+  /*
+    "Tugaganmi" — akkaunt aniqlanganda BIR MARTA o'qiladi, har renderda
+    emas: oxirgi savolga javob berilgan zahoti yutuq saqlanadi, va keyingi
+    qayta chizishda karta natijani ko'rsatmay yo'qolib qolmasin.
+  */
+  const doneAtStart = useMemo(
+    () => (isLoading ? true : isSampleDone(userId, today)),
+    [isLoading, userId, today],
+  );
+  const pool = useSamplePool(!isLoading && !!userId && !doneAtStart);
+
+  if (isLoading || doneAtStart) return null;
+
+  let questions: readonly HomeSampleQuestion[];
+  if (!userId) {
+    questions = HOME_SAMPLE_QUESTIONS;
+  } else if (pool === undefined) {
+    return null;
+  } else {
+    questions = dailySet(pool ?? HOME_SAMPLE_QUESTIONS, today);
+  }
+
+  // `key` — akkaunt yoki to'plam almashsa holat boshidan o'qiladi.
+  return <SampleQuiz key={`${userId ?? "guest"}:${questions[0]?.id}`} questions={questions} userId={userId} today={today} />;
+}
+
+interface SampleQuizProps {
+  questions: readonly HomeSampleQuestion[];
+  userId: string | null;
+  today: string;
+}
+
+function SampleQuiz({ questions, userId, today }: SampleQuizProps) {
+  const { t, questionLang } = useLanguage();
+  const navigate = useNavigate();
   const lang = contentKeyFromQuestionLang(questionLang);
+  const total = questions.length;
 
-  const [done, setDone] = useState(false);
-  const [index, setIndex] = useState(0);
+  // Avvalgi yutuqdan davom etiladi (yechilgan savol qayta ko'rsatilmaydi).
+  const [start] = useState(() => readProgress(userId, today));
+  const [index, setIndex] = useState(() => Math.min(start.next, total - 1));
+  const [score, setScore] = useState(start.score);
   const [picked, setPicked] = useState<number | null>(null);
-  const [score, setScore] = useState(0);
+  const [closed, setClosed] = useState(false);
 
-  // Akkaunt almashsa (chiqish/kirish) — holat yangi foydalanuvchi bo'yicha.
-  useEffect(() => {
-    setDone(false);
-    setIndex(0);
-    setPicked(null);
-    setScore(0);
-  }, [userId]);
+  if (closed || total === 0) return null;
 
-  if (isLoading || done || !shouldShowSample(userId)) return null;
-
-  const total = HOME_SAMPLE_QUESTIONS.length;
-  const question = HOME_SAMPLE_QUESTIONS[index];
+  const question = questions[index];
   const answered = picked !== null;
   const isCorrect = answered && picked === question.correct;
   const isLast = index === total - 1;
@@ -73,31 +128,27 @@ export function SampleQuestionCard() {
   const choose = (optionIndex: number) => {
     if (answered) return;
     const correct = optionIndex === question.correct;
+    const nextScore = score + (correct ? 1 : 0);
     setPicked(optionIndex);
-    if (correct) setScore((s) => s + 1);
+    setScore(nextScore);
+    // Darhol saqlanadi — sahifa yopilsa ham bu savol qayta chiqmaydi.
+    saveProgress(userId, { next: index + 1, score: nextScore }, today);
     trackEvent("home_sample_answer", { question: question.id, correct });
   };
-
-  const rememberDone = () => markSampleDone(userId);
 
   const next = () => {
     if (isLast) {
       trackEvent("home_sample_done", { score, total });
-      rememberDone();
-      setDone(true);
+      setClosed(true);
       return;
     }
     setPicked(null);
     setIndex((current) => current + 1);
   };
 
-  /**
-   * To'liq testga o'tish. 5 ta savolning oxirgisiga javob berilgan bo'lsa,
-   * karta ham "tugadi" deb eslanadi (kirgan foydalanuvchida — bugunga).
-   */
+  /** To'liq testga o'tish. Yutuq javob paytida saqlangan — bu yerda qo'shimcha ish yo'q. */
   const continueTest = () => {
     trackEvent("home_sample_continue", { question: index + 1, answered });
-    if (isLast && answered) rememberDone();
     navigate("/test-ishlash", { state: AUTO_START_STATE });
   };
 

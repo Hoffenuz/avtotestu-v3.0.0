@@ -8,6 +8,7 @@ import { hasStoredSession } from "@/lib/hasStoredSession";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAccessState } from "@/hooks/useAccessState";
 import { useReadiness } from "@/hooks/useReadiness";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import {
   User,
   BarChart3,
@@ -67,6 +68,8 @@ const HOME_FAQ_LD = {
 
 export default function Home() {
   const { user, profile, isLoading: authLoading } = useAuth();
+  // "Sinab ko'ring" kartasi faqat desktopda (hero 2 ustunga bo'linadigan `lg`).
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
   const { t } = useLanguage();
   const navigate = useNavigate();
   const { isPremium } = useAccessState();
@@ -230,10 +233,16 @@ export default function Home() {
             <MainTestButtons className="mt-7 sm:mt-8" />
           </div>
 
-          {/* Mobilda YO'Q — kichik ekranda tugmalardan keyin ortiqcha uzunlik. */}
-          <div className="hidden lg:col-span-5 lg:block">
-            <SampleQuestionCard />
-          </div>
+          {/*
+            Mobilda YO'Q — kichik ekranda tugmalardan keyin ortiqcha uzunlik.
+            CSS bilan yashirish emas, umuman chizilmaydi: telefonda karta
+            ishlamaydi va kunlik savollar hovuzi ham yuklanmaydi.
+          */}
+          {isDesktop && (
+            <div className="lg:col-span-5">
+              <SampleQuestionCard />
+            </div>
+          )}
         </div>
       </section>
 
