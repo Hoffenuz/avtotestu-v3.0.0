@@ -1,8 +1,9 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 
-// payme_transactions jadvalida state 2 (Paid) ga o'zgarganda,
+// payme_transactions yoki click_transactions da state 2 (Paid) ga o'zgarganda,
 // Postgres trigger (pg_net) shu funksiyani chaqiradi va admin(lar)ga
-// Telegram orqali darhol xabar yuboradi.
+// Telegram orqali darhol xabar yuboradi. `provider` ni trigger jadval
+// nomidan qo'yadi (supabase/sql/payment_reports.sql).
 
 const PLAN_LABELS: Record<string, string> = {
   weekly: "Haftalik",
@@ -58,6 +59,7 @@ Deno.serve(async (req: Request) => {
 
     const text =
       `✅ Yangi to'lov!\n` +
+      `🏦 To'lov tizimi: ${record.provider ?? "—"}\n` +
       `📧 ${record.account_email ?? "—"}\n` +
       `💳 Tarif: ${plan} (${amount} so'm)\n` +
       `🕐 Vaqt: ${when}`;

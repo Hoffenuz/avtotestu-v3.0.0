@@ -140,7 +140,11 @@ RLS yoqilgan, siyosat **yo'q**, `anon`/`authenticated` dan hamma huquq olingan �
 
 Hammasi `SECURITY DEFINER`, `search_path = public`. Supabase har yangi funksiyani avtomatik `anon`/`authenticated` ga ochadi — shuning uchun migratsiyada **har biri aniq `revoke`** qilingan. Yangi `click_*` funksiya qo'shsangiz, shuni takrorlang.
 
-Trigger: `trg_notify_telegram_on_click_payment` — `state` 2 ga o'tganda mavjud `notify_telegram_on_payment()` ni chaqiradi (Payme bilan bitta funksiya; xabarda provayder yozilmaydi).
+Trigger: `trg_notify_telegram_on_click_payment` — `state` 2 ga o'tganda mavjud `notify_telegram_on_payment()` ni chaqiradi (Payme bilan bitta funksiya; to'lov tizimi jadval nomidan aniqlanib, xabarda "🏦 To'lov tizimi: Click" deb yoziladi).
+
+### 4.4 Hisobotlar (Telegram admin bot)
+
+Manba: `supabase/sql/payment_reports.sql` (migratsiya `payment_reports_payme_click`). `admin_paid_payments()` — ikkala jadvaldagi `state = 2` qatorlarning yagona ro'yxati (kun **to'lov vaqti** `perform_time` bo'yicha). `admin_payment_stats` / `admin_payment_daily` / `admin_payment_recent` shundan o'qiydi va jami bilan birga `payme_*` / `click_*` taqsimotini (recent da `tizim`) qaytaradi. Yangi to'lov tizimi qo'shilsa — faqat `admin_paid_payments()` ga `union all` qo'shiladi.
 
 ### 4.3 PRO berish qoidasi (Payme bilan bir xil)
 
@@ -275,10 +279,8 @@ Olinmadi (shablondagi xatolar):
 
 | Nima | Izoh |
 |---|---|
-| Admin panel | Click statistikasi, `click_transactions` ro'yxati, `click_cancel_order` tugmasi — keyinga qoldirilgan |
-| `admin_payment_stats` va Telegram admin bot | faqat `payme_transactions` ni sanaydi |
+| Admin panel (web) | Click statistikasi (`admin-manager` → `get_payme_stats` faqat Payme ni sanaydi), `click_transactions` ro'yxati, `click_cancel_order` tugmasi — keyinga qoldirilgan |
 | `payment_receipts` | Click uchun yozilmaydi: `receipt_url` majburiy, CLICK chek havolasi bermaydi — soxta havola yozilmadi |
-| Telegram xabari | provayderni (Payme/Click) ko'rsatmaydi |
 | Pulni qaytarish | CLICK Merchant API `payment/reversal` ulanmagan; hozircha CLICK kabinetidan qaytariladi, PRO esa `click_cancel_order` bilan |
 | Tashlab ketilgan buyurtmalar | `state=0` (to'lanmagan) qatorlar yig'iladi — zararsiz, taymaut yo'q |
 | Sinov qatori | `id=32` — 2026-09-24 dagi qo'lda sinov (SQL orqali `click_trans_id=888888`, `reason=99` bilan bekor qilingan). PRO bermagan; o'chirish faqat egasi aytsa |
