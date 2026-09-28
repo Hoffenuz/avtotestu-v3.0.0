@@ -2,7 +2,7 @@
  * telegram-admin-bot — Avtotestu.uz admin boti
  * ============================================================================
  * Telegram webhook. Uchta ish qiladi:
- *   1. To'lov statistikasi (kunlik / oylik / oxirgi to'lovlar)
+ *   1. To'lov statistikasi (kunlik / oylik / oxirgi to'lovlar) — Payme + Click
  *   2. Foydalanuvchiga PRO berish (muddat tanlanadi)
  *   3. Parolni o'zgartirish (FAQAT super_admin)
  *
@@ -140,6 +140,11 @@ function hozir(): string {
   const g = (t: string) => p.find((x) => x.type === t)?.value ?? "";
   return `${g("day")}.${g("month")}.${g("year")} ${g("hour")}:${g("minute")}:${g("second")}`;
 }
+
+/** Jami ostidagi Payme / Click taqsimoti (admin_payment_stats / _daily ustunlari). */
+const tizimlar = (r: any) =>
+  `\n  ├ Payme: ${r.payme_tolov ?? 0} ta · ${som(r.payme_som ?? 0)} so'm` +
+  `\n  └ Click: ${r.click_tolov ?? 0} ta · ${som(r.click_som ?? 0)} so'm`;
 
 /** Hisobot ekranlarining pastki qatori. */
 const footer = () => `\n\n🕒 <i>${hozir()} holatiga</i>`;
@@ -417,7 +422,8 @@ Deno.serve(async (req) => {
           return new Response("ok");
         }
         const lines = (data ?? []).map((r: any) =>
-          `${esc(r.davr)}\n  <b>${som(r.som)}</b> so'm · ${r.tolov} ta · ${r.userlar} user`);
+          `${esc(r.davr)}\n  <b>${som(r.som)}</b> so'm · ${r.tolov} ta · ${r.userlar} user` +
+          (Number(r.tolov) > 0 ? tizimlar(r) : ""));
         await edit(chatId, msgId,
           "📊 <b>To'lov statistikasi</b>\n\n" +
           (lines.join("\n\n") || "Ma'lumot yo'q") + footer(), nav);
@@ -431,10 +437,10 @@ Deno.serve(async (req) => {
           return new Response("ok");
         }
         const lines = (data ?? []).map((r: any) =>
-          `<code>${esc(r.kun)}</code>  ${String(r.tolov).padStart(2)} ta · <b>${som(r.som)}</b>`);
+          `<code>${esc(r.kun)}</code>  ${r.tolov} ta · <b>${som(r.som)}</b> so'm` + tizimlar(r));
         await edit(chatId, msgId,
           "📅 <b>Oxirgi 7 kun</b>\n\n" +
-          (lines.join("\n") || "Ma'lumot yo'q") + footer(), nav);
+          (lines.join("\n\n") || "Ma'lumot yo'q") + footer(), nav);
         return new Response("ok");
       }
       if (d === "p:recent") {
@@ -445,7 +451,7 @@ Deno.serve(async (req) => {
           return new Response("ok");
         }
         const lines = (data ?? []).map((r: any) =>
-          `${esc(sana(r.sana))}\n  ${esc(ko(r.email ?? "—"))}\n  ${esc(PLAN[r.tarif] ?? r.tarif)} · <b>${som(r.som)}</b> so'm`);
+          `${esc(sana(r.sana))} · <b>${esc(r.tizim ?? "—")}</b>\n  ${esc(ko(r.email ?? "—"))}\n  ${esc(PLAN[r.tarif] ?? r.tarif)} · <b>${som(r.som)}</b> so'm`);
         await edit(chatId, msgId,
           "🧾 <b>Oxirgi to'lovlar</b>\n\n" +
           (lines.join("\n\n") || "Ma'lumot yo'q") + footer(), nav);
