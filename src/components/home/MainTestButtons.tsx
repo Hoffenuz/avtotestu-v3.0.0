@@ -16,9 +16,10 @@
  *     (ko'k / indigo) va shu rangdagi ikonka chipi. Ingichka kulrang
  *     chegara sinab ko'rilgan — tugmalar fon bilan qo'shilib, "ko'rinmay"
  *     qolardi.
- *   * PRO egasida chegara va chip OLTIN (toj) — "siz uchun ochiq" degan
- *     ijobiy signal; tugmalar qoraymaydi. Bepulda "Mavzular" burchagida
- *     "PRO" belgisi.
+ *   * PRO egasida ham RANG O'ZGARMAYDI (ko'k / indigo). Oltin (sariq)
+ *     chegara sinab ko'rilgan — noqulay ko'rinardi (egasi, 2026-09-28);
+ *     to'la siyoh esa "bosma" degandek salbiy edi. Bepulda "Mavzular"
+ *     burchagida "PRO" belgisi, PRO egasida u yo'q.
  *
  * CLS: obuna holati kelgach faqat ikonka va chip rangi almashadi (o'lcham
  * bir xil); "PRO" belgisi `absolute`. "Mavzular" tugmasi saqlangan sessiya
@@ -26,7 +27,7 @@
  */
 import { useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { BookOpen, Crown, Grid3x3, Play } from "lucide-react";
+import { BookOpen, Grid3x3, Play } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAccessState } from "@/hooks/useAccessState";
@@ -45,7 +46,7 @@ const PRIMARY =
   "shadow-[0_8px_20px_-6px_rgba(34,197,94,0.6),inset_0_1px_0_rgba(255,255,255,0.25)] " +
   "hover:brightness-105 hover:shadow-[0_12px_26px_-8px_rgba(34,197,94,0.65),inset_0_1px_0_rgba(255,255,255,0.25)]";
 
-type Tone = "blue" | "indigo" | "gold";
+type Tone = "blue" | "indigo";
 
 /** Har rang uchun: tugma chegarasi (+hover) va ikonka chipi. Bitta joyda — mos kelmay qolmasin. */
 const TONES: Record<Tone, { border: string; chip: string }> = {
@@ -56,10 +57,6 @@ const TONES: Record<Tone, { border: string; chip: string }> = {
   indigo: {
     border: "border-indigo-500/55 hover:border-indigo-500 dark:border-indigo-400/45 dark:hover:border-indigo-400",
     chip: "bg-indigo-50 text-indigo-600 dark:bg-indigo-500/15 dark:text-indigo-300",
-  },
-  gold: {
-    border: "border-amber-400/70 hover:border-amber-500 dark:border-amber-400/45 dark:hover:border-amber-400",
-    chip: "bg-amber-50 text-amber-500 dark:bg-amber-400/10 dark:text-amber-300",
   },
 };
 
@@ -96,8 +93,6 @@ export function MainTestButtons({ className }: { className?: string }) {
   const [expectsSession] = useState(hasStoredSession);
 
   const showMavzular = !!user || (authLoading && expectsSession);
-  const variantTone: Tone = isPremium ? "gold" : "blue";
-  const mavzuTone: Tone = isPremium ? "gold" : "indigo";
 
   return (
     <div className={cn("flex flex-col gap-3 sm:flex-row sm:flex-wrap", className)}>
@@ -106,14 +101,18 @@ export function MainTestButtons({ className }: { className?: string }) {
         <span>{t("home.btnTest")}</span>
       </Link>
 
-      <Link to="/variant" className={cn(BASE, SECONDARY, TONES[variantTone].border)}>
-        <IconChip tone={variantTone}>{isPremium ? <Crown /> : <Grid3x3 />}</IconChip>
+      <Link to="/variant" className={cn(BASE, SECONDARY, TONES.blue.border)}>
+        <IconChip tone="blue">
+          <Grid3x3 />
+        </IconChip>
         <span>{t("home.btnVariantlar")}</span>
       </Link>
 
       {showMavzular && (
-        <Link to="/mavzuli" className={cn(BASE, SECONDARY, TONES[mavzuTone].border)}>
-          <IconChip tone={mavzuTone}>{isPremium ? <Crown /> : <BookOpen />}</IconChip>
+        <Link to="/mavzuli" className={cn(BASE, SECONDARY, TONES.indigo.border)}>
+          <IconChip tone="indigo">
+            <BookOpen />
+          </IconChip>
           <span>{t("home.btnMavzuli")}</span>
           {!isPremium && !accessLoading && backendConfirmed && <ProTag />}
         </Link>
