@@ -6,15 +6,17 @@
  * katalogi, test rejimlari bosh sahifadan boshlanadi.
  *
  * RANG VA SHAKL (egasining qarori, 2026-09-28):
- *   * "Test ishlash" — YASHIL (gradient, oq matn). Ilgari uchala tugma
- *     to'la siyoh edi — ayniqsa PRO'da uchta og'ir qora blok "bosma"
- *     degandek salbiy ta'sir qilardi. Yashil — "boshlash, oldinga" signali
- *     va sahifadagi yagona to'la rangli tugma, shuning uchun asosiy harakat
- *     aniq. Matn kontrasti uchun och yashil emas, emerald-600→700.
- *   * "Variantlar" / "Mavzular" — OQ karta-tugma: ingichka chegara, siyoh
- *     matn, chapda rangli ikonka "chipi". Bosilishi aniq (soya, hover'da
- *     ko'tariladi), lekin asosiy tugma bilan e'tibor talashmaydi.
- *   * PRO egasida ikonka chipi OLTIN (toj) — "siz uchun ochiq" degan
+ *   * "Test ishlash" — YORQIN YASHIL, saytning `cta-green` tokeni (avvalgi
+ *     dizayndagi yashil, #22C55E) → `cta-green-hover` gradienti, oq qalin
+ *     matn + yengil matn soyasi (och yashil ustida o'qilishi uchun).
+ *     Ilgari uchala tugma to'la siyoh edi — ayniqsa PRO'da uchta og'ir qora
+ *     blok "bosma" degandek salbiy ta'sir qilardi. To'q (emerald-700)
+ *     variant ham sinab ko'rilib rad etilgan — xira ko'rinardi.
+ *   * "Variantlar" / "Mavzular" — OQ karta-tugma, lekin 2px RANGLI chegara
+ *     (ko'k / indigo) va shu rangdagi ikonka chipi. Ingichka kulrang
+ *     chegara sinab ko'rilgan — tugmalar fon bilan qo'shilib, "ko'rinmay"
+ *     qolardi.
+ *   * PRO egasida chegara va chip OLTIN (toj) — "siz uchun ochiq" degan
  *     ijobiy signal; tugmalar qoraymaydi. Bepulda "Mavzular" burchagida
  *     "PRO" belgisi.
  *
@@ -34,29 +36,43 @@ import { cn } from "@/lib/utils";
 /** 60px — sahifaning asosiy urg'usi. */
 const BASE =
   "group relative inline-flex h-[60px] w-full items-center justify-center gap-3 rounded-xl px-6 text-lg font-semibold " +
-  "transition-[transform,box-shadow,background-color,border-color] duration-200 ease-out motion-safe:hover:-translate-y-0.5 " +
+  "transition-[transform,box-shadow,border-color,filter] duration-200 ease-out motion-safe:hover:-translate-y-0.5 " +
   "active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 " +
   "sm:w-auto sm:min-w-[210px]";
 
 const PRIMARY =
-  "bg-gradient-to-b from-emerald-600 to-emerald-700 text-white " +
-  "shadow-[0_8px_20px_-6px_rgba(5,150,105,0.55),inset_0_1px_0_rgba(255,255,255,0.18)] " +
-  "hover:from-emerald-500 hover:to-emerald-700 hover:shadow-[0_12px_26px_-8px_rgba(5,150,105,0.6),inset_0_1px_0_rgba(255,255,255,0.18)]";
+  "bg-gradient-to-b from-cta-green to-cta-green-hover text-white [text-shadow:0_1px_1px_rgba(0,0,0,0.22)] " +
+  "shadow-[0_8px_20px_-6px_rgba(34,197,94,0.6),inset_0_1px_0_rgba(255,255,255,0.25)] " +
+  "hover:brightness-105 hover:shadow-[0_12px_26px_-8px_rgba(34,197,94,0.65),inset_0_1px_0_rgba(255,255,255,0.25)]";
 
-const SECONDARY =
-  "border border-border bg-card text-foreground shadow-sm " +
-  "hover:border-primary/30 hover:shadow-md dark:hover:border-primary/60";
+type Tone = "blue" | "indigo" | "gold";
+
+/** Har rang uchun: tugma chegarasi (+hover) va ikonka chipi. Bitta joyda — mos kelmay qolmasin. */
+const TONES: Record<Tone, { border: string; chip: string }> = {
+  blue: {
+    border: "border-blue-500/55 hover:border-blue-500 dark:border-blue-400/45 dark:hover:border-blue-400",
+    chip: "bg-blue-50 text-blue-600 dark:bg-blue-500/15 dark:text-blue-300",
+  },
+  indigo: {
+    border: "border-indigo-500/55 hover:border-indigo-500 dark:border-indigo-400/45 dark:hover:border-indigo-400",
+    chip: "bg-indigo-50 text-indigo-600 dark:bg-indigo-500/15 dark:text-indigo-300",
+  },
+  gold: {
+    border: "border-amber-400/70 hover:border-amber-500 dark:border-amber-400/45 dark:hover:border-amber-400",
+    chip: "bg-amber-50 text-amber-500 dark:bg-amber-400/10 dark:text-amber-300",
+  },
+};
+
+const SECONDARY = "border-2 bg-card text-foreground shadow-sm hover:shadow-md";
 
 /** Ikonka chipi — tugma ichida chapda. */
-function IconChip({ tone, children }: { tone: "blue" | "indigo" | "gold"; children: ReactNode }) {
+function IconChip({ tone, children }: { tone: Tone; children: ReactNode }) {
   return (
     <span
       aria-hidden="true"
       className={cn(
-        "flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition-colors [&_svg]:h-[18px] [&_svg]:w-[18px]",
-        tone === "blue" && "bg-blue-50 text-blue-600 dark:bg-blue-500/15 dark:text-blue-300",
-        tone === "indigo" && "bg-indigo-50 text-indigo-600 dark:bg-indigo-500/15 dark:text-indigo-300",
-        tone === "gold" && "bg-amber-50 text-amber-500 ring-1 ring-amber-200 dark:bg-amber-400/10 dark:text-amber-300 dark:ring-amber-400/25",
+        "flex h-8 w-8 shrink-0 items-center justify-center rounded-lg [&_svg]:h-[18px] [&_svg]:w-[18px]",
+        TONES[tone].chip,
       )}
     >
       {children}
@@ -80,6 +96,8 @@ export function MainTestButtons({ className }: { className?: string }) {
   const [expectsSession] = useState(hasStoredSession);
 
   const showMavzular = !!user || (authLoading && expectsSession);
+  const variantTone: Tone = isPremium ? "gold" : "blue";
+  const mavzuTone: Tone = isPremium ? "gold" : "indigo";
 
   return (
     <div className={cn("flex flex-col gap-3 sm:flex-row sm:flex-wrap", className)}>
@@ -88,14 +106,14 @@ export function MainTestButtons({ className }: { className?: string }) {
         <span>{t("home.btnTest")}</span>
       </Link>
 
-      <Link to="/variant" className={cn(BASE, SECONDARY)}>
-        <IconChip tone={isPremium ? "gold" : "blue"}>{isPremium ? <Crown /> : <Grid3x3 />}</IconChip>
+      <Link to="/variant" className={cn(BASE, SECONDARY, TONES[variantTone].border)}>
+        <IconChip tone={variantTone}>{isPremium ? <Crown /> : <Grid3x3 />}</IconChip>
         <span>{t("home.btnVariantlar")}</span>
       </Link>
 
       {showMavzular && (
-        <Link to="/mavzuli" className={cn(BASE, SECONDARY)}>
-          <IconChip tone={isPremium ? "gold" : "indigo"}>{isPremium ? <Crown /> : <BookOpen />}</IconChip>
+        <Link to="/mavzuli" className={cn(BASE, SECONDARY, TONES[mavzuTone].border)}>
+          <IconChip tone={mavzuTone}>{isPremium ? <Crown /> : <BookOpen />}</IconChip>
           <span>{t("home.btnMavzuli")}</span>
           {!isPremium && !accessLoading && backendConfirmed && <ProTag />}
         </Link>
