@@ -12,6 +12,7 @@ import { clearAllUserData } from '@/lib/clearUserData';
 import { signInWithTelegramMiniApp } from '@/lib/telegramMiniAppAuth';
 import { resetSavedCache } from '@/lib/questionState';
 import { rememberKnownAccount } from '@/lib/authEntry';
+import { recordSignupAttribution } from '@/lib/attribution';
 import { AUTH_RPC_TIMEOUT_MS, PROFILE_TIMEOUT_MS, SIGN_IN_TIMEOUT_MS, withTimeout } from '@/lib/withTimeout';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -172,7 +173,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     userIdRef.current = next?.user?.id ?? null;
     // Har qanday yo'l bilan kirilganda (parol, Telegram, Google) — qurilma
     // "hisobi bor" deb eslanadi: keyingi safar /auth KIRISH tabida ochiladi.
-    if (next?.user) rememberKnownAccount();
+    if (next?.user) {
+      rememberKnownAccount();
+      // Yangi akkaunt qayerdan kelgani (Instagram reklamasi va h.k.) — fonda,
+      // bir marta; xato bo'lsa jim (saytga ta'sir qilmaydi).
+      void recordSignupAttribution(next.user.id, next.user.created_at);
+    }
   }, []);
 
   const fetchProfileData = useCallback(async (userId: string): Promise<Profile | null> => {
