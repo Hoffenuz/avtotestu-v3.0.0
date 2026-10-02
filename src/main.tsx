@@ -5,6 +5,7 @@ import { initTelegramWebApp } from "./lib/telegramWebApp";
 import { initDarkMode } from "./hooks/useDarkMode";
 import { preloadTranslations } from "./contexts/LanguageContext";
 import { detectLangFromWindow } from "./lib/langUrl";
+import { captureAttribution } from "./lib/attribution";
 import "./index.css";
 
 // Apex ↔ www localStorage ajraladi — sessiya "yo'qoladi". Brauzerda ham www ga majburan.
@@ -22,6 +23,9 @@ if (typeof window !== "undefined" && window.location.hostname === "avtotestu.uz"
    * Telegram'dan tashqarida bu funksiya darhol qaytadi: skript ham
    * yuklanmaydi, ya'ni oddiy foydalanuvchiga hech qanday ta'siri yo'q.
    */
+  // Foydalanuvchi qayerdan kelgani (Instagram, Telegram ...) — Telegram
+  // fragmentni o'qib tozalashidan OLDIN. Faqat localStorage, tarmoq yo'q.
+  captureAttribution();
   initTelegramWebApp();
 
   // Dark mode holatini localStorage dan tiklaymiz.
