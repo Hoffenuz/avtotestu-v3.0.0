@@ -1,0 +1,555 @@
+{
+  "belgilar": {
+    "uz-lat": {
+      "sections": [
+        {
+          "title": "Yo'l belgilari qanday guruhlanadi?",
+          "paragraphs": [
+            "O'zbekiston yo'l harakati qoidalarida (YHQ) yo'l belgilari {groups} ta guruhga bo'linadi. Belgi kodidagi birinchi raqam uning guruhini bildiradi: masalan, 3.27 — taqiqlovchi belgilar guruhidagi \"To'xtash taqiqlangan\" belgisi.",
+            "Bu sahifada {count} ta belgi rasmi, nomi va kodi bilan jamlangan. Kerakli belgini nomi yoki kodi bo'yicha qidirish mumkin."
+          ],
+          "list": [
+            {
+              "name": "1 — Ogohlantiruvchi belgilar",
+              "text": "Oldinda xavfli joy borligini oldindan bildiradi (masalan, shlagbaumli temir yo'l kesishmasi). Odatda uchburchak shaklida, qizil chegarali bo'ladi."
+            },
+            {
+              "name": "2 — Imtiyozli belgilar",
+              "text": "Kesishmalardan o'tish tartibini belgilaydi: asosiy yo'ldan ketayotganingizni yoki kimga yo'l berish kerakligini ko'rsatadi (masalan, 2.1 Asosiy yo'l)."
+            },
+            {
+              "name": "3 — Taqiqlovchi belgilar",
+              "text": "Ma'lum harakatlarni taqiqlaydi yoki cheklaydi: kirish taqiqlangan (3.1), to'xtash taqiqlangan (3.27), tezlik cheklangan (3.24). Ko'pincha dumaloq, qizil chegarali bo'ladi."
+            },
+            {
+              "name": "4 — Buyuruvchi belgilar",
+              "text": "Harakat yo'nalishi yoki tartibini majburiy qiladi, masalan, to'g'riga yoki o'ngga harakatlanish (4.1.1, 4.1.2). Ko'pincha dumaloq, ko'k fonli bo'ladi."
+            },
+            {
+              "name": "5 — Axborot-ishora belgilari",
+              "text": "Yo'l va joylar haqida ma'lumot beradi, masalan, avtomagistral (5.1). Eng ko'p belgi shu guruhda."
+            },
+            {
+              "name": "6 — Servis belgilari",
+              "text": "Xizmat joylarini ko'rsatadi: tibbiy yordam ko'rsatish joyi (6.1), shifoxona (6.2), yonilg'i shoxobchasi (6.3), texnik xizmat ko'rsatish joyi (6.4)."
+            },
+            {
+              "name": "7 — Qo'shimcha axborot belgilari",
+              "text": "Asosiy belgining ma'nosini aniqlashtiradi yoki cheklaydi, masalan, manzilgacha bo'lgan masofa (7.1.1). Alohida emas, boshqa belgi bilan birga qo'yiladi."
+            }
+          ]
+        },
+        {
+          "title": "Belgilarni qanday eslab qolish mumkin?",
+          "bullets": [
+            "Avval guruhni o'rganing. Shakl va rang belgi turini darrov bildiradi: qizil chegarali uchburchak — ogohlantirish, qizil chegarali doira — taqiq, ko'k doira — majburiy ko'rsatma.",
+            "Rasm va nomini birga yodlang. Imtihon savollarida belgi odatda rasm bilan beriladi, shuning uchun kodni emas, ma'nosini bilish muhim.",
+            "O'xshash belgilarni yonma-yon solishtiring, masalan, to'xtash taqiqlangan va to'xtab turish taqiqlangan belgilarini.",
+            "Har bir guruhdan keyin belgilar bor savollarni yeching va xatolaringizni qayta ko'rib chiqing."
+          ]
+        }
+      ],
+      "faqTitle": "Yo'l belgilari haqida ko'p so'raladigan savollar",
+      "faq": [
+        {
+          "q": "Yo'l belgilari nechta guruhga bo'linadi?",
+          "a": "7 ta guruhga: ogohlantiruvchi, imtiyozli, taqiqlovchi, buyuruvchi, axborot-ishora, servis va qo'shimcha axborot belgilari. Katalogimizda jami {count} ta belgi bor."
+        },
+        {
+          "q": "Belgi kodi nimani bildiradi?",
+          "a": "Kodning birinchi raqami guruhni ko'rsatadi: 1 — ogohlantiruvchi, 2 — imtiyozli, 3 — taqiqlovchi, 4 — buyuruvchi, 5 — axborot-ishora, 6 — servis, 7 — qo'shimcha axborot. Keyingi raqamlar guruh ichidagi tartibni bildiradi."
+        },
+        {
+          "q": "Imtihonda belgilar qanday so'raladi?",
+          "a": "Test savolida belgi rasmi ko'rsatilib, uning ma'nosi yoki shu belgi qo'yilgan joyda qanday harakat qilish kerakligi so'raladi."
+        },
+        {
+          "q": "Belgilarni qaysi tillarda ko'rish mumkin?",
+          "a": "O'zbek (lotin va kirill) hamda rus tillarida. Tilni sayt tepasidagi tugma orqali almashtirasiz."
+        },
+        {
+          "q": "Belgilar bo'yicha test ishlasa bo'ladimi?",
+          "a": "Ha. «Test ishlash» va variantlardagi savollar orasida yo'l belgilari rasmi bilan so'raladigan savollar ko'p uchraydi."
+        }
+      ],
+      "linksTitle": "Foydali sahifalar",
+      "links": [
+        {
+          "href": "/test-ishlash",
+          "label": "Test ishlash"
+        },
+        {
+          "href": "/variant",
+          "label": "Variantlar"
+        },
+        {
+          "href": "/mavzuli",
+          "label": "Mavzuli testlar"
+        },
+        {
+          "href": "/yodlash-kerak",
+          "label": "Yodlash kerak raqamlar"
+        }
+      ]
+    },
+    "uz": {
+      "sections": [
+        {
+          "title": "Йўл белгилари қандай гуруҳланади?",
+          "paragraphs": [
+            "Ўзбекистон йўл ҳаракати қоидаларида (ЙҲҚ) йўл белгилари {groups} та гуруҳга бўлинади. Белги кодидаги биринчи рақам унинг гуруҳини билдиради: масалан, 3.27 — тақиқловчи белгилар гуруҳидаги \"Тўхташ тақиқланган\" белгиси.",
+            "Бу саҳифада {count} та белги расми, номи ва коди билан жамланган. Керакли белгини номи ёки коди бўйича қидириш мумкин."
+          ],
+          "list": [
+            {
+              "name": "1 — Огоҳлантирувчи белгилар",
+              "text": "Олдинда хавфли жой борлигини олдиндан билдиради (масалан, шлагбаумли темир йўл кесишмаси). Одатда учбурчак шаклида, қизил чегарали бўлади."
+            },
+            {
+              "name": "2 — Имтиёзли белгилар",
+              "text": "Кесишмалардан ўтиш тартибини белгилайди: асосий йўлдан кетаётганингизни ёки кимга йўл бериш кераклигини кўрсатади (масалан, 2.1 Асосий йўл)."
+            },
+            {
+              "name": "3 — Тақиқловчи белгилар",
+              "text": "Маълум ҳаракатларни тақиқлайди ёки чеклайди: кириш тақиқланган (3.1), тўхташ тақиқланган (3.27), тезлик чекланган (3.24). Кўпинча думалоқ, қизил чегарали бўлади."
+            },
+            {
+              "name": "4 — Буюрувчи белгилар",
+              "text": "Ҳаракат йўналиши ёки тартибини мажбурий қилади, масалан, тўғрига ёки ўнгга ҳаракатланиш (4.1.1, 4.1.2). Кўпинча думалоқ, кўк фонли бўлади."
+            },
+            {
+              "name": "5 — Ахборот-ишора белгилари",
+              "text": "Йўл ва жойлар ҳақида маълумот беради, масалан, автомагистрал (5.1). Энг кўп белги шу гуруҳда."
+            },
+            {
+              "name": "6 — Сервис белгилари",
+              "text": "Хизмат жойларини кўрсатади: тиббий ёрдам кўрсатиш жойи (6.1), шифохона (6.2), ёнилғи шохобчаси (6.3), техник хизмат кўрсатиш жойи (6.4)."
+            },
+            {
+              "name": "7 — Қўшимча ахборот белгилари",
+              "text": "Асосий белгининг маъносини аниқлаштиради ёки чеклайди, масалан, манзилгача бўлган масофа (7.1.1). Алоҳида эмас, бошқа белги билан бирга қўйилади."
+            }
+          ]
+        },
+        {
+          "title": "Белгиларни қандай эслаб қолиш мумкин?",
+          "bullets": [
+            "Аввал гуруҳни ўрганинг. Шакл ва ранг белги турини дарров билдиради: қизил чегарали учбурчак — огоҳлантириш, қизил чегарали доира — тақиқ, кўк доира — мажбурий кўрсатма.",
+            "Расм ва номини бирга ёдланг. Имтиҳон саволларида белги одатда расм билан берилади, шунинг учун кодни эмас, маъносини билиш муҳим.",
+            "Ўхшаш белгиларни ёнма-ён солиштиринг, масалан, тўхташ тақиқланган ва тўхтаб туриш тақиқланган белгиларини.",
+            "Ҳар бир гуруҳдан кейин белгилар бор саволларни ечинг ва хатоларингизни қайта кўриб чиқинг."
+          ]
+        }
+      ],
+      "faqTitle": "Йўл белгилари ҳақида кўп сўраладиган саволлар",
+      "faq": [
+        {
+          "q": "Йўл белгилари нечта гуруҳга бўлинади?",
+          "a": "7 та гуруҳга: огоҳлантирувчи, имтиёзли, тақиқловчи, буюрувчи, ахборот-ишора, сервис ва қўшимча ахборот белгилари. Каталогимизда жами {count} та белги бор."
+        },
+        {
+          "q": "Белги коди нимани билдиради?",
+          "a": "Коднинг биринчи рақами гуруҳни кўрсатади: 1 — огоҳлантирувчи, 2 — имтиёзли, 3 — тақиқловчи, 4 — буюрувчи, 5 — ахборот-ишора, 6 — сервис, 7 — қўшимча ахборот. Кейинги рақамлар гуруҳ ичидаги тартибни билдиради."
+        },
+        {
+          "q": "Имтиҳонда белгилар қандай сўралади?",
+          "a": "Тест саволида белги расми кўрсатилиб, унинг маъноси ёки шу белги қўйилган жойда қандай ҳаракат қилиш кераклиги сўралади."
+        },
+        {
+          "q": "Белгиларни қайси тилларда кўриш мумкин?",
+          "a": "Ўзбек (лотин ва кирилл) ҳамда рус тилларида. Тилни сайт тепасидаги тугма орқали алмаштирасиз."
+        },
+        {
+          "q": "Белгилар бўйича тест ишласа бўладими?",
+          "a": "Ҳа. «Тест ишлаш» ва вариантлардаги саволлар орасида йўл белгилари расми билан сўраладиган саволлар кўп учрайди."
+        }
+      ],
+      "linksTitle": "Фойдали саҳифалар",
+      "links": [
+        {
+          "href": "/test-ishlash",
+          "label": "Тест ишлаш"
+        },
+        {
+          "href": "/variant",
+          "label": "Вариантлар"
+        },
+        {
+          "href": "/mavzuli",
+          "label": "Мавзули тестлар"
+        },
+        {
+          "href": "/yodlash-kerak",
+          "label": "Ёдлаш керак рақамлар"
+        }
+      ]
+    },
+    "ru": {
+      "sections": [
+        {
+          "title": "Как делятся дорожные знаки?",
+          "paragraphs": [
+            "В правилах дорожного движения (ПДД) Узбекистана дорожные знаки делятся на {groups} групп. Первая цифра кода знака указывает на его группу: например, 3.27 — знак «Остановка запрещена» из группы запрещающих знаков.",
+            "На этой странице собрано {count} знаков с изображением, названием и кодом. Нужный знак можно найти по названию или коду."
+          ],
+          "list": [
+            {
+              "name": "1 — Предупреждающие знаки",
+              "text": "Заранее сообщают об опасном участке впереди (например, железнодорожный переезд со шлагбаумом). Обычно имеют форму треугольника с красной каймой."
+            },
+            {
+              "name": "2 — Знаки приоритета",
+              "text": "Определяют порядок проезда перекрёстков: показывают, что вы движетесь по главной дороге или кому нужно уступить (например, 2.1 Главная дорога)."
+            },
+            {
+              "name": "3 — Запрещающие знаки",
+              "text": "Запрещают или ограничивают определённые действия: въезд запрещён (3.1), остановка запрещена (3.27), ограничение максимальной скорости (3.24). Чаще всего круглые с красной каймой."
+            },
+            {
+              "name": "4 — Предписывающие знаки",
+              "text": "Устанавливают обязательное направление или порядок движения, например, движение прямо или направо (4.1.1, 4.1.2). Чаще всего круглые на синем фоне."
+            },
+            {
+              "name": "5 — Информационно-указательные знаки",
+              "text": "Сообщают о дороге и объектах, например, автомагистраль (5.1). В этой группе больше всего знаков."
+            },
+            {
+              "name": "6 — Знаки сервиса",
+              "text": "Показывают места обслуживания: пункт медицинской помощи (6.1), больница (6.2), автозаправочная станция (6.3), техническое обслуживание (6.4)."
+            },
+            {
+              "name": "7 — Знаки дополнительной информации",
+              "text": "Уточняют или ограничивают действие основного знака, например, расстояние до объекта (7.1.1). Применяются не отдельно, а вместе с другим знаком."
+            }
+          ]
+        },
+        {
+          "title": "Как запомнить знаки?",
+          "bullets": [
+            "Сначала выучите группы. Форма и цвет сразу показывают тип знака: треугольник с красной каймой — предупреждение, круг с красной каймой — запрет, синий круг — обязательное указание.",
+            "Запоминайте изображение вместе с названием. В экзаменационных вопросах знак обычно дают в виде картинки, поэтому важнее знать смысл, а не код.",
+            "Сравнивайте похожие знаки друг с другом, например, знаки «Остановка запрещена» и «Стоянка запрещена».",
+            "После каждой группы решайте вопросы со знаками и разбирайте свои ошибки."
+          ]
+        }
+      ],
+      "faqTitle": "Частые вопросы о дорожных знаках",
+      "faq": [
+        {
+          "q": "На сколько групп делятся дорожные знаки?",
+          "a": "На 7 групп: предупреждающие, знаки приоритета, запрещающие, предписывающие, информационно-указательные, знаки сервиса и знаки дополнительной информации. В нашем каталоге всего {count} знаков."
+        },
+        {
+          "q": "Что означает код знака?",
+          "a": "Первая цифра кода указывает на группу: 1 — предупреждающие, 2 — приоритета, 3 — запрещающие, 4 — предписывающие, 5 — информационно-указательные, 6 — сервиса, 7 — дополнительной информации. Следующие цифры — порядковый номер внутри группы."
+        },
+        {
+          "q": "Как знаки спрашивают на экзамене?",
+          "a": "В тестовом вопросе показывают изображение знака и спрашивают о его значении или о том, как действовать там, где он установлен."
+        },
+        {
+          "q": "На каких языках можно смотреть знаки?",
+          "a": "На узбекском (латиница и кириллица) и русском. Язык переключается кнопкой вверху сайта."
+        },
+        {
+          "q": "Можно ли решать тесты по знакам?",
+          "a": "Да. Среди вопросов в разделе «Решать тест» и в вариантах много вопросов, где знаки показаны на картинках."
+        }
+      ],
+      "linksTitle": "Полезные страницы",
+      "links": [
+        {
+          "href": "/test-ishlash",
+          "label": "Решать тест"
+        },
+        {
+          "href": "/variant",
+          "label": "Варианты"
+        },
+        {
+          "href": "/mavzuli",
+          "label": "Тесты по темам"
+        },
+        {
+          "href": "/yodlash-kerak",
+          "label": "Цифры, которые нужно запомнить"
+        }
+      ]
+    }
+  },
+  "testIshlash": {
+    "uz-lat": {
+      "sections": [
+        {
+          "title": "Nazariy imtihon qanday o'tadi?",
+          "paragraphs": [
+            "Haydovchilik guvohnomasi uchun nazariy imtihon kompyuterda test shaklida topshiriladi. Standart format: 20 ta savol, 25 daqiqa vaqt. O'tish uchun kamida 18 ta to'g'ri javob (90%) kerak, ya'ni ko'pi bilan 2 ta xatoga yo'l qo'yiladi.",
+            "AvtoSmart'dagi «20 savol» rejimi shu formatga mos: savollar bazadan tasodifiy tanlanadi, 25 daqiqalik taymer ishlaydi va natija 18/20 mezoni bo'yicha baholanadi."
+          ]
+        },
+        {
+          "title": "Qaysi rejimni tanlash kerak?",
+          "list": [
+            {
+              "name": "20 savol",
+              "text": "Imtihon formati. Tayyorgarlik oxirida, vaqt bilan sinab ko'rish uchun."
+            },
+            {
+              "name": "50 savol",
+              "text": "Mavzularni mustahkamlash uchun o'rtacha uzunlikdagi mashq."
+            },
+            {
+              "name": "75 va 100 savol",
+              "text": "Uzoq mashq: diqqat va chidamlilikni oshiradi."
+            }
+          ]
+        },
+        {
+          "title": "Testga qanday tayyorlanish kerak?",
+          "bullets": [
+            "Avval vaqtni o'lchamasdan, xotirjam ishlang va har bir xatoingizni tahlil qiling.",
+            "Keyin 20 savollik testni 25 daqiqada ishlab ko'ring va natijangizni yozib boring.",
+            "Yo'l belgilarini alohida o'rganing: buning uchun belgilar katalogidan foydalaning.",
+            "Natijangiz barqaror ravishda 18/20 va undan yuqori bo'lsa, imtihonga tayyor deb hisoblash mumkin."
+          ]
+        }
+      ],
+      "faqTitle": "Avto test haqida ko'p so'raladigan savollar",
+      "faq": [
+        {
+          "q": "Avto test ishlash bepulmi?",
+          "a": "Ha. Testni ro'yxatdan o'tmasdan boshlash mumkin. Bepul qismga test ishlash, 3 ta variant va 1009 ta savol kiradi. PRO obuna barcha 64 variant (1275 savol), mavzuli testlar, xatolar ustida ishlash, real imtihon, qiyin savollar va video darslikni ochadi."
+        },
+        {
+          "q": "Testda nechta savol bor va o'tish bali qancha?",
+          "a": "Imtihon formatida 20 ta savol va 25 daqiqa beriladi. O'tish uchun kamida 18 ta to'g'ri javob (90%) kerak."
+        },
+        {
+          "q": "50, 75 va 100 savollik testlar nima uchun kerak?",
+          "a": "Ular uzoq mashq uchun: ko'proq savol ishlab, bilimingizni sinaysiz. Rasmiy imtihon formati esa 20 savollik testga mos."
+        },
+        {
+          "q": "Savollar qaysi tillarda?",
+          "a": "O'zbek (lotin), o'zbek (kirill) va rus tillarida. Tilni test boshlashdan oldin tanlaysiz."
+        },
+        {
+          "q": "Telefonda ishlaydimi?",
+          "a": "Ha. Sayt telefon brauzerida ishlaydi. Android uchun Play Market'da «AvtoSmart» ilovasi, kompyuter uchun desktop ilova ham bor."
+        },
+        {
+          "q": "Natijalarim saqlanadimi?",
+          "a": "Natijalaringiz va xato qilgan savollaringiz saqlanishi uchun hisob oching: shunda ularni keyinroq qayta ko'rib chiqa olasiz."
+        },
+        {
+          "q": "Bu rasmiy imtihonmi?",
+          "a": "Yo'q. AvtoSmart — tayyorgarlik uchun mashq sayti. Rasmiy imtihon davlat tomonidan belgilangan tartibda topshiriladi."
+        }
+      ],
+      "linksTitle": "Foydali sahifalar",
+      "links": [
+        {
+          "href": "/belgilar",
+          "label": "Yo'l belgilari"
+        },
+        {
+          "href": "/variant",
+          "label": "Variantlar"
+        },
+        {
+          "href": "/mavzuli",
+          "label": "Mavzuli testlar"
+        },
+        {
+          "href": "/real-imtihon",
+          "label": "Real imtihon"
+        },
+        {
+          "href": "/prava-olish",
+          "label": "Prava olish"
+        }
+      ]
+    },
+    "uz": {
+      "sections": [
+        {
+          "title": "Назарий имтиҳон қандай ўтади?",
+          "paragraphs": [
+            "Ҳайдовчилик гувоҳномаси учун назарий имтиҳон компьютерда тест шаклида топширилади. Стандарт формат: 20 та савол, 25 дақиқа вақт. Ўтиш учун камида 18 та тўғри жавоб (90%) керак, яъни кўпи билан 2 та хатога йўл қўйилади.",
+            "AvtoSmart'даги «20 савол» режими шу форматга мос: саволлар базадан тасодифий танланади, 25 дақиқалик таймер ишлайди ва натижа 18/20 мезони бўйича баҳоланади."
+          ]
+        },
+        {
+          "title": "Қайси режимни танлаш керак?",
+          "list": [
+            {
+              "name": "20 савол",
+              "text": "Имтиҳон формати. Тайёргарлик охирида, вақт билан синаб кўриш учун."
+            },
+            {
+              "name": "50 савол",
+              "text": "Мавзуларни мустаҳкамлаш учун ўртача узунликдаги машқ."
+            },
+            {
+              "name": "75 ва 100 савол",
+              "text": "Узоқ машқ: диққат ва чидамлиликни оширади."
+            }
+          ]
+        },
+        {
+          "title": "Тестга қандай тайёрланиш керак?",
+          "bullets": [
+            "Аввал вақтни ўлчамасдан, хотиржам ишланг ва ҳар бир хатоингизни таҳлил қилинг.",
+            "Кейин 20 саволлик тестни 25 дақиқада ишлаб кўринг ва натижангизни ёзиб боринг.",
+            "Йўл белгиларини алоҳида ўрганинг: бунинг учун белгилар каталогидан фойдаланинг.",
+            "Натижангиз барқарор равишда 18/20 ва ундан юқори бўлса, имтиҳонга тайёр деб ҳисоблаш мумкин."
+          ]
+        }
+      ],
+      "faqTitle": "Авто тест ҳақида кўп сўраладиган саволлар",
+      "faq": [
+        {
+          "q": "Авто тест ишлаш бепулми?",
+          "a": "Ҳа. Тестни рўйхатдан ўтмасдан бошлаш мумкин. Бепул қисмга тест ишлаш, 3 та вариант ва 1009 та савол киради. PRO обуна барча 64 вариант (1275 савол), мавзули тестлар, хатолар устида ишлаш, реал имтиҳон, қийин саволлар ва видео дарсликни очади."
+        },
+        {
+          "q": "Тестда нечта савол бор ва ўтиш бали қанча?",
+          "a": "Имтиҳон форматида 20 та савол ва 25 дақиқа берилади. Ўтиш учун камида 18 та тўғри жавоб (90%) керак."
+        },
+        {
+          "q": "50, 75 ва 100 саволлик тестлар нима учун керак?",
+          "a": "Улар узоқ машқ учун: кўпроқ савол ишлаб, билимингизни синайсиз. Расмий имтиҳон формати эса 20 саволлик тестга мос."
+        },
+        {
+          "q": "Саволлар қайси тилларда?",
+          "a": "Ўзбек (лотин), ўзбек (кирилл) ва рус тилларида. Тилни тест бошлашдан олдин танлайсиз."
+        },
+        {
+          "q": "Телефонда ишлайдими?",
+          "a": "Ҳа. Сайт телефон браузерида ишлайди. Андроид учун Play Market'да «AvtoSmart» иловаси, компьютер учун десктоп илова ҳам бор."
+        },
+        {
+          "q": "Натижаларим сақланадими?",
+          "a": "Натижаларингиз ва хато қилган саволларингиз сақланиши учун ҳисоб очинг: шунда уларни кейинроқ қайта кўриб чиқа оласиз."
+        },
+        {
+          "q": "Бу расмий имтиҳонми?",
+          "a": "Йўқ. AvtoSmart — тайёргарлик учун машқ сайти. Расмий имтиҳон давлат томонидан белгиланган тартибда топширилади."
+        }
+      ],
+      "linksTitle": "Фойдали саҳифалар",
+      "links": [
+        {
+          "href": "/belgilar",
+          "label": "Йўл белгилари"
+        },
+        {
+          "href": "/variant",
+          "label": "Вариантлар"
+        },
+        {
+          "href": "/mavzuli",
+          "label": "Мавзули тестлар"
+        },
+        {
+          "href": "/real-imtihon",
+          "label": "Реал имтиҳон"
+        },
+        {
+          "href": "/prava-olish",
+          "label": "Права олиш"
+        }
+      ]
+    },
+    "ru": {
+      "sections": [
+        {
+          "title": "Как проходит теоретический экзамен?",
+          "paragraphs": [
+            "Теоретический экзамен на водительское удостоверение сдаётся на компьютере в формате теста. Стандартный формат: 20 вопросов и 25 минут. Чтобы сдать, нужно минимум 18 правильных ответов (90%), то есть допускается не более 2 ошибок.",
+            "Режим «20 вопросов» в AvtoSmart соответствует этому формату: вопросы выбираются из базы случайно, идёт таймер на 25 минут, а результат оценивается по критерию 18/20."
+          ]
+        },
+        {
+          "title": "Какой режим выбрать?",
+          "list": [
+            {
+              "name": "20 вопросов",
+              "text": "Экзаменационный формат. Подходит в конце подготовки, чтобы проверить себя по времени."
+            },
+            {
+              "name": "50 вопросов",
+              "text": "Практика средней длины для закрепления тем."
+            },
+            {
+              "name": "75 и 100 вопросов",
+              "text": "Длинная практика: тренирует внимание и выносливость."
+            }
+          ]
+        },
+        {
+          "title": "Как готовиться к тесту?",
+          "bullets": [
+            "Сначала решайте спокойно, без отсчёта времени, и разбирайте каждую ошибку.",
+            "Затем пройдите тест из 20 вопросов за 25 минут и записывайте результат.",
+            "Дорожные знаки изучайте отдельно: для этого есть каталог знаков.",
+            "Если результат стабильно 18/20 и выше, можно считать, что вы готовы к экзамену."
+          ]
+        }
+      ],
+      "faqTitle": "Частые вопросы об авто-тесте",
+      "faq": [
+        {
+          "q": "Бесплатно ли решать авто-тест?",
+          "a": "Да. Тест можно начать без регистрации. В бесплатную часть входят решение тестов, 3 варианта и 1009 вопросов. PRO-подписка открывает все 64 варианта (1275 вопросов), тесты по темам, работу над ошибками, реальный экзамен, сложные вопросы и видеоуроки."
+        },
+        {
+          "q": "Сколько вопросов в тесте и какой проходной балл?",
+          "a": "В экзаменационном формате даётся 20 вопросов и 25 минут. Чтобы сдать, нужно минимум 18 правильных ответов (90%)."
+        },
+        {
+          "q": "Зачем тесты из 50, 75 и 100 вопросов?",
+          "a": "Они нужны для длинной практики: вы решаете больше вопросов и проверяете знания. Формат реального экзамена соответствует тесту из 20 вопросов."
+        },
+        {
+          "q": "На каких языках вопросы?",
+          "a": "На узбекском (латиница), узбекском (кириллица) и русском. Язык выбирается перед началом теста."
+        },
+        {
+          "q": "Работает ли на телефоне?",
+          "a": "Да. Сайт работает в браузере телефона. Для Android есть приложение «AvtoSmart» в Play Market, для компьютера — десктопное приложение."
+        },
+        {
+          "q": "Сохраняются ли мои результаты?",
+          "a": "Чтобы результаты и вопросы с ошибками сохранялись, создайте аккаунт: так вы сможете вернуться к ним позже."
+        },
+        {
+          "q": "Это официальный экзамен?",
+          "a": "Нет. AvtoSmart — сайт для тренировки. Официальный экзамен сдаётся в порядке, установленном государством."
+        }
+      ],
+      "linksTitle": "Полезные страницы",
+      "links": [
+        {
+          "href": "/belgilar",
+          "label": "Дорожные знаки"
+        },
+        {
+          "href": "/variant",
+          "label": "Варианты"
+        },
+        {
+          "href": "/mavzuli",
+          "label": "Тесты по темам"
+        },
+        {
+          "href": "/real-imtihon",
+          "label": "Реальный экзамен"
+        },
+        {
+          "href": "/prava-olish",
+          "label": "Получение прав"
+        }
+      ]
+    }
+  }
+}

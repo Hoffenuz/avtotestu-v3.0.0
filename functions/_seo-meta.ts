@@ -48,18 +48,18 @@ export const SEO_META: Record<string, Record<string, SeoMeta>> = {
   },
   "/belgilar": {
     "uz-lat": {
-      "title": "Yo'l belgilari 2026 — rasm va izoh",
-      "description": "O'zbekiston YHQ yo'l belgilarining to'liq ro'yxati: ogohlantiruvchi, taqiqlovchi, buyuruvchi va axborot belgilari — rasm va izoh bilan.",
+      "title": "Yo'l belgilari 2026 — 7 guruh, 269 ta belgi rasmi bilan",
+      "description": "O'zbekiston yo'l belgilarining to'liq katalogi: 7 guruh, 269 ta belgi rasm, nomi va kodi bilan. Belgilarni tez eslab qolish usullari va savol-javoblar.",
       "keywords": "yo'l belgilari 2026, ogohlantiruvchi belgilar, taqiqlovchi belgilar, buyuruvchi belgilar, yo'l chiziqlari"
     },
     "uz": {
-      "title": "Йўл белгилари 2026 — расм ва изоҳ",
-      "description": "Ўзбекистон ЙҲҚ йўл белгиларининг тўлиқ рўйхати: огоҳлантирувчи, тақиқловчи, буюрувчи ва ахборот белгилари — расм ва изоҳ билан.",
+      "title": "Йўл белгилари 2026 — 7 гуруҳ, 269 та белги расми билан",
+      "description": "Ўзбекистон йўл белгиларининг тўлиқ каталоги: 7 гуруҳ, 269 та белги расм, номи ва коди билан. Белгиларни тез эслаб қолиш усуллари ва савол-жавоблар.",
       "keywords": "йўл белгилари 2026, огоҳлантирувчи белгилар, тақиқловчи белгилар"
     },
     "ru": {
-      "title": "Дорожные знаки 2026 — с картинками",
-      "description": "Полный список дорожных знаков Узбекистана: предупреждающие, запрещающие, предписывающие и информационные — с картинками и пояснением.",
+      "title": "Дорожные знаки 2026 — 7 групп, 269 знаков с картинками",
+      "description": "Полный каталог дорожных знаков Узбекистана: 7 групп, 269 знаков с картинкой, названием и кодом. Как быстро запомнить знаки, вопросы и ответы.",
       "keywords": "дорожные знаки 2026, предупреждающие знаки, запрещающие знаки"
     }
   },
@@ -303,18 +303,18 @@ export const SEO_META: Record<string, Record<string, SeoMeta>> = {
   },
   "/test-ishlash": {
     "uz-lat": {
-      "title": "Avto test ishlash 2026 — 20/50 savol",
-      "description": "Avto test online 2026: 1250+ YHQ savol. 20 yoki 50 ta tasodifiy savol, 25 daqiqa, 18/20 o'tish bali. Bepul, ro'yxatsiz — haqiqiy imtihon formatida.",
+      "title": "Avto test ishlash 2026 — 20 savol, 25 daqiqa, 18/20",
+      "description": "Avto test online 2026: 20 ta tasodifiy YHQ savoli, 25 daqiqa, o'tish uchun 18 ta to'g'ri javob. Ro'yxatsiz boshlang — 1275 savollik baza, uch tilda.",
       "keywords": "test ishlash, onlayn test, prava test, YHQ savollari, avtotest, avtomaktab test, avto test ishlash 2026"
     },
     "uz": {
-      "title": "Авто тест ишлаш 2026 — 20/50 савол",
-      "description": "Авто тест онлайн 2026: 1250+ ЙҲҚ савол. 20 ёки 50 та тасодифий савол, 25 дақиқа, 18/20 ўтиш бали. Бепул, рўйхатсиз — ҳақиқий имтиҳон форматида.",
+      "title": "Авто тест ишлаш 2026 — 20 савол, 25 дақиқа, 18/20",
+      "description": "Авто тест онлайн 2026: 20 та тасодифий ЙҲҚ саволи, 25 дақиқа, ўтиш учун 18 та тўғри жавоб. Рўйхатсиз бошланг — 1275 саволлик база, уч тилда.",
       "keywords": "тест ишлаш, онлайн тест, права тест, ЙҲҚ саволлари, авто тест, автомактаб тест, авто тест ишлаш 2026"
     },
     "ru": {
-      "title": "Тесты ПДД онлайн 2026 — 20/50 вопросов",
-      "description": "Тесты ПДД онлайн 2026: более 1250 вопросов. 20 или 50 вопросов, 25 минут, проходной балл 18/20. Бесплатно и без регистрации.",
+      "title": "Тесты ПДД онлайн 2026 — 20 вопросов, 25 минут, 18/20",
+      "description": "Тесты ПДД онлайн 2026: 20 случайных вопросов, 25 минут, для сдачи нужно 18 правильных ответов. Начните без регистрации — база из 1275 вопросов на трёх языках.",
       "keywords": "тесты ПДД, тесты онлайн, тесты на права, билеты ПДД, ПДД Узбекистан, экзамен ПДД 2026"
     }
   },

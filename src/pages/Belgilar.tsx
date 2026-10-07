@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { SEO } from "@/components/SEO";
+import { SeoGuide } from "@/components/SeoGuide";
 import { Card, CardContent } from "@/components/ui/card";
 import { X, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -269,6 +270,19 @@ export default function Belgilar() {
           )}
         </div>
       </section>
+
+      {/*
+        Tushuntirish matni va savol-javoblar — Google'ga beriladigan statik
+        nusxadagi bilan BIR XIL (`src/data/seo/guides.json`). Bitta belgi
+        sahifasida (`/belgilar/{slug}`) ko'rsatilmaydi: u alohida manzil.
+      */}
+      {!loading && !signSlug && groups.length > 0 && (
+        <section className="pb-12 bg-background">
+          <div className="max-w-4xl mx-auto px-4">
+            <SeoGuide page="belgilar" vars={{ count: totalSigns, groups: groups.length }} />
+          </div>
+        </section>
+      )}
 
       {modal.open && (
         <div

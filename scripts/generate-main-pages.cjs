@@ -15,6 +15,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const { signSlug } = require("./lib/seo-slug.cjs");
 
 const ROOT = path.join(__dirname, "..");
 const STATIC_SRC = path.join(ROOT, "scripts/seo-templates");
@@ -123,6 +124,152 @@ function syncTitleAndDescription(html, route) {
     );
 }
 
+/* ---------------------------------------------------------------------------
+ * Dinamik bo'laklar: tushuntirish matni, FAQ sxemasi, belgilar katalogi.
+ *
+ * Matn `src/data/seo/guides.json` dan olinadi — React sahifasi (SeoGuide.tsx)
+ * ham aynan shu fayldan. Ikki joyda alohida yozilsa, bot bir narsani,
+ * foydalanuvchi boshqasini ko'rib qoladi (Google buni yaxshi ko'rmaydi).
+ *
+ * Belgilar katalogi `public/data/belgilar.json` dan yasaladi: ilgari
+ * shablonda qo'lda yozilgan, saytning o'z ma'lumotiga mos kelmaydigan
+ * ro'yxat (noto'g'ri guruh raqamlari, mavjud bo'lmagan nomlar) turardi.
+ * ------------------------------------------------------------------------- */
+const GUIDE_PAGE = { "test-ishlash": "testIshlash", belgilar: "belgilar" };
+
+const GUIDES = JSON.parse(fs.readFileSync(path.join(ROOT, "src/data/seo/guides.json"), "utf-8"));
+const SIGN_GROUPS = JSON.parse(fs.readFileSync(path.join(PUBLIC, "data/belgilar.json"), "utf-8"));
+const TOTAL_SIGNS = SIGN_GROUPS.reduce((n, g) => n + g.items.length, 0);
+
+function esc(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function guideVars() {
+  return { count: TOTAL_SIGNS, groups: SIGN_GROUPS.length };
+}
+
+function fillVars(text) {
+  const vars = guideVars();
+  return String(text).replace(/\{(\w+)\}/g, (_, k) => String(vars[k] ?? ""));
+}
+
+function renderGuideHtml(page) {
+  const g = GUIDES[page]["uz-lat"];
+  const out = ['<div class="guide">'];
+  for (const sec of g.sections) {
+    out.push(`<h2>${esc(sec.title)}</h2>`);
+    for (const p of sec.paragraphs || []) out.push(`<p>${esc(fillVars(p))}</p>`);
+    for (const it of sec.list || []) {
+      out.push(`<h3>${esc(it.name)}</h3>`, `<p>${esc(fillVars(it.text))}</p>`);
+    }
+    if (sec.bullets) out.push(`<ul>${sec.bullets.map((b) => `<li>${esc(fillVars(b))}</li>`).join("")}</ul>`);
+  }
+  out.push(`<h2>${esc(g.faqTitle)}</h2>`);
+  for (const f of g.faq) {
+    out.push(`<details><summary>${esc(fillVars(f.q))}</summary><p>${esc(fillVars(f.a))}</p></details>`);
+  }
+  out.push(`<h2>${esc(g.linksTitle)}</h2>`);
+  out.push(`<ul class="guide-links">${g.links.map((l) => `<li><a href="${l.href}">${esc(l.label)}</a></li>`).join("")}</ul>`);
+  out.push("</div>");
+  return out.join("\n");
+}
+
+function renderFaqJsonLd(page) {
+  const g = GUIDES[page]["uz-lat"];
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: g.faq.map((f) => ({
+      "@type": "Question",
+      name: fillVars(f.q),
+      acceptedAnswer: { "@type": "Answer", text: fillVars(f.a) },
+    })),
+  };
+  return `<script type="application/ld+json">\n${JSON.stringify(data, null, 2)}\n  </script>`;
+}
+
+/** Faqat alohida sahifasi BOR belgilarga havola qo'yiladi (singan havola bo'lmasin). */
+function publishedSignSlugs() {
+  const dir = path.join(PUBLIC, "_seo", "belgilar");
+  if (!fs.existsSync(dir)) return new Set();
+  return new Set(
+    fs.readdirSync(dir).filter((d) => fs.existsSync(path.join(dir, d, "index.html"))),
+  );
+}
+
+function renderSignCatalogHtml() {
+  const published = publishedSignSlugs();
+  const parts = ['<div class="categories">'];
+  for (const group of SIGN_GROUPS) {
+    parts.push(
+      '<article class="category">',
+      `<h2>${esc(group.title.uz_lat)}<span class="group-count">${group.items.length} ta belgi</span></h2>`,
+      '<ul class="signs-list">',
+    );
+    for (const item of group.items) {
+      const title = item.title.uz_lat;
+      const img = `<img src="${esc(item.src)}" alt="${esc(title)}" loading="lazy" width="48" height="48">`;
+      const slug = item.code ? signSlug(item.code, title) : "";
+      const inner = `${img}<span>${esc(title)}</span>`;
+      parts.push(
+        published.has(slug)
+          ? `<li><a href="/belgilar/${esc(slug)}">${inner}</a></li>`
+          : `<li><span class="sign">${inner}</span></li>`,
+      );
+    }
+    parts.push("</ul>", "</article>");
+  }
+  parts.push("</div>");
+  return parts.join("\n");
+}
+
+function renderItemListJsonLd() {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "O'zbekiston yo'l belgilari",
+    description: "Yo'l belgilarining to'liq katalogi",
+    numberOfItems: TOTAL_SIGNS,
+    itemListElement: SIGN_GROUPS.map((g, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: `${g.title.uz_lat} (${g.items.length} ta)`,
+    })),
+  };
+  return `<script type="application/ld+json">\n${JSON.stringify(data, null, 2)}\n  </script>`;
+}
+
+/** Belgilangan o'rinni almashtiradi; o'rin topilmasa XATO beradi (jim qolmaydi). */
+function replaceMarker(html, marker, value, route) {
+  if (!html.includes(marker)) {
+    console.error(`❌ ${route}: shablonda ${marker} yo'q`);
+    process.exit(1);
+  }
+  return html.split(marker).join(value);
+}
+
+function injectDynamic(html, route) {
+  const page = GUIDE_PAGE[route];
+  if (!page) return html;
+  html = replaceMarker(html, "<!--SEO_GUIDE-->", renderGuideHtml(page), route);
+  if (route === "test-ishlash") {
+    html = replaceMarker(html, "<!--FAQ_JSONLD-->", renderFaqJsonLd(page), route);
+  }
+  if (route === "belgilar") {
+    html = replaceMarker(html, "<!--SIGN_CATALOG-->", renderSignCatalogHtml(), route);
+    html = replaceMarker(html, "<!--ITEMLIST_JSONLD-->", renderItemListJsonLd(), route);
+    html = replaceMarker(html, "<!--SIGN_COUNT-->", String(TOTAL_SIGNS), route);
+    // Belgilar sahifasining FAQ sxemasi ham guides.json dan
+    html = html.replace("</head>", `  ${renderFaqJsonLd(page)}\n</head>`);
+  }
+  return html;
+}
+
 function copyRoutePages() {
   for (const [file, route] of Object.entries(ROUTE_MAP)) {
     const src = path.join(STATIC_SRC, file);
@@ -131,6 +278,7 @@ function copyRoutePages() {
       continue;
     }
     let html = applyContentFixes(fs.readFileSync(src, "utf-8"));
+    html = injectDynamic(html, route);
     html = syncTitleAndDescription(html, route);
     const outDir = path.join(PUBLIC, "_seo", route);
     fs.mkdirSync(outDir, { recursive: true });
