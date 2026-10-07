@@ -19,21 +19,39 @@ export const useTestResults = () => {
     if (!user) return;
 
     try {
-      let query = supabase
-        .from('test_results')
-        .select('variant, correct_answers, total_questions')
-        .eq('user_id', user.id)
-        .order('correct_answers', { ascending: false })
-        .limit(100);
-      if (signal) query = query.abortSignal(signal);
-      const { data, error } = await query;
-
-      if (error) throw error;
-      if (signal?.aborted) return;
+      /*
+        Barcha urinishlar sahifalab o'qiladi. Ilgari `.limit(100)` edi: 100 tadan
+        ko'p urinishi bor foydalanuvchida eng yuqori ball bo'yicha faqat 100 qator
+        olinib, qolgan variantlar "yechilmagan" bo'lib ko'rinardi (natija bazada
+        bor, lekin ekranda yo'q).
+      */
+      const PAGE = 1000;
+      const data: { variant: number; correct_answers: number; total_questions: number }[] = [];
+      for (let from = 0; ; from += PAGE) {
+        let query = supabase
+          .from('test_results')
+          .select('variant, correct_answers, total_questions')
+          .eq('user_id', user.id)
+          .order('completed_at', { ascending: false })
+          .order('id', { ascending: false })
+          .range(from, from + PAGE - 1);
+        if (signal) query = query.abortSignal(signal);
+        const { data: page, error } = await query;
+        if (error) throw error;
+        if (signal?.aborted) return;
+        data.push(...(page ?? []));
+        if (!page || page.length < PAGE) break;
+      }
 
       const results: Record<number, VariantResult> = {};
-      data?.forEach((result) => {
-        if (!results[result.variant] || results[result.variant].bestScore < result.correct_answers) {
+      data.forEach((result) => {
+        // Foiz bo'yicha: eski formatdagi (62 savollik) qatorlar shu variant raqamida bor,
+        // xom ball bo'yicha solishtirilsa 19/62 qatori 19/20 ni almashtirib qo'yishi mumkin.
+        const prev = results[result.variant];
+        if (
+          !prev ||
+          prev.bestScore / prev.totalQuestions < result.correct_answers / result.total_questions
+        ) {
           results[result.variant] = {
             variant:        result.variant,
             bestScore:      result.correct_answers,
