@@ -21,7 +21,7 @@
 
 const fs = require("fs");
 const path = require("path");
-const { signSlug, extractSignCodes } = require("./lib/seo-slug.cjs");
+const { signSlug, extractNamedSignCodes } = require("./lib/seo-slug.cjs");
 
 const ROOT = path.join(__dirname, "..");
 const V59_PATH = path.join(ROOT, "public/data/variants/v59.json");
@@ -167,14 +167,23 @@ function loadSignMap() {
 /**
  * Savol -> belgi kodlari. Kodlar IZOHDAN olinadi (`barcha` faylidan),
  * lekin izohning O'ZI hech qayerda chop etilmaydi.
+ *
+ * Faqat belgi NOMI bilan birga eslatilgan kod olinadi (`3.27 «To'xtash
+ * taqiqlangan»`). Ilgari izohdagi har qanday raqam olinardi, shuning uchun
+ * YHQ bandi ("3.1-bandiga") yoki yo'l chizig'i ("1.1 chizig'i") ham belgi
+ * deb hisoblanib, belgi sahifasida mavzuga aloqasiz savollar chiqardi.
  */
-function loadSignCodesByQuestion(signCodes) {
+function loadSignCodesByQuestion(signMap) {
+  /* Nomni kodsiz taqqoslaymiz: katalogda nom "3.27 To'xtash..." ko'rinishida. */
+  const named = new Map(
+    [...signMap].map(([code, sign]) => [code, { title: sign.title.replace(/^\s*[\d.]+\s*/, "") }]),
+  );
   const byId = new Map();
   try {
     const all = JSON.parse(fs.readFileSync(ALL_PATH, "utf-8"));
     for (const item of all) {
       const izoh = item.izoh?.uz_lat || "";
-      const codes = extractSignCodes(izoh, signCodes);
+      const codes = extractNamedSignCodes(izoh, named);
       if (codes.length) byId.set(item.task_info.global_id, codes);
     }
   } catch {
@@ -193,8 +202,7 @@ function loadSignCodesByQuestion(signCodes) {
 function parseFreeQuestions(seedSlugs) {
   const raw = JSON.parse(fs.readFileSync(FREE_PATH, "utf-8"));
   const signMap = loadSignMap();
-  const signCodes = new Set(signMap.keys());
-  const codesByQuestion = loadSignCodesByQuestion(signCodes);
+  const codesByQuestion = loadSignCodesByQuestion(signMap);
 
   const sorted = [...raw].sort((a, b) =>
     String(a.task_info.global_id).localeCompare(String(b.task_info.global_id)),
