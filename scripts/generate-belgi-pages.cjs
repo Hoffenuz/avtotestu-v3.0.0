@@ -246,14 +246,37 @@ const published = loadPublishedQuestions();
 const byCode = questionsBySignCode(published);
 
 /* Faqat savoli bor belgilar — aks holda sahifa yupqa bo'lardi. */
-const withQuestions = allSigns.filter(
-  (s) => (byCode.get(s.code) || []).length >= MIN_QUESTIONS,
-);
+const seenSlugs = new Set();
+const withQuestions = allSigns.filter((s) => {
+  if ((byCode.get(s.code) || []).length < MIN_QUESTIONS) return false;
+  // Katalogda bir xil kod+nom takrorlanishi mumkin (masalan, 5.8.2) — bitta manzil
+  if (seenSlugs.has(s.slug)) return false;
+  seenSlugs.add(s.slug);
+  return true;
+});
 
 const byGroup = new Map();
 for (const s of withQuestions) {
   if (!byGroup.has(s.groupTitle)) byGroup.set(s.groupTitle, []);
   byGroup.get(s.groupTitle).push(s);
+}
+
+/*
+  Eskirgan sahifalarni o'chiramiz: belgi savolsiz qolgan bo'lsa (bog'lanish
+  aniqlashtirilgach) uning eski nusxasi mavzuga aloqasiz savollar bilan
+  turib qolmasin. Faqat shu papkaning ichidagi, bu skript yasagan
+  `{slug}/index.html` lar o'chiriladi.
+*/
+const liveSlugs = new Set(withQuestions.map((s) => s.slug));
+let removed = 0;
+if (fs.existsSync(SEO_BELGI_DIR)) {
+  for (const d of fs.readdirSync(SEO_BELGI_DIR)) {
+    const page = path.join(SEO_BELGI_DIR, d, "index.html");
+    if (!liveSlugs.has(d) && fs.existsSync(page)) {
+      fs.rmSync(path.join(SEO_BELGI_DIR, d), { recursive: true, force: true });
+      removed++;
+    }
+  }
 }
 
 for (const sign of withQuestions) {
@@ -286,5 +309,6 @@ appendToSitemap(withQuestions);
 console.log(
   `✅ ${withQuestions.length} ta belgi sahifasi (jami belgilar: ${allSigns.length}, savolsizlari o'tkazib yuborildi)`,
 );
+if (removed) console.log(`🗑️  ${removed} ta eskirgan belgi sahifasi o'chirildi`);
 console.log(`✅ Belgi indeksi: public/data/belgi-index.json`);
 console.log(`✅ sitemap.xml ga belgi manzillari qo'shildi`);
