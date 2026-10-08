@@ -160,7 +160,8 @@ function fillVars(text) {
 
 function renderGuideHtml(page) {
   const g = GUIDES[page]["uz-lat"];
-  const out = ['<div class="guide">'];
+  // Sahifadagi (SeoGuide.tsx) bilan bir xil: matn yopiq <details> ichida.
+  const out = [`<details class="guide-wrap"><summary>${esc(g.moreLabel)}</summary>`, '<div class="guide">'];
   for (const sec of g.sections) {
     out.push(`<h2>${esc(sec.title)}</h2>`);
     for (const p of sec.paragraphs || []) out.push(`<p>${esc(fillVars(p))}</p>`);
@@ -175,7 +176,7 @@ function renderGuideHtml(page) {
   }
   out.push(`<h2>${esc(g.linksTitle)}</h2>`);
   out.push(`<ul class="guide-links">${g.links.map((l) => `<li><a href="${l.href}">${esc(l.label)}</a></li>`).join("")}</ul>`);
-  out.push("</div>");
+  out.push("</div>", "</details>");
   return out.join("\n");
 }
 

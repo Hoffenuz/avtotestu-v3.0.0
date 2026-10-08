@@ -13,6 +13,12 @@ import { buildLangPath } from "@/lib/langUrl";
   buni "foydalanuvchiga boshqa narsa ko'rsatish" deb hisoblaydi. Shuning
   uchun matn bitta faylda (`src/data/seo/guides.json`) turadi va ikkala
   tomon ham uni o'sha yerdan oladi — qo'lda ikki joyda yozilmaydi.
+
+  FOYDALANUVCHIGA YOPIQ HOLDA: matn DOM'da bor (Google o'qiydi), lekin
+  sahifaning pastida bitta ingichka qator bo'lib turadi va faqat bosganda
+  ochiladi. Test/belgilar — birinchi ekrandagi asosiy ish; uzun matn
+  foydalanuvchini chalg'itmasligi kerak. Matnni butunlay yashirmaymiz:
+  botga ko'rinib, odamga umuman ko'rinmaydigan matn Google qoidasiga zid.
 */
 
 export type GuidePage = "belgilar" | "testIshlash";
@@ -25,6 +31,7 @@ interface GuideSection {
 }
 
 interface Guide {
+  moreLabel: string;
   sections: GuideSection[];
   faqTitle: string;
   faq: { q: string; a: string }[];
@@ -49,10 +56,17 @@ export function SeoGuide({ page, vars, className = "" }: SeoGuideProps) {
   const fill = (s: string) => s.replace(/\{(\w+)\}/g, (_, k: string) => String(vars?.[k] ?? ""));
 
   return (
-    <section
-      className={`rounded-3xl border border-border bg-card p-5 sm:p-8 text-[15px] leading-relaxed text-foreground/90 ${className}`}
+    <details
+      className={`group/guide rounded-2xl border border-border bg-card/60 text-[15px] leading-relaxed text-foreground/90 ${className}`}
     >
-      <div className="flex flex-col gap-8">
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-3 text-sm font-medium text-muted-foreground hover:text-foreground [&::-webkit-details-marker]:hidden">
+        <span>{guide.moreLabel}</span>
+        <ChevronDown
+          className="h-4 w-4 shrink-0 transition-transform group-open/guide:rotate-180"
+          aria-hidden="true"
+        />
+      </summary>
+      <div className="flex flex-col gap-8 px-5 pb-6 pt-3 sm:px-8 sm:pb-8">
         {guide.sections.map((section) => (
           <div key={section.title}>
             <h2 className="text-lg sm:text-xl font-bold text-foreground mb-3">{section.title}</h2>
@@ -118,7 +132,7 @@ export function SeoGuide({ page, vars, className = "" }: SeoGuideProps) {
           </ul>
         </nav>
       </div>
-    </section>
+    </details>
   );
 }
 

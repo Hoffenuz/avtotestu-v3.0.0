@@ -90,7 +90,9 @@
     .group-count { display: inline-block; margin-left: 8px; padding: 2px 12px; border-radius: 999px; background: #ebf4ff; color: #1a365d; font-size: 0.85rem; font-weight: 500; vertical-align: middle; }
     .signs-list a, .signs-list .sign { display: flex; align-items: center; gap: 10px; color: #2d3748; text-decoration: none; }
     .signs-list img { width: 48px; height: 48px; object-fit: contain; flex-shrink: 0; }
-    .guide { background: white; padding: 32px; border-radius: 16px; margin-top: 32px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+    .guide-wrap { margin-top: 32px; }
+    .guide-wrap > summary { cursor: pointer; color: #718096; font-size: 0.9rem; padding: 10px 4px; }
+    .guide { background: white; padding: 32px; border-radius: 16px; margin-top: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
     .guide h2 { color: #1a365d; margin: 28px 0 12px; }
     .guide h2:first-child { margin-top: 0; }
     .guide h3 { color: #1a365d; margin: 12px 0 4px; font-size: 1.05rem; }
@@ -481,7 +483,8 @@
 </article>
 </div>
 
-    <div class="guide">
+    <details class="guide-wrap"><summary>Yo'l belgilari haqida batafsil va savol-javoblar</summary>
+<div class="guide">
 <h2>Yo'l belgilari qanday guruhlanadi?</h2>
 <p>O'zbekiston yo'l harakati qoidalarida (YHQ) yo'l belgilari 7 ta guruhga bo'linadi. Belgi kodidagi birinchi raqam uning guruhini bildiradi: masalan, 3.27 — taqiqlovchi belgilar guruhidagi &quot;To'xtash taqiqlangan&quot; belgisi.</p>
 <p>Bu sahifada 269 ta belgi rasmi, nomi va kodi bilan jamlangan. Kerakli belgini nomi yoki kodi bo'yicha qidirish mumkin.</p>
@@ -510,6 +513,7 @@
 <h2>Foydali sahifalar</h2>
 <ul class="guide-links"><li><a href="/test-ishlash">Test ishlash</a></li><li><a href="/variant">Variantlar</a></li><li><a href="/mavzuli">Mavzuli testlar</a></li><li><a href="/yodlash-kerak">Yodlash kerak raqamlar</a></li></ul>
 </div>
+</details>
   </main>
 
   <footer class="footer">

@@ -126,7 +126,9 @@
     .step::before { counter-increment: step; content: counter(step); background: #1a365d; color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; flex-shrink: 0; }
     .step-content h4 { color: #1a365d; margin-bottom: 4px; }
     .step-content p { color: #718096; }
-    .guide { background: white; padding: 32px; border-radius: 16px; margin-top: 32px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+    .guide-wrap { margin-top: 32px; }
+    .guide-wrap > summary { cursor: pointer; color: #718096; font-size: 0.9rem; padding: 10px 4px; }
+    .guide { background: white; padding: 32px; border-radius: 16px; margin-top: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
     .guide h2 { color: #1a365d; margin: 28px 0 12px; }
     .guide h2:first-child { margin-top: 0; }
     .guide h3 { color: #1a365d; margin: 12px 0 4px; font-size: 1.05rem; }
@@ -217,7 +219,8 @@
       </div>
     </div>
 
-    <div class="guide">
+    <details class="guide-wrap"><summary>Imtihon haqida batafsil va savol-javoblar</summary>
+<div class="guide">
 <h2>Nazariy imtihon qanday o'tadi?</h2>
 <p>Haydovchilik guvohnomasi uchun nazariy imtihon kompyuterda test shaklida topshiriladi. Standart format: 20 ta savol, 25 daqiqa vaqt. O'tish uchun kamida 18 ta to'g'ri javob (90%) kerak, ya'ni ko'pi bilan 2 ta xatoga yo'l qo'yiladi.</p>
 <p>AvtoSmart'dagi «20 savol» rejimi shu formatga mos: savollar bazadan tasodifiy tanlanadi, 25 daqiqalik taymer ishlaydi va natija 18/20 mezoni bo'yicha baholanadi.</p>
@@ -241,6 +244,7 @@
 <h2>Foydali sahifalar</h2>
 <ul class="guide-links"><li><a href="/belgilar">Yo'l belgilari</a></li><li><a href="/variant">Variantlar</a></li><li><a href="/mavzuli">Mavzuli testlar</a></li><li><a href="/real-imtihon">Real imtihon</a></li><li><a href="/prava-olish">Prava olish</a></li></ul>
 </div>
+</details>
   </section>
 
   <footer class="footer">
