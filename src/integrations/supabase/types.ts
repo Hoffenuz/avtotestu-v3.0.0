@@ -368,6 +368,10 @@ export type Database = {
           tariff_end_date: string | null
           updated_at: string
           username: string | null
+          exam_date: string | null
+          phone: string | null
+          telegram_id: number | null
+          telegram_username: string | null
         }
         Insert: {
           avatar_url?: string | null
@@ -379,6 +383,10 @@ export type Database = {
           tariff_end_date?: string | null
           updated_at?: string
           username?: string | null
+          exam_date?: string | null
+          phone?: string | null
+          telegram_id?: number | null
+          telegram_username?: string | null
         }
         Update: {
           avatar_url?: string | null
@@ -390,6 +398,10 @@ export type Database = {
           tariff_end_date?: string | null
           updated_at?: string
           username?: string | null
+          exam_date?: string | null
+          phone?: string | null
+          telegram_id?: number | null
+          telegram_username?: string | null
         }
         Relationships: []
       }

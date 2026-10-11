@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import type { Database } from './types';
+import { createClockSkewSafeFetch } from '@/lib/clockSkewSafeFetch';
 
 const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
 const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
@@ -41,4 +42,7 @@ export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABL
     autoRefreshToken: true,
     detectSessionInUrl: true,
   },
+  // Qurilma soati noto'g'ri bo'lsa ham sessiya cheksiz yangilanmasin
+  // (sabab — clockSkewSafeFetch.ts ichida).
+  global: { fetch: createClockSkewSafeFetch() },
 });
