@@ -6,6 +6,7 @@ import { detectLangFromWindow } from "@/lib/langUrl";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { RouteTracker } from "@/components/RouteTracker";
+import { StaleBuildGuard } from "@/components/StaleBuildGuard";
 import { Suspense, Component, ReactNode } from "react";
 import { lazyWithRetry } from "@/lib/lazyWithRetry";
 import Home from "./pages/Home";
@@ -136,6 +137,7 @@ const App = () => {
   */}
   <BrowserRouter basename={detectLangFromWindow().prefix || undefined}>
     <RouteTracker />
+    <StaleBuildGuard />
     <AuthProvider>
       <LanguageProvider>
         <TooltipProvider>

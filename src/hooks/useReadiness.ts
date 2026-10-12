@@ -213,8 +213,7 @@ export function useReadiness() {
       if (!user) return false;
       const { error } = await supabase
         .from("profiles")
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any -- `exam_date` hali generatsiya qilingan turlarda yo'q
-        .update({ exam_date: value } as any)
+        .update({ exam_date: value })
         .eq("id", user.id);
       if (error) {
         if (!import.meta.env.PROD) console.error("[useReadiness] saveExamDate", error);
