@@ -108,3 +108,80 @@ describe('supabase-js bilan (soat 1 soat oldinda)', () => {
     expect(await countRefreshes(true)).toBe(1);
   });
 });
+
+describe('soat ORQADA: muddati o\'tgan token bilan qotib qolmaslik', () => {
+  it('server "JWT expired" desa bitta majburiy refresh, keyin yangi token ishlatiladi', async () => {
+    const { createClient } = await import('@supabase/supabase-js');
+    const serverNowSec = Math.floor(Date.now() / 1000);
+    const realNow = Date.now.bind(Date);
+    // Qurilma soati 3 kun orqada
+    vi.spyOn(Date, 'now').mockImplementation(() => realNow() - 3 * 86400 * 1000);
+
+    let refreshes = 0;
+    const tokensSeen: string[] = [];
+    const server = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = typeof input === 'string' ? input : input instanceof URL ? input.href : input.url;
+      if (url.includes('grant_type=refresh_token')) {
+        refreshes++;
+        return jsonResponse({
+          access_token: 'fresh', refresh_token: 'r1', token_type: 'bearer',
+          expires_in: 3600, expires_at: serverNowSec + 3600, user: { id: 'u1', aud: 'authenticated' },
+        });
+      }
+      const auth = new Headers(init?.headers).get('Authorization') ?? '';
+      tokensSeen.push(auth);
+      if (auth === 'Bearer stale') {
+        return new Response(JSON.stringify({ code: 'PGRST303', message: 'JWT expired' }), {
+          status: 401, headers: { 'content-type': 'application/json' },
+        });
+      }
+      return jsonResponse([{ id: 'u1' }]);
+    });
+
+    const mem = new Map<string, string>();
+    const storage = {
+      getItem: (k: string) => mem.get(k) ?? null,
+      setItem: (k: string, v: string) => void mem.set(k, v),
+      removeItem: (k: string) => void mem.delete(k),
+    };
+    // Eski kod saqlagan sessiya: expires_at SERVER soati bo'yicha, 1 soat oldin tugagan
+    storage.setItem('sk2', JSON.stringify({
+      access_token: 'stale', refresh_token: 'r0', token_type: 'bearer', expires_in: 3600,
+      expires_at: serverNowSec - 3600, user: { id: 'u1', aud: 'authenticated' },
+    }));
+
+    let lastForced = -Infinity;
+    // eslint-disable-next-line prefer-const
+    let client: ReturnType<typeof createClient>;
+    const onJwtExpired = () => {
+      if (realNow() - lastForced < 30_000) return;
+      lastForced = realNow();
+      setTimeout(() => { void client.auth.refreshSession(); }, 0);
+    };
+    client = createClient('https://x.supabase.co', 'anon', {
+      auth: { storage, autoRefreshToken: false, persistSession: true, detectSessionInUrl: false, storageKey: 'sk2' },
+      global: { fetch: createClockSkewSafeFetch(server as unknown as typeof fetch, { onJwtExpired }) as typeof fetch },
+    });
+
+    // Qurilma soati bo'yicha token hali "yaroqli" — tuzatishsiz u abadiy yuborilardi
+    const first = await client.from('profiles').select('id');
+    expect(first.status).toBe(401);
+    await client.from('profiles').select('id'); // bir vaqtda ketgan ikkinchisi — qo'shimcha refresh bermasin
+    await new Promise((r) => setTimeout(r, 50));
+    const after = await client.from('profiles').select('id');
+
+    expect(refreshes).toBe(1);
+    expect(after.status).toBe(200);
+    expect(tokensSeen[tokensSeen.length - 1]).toBe('Bearer fresh');
+    vi.restoreAllMocks();
+  });
+
+  it('auth so\'rovi yoki boshqa 401 refresh chaqirmaydi', async () => {
+    const onJwtExpired = vi.fn();
+    const base = vi.fn(async () => new Response(JSON.stringify({ code: '42501', message: 'permission denied' }), {
+      status: 401, headers: { 'content-type': 'application/json' },
+    }));
+    await createClockSkewSafeFetch(base as unknown as typeof fetch, { onJwtExpired })('https://x.supabase.co/rest/v1/rpc/f');
+    expect(onJwtExpired).not.toHaveBeenCalled();
+  });
+});

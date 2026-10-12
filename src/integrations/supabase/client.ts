@@ -42,7 +42,24 @@ export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABL
     autoRefreshToken: true,
     detectSessionInUrl: true,
   },
-  // Qurilma soati noto'g'ri bo'lsa ham sessiya cheksiz yangilanmasin
-  // (sabab — clockSkewSafeFetch.ts ichida).
-  global: { fetch: createClockSkewSafeFetch() },
+  // Qurilma soati noto'g'ri bo'lsa ham sessiya cheksiz yangilanmasin va
+  // muddati o'tgan token bilan qotib qolmasin (sabab — clockSkewSafeFetch.ts).
+  global: { fetch: createClockSkewSafeFetch(undefined, { onJwtExpired: forceRefreshOnExpiredJwt }) },
 });
+
+/**
+ * Server "JWT expired" desa — sessiyani majburan yangilash. 30 s da ko'pi
+ * bilan bir marta (bir vaqtda ketgan 5–10 so'rov bitta refresh qiladi va
+ * refresh tokeni yaroqsiz bo'lsa ham limitga urilmaydi). setTimeout — fetch
+ * auth lock ichida bo'lishi mumkin, refresh esa o'sha lock ni kutadi.
+ */
+const FORCED_REFRESH_MIN_INTERVAL_MS = 30_000;
+let lastForcedRefreshAt = 0;
+function forceRefreshOnExpiredJwt(): void {
+  const now = Date.now();
+  if (Math.abs(now - lastForcedRefreshAt) < FORCED_REFRESH_MIN_INTERVAL_MS) return;
+  lastForcedRefreshAt = now;
+  setTimeout(() => {
+    void supabase.auth.refreshSession().catch(() => {});
+  }, 0);
+}

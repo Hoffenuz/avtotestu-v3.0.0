@@ -40,10 +40,45 @@ export function withLocalExpiry<T extends TokenBody>(body: T, nowMs: number = Da
   return { ...body, expires_at: Math.round(nowMs / 1000) + body.expires_in };
 }
 
-export function createClockSkewSafeFetch(baseFetch: typeof fetch = (input, init) => fetch(input, init)): typeof fetch {
+/**
+ * PostgREST "token muddati o'tgan" javobi (401, PGRST303 / eski PGRST301).
+ *
+ * NEGA KERAK: qurilma soati ORQADA bo'lsa (CMOS batareya o'tirgan, sana
+ * qo'lda o'zgartirilgan), supabase-js muddati o'tgan tokenni hali amal
+ * qiladi deb hisoblaydi va uni YANGILAMAYDI — server esa har so'rovni 401
+ * bilan rad etadi. Foydalanuvchi uchun bu "sayt ishlamayapti": profil, PRO
+ * holati, natijalar — hammasi yo'qoladi (2026-10-12: bitta foydalanuvchi 4
+ * soat shu holatda qoldi; 2026-10-11 da boshqasi 3 kunlik token yuborgan).
+ * Yuqoridagi `expires_at` tuzatishi faqat YANGI olingan tokenga ta'sir
+ * qiladi — qurilmada saqlanib qolgan eski sessiya baribir qotib qolardi.
+ * Server javobi soatga bog'liq emas, shuning uchun unga tayanamiz.
+ */
+async function isJwtExpiredResponse(res: Response): Promise<boolean> {
+  if (res.status !== 401) return false;
+  try {
+    const body = (await res.clone().json()) as { code?: unknown; message?: unknown };
+    return (
+      body?.code === 'PGRST303' ||
+      body?.code === 'PGRST301' ||
+      (typeof body?.message === 'string' && /jwt expired/i.test(body.message))
+    );
+  } catch {
+    return false;
+  }
+}
+
+export function createClockSkewSafeFetch(
+  baseFetch: typeof fetch = (input, init) => fetch(input, init),
+  options: { onJwtExpired?: () => void } = {},
+): typeof fetch {
   return async (input, init) => {
     const res = await baseFetch(input, init);
-    if (!res.ok || !requestUrl(input).includes(AUTH_PATH)) return res;
+    const isAuth = requestUrl(input).includes(AUTH_PATH);
+    if (!isAuth && options.onJwtExpired && (await isJwtExpiredResponse(res))) {
+      options.onJwtExpired();
+      return res;
+    }
+    if (!res.ok || !isAuth) return res;
     if (!(res.headers.get('content-type') ?? '').includes('application/json')) return res;
 
     let body: TokenBody;
