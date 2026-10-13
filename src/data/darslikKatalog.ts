@@ -816,7 +816,7 @@ export const DARSLIK_MODULES: readonly DarslikModule[] = [
         "title": {
           "uz_lat": "Ikkinchi darajali yo'l bilan kesishuv",
           "uz_cyr": "Иккинчи даражали йўл билан кесишув",
-          "ru": "Пересечение с второстепенной дорогой"
+          "ru": "Пересечение со второстепенной дорогой"
         },
         "url": "https://pub-ad116decdc154b0f90a4b452c72fa433.r2.dev/Imtiyoz%20belgilari/2.3.1.mp4"
       },
@@ -1138,7 +1138,7 @@ export const DARSLIK_MODULES: readonly DarslikModule[] = [
         "title": {
           "uz_lat": "To'siqni o'ngdan chetlab o'tish · To'siqni o'ngdan yoki chapdan chetlab o'tish",
           "uz_cyr": "Тўсиқни ўнгдан четлаб ўтиш · Тўсиқни ўнгдан ёки чапдан четлаб ўтиш",
-          "ru": "Объезд препятствия слева · Объезд препятствия справа или слева"
+          "ru": "Объезд препятствия справа · Объезд препятствия справа или слева"
         },
         "url": "https://pub-ad116decdc154b0f90a4b452c72fa433.r2.dev/Buyuruvchi%20belgilar/4.2.1-4.2.3.mp4"
       },
