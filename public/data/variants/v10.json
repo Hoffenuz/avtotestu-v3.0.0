@@ -424,8 +424,8 @@
             }
         },
         "izoh": {
-            "uz_lat": "\"YHQning 9-bob. 56-bandiga asosan: 56. Aylanma harakatlanish tashkil qilingan chorrahalarga kirish uchun burilishdan boshqa barcha hollarda, haydovchi o‘ngga, chapga burilishi yoki qayrilib olishdan oldinroq shu yo‘nalishda harakatlanishi uchun mo‘ljallangan qatnov qismining eng chetki holatni egallashi shart.\r\nAgar 5.8.1 yoki 5.8.2 yo‘l belgilari yoxud 1.18 yo‘l chizig‘i bilan boshqa harakatlanish tartibi o‘rnatilmagan bo‘lsa, qatnov qismining o‘rtasida u bilan bir sathda joylashgan bir yo‘nalishdagi tramvay izidan chapga burilish va qayrilib olishga ruxsat etiladi. Biroq, bu tramvay harakatiga xalaqit bermasligi kerak.\"",
-            "uz_cyr": "\"YHQнинг 9-боб. 56-бандига асосан: 56. Айланма ҳаракатланиш ташкил қилинган чорраҳаларга кириш учун бурилишдан бошқа барча ҳолларда, ҳайдовчи ўнгга, чапга бурилиши ёки қайрилиб олишдан олдинроқ шу йўналишда ҳаракатланиши учун мўлжалланган қатнов қисмининг энг четки ҳолатни эгаллаши шарт.\r\nАгар 5.8.1 ёки 5.8.2 йўл белгилари ёхуд 1.18 йўл чизиғи билан бошқа ҳаракатланиш тартиби ўрнатилмаган бўлса, қатнов қисмининг ўртасида у билан бир сатҳда жойлашган бир йўналишдаги трамвай изидан чапга бурилиш ва қайрилиб олишга рухсат этилади. Бироқ, бу трамвай ҳаракатига халақит бермаслиги керак.\"",
+            "uz_lat": "YHQning 9-bob. 56-bandiga asosan: 56. Aylanma harakatlanish tashkil qilingan chorrahalarga kirish uchun burilishdan boshqa barcha hollarda, haydovchi o‘ngga, chapga burilishi yoki qayrilib olishdan oldinroq shu yo‘nalishda harakatlanishi uchun mo‘ljallangan qatnov qismining eng chetki holatni egallashi shart.\r\nAgar 5.8.1 yoki 5.8.2 yo‘l belgilari yoxud 1.18 yo‘l chizig‘i bilan boshqa harakatlanish tartibi o‘rnatilmagan bo‘lsa, qatnov qismining o‘rtasida u bilan bir sathda joylashgan bir yo‘nalishdagi tramvay izidan chapga burilish va qayrilib olishga ruxsat etiladi. Biroq, bu tramvay harakatiga xalaqit bermasligi kerak.",
+            "uz_cyr": "YHQнинг 9-боб. 56-бандига асосан: 56. Айланма ҳаракатланиш ташкил қилинган чорраҳаларга кириш учун бурилишдан бошқа барча ҳолларда, ҳайдовчи ўнгга, чапга бурилиши ёки қайрилиб олишдан олдинроқ шу йўналишда ҳаракатланиши учун мўлжалланган қатнов қисмининг энг четки ҳолатни эгаллаши шарт.\r\nАгар 5.8.1 ёки 5.8.2 йўл белгилари ёхуд 1.18 йўл чизиғи билан бошқа ҳаракатланиш тартиби ўрнатилмаган бўлса, қатнов қисмининг ўртасида у билан бир сатҳда жойлашган бир йўналишдаги трамвай изидан чапга бурилиш ва қайрилиб олишга рухсат этилади. Бироқ, бу трамвай ҳаракатига халақит бермаслиги керак.",
             "ru": "Согласно пункту 56 главы 9 ПДД: 56. Во всех случаях, кроме поворота для въезда на перекрёстки с круговым движением, водитель перед поворотом направо, налево или разворотом обязан заблаговременно занять крайнее положение на проезжей части, предназначенной для движения в этом направлении.\r\nЕсли знаками 5.8.1 или 5.8.2 либо разметкой 1.18 не установлен иной порядок движения, поворот налево и разворот разрешаются с трамвайного пути попутного направления, расположенного посередине проезжей части на одном уровне с ней. Однако это не должно мешать движению трамваев."
         }
     },
@@ -444,7 +444,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Ko'prik yoki solda kechimi bo'lmagan suv to'siqli yo'l qismi borligidan",
+                        "text": "Ko'prik yoki parom kechuvi bo'lmagan suv to'siqli yo'l qismi borligidan",
                         "is_correct": false
                     },
                     {
@@ -464,7 +464,7 @@
                 "options": [
                     {
                         "id": 1,
-                        "text": "Кўприк ёки солда кечими бўлмаган сув тўсиқли йўл қисми борлигидан",
+                        "text": "Кўприк ёки паром кечуви бўлмаган сув тўсиқли йўл қисми борлигидан",
                         "is_correct": false
                     },
                     {
