@@ -121,6 +121,33 @@ function main() {
     }
   }
 
+  /*
+    Dinamik marshrut: `/yodlash-kerak/:mavzu`. Sahifa yo'li `path="..."`
+    satri emas, shuning uchun yuqoridagi skaner uni topmaydi — jadvalga
+    qo'shilmasa `/ru/yodlash-kerak/tezlik` botga bosh sahifa meta teglari
+    bilan borardi. Sarlavha `src/pages/YodlashKerakMavzu.tsx` dagi
+    formulaning aynan o'zi: "<mavzu> — <bo'lim nomi>".
+  */
+  const QUESTION_LANG = { "uz-lat": "oz", uz: "uz", ru: "ru" };
+  const mavzular = JSON.parse(
+    fs.readFileSync(path.join(ROOT, "src/data/seo/yodlash-kerak.json"), "utf-8"),
+  );
+  for (const mavzu of mavzular) {
+    const yol = `/yodlash-kerak/${mavzu.id}`;
+    jadval[yol] = {};
+    for (const til of Object.keys(LOCALES)) {
+      const q = QUESTION_LANG[til];
+      const bolim = olish(tarjimalar[til], "sections.yodlashKerak");
+      const nom = mavzu.title?.[q];
+      const tavsif = mavzu.subtitle?.[q];
+      if (!bolim || !nom || !tavsif) {
+        yetishmayotgan.push(`yodlash-kerak.json: ${mavzu.id} (${til})`);
+        continue;
+      }
+      jadval[yol][til] = { title: `${nom} — ${bolim}`, description: tavsif, keywords: "" };
+    }
+  }
+
   if (yetishmayotgan.length) {
     console.error("❌ generate-seo-meta: tarjima yetishmaydi:");
     for (const q of yetishmayotgan) console.error("   " + q);

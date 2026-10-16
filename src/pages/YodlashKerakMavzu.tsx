@@ -38,7 +38,7 @@ export default function YodlashKerakMavzu() {
       */}
       <SEO
         title={`${topic.title[questionLang]} — ${t("sections.yodlashKerak")}`}
-        description={topic.subtitle.oz}
+        description={topic.subtitle[questionLang]}
         path={`/yodlash-kerak/${topic.id}`}
       />
 

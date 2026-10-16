@@ -9,7 +9,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { formatNewsDate, getNewsLocalized, type NewsPost } from "@/lib/newsPosts";
 
 export default function Yangiliklar() {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const [posts, setPosts] = useState<NewsPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -45,20 +45,23 @@ export default function Yangiliklar() {
     return () => { cancelled = true; };
   }, [language]);
 
-  const pageTitle =
-    language === "ru" ? "Новости AvtoSmart" : language === "uz" ? "Yangiliklar" : "Yangiliklar";
-  const pageDescription =
-    language === "ru"
-      ? "Официальные новости AvtoSmart: обновления тестов ПДД, PRO-подписка, видеоуроки и полезные советы."
-      : "AvtoSmart rasmiy yangiliklari: YHQ testlari, PRO obuna, video darslik va foydali maslahatlar.";
+  /*
+    Matn `src/locales/*.json` da (`seo.yangiliklar`): Cloudflare middleware
+    `/ru/yangiliklar` va `/cyr/yangiliklar` ning meta teglarini shu
+    kalitlardan yasaydi (`scripts/generate-seo-meta.cjs`). Kalitlar
+    `<SEO>` ichida `t("...")` ko'rinishida turishi SHART — generator
+    ularni aynan shu shaklda qidiradi.
+  */
+  const pageTitle = t("seo.yangiliklar.title");
+  const pageDescription = t("seo.yangiliklar.description");
 
   return (
     <MainLayout>
       <SEO
-        title={pageTitle}
-        description={pageDescription}
+        title={t("seo.yangiliklar.title")}
+        description={t("seo.yangiliklar.description")}
         path="/yangiliklar"
-        keywords="avtosmart yangiliklar, YHQ yangiliklari, prava test yangiliklari, haydovchilik guvohnomasi"
+        keywords={t("seo.yangiliklar.keywords")}
       />
 
       <section className="bg-gradient-to-br from-brand via-brand to-brand/90 py-10 md:py-14">

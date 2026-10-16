@@ -54,10 +54,10 @@ const SPA_PREFIXES: string[] = [
   '/avtoimtihon-2026',
   // Prava olish: narxlar, muddatlar, tartib (2026-09)
   '/prava-olish',
-  // Til prefikslari (2026-09): /ru/... va /cyr/... barcha sahifalarni
-  // qamrab oladi, shuning uchun har bir marshrutni takrorlash shart emas.
-  '/ru',
-  '/cyr',
+  // Til prefikslari (/ru, /cyr) bu ro'yxatda YO'Q: `isSpaRoute` avval
+  // prefiksni kesib, qolgan yo'lni shu ro'yxat bilan solishtiradi. Ilgari
+  // '/ru' va '/cyr' butunlay SPA hisoblanardi — `/ru/mavjud-emas` ham
+  // 200 qaytarardi (Google'da "soft 404").
 ];
 
 const SEO_EXACT: string[] = [
@@ -106,15 +106,28 @@ function cleanPath(pathname: string): string {
 }
 
 function isSpaRoute(pathname: string): boolean {
-  const clean = cleanPath(pathname);
-  if (clean === '' || clean === '/') return true;
-  return SPA_PREFIXES.some((p) => clean === p || clean.startsWith(p + '/'));
+  const { basePath } = parseLangPath(cleanPath(pathname));
+  if (basePath === '' || basePath === '/') return true;
+  return SPA_PREFIXES.some((p) => basePath === p || basePath.startsWith(p + '/'));
 }
 
 function seoSnapshotPath(pathname: string): string | null {
   const clean = cleanPath(pathname);
   if (SEO_EXACT.includes(clean)) return `/_seo${clean}/`;
-  if (clean.startsWith('/savol/')) return `/_seo${clean}/`;
+  /*
+    Savol sahifalari faqat asosiy tilda (tarjimasi yo'q): `/ru/savol/...`
+    ham o'sha o'zbekcha matnni ko'rsatadi. Bot uchun ham o'sha snapshot —
+    uning canonical'i prefikssiz manzilga qaraydi, ya'ni Google takrorni
+    asosiy sahifaga birlashtiradi (React'da `<SEO singleLanguage>` bilan bir xil).
+  */
+  const { basePath } = parseLangPath(clean);
+  if (basePath.startsWith('/savol/')) return `/_seo${basePath}/`;
+  /*
+    "Yodlash kerak" mavzulari — faqat asosiy tilda snapshot bor
+    (`scripts/generate-main-pages.cjs`). `/ru/...` va `/cyr/...` bu yerga
+    tushmaydi: ular tilga moslangan meta bilan SPA qobig'ini oladi.
+  */
+  if (clean.startsWith('/yodlash-kerak/')) return `/_seo${clean}/`;
   /*
     Yo'l belgilari — har bir belgi uchun alohida snapshot.
     Odam kelsa SPA (Belgilar sahifasi o'sha belgi bo'yicha filtrlangan)
@@ -265,7 +278,13 @@ function parseLangPath(pathname: string): { lang: string; basePath: string; pref
  */
 function localizeSpaMeta(res: Response, pathname: string): Response {
   const { lang, basePath, prefix } = parseLangPath(cleanPath(pathname));
-  if (!prefix) return res; // asosiy til — qobiq allaqachon shu tilda
+  /*
+    Asosiy tilning BOSH SAHIFASI — qobiq allaqachon aynan shu meta bilan.
+    Asosiy tilning BOSHQA sahifalari esa moslanadi: qobiqda bosh sahifa
+    sarlavhasi turadi va snapshot'i yo'q sahifa (masalan `/yangiliklar`)
+    botga "Avto test — Prava test..." sarlavhasi bilan borardi.
+  */
+  if (!prefix && basePath === '/') return res;
 
   const meta = SEO_META[basePath]?.[lang];
   if (!meta) return res;
@@ -382,6 +401,42 @@ async function spaFromAssetsOnly(ctx: PagesContext): Promise<Response> {
   });
 }
 
+/**
+ * SPA marshrutlariga kirmaydigan manzil.
+ *
+ * MUAMMO: `_redirects` dagi `/* /index.html 200` mavjud bo'lmagan HAR
+ * QANDAY manzilga (`/bunday-sahifa-yoq`, `/ru/xato`) bosh sahifa qobig'ini
+ * 200 bilan qaytarardi. Google buni "soft 404" deb belgilaydi va bunday
+ * manzillar indeksda bosh sahifaning takrori bo'lib qoladi.
+ *
+ * YECHIM: javob SPA qobig'i bo'lsa (unda `<div id="root">` bor) — xuddi
+ * shu HTML, lekin 404 status bilan. Brauzerda React ishga tushadi va
+ * `NotFound` sahifasini ko'rsatadi, ya'ni odam uchun hech narsa o'zgarmaydi.
+ *
+ * Qolgan hamma narsa TEGILMASDAN o'tadi: yo'naltirishlar (`/tests` → 301),
+ * haqiqiy fayllar (Google tasdiqlash fayli kengaytmasiz manzilda ham
+ * 200 HTML qaytaradi — shuning uchun "HTML bo'lsa 404" deyish xato bo'lardi).
+ */
+async function serveNonSpaPath(ctx: PagesContext): Promise<Response> {
+  const res = await ctx.next();
+  const type = res.headers.get('content-type') ?? '';
+  if (res.status !== 200 || !type.includes('text/html')) return res;
+
+  const html = await res.text();
+  if (!html.includes('<div id="root">')) {
+    return new Response(html, { status: res.status, headers: res.headers });
+  }
+
+  return new Response(html, {
+    status: 404,
+    headers: {
+      'Content-Type': 'text/html; charset=utf-8',
+      ...SPA_NO_STORE_HEADERS,
+      'X-Robots-Tag': 'noindex',
+    },
+  });
+}
+
 async function handleRequest(ctx: PagesContext): Promise<Response> {
   const { request, next } = ctx;
   const url = new URL(request.url);
@@ -438,6 +493,13 @@ async function handleRequest(ctx: PagesContext): Promise<Response> {
     return next();
   }
 
+  // Ilovada bunday marshrut yo'q — bot ham, odam ham bir xil javob oladi.
+  // Bot tekshiruvidan OLDIN: ilgari bot uchun `/tests` (301) kabi
+  // yo'naltirishlar ham SPA qobig'i bilan 200 qaytarardi.
+  if (!isSpaRoute(path)) {
+    return serveNonSpaPath(ctx);
+  }
+
   const ua = request.headers.get('user-agent') ?? '';
   const isBot = BOT_UA.test(ua);
 
@@ -473,11 +535,7 @@ async function handleRequest(ctx: PagesContext): Promise<Response> {
     return localizeSpaMeta(await serveSpaShell(ctx), path);
   }
 
-  if (isSpaRoute(path)) {
-    return localizeSpaMeta(await serveSpaShell(ctx), path);
-  }
-
-  return next();
+  return localizeSpaMeta(await serveSpaShell(ctx), path);
 }
 
 export async function onRequest(ctx: PagesContext): Promise<Response> {

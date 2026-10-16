@@ -472,14 +472,16 @@ function buildIndex(questions) {
  * o'zgarsa, sitemap jimgina eskirib qolardi.
  */
 function yodlashTopicPaths() {
-  try {
-    const src = fs.readFileSync(path.join(ROOT, "src/lib/yodlashRaqamlari.ts"), "utf-8");
-    return [...src.matchAll(/^\s{4}id:\s*"([a-z0-9-]+)",/gm)].map(
-      (m) => `/yodlash-kerak/${m[1]}`,
-    );
-  } catch {
-    return [];
+  // Matn manbasi — `src/data/seo/yodlash-kerak.json` (React sahifa ham,
+  // bot snapshot'lari ham shundan). Fayl o'qilmasa build TO'XTAYDI:
+  // jim bo'sh ro'yxat sitemap'dan 27 ta manzilni tushirib yuborardi.
+  const topics = JSON.parse(
+    fs.readFileSync(path.join(ROOT, "src/data/seo/yodlash-kerak.json"), "utf-8"),
+  );
+  if (!Array.isArray(topics) || topics.length === 0) {
+    throw new Error("yodlash-kerak.json bo'sh — sitemap yasalmadi");
   }
+  return topics.map((t) => `/yodlash-kerak/${t.id}`);
 }
 
 function updateSitemap(questions) {
@@ -512,8 +514,16 @@ function updateSitemap(questions) {
     ["/contact", "monthly", "0.6"],
     ["/desktop", "monthly", "0.65"],
     ["/yangiliklar", "weekly", "0.75"],
-    ["/savol/variant-59", "weekly", "0.85"],
   ];
+
+  /*
+    Faqat asosiy tilda mavjud sahifalar: matni tarjima qilinmagan, ya'ni
+    `/ru/...` va `/cyr/...` manzillari aynan o'sha o'zbekcha sahifani
+    ko'rsatadi. Ularni uch til sifatida e'lon qilish Google'ga uchta
+    takror sahifa berardi (sahifaning o'zi ham canonical'ni prefikssiz
+    manzilga qaratadi — `<SEO singleLanguage>`).
+  */
+  const singleLangUrls = [["/savol/variant-59", "weekly", "0.85"]];
 
   /*
     TIL VERSIYALARI
@@ -555,6 +565,10 @@ function updateSitemap(questions) {
     for (const til of TILLAR) {
       xml += `  <url>\n    <loc>${tilManzili(til.prefix, loc)}</loc>\n${alternates(loc)}\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>${freq}</changefreq>\n    <priority>${priority}</priority>\n  </url>\n`;
     }
+  }
+
+  for (const [loc, freq, priority] of singleLangUrls) {
+    xml += `  <url>\n    <loc>${BASE_URL}${loc}</loc>\n    <lastmod>${TODAY}</lastmod>\n    <changefreq>${freq}</changefreq>\n    <priority>${priority}</priority>\n  </url>\n`;
   }
 
   for (const q of questions) {

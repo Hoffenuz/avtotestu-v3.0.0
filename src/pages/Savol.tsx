@@ -134,6 +134,7 @@ export default function Savol() {
         description={seoDescription}
         path={question.canonicalPath}
         ogImage={question.imageUrl ?? undefined}
+        singleLanguage
       />
 
       <article className="max-w-2xl mx-auto px-4 py-8 md:py-12">

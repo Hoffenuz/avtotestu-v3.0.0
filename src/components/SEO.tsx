@@ -8,6 +8,14 @@ interface SEOProps {
   keywords?: string;
   ogImage?: string;
   noIndex?: boolean;
+  /**
+   * Sahifa faqat asosiy tilda (masalan `/savol/...` — savol matnidan
+   * yasaladi, tarjimasi yo'q). `/ru/savol/...` ham o'sha o'zbekcha matnni
+   * ko'rsatadi, shuning uchun canonical doim prefikssiz manzilga qaraydi va
+   * hreflang qo'yilmaydi — aks holda Google uch manzilni "uch til" deb
+   * hisoblab, aslida bir xil sahifalarni takror deb belgilardi.
+   */
+  singleLanguage?: boolean;
 }
 
 const BASE_URL = "https://www.avtotestu.uz";
@@ -26,6 +34,7 @@ export function SEO({
   keywords,
   ogImage = DEFAULT_OG_IMAGE,
   noIndex = false,
+  singleLanguage = false,
 }: SEOProps) {
   /*
     `path` — TIL PREFIKSISIZ yo'l (masalan `/belgilar`), chunki sahifalar
@@ -35,7 +44,7 @@ export function SEO({
     versiyalar indeksdan tushib qolardi.
   */
   const { lang } = detectLangFromWindow();
-  const fullUrl = `${BASE_URL}${buildLangPath(lang, path)}`;
+  const fullUrl = singleLanguage ? `${BASE_URL}${path}` : `${BASE_URL}${buildLangPath(lang, path)}`;
 
   /*
     BREND QO'SHIMCHASI OXIRIDA, BOSHIDA EMAS.
@@ -63,7 +72,7 @@ export function SEO({
     `x-default` — tili mos kelmagan foydalanuvchiga qaysi versiya
     ko'rsatilishi. Bu yerda asosiy til.
   */
-  const alternates = langAlternates(path, BASE_URL);
+  const alternates = singleLanguage ? [] : langAlternates(path, BASE_URL);
 
   return (
     <Helmet>
@@ -84,7 +93,9 @@ export function SEO({
       {alternates.map((a) => (
         <link key={a.hreflang} rel="alternate" hrefLang={a.hreflang} href={a.href} />
       ))}
-      <link rel="alternate" hrefLang="x-default" href={`${BASE_URL}${path}`} />
+      {!singleLanguage && (
+        <link rel="alternate" hrefLang="x-default" href={`${BASE_URL}${path}`} />
+      )}
       
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />

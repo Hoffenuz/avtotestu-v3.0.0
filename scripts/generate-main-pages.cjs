@@ -255,6 +255,9 @@ function replaceMarker(html, marker, value, route) {
 }
 
 function injectDynamic(html, route) {
+  if (route === "yodlash-kerak") {
+    return replaceMarker(html, "<!--YODLASH_TOPICS-->", renderYodlashTopicList(), route);
+  }
   const page = GUIDE_PAGE[route];
   if (!page) return html;
   html = replaceMarker(html, "<!--SEO_GUIDE-->", renderGuideHtml(page), route);
@@ -269,6 +272,186 @@ function injectDynamic(html, route) {
     html = html.replace("</head>", `  ${renderFaqJsonLd(page)}\n</head>`);
   }
   return html;
+}
+
+/* ---------------------------------------------------------------------------
+ * "Yodlash kerak" mavzulari — har biri uchun alohida bot snapshot.
+ *
+ * NEGA KERAK: `/yodlash-kerak/tezlik` kabi 9 ta sahifa sitemap'da bor, lekin
+ * snapshot'i yo'q edi — Googlebot xom HTML'da BOSH SAHIFA sarlavhasini
+ * ko'rardi va ularni takror sahifa deb baholashi mumkin edi.
+ *
+ * Matn `src/data/seo/yodlash-kerak.json` dan — React sahifa
+ * (`YodlashKerakMavzu.tsx`) ham aynan shu fayldan o'qiydi, ya'ni bot bilan
+ * odam bir xil mazmunni ko'radi. Sarlavha/tavsif `_seo-meta.ts` dan
+ * (`generate-seo-meta.cjs` uni shu JSON'dan yasaydi).
+ * ------------------------------------------------------------------------- */
+const YODLASH_TOPICS = JSON.parse(
+  fs.readFileSync(path.join(ROOT, "src/data/seo/yodlash-kerak.json"), "utf-8"),
+);
+const UZ_LAT = JSON.parse(fs.readFileSync(path.join(ROOT, "src/locales/uz-lat.json"), "utf-8"));
+
+/** Hub sahifadagi mavzular ro'yxati — har biriga havola (ichki bog'lanish). */
+function renderYodlashTopicList() {
+  const items = YODLASH_TOPICS.map(
+    (t) =>
+      `        <li><a href="/yodlash-kerak/${esc(t.id)}"><strong>${esc(t.title.oz)}</strong></a> — ${esc(t.subtitle.oz)}</li>`,
+  ).join("\n");
+  return `    <article class="info-card">
+      <h2>Mavzular</h2>
+      <ul>
+${items}
+      </ul>
+    </article>`;
+}
+
+function renderYodlashTopicPage(topic) {
+  const route = `/yodlash-kerak/${topic.id}`;
+  const meta = SEO_META?.[route]?.["uz-lat"];
+  if (!meta) {
+    console.error(`❌ ${route}: _seo-meta.ts da yozuv yo'q (avval generate-seo-meta.cjs)`);
+    process.exit(1);
+  }
+  const title = `${meta.title} | ${BRAND}`;
+  const url = `${BASE_URL}${route}`;
+  const hubName = UZ_LAT.sections.yodlashKerak;
+
+  const alternates = [
+    ["uz-Latn", url],
+    ["uz-Cyrl", `${BASE_URL}/cyr${route}`],
+    ["ru", `${BASE_URL}/ru${route}`],
+    ["x-default", url],
+  ]
+    .map(([lang, href]) => `  <link rel="alternate" hreflang="${lang}" href="${href}">`)
+    .join("\n");
+
+  const groups = topic.groups
+    .map((g) => {
+      const rows = g.rows
+        .map(
+          (r) =>
+            `          <tr><td>${esc(r.label.oz)}</td><td class="val">${esc(r.value)} ${esc(r.unit.oz)}</td></tr>`,
+        )
+        .join("\n");
+      return `    <section class="info-card">
+      <h2>${esc(g.heading.oz)}</h2>
+      <table>
+        <tbody>
+${rows}
+        </tbody>
+      </table>
+    </section>`;
+    })
+    .join("\n\n");
+
+  const others = YODLASH_TOPICS.filter((t) => t.id !== topic.id)
+    .map((t) => `<li><a href="/yodlash-kerak/${esc(t.id)}">${esc(t.title.oz)}</a></li>`)
+    .join("");
+
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Bosh sahifa", item: `${BASE_URL}/` },
+      { "@type": "ListItem", position: 2, name: hubName, item: `${BASE_URL}/yodlash-kerak` },
+      { "@type": "ListItem", position: 3, name: topic.title.oz, item: url },
+    ],
+  };
+
+  return `<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${esc(title)}</title>
+  <meta name="description" content="${escAttr(meta.description)}">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="${url}">
+${alternates}
+  <link rel="icon" href="/favicon.ico">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="${url}">
+  <meta property="og:title" content="${escAttr(title)}">
+  <meta property="og:description" content="${escAttr(meta.description)}">
+  <meta property="og:image" content="${BASE_URL}/avtosmart-og.jpg">
+  <meta property="og:locale" content="uz_UZ">
+  <meta property="og:site_name" content="${BRAND}">
+  <script type="application/ld+json">
+${JSON.stringify(breadcrumbLd, null, 2)}
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; color: #1a202c; background: #f7fafc; }
+    .header { background: #1a365d; color: #fff; padding: 16px 20px; }
+    .header a { color: #fff; text-decoration: none; font-weight: 700; font-size: 20px; }
+    .breadcrumb { max-width: 900px; margin: 20px auto 0; padding: 0 20px; color: #718096; font-size: 14px; }
+    .breadcrumb a { color: #1a365d; text-decoration: none; }
+    .section { padding: 24px 20px 40px; max-width: 900px; margin: 0 auto; }
+    h1 { font-size: 2rem; color: #1a365d; margin-bottom: 12px; }
+    .intro { color: #4a5568; margin-bottom: 28px; }
+    .info-card { background: #fff; padding: 24px; border-radius: 16px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+    .info-card h2 { color: #1a365d; font-size: 1.15rem; margin-bottom: 12px; }
+    table { width: 100%; border-collapse: collapse; }
+    td { padding: 10px 0; border-top: 1px solid #edf2f7; color: #2d3748; vertical-align: top; }
+    tr:first-child td { border-top: 0; }
+    td.val { text-align: right; font-weight: 700; color: #1a365d; white-space: nowrap; padding-left: 16px; }
+    .note { font-size: 13px; color: #718096; margin-top: 8px; }
+    .more ul { padding-left: 20px; color: #4a5568; }
+    .more li { margin-bottom: 6px; }
+    .more a { color: #1a365d; }
+    .footer { background: #1a365d; color: rgba(255,255,255,0.8); padding: 32px 20px; text-align: center; margin-top: 40px; }
+  </style>
+</head>
+<body>
+  <header class="header"><a href="/">${BRAND}</a></header>
+
+  <nav class="breadcrumb">
+    <a href="/">Bosh sahifa</a> → <a href="/yodlash-kerak">${esc(hubName)}</a> → <span>${esc(topic.title.oz)}</span>
+  </nav>
+
+  <main class="section">
+    <h1>${esc(topic.title.oz)}</h1>
+    <p class="intro">${esc(topic.subtitle.oz)}</p>
+
+${groups}
+
+    <p class="note">${esc(UZ_LAT.pages.yodlashKerakNote)}</p>
+
+    <section class="info-card more">
+      <h2>Boshqa mavzular</h2>
+      <ul>${others}</ul>
+      <p style="margin-top:12px"><a href="/mavzuli">Mavzuli testlar</a> · <a href="/test-ishlash">Onlayn test ishlash</a></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© ${new Date().getFullYear()} ${BRAND} — O'zbekistonda haydovchilik guvohnomasi uchun YHQ testlari</p>
+  </footer>
+</body>
+</html>
+`;
+}
+
+function writeYodlashTopicPages() {
+  const baseDir = path.join(PUBLIC, "_seo", "yodlash-kerak");
+  fs.mkdirSync(baseDir, { recursive: true });
+  const ids = new Set(YODLASH_TOPICS.map((t) => t.id));
+
+  // Olib tashlangan / nomi o'zgargan mavzuning eski snapshot'i qolmasin
+  for (const name of fs.readdirSync(baseDir)) {
+    const full = path.join(baseDir, name);
+    if (fs.statSync(full).isDirectory() && !ids.has(name)) {
+      fs.rmSync(full, { recursive: true, force: true });
+      console.log(`🗑️  removed /_seo/yodlash-kerak/${name}/ (mavzu yo'q)`);
+    }
+  }
+
+  for (const topic of YODLASH_TOPICS) {
+    const outDir = path.join(baseDir, topic.id);
+    fs.mkdirSync(outDir, { recursive: true });
+    fs.writeFileSync(path.join(outDir, "index.html"), renderYodlashTopicPage(topic), "utf-8");
+  }
+  console.log(`✅ /_seo/yodlash-kerak/<mavzu>/index.html — ${YODLASH_TOPICS.length} ta`);
 }
 
 function copyRoutePages() {
@@ -420,9 +603,48 @@ function assertMiddlewareInSync() {
   console.log(`✅ _middleware.ts bilan mos (${generated.length} ta marshrut)`);
 }
 
+/**
+ * `src/App.tsx` dagi HAR BIR marshrut `_middleware.ts` dagi SPA_PREFIXES
+ * bilan qamralganini tekshiradi.
+ *
+ * NEGA SHART: middleware ro'yxatda yo'q manzilni "mavjud emas" deb 404
+ * status bilan qaytaradi (soft 404 tuzatishi). Yangi sahifa App.tsx ga
+ * qo'shilib, bu ro'yxatga qo'shilmasa, u brauzerda ochilaveradi-yu,
+ * Google uni 404 deb indeksdan chiqarib yuboradi — buni hech kim sezmaydi.
+ */
+function assertSpaRoutesCovered() {
+  const mw = fs.readFileSync(path.join(ROOT, "functions/_middleware.ts"), "utf-8");
+  const block = mw.match(/SPA_PREFIXES[^=]*=\s*\[([\s\S]*?)\];/);
+  if (!block) {
+    console.error("❌ _middleware.ts: SPA_PREFIXES topilmadi");
+    process.exit(1);
+  }
+  const body = block[1].replace(/\/\/[^\n]*/g, "").replace(/\/\*[\s\S]*?\*\//g, "");
+  const prefixes = [...body.matchAll(/'([^']+)'/g)].map((m) => m[1]);
+
+  const app = fs.readFileSync(path.join(ROOT, "src/App.tsx"), "utf-8");
+  const routes = [...app.matchAll(/<Route\s+path="([^"]+)"/g)]
+    .map((m) => m[1])
+    .filter((r) => r !== "*" && r !== "/");
+
+  const covered = (r) => {
+    const base = r.replace(/\/:[^/]+.*$/, "") || "/";
+    return prefixes.some((p) => base === p || base.startsWith(p + "/"));
+  };
+  const missing = routes.filter((r) => !covered(r));
+  if (missing.length) {
+    console.error("\n❌ App.tsx marshruti _middleware.ts SPA_PREFIXES da YO'Q (404 qaytaradi):");
+    console.error(`   ${missing.join(", ")}`);
+    process.exit(1);
+  }
+  console.log(`✅ App.tsx marshrutlari SPA_PREFIXES bilan qamralgan (${routes.length} ta)`);
+}
+
 console.log("🔧 Asosiy sahifalar statik HTML yaratilmoqda...\n");
 copyRoutePages();
+writeYodlashTopicPages();
 writeDesktopPage();
 assertMiddlewareInSync();
+assertSpaRoutesCovered();
 patchHomeNoscript();
 console.log("\n✨ Tayyor!");

@@ -335,6 +335,23 @@ export const SEO_META: Record<string, Record<string, SeoMeta>> = {
       "keywords": "варианты тестов, билеты ПДД, экзаменационные вопросы, тесты ПДД, 64 варианта"
     }
   },
+  "/yangiliklar": {
+    "uz-lat": {
+      "title": "Yangiliklar",
+      "description": "AvtoSmart rasmiy yangiliklari: YHQ testlari, PRO obuna, video darslik va foydali maslahatlar.",
+      "keywords": "avtosmart yangiliklar, YHQ yangiliklari, prava test yangiliklari, haydovchilik guvohnomasi"
+    },
+    "uz": {
+      "title": "Янгиликлар",
+      "description": "AvtoSmart расмий янгиликлари: ЙҲҚ тестлари, PRO обуна, видео дарслик ва фойдали маслаҳатлар.",
+      "keywords": "avtosmart янгиликлар, ЙҲҚ янгиликлари, права тест янгиликлари, ҳайдовчилик гувоҳномаси"
+    },
+    "ru": {
+      "title": "Новости AvtoSmart",
+      "description": "Официальные новости AvtoSmart: обновления тестов ПДД, PRO-подписка, видеоуроки и полезные советы.",
+      "keywords": "новости avtosmart, новости ПДД, права тест, водительское удостоверение"
+    }
+  },
   "/yodlash-kerak": {
     "uz-lat": {
       "title": "Yodlash kerak raqamlar — tezlik, masofa",
@@ -350,6 +367,159 @@ export const SEO_META: Record<string, Record<string, SeoMeta>> = {
       "title": "Цифры для запоминания — скорость, дистанция",
       "description": "Числовые данные, которые часто встречаются на экзамене: ограничения скорости, тормозной путь, габариты и другие нормативы в одном месте.",
       "keywords": "цифры ПДД, ограничения скорости, тормозной путь, габариты, нормативы ПДД"
+    }
+  },
+  "/yodlash-kerak/tezlik": {
+    "uz-lat": {
+      "title": "Tezlik chegaralari — Yodlash kerak",
+      "description": "Transport turiga va joylashuvga qarab ruxsat etilgan eng yuqori tezlik",
+      "keywords": ""
+    },
+    "uz": {
+      "title": "Тезлик чегаралари — Ёдлаш керак",
+      "description": "Транспорт турига ва жойлашувга қараб рухсат этилган энг юқори тезлик",
+      "keywords": ""
+    },
+    "ru": {
+      "title": "Ограничения скорости — Нужно запомнить",
+      "description": "Максимально разрешённая скорость в зависимости от типа транспорта и участка дороги",
+      "keywords": ""
+    }
+  },
+  "/yodlash-kerak/reaktsiya": {
+    "uz-lat": {
+      "title": "Tormozlash va reaktsiya masofasi — Yodlash kerak",
+      "description": "Haydovchi xavfni sezgandan tormozgacha bosib o'tadigan taxminiy masofa",
+      "keywords": ""
+    },
+    "uz": {
+      "title": "Тормозлаш ва реакция масофаси — Ёдлаш керак",
+      "description": "Ҳайдовчи хавфни сезгандан тормозгача босиб ўтадиган тахминий масофа",
+      "keywords": ""
+    },
+    "ru": {
+      "title": "Тормозной путь и время реакции — Нужно запомнить",
+      "description": "Примерное расстояние, которое проезжает водитель от момента опасности до торможения",
+      "keywords": ""
+    }
+  },
+  "/yodlash-kerak/toxtash": {
+    "uz-lat": {
+      "title": "To'xtash cheklovlari — Yodlash kerak",
+      "description": "Transport vositasini to'xtatish yoki to'xtab turish taqiqlangan masofalar",
+      "keywords": ""
+    },
+    "uz": {
+      "title": "Тўхташ чекловлари — Ёдлаш керак",
+      "description": "Транспорт воситасини тўхтатиш ёки тўхтаб туриш тақиқланган масофалар",
+      "keywords": ""
+    },
+    "ru": {
+      "title": "Ограничения на остановку — Нужно запомнить",
+      "description": "Расстояния, на которых запрещена остановка или стоянка",
+      "keywords": ""
+    }
+  },
+  "/yodlash-kerak/avariya-belgisi": {
+    "uz-lat": {
+      "title": "Avariya to'xtash belgisi — Yodlash kerak",
+      "description": "Ogohlantiruvchi uchburchak belgisini qo'yish qoidalari",
+      "keywords": ""
+    },
+    "uz": {
+      "title": "Авария тўхташ белгиси — Ёдлаш керак",
+      "description": "Огоҳлантирувчи учбурчак белгисини қўйиш қоидалари",
+      "keywords": ""
+    },
+    "ru": {
+      "title": "Знак аварийной остановки — Нужно запомнить",
+      "description": "Правила установки предупреждающего треугольного знака",
+      "keywords": ""
+    }
+  },
+  "/yodlash-kerak/gabarit": {
+    "uz-lat": {
+      "title": "Transport o'lchamlari — Yodlash kerak",
+      "description": "Maxsus ruxsatnomasiz harakatlanish uchun yo'l qo'yiladigan eng katta o'lchamlar",
+      "keywords": ""
+    },
+    "uz": {
+      "title": "Транспорт ўлчамлари — Ёдлаш керак",
+      "description": "Махсус рухсатномасиз ҳаракатланиш учун йўл қўйиладиган энг катта ўлчамлар",
+      "keywords": ""
+    },
+    "ru": {
+      "title": "Габариты транспортного средства — Нужно запомнить",
+      "description": "Наибольшие размеры, допустимые для движения без специального разрешения",
+      "keywords": ""
+    }
+  },
+  "/yodlash-kerak/yuk": {
+    "uz-lat": {
+      "title": "Yuk tashish qoidalari — Yodlash kerak",
+      "description": "Yukning transport vositasi chegarasidan chiqib turishiga qo'yilgan cheklovlar",
+      "keywords": ""
+    },
+    "uz": {
+      "title": "Юк ташиш қоидалари — Ёдлаш керак",
+      "description": "Юкнинг транспорт воситаси чегарасидан чиқиб туришига қўйилган чекловлар",
+      "keywords": ""
+    },
+    "ru": {
+      "title": "Правила перевозки груза — Нужно запомнить",
+      "description": "Ограничения на выступание груза за габариты транспортного средства",
+      "keywords": ""
+    }
+  },
+  "/yodlash-kerak/shatak": {
+    "uz-lat": {
+      "title": "Shatakka olish — Yodlash kerak",
+      "description": "Boshqa transport vositasini tirkab olib ketishda ulagichga qo'yiladigan talablar",
+      "keywords": ""
+    },
+    "uz": {
+      "title": "Шатакка олиш — Ёдлаш керак",
+      "description": "Бошқа транспорт воситасини тиркаб олиб кетишда улагичга қўйиладиган талаблар",
+      "keywords": ""
+    },
+    "ru": {
+      "title": "Буксировка — Нужно запомнить",
+      "description": "Требования к сцепке при буксировке другого транспортного средства",
+      "keywords": ""
+    }
+  },
+  "/yodlash-kerak/shina": {
+    "uz-lat": {
+      "title": "G'ildirak protektori — Yodlash kerak",
+      "description": "Protektor chuqurligi shu ko'rsatkichdan kam bo'lsa, harakatlanish taqiqlanadi",
+      "keywords": ""
+    },
+    "uz": {
+      "title": "Ғилдирак протектори — Ёдлаш керак",
+      "description": "Протектор чуқурлиги шу кўрсаткичдан кам бўлса, ҳаракатланиш тақиқланади",
+      "keywords": ""
+    },
+    "ru": {
+      "title": "Протектор шины — Нужно запомнить",
+      "description": "Если глубина протектора меньше этого значения, движение запрещено",
+      "keywords": ""
+    }
+  },
+  "/yodlash-kerak/rul-tormoz": {
+    "uz-lat": {
+      "title": "Rul erkinligi va tormoz — Yodlash kerak",
+      "description": "Rul g'ildiragining ruxsat etilgan erkin yurishi va tormoz tizimiga qo'yiladigan talablar",
+      "keywords": ""
+    },
+    "uz": {
+      "title": "Рул эркинлиги ва тормоз — Ёдлаш керак",
+      "description": "Рул ғилдирагининг рухсат этилган эркин юриши ва тормоз тизимига қўйиладиган талаблар",
+      "keywords": ""
+    },
+    "ru": {
+      "title": "Свободный ход руля и тормоза — Нужно запомнить",
+      "description": "Допустимый свободный ход рулевого колеса и требования к тормозной системе",
+      "keywords": ""
     }
   }
 };

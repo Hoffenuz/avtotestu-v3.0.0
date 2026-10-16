@@ -21,6 +21,7 @@ export default function SavolVariantList() {
         description={`YHQ test varianti ${ticketNum}: 20 ta savol, rasmlar va to'g'ri javoblar bilan. Haydovchilik guvohnomasi imtihoniga tayyorgarlik.`}
         path={`/savol/variant-${ticketNum}`}
         keywords="YHQ savollari, prava test, variant 59, avtotest"
+        singleLanguage
       />
 
       <div className="max-w-2xl mx-auto px-4 py-8 md:py-12">
