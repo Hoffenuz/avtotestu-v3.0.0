@@ -27,7 +27,10 @@ import type { LucideIcon } from "lucide-react";
 import { Gauge, Timer, Ban, AlertTriangle, Ruler, Box, Link2, CircleDot, Wrench, ListChecks } from "lucide-react";
 import type { Localized } from "./avtodromPenalties";
 import type { SectionAccent } from "./siteSections";
-import topicsContent from "@/data/seo/yodlash-kerak.json";
+// Nisbiy yo'l ATAYLAB ("@/" emas): mobil ilova generatori
+// (avtotest_app/tools/gen_sections.mjs) bu faylni esbuild bilan o'qiydi,
+// esbuild esa Vite'ning "@/" taxallusini bilmaydi.
+import topicsContent from "../data/seo/yodlash-kerak.json";
 
 export interface FactRow {
   label: Localized;
