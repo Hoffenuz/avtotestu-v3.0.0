@@ -16,7 +16,7 @@
     "langLatin": "UZ (Lotin)",
     "langCyrillic": "ЎЗ (Kirill)",
     "langRussian": "RU (Rus)",
-    "desktopApp": "Kompyuter ilova",
+    "desktopApp": "Kompyuter ilovasi",
     "news": "Yangiliklar",
     "sections": "Bo'limlar",
     "test": "Test",
@@ -251,7 +251,7 @@
     "comparisonTitle": "Bepul",
     "comparisonProTitle": "PRO",
     "comparisonVs": "VS",
-    "comparisonBasic1": "1000 ta savol",
+    "comparisonBasic1": "1009 ta savol",
     "comparisonBasic2": "Barcha 64 variant",
     "comparisonBasic3": "Mavzuli testlar",
     "comparisonBasic4": "Har bir savolga izoh",
@@ -265,7 +265,7 @@
     "planWeekly": "Haftalik obuna",
     "planMonthly": "Oylik obuna",
     "planQuarterly": "3 oylik obuna",
-    "planPopular": "ENG MASHHUR",
+    "planPopular": "TAVSIYA ETILADI",
     "supportTitle": "Savolingiz bormi?",
     "supportButton": "Adminga yozish",
     "cheaperThanWeekly": "Haftalikdan {p}% arzon",
@@ -316,7 +316,7 @@
     "passwordPlaceholderNew": "Kamida {min} ta belgi",
     "passwordRepeat": "Parolni takrorlang",
     "passwordRepeatPlaceholder": "Xuddi shu parolni yozing",
-    "passwordNoteStrong": "Parolni yozib qo'ying",
+    "passwordNoteStrong": "Parolni eslab qoling",
     "passwordNoteRest": "— keyin shu raqam va parol bilan kirasiz.",
     "showPassword": "Parolni ko'rsatish",
     "hidePassword": "Parolni yashirish",
@@ -362,7 +362,7 @@
     "xatolarTestiDesc": "Xato qilgan savollaringizdan test tuziladi",
     "xatolarimDesc": "Eng ko'p xato qilgan savollaringiz ro'yxati",
     "saqlanganDesc": "Belgilab qo'ygan savollaringiz bir joyda",
-    "qidirishDesc": "1250 ta savol ichidan matn bo'yicha izlang",
+    "qidirishDesc": "1275 ta savol ichidan matn bo'yicha izlang",
     "belgilarDesc": "Barcha yo'l belgilari rasmi va izohi bilan",
     "avtodromDesc": "Amaliy imtihondagi jarima ballari jadvali",
     "yodlashKerakDesc": "Tezlik, masofa va o'lcham me'yorlari",
@@ -529,7 +529,7 @@
     },
     "eAvtomaktabTest": {
       "title": "E-avtomaktab test savollari 2026",
-      "description": "E-avtomaktab nazariy imtihoniga tayyorgarlik: 20 savol, 25 daqiqa, rasmiy format. Ro'yxatdan o'tmasdan bepul ishlang, javoblar izohi bilan.",
+      "description": "E-avtomaktab nazariy imtihoniga tayyorgarlik: 20 savol, 25 daqiqa, rasmiy format. Ro'yxatdan o'tmasdan bepul mashq qiling, batafsil izohlar PRO'da.",
       "keywords": "e avtomaktab test savollari, e avtomaktab testni boshlash, e avtomaktab test online, eavtotalim test, avtomaktab test, nazariy imtihon test"
     },
     "mavzuli": {
@@ -539,7 +539,7 @@
     },
     "qidirish": {
       "title": "Savol qidirish — YHQ testlari",
-      "description": "1250 ta YHQ savoli ichidan matn bo'yicha qidiring: savol matni yoki javob varianti bo'yicha.",
+      "description": "1275 ta YHQ savoli ichidan matn bo'yicha qidiring: savol matni yoki javob varianti bo'yicha.",
       "keywords": "savol qidirish, YHQ savollari, test qidiruv"
     },
     "qiyinSavollar": {
@@ -559,12 +559,12 @@
     },
     "testIshlash": {
       "title": "Avto test ishlash 2026 — 20 savol, 25 daqiqa, 18/20",
-      "description": "Avto test online 2026: 20 ta tasodifiy YHQ savoli, 25 daqiqa, o'tish uchun 18 ta to'g'ri javob. Ro'yxatsiz boshlang — 1275 savollik baza, uch tilda.",
+      "description": "Avto test online 2026: 20 ta tasodifiy YHQ savoli, 25 daqiqa, o'tish uchun 18 ta to'g'ri javob. Ro'yxatsiz bepul boshlang, PRO'da 1275 ta savol va izohlar.",
       "keywords": "test ishlash, onlayn test, prava test, YHQ savollari, avtotest, avtomaktab test, avto test ishlash 2026"
     },
     "variant": {
-      "title": "64 ta test varianti 2026 — bepul",
-      "description": "64 ta YHQ test varianti, har birida 20 ta savol — xuddi haqiqiy imtihondagidek. Bepul onlayn ishlang va prava olishga to'liq tayyorlaning.",
+      "title": "64 ta test varianti 2026 — 3 tasi bepul",
+      "description": "64 ta YHQ test varianti, har birida 20 ta savol — xuddi haqiqiy imtihondagidek. 3 tasini bepul ishlang, barchasi PRO'da — prava olishga to'liq tayyorlaning.",
       "keywords": "test varianti, prava test, imtihon savollari, YHQ test, 64 variant"
     },
     "yodlashKerak": {
@@ -629,7 +629,7 @@
     "cardStructureTitle": "Test tuzilishi",
     "cardStructureDesc": "Test savollari mavzular bo'yicha guruhlangan: belgilar, qoidalar, harakatlanish holatlari va birinchi yordamga oid savollar. Har bir savol bitta to'g'ri javobga ega.",
     "cardStrategyTitle": "O'rganish strategiyalari",
-    "cardStrategyDesc": "Belgilarni vizual tarzda yodlash, testlarni mashaqqat bilan yechish va noto'g'ri javoblarni alohida qayta ko'rib chiqish muvaffaqiyatni oshiradi.",
+    "cardStrategyDesc": "Belgilarni vizual tarzda yodlash, testlarni muntazam yechish va noto'g'ri javoblarni alohida qayta ko'rib chiqish muvaffaqiyatni oshiradi.",
     "cardPracticeTitle": "Amaliy mashqlar",
     "cardPracticeDesc": "20 va 50 savollik mashqlar mavjud — boshlanish uchun 20 savol rejimidan boshlash tavsiya etiladi. Har bir mashq sizga xatolaringizni ko'rsatadi.",
     "cardResourcesTitle": "Resurslar",

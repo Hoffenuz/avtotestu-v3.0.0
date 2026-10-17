@@ -507,6 +507,25 @@ async function handleRequest(ctx: PagesContext): Promise<Response> {
     const seo = seoSnapshotPath(path);
     if (seo) {
       const seoRes = await fetchAsset(ctx, seo);
+      // Savol sahifasi snapshot'i yo'q (slug eskirgan / savol ro'yxatdan
+      // chiqqan): `/* /index.html 200` qoidasi tufayli bu yerga SPA qobig'i
+      // keladi. Uni 200 bilan berish soft 404 — haqiqiy 404 qaytaramiz.
+      // ASSETS yo'q muhitda (`fetchAsset` → null) tekshirib bo'lmaydi —
+      // u holat pastdagi `next(seo)` yo'liga qoladi.
+      if (seo.startsWith('/_seo/savol/') && ctx.env.ASSETS?.fetch) {
+        // Faqat "fayl yo'q" holati 404 bo'ladi; vaqtinchalik xato (null, 5xx)
+        // haqiqiy sahifani 404 qilib yubormasin.
+        const missing =
+          !!seoRes &&
+          (seoRes.status === 404 ||
+            (seoRes.ok && (await seoRes.clone().text()).includes('<div id="root">')));
+        if (missing) {
+          return new Response(null, {
+            status: 404,
+            headers: { ...SPA_NO_STORE_HEADERS, 'X-Robots-Tag': 'noindex', Vary: 'User-Agent' },
+          });
+        }
+      }
       if (seoRes?.ok) {
         return withHtmlHeaders(seoRes, {
           ...SPA_NO_STORE_HEADERS,

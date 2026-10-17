@@ -105,7 +105,7 @@ Deno.serve(async (req) => {
         typeof email !== 'string' ||
         !email.includes('@') ||
         email.length > 254 ||
-        !/^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/.test(email)
+        !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)
       ) return json({ error: 'Invalid email' }, 400);
 
       if (

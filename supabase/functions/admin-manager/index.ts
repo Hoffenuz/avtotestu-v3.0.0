@@ -642,7 +642,7 @@ Deno.serve(async (req) => {
       if (sErr) throw sErr;
 
       // profiles yangilash — faqat mavjud ustunlar (tariff_start_date yo'q)
-      if (!Boolean(is_trial)) {
+      if (!is_trial) {
         await db.from('profiles').update({
           tariff_days,
           tariff_end_date: endIso,

@@ -151,17 +151,17 @@ export const SEO_META: Record<string, Record<string, SeoMeta>> = {
   "/e-avtomaktab-test": {
     "uz-lat": {
       "title": "E-avtomaktab test savollari 2026",
-      "description": "E-avtomaktab nazariy imtihoniga tayyorgarlik: 20 savol, 25 daqiqa, rasmiy format. Ro'yxatdan o'tmasdan bepul ishlang, javoblar izohi bilan.",
+      "description": "E-avtomaktab nazariy imtihoniga tayyorgarlik: 20 savol, 25 daqiqa, rasmiy format. Ro'yxatdan o'tmasdan bepul mashq qiling, batafsil izohlar PRO'da.",
       "keywords": "e avtomaktab test savollari, e avtomaktab testni boshlash, e avtomaktab test online, eavtotalim test, avtomaktab test, nazariy imtihon test"
     },
     "uz": {
       "title": "E-автомактаб тест саволлари 2026",
-      "description": "E-автомактаб назарий имтиҳонига тайёргарлик: 20 савол, 25 дақиқа, расмий формат. Рўйхатдан ўтмасдан бепул ишланг, жавоблар изоҳи билан.",
+      "description": "E-автомактаб назарий имтиҳонига тайёргарлик: 20 савол, 25 дақиқа, расмий формат. Рўйхатдан ўтмасдан бепул машқ қилинг, батафсил изоҳлар PRO'да.",
       "keywords": "е автомактаб тест саволлари, е автомактаб тестни бошлаш, е автомактаб тест онлайн, автомактаб тест, назарий имтиҳон тест"
     },
     "ru": {
       "title": "E-avtomaktab — тестовые вопросы 2026",
-      "description": "Подготовка к теоретическому экзамену E-avtomaktab: 20 вопросов, 25 минут, официальный формат. Бесплатно и без регистрации, с пояснениями к ответам.",
+      "description": "Подготовка к теоретическому экзамену E-avtomaktab: 20 вопросов, 25 минут, официальный формат. Бесплатная практика без регистрации, подробные пояснения — в PRO.",
       "keywords": "e avtomaktab тест, тест автомактаб онлайн, вопросы теоретического экзамена, пробный тест ПДД"
     }
   },
@@ -236,17 +236,17 @@ export const SEO_META: Record<string, Record<string, SeoMeta>> = {
   "/qidirish": {
     "uz-lat": {
       "title": "Savol qidirish — YHQ testlari",
-      "description": "1250 ta YHQ savoli ichidan matn bo'yicha qidiring: savol matni yoki javob varianti bo'yicha.",
+      "description": "1275 ta YHQ savoli ichidan matn bo'yicha qidiring: savol matni yoki javob varianti bo'yicha.",
       "keywords": "savol qidirish, YHQ savollari, test qidiruv"
     },
     "uz": {
       "title": "Савол қидириш — ЙҲҚ тестлари",
-      "description": "1250 та ЙҲҚ саволи ичидан матн бўйича қидиринг: савол матни ёки жавоб варианти бўйича.",
+      "description": "1275 та ЙҲҚ саволи ичидан матн бўйича қидиринг: савол матни ёки жавоб варианти бўйича.",
       "keywords": "савол қидириш, ЙҲҚ саволлари, тест қидирув"
     },
     "ru": {
       "title": "Поиск вопросов — тесты ПДД",
-      "description": "Ищите среди 1250 вопросов ПДД по тексту: по формулировке вопроса или варианту ответа.",
+      "description": "Ищите среди 1275 вопросов ПДД по тексту: по формулировке вопроса или варианту ответа.",
       "keywords": "поиск вопросов, вопросы ПДД, поиск по тестам"
     }
   },
@@ -304,34 +304,34 @@ export const SEO_META: Record<string, Record<string, SeoMeta>> = {
   "/test-ishlash": {
     "uz-lat": {
       "title": "Avto test ishlash 2026 — 20 savol, 25 daqiqa, 18/20",
-      "description": "Avto test online 2026: 20 ta tasodifiy YHQ savoli, 25 daqiqa, o'tish uchun 18 ta to'g'ri javob. Ro'yxatsiz boshlang — 1275 savollik baza, uch tilda.",
+      "description": "Avto test online 2026: 20 ta tasodifiy YHQ savoli, 25 daqiqa, o'tish uchun 18 ta to'g'ri javob. Ro'yxatsiz bepul boshlang, PRO'da 1275 ta savol va izohlar.",
       "keywords": "test ishlash, onlayn test, prava test, YHQ savollari, avtotest, avtomaktab test, avto test ishlash 2026"
     },
     "uz": {
       "title": "Авто тест ишлаш 2026 — 20 савол, 25 дақиқа, 18/20",
-      "description": "Авто тест онлайн 2026: 20 та тасодифий ЙҲҚ саволи, 25 дақиқа, ўтиш учун 18 та тўғри жавоб. Рўйхатсиз бошланг — 1275 саволлик база, уч тилда.",
+      "description": "Авто тест онлайн 2026: 20 та тасодифий ЙҲҚ саволи, 25 дақиқа, ўтиш учун 18 та тўғри жавоб. Рўйхатсиз бепул бошланг, PRO'да 1275 та савол ва изоҳлар.",
       "keywords": "тест ишлаш, онлайн тест, права тест, ЙҲҚ саволлари, авто тест, автомактаб тест, авто тест ишлаш 2026"
     },
     "ru": {
       "title": "Тесты ПДД онлайн 2026 — 20 вопросов, 25 минут, 18/20",
-      "description": "Тесты ПДД онлайн 2026: 20 случайных вопросов, 25 минут, для сдачи нужно 18 правильных ответов. Начните без регистрации — база из 1275 вопросов на трёх языках.",
+      "description": "Тесты ПДД онлайн 2026: 20 случайных вопросов, 25 минут, для сдачи нужно 18 правильных ответов. Начните бесплатно без регистрации, в PRO — 1275 вопросов и пояснения.",
       "keywords": "тесты ПДД, тесты онлайн, тесты на права, билеты ПДД, ПДД Узбекистан, экзамен ПДД 2026"
     }
   },
   "/variant": {
     "uz-lat": {
-      "title": "64 ta test varianti 2026 — bepul",
-      "description": "64 ta YHQ test varianti, har birida 20 ta savol — xuddi haqiqiy imtihondagidek. Bepul onlayn ishlang va prava olishga to'liq tayyorlaning.",
+      "title": "64 ta test varianti 2026 — 3 tasi bepul",
+      "description": "64 ta YHQ test varianti, har birida 20 ta savol — xuddi haqiqiy imtihondagidek. 3 tasini bepul ishlang, barchasi PRO'da — prava olishga to'liq tayyorlaning.",
       "keywords": "test varianti, prava test, imtihon savollari, YHQ test, 64 variant"
     },
     "uz": {
-      "title": "64 та тест варианти 2026 — бепул",
-      "description": "64 та ЙҲҚ тест варианти, ҳар бирида 20 та савол — худди ҳақиқий имтиҳондагидек. Бепул онлайн ишланг ва права олишга тўлиқ тайёрланинг.",
+      "title": "64 та тест варианти 2026 — 3 таси бепул",
+      "description": "64 та ЙҲҚ тест варианти, ҳар бирида 20 та савол — худди ҳақиқий имтиҳондагидек. 3 тасини бепул ишланг, барчаси PRO'да — права олишга тўлиқ тайёрланинг.",
       "keywords": "тест варианти, права тест, имтиҳон саволлари, ЙҲҚ тест, 64 вариант"
     },
     "ru": {
-      "title": "64 варианта тестов 2026 — бесплатно",
-      "description": "64 варианта тестов ПДД, в каждом по 20 вопросов — как на настоящем экзамене. Решайте онлайн бесплатно и полностью подготовьтесь к получению прав.",
+      "title": "64 варианта тестов 2026 — 3 бесплатно",
+      "description": "64 варианта тестов ПДД, в каждом по 20 вопросов — как на настоящем экзамене. 3 варианта бесплатно, все — в PRO. Полностью подготовьтесь к получению прав.",
       "keywords": "варианты тестов, билеты ПДД, экзаменационные вопросы, тесты ПДД, 64 варианта"
     }
   },

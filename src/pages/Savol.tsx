@@ -51,33 +51,42 @@ function findIn(list: SavolItem[], param: string | undefined): SavolItem | undef
  */
 function useFullIndex(needed: boolean) {
   const [extra, setExtra] = useState<SavolItem[] | null>(null);
+  /**
+   * Yuklash muvaffaqiyatsiz tugadimi. Ilgari 404, tarmoq xatosi yoki buzuq
+   * JSON'da `extra` null qolar va sahifa CHEKSIZ spinnerda turardi
+   * (audit ENG-02).
+   */
+  const [failed, setFailed] = useState(false);
+  const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
     if (!needed || extra) return;
     let cancelled = false;
+    setFailed(false);
     void (async () => {
       try {
         const res = await fetch("/data/savol-index.json");
-        if (!res.ok) return;
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = (await res.json()) as { questions?: SavolItem[] };
-        if (!cancelled && Array.isArray(data.questions)) setExtra(data.questions);
+        if (!Array.isArray(data.questions)) throw new Error("questions yo'q");
+        if (!cancelled) setExtra(data.questions);
       } catch {
-        /* tarmoq xatosi — bundle'dagi ro'yxat bilan davom etamiz */
+        if (!cancelled) setFailed(true);
       }
     })();
     return () => {
       cancelled = true;
     };
-  }, [needed, extra]);
+  }, [needed, extra, attempt]);
 
-  return extra;
+  return { extra, failed, retry: () => setAttempt((n) => n + 1) };
 }
 
 export default function Savol() {
   const { slug } = useParams<{ slug: string }>();
 
   const fromBundle = useMemo(() => findIn(bundled, slug), [slug]);
-  const extra = useFullIndex(!fromBundle);
+  const { extra, failed, retry } = useFullIndex(!fromBundle);
   const question = useMemo(
     () => fromBundle ?? (extra ? findIn(extra, slug) : undefined),
     [fromBundle, extra, slug],
@@ -88,6 +97,32 @@ export default function Savol() {
 
   /** Yonma-yon o'tish faqat bir manbadagi savollar orasida ishlaydi. */
   const questions = fromBundle ? bundled : extra ?? bundled;
+
+  if (stillLoading && failed) {
+    return (
+      <MainLayout>
+        <SEO
+          title="Savol yuklanmadi"
+          description="Savolni yuklab bo'lmadi."
+          path={`/savol/${slug ?? ""}`}
+          noIndex
+        />
+        <div className="max-w-2xl mx-auto px-4 py-16 text-center" role="alert">
+          <h1 className="text-2xl font-bold mb-3">Savol yuklanmadi</h1>
+          <p className="text-muted-foreground mb-6">
+            Internet aloqasini tekshirib, qayta urinib ko'ring.
+          </p>
+          <button
+            type="button"
+            onClick={retry}
+            className="inline-flex items-center rounded-lg bg-primary px-5 py-2.5 font-semibold text-primary-foreground hover:bg-primary/90"
+          >
+            Qayta urinish
+          </button>
+        </div>
+      </MainLayout>
+    );
+  }
 
   if (stillLoading) {
     return (

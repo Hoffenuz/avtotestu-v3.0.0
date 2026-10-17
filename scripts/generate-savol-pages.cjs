@@ -319,33 +319,22 @@ function renderStaticPage(q, all) {
     : "";
 
 /*
-    QAPage — sahifaning ASOSIY mazmuni bitta savol-javob ekanini bildiradi.
-    Ilgari faqat `Question` berilardi: u sahifa turini emas, sahifadagi
-    bitta obyektni tasvirlaydi. QAPage bilan Google javobni natijada
-    to'g'ridan-to'g'ri ko'rsatishi mumkin.
+    Oddiy WebPage — QAPage EMAS.
 
-    `upvoteCount` va `answerCount` — Google QAPage uchun talab qiladigan
-    maydonlar; ularsiz sxema "to'liq emas" deb belgilanadi.
+    Ilgari bu yerda QAPage va sun'iy `upvoteCount: 1` turardi. Google QAPage'ni
+    faqat foydalanuvchilar javob yozadigan forum sahifalari uchun qabul qiladi;
+    bizdagi tayyor test savoli unga mos emas, soxta ovozlar esa structured
+    data qoidasini buzadi (audit SEO-01, 2026-10-16).
   */
   const schema = {
     "@context": "https://schema.org",
-    "@type": "QAPage",
-    mainEntity: {
-      "@type": "Question",
-      name: q.text,
-      text: q.text,
-      image: q.imageUrl || undefined,
-      answerCount: 1,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: q.correctText,
-        upvoteCount: 1,
-        url: canonical,
-      },
-      suggestedAnswer: q.options
-        .filter((o) => !o.isCorrect)
-        .map((o) => ({ "@type": "Answer", text: o.text, upvoteCount: 0 })),
-    },
+    "@type": "WebPage",
+    name: title,
+    description,
+    url: canonical,
+    inLanguage: "uz",
+    image: q.imageUrl || undefined,
+    isPartOf: { "@type": "WebSite", name: BRAND, url: BASE_URL },
   };
 
   return `<!DOCTYPE html>
@@ -432,10 +421,36 @@ function renderStaticPage(q, all) {
 </html>`;
 }
 
+/** Shu ishga tushirishda yozilgan snapshot papkalari — eskilarini tozalash uchun. */
+const writtenSubpaths = new Set();
+
 function writePage(subpath, html) {
   const dir = path.join(SEO_SAVOL_DIR, subpath);
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, "index.html"), html, "utf-8");
+  writtenSubpaths.add(subpath);
+}
+
+/**
+ * Bu safar yozilmagan snapshot papkalarini o'chiradi.
+ *
+ * Savol slug'i o'zgarsa yoki savol ro'yxatdan chiqsa, eski papka qolib
+ * ketardi: odam SPA'da "Savol topilmadi" ko'rardi, bot esa 200 bilan eski
+ * nusxani (ichida eskirgan sxema bilan) olardi. 2026-10-17 da shunday
+ * 25 ta yetim papka topilgan.
+ */
+function pruneStaleSnapshots() {
+  if (!fs.existsSync(SEO_SAVOL_DIR)) return 0;
+  let removed = 0;
+  for (const name of fs.readdirSync(SEO_SAVOL_DIR)) {
+    const dir = path.join(SEO_SAVOL_DIR, name);
+    if (writtenSubpaths.has(name)) continue;
+    if (!fs.statSync(dir).isDirectory()) continue;
+    if (!fs.existsSync(path.join(dir, "index.html"))) continue;
+    fs.rmSync(dir, { recursive: true, force: true });
+    removed++;
+  }
+  return removed;
 }
 
 /** Eski shadow papkani tozalash — SPA route ni bloklamasligi uchun */
@@ -701,7 +716,9 @@ fs.writeFileSync(PUBLIC_INDEX_PATH, JSON.stringify(publicIndex), "utf-8");
 writePage(`variant-${v59Questions[0].ticketNum}`, renderHubPage(v59Questions));
 updateSitemap(phase);
 removeLegacySavolShadows();
+const prunedCount = pruneStaleSnapshots();
 
+console.log(`🧹 Eskirgan savol snapshotlari o'chirildi: ${prunedCount}`);
 console.log(`✅ ${phase.length} ta savol SEO sahifasi (jami bepul: ${freeAll.length}, bosqich: ${PHASE_LIMIT})`);
 console.log(`✅ Bundle indeksi (v59): src/data/savol-v59-index.json`);
 console.log(`✅ Ommaviy indeks: public/data/savol-index.json`);

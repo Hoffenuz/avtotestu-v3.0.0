@@ -9,14 +9,16 @@ export function isMobileDevice(): boolean {
 /**
  * Desktop ilova o'rnatuvchi fayli (Cloudflare R2).
  *
- * BREND ESLATMASI: fayl nomida hali eski "Avtotestlar.uz" turibdi, sayt esa
- * "AvtoSmart" brendida. To'g'rilash uchun R2 ga fayl YANGI NOM bilan qayta
- * yuklanishi va shu URL almashtirilishi kerak — faqat ko'rinadigan matnni
- * o'zgartirish yaramaydi, chunki brauzer faylni R2 dagi haqiqiy nomi bilan
- * saqlaydi (cross-origin da `<a download>` ishlamaydi, pastga qarang).
+ * Yangi versiya chiqqanda R2 dagi faylni SHU NOM bilan almashtirish kifoya —
+ * havola o'zgarmaydi. Hajm o'zgarsa `DESKTOP_APP_SIZE_MB` ni ham yangilang.
+ * Bot snapshoti (`scripts/generate-main-pages.cjs`, /desktop) ham shu URL'ni
+ * ishlatadi — ikkalasi bir xil bo'lishi shart.
+ *
+ * Fayl nomi brauzer saqlaydigan nom bilan bir xil bo'ladi: cross-origin da
+ * `<a download>` ishlamaydi (pastga qarang).
  */
 export const DESKTOP_APP_DOWNLOAD_URL =
-  "https://pub-ad116decdc154b0f90a4b452c72fa433.r2.dev/ilova/Avtotestlar.uz-Setup.exe";
+  "https://pub-ad116decdc154b0f90a4b452c72fa433.r2.dev/ilova/AvtoSmart-Setup.exe";
 
 /**
  * Ko'rsatiladigan fayl nomi — URL dan OLINADI, qo'lda yozilmaydi.
@@ -25,7 +27,7 @@ export const DESKTOP_APP_DOWNLOAD_URL =
  */
 export const DESKTOP_APP_FILENAME =
   DESKTOP_APP_DOWNLOAD_URL.split("/").pop() ?? "AvtoSmart-Setup.exe";
-export const DESKTOP_APP_SIZE_MB = 131;
+export const DESKTOP_APP_SIZE_MB = 139;
 
 /**
  * Cross-origin R2 da `<a download>` ishlamaydi — brauzer atributni e'tiborsiz qoldiradi.

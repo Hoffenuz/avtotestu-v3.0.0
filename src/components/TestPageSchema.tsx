@@ -38,7 +38,7 @@ export function TestPageSchema() {
       priceCurrency: "UZS",
     },
     description:
-      "1250+ YHQ savol. 20 yoki 50 ta tasodifiy savol. Haqiqiy imtihon formatida onlayn test — bepul, ro'yxatsiz.",
+      "20 yoki 50 ta tasodifiy YHQ savoli, haqiqiy imtihon formatida. Ro'yxatsiz bepul boshlang; PRO'da 1275 ta savol va izohlar.",
     inLanguage: ["uz", "ru"],
     provider: {
       "@type": "Organization",
@@ -66,7 +66,7 @@ export function TestPageSchema() {
         name: "Test ishlash bepulmi?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Ha, 1250+ savol bazasidan 20 ta tasodifiy savol bilan bepul test ishlay olasiz. Ro'yxatdan o'tish shart emas.",
+          text: "Ha, 1009 ta bepul savol ichidan 20 ta tasodifiy savol bilan test ishlay olasiz, ro'yxatdan o'tish shart emas. To'liq baza (1275 ta savol) va izohlar PRO obunada.",
         },
       },
       {
