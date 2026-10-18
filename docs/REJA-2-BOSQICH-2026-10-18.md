@@ -23,6 +23,26 @@ Xulosa: Telegram eslatma hozir PRO egalarining atigi 10% iga yetadi. **Saytdagi 
 
 ---
 
+## Holat (2026-10-18)
+
+| Band | Holat |
+|---|---|
+| 2.1 Xarid o'lchovi | ✅ kod (57ed2e7): GA4 `purchase` (ID/summa, dublikatsiz); `admin_panel_weekly` SQL — ⏳ migratsiya `docs/sql/2026-10-18-stage2-metrics.sql` |
+| 2.2 GA page_view bir marta | ✅ 57ed2e7 |
+| 2.3 Admin haftalik jadval | ✅ admin fd0e4fe — migratsiyadan keyin ko'rinadi |
+| Log kamaytirish | ✅ test oynalari natija yuklamaydi; bo'lim sonlari bitta so'rov (migratsiyadan keyin) |
+| 2.4 "PRO tugadi" tasmasi | ✅ a65e53a |
+| 2.5 Uzaytirish matni | ✅ a65e53a |
+| 2.6 Telegram eslatma | ⏸ egasi qarori (qaysi bot) |
+| 2.7 Parol tiklash Telegram orqali | ⏸ egasi qarori (auth o'zgarishi) |
+| 2.8 Izoh qulfi + namuna | ✅ fdec09d |
+| 2.9 Mobil /pro foydalar | ✅ fdec09d |
+| 2.10 Taqqoslash aniqligi | ✅ fdec09d |
+| 2.11 Brend | ✅ fdec09d |
+| 2.12 Sitemap lastmod | ✅ 85de5bf |
+| 2.13 Til sahifalari | ✅ 924aae0 — /ru, /cyr botga o'z tili bilan (tekshirildi); asosiy snapshotlarga hreflang |
+| 2.14 Darslik progressi hisob bo'yicha | ✅ |
+
 ## 2A. O'lchov (1-hafta, birinchi)
 
 ### 2.1 Xarid serverda hisoblanadi (ENG-08) — eng muhim

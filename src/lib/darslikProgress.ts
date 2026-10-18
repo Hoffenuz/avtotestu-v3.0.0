@@ -15,8 +15,16 @@
  *   Umumiy do'kon bo'lmasa, ro'yxat pleyer yozgan o'zgarishni ko'rmasdi.
  */
 import { useCallback, useSyncExternalStore } from "react";
+import { useAuth } from "@/contexts/AuthContext";
 
-const STORAGE_KEY = "darslik:progress:v1";
+/**
+ * Kalit HISOB bo'yicha (audit ENG-06): ilgari bitta umumiy kalit edi — bir
+ * qurilmada A va B hisoblari bilan kirilsa, progress aralashib ketardi.
+ * Mehmon — `guest`. Eski umumiy kalitdagi progressni birinchi kirgan hisob
+ * o'ziga oladi (yo'qolmasin); mehmon uni faqat o'qiydi.
+ */
+const LEGACY_KEY = "darslik:progress:v1";
+const keyFor = (owner: string) => `${LEGACY_KEY}:${owner}`;
 
 /** Shu ulushdan ko'p ko'rilgan dars "ko'rilgan" deb belgilanadi. */
 const WATCHED_RATIO = 0.9;
@@ -39,26 +47,46 @@ type ProgressMap = Record<string, LessonProgress>;
 
 const EMPTY: ProgressMap = {};
 
-let cache: ProgressMap | null = null;
+/** Har egaga alohida kesh — `useSyncExternalStore` bir xil obyektni olishi shart. */
+const cache = new Map<string, ProgressMap>();
 const listeners = new Set<() => void>();
 
-function read(): ProgressMap {
-  if (cache) return cache;
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    const parsed = raw ? (JSON.parse(raw) as unknown) : null;
-    cache = parsed && typeof parsed === "object" ? (parsed as ProgressMap) : {};
-  } catch {
-    // Maxfiy rejim yoki kvota — progressiz ishlayveramiz.
-    cache = {};
-  }
-  return cache;
+function parse(raw: string | null): ProgressMap | null {
+  if (!raw) return null;
+  const parsed = JSON.parse(raw) as unknown;
+  return parsed && typeof parsed === "object" ? (parsed as ProgressMap) : null;
 }
 
-function write(next: ProgressMap): void {
-  cache = next;
+function read(owner: string): ProgressMap {
+  const hit = cache.get(owner);
+  if (hit) return hit;
+  let value: ProgressMap = {};
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+    const own = parse(localStorage.getItem(keyFor(owner)));
+    if (own) {
+      value = own;
+    } else {
+      const legacy = parse(localStorage.getItem(LEGACY_KEY));
+      if (legacy) {
+        value = legacy;
+        if (owner !== "guest") {
+          // Eski progress shu hisobga o'tkaziladi — keyingi hisob uni olmaydi.
+          localStorage.setItem(keyFor(owner), JSON.stringify(legacy));
+          localStorage.removeItem(LEGACY_KEY);
+        }
+      }
+    }
+  } catch {
+    // Maxfiy rejim, kvota yoki buzuq JSON — progressiz ishlayveramiz.
+  }
+  cache.set(owner, value);
+  return value;
+}
+
+function write(owner: string, next: ProgressMap): void {
+  cache.set(owner, next);
+  try {
+    localStorage.setItem(keyFor(owner), JSON.stringify(next));
   } catch {
     /* saqlab bo'lmadi — joriy sessiyada baribir ishlaydi */
   }
@@ -77,20 +105,20 @@ function getServerSnapshot(): ProgressMap {
   return EMPTY;
 }
 
-export function markLessonWatched(lessonId: string): void {
-  const current = read();
+export function markLessonWatched(owner: string, lessonId: string): void {
+  const current = read(owner);
   if (current[lessonId]?.watched) return;
-  write({ ...current, [lessonId]: { watched: true, position: 0 } });
+  write(owner, { ...current, [lessonId]: { watched: true, position: 0 } });
 }
 
-export function saveLessonPosition(lessonId: string, position: number, duration: number): void {
-  const current = read();
+export function saveLessonPosition(owner: string, lessonId: string, position: number, duration: number): void {
+  const current = read(owner);
   const existing = current[lessonId];
 
   // Oxirigacha ko'rilgan bo'lsa — "ko'rildi", pozitsiya kerak emas.
   if (duration > 0 && position / duration >= WATCHED_RATIO) {
     if (existing?.watched) return;
-    write({ ...current, [lessonId]: { watched: true, position: 0 } });
+    write(owner, { ...current, [lessonId]: { watched: true, position: 0 } });
     return;
   }
 
@@ -101,11 +129,16 @@ export function saveLessonPosition(lessonId: string, position: number, duration:
   const rounded = Math.floor(position / 5) * 5;
   if (existing && existing.position === rounded) return;
 
-  write({ ...current, [lessonId]: { watched: existing?.watched ?? false, position: rounded } });
+  write(owner, { ...current, [lessonId]: { watched: existing?.watched ?? false, position: rounded } });
 }
 
-export function resetDarslikProgress(): void {
-  write({});
+export function resetDarslikProgress(owner: string): void {
+  write(owner, {});
+}
+
+/** Faqat testlar uchun: modul keshini tozalaydi. */
+export function __resetDarslikCacheForTests(): void {
+  cache.clear();
 }
 
 export interface ModuleStats {
@@ -136,15 +169,18 @@ export function statsFor(progress: ProgressMap, lessonIds: readonly string[]): M
   };
 }
 
-/** Progressni o'qish va yozish uchun yagona kirish nuqtasi. */
+/** Progressni o'qish va yozish uchun yagona kirish nuqtasi (joriy hisob bo'yicha). */
 export function useDarslikProgress() {
-  const progress = useSyncExternalStore(subscribe, read, getServerSnapshot);
+  const { user } = useAuth();
+  const owner = user?.id ?? "guest";
+  const getSnapshot = useCallback(() => read(owner), [owner]);
+  const progress = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
-  const markWatched = useCallback((lessonId: string) => markLessonWatched(lessonId), []);
+  const markWatched = useCallback((lessonId: string) => markLessonWatched(owner, lessonId), [owner]);
   const savePosition = useCallback(
     (lessonId: string, position: number, duration: number) =>
-      saveLessonPosition(lessonId, position, duration),
-    [],
+      saveLessonPosition(owner, lessonId, position, duration),
+    [owner],
   );
 
   return { progress, markWatched, savePosition };
