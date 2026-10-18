@@ -40,3 +40,42 @@ export function trackPageView(path: string, title: string): void {
 export function trackEvent(name: string, params?: Record<string, string | number | boolean>): void {
   safeGtag("event", name, params);
 }
+
+const SENT_PURCHASES_KEY = "ga-purchase-sent";
+
+/**
+ * GA4 `purchase` — tranzaksiya ID, summa va valyuta bilan (audit ENG-08).
+ * Bir ID faqat BIR MARTA yuboriladi: sahifa yangilansa yoki ikkinchi
+ * qurilmada ochilsa ham tushum ikki marta sanalmaydi (shu brauzer doirasida).
+ * Haqiqiy hisob baribir bazadan (admin panel, `admin_panel_weekly`).
+ * @returns yuborildimi (avval yuborilgan bo'lsa false)
+ */
+export function trackPurchase(p: {
+  transactionId: string;
+  valueSom: number;
+  plan: string;
+  provider: string;
+}): boolean {
+  let sent: string[] = [];
+  try {
+    sent = JSON.parse(localStorage.getItem(SENT_PURCHASES_KEY) ?? "[]");
+    if (!Array.isArray(sent)) sent = [];
+  } catch {
+    sent = [];
+  }
+  if (sent.includes(p.transactionId)) return false;
+
+  safeGtag("event", "purchase", {
+    transaction_id: p.transactionId,
+    value: p.valueSom,
+    currency: "UZS",
+    items: [{ item_id: p.plan, item_name: `PRO ${p.plan}`, price: p.valueSom, quantity: 1 }],
+    payment_type: p.provider,
+  });
+  try {
+    localStorage.setItem(SENT_PURCHASES_KEY, JSON.stringify([...sent, p.transactionId].slice(-20)));
+  } catch {
+    // ignore — eng yomoni, shu brauzerda qayta ochilsa yana yuboriladi
+  }
+  return true;
+}

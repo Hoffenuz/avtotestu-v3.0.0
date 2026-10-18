@@ -177,11 +177,22 @@ export async function clearWrongQuestions(
 /**
  * "Xatolarim" va "Saqlangan" bo'limlari uchun sonlar.
  *
- * `head: true` bilan qatorlarning O'ZI olinmaydi — faqat son qaytadi.
- * Bu /bolimlar sahifasida 200 ta qatorni behuda yuklamaslik uchun muhim.
+ * Avval `get_section_counts` — ikkala son BITTA so'rovda (bosh sahifa va
+ * /bolimlar har ochilganda 2 ta HEAD + 2 ta OPTIONS o'rniga 1+1; Supabase
+ * log hajmi uchun muhim). Funksiya bo'lmasa yoki xato bersa — eski usul:
+ * `head: true` bilan ikki so'rov, qatorlarning O'ZI olinmaydi, faqat son.
  */
 export async function fetchSectionCounts(): Promise<{ wrong: number; saved: number }> {
   const empty = { wrong: 0, saved: 0 };
+  try {
+    const { data, error } = await supabase.rpc('get_section_counts' as never);
+    const counts = data as { wrong?: unknown; saved?: unknown } | null;
+    if (!error && counts && typeof counts.wrong === 'number' && typeof counts.saved === 'number') {
+      return { wrong: counts.wrong, saved: counts.saved };
+    }
+  } catch (err) {
+    logDev('get_section_counts failed, fallback:', err);
+  }
   try {
     const [wrongRes, savedRes] = await Promise.all([
       supabase

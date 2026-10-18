@@ -97,7 +97,7 @@ export function RealExamInterface({
 }: RealExamInterfaceProps) {
   const { t, questionLang } = useLanguage();
   const { user, profile } = useAuth();
-  const { saveTestResult } = useTestResults();
+  const { saveTestResult } = useTestResults({ fetchResults: false });
   const { isFullscreen, toggleFullscreen, enterFullscreen, exitFullscreen } = useFullscreen();
 
   const [questions, setQuestions] = useState<AppQuestion[]>([]);

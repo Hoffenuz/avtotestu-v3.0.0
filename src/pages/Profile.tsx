@@ -36,7 +36,7 @@ import { formatTestTime } from '@/lib/testPersistence';
 import { BottomNav } from '@/components/layout/BottomNav';
 import { ProfileSection } from '@/components/profile/ProfileSection';
 import ReadinessCard from '@/components/ReadinessCard';
-import { trackEvent } from '@/lib/track';
+import { trackEvent, trackPurchase } from '@/lib/track';
 import { clearCheckoutBaseline, isPaymentConfirmed, readCheckoutBaseline } from '@/lib/proRenewal';
 
 interface TestResult {
@@ -195,6 +195,35 @@ const Profile = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
+  /**
+   * GA4 `purchase`: tasdiqlangan xaridni summa va ID bilan yuboradi.
+   * Manba — server yozgan obuna (Payme/Click), so'nggi 1 soat ichidagi eng
+   * yangisi; ID bo'yicha bir marta (trackPurchase). Analitika — xato bo'lsa jim.
+   */
+  const reportPurchase = async () => {
+    if (!user) return;
+    try {
+      const { data } = await supabase
+        .from('subscriptions')
+        .select('id, plan_name, amount, note, created_at')
+        .eq('user_id', user.id)
+        .or('note.like.Payme:%,note.like.Click:%')
+        .gte('created_at', new Date(Date.now() - 60 * 60 * 1000).toISOString())
+        .order('created_at', { ascending: false })
+        .limit(1)
+        .maybeSingle();
+      if (!data?.id || !data.amount) return;
+      trackPurchase({
+        transactionId: data.id,
+        valueSom: Number(data.amount),
+        plan: data.plan_name ?? 'pro',
+        provider: (data.note ?? '').startsWith('Click') ? 'click' : 'payme',
+      });
+    } catch {
+      /* analitika foydalanuvchi tajribasiga ta'sir qilmaydi */
+    }
+  };
+
   /** PRO tasdiqlangan (uzaytirishda — muddat surilgan) zahoti pollingni to'xtatamiz. */
   useEffect(() => {
     if (
@@ -210,7 +239,9 @@ const Profile = () => {
       // allaqachon PRO bo'lgan foydalanuvchi shunchaki profilni ochishi
       // bilan aralashmaydi.
       trackEvent("payment_complete");
+      void reportPurchase();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- reportPurchase har renderda yangi; faqat tasdiq payti bir marta
   }, [isPremium, subscriptionExpiresAt]);
 // Eski (legacy) chek havolasini olish.
 // To'lov cheklari ro'yxati ko'rsatilmaydi — chekni foydalanuvchi Payme ilovasidan

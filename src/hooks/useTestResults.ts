@@ -10,10 +10,19 @@ interface VariantResult {
   totalQuestions: number;
 }
 
-export const useTestResults = () => {
+interface UseTestResultsOptions {
+  /**
+   * `false` — natijalar ro'yxati yuklanmaydi, faqat `saveTestResult` kerak
+   * bo'lgan joylar uchun (test oynalari). Ilgari har test ochilganda
+   * foydalanuvchining BARCHA natijalari behuda so'ralardi (kuniga ~1 800 so'rov).
+   */
+  fetchResults?: boolean;
+}
+
+export const useTestResults = ({ fetchResults = true }: UseTestResultsOptions = {}) => {
   const { user } = useAuth();
   const [variantResults, setVariantResults] = useState<Record<number, VariantResult>>({});
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(fetchResults);
 
   const fetchVariantResults = useCallback(async (signal?: AbortSignal) => {
     if (!user) return;
@@ -69,6 +78,7 @@ export const useTestResults = () => {
   }, [user]);
 
   useEffect(() => {
+    if (!fetchResults) return;
     if (!user) {
       setVariantResults({});
       setLoading(false);
@@ -78,7 +88,7 @@ export const useTestResults = () => {
     const controller = new AbortController();
     fetchVariantResults(controller.signal);
     return () => controller.abort();
-  }, [user, fetchVariantResults]);
+  }, [user, fetchVariantResults, fetchResults]);
 
   /**
    * Save test result via the verify_and_save_test_result RPC.
@@ -142,7 +152,9 @@ export const useTestResults = () => {
         return { success: false, error: result?.error ?? 'save_failed' };
       }
 
-      await fetchVariantResults();
+      // Ro'yxatni ko'rsatadigan joyda (TestStartPage) yangilanadi; test oynasi
+      // natijalar ro'yxatini ishlatmaydi — u yerda qayta so'rash behuda.
+      if (fetchResults) await fetchVariantResults();
       return { success: true };
     } catch (err) {
       if (!import.meta.env.PROD) console.error('Save test result error:', err);
