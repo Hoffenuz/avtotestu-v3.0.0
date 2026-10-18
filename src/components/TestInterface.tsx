@@ -640,7 +640,7 @@ export const TestInterface = ({
               size="sm"
               className={`h-9 w-9 p-0 md:h-8 md:w-auto md:px-3 text-xs ${isDark ? 'bg-yellow-400/10 text-yellow-400 border-yellow-400/30' : 'text-muted-foreground'}`}
               onClick={toggleDark}
-              title={isDark ? "Yorug' rejim" : "Qorong'u rejim"}
+              title={isDark ? t("nav.lightMode") : t("nav.darkMode")}
             >
               {isDark ? <Sun className="w-5 h-5 md:w-4 md:h-4" /> : <Moon className="w-5 h-5 md:w-4 md:h-4" />}
             </Button>
