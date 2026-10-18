@@ -1,5 +1,5 @@
 /**
- * admin-manager v27
+ * admin-manager v28
  * - super_admin: barcha actionlar
  * - admin: faqat user qo‘shish + muddat (tariff) belgilash
  * - v26: delete_test_result action qo'shildi (ResultsPage'dagi
@@ -7,6 +7,7 @@
  * - v27: get_stats/get_payme_stats Toshkent (UTC+5) kun chegarasiga
  *   o'tkazildi; update_tariff endi subscriptions'ga yozuv qo'shadi va
  *   audit_logs'ga yoziladi (avval takroriy to'lovlar tarixi yo'qolardi)
+ * - v28: extend_tariff — faol PRO muddatiga qo'shish (qolgan kunlar yo'qolmaydi)
  */
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 import { handleGetPayments } from '../_shared/getPayments.ts';
@@ -29,6 +30,7 @@ const ADMIN_ALLOWED_ACTIONS = new Set([
   'get_users',
   'create_user',
   'update_tariff',
+  'extend_tariff',
   'get_payment_types', // faqat ko‘rish (UI)
   'get_user_payment_type',
 ]);
@@ -461,6 +463,54 @@ Deno.serve(async (req) => {
       await auditLog(db, actorId, 'update_tariff', 'profiles', oldProfile, { tariff_days, tariff_end_date: endDate });
 
       return res({ success: true, tariff_end_date: endDate }, 200, cors);
+    }
+
+    // Mavjud PRO muddatiga qo'shish (Payme/Click uzaytirish qoidasi bilan bir xil):
+    // faol PRO bo'lsa N kun tugash sanasidan KEYIN qo'shiladi, qolgan kunlar
+    // yo'qolmaydi; PRO yo'q yoki tugagan bo'lsa — bugundan (update_tariff kabi).
+    if (action === 'extend_tariff') {
+      const { user_id, tariff_days } = body;
+      if (!user_id) return res({ error: 'user_id kerak' }, 400, cors);
+      if (typeof tariff_days !== 'number' || !Number.isInteger(tariff_days) || tariff_days < 1 || tariff_days > 366)
+        return res({ error: 'tariff_days 1-366' }, 400, cors);
+
+      const { data: oldProfile, error: readErr } = await db.from('profiles')
+        .select('tariff_days, tariff_end_date').eq('id', user_id).single();
+      if (readErr || !oldProfile) return res({ error: 'Foydalanuvchi topilmadi' }, 404, cors);
+
+      const nowMs     = Date.now();
+      const currentMs = oldProfile.tariff_end_date ? new Date(oldProfile.tariff_end_date).getTime() : 0;
+      const active    = currentMs > nowMs;
+      const startIso  = active ? new Date(currentMs).toISOString() : new Date(nowMs).toISOString();
+      const endDate   = active
+        ? new Date(currentMs + tariff_days * 86_400_000).toISOString()
+        : tariffEnd(startIso, tariff_days);
+
+      // Avval obuna yozuvi: profil yangilanganda trigger (sync_subscription_on_tariff_update)
+      // ENG OXIRGI obunaga muddat yozadi — u shu yangi yozuv bo'lishi kerak, mijozning
+      // oldingi to'lov yozuvi emas.
+      const { error: subErr } = await db.from('subscriptions').insert({
+        user_id,
+        plan_name:   'basic',
+        status:      'active',
+        started_at:  startIso,
+        expires_at:  endDate,
+        tariff_days,
+        is_trial:    false,
+        assigned_by: actorId === 'system' ? null : actorId,
+        note:        active ? `Admin: +${tariff_days} kun qo'shildi` : 'Admin tomonidan yangilandi',
+      });
+      if (subErr) throw subErr;
+
+      const { error } = await db.from('profiles').update({
+        tariff_days,
+        tariff_end_date: endDate,
+      }).eq('id', user_id);
+      if (error) throw error;
+
+      await auditLog(db, actorId, 'extend_tariff', 'profiles', oldProfile, { tariff_days, tariff_end_date: endDate });
+
+      return res({ success: true, extended: active, tariff_end_date: endDate }, 200, cors);
     }
 
     if (action === 'delete_user') {
