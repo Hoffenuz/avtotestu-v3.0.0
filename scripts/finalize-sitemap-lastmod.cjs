@@ -68,9 +68,45 @@ function loadManifest() {
   }
 }
 
+/**
+ * Til versiyalari bor (sitemap'da `xhtml:link` li) sahifaning snapshotida
+ * `hreflang` bo'lmasa — `</head>` oldidan qo'shiladi (audit SEO-05).
+ * Hreflang ikki tomonlama bo'lishi shart: `/ru/x` (middleware) asosiy `/x`
+ * ga ishora qiladi, `/x` snapshoti esa ko'p shablonda orqaga ishora qilmasdi.
+ * Xeshlashdan OLDIN — natijaviy fayl xeshlanadi.
+ * @returns qo'shilgan sahifalar soni
+ */
+function ensureHreflang(xml) {
+  const multi = new Set();
+  for (const [, inner] of xml.matchAll(/<url>([\s\S]*?)<\/url>/g)) {
+    const loc = (inner.match(/<loc>([^<]+)<\/loc>/) || [])[1];
+    if (loc && inner.includes("xhtml:link")) multi.add(basePath(loc));
+  }
+  let added = 0;
+  for (const base of multi) {
+    const file = snapshotFile(base);
+    if (!fs.existsSync(file)) continue;
+    const html = fs.readFileSync(file, "utf-8");
+    if (/hreflang=/i.test(html) || !html.includes("</head>")) continue;
+    const href = (prefix) => `${BASE_URL}${prefix}${base === "/" ? (prefix ? "" : "/") : base}`;
+    const links = [
+      ["uz-Latn", href("")],
+      ["uz-Cyrl", href("/cyr")],
+      ["ru", href("/ru")],
+      ["x-default", href("")],
+    ]
+      .map(([lang, h]) => `  <link rel="alternate" hreflang="${lang}" href="${h}">`)
+      .join("\n");
+    fs.writeFileSync(file, html.replace("</head>", `${links}\n</head>`), "utf-8");
+    added++;
+  }
+  return added;
+}
+
 function main() {
   const manifest = loadManifest();
   const xml = fs.readFileSync(SITEMAP_PATH, "utf-8");
+  const hreflangAdded = ensureHreflang(xml);
   let changed = 0;
   let kept = 0;
   const seen = new Set();
@@ -112,6 +148,7 @@ function main() {
   if (next !== before) fs.writeFileSync(MANIFEST_PATH, next, "utf-8");
 
   console.log(`🗓  Sitemap lastmod: ${kept} o'zgarmagan, ${changed} yangi/o'zgargan (${seen.size} sahifa)`);
+  if (hreflangAdded) console.log(`🌐 hreflang qo'shildi: ${hreflangAdded} ta snapshot`);
 }
 
 main();
