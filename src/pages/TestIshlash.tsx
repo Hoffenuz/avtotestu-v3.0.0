@@ -23,6 +23,7 @@ import { TestInterfaceCombined } from "@/components/TestInterfaceCombined";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { ProUpsell } from "@/components/ProUpsell";
 import { AUTO_START_COUNT, wantsAutoStart } from "@/lib/testAutoStart";
+import { clearTestState, getSavedTestState } from "@/lib/testPersistence";
 
 /**
  * Bitta til = bitta fayl, ham free ham PRO uchun (ilgari free 5.9 MB'lik
@@ -103,9 +104,10 @@ export default function TestIshlash() {
       if (saved) {
         const parsed = JSON.parse(saved);
         if (parsed.testStarted && parsed.activeSession) {
-          // Only restore if the in-progress test state still exists
+          // Only restore if the in-progress test state still exists and its
+          // timer has not run out (expired state is removed by getSavedTestState)
           const testStateKey: string | undefined = parsed.activeSession.testStateKey;
-          if (testStateKey && !localStorage.getItem(testStateKey)) {
+          if (testStateKey && !getSavedTestState(testStateKey)) {
             localStorage.removeItem(testIshlashStorageKey);
             return { testStarted: false, activeSession: null, questionCount: 20 as QuestionCount };
           }
@@ -202,6 +204,10 @@ export default function TestIshlash() {
     const testStateKey = count !== 20
       ? `testState_combined_/${dataFile}_${count}_${userId}`
       : `testState_base_/${dataFile}_${count}_${userId}`;
+
+    // "Boshlash" har doim yangi test: "Chiqish" bilan tashlab ketilgan eski
+    // holat qolgan bo'lsa, u ochilib qolmasin.
+    clearTestState(testStateKey);
 
     if (isPremium) {
       // Premium test: backend session is REQUIRED

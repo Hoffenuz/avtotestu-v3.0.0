@@ -119,6 +119,16 @@ export const PaymeError = {
     },
     data: "email",
   },
+  /** Faol PRO ustiga xarid mumkin, lekin jami muddat bugundan 400 kundan oshmaydi. */
+  ProLimit: {
+    code: -31053,
+    message: {
+      uz: "PRO muddatingiz eng ko'p chegaraga (400 kun) yetgan. Kamroq muddatli tarifni tanlang yoki keyinroq uzaytiring.",
+      ru: "Срок PRO достиг максимума (400 дней). Выберите тариф короче или продлите позже.",
+      en: "Your PRO period has reached the maximum (400 days). Choose a shorter plan or renew later.",
+    },
+    data: "email",
+  },
 } as const satisfies Record<string, PaymeErrorDef>;
 
 /** Muvaffaqiyat konverti. `id` aynan qaytariladi, HTTP status doim 200. */
@@ -142,6 +152,8 @@ export function dbErrorToPayme(errorCode: string): PaymeErrorDef {
       return PaymeError.AccountBusy;
     case "already_paid":
       return PaymeError.AlreadyPaid;
+    case "pro_limit":
+      return PaymeError.ProLimit;
     case "invalid_amount":
       return PaymeError.InvalidAmount;
     case "cant_do_operation":

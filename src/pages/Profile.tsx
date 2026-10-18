@@ -37,6 +37,7 @@ import { BottomNav } from '@/components/layout/BottomNav';
 import { ProfileSection } from '@/components/profile/ProfileSection';
 import ReadinessCard from '@/components/ReadinessCard';
 import { trackEvent } from '@/lib/track';
+import { clearCheckoutBaseline, isPaymentConfirmed, readCheckoutBaseline } from '@/lib/proRenewal';
 
 interface TestResult {
   id: string;
@@ -96,6 +97,8 @@ const Profile = () => {
   const registrationDays = useRegistrationAge();
   const { isPremium, expiresAt: subscriptionExpiresAt, refresh: refreshAccessState } = useAccessState();
   const paymePollRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  /** To'lovga ketishdan oldingi PRO tugash vaqti (ms); null — PRO yo'q edi. */
+  const checkoutBaselineRef = useRef<number | null>(null);
   const [results, setResults] = useState<TestResult[]>([]);
   const [loadingResults, setLoadingResults] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
@@ -152,7 +155,13 @@ const Profile = () => {
     // Sahifa yangilansa/orqaga qaytilsa qayta ishga tushmasin.
     window.history.replaceState(null, '', window.location.pathname);
 
-    if (isPremium) return;
+    // Uzaytirishda odam allaqachon PRO: tasdiq = muddat to'lovdan oldingisidan
+    // keyinga surilgani (proRenewal.ts). Shuning uchun "isPremium" yetarli emas.
+    checkoutBaselineRef.current = readCheckoutBaseline();
+    if (isPaymentConfirmed(isPremium, subscriptionExpiresAt, checkoutBaselineRef.current)) {
+      clearCheckoutBaseline();
+      return;
+    }
 
     toast.info("To'lov tasdiqlanmoqda, biroz kuting...");
     let attempts = 0;
@@ -186,11 +195,15 @@ const Profile = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
-  /** PRO tasdiqlangan zahoti pollingni to'xtatamiz. */
+  /** PRO tasdiqlangan (uzaytirishda — muddat surilgan) zahoti pollingni to'xtatamiz. */
   useEffect(() => {
-    if (isPremium && paymePollRef.current) {
+    if (
+      paymePollRef.current &&
+      isPaymentConfirmed(isPremium, subscriptionExpiresAt, checkoutBaselineRef.current)
+    ) {
       clearInterval(paymePollRef.current);
       paymePollRef.current = null;
+      clearCheckoutBaseline();
       toast.success("PRO tarif faollashtirildi!");
       // Voronka: to'lov CHINAKAM tasdiqlangan payt — `paymePollRef.current`
       // faqat Payme'dan hozirgina qaytilganda faol bo'ladi, ya'ni bu
@@ -198,7 +211,7 @@ const Profile = () => {
       // bilan aralashmaydi.
       trackEvent("payment_complete");
     }
-  }, [isPremium]);
+  }, [isPremium, subscriptionExpiresAt]);
 // Eski (legacy) chek havolasini olish.
 // To'lov cheklari ro'yxati ko'rsatilmaydi — chekni foydalanuvchi Payme ilovasidan
 // oladi. Bazada yozuv baribir saqlanadi (audit va admin uchun).

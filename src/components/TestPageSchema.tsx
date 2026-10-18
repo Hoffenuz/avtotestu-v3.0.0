@@ -1,31 +1,9 @@
-import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { supabase } from "@/integrations/supabase/client";
 
 const BASE_URL = "https://www.avtotestu.uz";
 
-interface ReviewStats {
-  count: number;
-  avg: number;
-}
-
 export function TestPageSchema() {
-  const [stats, setStats] = useState<ReviewStats | null>(null);
-
-  useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      const { data, error } = await supabase.from("reviews").select("rating");
-      if (cancelled || error || !data?.length) return;
-      const sum = data.reduce((acc, r) => acc + r.rating, 0);
-      setStats({ count: data.length, avg: Math.round((sum / data.length) * 10) / 10 });
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  const jsonLd: Record<string, unknown> = {
+  const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     name: "AvtoSmart — YHQ onlayn test",
@@ -46,16 +24,6 @@ export function TestPageSchema() {
       url: BASE_URL,
     },
   };
-
-  if (stats && stats.count >= 3) {
-    jsonLd.aggregateRating = {
-      "@type": "AggregateRating",
-      ratingValue: stats.avg,
-      reviewCount: stats.count,
-      bestRating: 5,
-      worstRating: 1,
-    };
-  }
 
   const faqLd = {
     "@context": "https://schema.org",

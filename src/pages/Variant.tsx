@@ -11,7 +11,7 @@ import {
   getVariantDataId,
   isVariantLocked,
 } from "@/lib/variantAccess";
-import { clearTestState } from "@/lib/testPersistence";
+import { clearTestState, getSavedTestState } from "@/lib/testPersistence";
 
 export default function Variant() {
   const { t } = useLanguage();
@@ -29,7 +29,7 @@ export default function Variant() {
         if (parsed.testStarted && parsed.selectedVariant != null) {
           const userId = user?.id ?? 'guest';
           const testKey = `testState_variant_${parsed.selectedVariant}_${userId}`;
-          if (!localStorage.getItem(testKey)) {
+          if (!getSavedTestState(testKey)) {
             localStorage.removeItem(variantStorageKey);
             return {
               testStarted: false,
@@ -147,10 +147,9 @@ export default function Variant() {
       return;
     }
 
-    // Drop stale in-progress state so a prior Latin session can't stick after RU/Cyr switch
-    if (user) {
-      clearTestState(`testState_variant_${variant}_${user.id}`);
-    }
+    // Drop stale in-progress state so a prior Latin session can't stick after RU/Cyr switch,
+    // and an abandoned (or expired) attempt never opens instead of a new test — guests too
+    clearTestState(`testState_variant_${variant}_${user?.id ?? 'guest'}`);
 
     setSessionId(result.session?.sessionId ?? null);
     setSelectedVariant(variant);

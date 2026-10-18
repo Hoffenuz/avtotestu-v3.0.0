@@ -119,10 +119,6 @@ Deno.serve(async (req) => {
       const password   = emailLower.split('@')[0].slice(0, 20);
       const nowIso     = new Date().toISOString();
 
-      // ── tariff_end_date hisoblash ──────────────────────────────────────
-      const endDate = tariffEnd(nowIso, tariff_days);
-      console.log(`[bot] tariff calc: start=${nowIso} days=${tariff_days} end=${endDate}`);
-
       let userId: string | null = null;
       let isNewUser = true;
 
@@ -176,6 +172,20 @@ Deno.serve(async (req) => {
 
       // Trigger ishga tushishi uchun kutish
       await new Promise(r => setTimeout(r, 600));
+
+      // ── tariff_end_date hisoblash ──────────────────────────────────────
+      // Faol PRO bo'lsa yangi kunlar uning tugashidan KEYIN qo'shiladi (Payme/Click
+      // bilan bir xil). Ilgari "bugun + N" bilan ustidan yozilib, qolgan kunlar yo'qolardi.
+      // tariffEnd() boshlanish kunini 1-kun deb sanaydi, shuning uchun 23:59:59 dan
+      // 1 soniya keyingi (ertangi 00:00) nuqtadan boshlanadi.
+      const { data: current } = await db
+        .from('profiles').select('tariff_end_date').eq('id', userId).maybeSingle();
+      const currentEnd = current?.tariff_end_date ? new Date(current.tariff_end_date) : null;
+      const startIso = currentEnd && currentEnd.getTime() > Date.now()
+        ? new Date(currentEnd.getTime() + 1000).toISOString()
+        : nowIso;
+      const endDate = tariffEnd(startIso, tariff_days);
+      console.log(`[bot] tariff calc: start=${startIso} days=${tariff_days} end=${endDate}`);
 
       // ── QADAM 2: profiles upsert ────────────────────────────────────────
       // profiles ustunlari: id, email, tariff_days, tariff_end_date

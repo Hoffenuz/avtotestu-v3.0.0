@@ -4,8 +4,9 @@
  *
  * Nima uchun test kerak: bu oqim bir necha shartga bog'liq (kirganmi, PRO
  * holati aniqlanganmi, narxlar kelganmi). Bittasi noto'g'ri bo'lsa oqibati
- * og'ir — masalan faol PRO egasi qayta to'lov sahifasiga tushib qolishi
- * yoki foydalanuvchi cheksiz qayta yo'naltirilishi mumkin.
+ * og'ir — masalan 400 kunlik chegaradan oshgan xarid to'lov sahifasiga
+ * tushib qolishi yoki foydalanuvchi cheksiz qayta yo'naltirilishi mumkin.
+ * Faol PRO egasi esa to'lovga o'tadi (uzaytirish, 1.6).
  */
 import { render, act, waitFor } from '@testing-library/react';
 import { describe, expect, it, vi, beforeEach, afterEach } from 'vitest';
@@ -42,7 +43,7 @@ vi.mock('@/contexts/AuthContext', () => ({
   useAuth: () => mockAuth,
 }));
 
-const mockAccess = { isPremium: false, loading: false };
+const mockAccess = { isPremium: false, loading: false, expiresAt: null as Date | null };
 vi.mock('@/hooks/useAccessState', () => ({
   useAccessState: () => mockAccess,
 }));
@@ -75,6 +76,7 @@ beforeEach(() => {
   mockAuth.isLoading = false;
   mockAccess.isPremium = false;
   mockAccess.loading = false;
+  mockAccess.expiresAt = null;
 
   Object.defineProperty(window, 'location', {
     configurable: true,
@@ -137,16 +139,33 @@ describe('Pro — ro\'yxatdan o\'tgach to\'lovni davom ettirish', () => {
     expect(peekPendingPlan()).toBeNull();
   });
 
-  it('faol PRO egasini to\'lov sahifasiga YUBORMAYDI', async () => {
+  it('faol PRO egasi uzaytiradi: to\'lovga o\'tadi, oldingi muddat tasdiq uchun saqlanadi', async () => {
+    const end = new Date(Date.now() + 5 * 24 * 60 * 60 * 1000);
     setPendingPlan('weekly');
     mockAuth.user = { email: '998887928005@pro.com' };
     mockAccess.isPremium = true;
+    mockAccess.expiresAt = end;
+
+    await renderPro();
+
+    await waitFor(() => expect(hrefWrites.length).toBe(1), WAIT);
+    expect(hrefWrites[0]).toContain('checkout.paycom.uz');
+    expect(peekPendingPlan()).toBeNull();
+    // /profile shu sanadan keyinga surilgan muddatni kutadi
+    expect(sessionStorage.getItem('pro-checkout-prev-end')).toBe(String(end.getTime()));
+  });
+
+  it('400 kunlik chegaradan oshsa to\'lovga YUBORMAYDI', async () => {
+    setPendingPlan('quarterly');
+    mockAuth.user = { email: '998887928005@pro.com' };
+    mockAccess.isPremium = true;
+    mockAccess.expiresAt = new Date(Date.now() + 360 * 24 * 60 * 60 * 1000);
 
     await renderPro();
 
     await waitFor(() => expect(peekPendingPlan()).toBeNull(), WAIT);
     expect(hrefWrites).toEqual([]);
-    expect(toastCalls.some((m) => m.includes('PRO obuna mavjud'))).toBe(true);
+    expect(toastCalls.some((m) => m.includes('400'))).toBe(true);
   });
 
   it('PRO holati hali aniqlanmagan bo\'lsa kutadi — erta yo\'naltirmaydi', async () => {
@@ -212,6 +231,20 @@ describe('Pro — ro\'yxatdan o\'tgach to\'lovni davom ettirish', () => {
     await renderPro();
 
     await waitFor(() => expect(toastCalls.some((m) => m.includes('PRO obuna mavjud'))).toBe(true), WAIT);
+    expect(hrefWrites).toEqual([]);
+  });
+
+  it('server Click buyurtmasini 400 kun chegarasi bilan rad etsa (pro_limit) to\'lovga YUBORMAYDI', async () => {
+    vi.mocked(supabase.rpc).mockResolvedValue({
+      data: { ok: false, error: 'pro_limit' },
+      error: null,
+    } as never);
+    setPendingPlan('weekly', 'click');
+    mockAuth.user = { email: '998887928005@pro.com' };
+
+    await renderPro();
+
+    await waitFor(() => expect(toastCalls.some((m) => m.includes('400'))).toBe(true), WAIT);
     expect(hrefWrites).toEqual([]);
   });
 

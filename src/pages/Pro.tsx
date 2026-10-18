@@ -24,6 +24,7 @@ import {
   type PaymentProvider,
 } from "@/lib/pendingPlan";
 import { DB_READ_TIMEOUT_MS, withTimeout } from "@/lib/withTimeout";
+import { exceedsProLimit, formatProDate, projectedProEnd, saveCheckoutBaseline } from "@/lib/proRenewal";
 import { toast } from "sonner";
 import { Crown, Check, X, Star, ShieldCheck, ArrowRight } from "lucide-react";
 import { trackEvent } from "@/lib/track";
@@ -130,7 +131,9 @@ export default function Pro() {
   const navigate = useNavigate();
   const { user, isLoading } = useAuth();
   const { t, language } = useLanguage();
-  const { isPremium, loading: accessLoading } = useAccessState();
+  const { isPremium, expiresAt, loading: accessLoading } = useAccessState();
+  /** Faol PRO tugash sanasi — uzaytirishda yangi kunlar shundan keyin qo'shiladi. */
+  const activeEnd = isPremium ? expiresAt : null;
 
   /**
    * Tariflar DB dan olinadi: Payme summani `payme_plans.amount_tiyin` bo'yicha
@@ -369,6 +372,9 @@ export default function Pro() {
 
     if (!order?.ok) {
       switch (order?.error) {
+        case "pro_limit":
+          toast.info(t("pro.renewLimit"));
+          break;
         case "already_paid":
           toast.info("Sizda faol PRO obuna mavjud. Muddati tugagach yangi obuna olishingiz mumkin.");
           break;
@@ -400,15 +406,30 @@ export default function Pro() {
     trackEvent("checkout_start", { plan: planName, provider: "click" });
     window.location.href = payUrl;
     return true;
-  }, []);
+  }, [t]);
 
   const goToCheckout = useCallback(
     async (planName: string, via: PaymentProvider): Promise<void> => {
       setRedirecting(true);
+      // /profile tasdiqni shu sanadan keyinga surilgan muddat bilan aniqlaydi.
+      saveCheckoutBaseline(activeEnd);
       const redirected = via === "click" ? await goToClick(planName) : await goToPayme(planName);
       if (!redirected) setRedirecting(false);
     },
-    [goToClick, goToPayme],
+    [goToClick, goToPayme, activeEnd],
+  );
+
+  /** Tanlangan tarif kunlari 400 kunlik chegaradan oshsa — xabar, to'lovga o'tilmaydi. */
+  const blockedByProLimit = useCallback(
+    (planName: string): boolean => {
+      const plan = PLANS.find((p) => p.planName === planName);
+      if (!plan) return false;
+      const days = paymePlans[planName]?.tariff_days || plan.fallbackDays;
+      if (!exceedsProLimit(activeEnd, days)) return false;
+      toast.info(t("pro.renewLimit"));
+      return true;
+    },
+    [activeEnd, paymePlans, t],
   );
 
   const handleBuyPlan = (planName: string, via: PaymentProvider) => {
@@ -426,13 +447,9 @@ export default function Pro() {
       return;
     }
 
-    // Faol PRO ustiga yangi PRO olinmaydi — muddat tugagach xarid qilinadi.
-    // Bu qoida serverda ham bor (payme_resolve_account → already_paid), bu yerda
-    // faqat foydalanuvchini keraksiz to'lov sahifasiga yubormaslik uchun.
-    if (isPremium) {
-      toast.info("Sizda faol PRO obuna mavjud. Muddati tugagach yangi obuna olishingiz mumkin.");
-      return;
-    }
+    // Faol PRO ustiga xarid mumkin: yangi kunlar joriy muddat oxiriga qo'shiladi.
+    // Faqat 400 kunlik chegara (serverda ham: pro_limit) oldindan tekshiriladi.
+    if (blockedByProLimit(planName)) return;
 
     void goToCheckout(planName, via);
   };
@@ -469,16 +486,13 @@ export default function Pro() {
     // aks holda foydalanuvchi sahifaga har kirganda qayta yo'naltirilaverardi.
     clearPendingPlan();
 
-    if (isPremium) {
-      toast.info("Sizda allaqachon faol PRO obuna mavjud.");
-      return;
-    }
-
     if (PLANS.some((p) => p.planName === planName)) setSelectedPlan(planName);
+    // Faol PRO bo'lsa ham davom etiladi (uzaytirish) — faqat chegara tekshiriladi.
+    if (blockedByProLimit(planName)) return;
     setProviderChoice(pendingProvider);
     toast.info("To'lov sahifasiga o'tkazilmoqda...");
     void goToCheckout(planName, pendingProvider);
-  }, [isLoading, accessLoading, user, isPremium, plansSettled, clickAvailable, goToCheckout]);
+  }, [isLoading, accessLoading, user, plansSettled, clickAvailable, goToCheckout, blockedByProLimit]);
 
 
   if (isLoading) {
@@ -513,7 +527,9 @@ export default function Pro() {
                   {t("home.proStatusActive")}
                 </p>
                 <p className="text-xs text-muted-foreground mt-0.5">
-                  {t("pro.activeSubtitle")}
+                  {activeEnd
+                    ? t("pro.activeUntil").replace("{date}", formatProDate(activeEnd))
+                    : t("pro.activeSubtitle")}
                 </p>
               </div>
               <button
@@ -738,6 +754,23 @@ export default function Pro() {
                         priceOf(PLANS.find((p) => p.planName === selectedPlan) ?? PLANS[1]),
                       )}
                 </Button>
+
+                {/* Uzaytirish: aniq qachongacha bo'lishini to'lovdan oldin ko'rsatamiz */}
+                {activeEnd && (
+                  <p className="text-center text-[13px] font-semibold text-amber-700 dark:text-amber-400 mt-2.5">
+                    {t("pro.renewNewEnd")
+                      .replace("{from}", formatProDate(activeEnd))
+                      .replace(
+                        "{to}",
+                        formatProDate(
+                          projectedProEnd(
+                            activeEnd,
+                            amountAndDays(PLANS.find((p) => p.planName === selectedPlan) ?? PLANS[1]).days,
+                          ),
+                        ),
+                      )}
+                  </p>
+                )}
 
                 {/* Belgi matn ICHIDA: flex bilan matn ikki qatorga bo'linganda belgi chetga qochib qolardi */}
                 <p className="text-center text-[12px] leading-snug text-muted-foreground mt-2.5">

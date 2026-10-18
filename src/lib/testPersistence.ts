@@ -39,11 +39,28 @@ export interface PersistedTestState {
   timeRemaining?: number;
 }
 
-/** Read raw saved state without throwing */
+/** Saved timed test whose timer already ran out (user left before finishing). */
+export function isTestStateExpired(saved: PersistedTestState, now = Date.now()): boolean {
+  if (typeof saved.endsAt === "number") return saved.endsAt <= now;
+  return typeof saved.timeRemaining === "number" && saved.timeRemaining <= 0;
+}
+
+/**
+ * Read saved state without throwing.
+ * An expired timed test is removed and treated as absent: restoring it would
+ * jump straight to a "0 answered, 25:00" result instead of the start page.
+ */
 export function getSavedTestState(storageKey: string): PersistedTestState | null {
   try {
     const raw = localStorage.getItem(storageKey);
-    if (raw) return JSON.parse(raw) as PersistedTestState;
+    if (!raw) return null;
+    const saved = JSON.parse(raw) as PersistedTestState;
+    if (!saved || typeof saved !== "object") return null;
+    if (isTestStateExpired(saved)) {
+      localStorage.removeItem(storageKey);
+      return null;
+    }
+    return saved;
   } catch {
     // ignore
   }
