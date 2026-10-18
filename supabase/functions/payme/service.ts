@@ -212,6 +212,7 @@ export async function getStatement(params: Params): Promise<ServiceOutcome> {
  * shuning uchun oddiy tasdiq qaytaramiz.
  */
 export function setFiscalData(params: Params): ServiceOutcome {
-  console.log("[payme] SetFiscalData", JSON.stringify(params));
+  // Chek tarkibi (mijoz ma'lumoti bo'lishi mumkin) yozilmaydi — faqat ID.
+  console.log(`[payme] SetFiscalData tx=${typeof params.id === "string" ? params.id : "-"}`);
   return done({ success: true });
 }

@@ -69,8 +69,12 @@ Deno.serve(async (req: Request) => {
     return respond(clickReply({}, ClickError.BadRequest));
   }
 
-  // Diagnostika uchun: Supabase loglarida har bir chaqiruv ko'rinadi.
-  console.log(`[click] -> ${JSON.stringify(params)}`);
+  // Diagnostika uchun: faqat identifikatorlar va summa. `params` to'liq
+  // yozilmaydi — imzo va to'lov hujjati ma'lumoti loglarda saqlanmasin (SEC-03).
+  console.log(
+    `[click] -> action=${params.action ?? "-"} click_trans_id=${params.click_trans_id ?? "-"} ` +
+      `order=${params.merchant_trans_id ?? "-"} amount=${params.amount ?? "-"} error=${params.error ?? "-"}`,
+  );
 
   const action = routeAction(req, params);
 

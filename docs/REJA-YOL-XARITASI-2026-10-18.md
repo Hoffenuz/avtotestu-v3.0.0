@@ -25,7 +25,8 @@ Bazaviy (2026-10-16): 48–81 to'lov/hafta, 1,1–2,05 mln so'm/hafta, qayta xar
 | 1.5 | **SEC-01/02** — `reviews`: anon INSERT yopiladi, `submitter_ip` o'qilmaydi, `aggregateRating` va jonli so'rov olib tashlanadi | ✅ bazada 2026-10-18 (`sec01_reviews_lockdown`); frontend push kutilmoqda |
 | 1.6 | **ENG-01** — faol PRO'ni uzaytirish: `docs/sql/2026-10-18-pro-renewal.sql` (4 joydagi to'siq, 400 kun chegara, bekor qilishda faqat shu xarid kunlari ayriladi), Payme `pro_limit` xatosi, bot ustidan yozmaydi, `/pro` "hozirgi → yangi muddat", `/profile` tasdiqni muddat surilishi bo'yicha aniqlaydi. 12 ssenariy rollback tranzaksiyada PASS (`...pro-renewal.test.sql`). Banner oynasi 1 kun qoldi (avval 3 kun e'tiborsiz qolgani uchun ataylab 1) | ⏳ migratsiya + edge deploy |
 | 1.7 | **UX-01/ENG-03** — chiqib ketilgan testga qaytilganda darhol "0%, 25:00" natija: vaqti tugagan holat o'chiriladi, "Boshlash" har doim yangi test | ✅ kodda, push kutilmoqda |
-| 1.8 | **SEC-03** — Payme/Click/phone-signup loglaridan telefon, IP, to'liq payload olib tashlanadi (faqat ID, status, vaqt) | navbatda |
+| 1.8 | **SEC-03** — Payme/Click/phone-signup loglaridan telefon, IP, to'liq payload olib tashlanadi (faqat ID, status, vaqt) | ✅ kodda 2026-10-18; edge deploy kutilmoqda. Eski loglar Supabase saqlash muddati bilan o'zi o'chadi |
+| — | Admin bot tugmalari qotgan: webhook o'chirilgan edi (url bo'sh) | ✅ 2026-10-18 tiklandi (`docs/diag/bot-diag-webhook.ts`); bot-diag 410 ga qaytarilishi kerak |
 | 1.9 | Qolgan matnlar: "kunlik hisobda 46% arzon", "hisobingizga kirsangiz xatolaringiz saqlanadi", "Qorong'i/Tungi rejim" yagona | navbatda |
 
 Bosqich tugash sharti: anon IP o'qiy olmaydi; faol PRO egasi uzaytira oladi va kunlari yo'qolmaydi;

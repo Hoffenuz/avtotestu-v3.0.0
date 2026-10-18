@@ -69,8 +69,10 @@ Deno.serve(async (req: Request) => {
   }
   const params = rawParams as Record<string, unknown>;
 
-  // Diagnostika uchun: Supabase loglarida har bir chaqiruv ko'rinadi.
-  console.log(`[payme] -> ${method} ${JSON.stringify(params)}`);
+  // Diagnostika uchun: faqat metod va Payme tranzaksiya ID si. `params` to'liq
+  // yozilmaydi — unda email (account) bor, loglar esa uzoq saqlanadi (SEC-03).
+  const txId = typeof params.id === "string" ? params.id : "-";
+  console.log(`[payme] -> ${method} tx=${txId}`);
 
   try {
     let outcome: ServiceOutcome;
@@ -103,11 +105,13 @@ Deno.serve(async (req: Request) => {
     }
 
     if (outcome.ok) {
-      console.log(`[payme] <- ${method} OK ${JSON.stringify(outcome.result)}`);
+      // Natija to'liq yozilmaydi: GetStatement javobida barcha emaillar bor.
+      const state = (outcome.result as { state?: unknown }).state;
+      console.log(`[payme] <- ${method} OK tx=${txId}${state !== undefined ? ` state=${state}` : ""}`);
       return respond(rpcResult(id, outcome.result));
     }
 
-    console.warn(`[payme] <- ${method} ERR ${outcome.error.code}`);
+    console.warn(`[payme] <- ${method} ERR ${outcome.error.code} tx=${txId}`);
     return respond(rpcError(id, outcome.error));
   } catch (err) {
     // Baza/tarmoq xatosi — biznes rad javobi emas, tizim xatosi.

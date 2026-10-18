@@ -204,7 +204,8 @@ Deno.serve(async (req: Request) => {
       if (limitErr) {
         console.error("[phone-signup] rate limit rpc:", limitErr.message);
       } else if (limit && limit.ok === false) {
-        console.warn(`[phone-signup] rate limited ${ip}`);
+        // Xom IP yozilmaydi (SEC-03) — limit baribir xesh bo'yicha ishlaydi.
+        console.warn("[phone-signup] rate limited");
         return json({
           ok: false,
           error: "rate_limited",
@@ -257,7 +258,8 @@ Deno.serve(async (req: Request) => {
       return json({ ok: false, error: "internal_error", message: "Hisob yaratib bo'lmadi." }, 500);
     }
 
-    console.log(`[phone-signup] created ${created.user?.id} for ${phone}`);
+    // Telefon raqami yozilmaydi (SEC-03) — kerak bo'lsa ID bo'yicha bazadan topiladi.
+    console.log(`[phone-signup] created ${created.user?.id}`);
     return json({ ok: true, email });
   } catch (err) {
     console.error("[phone-signup] unexpected:", err);
