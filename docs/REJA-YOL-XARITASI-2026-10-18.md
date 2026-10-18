@@ -23,7 +23,7 @@ Bazaviy (2026-10-16): 48–81 to'lov/hafta, 1,1–2,05 mln so'm/hafta, qayta xar
 | 1.3 | Savol sahifasi xato holati | ✅ 836db86 |
 | 1.4 | Lint 0 error | ✅ 836db86 |
 | 1.5 | **SEC-01/02** — `reviews`: anon INSERT yopiladi, `submitter_ip` o'qilmaydi, `aggregateRating` va jonli so'rov olib tashlanadi | ✅ bazada 2026-10-18 (`sec01_reviews_lockdown`); frontend push kutilmoqda |
-| 1.6 | **ENG-01** — faol PRO'ni uzaytirish: `docs/sql/2026-10-18-pro-renewal.sql` (4 joydagi to'siq, 400 kun chegara, bekor qilishda faqat shu xarid kunlari ayriladi), Payme `pro_limit` xatosi, bot ustidan yozmaydi, `/pro` "hozirgi → yangi muddat", `/profile` tasdiqni muddat surilishi bo'yicha aniqlaydi. 12 ssenariy rollback tranzaksiyada PASS (`...pro-renewal.test.sql`). Banner oynasi 1 kun qoldi (avval 3 kun e'tiborsiz qolgani uchun ataylab 1) | ⏳ migratsiya + edge deploy |
+| 1.6 | ✅ **ENG-01** — faol PRO'ni uzaytirish: `docs/sql/2026-10-18-pro-renewal.sql` (4 joydagi to'siq, 400 kun chegara, bekor qilishda faqat shu xarid kunlari ayriladi), Payme `pro_limit` xatosi, bot ustidan yozmaydi, `/pro` "hozirgi → yangi muddat", `/profile` tasdiqni muddat surilishi bo'yicha aniqlaydi. 12 ssenariy rollback tranzaksiyada PASS (`...pro-renewal.test.sql`). Banner oynasi 1 kun qoldi (avval 3 kun e'tiborsiz qolgani uchun ataylab 1) | ⏳ migratsiya + edge deploy |
 | 1.7 | **UX-01/ENG-03** — chiqib ketilgan testga qaytilganda darhol "0%, 25:00" natija: vaqti tugagan holat o'chiriladi, "Boshlash" har doim yangi test | ✅ kodda, push kutilmoqda |
 | 1.8 | **SEC-03** — Payme/Click/phone-signup loglaridan telefon, IP, to'liq payload olib tashlanadi (faqat ID, status, vaqt) | ✅ 2026-10-18 deploy (payme v10, click v2, phone-signup v8), smoke-test o'tdi. Eski loglar Supabase saqlash muddati bilan o'zi o'chadi |
 | — | Admin bot tugmalari qotgan: webhook o'chirilgan edi (url bo'sh) | ✅ 2026-10-18 tiklandi (`docs/diag/bot-diag-webhook.ts`); bot-diag 410 ga qaytarildi (v7) |
@@ -47,8 +47,6 @@ yangi test har doim yangi taymer bilan boshlanadi; to'lov loglarida shaxsiy ma'l
 | # | Ish |
 |---|---|
 | 2.4 | Muddati tugaganlar (oxirgi 14 kun) uchun "PRO tugadi — davom ettiring" tasmasi |
-| 2.5 | Telegram eslatma: bog'langan PRO egasiga tugashdan 2 kun oldin (faqat roziligi bilan, o'chirish imkoniyati) |
-| 2.6 | **UX-05** — parolni tiklash: Telegram bog'langan hisob o'zi tiklaydi, admin orqali emas |
 
 **2C. PRO sahifasi va bepul → PRO**
 
@@ -95,5 +93,5 @@ Bosqich tugash sharti: haftalik dashboard ishonchli raqam beradi; qayta xarid ul
 
 - [ ] 1.5: `aggregateRating` olib tashlansinmi? Migratsiyani kim qo'llaydi?
 - [ ] 1.6: faol PRO ustiga xaridda kunlar qo'shilsinmi, chegara 400 kun?
-- [ ] 2.5: Telegram eslatma 2-bosqichdami?
+- [x] Telegram eslatma va parolni Telegram orqali tiklash — kerak emas (2026-10-18).
 - [ ] 3.6: avtomaktab pilotiga vaqt bormi?

@@ -27,14 +27,12 @@ Xulosa: Telegram eslatma hozir PRO egalarining atigi 10% iga yetadi. **Saytdagi 
 
 | Band | Holat |
 |---|---|
-| 2.1 Xarid o'lchovi | ✅ kod (57ed2e7): GA4 `purchase` (ID/summa, dublikatsiz); `admin_panel_weekly` SQL — ⏳ migratsiya `docs/sql/2026-10-18-stage2-metrics.sql` |
+| 2.1 Xarid o'lchovi | ✅ 57ed2e7 + migratsiya `stage2_metrics` qo'llandi (2026-10-18) |
 | 2.2 GA page_view bir marta | ✅ 57ed2e7 |
-| 2.3 Admin haftalik jadval | ✅ admin fd0e4fe — migratsiyadan keyin ko'rinadi |
-| Log kamaytirish | ✅ test oynalari natija yuklamaydi; bo'lim sonlari bitta so'rov (migratsiyadan keyin) |
+| 2.3 Admin haftalik jadval | ✅ admin fd0e4fe — ishlaydi |
+| Log kamaytirish | ✅ test oynalari natija yuklamaydi; bo'lim sonlari bitta so'rov |
 | 2.4 "PRO tugadi" tasmasi | ✅ a65e53a |
 | 2.5 Uzaytirish matni | ✅ a65e53a |
-| 2.6 Telegram eslatma | ⏸ egasi qarori (qaysi bot) |
-| 2.7 Parol tiklash Telegram orqali | ⏸ egasi qarori (auth o'zgarishi) |
 | 2.8 Izoh qulfi + namuna | ✅ fdec09d |
 | 2.9 Mobil /pro foydalar | ✅ fdec09d |
 | 2.10 Taqqoslash aniqligi | ✅ fdec09d |
@@ -82,18 +80,9 @@ Xavf: past (faqat UI, `get_user_access_state` allaqachon `expired_pro` qaytaradi
 Endi uzaytirish ishlaydi — tasma "kunlaringiz yo'qolmaydi, yangi muddat shu sanadan keyin qo'shiladi" deb aytsin.
 Oyna 1 kun qoladi (avvalgi qaror); 2.1 o'lchovidan keyin 3 kun bilan solishtirish mumkin.
 
-### 2.6 Telegram eslatma — kichik hajmda
+### 2.6, 2.7 — rejadan olib tashlandi (2026-10-18, egasi qarori)
 
-Faqat Telegram bog'langan PRO egalariga (≈10%), tugashdan 1 kun oldin, bitta xabar, o'chirish tugmasi bilan.
-Kim yuboradi: public bot (`@Avtotestubot`, VPS) yoki admin bot — **egasi qarori**.
-Telegram ulanishini ko'paytirish (398 / 7 960) alohida masala — profil va natija sahifasida "Telegram'ni ulang" taklifi.
-
-### 2.7 Parolni o'zi tiklash (UX-05)
-
-Hozir: "Parolni tiklash" faqat adminga yozishga olib boradi.
-Qilinadi: Telegram bog'langan hisob — mavjud `telegram-login` oqimi orqali kirib, yangi parol o'rnatadi.
-Telegram bog'lanmagan hisob — avvalgidek admin orqali (identifikatsiyasiz parol almashtirilmaydi).
-Xavf: o'rta (auth) — alohida sinov matritsasi bilan.
+Telegram eslatma va parolni Telegram orqali tiklash hozircha shart emas.
 
 ## 2C. PRO'ga o'tish (3-hafta)
 
@@ -121,13 +110,12 @@ Har biri 2.1 o'lchovi bilan oldin/keyin solishtiriladi.
 1. **2.1 + 2.2** → 7 kun toza bazaviy raqam yig'iladi.
 2. **2.3** admin panel.
 3. **2.4 + 2.5** → 7 kundan keyin: qayta xarid ulushi 9,5% bilan solishtiriladi.
-4. **2.7**, keyin **2C** bittadan, har biridan keyin o'lchov.
+4. **2C** bittadan, har biridan keyin o'lchov.
 5. **2D** — bo'sh vaqtda, PRO oqimiga tegmaydi.
 
 Bosqich tugash sharti: haftalik ko'rsatkichlar bazadan ishonchli chiqadi; qayta xarid ulushi va qaytgan xaridorlar soni bazaviy qiymat bilan solishtirilgan.
 
 ## Egasi qarorlari
 
-- [ ] 2.1: GA'ga serverdan yuborish kerakmi (GA'da `api_secret` yaratish) yoki faqat baza + brauzer hodisasi yetarlimi? (tavsiya: hozircha baza + brauzer)
-- [ ] 2.6: Telegram eslatmani qaysi bot yuboradi — public (`@Avtotestubot`) yoki admin bot? Yoki hozircha qoldiramizmi? (tavsiya: 2.4 dan keyin)
-- [ ] 2.7: parol tiklash Telegram orqali — rozimisiz?
+- [x] 2.1: hozircha baza + brauzer hodisasi (server→GA yo'q).
+- [x] 2.6, 2.7: kerak emas — rejadan olindi.
