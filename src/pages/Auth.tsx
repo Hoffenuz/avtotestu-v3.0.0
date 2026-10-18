@@ -446,7 +446,10 @@ const Auth = () => {
               <div className="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                 <Car className="w-4 h-4 text-primary" />
               </div>
-              <span className="text-sm font-bold text-foreground truncate">Avtotestu.uz</span>
+              {/* Brend saytning qolgan qismi bilan bir xil: "AvtoSmart — avtotestu.uz" (UX-08) */}
+              <span className="text-sm font-bold text-foreground truncate">
+                AvtoSmart <span className="font-normal text-muted-foreground">· avtotestu.uz</span>
+              </span>
             </button>
             <button
               onClick={() => navigate('/')}

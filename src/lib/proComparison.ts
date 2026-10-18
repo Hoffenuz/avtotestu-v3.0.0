@@ -33,7 +33,8 @@ export interface ProComparisonRow {
 
 export const PRO_COMPARISON: readonly ProComparisonRow[] = [
   { freeKey: "pro.comparisonBasic1", proKey: "pro.comparisonPro1", inFree: true },
-  { freeKey: "pro.comparisonBasic2", proKey: "pro.comparisonPro2", inFree: false },
+  // Bepulda 3 ta variant ochiq — chizilgan "Barcha 64 variant" o'rniga ijobiy son (UX-04).
+  { freeKey: "pro.comparisonBasic2", proKey: "pro.comparisonPro2", inFree: true },
   { freeKey: "pro.comparisonBasic3", proKey: "pro.comparisonPro3", inFree: false },
   { freeKey: "pro.comparisonBasic4", proKey: "pro.comparisonPro4", inFree: false },
   { freeKey: "pro.comparisonBasic5", proKey: "pro.comparisonPro5", inFree: false },

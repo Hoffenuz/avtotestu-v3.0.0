@@ -596,8 +596,12 @@ export default function Pro() {
                         </div>
                       ) : (
                         <div key={row.freeKey} className="flex items-start gap-2.5 text-muted-foreground opacity-60">
-                          <X className="w-5 h-5 text-red-400 shrink-0" />
-                          <span className="text-sm line-through mt-0.5">{t(row.freeKey)}</span>
+                          <X className="w-5 h-5 text-red-400 shrink-0" aria-hidden="true" />
+                          {/* Chizilgan matn ekran o'quvchida "bor" deb o'qilardi — aniq yoziladi */}
+                          <span className="text-sm line-through mt-0.5">
+                            {t(row.freeKey)}
+                            <span className="sr-only"> — {t("pro.comparisonNotInFree")}</span>
+                          </span>
                         </div>
                       ),
                     )}
@@ -642,6 +646,25 @@ export default function Pro() {
               uchinchi tomon to'lovida foydalanuvchi keyingi qadamni bilsin).
             */}
             <aside className="order-first lg:order-none lg:col-span-5 lg:row-span-2 lg:sticky lg:top-24">
+              {/*
+                Mobilda tarif kartasi sarlavha va taqqoslashdan OLDIN turadi —
+                foydalanuvchi narxni nima olishini ko'rmasdan ko'rardi (UX-02).
+                Shu ixcham blok faqat mobilda; matnlar taqqoslash bilan bir manbadan.
+              */}
+              <div className="lg:hidden mb-3 rounded-2xl border border-amber-500/30 bg-amber-500/5 px-4 py-3">
+                <p className="font-bold text-foreground flex items-center gap-2">
+                  <Crown className="w-4 h-4 text-amber-500 shrink-0" />
+                  {t("pro.mobileBenefitsTitle")}
+                </p>
+                <ul className="mt-2 space-y-1">
+                  {["pro.comparisonPro1", "pro.comparisonPro2", "pro.comparisonPro4"].map((key) => (
+                    <li key={key} className="flex items-center gap-2 text-sm text-foreground">
+                      <Check className="w-4 h-4 text-amber-500 shrink-0" aria-hidden="true" />
+                      {t(key)}
+                    </li>
+                  ))}
+                </ul>
+              </div>
               <div className="bg-card border border-border rounded-2xl p-4 md:p-5 shadow-sm">
                 <h2 className="text-lg font-bold text-foreground mb-3 flex items-center gap-2">
                   <Star className="w-5 h-5 text-amber-500" /> {t("pro.plansTitle")}

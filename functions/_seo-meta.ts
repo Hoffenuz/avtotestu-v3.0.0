@@ -66,17 +66,17 @@ export const SEO_META: Record<string, Record<string, SeoMeta>> = {
   "/bolimlar": {
     "uz-lat": {
       "title": "Bo'limlar — testlar, belgilar, darslik",
-      "description": "Avtotestu.uz barcha bo'limlari bir joyda: mavzuli testlar, 64 variant, yo'l belgilari, darslik va qo'shimcha materiallar.",
+      "description": "AvtoSmart barcha bo'limlari bir joyda: mavzuli testlar, 64 variant, yo'l belgilari, darslik va qo'shimcha materiallar.",
       "keywords": "bo'limlar, mavzuli testlar, yo'l belgilari, darslik, variantlar"
     },
     "uz": {
       "title": "Бўлимлар — тестлар, белгилар, дарслик",
-      "description": "Avtotestu.uz барча бўлимлари бир жойда: мавзули тестлар, 64 вариант, йўл белгилари, дарслик ва қўшимча материаллар.",
+      "description": "AvtoSmart барча бўлимлари бир жойда: мавзули тестлар, 64 вариант, йўл белгилари, дарслик ва қўшимча материаллар.",
       "keywords": "бўлимлар, мавзули тестлар, йўл белгилари, дарслик, вариантлар"
     },
     "ru": {
       "title": "Разделы — тесты, знаки, видеоуроки",
-      "description": "Все разделы Avtotestu.uz в одном месте: тематические тесты, 64 варианта, дорожные знаки, видеоуроки и дополнительные материалы.",
+      "description": "Все разделы AvtoSmart в одном месте: тематические тесты, 64 варианта, дорожные знаки, видеоуроки и дополнительные материалы.",
       "keywords": "разделы, тематические тесты, дорожные знаки, видеоуроки, варианты"
     }
   },
