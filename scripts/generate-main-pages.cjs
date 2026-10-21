@@ -127,9 +127,9 @@ function syncTitleAndDescription(html, route) {
 /* ---------------------------------------------------------------------------
  * Dinamik bo'laklar: tushuntirish matni, FAQ sxemasi, belgilar katalogi.
  *
- * Matn `src/data/seo/guides.json` dan olinadi — React sahifasi (SeoGuide.tsx)
- * ham aynan shu fayldan. Ikki joyda alohida yozilsa, bot bir narsani,
- * foydalanuvchi boshqasini ko'rib qoladi (Google buni yaxshi ko'rmaydi).
+ * Matn `src/data/seo/guides.json` dan olinadi. U faqat botlarga beriladigan
+ * nusxada turadi: foydalanuvchi sahifasida bu uzun matn ko'rsatilmaydi
+ * (sodda interfeys uchun egasining qarori, 2026-10-21).
  *
  * Belgilar katalogi `public/data/belgilar.json` dan yasaladi: ilgari
  * shablonda qo'lda yozilgan, saytning o'z ma'lumotiga mos kelmaydigan

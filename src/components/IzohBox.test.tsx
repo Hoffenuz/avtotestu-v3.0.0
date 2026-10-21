@@ -15,23 +15,21 @@ function renderButton(requirePro: boolean) {
   );
 }
 
-describe("IzohNavButton (UX-03)", () => {
-  it("bepul testda qulf oldindan ko'rinadi va oynada namuna izoh bor", () => {
+describe("IzohNavButton", () => {
+  it("bepul testda tugma oddiy, oynada faqat PRO taklifi", () => {
     renderButton(true);
-    const btn = screen.getByRole("button", { name: uzLat.test.izohLockedLabel });
-    expect(btn.textContent).toContain("PRO");
+    const btn = screen.getByRole("button", { name: uzLat.test.explanation });
+    expect(btn.textContent).not.toContain("PRO");
     fireEvent.click(btn);
-    expect(screen.getByText(uzLat.test.izohSampleText)).toBeTruthy();
+    expect(screen.getByText(uzLat.test.izohProCta)).toBeTruthy();
     // Haqiqiy (pulli) izoh bepul testda ko'rsatilmaydi
     expect(screen.queryByText("Haqiqiy izoh matni")).toBeNull();
   });
 
-  it("PRO testda oddiy tugma va haqiqiy izoh", () => {
+  it("PRO testda haqiqiy izoh", () => {
     renderButton(false);
-    const btn = screen.getByRole("button", { name: uzLat.test.explanation });
-    expect(btn.textContent).not.toContain("PRO");
-    fireEvent.click(btn);
+    fireEvent.click(screen.getByRole("button", { name: uzLat.test.explanation }));
     expect(screen.getByText("Haqiqiy izoh matni")).toBeTruthy();
-    expect(screen.queryByText(uzLat.test.izohSampleText)).toBeNull();
+    expect(screen.queryByText(uzLat.test.izohProCta)).toBeNull();
   });
 });

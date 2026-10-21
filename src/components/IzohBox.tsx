@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { BookOpen, Crown, Lock, X } from "lucide-react";
+import { BookOpen, Crown, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -67,11 +67,6 @@ export function IzohNavButton({
   const proTitle = t("test.izohProTitle");
   const proDescription = t("test.izohProDescription");
   const proCta = t("test.izohProCta");
-  const bullets = [
-    t("test.izohProBullet1"),
-    t("test.izohProBullet2"),
-    t("test.izohProBullet3"),
-  ];
 
   const handleOpenChange = (next: boolean) => {
     setOpen(next);
@@ -91,15 +86,10 @@ export function IzohNavButton({
           "hover:bg-primary/5 hover:text-primary hover:border-primary",
           className,
         )}
-        aria-label={requirePro ? t("test.izohLockedLabel") : sheetTitle}
+        aria-label={sheetTitle}
       >
-        {/* Bepul testda qulf OLDINDAN ko'rinadi — bosgandan keyin kutilmagan PRO oynasi emas (UX-03) */}
-        {requirePro ? <Lock className="w-4 h-4 shrink-0" /> : <BookOpen className="w-4 h-4 shrink-0" />}
+        <BookOpen className="w-4 h-4 shrink-0" />
         <span>{sheetTitle}</span>
-        {requirePro && (
-          // Juda tor ekranda (320–379px) pastki panel sig'ishi uchun faqat qulf qoladi
-          <span className="hidden min-[380px]:inline rounded bg-primary/10 px-1 py-px text-[10px] font-bold leading-none">PRO</span>
-        )}
       </Button>
 
       <Sheet open={open} onOpenChange={handleOpenChange}>
@@ -145,26 +135,6 @@ export function IzohNavButton({
                 <p className="text-base md:text-lg leading-relaxed text-foreground/90">
                   {proDescription}
                 </p>
-                {/* Bitta haqiqiy izoh namunasi: to'lovdan oldin nima olinishini ko'rsatadi */}
-                <div className="rounded-lg border border-primary/25 bg-primary/[0.04] p-3.5">
-                  <p className="text-[11px] font-bold uppercase tracking-wide text-primary mb-1.5">
-                    {t("test.izohSampleLabel")}
-                  </p>
-                  <p className="text-sm font-semibold text-foreground">{t("test.izohSampleQ")}</p>
-                  <p className="text-sm text-emerald-700 dark:text-emerald-400 mt-1">{t("test.izohSampleA")}</p>
-                  <p className="text-sm leading-relaxed text-foreground/90 mt-2 flex gap-1.5">
-                    <BookOpen className="w-4 h-4 shrink-0 mt-0.5 text-primary" />
-                    <span>{t("test.izohSampleText")}</span>
-                  </p>
-                </div>
-                <ul className="space-y-2 text-sm md:text-base text-muted-foreground">
-                  {bullets.map((b) => (
-                    <li key={b} className="flex gap-2">
-                      <span className="text-primary font-semibold">•</span>
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
                 <Link to="/pro" onClick={() => handleOpenChange(false)} className="block">
                   <Button size="lg" className="w-full h-12 text-base font-semibold gap-2">
                     <Crown className="w-5 h-5" />

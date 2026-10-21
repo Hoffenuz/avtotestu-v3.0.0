@@ -5,7 +5,6 @@ import { useAccessState } from "@/hooks/useAccessState";
 import { useTestSession } from "@/hooks/useTestSession";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { SEO } from "@/components/SEO";
-import { SeoGuide } from "@/components/SeoGuide";
 import { TestPageSchema } from "@/components/TestPageSchema";
 import { Button } from "@/components/ui/button";
 import {
@@ -601,12 +600,6 @@ export default function TestIshlash() {
             {t("testStart.noSignupLong")}
           </p>
 
-          {/*
-            Imtihon formati, tayyorgarlik va savol-javoblar — Google'ga
-            beriladigan statik nusxadagi bilan BIR XIL (`src/data/seo/guides.json`).
-            Test boshlash tugmasidan KEYIN turadi: birinchi ekran o'zgarmaydi.
-          */}
-          <SeoGuide page="testIshlash" className="mt-2 sm:mt-4" />
         </div>
       </div>
     </MainLayout>
